@@ -1,0 +1,75 @@
+---
+section: switch-cisco-9336c-fx2
+title: Commutateurs Cisco Nexus 9336C-FX2
+entries:
+- title: Présentation
+  url: "/switch-cisco-9336c-fx2/9336-overview.html"
+- title: Installez un commutateur Cisco Nexus 9336C-FX2 et un panneau d'intercommunication
+    dans une armoire NetApp
+  url: "/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel.html"
+- title: Configuration
+  entries:
+  - title: Configurer les commutateurs
+    url: "/switch-cisco-9336c-fx2/setup-switches.html"
+  - title: Informations requises pour la configuration du cluster
+    url: "/switch-cisco-9336c-fx2/setup-required-information.html"
+    entries:
+    - title: Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)
+        pour les commutateurs 92300YC
+      url: "/switch-cisco-9336c-fx2/setup-install-cshm-file.html"
+  - title: Documentation requise
+    url: "/switch-cisco-9336c-fx2/setup-required-documentation.html"
+  - title: Considérations relatives à l'utilisation de la fonction d'appel intelligent
+    url: "/switch-cisco-9336c-fx2/setup-considerations-smart-call.html"
+  - title: Exemple de fiches de câblage vierges
+    url: "/switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html"
+    entries:
+    - title: Fiche technique de câblage Cisco Nexus 9336C-FX2
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-9336c.html"
+    - title: Fiche technique de câblage Cisco Nexus 92300YC
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-92300yc.html"
+    - title: Fiche de câblage Cisco Nexus 3232C
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-3232c.html"
+    - title: Fiche technique de câblage Cisco Nexus 3132Q-V.
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-3132q.html"
+    - title: Fiche de câblage Cisco Nexus 5596UP et 5596T
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-5596.html"
+- title: Installez le logiciel NX-OS et les RCFC sur les commutateurs de cluster Cisco
+    Nexus 9336C-FX2
+  entries:
+  - title: Présentation
+    url: "/switch-cisco-9336c-fx2/install-nxos-overview.html"
+  - title: Installez le logiciel NX-OS
+    url: "/switch-cisco-9336c-fx2/install-nxos-software.html"
+  - title: Installer le fichier RCF (Reference Configuration File)
+    url: "/switch-cisco-9336c-fx2/install-nxos-rcf.html"
+- title: Migration d’un commutateur Cisco vers un commutateur de cluster Cisco Nexus
+    9336C-FX2
+  entries:
+  - title: Présentation
+    url: "/switch-cisco-9336c-fx2/migrate-to-9336-overview.html"
+  - title: Comment migrer d'un commutateur Cisco vers un commutateur de cluster Cisco
+      Nexus 9336C-FX2
+    url: "/switch-cisco-9336c-fx2/migrate-to-9336.html"
+- title: Migrez vers un cluster commuté à deux nœuds avec les commutateurs de cluster
+    Cisco Nexus 9336C-FX2
+  entries:
+  - title: Présentation
+    url: "/switch-cisco-9336c-fx2/migrate-to-2n-switched-overview.html"
+  - title: Comment migrer vers un environnement de cluster NetApp commuté avec les
+      commutateurs de cluster Cisco Nexus 9336C-FX2
+    url: "/switch-cisco-9336c-fx2/migrate-to-2n-switched.html"
+- title: Configurez un commutateur de cluster Cisco Nexus 9336C-FX2
+  entries:
+  - title: Présentation
+    url: "/switch-cisco-9336c-fx2/replace-configure-new-switch.html"
+  - title: Installation initiale du commutateur du bloc de commande Nexus 9336C-FX2
+    url: "/switch-cisco-9336c-fx2/replace-install-initial.html"
+  - title: Installez le logiciel NX-OS
+    url: "/switch-cisco-9336c-fx2/replace-install-nxos.html"
+  - title: Installer le fichier RCF (Reference Configuration File)
+    url: "/switch-cisco-9336c-fx2/replace-install-rcf.html"
+- title: Remplacer un commutateur de bloc de commutateurs Cisco Nexus 9336C-FX2
+  url: "/switch-cisco-9336c-fx2/replace-9336c.html"
+- title: Remplacer un commutateur de stockage Cisco Nexus 9336C-FX2
+  url: "/switch-cisco-9336c-fx2/replace_9336c_storage_switch.html"

@@ -1,0 +1,70 @@
+---
+section: switch-cisco-3132q-v
+title: Commutateurs Cisco Nexus 3132Q-V
+entries:
+- title: Présentation
+  url: "/switch-cisco-3132q-v/index.html"
+- title: Installez un commutateur de cluster Cisco Nexus 3132Q-V et un panneau pass-through
+    dans une armoire NetApp
+  url: "/switch-cisco-3132q-v/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html"
+- title: Configuration
+  entries:
+  - title: Configurer les commutateurs
+    url: "/switch-cisco-9336c-fx2/setup-switches.html"
+  - title: Informations requises pour la configuration du cluster
+    url: "/switch-cisco-9336c-fx2/setup-required-information.html"
+    entries:
+    - title: Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)
+        pour les commutateurs 92300YC
+      url: "/switch-cisco-9336c-fx2/setup-install-cshm-file.html"
+  - title: Documentation requise
+    url: "/switch-cisco-9336c-fx2/setup-required-documentation.html"
+  - title: Considérations relatives à l'utilisation de la fonction d'appel intelligent
+    url: "/switch-cisco-9336c-fx2/setup-considerations-smart-call.html"
+  - title: Exemple de fiches de câblage vierges
+    url: "/switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html"
+    entries:
+    - title: Fiche technique de câblage Cisco Nexus 9336C-FX2
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-9336c.html"
+    - title: Fiche technique de câblage Cisco Nexus 92300YC
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-92300yc.html"
+    - title: Fiche de câblage Cisco Nexus 3232C
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-3232c.html"
+    - title: Fiche technique de câblage Cisco Nexus 3132Q-V.
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-3132q.html"
+    - title: Fiche de câblage Cisco Nexus 5596UP et 5596T
+      url: "/switch-cisco-9336c-fx2/setup-worksheet-5596.html"
+- title: Installez le logiciel NX-OS et les RCFs sur les commutateurs de cluster Cisco
+    Nexus 3132Q-V.
+  url: "/switch-cisco-3132q-v/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3132q-v-cluster-switches.html"
+  entries:
+  - title: Installez le logiciel NX-OS
+    url: "/switch-cisco-3132q-v/task-install-the-nx-os-software-3132q-v.html"
+  - title: Installer le fichier RCF (Reference Configuration File)
+    url: "/switch-cisco-3132q-v/task-install-the-reference-configuration-file-rcf-3132q-v.html"
+- title: Migrez vers un cluster à deux nœuds avec commutateurs de cluster Cisco Nexus
+    3132Q-V.
+  url: "/switch-cisco-3132q-v/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html"
+  entries:
+  - title: Comment migrer un cluster à deux nœuds avec commutateur avec commutateurs
+      de cluster Cisco Nexus 3132Q-V.
+    url: "/switch-cisco-3132q-v/task-how-to-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3132q-v-cluster-switches.html"
+- title: Remplacer les commutateurs de cluster Cisco Nexus 3132Q-V.
+  url: "/switch-cisco-3132q-v/concept-replace-cisco-nexus-3132q-v-cluster-switches.html"
+  entries:
+  - title: Comment remplacer les commutateurs de cluster Cisco Nexus 3132Q-V.
+    url: "/switch-cisco-3132q-v/task-how-to-replace-cisco-nexus-3132q-v-cluster-switches.html"
+- title: Remplacer un commutateur de cluster Cisco Nexus 5596 par un commutateur de
+    cluster Cisco Nexus 3132Q-V.
+  url: "/switch-cisco-3132q-v/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html"
+  entries:
+  - title: Comment remplacer un commutateur de cluster Cisco Nexus 5596 par un commutateur
+      de cluster Cisco Nexus 3132Q-V.
+    url: "/switch-cisco-3132q-v/task-how-to-migrate-from-a-cisco-nexus-5596-cluster-switch-to-a-cisco-nexus-3232c-cluster-switch.html"
+- title: Remplacez les commutateurs de cluster CN1610 par des commutateurs de cluster
+    Cisco Nexus 3132Q-V.
+  url: "/switch-cisco-3132q-v/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html"
+  entries:
+  - title: Comment remplacer les commutateurs du cluster CN1610 par des commutateurs
+      du cluster Cisco Nexus 3132Q-V.
+    url: "/switch-cisco-3132q-v/task-how-to-replace-cn1610-cluster-switches-with-cisco-nexus-3232c-cluster-switches.html"

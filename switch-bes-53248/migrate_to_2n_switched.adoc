@@ -1,0 +1,23 @@
+---
+permalink: switch-bes-53248/migrate-to-2n-switched.html 
+sidebar: sidebar 
+keywords: two-node switchless clusters,migrating to a two-node switched BES-53248 cluster environment,BES-53248 switches,migrating two-node switched clusters,2-node 
+summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs de cluster BES-53248 pris en charge par Broadcom. Le processus documenté fonctionne pour tous les ports de nœud de cluster utilisant des ports optiques ou Twinax, mais il n"est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau de cluster.' 
+---
+= Migrez vers un cluster commuté à deux nœuds avec des commutateurs de cluster BES-53248 pris en charge par Broadcom
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs de cluster BES-53248 pris en charge par Broadcom. Le processus documenté fonctionne pour tous les ports de nœud de cluster utilisant des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau de cluster.
+
+La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur.
+
+Assurez-vous que le commutateur du bloc d'instruments BES-53248 est configuré comme décrit à la section link:replace-requirements.html["Configuration et configuration des commutateurs BES-53248 pris en charge par Broadcom"^] avant de commencer ce processus de migration.
+
+
+NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster BES-53248.
+
+Voir link:configure-health-monitor.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"] et link:configure-log-collection.html["Configurez la fonction de collecte du journal du commutateur de cluster"] pour connaître les étapes requises pour activer la collecte des journaux du commutateur d'intégrité du cluster, utilisée pour collecter les fichiers journaux relatifs au commutateur.

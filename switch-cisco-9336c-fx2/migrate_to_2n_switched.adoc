@@ -1,0 +1,552 @@
+---
+permalink: switch-cisco-9336c-fx2/migrate-to-2n-switched.html 
+sidebar: sidebar 
+keywords: two-node switchless cluster environments,migrating to a two-node switched 9336C-FX2 cluster environment,switchless cluster environments,9336C-FX2 switches 
+summary: 'Si vous disposez déjà d"un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement en cluster avec commutateur à deux nœuds à l"aide des commutateurs Cisco Nexus 9336C-FX2 pour évoluer au-delà de deux nœuds du cluster.' 
+---
+= Comment migrer vers un environnement de cluster NetApp commuté avec les commutateurs de cluster Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous disposez déjà d'un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement en cluster avec commutateur à deux nœuds à l'aide des commutateurs Cisco Nexus 9336C-FX2 pour évoluer au-delà de deux nœuds du cluster.
+
+Configuration sans commutateur à 2 nœuds :
+
+* La configuration sans commutateur à deux nœuds doit être correctement configurée et fonctionnelle.
+* Les nœuds doivent exécuter ONTAP 9.8 et version ultérieure.
+* Tous les ports de cluster doivent être à l'état up.
+* Toutes les interfaces logiques (LIF) de cluster doivent être à l'état actif et sur leurs ports de type home.
+
+
+Configuration du commutateur Cisco Nexus 9336C-FX2 :
+
+* Les deux commutateurs doivent disposer d'une connectivité réseau de gestion.
+* Il doit y avoir un accès à la console aux commutateurs du cluster.
+* Les commutateurs Nexus 9336C-FX2 nœud à nœud et les connexions switch à commutateur doivent utiliser des câbles Twinax ou fibre optique.
++
+Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+
++
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^]
+
+* Les câbles ISL (Inter-Switch Link) doivent être connectés aux ports 1/35 et 1/36 des deux commutateurs 9336C-FX2.
+* La personnalisation initiale des deux commutateurs 9336C-FX2 doit être terminée. Pour que :
++
+** Les commutateurs 9336C-FX2 exécutent la dernière version du logiciel
+** Les fichiers RCF (Reference Configuration Files) ont été appliqués aux switchs. Toute personnalisation de site, telle que SMTP, SNMP et SSH, doit être configurée sur les nouveaux switchs.
+
+
+
+
+Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
+
+* Les noms des commutateurs 9336C-FX2 sont cs1 et cs2.
+* Les noms des SVM du cluster sont les nœuds 1 et nœud2.
+* Les noms des LIFs sont respectivement node1_clude1 et node1_clus2 sur le nœud 1, et node2_clude1 et node2_clus2 sur le nœud 2.
+* Le `cluster1::*>` l'invite indique le nom du cluster.
+* les ports de cluster utilisés dans cette procédure sont e0a et e0b.
++
+Le https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+
+
+
+.Étapes
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
++
+où x représente la durée de la fenêtre de maintenance en heures.
+
++
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+. Modifiez le niveau de privilège en avancé, en saisissant `y` lorsque vous êtes invité à continuer : `set -privilege advanced`
++
+L'invite avancée (`*>`) s'affiche.
+
+. Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les nouveaux commutateurs de cluster cs1 et cs2.
++
+Vous ne devez pas désactiver les ports ISL.
+
++
+L'exemple suivant montre que les ports 1 à 34 orientés nœud sont désactivés sur le commutateur cs1 :
+
++
+[listing]
+----
+cs1# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e/1-34
+cs1(config-if-range)# shutdown
+----
+. Vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs 9336C-FX2 cs1 et cs2 sont en service sur les ports 1/35 et 1/36 : `show port-channel summary`
++
+L'exemple suivant montre que les ports ISL sont active sur le commutateur cs1 :
+
++
+[listing]
+----
+cs1# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
++
+L'exemple suivant montre que les ports ISL sont active sur le commutateur cs2 :
+
++
+[listing]
+----
+(cs2)# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+. Afficher la liste des périphériques voisins : `show cdp neighbors`
++
+Cette commande fournit des informations sur les périphériques connectés au système.
+
++
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
+
++
+[listing]
+----
+cs1# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2
+----
++
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs2 :
+
++
+[listing]
+----
+cs2# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1                Eth1/35        177    R S I s     N9K-C9336C    Eth1/35
+cs1           )    Eth1/36        177    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2
+----
+. Vérifier que tous les ports du cluster sont bien : `network port show -ipspace Cluster`
++
+Chaque port doit s'afficher pendant `Link` et en bonne santé pour `Health Status`.
+
++
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node2
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+----
+. Vérifier que toutes les LIFs de cluster sont opérationnelles : `network interface show -vserver Cluster`
++
+Chaque LIF de cluster doit afficher la valeur true pour `Is Home` et avoir un `Status Admin/Oper` de haut/haut
+
++
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.
+----
+. Vérifiez que la fonction de restauration automatique est activée sur l'ensemble des LIFs du cluster : `network interface show -vserver Cluster -fields auto-revert`
++
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+          node1_clus1   true
+          node1_clus2   true
+          node2_clus1   true
+          node2_clus2   true
+
+4 entries were displayed.
+----
+. Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
++
+Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"] contient plus d'informations sur le câblage.
+
++
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^]
+
+. Déconnectez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
++
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs1 :
+
++
+[listing]
+----
+cs1# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e1/1-34
+cs1(config-if-range)# no shutdown
+----
+. Vérifier que toutes les LIFs du cluster sont opérationnelles et affichées comme true pour `Is Home`: `network interface show -vserver Cluster`
++
+L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et le nœud2, ainsi `Is Home` les résultats sont vrais :
+
++
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+         Logical      Status     Network            Current     Current Is
+Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
+-------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+         node1_clus1  up/up      169.254.209.69/16  node1       e0a     true
+         node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
+         node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
+         node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
+
+4 entries were displayed.
+----
+. Afficher des informations relatives à l'état des nœuds du cluster : `cluster show`
++
+L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+
++
+[listing]
+----
+cluster1::*> cluster show
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+. Déconnectez le câble du port de cluster e0b sur le nœud1, puis connectez le port 1 du commutateur de cluster cs2 en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Déconnectez le câble du port de cluster e0b sur le nœud2, puis connectez le port e0b au port 2 du commutateur de cluster cs2, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Activer tous les ports orientés nœud sur le commutateur de cluster cs2.
++
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs2 :
+
++
+[listing]
+----
+cs2# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs2(config)# interface e1/1-34
+cs2(config-if-range)# no shutdown
+----
+. Vérifier que tous les ports du cluster sont bien : `network port show -ipspace Cluster`
++
+L'exemple suivant montre que tous les ports du cluster apparaissent sur les nœuds 1 et sur le nœud 2 :
+
++
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+4 entries were displayed.
+----
+. Vérifiez que toutes les interfaces affichent la valeur true pour `Is Home`: `network interface show -vserver Cluster`
++
+
+NOTE: Cette opération peut prendre plusieurs minutes.
+
++
+L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et celui du nœud2, ainsi que celui-ci `Is Home` les résultats sont vrais :
+
++
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+          Logical      Status     Network            Current    Current Is
+Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
+--------- ------------ ---------- ------------------ ---------- ------- ----
+Cluster
+          node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+          node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+          node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+          node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
+
+4 entries were displayed.
+----
+. Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur : `show cdp neighbors`
++
+L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+
++
+[listing]
+----
+(cs1)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           FAS2980       e0a
+node2              Eth1/2         133    H           FAS2980       e0a
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4
+
+(cs2)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           FAS2980       e0b
+node2              Eth1/2         133    H           FAS2980       e0b
+cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4
+----
+. Affiche des informations sur les périphériques réseau détectés dans votre cluster : `network device-discovery show -protocol cdp`
++
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C9336C
+            e0b    cs2                       0/2               N9K-C9336C
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C9336C
+            e0b    cs2                       0/1               N9K-C9336C
+
+4 entries were displayed.
+----
+. Vérifiez que les paramètres sont désactivés : `network options switchless-cluster show`
++
+
+NOTE: La commande peut prendre plusieurs minutes. Attendez que l'annonce « 3 minutes d'expiration de la durée de vie » soit annoncée.
+
++
+La sortie FALSE dans l'exemple suivant montre que les paramètres de configuration sont désactivés :
+
++
+[listing]
+----
+cluster1::*> network options switchless-cluster show
+Enable Switchless Cluster: false
+----
+. Vérifiez l'état des membres du nœud sur le cluster : `cluster show`
++
+L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+
++
+[listing]
+----
+cluster1::*> cluster show
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  --------
+node1                true    true          false
+node2                true    true          false
+----
+. Assurez-vous que le réseau en cluster dispose d'une connectivité complète : `cluster ping-cluster -node node-name`
++
+[listing]
+----
+cluster1::*> cluster ping-cluster -node node2
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+. Rétablissez le niveau de privilège sur admin : `set -privilege admin`
+. Pour ONTAP 9.8 et versions ultérieures, activez la fonction de collecte des journaux du moniteur d'intégrité des commutateurs Ethernet pour collecter les fichiers journaux relatifs aux commutateurs, à l'aide des commandes : `system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
++
+[listing]
+----
+cluster1::*> system switch ethernet log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> system switch ethernet log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system switch ethernet log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system switch ethernet log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
+
+. Pour ONTAP les versions 9.5P16, 9.6P12 et 9.7P10 et versions ultérieures des correctifs, activez la fonction de collecte des journaux du moniteur d'intégrité des commutateurs Ethernet pour collecter les fichiers journaux liés aux commutateurs à l'aide des commandes suivantes : `system cluster-switch log setup-password` et `system cluster-switch log enable-collection`
++
+[listing]
+----
+cluster1::*> system cluster-switch log setup-password
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+cs1
+cs2
+
+cluster1::*> system cluster-switch log setup-password
+
+Enter the switch name: cs1
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system cluster-switch log setup-password
+
+Enter the switch name: cs2
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] y
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> system cluster-switch log enable-collection
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] y
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
+
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+

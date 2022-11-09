@@ -1,0 +1,584 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c.html 
+sidebar: sidebar 
+keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
+summary: 'Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l"exemple de fiche de câblage rempli comme guide.' 
+---
+= Fiche technique de câblage Cisco Nexus 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l'exemple de fiche de câblage rempli comme guide.
+
+
+
+== Exemple de fiche de câblage
+
+L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Commutateur de cluster A 2+| Commutateur de cluster B 
+
+
+| Port du commutateur | Utilisation du nœud et du port | Port du commutateur | Utilisation du nœud et du port 
+
+
+ a| 
+1
+ a| 
+4 x 10 GbE nœud 1
+ a| 
+1
+ a| 
+4 x 10 GbE nœud 1
+
+
+
+ a| 
+2
+ a| 
+4 x 10 GbE nœud 2
+ a| 
+2
+ a| 
+4 x 10 GbE nœud 2
+
+
+
+ a| 
+3
+ a| 
+4 x 10 GbE nœud 3
+ a| 
+3
+ a| 
+4 x 10 GbE nœud 3
+
+
+
+ a| 
+4
+ a| 
+4 x 25 GbE nœud 4
+ a| 
+4
+ a| 
+4 x 25 GbE nœud 4
+
+
+
+ a| 
+5
+ a| 
+4 x 25 GbE nœud 5
+ a| 
+5
+ a| 
+4 x 25 GbE nœud 5
+
+
+
+ a| 
+6
+ a| 
+4 x 25 GbE nœud 6
+ a| 
+6
+ a| 
+4 x 25 GbE nœud 6
+
+
+
+ a| 
+7
+ a| 
+Nœud 4 x 100 GbE 7
+ a| 
+7
+ a| 
+Nœud 4 x 100 GbE 7
+
+
+
+ a| 
+8
+ a| 
+Nœud 4 x 100 GbE 8
+ a| 
+8
+ a| 
+Nœud 4 x 100 GbE 8
+
+
+
+ a| 
+9
+ a| 
+Nœud 4 x 100 GbE 9
+ a| 
+9
+ a| 
+Nœud 4 x 100 GbE 9
+
+
+
+ a| 
+10
+ a| 
+Nœud 4 x 100 GbE 10
+ a| 
+10
+ a| 
+Nœud 4 x 100 GbE 10
+
+
+
+ a| 
+11
+ a| 
+Nœud 4 x 100 GbE 11
+ a| 
+11
+ a| 
+Nœud 4 x 100 GbE 11
+
+
+
+ a| 
+12
+ a| 
+Nœud 4 x 100 GbE 12
+ a| 
+12
+ a| 
+Nœud 4 x 100 GbE 12
+
+
+
+ a| 
+13
+ a| 
+Nœud 4 x 100 GbE 13
+ a| 
+13
+ a| 
+Nœud 4 x 100 GbE 13
+
+
+
+ a| 
+14
+ a| 
+Nœud 4 x 100 GbE 14
+ a| 
+14
+ a| 
+Nœud 4 x 100 GbE 14
+
+
+
+ a| 
+15
+ a| 
+Nœud 4 x 100 GbE 15
+ a| 
+15
+ a| 
+Nœud 4 x 100 GbE 15
+
+
+
+ a| 
+16
+ a| 
+Nœud 4 x 100 GbE 16
+ a| 
+16
+ a| 
+Nœud 4 x 100 GbE 16
+
+
+
+ a| 
+17
+ a| 
+Nœud 4 x 100 GbE 17
+ a| 
+17
+ a| 
+Nœud 4 x 100 GbE 17
+
+
+
+ a| 
+18
+ a| 
+Nœud 4 x 100 GbE 18
+ a| 
+18
+ a| 
+Nœud 4 x 100 GbE 18
+
+
+
+ a| 
+19
+ a| 
+Nœud 4 x 100 GbE 19
+ a| 
+19
+ a| 
+Nœud 4 x 100 GbE 19
+
+
+
+ a| 
+20
+ a| 
+Nœud 4 x 100 GbE 20
+ a| 
+20
+ a| 
+Nœud 4 x 100 GbE 20
+
+
+
+ a| 
+21
+ a| 
+Nœud 4 x 100 GbE 21
+ a| 
+21
+ a| 
+Nœud 4 x 100 GbE 21
+
+
+
+ a| 
+22
+ a| 
+Nœud 4 x 100 GbE 22
+ a| 
+22
+ a| 
+Nœud 4 x 100 GbE 22
+
+
+
+ a| 
+23
+ a| 
+Nœud 4 x 100 GbE 23
+ a| 
+23
+ a| 
+Nœud 4 x 100 GbE 23
+
+
+
+ a| 
+24
+ a| 
+Nœud 4 x 100 GbE 24
+ a| 
+24
+ a| 
+Nœud 4 x 100 GbE 24
+
+
+
+ a| 
+25 à 34
+ a| 
+Réservé
+ a| 
+25 à 34
+ a| 
+Réservé
+
+
+
+ a| 
+35
+ a| 
+100G ISL vers le port 35 du commutateur B.
+ a| 
+35
+ a| 
+100G ISL pour commuter Un port 35
+
+
+
+ a| 
+36
+ a| 
+100G ISL vers le port 36 du commutateur B.
+ a| 
+36
+ a| 
+100G ISL pour commuter Un port 36
+
+|===
+
+
+== Feuille de câblage vierge
+
+Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _supportées Cluster Connections_ de _Hardware Universe_ définit les ports de cluster utilisés par la plate-forme.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Commutateur de cluster A 2+| Commutateur de cluster B 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11
+ a| 
+ a| 
+11
+ a| 
+
+
+
+ a| 
+12
+ a| 
+ a| 
+12
+ a| 
+
+
+
+ a| 
+13
+ a| 
+ a| 
+13
+ a| 
+
+
+
+ a| 
+14
+ a| 
+ a| 
+14
+ a| 
+
+
+
+ a| 
+15
+ a| 
+ a| 
+15
+ a| 
+
+
+
+ a| 
+16
+ a| 
+ a| 
+16
+ a| 
+
+
+
+ a| 
+17
+ a| 
+ a| 
+17
+ a| 
+
+
+
+ a| 
+18
+ a| 
+ a| 
+18
+ a| 
+
+
+
+ a| 
+19
+ a| 
+ a| 
+19
+ a| 
+
+
+
+ a| 
+20
+ a| 
+ a| 
+20
+ a| 
+
+
+
+ a| 
+21
+ a| 
+ a| 
+21
+ a| 
+
+
+
+ a| 
+22
+ a| 
+ a| 
+22
+ a| 
+
+
+
+ a| 
+23
+ a| 
+ a| 
+23
+ a| 
+
+
+
+ a| 
+24
+ a| 
+ a| 
+24
+ a| 
+
+
+
+ a| 
+25 à 34
+ a| 
+Réservé
+ a| 
+25 à 34
+ a| 
+Réservé
+
+
+
+ a| 
+35
+ a| 
+100G ISL vers le port 35 du commutateur B.
+ a| 
+35
+ a| 
+100G ISL pour commuter Un port 35
+
+
+
+ a| 
+36
+ a| 
+100G ISL vers le port 36 du commutateur B.
+ a| 
+36
+ a| 
+100G ISL pour commuter Un port 36
+
+|===

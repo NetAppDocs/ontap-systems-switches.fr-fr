@@ -1,0 +1,65 @@
+---
+permalink: switch-bes-53248/replace-install-cshm-file.html 
+sidebar: sidebar 
+keywords: CSHM,initial setup,switch health monitor 
+summary: 'Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l"état du commutateur de cluster des commutateurs de cluster BES-53248. Dans ONTAP versions 9.5P7 et antérieures et 9.6P2 et antérieures, vous devez télécharger séparément le fichier de configuration du moniteur d"intégrité du commutateur de cluster. Dans ONTAP versions 9.5P8 et ultérieures, 9.6P3 et versions ultérieures, et 9.7 et versions ultérieures, le fichier de configuration du moniteur d"état du commutateur de cluster est fourni avec ONTAP.' 
+---
+= Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état du commutateur de cluster des commutateurs de cluster BES-53248. Dans ONTAP versions 9.5P7 et antérieures et 9.6P2 et antérieures, vous devez télécharger séparément le fichier de configuration du moniteur d'intégrité du commutateur de cluster. Dans ONTAP versions 9.5P8 et ultérieures, 9.6P3 et versions ultérieures, et 9.7 et versions ultérieures, le fichier de configuration du moniteur d'état du commutateur de cluster est fourni avec ONTAP.
+
+Avant de configurer le moniteur d'état du commutateur pour les commutateurs de cluster BES-53248, vous devez vous assurer que le cluster ONTAP est opérationnel.
+
+
+NOTE: Il est conseillé d'activer SSH afin d'utiliser toutes les fonctionnalités disponibles dans CSHM.
+
+.Étapes
+. Téléchargez le fichier zip de la configuration du switch de cluster Health Monitor sur la base de la version ONTAP correspondante. Ce fichier est disponible à partir de la page : https://mysupport.netapp.com/NOW/cgi-bin/software/["Téléchargement de logiciels NetApp"^]
++
+.. Sur la page de téléchargement du logiciel, sélectionnez *changer les fichiers de configuration du moniteur d'intégrité*
+.. Sélectionnez plate-forme = *ONTAP* et cliquez sur *Go!*
+.. Sur la page changer de fichiers de configuration du moniteur d'intégrité pour ONTAP, cliquez sur *Afficher et télécharger*
+.. Sur la page Switch Health Monitor Configuration Files for ONTAP - Description, cliquez sur *Download* pour le modèle de commutateur de cluster applicable, par exemple : *BES-53248 pris en charge par Broadcom*
+.. Sur la page Contrat de licence utilisateur final, cliquez sur *Accept*
+.. Sur la page de téléchargement changer de fichiers de configuration du moniteur d'intégrité pour ONTAP, sélectionnez le fichier de configuration applicable, par exemple *Broadcom_BES-53248.zip*
+
+
+. Chargez le fichier zip applicable sur votre serveur Web interne où l'adresse IP est X.X.X.X.
++
+Pour une adresse IP de serveur Web interne de 192.168.2.20 et en supposant qu'il existe un répertoire /usr/download, vous pouvez télécharger votre fichier zip sur votre serveur Web à l'aide de scp:
+
++
+[listing]
+----
+% scp Broadcom_BES-53248.zip admin@192.168.2.20:/usr/download/Broadcom_BES-53248.zip
+----
+. Accéder au paramètre de mode avancé à partir de l'un des systèmes ONTAP du cluster, au moyen de la commande `set -privilege advanced`:
++
+[listing, subs="+quotes"]
+----
+cluster1::> *set -privilege advanced*
+----
+. Lancer la commande Switch Health Monitor configure `system cluster-switch configure-health-monitor -node * -package-url \http://server/file-location`:
++
+[listing, subs="+quotes"]
+----
+cluster1::> *system cluster-switch configure-health-monitor -node * -package-url
+http://192.168.2.20/usr/download/Broadcom_BES-53248.zip*
+----
+. Vérifiez que la sortie de la commande contient la chaîne de texte « le pack téléchargé a été correctement traité ». En cas d'erreur, contactez le support NetApp.
+. Lancer la commande `system cluster-switch show` Sur le système ONTAP et assurez-vous que les commutateurs de cluster sont détectés avec le champ surveillé défini sur « vrai ».
++
+[listing, subs="+quotes"]
+----
+cluster1::> *system cluster-switch show*
+----
++
+
+NOTE: Si vous restaurez à tout moment une version antérieure de ONTAP, vous devrez réinstaller le fichier de configuration CSHM pour activer la surveillance de l'état du commutateur des commutateurs de cluster BES-53248.
+
+

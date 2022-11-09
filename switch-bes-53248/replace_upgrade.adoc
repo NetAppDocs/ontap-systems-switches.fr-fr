@@ -1,0 +1,44 @@
+---
+permalink: switch-bes-53248/replace-upgrade.html 
+sidebar: sidebar 
+keywords: BES-53248 switches,upgrading,BES-53248 switches 
+summary: 'La mise à niveau des commutateurs de cluster BES-53248 commence par la préparation du contrôleur en vue de la mise à niveau, de l"installation du logiciel EFOS, des licences et du fichier de configuration de référence \(RCF\). Une fois l"installation effectuée, vous pouvez restaurer la configuration du contrôleur dans un environnement de mise à niveau \(NDU\) sans interruption de l"activité \(NDO\).' 
+---
+= Mettre à niveau un commutateur de cluster BES-53248 dans un environnement NDO/NDU
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La mise à niveau des commutateurs de cluster BES-53248 commence par la préparation du contrôleur en vue de la mise à niveau, de l'installation du logiciel EFOS, des licences et du fichier RCF (Reference Configuration File). Une fois l'installation terminée, vous pouvez restaurer la configuration de contrôleur dans un environnement de mise à niveau sans interruption et de continuité de l'activité.
+
+Les conditions suivantes doivent être réunies avant d'installer le logiciel EFOS, les licences et le fichier RCF sur un commutateur de cluster NetApp BES-53248 existant :
+
+* Le cluster doit être un cluster totalement opérationnel (aucun message du journal d'erreurs ni autre problème).
+* Le cluster ne doit pas contenir de cartes d'interface réseau (NIC) défectueuses.
+* Tous les ports connectés des deux commutateurs de cluster doivent être fonctionnels.
+* Tous les ports de cluster doivent être up.
+* Toutes les LIFs du cluster doivent être administratives et opérationnelles, et sur leurs ports de type home.
+* Le ONTAP `cluster ping-cluster -node node1` la commande de privilège avancé doit indiquer que `larger than PMTU communication` a réussi sur tous les chemins.
+* Il peut y avoir des dépendances entre la syntaxe de commande dans les versions RCF et EFOS.
+
+
+Vous devez consulter le tableau de compatibilité des commutateurs sur la page des commutateurs NetApp BES-53248 pour connaître les versions EFOS, RCF et ONTAP prises en charge à l'adresse suivante : http://mysupport.netapp.com/site["Commutateurs NetApp BES-53248"^].
+
+Cette procédure s'applique à un cluster en fonctionnement et autorise la mise à niveau sans interruption et LA CONTINUITÉ DE L'ACTIVITÉ. Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* Les noms de commutateurs NetApp sont `cs1` et `cs2`.
+* L'exemple utilisé dans cette procédure lance la mise à niveau sur le second commutateur, _cs2._
+* Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour le noeud 1, et `node2_clus1` et `node2_clus2` pour le noeud 2 .
+* Le nom IPspace est le Cluster.
+* Le `cluster1::>` l'invite indique le nom du cluster.
+* Les ports de cluster de chaque nœud sont nommés `e0a` et `e0b`.
++
+Voir la https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] pour les ports réels de cluster pris en charge sur votre plateforme.
+
+* Les liaisons interswitch (ISL) prises en charge par les commutateurs de cluster NetApp sont les ports 0/55 et 0/56.
+* Les connexions de nœuds prises en charge pour les commutateurs de cluster NetApp sont les ports 0/1 à 0/16 avec une licence par défaut.
+* Les exemples de cette procédure utilisent deux nœuds, mais vous pouvez disposer d'un cluster pouvant atteindre 24 nœuds.
+* Répétez toutes les procédures de cette section pour mettre à niveau le logiciel EFOS et le fichier RCF sur l'autre commutateur, *cs1*.
+

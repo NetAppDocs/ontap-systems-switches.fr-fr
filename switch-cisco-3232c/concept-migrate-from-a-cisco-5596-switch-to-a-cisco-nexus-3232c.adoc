@@ -1,0 +1,73 @@
+---
+permalink: switch-cisco-3232c/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html 
+sidebar: sidebar 
+keywords: migrate, cisco nexus 5596 switch, 3232c 
+summary: Lorsque vous remplacez des switchs de cluster Cisco Nexus 5596 par des switchs de cluster Cisco Nexus 3232C, vous devez connaître certaines informations de configuration, de connexions de ports et de câblage. 
+---
+= Migrer d'un switch Cisco Nexus 5596 vers un switch Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous remplacez des switchs de cluster Cisco Nexus 5596 par des switchs de cluster Cisco Nexus 3232C, vous devez connaître certaines informations de configuration, de connexions de ports et de câblage.
+
+* Les commutateurs de cluster suivants sont utilisés comme exemples dans cette procédure :
++
+** Nexus 5596
+** Nexus 3232C
+
+
+* Les commutateurs de cluster utilisent les ports suivants pour les connexions aux nœuds :
++
+** Ports e1/1-40 (10 GbE) : Nexus 5596
+** Ports e1/1-30 (10/40/100 GbE) : Nexus 3232C
+
+
+* Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) suivants :
++
+** Ports e1/41-48 (10 GbE) : Nexus 5596
+** Ports e1/31-32 (40/100 GbE) : Nexus 3232C
+
+
+* Le link:https://hwu.netapp.com/["_Hardware Universe_"^] Contient des informations sur le câblage pris en charge par les switchs Nexus 3232C :
++
+** Les nœuds équipés de connexions de cluster 10 GbE requièrent des câbles QSFP à connecteur de fibre optique SFP+ ou des câbles QSFP à connecteur de cuivre SFP+.
+** Les nœuds équipés de connexions de cluster 40/100 GbE requièrent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
+
+
+* Les commutateurs de cluster utilisent le câblage ISL approprié :
++
+** Début : Nexus 5596 (SFP+ à SFP+)
++
+*** 8 câbles à connexion directe cuivre ou fibre SFP+
+
+
+** Intermédiaire : Nexus 5596 à Nexus 3232C (QSFP à coupure 4xSFP+)
++
+*** 1 câble QSFP à SFP+ ou rupture de câble en cuivre
+
+
+** Finale : Nexus 3232C à Nexus 3232C (QSFP28 à QSFP28)
++
+*** 2 câbles à connexion directe en fibre ou cuivre QSFP28
+
+
+
+
+* Sur les switchs Nexus 3232C, vous pouvez exploiter les ports QSFP/QSFP28 en mode 40/100 Gigabit Ethernet ou 4 Gigabit Ethernet.
++
+Par défaut, il y a 32 ports en mode 40/100 Gigabit Ethernet. Ces ports 40 Gigabit Ethernet sont numérotés en 2 points. Par exemple, le second port 40 Gigabit Ethernet est numéroté 1/2. Le processus de modification de la configuration de 40 Gigabit Ethernet à 10 Gigabit Ethernet s'appelle _Breakout_ et le processus de modification de la configuration de 10 Gigabit Ethernet à 40 Gigabit Ethernet s'appelle _Breakin_. Lorsque vous décomposent un port 40/100 Gigabit Ethernet en ports 10 Gigabit Ethernet, les ports qui en résultent sont numérotés en utilisant une convention de dénomination à 3 points. Par exemple, les ports de rupture du second port 40/100 Gigabit Ethernet sont numérotés en 1/2/1, 1/2/2, 1/2/3 et 1/2/4.
+
+* Sur le côté gauche des switchs Nexus 3232C, 2 ports SFP+, 1/33 et 1/34.
+* Vous avez configuré certains ports de switchs Nexus 3232C de 10 GbE ou 40/100 GbE.
++
+[NOTE]
+====
+Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du `no interface breakout module 1 port 1-6 map 10g-4x` commande.
+
+====
+* Vous avez terminé la planification, la migration et lu la documentation sur la connectivité 10 GbE et 40/100 GbE des nœuds vers les switchs de cluster Nexus 3232C.
+* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Page commutateurs Ethernet Cisco"^].
+

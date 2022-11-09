@@ -1,0 +1,414 @@
+---
+permalink: switch-cisco-3232c/task-upgrade-nx-os-software-and-rcfs-on-cisco-nexus-3232c-storage-switches.html 
+sidebar: sidebar 
+keywords: upgrade, cisco nexus, 3232c storage switch 
+summary: 'Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) peuvent être mis à niveau sur des switchs de stockage Cisco Nexus 3232C.' 
+---
+= Mettre à niveau un switch de stockage Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) peuvent être mis à niveau sur des switchs de stockage Cisco Nexus 3232C.
+
+Les conditions suivantes doivent être réunies avant de mettre à niveau le logiciel NX-OS et les RCFC sur le commutateur de stockage :
+
+* Le commutateur doit fonctionner entièrement (il ne doit pas y avoir d'erreurs dans les journaux ni de problèmes similaires).
+* Vous devez avoir vérifié ou défini les variables de démarrage souhaitées dans la FCR pour qu'elles reflètent les images de démarrage souhaitées si vous installez uniquement NX-OS et que vous gardez la version actuelle de RCF.
++
+Si vous devez modifier les variables de démarrage pour qu'elles reflètent les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
+
+* Vous devez vous être référé aux logiciels et aux guides de mise à niveau appropriés disponibles sur le http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Commutateurs Cisco Nexus 3000 Series"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du stockage Cisco.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco®"^] page.
+
+
+*Résumé de la procédure :*
+
+* **I. Vérifier l'état de santé des commutateurs et des ports (,Étapes 1- ,4)**
+* **II Copiez le FCR sur le commutateur Cisco S2 (,Étapes 5 - ,8)**
+* **III Téléchargez l'image NX-OS sur le commutateur Cisco S2 et redémarrez (,Étapes 9 - ,12)**
+* **IV Vérifier à nouveau l'état de santé des commutateurs et des ports (,Étapes 13 - ,15)**
+* **V. Recommencez ,Étapes 1- ,17 Pour le commutateur Cisco S1.**
+
+
+Les exemples de cette procédure utilisent deux nœuds ; le nœud 1 avec deux ports de stockage et le nœud 2 avec deux ports de stockage. Voir la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier que les ports de stockage de vos plates-formes sont corrects.
+
+
+NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+
+Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* Les noms des deux commutateurs de stockage sont S1 et S2.
+* Les nœuds sont les nœuds 1 et 2.
+
+
+
+NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+
+.Étapes
+. [[step1_upgrade_32c]]si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+`system node autosupport invoke -node * -type all - message MAINT=xh`
++
+_x_ représente la durée de la fenêtre de maintenance en heures.
+
++
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+. Vérifier que les commutateurs de stockage sont disponibles :
+`system switch ethernet show`
++
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+S1
+                            storage-network    172.17.227.5     NX3232C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(3)
+    Version Source: CDP
+
+S2
+                            storage-network    172.17.227.6     NX3232C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(3)
+    Version Source: CDP
+
+2 entries were displayed.
+storage::*>
+----
+. Vérifiez que les ports du nœud sont sains et opérationnels :
+`storage port show -port-type ENET`
++
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ----------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+. [[step4_upgrade_3232c]]Vérifiez l'absence de problème au niveau du commutateur de stockage ou du câblage dans le cluster :
+`system health alert show -instance`
++
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. [[step5_upgrade_3232c]]Copier la FCR sur le commutateur S2 sur le commutateur bootflash à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+
++
+L'exemple suivant montre que HTTP est utilisé pour copier une FCR vers le bootflash sur le commutateur S2 :
+
++
+[listing]
+----
+S2# copy http://172.16.10.1//cfg/Nexus_3232C_RCF_v1.6-Storage.txt bootflash: vrf management
+% Total    % Received % Xferd  Average  Speed   Time    Time     Time                          Current
+                               Dload    Upload  Total   Spent    Left                          Speed
+  100        3254       100    3254     0       0       8175     0 --:--:-- --:--:-- --:--:–   8301
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+S2#
+----
+. Appliquez le RCF préalablement téléchargé sur le bootflash :
+`copy bootflash:`
++
+L'exemple suivant montre le fichier RCF `Nexus_3232C_RCF_v1.6-Storage.txt` En cours d'installation sur le commutateur S2 :
+
++
+[listing]
+----
+S2# copy Nexus_3232C_RCF_v1.6-Storage.txt running-config echo-commands
+----
+. Vérifiez que le fichier RCF est la version la plus récente correcte :
+`show running-config`
++
+Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :
+
++
+** La bannière RCF
+** Les paramètres du nœud et du port
+** Personnalisation de la sortie varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+
+
++
+[NOTE]
+====
+Dans la sortie de la bannière du `show banner motd` Commande, vous devez lire et suivre les instructions de la section *REMARQUES IMPORTANTES* pour assurer la configuration et le fonctionnement corrects du commutateur.
+
+====
++
+[listing]
+----
+S2# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : Cisco Nexus 3232C
+* Filename : Nexus_3232C_RCF_v1.6-Storage.txt
+* Date     : Oct-20-2020
+* Version  : v1.6
+*
+* Port Usage : Storage configuration
+* Ports  1-32: Controller and Shelf Storage Ports
+* Ports 33-34: Disabled
+*
+* IMPORTANT NOTES*
+* - This RCF utilizes QoS and requires TCAM re-configuration, requiring RCF
+*   to be loaded twice with the Storage Switch rebooted in between.
+*
+* - Perform the following 4 steps to ensure proper RCF installation:
+*
+*   (1) Apply RCF first time, expect following messages:
+*       - Please save config and reload the system...
+*       - Edge port type (portfast) should only be enabled on ports...
+*       - TCAM region is not configured for feature QoS class IPv4 ingress...
+*
+*   (2) Save running-configuration and reboot Cluster Switch
+*
+*   (3) After reboot, apply same RCF second time and expect following messages:
+*       - % Invalid command at '^' marker
+*       - Syntax error while parsing...
+*
+*   (4) Save running-configuration again
+******************************************************************************
+S2#
+----
++
+
+NOTE: Lors de l'application de FCR pour la première fois, le message *ERROR: Failed to write VSH commands* est attendu et peut être ignoré.
+
+. [[step8_upgrade_3232c]] après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le `running-config` vers le `startup-config` Fichier sur le commutateur S2.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+
++
+L'exemple suivant montre le `running-config` le fichier a été copié dans le `startup-config` fichier :
+
++
+[listing]
+----
+S2# copy running-config startup-config
+[########################################] 100% Copy complete.
+----
+. [[step9_upgrade_3232c]]Télécharger l'image NX-OS pour changer S2.
+. Installez l'image système de manière à ce que la nouvelle version soit chargée lors du prochain redémarrage du commutateur S2.
++
+Le commutateur est redémarré en 10 secondes avec la nouvelle image comme indiqué dans la sortie suivante :
+
++
+[listing]
+----
+S2# install all nxos bootflash:nxos.9.3.4.bin
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.9.3.4.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.9.3.4.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  bootable          Impact  Install-type  Reason
+------  --------  --------------  ------------  ------
+     1       yes      disruptive         reset  default upgrade is not hitless
+
+
+Images will be upgraded according to following table:
+Module       Image                  Running-Version(pri:alt)           New-Version  Upg-Required
+------  ----------  ----------------------------------------  --------------------  ------------
+     1        nxos                                    9.3(3)                9.3(4)           yes
+     1        bios     v08.37(01/28/2020):v08.23(09/23/2015)    v08.38(05/29/2020)            no
+
+
+Switch will be reloaded for disruptive upgrade.
+Do you want to continue with the installation (y/n)?  [n]  y
+input string too long
+Do you want to continue with the installation (y/n)?  [n] y
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+S2#
+----
+. Enregistrez la configuration.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+
++
+Vous êtes invité à redémarrer le système comme indiqué dans l'exemple suivant :
+
++
+[listing]
+----
+S2# copy running-config startup-config
+[########################################] 100% Copy complete.
+S2# reload
+This command will reboot the system. (y/n)?  [n] y
+----
+. [[step12_upgrade_3232c]]Vérifiez que le nouveau numéro de version NX-OS est sur le commutateur :
++
+[listing]
+----
+S2# show version
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2020, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+Software
+  BIOS: version 08.38
+ NXOS: version 9.3(4)
+  BIOS compile time:  05/29/2020
+  NXOS image file is: bootflash:///nxos.9.3.4.bin
+  NXOS compile time:  4/28/2020 21:00:00 [04/29/2020 02:28:31]
+
+
+Hardware
+  cisco Nexus3000 C3232C Chassis (Nexus 9000 Series)
+  Intel(R) Xeon(R) CPU E5-2403 v2 @ 1.80GHz with 8154432 kB of memory.
+  Processor Board ID FOC20291J6K
+
+  Device name: S2
+  bootflash:   53298520 kB
+Kernel uptime is 0 day(s), 0 hour(s), 3 minute(s), 42 second(s)
+
+Last reset at 157524 usecs after Mon Nov  2 18:32:06 2020
+  Reason: Reset due to upgrade
+  System version: 9.3(3)
+  Service:
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+Active Package(s):
+
+S2#
+----
+. [[step13_upgrade_3232c]]vérifier à nouveau que les commutateurs de stockage sont disponibles après le redémarrage :
+`system switch ethernet show`
++
+[listing]
+----
+storage::*> system switch ethernet show
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+S1
+                            storage-network    172.17.227.5     NX3232C
+     Serial Number: FOC221206C2
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+S2
+                            storage-network    172.17.227.6     NX3232C
+     Serial Number: FOC220443LZ
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+
+2 entries were displayed.
+storage::*>
+----
+. Vérifier que les ports switchs sont opérationnels après le redémarrage :
+`storage port show -port-type ENET`
++
+[listing]
+----
+storage::*> storage port show -port-type ENET
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ----------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+. [[step15_upgrade_3232c]]vérifier l'absence de problèmes de câblage ou de commutateur de stockage au niveau du cluster :
+`system health alert show -instance`
++
+[listing]
+----
+storage::*> system health alert show -instance
+There are no entries matching your query.
+----
+. Répétez la procédure pour mettre à niveau le logiciel NX-OS et RCF sur le commutateur S1.
+. [[step17_upgrade_3232c]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+`system node autosupport invoke -node * -type all -message MAINT=END`
+

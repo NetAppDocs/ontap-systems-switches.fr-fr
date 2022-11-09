@@ -1,0 +1,16 @@
+---
+permalink: switch-netapp-cn1610/switch-administrator-guide-version-12xx-linkout.html 
+sidebar: sidebar 
+keywords: netapp cn1610, switch administrator guide, version 1.2.x.x 
+summary: 'Ce guide fournit des exemples d"utilisation du commutateur CN1610 dans un réseau type.' 
+---
+= Guide de l'administrateur des commutateurs NetApp CN1610 - version 1.2.x.x
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Exemples d'utilisation du commutateur CN1610 dans un réseau type.
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["Guide de l'administrateur"^]

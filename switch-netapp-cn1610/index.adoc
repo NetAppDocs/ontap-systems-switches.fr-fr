@@ -1,0 +1,18 @@
+---
+permalink: switch-netapp-cn1610/index.html 
+sidebar: sidebar 
+keywords: install, fastpath, software, rcfs 
+summary: cn1610, commutateur, netapp 
+---
+= Commutateurs NetApp CN1610
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le CN1610 est un commutateur de couche 2 géré à large bande passante qui fournit des ports SFP+ (Small Form-Factor Pluggable plus) 16 10 Gigabit. Le commutateur comprend des blocs d'alimentation redondants et des ventilateurs qui prennent en charge le remplacement à chaud pour une haute disponibilité.
+
+Ce commutateur 1U peut être installé dans une armoire système standard 42U NetApp 19 pouces ou une armoire tierce.
+
+Le commutateur prend en charge la gestion locale via le port de console ou la gestion à distance en utilisant Telnet ou SSH via une connexion réseau. Le CN1610 inclut un port de gestion RJ45 1 Gigabit Ethernet dédié pour la gestion des commutateurs hors bande. Vous pouvez gérer le commutateur en entrant des commandes dans l'interface de ligne de commande (CLI) ou en utilisant un système de gestion de réseau basé sur SNMP (NMS).

@@ -1,0 +1,390 @@
+---
+permalink: switch-nvidia-sn2100/migrate_cisco_sn2100_storage_switch.html 
+sidebar: sidebar 
+keywords: migrating to a storage switch with NVIDIA SN2100 storage switches, how to migrate 
+summary: 'Vous pouvez migrer d"anciens switchs Cisco sans interruption pour un cluster ONTAP vers des switchs de stockage NVIDIA SN2100.' 
+---
+= Migrez d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez d'anciens switchs Cisco par des switchs de stockage NVIDIA SN2100.
+
+* Les commutateurs de stockage suivants sont pris en charge :
++
+** Cisco Nexus 9336C-FX2
+** Cisco Nexus 3232C
+
+
+* Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
+
+
+Vous pouvez migrer d'anciens commutateurs de stockage Cisco sans interruption pour un cluster ONTAP vers des commutateurs de stockage NVIDIA SN2100.
+
+* Le cluster existant doit être correctement configuré et opérationnel.
+* Tous les ports de stockage doivent être à l'état « up » pour assurer la continuité de l'activité.
+* Les commutateurs de stockage NVIDIA SN2100 doivent être configurés et fonctionnent sous la version appropriée de Cumulus Linux installée dans le fichier RCF (Reference Configuration File) appliqué.
+* La configuration existante du réseau de stockage doit avoir les éléments suivants :
++
+** Un cluster NetApp redondant et entièrement fonctionnel utilisant les deux anciens commutateurs Cisco.
+** Connectivité de gestion et accès à la console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
+** Toutes les LIFs de cluster à l'état up avec les LIFs de cluster sont sur leurs ports de type home.
+** Ports ISL activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
+
+
+* Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
+* Vous avez configuré certains des ports des switchs NVIDIA SN2100 pour qu'ils s'exécutent à 100 GbE.
+* Vous avez planifié, migré et documenté la connectivité 100 GbE des nœuds vers les commutateurs de stockage NVIDIA SN2100.
++
+
+NOTE: Dans cette procédure, les commutateurs de stockage Cisco Nexus 9336C-FX2 sont utilisés pour des commandes et des sorties par exemple.
+
+
+
+Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* Les commutateurs de stockage Cisco Nexus 9336C-FX2 existants sont _S1_ et _S2_.
+* Les nouveaux commutateurs de stockage NVIDIA SN2100 sont _sw1_ et _sw2_.
+* Les nœuds sont _node1_ et _node2_.
+* Les LIFS du cluster sont respectivement _node1_clum1_ et _node1_clum2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
+* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les ports réseau utilisés dans cette procédure sont _e5a_ et _e5b_.
+* Les ports de dérivation prennent le format suivant : swp1s0-3. Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp13_.
+* Le commutateur S2 est d'abord remplacé par le commutateur sw2, puis le commutateur S1 est remplacé par le commutateur sw1.
++
+** Le câblage entre les nœuds et S2 est ensuite déconnecté de S2 et reconnecté à sw2.
+** Le câblage entre les nœuds et S1 est ensuite déconnecté de S1 et reconnecté à sw1.
+
+
+
+
+.Étapes
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
++
+où _x_ représente la durée de la fenêtre de maintenance en heures.
+
+. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer : `set -privilege advanced`
++
+L'invite avancée (*>) apparaît.
+
+. Déterminez l'état administratif ou opérationnel pour chaque interface de stockage :
++
+Chaque port doit afficher activé pour  `Status`.
+
++
+Afficher les attributs des ports réseau : `storage port show`
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+node2
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+cluster1::*>
+----
+. Les ports de stockage de chaque nœud sont connectés aux commutateurs de stockage existants de la manière suivante (du point de vue des nœuds) à l'aide de la commande : `network device-discovery show -protocol lldp`
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/1           -
+            e5b    S2 (7c:ad:4f:98:8e:3c)    Eth1/1           -
+node2      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/2           -
+            e5b    S2 (7c:ad:4f:98:8e:3c)    Eth1/2           -
+----
+. Sur les commutateurs S1 et S2, les ports et les commutateurs de stockage sont connectés de la manière suivante (du point de vue des commutateurs) à l'aide de la commande : `show lldp neighbors`
++
+[listing, subs="+quotes"]
+----
+S1# *show lldp neighbors*
+
+Capability Codes: (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device,
+                  (W) WLAN Access Point, (P) Repeater, (S) Station (O) Other
+
+Device-ID             Local Intf     Holdtime    Capability           Port ID
+node1                 Eth1/1         121         S                    e0c
+node2                 Eth1/2         121         S                    e0c
+SHFGD1947000186       Eth1/10        120         S                    e0a         
+SHFGD1947000186       Eth1/11        120         S                    e0a         
+SHFGB2017000269       Eth1/12        120         S                    e0a         
+SHFGB2017000269       Eth1/13        120         S                    e0a
+
+S2# *show lldp neighbors*
+
+Capability Codes: (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device,
+                  (W) WLAN Access Point, (P) Repeater, (S) Station (O) Other
+
+Device-ID             Local Intf     Holdtime    Capability          Port ID
+node1                 Eth1/1         121         S                   e5b
+node2                 Eth1/2         121         S                   e5b
+SHFGD1947000186       Eth1/10        120         S                   e0b         
+SHFGD1947000186       Eth1/11        120         S                   e0b         
+SHFGB2017000269       Eth1/12        120         S                   e0b         
+SHFGB2017000269       Eth1/13        120         S                   e0b
+----
+. Sur le commutateur sw2, arrêtez les ports connectés aux ports de stockage et aux nœuds des tiroirs disques.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net add interface swp1-16 link down*
+cumulus@sw2:~$ *net pending*
+cumulus@sw2:~$ *net commit*
+----
+. Déplacez les ports de stockage de nœuds du contrôleur et des tiroirs disques de l'ancien commutateur S2 au nouveau commutateur sw2, en utilisant le câblage approprié pris en charge par NVIDIA SN2100.
+. Sur le commutateur sw2, activer les ports connectés aux ports de stockage des nœuds et des tiroirs disques.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net del interface swp1-16 link down*
+cumulus@sw2:~$ *net pending*
+cumulus@sw2:~$ *net commit*
+----
+. Les ports de stockage de chaque nœud sont désormais connectés aux switchs de la façon suivante, du point de vue des nœuds :
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface      Platform
+----------- ------ ------------------------- -------------  ----------------
+node1      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/1         -
+            e5b    sw2 (b8:ce:f6:19:1a:7e)   swp1           -
+
+node2      /lldp
+            e0c    S1 (7c:ad:4f:98:6d:f0)    Eth1/2         -
+            e5b    sw2 (b8:ce:f6:19:1a:7e)   swp2           -
+----
+. Vérifiez les attributs des ports réseau : `storage port show`
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+node2
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+cluster1::*>
+----
+. Sur le commutateur sw2, vérifier que tous les ports de stockage de nœud sont en service :
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                  Summary
+-----  ------  ----  -----  ----------  --------------------  --------------------
+...
+...
+UP     swp1    100G  9216   Trunk/L2   node1 (e5b)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2   node2 (e5b)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP))
+...
+...
+----
+. Sur le commutateur sw1, arrêtez les ports connectés aux ports de stockage des nœuds et des tiroirs disques.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net add interface swp1-16 link down*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+. Déplacez les ports de stockage des nœuds du contrôleur et des tiroirs disques de l'ancien commutateur S1 vers le nouveau commutateur sw1, en utilisant le câblage approprié pris en charge par NVIDIA SN2100.
+. Sur le commutateur sw1, mettez les ports connectés aux ports de stockage des nœuds et des tiroirs disques.
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net del interface swp1-16 link down*
+cumulus@sw1:~$ *net pending*
+cumulus@sw1:~$ *net commit*
+----
+. Les ports de stockage de chaque nœud sont désormais connectés aux switchs de la façon suivante, du point de vue des nœuds :
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol lldp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface       Platform
+----------- ------ ------------------------- --------------  ----------------
+node1      /lldp
+            e0c    sw1 (b8:ce:f6:19:1b:96)   swp1            -
+            e5b    sw2 (b8:ce:f6:19:1a:7e)   swp1            -
+
+node2      /lldp
+            e0c    sw1  (b8:ce:f6:19:1b:96)  swp2            -
+            e5b    sw2  (b8:ce:f6:19:1a:7e)  swp2            -
+----
+. Vérifier la configuration finale : `storage port show`
++
+Chaque port doit afficher activé pour `State` et activé pour `Status`.
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show*
+                                  Speed                     VLAN
+Node           Port Type  Mode    (Gb/s) State    Status      ID
+-------------- ---- ----- ------- ------ -------- --------- ----
+node1
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+node2
+               e0c  ENET  storage  100   enabled  online      30
+               e0d  ENET  storage    0   enabled  offline     30
+               e5a  ENET  storage    0   enabled  offline     30
+               e5b  ENET  storage  100   enabled  online      30
+cluster1::*>
+----
+. Sur le commutateur sw2, vérifier que tous les ports de stockage de nœud sont en service :
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *net show interface*
+
+State  Name    Spd   MTU    Mode        LLDP                  Summary
+-----  ------  ----  -----  ----------  --------------------  --------------------
+...
+...
+UP     swp1    100G  9216   Trunk/L2   node1 (e5b)             Master: bridge(UP)
+UP     swp2    100G  9216   Trunk/L2   node2 (e5b)             Master: bridge(UP)
+UP     swp3    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp4    100G  9216   Trunk/L2   SHFFG1826000112 (e0b)   Master: bridge(UP)
+UP     swp5    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP)
+UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP))
+...
+...
+----
+. Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur : `net show lldp`
++
+L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *net show lldp*
+LocalPort  Speed  Mode      RemoteHost             RemotePort
+---------  -----  --------  ---------------------  -----------
+...
+swp1       100G   Trunk/L2  node1                  e0c
+swp2       100G   Trunk/L2  node2                  e0c
+swp3       100G   Trunk/L2  SHFFG1826000112        e0a
+swp4       100G   Trunk/L2  SHFFG1826000112        e0a
+swp5       100G   Trunk/L2  SHFFG1826000102        e0a
+swp6       100G   Trunk/L2  SHFFG1826000102        e0a
+
+cumulus@sw2:~$ *net show lldp*
+LocalPort  Speed  Mode      RemoteHost             RemotePort
+---------  -----  --------  ---------------------  -----------
+...
+swp1       100G   Trunk/L2  node1                  e5b
+swp2       100G   Trunk/L2  node2                  e5b
+swp3       100G   Trunk/L2  SHFFG1826000112        e0b
+swp4       100G   Trunk/L2  SHFFG1826000112        e0b
+swp5       100G   Trunk/L2  SHFFG1826000102        e0b
+swp6       100G   Trunk/L2  SHFFG1826000102        e0b
+----
+. Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur à l'aide des deux commandes suivantes : `system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
++
+Entrez : `system switch ethernet log setup-password`
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+Choose from the following list:
+*sw1*
+*sw2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *sw1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *sw2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+----
++
+Suivi par : `system switch ethernet log enable-collection`
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system  switch ethernet log enable-collection*
+
+Do you want to enable cluster log collection for all nodes in the cluster?
+{y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*>
+----
++
+
+NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
+
+. Lancez la fonction de collecte du journal du commutateur : `system switch ethernet log collect -device *`
++
+Attendez 10 minutes, puis vérifiez que la collecte de journaux a réussi à l'aide de la commande : `system switch ethernet log show`
+
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log show*
+Log Collection Enabled: true
+
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------  ---------    
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
+2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
+----
+. Rétablissez le niveau de privilège sur admin : `set -privilege admin`
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+

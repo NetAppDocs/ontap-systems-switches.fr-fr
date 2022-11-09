@@ -1,0 +1,43 @@
+---
+section: switch-netapp-cn1610
+title: Commutateurs NetApp CN1610
+entries:
+- title: Présentation
+  url: "/switch-netapp-cn1610/index.html"
+- title: Installez le logiciel FASTPATH et les RCFC sur un commutateur de cluster
+    NetApp
+  url: "/switch-netapp-cn1610/task-install-fastpath-software-and-rcfs-on-netapp-cluster-switch.html"
+  entries:
+  - title: Installez le logiciel FASTPATH
+    url: "/switch-netapp-cn1610/task-install-fastpath-software.html"
+  - title: Installez un fichier de configuration de référence sur un commutateur CN1610
+    url: "/switch-netapp-cn1610/task-install-an-rcf-on-a-cn1610-switch.html"
+- title: Installez le logiciel FASTPATH et les RCFC sur les commutateurs de cluster
+    NetApp exécutant ONTAP 8.3.1 et versions ultérieures
+  url: "/switch-netapp-cn1610/task-install-fastpath-software-and-rcf-files-on-netapp-cluster-switches.html"
+- title: Migrez vers un cluster à deux nœuds avec commutateurs de cluster NetApp CN1610
+  url: "/switch-netapp-cn1610/task-migrate-to-a-two-node-switched-cluster-with-netapp-cn1610-cluster-switches.html"
+- title: Migration d'un environnement de cluster sans commutateur vers un environnement
+    de cluster NetApp CN1610 commuté
+  url: "/switch-netapp-cn1610/task-migrate-from-a-switchless-cluster-to-a-switched-netapp-cn1610-cluster-environment.html"
+- title: Migrez vers un cluster commuté à deux nœuds sur les systèmes FAS22xx avec
+    une seule connexion cluster-network
+  url: "/switch-netapp-cn1610/task-migrate-from-a-switchless-cluster-fas22xx-systems-with-a-single-cluster-network-connection.html"
+- title: Guide de configuration et de configuration des commutateurs CN1601 et CN1610
+  url: "/switch-netapp-cn1610/switch-setup-configuration-guide-linkout.html"
+- title: Référence des commandes CLI du commutateur réseau CN1610 - version 1.1.x.x
+  url: "/switch-netapp-cn1610/switch-cli-command-reference-version-11xx-linkout.html"
+- title: Référence des commandes CLI du commutateur réseau CN1610 - version 1.2.x.x
+  url: "/switch-netapp-cn1610/switch-cli-command-reference-version-12xx-linkout.html"
+- title: Guide d'installation du commutateur 10G NetApp Cluster-mode
+  url: "/switch-netapp-cn1610/netapp-10g-cluster-mode-switch-installation-guide.html"
+- title: Guide de l'administrateur des commutateurs NetApp CN1610 - version 1.1.x.x
+  url: "/switch-netapp-cn1610/switch-administrator-guide-version-11xx-linkout.html"
+- title: Guide de l'administrateur des commutateurs NetApp CN1610 - version 1.2.x.x
+  url: "/switch-netapp-cn1610/switch-administrator-guide-version-12xx-linkout.html"
+- title: Référence des commandes CLI du commutateur réseau CN1601
+  url: "/switch-netapp-cn1610/switch-cli-command-reference-linkout.html"
+- title: Guide de l'administrateur des commutateurs CN1601
+  url: "/switch-netapp-cn1610/switch-administrator-guide-linkout.html"
+- title: Guide d'installation du commutateur NetApp 1G Cluster-mode
+  url: "/switch-netapp-cn1610/netapp-1g-cluster-mode-switch-installation-guide-linkout.html"

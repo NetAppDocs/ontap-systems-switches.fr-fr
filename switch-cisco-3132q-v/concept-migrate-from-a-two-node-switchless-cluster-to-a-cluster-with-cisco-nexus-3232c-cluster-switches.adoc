@@ -1,0 +1,44 @@
+---
+permalink: switch-cisco-3132q-v/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html 
+sidebar: sidebar 
+keywords: migrate, two-node switched cluster, cisco nexus 3132q-v 
+summary: Lorsque vous migrez vers un cluster à deux nœuds avec commutateurs de cluster Cisco Nexus 3132Q-V, vous devez connaître certaines informations sur la configuration, les connexions de ports et les exigences de câblage. 
+---
+= Migrez vers un cluster à deux nœuds avec commutateurs de cluster Cisco Nexus 3132Q-V.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous migrez vers un cluster à deux nœuds avec commutateurs de cluster Cisco Nexus 3132Q-V, vous devez connaître certaines informations sur la configuration, les connexions de ports et les exigences de câblage.
+
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] page.
+* Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) e1/31-32.
+* Le link:https://hwu.netapp.com/["Hardware Universe"^] Contient des informations sur le câblage pris en charge vers les commutateurs Nexus 3132Q-V :
++
+** Les nœuds équipés de connexions de cluster 10 GbE requièrent des modules optiques QSFP avec des câbles à fibre optique de séparation ou des câbles QSFP avec des câbles en cuivre SFP+.
+** Les nœuds équipés de connexions de cluster 40/100 GbE requièrent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
+** Les commutateurs de cluster utilisent le câblage ISL approprié : 2 câbles à connexion directe en fibre ou en cuivre QSFP28.
+
+
+* Sur le Nexus 3132Q-V, vous pouvez utiliser les ports QSFP en mode Ethernet 40/100 Gb ou Ethernet 4 x 10 Gb.
++
+Par défaut, il y a 32 ports en mode Ethernet 40/100 Gb. Ces ports Ethernet 40 Gb sont numérotés en 2 points. Par exemple, le second port Ethernet 40 Gbit est numéroté 1/2. Le processus de modification de la configuration de 40 Go Ethernet à 10 Go Ethernet s'appelle _écorché_ et le processus de modification de la configuration de 10 Go Ethernet à 40 Go Ethernet s'appelle _Breakin_. Lorsque vous décomposent un port Ethernet 40/100 Gb en ports Ethernet 10 Gb, les ports qui en résultent sont numérotés en utilisant une convention de dénomination à 3 points. Par exemple, les ports de dérivation du second port Ethernet 40/100 Gbit sont numérotés en 1/2/1, 1/2/2, 1/2/3, 1/2/4.
+
+* Sur le côté gauche du Nexus 3132Q-V est un ensemble de quatre ports SFP+ multiplexés sur le premier port QSFP.
++
+Par défaut, la FCR est structurée de manière à utiliser le premier port QSFP.
+
++
+Vous pouvez activer quatre ports SFP+ au lieu d'un port QSFP pour Nexus 3132Q-V en utilisant le `hardware profile front portmode sfp-plus` commande. De même, vous pouvez réinitialiser Nexus 3132Q-V pour utiliser un port QSFP au lieu de quatre ports SFP+ en utilisant le `hardware profile front portmode qsfp` commande.
+
+* Vous devez avoir configuré certains ports du Nexus 3132Q-V pour qu'ils s'exécutent à 10 GbE ou 40/100 GbE.
++
+Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du `no interface breakout module 1 port 1-6 map 10g-4x` commande.
+
+* Vous devez avoir terminé la planification, la migration et lu la documentation sur la connectivité 10 GbE et 40/100 GbE des nœuds vers les commutateurs de cluster Nexus 3132Q-V.
++
+Le link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] Cette procédure contient des informations sur les versions ONTAP et NX-OS prises en charge.
+
+

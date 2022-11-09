@@ -1,0 +1,19 @@
+---
+permalink: switch-cisco-92300/migrate-to-2n-switched-overview.html 
+sidebar: sidebar 
+keywords: TNSC,migrate two-node,migrate 2-node 
+summary: 'Lors de la migration d"un cluster sans commutateur à deux nœuds, sans interruption, vers un cluster avec commutateurs de cluster Cisco Nexus 92300YC, vous devez connaître certaines informations de configuration, connexions de ports et exigences de câblage. La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d"un port de cluster unique sur chaque contrôleur. Ce processus fonctionne pour tous les nœuds utilisant des ports optiques ou twinax mais n"est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 Gb BASE-T intégrés pour les ports du réseau cluster.' 
+---
+= Migrez vers un cluster à deux nœuds avec commutateur Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lors de la migration d'un cluster sans commutateur à deux nœuds, sans interruption, vers un cluster avec commutateurs de cluster Cisco Nexus 92300YC, vous devez connaître certaines informations de configuration, connexions de ports et exigences de câblage. La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Ce processus fonctionne pour tous les nœuds utilisant des ports optiques ou twinax mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 Gb BASE-T intégrés pour les ports du réseau cluster.
+
+La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur.
+
+
+NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voir _installation du fichier de configuration CSHM (Cluster Switch Health Monitor) pour les commutateurs 92300YC_ dans link:../com.netapp.doc.hw-sw-cisco-setup/home.html["Configuration"] guide.

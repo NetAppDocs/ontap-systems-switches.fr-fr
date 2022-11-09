@@ -1,0 +1,78 @@
+---
+permalink: switch-cisco-3132q-v/index.html 
+sidebar: sidebar 
+keywords: Cisco, 3132Q-V 
+summary: Migration vers un cluster commuté à deux nœuds 
+---
+= Commutateurs Cisco Nexus 3132Q-V
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser les commutateurs Cisco Nexus 3132Q-V comme commutateurs de cluster dans votre cluster AFF ou FAS.
+
+* Vous pouvez installer les fichiers NX-OS et les fichiers RCF (Reference Configuration File) sur le commutateur de cluster Cisco Nexus 3132Q-V.
+* Vous pouvez migrer d'un environnement de cluster sans commutateur à deux nœuds vers un environnement avec commutateur à deux nœuds à l'aide des commutateurs de cluster Cisco Nexus 3132Q-V.
+* Vous pouvez remplacer un commutateur Cisco Nexus 3132Q-V défectueux dans un cluster et télécharger le système d'exploitation du commutateur et le fichier de configuration de référence.
+* Vous pouvez remplacer les commutateurs de cluster Cisco Nexus 5596, Nexus 5020 ou Nexus 5010 par des commutateurs Cisco Nexus 3132Q-V.
+* Vous pouvez remplacer les commutateurs NetApp CN1610 par des commutateurs de cluster Cisco Nexus 3132Q-V.
+
+
+Le tableau suivant répertorie la documentation disponible pour les commutateurs Cisco Nexus 3132Q-V.
+
+|===
+
+
+| Titre | Description 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3132q-v/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["_Installez un commutateur de cluster Cisco® Nexus 3132Q-V et un panneau d'intercommunication dans une armoire NetApp®"^]
+ a| 
+Décrit comment installer le panneau de passage dans les armoires système où les connecteurs d'alimentation se trouvent à l'avant du châssis et les unités de distribution d'alimentation sont situées à l'arrière du châssis.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html["_Configurer les commutateurs de cluster Cisco® Nexus 3132Q-V_"^]
+ a| 
+Décrit comment configurer les commutateurs de cluster Cisco Nexus 3132Q-V.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3132q-v/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3132q-v-cluster-switches.html["_Installer les fichiers NX-OS et de configuration de référence (RCFs)_"^]
+ a| 
+Décrit comment installer les fichiers NX-OS et les fichiers RCF (Reference Configuration File) sur le commutateur de cluster Nexus 3132Q-V.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3132q-v/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html["_Remplacer les commutateurs de cluster Cisco Nexus 5596 par des commutateurs de cluster Cisco Nexus 3132Q-V_"^]
+ a| 
+Décrit comment migrer des environnements utilisant des commutateurs Cisco anciens vers des environnements qui utilisent des commutateurs Cisco 3132Q-V.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3132q-v/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html["_Remplacer les commutateurs du cluster CN1610 par des commutateurs du cluster Cisco Nexus 3132Q-V_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un commutateur CN1610 par un commutateur de cluster Cisco Nexus 3132Q-V.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3132q-v/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html["_Migrer à partir d'un cluster sans commutateur à deux nœuds_"^]
+ a| 
+Décrit comment migrer d'un environnement de cluster sans commutateur à 2 nœuds vers un environnement avec commutateur à 2 nœuds à l'aide des commutateurs de cluster Cisco Nexus 3132Q-V.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3132q-v/concept-replace-cisco-nexus-3132q-v-cluster-switches.html["_Remplacer un commutateur de cluster Cisco Nexus 3132Q-V_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un commutateur Cisco Nexus 3132Q-V défectueux dans un cluster et télécharger le système d'exploitation du commutateur et le fichier de configuration de référence.
+
+|===

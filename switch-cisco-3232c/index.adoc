@@ -1,0 +1,86 @@
+---
+permalink: switch-cisco-3232c/index.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. 
+---
+= Switchs Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS.
+
+.Présentation
+* Vous pouvez installer le commutateur, effectuer la migration à partir d'un commutateur existant, remplacer un commutateur et mettre à jour les fichiers RCF sur le commutateur.
+* Vous pouvez installer des fichiers de configuration de référence et NX-OS sur le switch de cluster Cisco Nexus 3232C.
+* Vous pouvez migrer d'un cluster sans commutateur à 2 nœuds vers un cluster avec des switchs de cluster Cisco Nexus 3232C.
+* Vous pouvez remplacer un cluster ou un switch de stockage Cisco Nexus 3232C.
+* Vous pouvez installer l'armoire système du switch Cisco Nexus 3232C (X190100) de NetApp avec les supports personnalisés fournis avec le switch, ou l'installer dans un rack avec les supports standard également inclus avec le switch.
+
+
+Le tableau suivant répertorie la documentation disponible pour les switchs Cisco Nexus 3232C.
+
+|===
+
+
+| Titre | Description 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["_Installez un commutateur de cluster Cisco® Nexus 3232C et un panneau d'intercommunication dans une armoire NetApp®_"^]
+ a| 
+Décrit comment installer le panneau de passage dans les armoires système où les connecteurs d'alimentation se trouvent à l'avant du châssis et les unités de distribution d'alimentation sont situées à l'arrière du châssis.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html["_Configurer les switchs de cluster Cisco® Nexus 3232C_"^]
+ a| 
+Décrit la configuration et l'installation des switchs de cluster Cisco Nexus 3232C.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/task-install-nx-os-software-and-rcfs-on-cisco-nexus-3232-cluster-switches-running-ontap-9-4-and-later.html["_Installer les fichiers NX-OS et de configuration de référence (RCFs)_"^]
+ a| 
+Décrit l'installation de NX-OS et des fichiers RCF (Reference Configuration File) sur le switch de cluster Nexus 3232C.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-migrate-from-a-cisco-5596-switch-to-a-cisco-nexus-3232c.html["_Migration d'un switch Cisco Nexus 5596 vers un switch Cisco Nexus 3232C_"^]
+ a| 
+Décrit la migration d'environnements qui utilisent des switchs Cisco plus anciens vers des environnements utilisant des switchs Cisco 3232C.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-migrate-a-cn1610-switch-to-a-cisco-nexus-3232c-cluster-switch.html["_Migration d'un switch CN1610 vers un switch Cisco Nexus 3232C_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un switch CN1610 par un switch de cluster Cisco Nexus 3232C.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-migrate-from-a-two-node-switchless-cluster-to-a-cluster-with-cisco-nexus-3232c-cluster-switches.html["_Migrer à partir d'un cluster sans commutateur à deux nœuds_"^]
+ a| 
+Décrit la migration d'un environnement de cluster sans commutateur à 2 nœuds vers un environnement avec switch à 2 nœuds à l'aide de switchs de cluster Cisco Nexus 3232C.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-cluster-switch.html["_Remplacer un switch de cluster Cisco Nexus 3232C_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un switch Cisco Nexus 3232C défectueux dans un cluster et télécharger le système d'exploitation et le fichier de configuration de référence du switch.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-3232c/concept-replace-a-cisco-nexus-3232c-storage-switch.html["_Remplacer un switch de stockage Cisco Nexus 3232C_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un switch de stockage Cisco Nexus 3232C défectueux et télécharger le fichier de configuration de référence et du système d'exploitation du switch.
+
+|===

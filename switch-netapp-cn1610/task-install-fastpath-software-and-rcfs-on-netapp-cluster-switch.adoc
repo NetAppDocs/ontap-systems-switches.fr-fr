@@ -1,0 +1,50 @@
+---
+permalink: switch-netapp-cn1610/task-install-fastpath-software-and-rcfs-on-netapp-cluster-switch.html 
+sidebar: sidebar 
+keywords: install, fastpath, software, rcfs, netapp cluster switch 
+summary: 'Vous devez installer le logiciel FASTPATH et les fichiers RCF (Reference Configuration File) sur un commutateur de cluster NetApp CN1610.' 
+---
+= Installez le logiciel FASTPATH et les RCFC sur un commutateur de cluster NetApp
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous devez installer le logiciel FASTPATH et les fichiers RCF (Reference Configuration File) sur un commutateur de cluster NetApp CN1610.
+
+.Avant de commencer
+* Le cluster doit être un cluster totalement opérationnel.
+* Il ne doit pas y avoir de cartes d'interface réseau (NIC) de cluster défectueuses et tous les ports connectés du commutateur de cluster doivent être fonctionnels.
+* Tous les ports de cluster doivent être up.
+* Toutes les interfaces logiques de cluster (LIF) doivent être active et ne doivent pas avoir été migrées.
+* ONTAP (privilège : avancé) `cluster ping-cluster -node node1` la commande doit indiquer cela `larger than PMTU communication` a réussi sur tous les chemins.
+* Vous devez consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Consultez cette page pour les versions FASTPATH, RCF et ONTAP prises en charge.
++
+Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe de commande.
+
+
+
+
+NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée en raison de problèmes de sécurité. Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé. Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur du commutateur NetApp® CN1610"^] A plus d'informations sur SSH.
+
+Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* Ce document utilise la syntaxe de clustered Data ONTAP 8.2. Par conséquent, le Vserver, les noms des LIF et les résultats de l'interface de ligne de commande du cluster seront différents de ceux du Data ONTAP 8.3.
+* les deux commutateurs NetApp sont cs1 et cs2.
+* Les deux LIF de cluster sont de type 1 et de type 1.
+* Les vServers sont vs1 et vs2.
+* Le `cluster::*>` l'invite indique le nom du cluster.
+* Les ports de cluster de chaque nœud sont nommés e1a et e2a.
++
+Le https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
+
+* Les liaisons ISL (Inter-Switch Links) prises en charge pour le commutateur de cluster NetApp sont les ports 0/13 à 0/16.
+* Les connexions de nœuds prises en charge pour le commutateur de cluster NetApp sont les ports 0/1 à 0/12.
+
+
+Cette procédure comporte deux parties :
+
+* link:task-install-fastpath-software.html["Installez le logiciel FASTPATH"] Décrit l'installation du logiciel FASTPATH.
+* link:task-install-an-rcf-on-a-cn1610-switch.html["Installez une FCR sur un commutateur CN1610"] Décrit l'installation des RCFC.
+

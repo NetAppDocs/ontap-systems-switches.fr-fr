@@ -1,0 +1,73 @@
+---
+section: switch-bes-53248
+title: Commutateurs BES-53248 pris en charge par Broadcom
+entries:
+- title: Présentation du commutateur de cluster BES-53248
+  url: "/switch-bes-53248/overview-bes53248.html"
+- title: Configurer le commutateur
+  entries:
+  - title: Exigences de configuration du commutateur de cluster BES-53248
+    url: "/switch-bes-53248/replace-requirements.html"
+  - title: Documentation requise
+    url: "/switch-bes-53248/replace-required-documentation.html"
+  - title: Configurez vos commutateurs de cluster BES-53248
+    entries:
+    - title: Configurez un nouveau commutateur BES-53248
+      url: "/switch-bes-53248/configure-new-switch.html"
+    - title: Installation initiale
+      url: "/switch-bes-53248/configure-install-initial.html"
+    - title: Installez le logiciel EFOS
+      url: "/switch-bes-53248/configure-efos-software.html"
+    - title: Installez les licences
+      entries:
+      - title: Installez les licences pour les commutateurs de cluster BES-53248
+        url: "/switch-bes-53248/configure-licenses.html"
+      - title: Restrictions et limites
+        url: "/switch-bes-53248/configure-restrictions.html"
+      - title: Modifiez le RCF pour activer les ports sous licence
+        url: "/switch-bes-53248/configure-edit-rcf.html"
+    - title: Installer le fichier RCF (Reference Configuration File)
+      url: "/switch-bes-53248/configure-install-rcf.html"
+    - title: Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)
+      url: "/switch-bes-53248/configure-health-monitor.html"
+    - title: Activez SSH sur les commutateurs de cluster BES-53248
+      url: "/switch-bes-53248/configure-ssh.html"
+    - title: Configurez la fonction de collecte du journal du commutateur de cluster
+      url: "/switch-bes-53248/configure-log-collection.html"
+- title: Migration des commutateurs CN1610 vers les commutateurs BES-53248
+  entries:
+  - title: Présentation
+    url: "/switch-bes-53248/migrate-cn1610-overview.html"
+  - title: Comment migrer vers les commutateurs BES-53248
+    url: "/switch-bes-53248/migrate-cn1610.html"
+- title: Migrer vers un cluster à deux nœuds avec commutateur
+  entries:
+  - title: Préparation à la migration
+    url: "/switch-bes-53248/migrate-to-2n-switched.html"
+  - title: Migrer vers un environnement de cluster NetApp commuté
+    url: "/switch-bes-53248/migrate-to-2n-switched-overview.html"
+- title: Mettre à niveau un commutateur dans un environnement NDO/NDU
+  entries:
+  - title: Présentation
+    url: "/switch-bes-53248/replace-upgrade.html"
+  - title: Préparer le contrôleur
+    url: "/switch-bes-53248/replace-prepare-controller.html"
+  - title: Installez le logiciel EFOS
+    url: "/switch-bes-53248/replace-install-efos.html"
+  - title: Installez les licences
+    url: "/switch-bes-53248/replace-install-licenses.html"
+    entries:
+    - title: Restrictions et limites
+      url: "/switch-bes-53248/replace-restrictions.html"
+    - title: Modifier le fichier RCF (Reference Configuration File)
+      url: "/switch-bes-53248/replace-edit-rcf.html"
+  - title: Installer le fichier RCF (Reference Configuration File)
+    url: "/switch-bes-53248/replace-install-rcf.html"
+  - title: Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)
+    url: "/switch-bes-53248/replace-install-cshm-file.html"
+  - title: Configurez la fonction de collecte du journal du commutateur de cluster
+    url: "/switch-bes-53248/replace-configure-log-collection.html"
+  - title: Vérifiez la configuration
+    url: "/switch-bes-53248/replace-verify.html"
+- title: Remplacer un commutateur BES-53248
+  url: "/switch-bes-53248/replace-switch.html"

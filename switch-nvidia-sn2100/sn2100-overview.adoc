@@ -1,0 +1,118 @@
+---
+permalink: switch-nvidia-sn2100/sn2100-overview.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs. 
+---
+= Commutateur NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+À partir de la version 9.10.1P3 de ONTAP, vous pouvez utiliser les switchs NVIDIA SN2100 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
+
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs.
+
+Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire de commutation double/simple NVIDIA à l'aide des supports standard fournis avec le commutateur.
+
+Le tableau suivant répertorie le numéro de référence et la description des commutateurs et kits de rails MSN2100 :
+
+[cols="1,2"]
+|===
+| Numéro de référence | Description 
+
+
+ a| 
+X190006-PE
+ a| 
+Commutateur de cluster, NVIDIA SN2100, 16PT 100G, PTSX
+
+
+
+ a| 
+X190006-PI
+ a| 
+Commutateur de cluster, NVIDIA SN2100, 16 PT 100 G, PSIN
+
+
+
+ a| 
+X190106-FE-PE
+ a| 
+Commutateur, NVIDIA SN2100, 16PT 100G, PTSX, frontal
+
+
+
+ a| 
+X190106-FE-PI
+ a| 
+Switch, NVIDIA SN2100, 16PT 100G, PSIN, Front End
+
+
+
+ a| 
+X-MTEF-KIT-D
+ a| 
+Kit de rails, commutateur double NVIDIA côte à côte
+
+
+
+ a| 
+X-MTEF-KIT-E
+ a| 
+Kit de rails, commutateur simple NVIDIA faible profondeur
+
+|===
+
+IMPORTANT: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].
+
+Le tableau suivant répertorie la documentation disponible pour les commutateurs NVIDIA SN2100.
+
+[cols="1,2"]
+|===
+| Titre | Description 
+
+
+ a| 
+link:install_setup_sn2100_switches_overview.html["_Configurer et configurer les commutateurs NVIDIA SN2100_"^]
+ a| 
+Décrit comment configurer et configurer les commutateurs NVIDIA SN2100, y compris l'installation de Cumulus Linux et des RCFs applicables.
+
+
+
+ a| 
+link:migrate_cisco_sn2100_cluster_switch.html["_Migrer d'un commutateur de cluster Cisco vers un commutateur de cluster NVIDIA SN2100_"^]
+ a| 
+Décrit comment migrer d'environnements qui utilisent des switchs de cluster Cisco vers des environnements utilisant des switchs de cluster NVIDIA SN2100.
+
+
+
+ a| 
+link:migrate_cisco_sn2100_storage_switch.html["_Migrer d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA_"^]
+ a| 
+Décrit comment migrer d'environnements qui utilisent des switchs de stockage Cisco vers des environnements utilisant des switchs de stockage NVIDIA SN2100.
+
+
+
+ a| 
+link:migrate_2n_switched_sn2100_switches.html["_Migrer vers un cluster à deux nœuds avec commutateurs de cluster NVIDIA SN2100_"^]
+ a| 
+Décrit la migration vers un environnement commuté de deux nœuds à l'aide de switchs de cluster NVIDIA SN2100.
+
+
+
+ a| 
+link:replace_sn2100_switch_cluster.html["_Remplacer un commutateur de cluster NVIDIA SN2100_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un commutateur NVIDIA SN2100 défectueux dans un cluster et télécharger Cumulus Linux et le fichier de configuration de référence.
+
+
+
+ a| 
+link:replace_sn2100_switch_storage.html["_Remplacer un commutateur de stockage NVIDIA SN2100_"^]
+ a| 
+Décrit la procédure à suivre pour remplacer un commutateur de stockage NVIDIA SN2100 défectueux et télécharger Cumulus Linux et le fichier de configuration de référence.
+
+|===

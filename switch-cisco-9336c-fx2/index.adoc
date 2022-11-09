@@ -1,0 +1,12 @@
+---
+permalink: switch-cisco-9336c-fx2/index.html 
+sidebar: sidebar 
+keywords: cisco, switch, cisco 9336 switch 
+summary: Commutateurs Cisco 9336-FX2 
+---
+= Commutateurs Cisco 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+

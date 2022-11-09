@@ -1,0 +1,129 @@
+---
+permalink: switch-bes-53248/configure-edit-rcf.html 
+sidebar: sidebar 
+keywords: edit rcf bes-53248 
+summary: Pour activer les ports récemment sous licence, vous devez modifier la dernière version de RCF et annuler ainsi les détails de ce port. La licence par défaut active les ports 0/1 à 0/16 et 0/55 à 0/56, tandis que les nouveaux ports sous licence seront entre 0/17 et 0/54 selon le type et le nombre de licences disponibles. 
+---
+= Modifier le fichier RCF (Reference Configuration File)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour activer les ports récemment sous licence, vous devez modifier la dernière version de RCF et annuler ainsi les détails de ce port. La licence par défaut active les ports 0/1 à 0/16 et 0/55 à 0/56, tandis que les nouveaux ports sous licence seront entre 0/17 et 0/54 selon le type et le nombre de licences disponibles.
+
+Pour plus de détails sur les types de licence disponibles pour l'utilisation sur le commutateur de cluster BES-53248, reportez-vous à la section link:configure-licenses.html["Installation des licences pour les commutateurs de cluster BES-53248"^].
+
+Par exemple, pour activer la licence SW-BES54248-40-100G-LIC, vous devez annuler la remarque dans la section suivante du FCR :
+
+[listing]
+----
+.
+.
+!
+! 2-port or 6-port 40/100GbE node port license block
+!
+interface 0/49
+no shutdown
+description "40/100GbE Node Port"
+!speed 100G full-duplex
+speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/50
+no shutdown
+description "40/100GbE Node Port"
+!speed 100G full-duplex
+speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/51
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/52
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/53
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+interface 0/54
+no shutdown
+description "40/100GbE Node Port"
+speed 100G full-duplex
+!speed 40G full-duplex
+service-policy in WRED_100G
+spanning-tree edgeport
+mtu 9216
+switchport mode trunk
+datacenter-bridging
+priority-flow-control mode on
+priority-flow-control priority 5 no-drop
+exit
+exit
+!
+.
+.
+----
+
+NOTE: Pour les ports à haute vitesse entre 0/49 et 0/54 inclus, décommentez chaque port mais ne décommentez qu'une ligne *speed* dans la FCR pour chacun de ces ports, soit :
+
+* Vitesse 100G full duplex
+* Vitesse 40G full duplex
+
+
+comme indiqué dans l'exemple.
+
+Pour les ports à faible vitesse entre 0/17 et 0/48 inclus, décommentez la section 8 ports entière lorsqu'une licence appropriée a été activée.

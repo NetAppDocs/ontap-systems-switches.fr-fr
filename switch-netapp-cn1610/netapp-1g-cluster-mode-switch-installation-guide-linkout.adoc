@@ -1,0 +1,16 @@
+---
+permalink: switch-netapp-cn1610/netapp-1g-cluster-mode-switch-installation-guide-linkout.html 
+sidebar: sidebar 
+keywords: netapp 1g, cluster-mode switch, installation guide 
+summary: 'Ce guide fournit une présentation des fonctionnalités matérielles et logicielles du commutateur CN1601 et du processus d"installation.' 
+---
+= Installation des commutateurs NetApp 1G Cluster-mode
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Présentation des fonctionnalités matérielles et logicielles du commutateur CN1601 et du processus d'installation.
+
+https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guide d'installation 1G"^]

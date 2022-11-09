@@ -1,0 +1,14 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html 
+sidebar: sidebar 
+keywords: worksheet,cabling sample,blank worksheet 
+summary: 'Les exemples de fiches de câblage fournissent des exemples d"affectations de ports recommandées entre les commutateurs et les contrôleurs. Les feuilles de calcul vides fournissent un modèle que vous pouvez utiliser pour configurer votre cluster.' 
+---
+= Exemple de fiches de câblage vierges
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les exemples de fiches de câblage fournissent des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs. Les feuilles de calcul vides fournissent un modèle que vous pouvez utiliser pour configurer votre cluster.

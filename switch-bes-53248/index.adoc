@@ -1,0 +1,12 @@
+---
+permalink: switch-bes-53248/index.html 
+sidebar: sidebar 
+keywords: broadcom, support, bes, cluster, switch, broadcam-supported bes-53248 cluster switches 
+summary: Commutateurs de cluster BES-53248 pris en charge par Broadcom 
+---
+= Commutateurs de cluster BES-53248 pris en charge par Broadcom
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+

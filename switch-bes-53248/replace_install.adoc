@@ -1,0 +1,148 @@
+---
+permalink: switch-bes-53248/replace-install.html 
+sidebar: sidebar 
+keywords: procedure, perform, initial, installation, bes, cluster, switch, initial installation of the bes-53428 cluster switch - bes-53428 switches 
+summary: 'Vous pouvez utiliser cette procédure pour effectuer l"installation initiale du commutateur de cluster BES-53248.' 
+---
+= Installation initiale du commutateur de cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez utiliser cette procédure pour effectuer l'installation initiale du commutateur de cluster BES-53248.
+
+Vous pouvez télécharger le logiciel Broadcom EFOS applicable pour vos commutateurs de cluster à partir du https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] le site.
+
+EFOS est un large éventail de logiciels de fonctionnalités et de protocoles réseau avancés nécessaires au développement d'une variété de systèmes d'infrastructure Ethernet et IP pour les applications de centre de données. Le logiciel EFOS est une architecture adaptée à tout périphérique d'organisation réseau utilisant des applications de pointe nécessitant une inspection ou une séparation complète des paquets.
+
+Cette procédure récapitule le processus d'installation des commutateurs et de leur exécution :
+
+.Étapes
+. Connectez le port série à l'hôte ou au port série de votre choix.
+. Connectez le port de gestion (le port de clé RJ-45 sur le côté gauche du commutateur) au même réseau que celui où se trouve votre serveur TFTP.
+. Sur la console, définissez les paramètres série côté hôte :
++
+** 115200 bauds
+** 8 bits de données (data bits)
+** 1 bit de stop
+** parité : aucune
+** contrôle de flux : aucun
+
+
+. Connectez-vous au commutateur en tant qu'administrateur et appuyez sur entrée lorsque vous êtes invité à saisir un mot de passe. Le nom du commutateur par défaut est le routage. À l'invite, `enable`. Ceci vous donne accès au mode d’exécution privilégié pour la configuration du commutateur.
++
+[listing, subs="+quotes"]
+----
+User: admin
+Password:
+(Routing)> *enable*
+Password:
+(Routing) #
+----
+. Définissez le nom du commutateur sur cs2 :
++
+[listing, subs="+quotes"]
+----
+(Routing)# *hostname cs2*
+(cs2)#
+----
+. Pour définir une adresse IP statique, utilisez le protocole du port de service, le protocole réseau et les commandes ip du port de service, comme indiqué dans l'exemple.
++
+Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ip ipaddr netmask gateway*
+----
+. Vérifiez les résultats à l'aide de la commande :
++
+`show serviceport`
+
++
+L'exemple suivant montre les informations IP fournies par le serveur DHCP.
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *show serviceport*
+Interface Status............................... Up
+IP Address..................................... 172.19.2.2
+Subnet Mask.................................... 255.255.255.0
+Default Gateway................................ 172.19.2.254
+IPv6 Administrative Mode....................... Enabled
+IPv6 Prefix is ................................ fe80::dac4:97ff:fe71:123c/64
+IPv6 Default Router............................ fe80::20b:45ff:fea9:5dc0
+Configured IPv4 Protocol....................... DHCP
+Configured IPv6 Protocol....................... None
+IPv6 AutoConfig Mode........................... Disabled
+Burned In MAC Address.......................... D8:C4:97:71:12:3C
+----
+. Configurez le domaine et le serveur de noms :
++
+`configure`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *configure*
+(cs2) (Config)# *ip domain name company.com*
+(cs2) (Config)# *ip name server 10.10.99.1 10.10.99.2*
+(cs2) (Config)# *exit*
+(cs2)#
+----
+. Configurez le serveur NTP.
++
+.. Configurer le fuseau horaire et la synchronisation de l'heure (SNTP) :
++
+`sntp`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *configure*
+(cs2) (Config)# *sntp client mode unicast*
+(cs2) (Config)# *sntp server 10.99.99.5*
+(cs2) (Config)# *clock timezone -7*
+(cs2) (Config)# *exit*
+(cs2)#
+----
+.. Configurez l'heure manuellement :
++
+`clock`
+
++
+[listing, subs="+quotes"]
+----
+(cs2) # *configure*
+(cs2) (Config)# *no sntp client mode*
+(cs2) (Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60* zone EST
+(cs2) (Config)# *clock timezone -5 zone EST*
+(cs2) (Config)# *clock set 07:00:00*
+(cs2) (Config)# *clock set 10/20/2020*
+
+(cs2) (Config)# *show clock*
+
+07:00:11 EST(UTC-5:00) Oct 20 2020
+No time source
+
+(cs2) (Config)# *exit*
+
+(cs2)# *write memory*
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully .
+
+Configuration Saved!
+----
+
+
+

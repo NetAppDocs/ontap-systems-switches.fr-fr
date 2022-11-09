@@ -1,0 +1,70 @@
+---
+permalink: switch-bes-53248/configure-restrictions.html 
+sidebar: sidebar 
+keywords: problem, arise, install, license, debug, command, copy, restriction, limitation, restrictions and limitations - bes-53248 
+summary: 'Lorsque des problèmes surviennent lors de l"installation d"une licence, les commandes de débogage suivantes doivent être exécutées avant de relancer la commande copy pour installer la licence.' 
+---
+= Restrictions et limites
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque des problèmes se produisent lors de l'installation d'une licence, les commandes de débogage suivantes doivent être exécutées avant d'exécuter le `copy` commande de nouveau pour installer la licence.
+
+Commandes de débogage à utiliser : `debug transfer` et `debug license`
+
+[listing, subs="+quotes"]
+----
+(cs2)# *debug transfer*
+Debug transfer output is enabled.
+(cs2)# *debug license*
+Enabled capability licensing debugging.
+----
+Lorsque vous exécutez le `copy` commande avec `debug transfer` et `debug license` options activées, la sortie de journal suivante est renvoyée :
+
+[listing]
+----
+transfer.c(3083):Transfer process  key or certificate file type = 43
+transfer.c(3229):Transfer process  key/certificate cmd = cp /mnt/download//license.dat.1 /mnt/fastpath/ >/dev/null 2>&1CAPABILITY LICENSING :
+Fri Sep 11 13:41:32 2020: License file with index 1 added.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Validating hash value 29de5e9a8af3e510f1f16764a13e8273922d3537d3f13c9c3d445c72a180a2e6.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Parsing JSON buffer {
+  "license": {
+    "header": {
+      "version": "1.0",
+      "license-key": "964B-2D37-4E52-BA14",
+      "serial-number": "QTFCU38290012",
+      "model": "BES-53248"
+  },
+  "description": "",
+  "ports": "0+6"
+  }
+}.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: License data does not contain 'features' field.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Serial number QTFCU38290012 matched.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Model BES-53248 matched.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Feature not found in license file with index = 1.
+CAPABILITY LICENSING : Fri Sep 11 13:41:32 2020: Applying license file 1.
+----
+Recherchez les éléments suivants dans la sortie de débogage :
+
+* Vérifier que le numéro de série correspond à : `Serial number QTFCU38290012 matched.`
+* Vérifier que le modèle du commutateur correspond : `Model BES-53248 matched.`
+* Vérifiez que l'index de licence spécifié n'a pas été utilisé auparavant. Lorsqu'un index de licence est déjà utilisé, l'erreur suivante est renvoyée : `License file /mnt/download//license.dat.1 already exists.`
+* Une licence de port n'est pas une licence de fonction. La déclaration suivante est donc attendue : `Feature not found in license file with index = 1.`
+
+
+Utilisez le `copy` commande pour sauvegarder les licences de port vers le serveur :
+
+[listing, subs="+quotes"]
+----
+(cs2)# *copy nvram:license-key 1 scp://<UserName>@<IP_address>/saved_license_1.dat*
+----
+Voir link:configure-licenses.html["Installation des licences pour les commutateurs de cluster BES-53248"] pour plus de détails sur les versions de micrologiciel prises en charge pour les licences disponibles.
+
+
+CAUTION: Si vous devez rétrograder le logiciel du commutateur à partir de la version 3.4.4.6, les licences sont supprimées. Il s'agit d'un comportement attendu.
+
+Vous devez installer une ancienne licence appropriée avant de revenir à une version antérieure du logiciel.

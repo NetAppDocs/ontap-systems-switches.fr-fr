@@ -13,6 +13,7 @@ summary: 'Le système d"exploitation Cumulus Linux (CL) peut être installé lor
 [role="lead"]
 Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE.
 
+.Avant de commencer
 Les hypothèses suivantes sont faites :
 
 * Vous disposez de connaissances Linux de niveau intermédiaire.

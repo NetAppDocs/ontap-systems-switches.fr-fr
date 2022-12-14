@@ -13,6 +13,7 @@ summary: 'Lorsque vous installez un fichier RCF (Reference Configuration File), 
 [role="lead"]
 Lorsque vous installez un fichier RCF (Reference Configuration File), vous devez d'abord migrer les LIFs du cluster à l'écart du commutateur cs2. Une fois le FCR installé et validé, les LIF peuvent être rapatriées.
 
+.Avant de commencer
 Vous devez avoir enregistré la configuration en cours d'exécution sur votre commutateur.
 
 .Étapes

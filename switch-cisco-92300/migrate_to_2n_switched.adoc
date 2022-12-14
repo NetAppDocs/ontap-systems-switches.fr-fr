@@ -13,6 +13,7 @@ summary: 'Si vous disposez déjà d"un environnement de cluster sans commutateur
 [role="lead"]
 Si vous disposez déjà d'un environnement de cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster avec commutateur à deux nœuds à l'aide des commutateurs Cisco Nexus 92300YC. Vous pouvez ainsi évoluer au-delà de deux nœuds du cluster.
 
+.Avant de commencer
 Configuration sans commutateur à 2 nœuds :
 
 * La configuration sans commutateur à deux nœuds doit être correctement configurée et fonctionnelle.
@@ -38,6 +39,7 @@ Le https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - interrupteurs_"^] c
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
 
 * Les noms des commutateurs 92300YC sont cs1 et cs2.

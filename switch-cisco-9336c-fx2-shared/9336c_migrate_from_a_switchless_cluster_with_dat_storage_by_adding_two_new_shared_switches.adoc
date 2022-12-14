@@ -50,6 +50,7 @@ Si vous disposez déjà d'un environnement en cluster sans commutateur à deux n
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
 
 * Les noms des commutateurs 9336C-FX2 sont _cs1_ et _cs2_.

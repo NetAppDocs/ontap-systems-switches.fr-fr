@@ -13,6 +13,7 @@ summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux sur un r�
 [role="lead"]
 Lors du remplacement des commutateurs de stockage Cisco Nexus 9336C-FX2, vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage.
 
+.Avant de commencer
 Avant d'installer le logiciel NX-OS et les RCFC sur un commutateur de stockage Cisco Nexus 9336C-FX2, vérifiez que les conditions suivantes sont réunies :
 
 * Votre système peut prendre en charge les commutateurs de stockage Cisco Nexus 9336C-FX2.
@@ -25,6 +26,7 @@ NOTE: Notez que la syntaxe des commandes peut être utilisée dans les versions 
 * Vous devez avoir téléchargé les CFR applicables.
 
 
+.Description de la tâche
 La configuration réseau existante doit présenter les caractéristiques suivantes :
 
 * La page des commutateurs Ethernet Cisco présente les dernières versions de RCF et NX-OS sur vos commutateurs.

@@ -13,6 +13,7 @@ summary: 'Vous pouvez utiliser cette procédure pour installer le fichier de con
 [role="lead"]
 Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état du commutateur de cluster des commutateurs de cluster BES-53248. Dans ONTAP versions 9.5P7 et antérieures et 9.6P2 et antérieures, vous devez télécharger séparément le fichier de configuration du moniteur d'intégrité du commutateur de cluster. Dans ONTAP versions 9.5P8 et ultérieures, 9.6P3 et versions ultérieures, et 9.7 et versions ultérieures, le fichier de configuration du moniteur d'état du commutateur de cluster est fourni avec ONTAP.
 
+.Avant de commencer
 Avant de configurer le moniteur d'état du commutateur pour les commutateurs de cluster BES-53248, vous devez vous assurer que le cluster ONTAP est opérationnel.
 
 

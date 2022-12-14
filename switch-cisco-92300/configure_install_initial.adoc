@@ -13,6 +13,7 @@ summary: 'Cette procédure permet d"effectuer l"installation initiale du commuta
 [role="lead"]
 Cette procédure permet d'effectuer l'installation initiale du commutateur Cisco Nexus 92300YC.
 
+.Description de la tâche
 Vous pouvez télécharger le logiciel NetApp Cisco NX-OS applicable à vos commutateurs à partir du http://mysupport.netapp.com/["Support NetApp"^] le site.
 
 NX-OS est un système d'exploitation réseau destiné à la gamme Nexus de commutateurs Ethernet et aux commutateurs réseau SAN Fibre Channel (FC) proposés par Cisco Systems.

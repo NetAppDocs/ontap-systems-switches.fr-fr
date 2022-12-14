@@ -13,6 +13,7 @@ summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous po
 [role="lead"]
 Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs de cluster BES-53248 pris en charge par Broadcom. Le processus documenté fonctionne pour tous les ports de nœud de cluster utilisant des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau de cluster.
 
+.Description de la tâche
 La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur.
 
 Assurez-vous que le commutateur du bloc d'instruments BES-53248 est configuré comme décrit à la section link:replace-requirements.html["Configuration et configuration des commutateurs BES-53248 pris en charge par Broadcom"^] avant de commencer ce processus de migration.

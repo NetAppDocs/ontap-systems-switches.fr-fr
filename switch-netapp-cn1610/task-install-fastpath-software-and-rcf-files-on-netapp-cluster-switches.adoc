@@ -25,6 +25,7 @@ Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * les deux noms de commutateurs NetApp sont cs1 et cs2.

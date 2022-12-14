@@ -13,6 +13,7 @@ summary: 'Remplacement d"un commutateur de stockage NVIDIA SN2100 défectueux en
 [role="lead"]
 Lors du remplacement des commutateurs de stockage NVIDIA SN2100, vous devez connaître certaines informations de configuration, les connexions des ports et les exigences de câblage.
 
+.Avant de commencer
 Vous devez vérifier que les conditions suivantes sont présentes avant d'installer le logiciel Cumulus et les RCFs sur un commutateur de stockage NVIDIA SN2100 :
 
 * Votre système peut prendre en charge les switchs de stockage NVIDIA SN2100.
@@ -20,6 +21,7 @@ Vous devez vérifier que les conditions suivantes sont présentes avant d'instal
 * Le http://hwu.netapp.com["Hardware Universe"^] fournit des détails complets sur les ports pris en charge et leurs configurations.
 
 
+.Description de la tâche
 La configuration réseau existante doit présenter les caractéristiques suivantes :
 
 * Assurez-vous que toutes les étapes de dépannage ont été effectuées pour vérifier que votre commutateur doit être remplacé.
@@ -38,6 +40,7 @@ Les caractéristiques du commutateur NVIDIA SN2100 de remplacement doivent être
 * La personnalisation initiale du commutateur doit être terminée.
 
 
+.Récapitulatif de la procédure
 Cette procédure remplace le deuxième commutateur de stockage NVIDIA SN2100 sw2 par le nouveau commutateur NVIDIA SN2100 nsw2. Les deux nœuds sont le nœud1 et le nœud2.
 
 Étapes à suivre :

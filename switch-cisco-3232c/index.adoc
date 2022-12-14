@@ -21,6 +21,7 @@ Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluste
 * Vous pouvez installer l'armoire système du switch Cisco Nexus 3232C (X190100) de NetApp avec les supports personnalisés fournis avec le switch, ou l'installer dans un rack avec les supports standard également inclus avec le switch.
 
 
+.Documentation disponible
 Le tableau suivant répertorie la documentation disponible pour les switchs Cisco Nexus 3232C.
 
 |===

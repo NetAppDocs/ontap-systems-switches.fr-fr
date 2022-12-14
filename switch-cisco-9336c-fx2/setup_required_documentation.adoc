@@ -13,6 +13,7 @@ summary: Vous avez besoin de documentation spécifique sur les commutateurs et l
 [role="lead"]
 Vous avez besoin de documentation spécifique sur les commutateurs et les contrôleurs pour configurer votre cluster ONTAP.
 
+.Documentation requise pour les commutateurs du réseau de cluster
 Pour configurer les commutateurs Cisco Nexus 9336C-FX2 et 92300YC, vous devez disposer de la documentation suivante sur le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page :
 
 [cols="1,2"]
@@ -192,6 +193,7 @@ _Informations réglementaires, de conformité et de sécurité pour la gamme Cis
 Fournit des informations réglementaires, de sécurité et de conformité aux organismes internationaux pour les commutateurs de la gamme Nexus 5000.
 
 |===
+.Documentation requise pour les systèmes ONTAP pris en charge
 Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation à partir du https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"^].
 
 [cols="1,2"]
@@ -219,6 +221,7 @@ https://hwu.netapp.com["Hardware Universe"^]
 Fournit des informations sur la compatibilité et la configuration matérielle NetApp.
 
 |===
+.Documentation du kit de rails et de l'armoire
 Pour installer un commutateur Cisco dans une armoire NetApp, consultez la documentation matérielle suivante :
 
 [cols="1,2"]

@@ -13,6 +13,7 @@ summary: 'Pour remplacer les commutateurs de cluster CN1610 existants d"un clust
 [role="lead"]
 Pour remplacer les commutateurs de cluster CN1610 existants d'un cluster par des commutateurs de cluster BES-53248 pris en charge par Broadcom, vous devez effectuer une séquence de tâches spécifique.
 
+.Ce dont vous avez besoin
 Les exemples de cette procédure utilisent deux nœuds, chacun déployant deux ports d'interconnexion de cluster 10 GbE : `e0a` et `e0b`.
 
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
@@ -26,6 +27,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour le noeud 1, et `node2_clus1` et `node2_clus2` pour le noeud 2.
 
 
+.Description de la tâche
 Cette procédure couvre le scénario suivant :
 
 * Le cluster commence avec deux nœuds connectés à deux commutateurs de cluster CN1610.
@@ -572,6 +574,7 @@ cluster::*> *system node autosupport invoke -node \* -type all -message MAINT=EN
 ----
 
 
+.Une fois que vous avez terminé
 Voir link:configure-health-monitor.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"] et link:configure-log-collection.html["Configurez la fonction de collecte du journal du commutateur de cluster"] pour connaître les étapes requises pour activer la collecte des journaux du commutateur d'intégrité du cluster, utilisée pour collecter les fichiers journaux relatifs au commutateur.
 
 *Informations connexes*

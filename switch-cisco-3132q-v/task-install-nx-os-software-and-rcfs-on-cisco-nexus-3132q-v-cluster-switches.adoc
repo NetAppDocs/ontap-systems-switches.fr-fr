@@ -13,6 +13,7 @@ summary: 'Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration F
 [role="lead"]
 Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) doivent être installés sur les commutateurs de cluster Cisco Nexus 3132Q-V.
 
+.Avant de commencer
 Les conditions suivantes doivent exister avant d'installer le logiciel NX-OS et les fichiers de configurations de référence (RCFC) sur le commutateur de cluster :
 
 * Le cluster doit fonctionner parfaitement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
@@ -25,6 +26,7 @@ Les conditions suivantes doivent exister avant d'installer le logiciel NX-OS et 
 * Vous devez avoir la FCR actuelle.
 
 
+.Configuration initiale
 Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`.
 
 Voir la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.

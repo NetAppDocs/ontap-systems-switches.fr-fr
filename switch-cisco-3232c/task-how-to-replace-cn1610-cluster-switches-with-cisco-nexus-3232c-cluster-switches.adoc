@@ -13,6 +13,7 @@ summary: 'Pour remplacer les switchs de cluster CN1610 existants d"un cluster pa
 [role="lead"]
 Pour remplacer les switchs de cluster CN1610 existants d'un cluster par des switchs de cluster Cisco Nexus 3232C, vous devez effectuer une séquence de tâches spécifique.
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les nœuds sont n1, n2, n3 et n4.
@@ -30,8 +31,8 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 
 La liste suivante indique les étapes à suivre lors du changement de commutateurs de cluster :
 
-* I. Remplacer le commutateur CL2 du bloc d'instruments par C2 (étapes ,1-,22)
-* II Remplacer le commutateur CL1 du bloc d'instruments par C1 (étapes ,23-,40)
+* I. Remplacer le commutateur CL2 du bloc d'instruments par C2 (étapes <<one,1>>-<<twentytwo,22>>)
+* II Remplacer le commutateur CL1 du bloc d'instruments par C1 (étapes <<twentythree,23>>-<<forty,40>>)
 
 
 Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux câbles fibre d'interconnexion de cluster 40 GbE : e4a et e4e. Le link:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les câbles à fibre optique du cluster de vos plates-formes.

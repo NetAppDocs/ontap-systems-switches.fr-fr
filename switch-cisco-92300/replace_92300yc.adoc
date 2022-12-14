@@ -13,6 +13,7 @@ summary: 'Le remplacement d"un commutateur Nexus 92300YC défectueux sur un rés
 [role="lead"]
 Le remplacement d'un commutateur Nexus 92300YC défectueux sur un réseau en cluster est une procédure sans interruption.
 
+.Avant de commencer
 Les conditions suivantes doivent exister avant d'effectuer le remplacement du commutateur dans l'environnement actuel et sur le commutateur de remplacement.
 
 * Infrastructure réseau et cluster existante :
@@ -41,6 +42,7 @@ Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, doit êt
 
 
 
+.Description de la tâche
 Vous devez exécuter la commande pour migrer une LIF de cluster à partir du nœud sur lequel la LIF de cluster est hébergée.
 
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :

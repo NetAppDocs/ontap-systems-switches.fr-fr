@@ -68,6 +68,7 @@ Voir https://hwu.netapp.com["Hardware Universe"] pour en savoir plus.
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les switchs de cluster Cisco Nexus 3232C existants sont _c1_ et _c2_.

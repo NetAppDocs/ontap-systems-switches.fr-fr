@@ -19,6 +19,7 @@ summary:
 
 Le logiciel Cisco NX-OS et le fichier RCF (Reference Configuration File) doivent être installés sur les commutateurs de cluster Cisco Nexus 9336C-FX2.
 
+.Avant de commencer
 Les conditions suivantes doivent être réunies avant d'installer le logiciel NX-OS et RCF sur le commutateur de cluster :
 
 * Le cluster doit fonctionner parfaitement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
@@ -31,6 +32,7 @@ Les conditions suivantes doivent être réunies avant d'installer le logiciel NX
 * Vous devez avoir la FCR actuelle.
 
 
+.Configuration initiale
 Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 100 GbE e3a et e3b, comme par contrôleur A400. Voir la https://hwu.netapp.com["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
@@ -459,6 +461,7 @@ GEM  FPGA                        0x2
 
 Vous pouvez installer la FCR après la première configuration du commutateur de cluster Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF sur votre commutateur de cluster.
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les noms des deux commutateurs Cisco sont `cs1` et `cs2`.
@@ -1022,6 +1025,7 @@ RPC status:
 
 Les fichiers RCF (Reference Configuration File) peuvent être mis à niveau sur les commutateurs de stockage Cisco Nexus 9336C-FX2.
 
+.Avant de commencer
 Les conditions suivantes doivent exister avant de mettre à niveau la FCR sur le commutateur de stockage :
 
 * Le commutateur doit fonctionner entièrement (il ne doit pas y avoir d'erreurs dans les journaux ni de problèmes similaires).

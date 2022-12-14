@@ -13,6 +13,7 @@ summary: Vous pouvez remplacer un switch de stockage Cisco Nexus 3232C défectue
 [role="lead"]
 Vous pouvez remplacer un switch de stockage Cisco Nexus 3232C défectueux et non disruptive en exécutant une séquence de tâches spécifique.
 
+.Avant de commencer
 La configuration réseau existante doit présenter les caractéristiques suivantes :
 
 * La page des commutateurs Ethernet Cisco présente les dernières versions de RCF et NX-OS sur vos commutateurs.
@@ -35,10 +36,10 @@ Les caractéristiques du switch Cisco Nexus 3232C de remplacement doivent être 
 
 *Résumé de la procédure :*
 
-* *Confirmer que le commutateur à remplacer est S2 (étapes ,1-,5)*
-* *Débrancher les câbles du commutateur S2 ,(Étape 6)*
-* *Rebrancher les câbles sur le commutateur NS2 (étape ,7)*
-* *Vérifiez toutes les configurations de périphériques sur le commutateur NS2 (étapes ,8-,10)*
+* *Confirmer que le commutateur à remplacer est S2 (étapes <<one,1>>-<<five,5>>)*
+* *Débrancher les câbles du commutateur S2 <<six,(Étape 6)>>*
+* *Rebrancher les câbles sur le commutateur NS2 (étape <<seven,7>>)*
+* *Vérifiez toutes les configurations de périphériques sur le commutateur NS2 (étapes <<eight,8>>-<<ten,10>>)*
 * Cette procédure remplace le second switch de stockage Nexus 3232C S2 par le nouveau switch 3232C NS2.
 * Les deux nœuds sont le nœud1 et le nœud2.
 

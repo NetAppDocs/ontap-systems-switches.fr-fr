@@ -20,6 +20,7 @@ Avant d'installer le script RCF, assurez-vous que les éléments suivants sont d
 
 IMPORTANT: Voir link:install_cabling_config_considerations_sn2100.html["Considérations relatives au câblage et à la configuration"^] pour mises en garde et autres détails.
 
+.Versions actuelles du script RCF
 Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
 
 * Mise en cluster : *MSN2100-RCF-v1.8-Cluster*

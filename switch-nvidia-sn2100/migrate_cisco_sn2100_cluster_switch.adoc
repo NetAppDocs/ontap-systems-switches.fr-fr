@@ -22,6 +22,7 @@ Les commutateurs de cluster Cisco suivants sont pris en charge :
 * Nexus 3132Q-V
 
 
+.Avant de commencer
 Vous pouvez migrer d'anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs de cluster NVIDIA SN2100.
 
 * Le cluster existant doit être correctement configuré et opérationnel.
@@ -44,6 +45,7 @@ NOTE: Dans cette procédure, les switchs de cluster Cisco Nexus 3232C sont utili
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les switchs de cluster Cisco Nexus 3232C existants sont _c1_ et _c2_.

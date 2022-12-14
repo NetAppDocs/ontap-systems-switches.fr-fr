@@ -13,6 +13,7 @@ summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous po
 [role="lead"]
 Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs du réseau en cluster NetApp CN1610. La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur.
 
+.Description de la tâche
 La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur.
 
 Les nœuds FAS22xx permettent un port de cluster unique sur chaque contrôleur.

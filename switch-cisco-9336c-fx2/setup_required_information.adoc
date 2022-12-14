@@ -13,6 +13,7 @@ summary: Pour configurer votre cluster, vous devez disposer du nombre et du type
 [role="lead"]
 Pour configurer votre cluster, vous devez disposer du nombre et du type appropriés de câbles et de connecteurs de câbles pour les commutateurs. Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console des commutateurs avec le câble console inclus ; vous devez également fournir des informations réseau spécifiques.
 
+.Informations réseau requises pour tous les commutateurs
 Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :
 
 * Sous-réseau IP pour le trafic du réseau de gestion

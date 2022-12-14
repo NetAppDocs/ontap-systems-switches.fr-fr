@@ -17,6 +17,7 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez
 
 Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire de commutation double/simple NVIDIA à l'aide des supports standard fournis avec le commutateur.
 
+.Détails sur les commutateurs SN2100 et le kit de rails
 Le tableau suivant répertorie le numéro de référence et la description des commutateurs et kits de rails MSN2100 :
 
 [cols="1,2"]
@@ -68,6 +69,7 @@ Kit de rails, commutateur simple NVIDIA faible profondeur
 
 IMPORTANT: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].
 
+.Documentation disponible
 Le tableau suivant répertorie la documentation disponible pour les commutateurs NVIDIA SN2100.
 
 [cols="1,2"]

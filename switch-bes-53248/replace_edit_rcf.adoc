@@ -14,7 +14,7 @@ summary: Pour activer les ports récemment sous licence, vous devez modifier la 
 Pour activer les ports récemment sous licence, vous devez modifier la dernière version de RCF et annuler ainsi les détails de ce port. La licence par défaut active les ports 0/1 à 0/16 et 0/55 à 0/56, tandis que les nouveaux ports sous licence seront entre 0/17 et 0/54 selon le type et le nombre de licences disponibles.
 
 
-NOTE: Si vous essayez de modifier une FCR installée précédemment, le processus peut échouer, car il existe une configuration existante pour d'autres zones du FCR, voir  a previously installed RCF file.
+NOTE: Si vous essayez de modifier une FCR installée précédemment, le processus peut échouer, car il existe une configuration existante pour d'autres zones du FCR, voir <<Modifiez un fichier RCF installé précédemment>>.
 
 Pour plus de détails sur les types de licence disponibles pour l'utilisation sur le commutateur de cluster BES-53248, reportez-vous à la section link:configure-licenses.html["Installation des licences pour les commutateurs de cluster BES-53248"].
 

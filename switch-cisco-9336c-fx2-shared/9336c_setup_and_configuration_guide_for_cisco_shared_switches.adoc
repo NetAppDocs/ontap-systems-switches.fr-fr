@@ -63,7 +63,7 @@ Si vous ne disposez pas déjà des informations et de la documentation de config
 * Vous devez avoir accès à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
 * Vous devez disposer de la documentation de commutateur partagé requise.
 +
-Voir  documentation for shared switches pour en savoir plus.
+Voir <<Documentation requise pour les commutateurs partagés>> pour en savoir plus.
 
 * Vous devez disposer de la documentation requise sur le contrôleur et de la documentation ONTAP.
 +
@@ -76,6 +76,7 @@ Voir https://docs.netapp.com/us-en/ontap/index.html["Documentation NetApp ONTAP"
 
 NOTE: Outre les graphiques de câblage, ce guide fournit des exemples de feuilles de calcul contenant des affectations de ports recommandées et des feuilles de calcul vierges que vous pouvez utiliser pour configurer votre réseau. Pour plus d'informations, reportez-vous à la https://hwu.netapp.com["Hardware Universe"].
 
+.Description de la tâche
 Tous les commutateurs partagés Cisco sont livrés avec la configuration par défaut Cisco standard. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
 
 
@@ -87,11 +88,11 @@ IMPORTANT: Vous devez télécharger les CFR NetApp applicables à partir du http
 
 . Installez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224. Voir lahttps://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Installation d'un commutateur de cluster Cisco Nexus 9336C-FX2 et d'un panneau d'intercommunication dans une armoire NetApp"] Guide pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp.
 . Mettez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224 sous tension.
-. [[step3]]effectuer une configuration initiale des commutateurs en fonction des informations fournies dans  configuration information.
+. [[step3]]effectuer une configuration initiale des commutateurs en fonction des informations fournies dans <<Informations de configuration requises>>.
 . Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.
 . Vérifier la version logicielle sur les commutateurs et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs.
 +
-Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le fichier de configuration de référence du commutateur réseau NetApp et la fusionner avec la configuration enregistrée dans ,Étape 3. Vous pouvez télécharger le fichier et les instructions à partir du https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] page. Si vous disposez de vos propres commutateurs, reportez-vous à la http://www.cisco.com["Cisco"] le site.
+Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le fichier de configuration de référence du commutateur réseau NetApp et la fusionner avec la configuration enregistrée dans <<step3,Étape 3>>. Vous pouvez télécharger le fichier et les instructions à partir du https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] page. Si vous disposez de vos propres commutateurs, reportez-vous à la http://www.cisco.com["Cisco"] le site.
 
 
 

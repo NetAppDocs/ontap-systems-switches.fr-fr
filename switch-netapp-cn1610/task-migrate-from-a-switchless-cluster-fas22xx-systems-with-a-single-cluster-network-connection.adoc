@@ -21,6 +21,7 @@ Si vous possédez des systèmes FAS22xx dans un cluster existant sans commutateu
 * Tous les ports de cluster doivent être dans le `up` état.
 
 
+.Description de la tâche
 Cette procédure constitue une procédure sans interruption qui supprime la connectivité directe du cluster dans un environnement sans commutateur et remplace chaque connexion au commutateur par une connexion au nœud partenaire.
 
 .Étapes

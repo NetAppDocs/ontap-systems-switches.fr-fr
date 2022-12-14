@@ -13,6 +13,7 @@ summary: 'Vous pouvez installer le commutateur et le panneau d"intercommunicatio
 [role="lead"]
 Vous pouvez installer le commutateur et le panneau d'intercommunication Cisco Nexus 9336C-FX2 dans une armoire NetApp avec les supports standard inclus avec le commutateur.
 
+.Description de la tâche
 Vous devez avoir passé en revue les exigences de préparation initiale, le contenu du kit et les précautions de sécurité.
 
 https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guide d'installation matérielle Cisco Nexus 9000 Series"^]
@@ -61,9 +62,9 @@ image::../media/cisco_9148_jumper_cords.gif[cordons de pontage cisco 9148]
 +
 image::../media/3132q_front_bracket.gif[support avant]
 
-.. Répéter l'étape ,2a avec l'autre support de montage en rack avant de l'autre côté du commutateur.
+.. Répéter l'étape <<SUBSTEP_9F2E2DDAEE084FE5853D1A6C6D945941,2a>> avec l'autre support de montage en rack avant de l'autre côté du commutateur.
 .. Installez le support de montage arrière en rack sur le châssis du commutateur.
-.. Répéter l'étape ,2c avec l'autre support de montage arrière en rack de l'autre côté du commutateur.
+.. Répéter l'étape <<SUBSTEP_53A502380D6D4F058F62ED5ED5FC2000,2c>> avec l'autre support de montage arrière en rack de l'autre côté du commutateur.
 
 
 . Poser les écrous à collier aux emplacements des trous carrés des quatre montants IEA.
@@ -84,8 +85,8 @@ image::../media/3132q_v_slider_rails.gif[rails coulissants 3132q v]
 ... Serrez les vis des rails coulissants sur les montants de l'armoire.
 
 
-.. Répéter l'étape ,4 a. pour le montant arrière droit.
-.. Répéter les étapes ,4 a. et ,4b Aux emplacements RU41 sur l'armoire.
+.. Répéter l'étape <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4 a.>> pour le montant arrière droit.
+.. Répéter les étapes <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4 a.>> et <<SUBSTEP_593967A423024594B9A41A04703DC458,4b>> Aux emplacements RU41 sur l'armoire.
 
 
 . Installez le commutateur dans l'armoire.
@@ -112,7 +113,7 @@ image::../media/3132q_attaching.gif[fixation de 332q]
 
 
 .. Le châssis étant désormais pris en charge sans assistance, serrez à fond les vis avant aux montants.
-.. Répéter les étapes ,5 a. à ,5c Pour le second contacteur à l'emplacement RU42.
+.. Répéter les étapes <<SUBSTEP_4F538C8C55E34C5FB5D348391088A0FE,5 a.>> à <<SUBSTEP_EB8FE2FED2CA4120B709CC753C0F50FC,5c>> Pour le second contacteur à l'emplacement RU42.
 +
 
 NOTE: En utilisant le commutateur entièrement installé comme support, il n'est pas nécessaire de maintenir l'avant du deuxième commutateur pendant le processus d'installation.

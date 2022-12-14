@@ -13,6 +13,7 @@ summary: Vous avez besoin de documentation spécifique sur les commutateurs et l
 [role="lead"]
 Vous avez besoin de documentation spécifique sur les commutateurs et le contrôleur pour configurer votre configuration Cluster-mode.
 
+.Documentation requise pour les commutateurs de cluster BES-53248
 Pour configurer le commutateur de cluster BES-53248, vous devez disposer des documents suivants sur le site de support Broadcom : https://www.broadcom.com/support/bes-switch["Gamme de commutateurs Ethernet Broadcom"^]
 
 [cols="1,2"]
@@ -68,6 +69,7 @@ _EFOS Notes de mise à jour v3.4.3_
 Fournit des informations spécifiques à la version du logiciel BES-53248.
 
 |===
+.Documentation requise pour les systèmes ONTAP pris en charge
 Pour configurer un système ONTAP, vous devez disposer des documents suivants sur le site de support NetApp à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
 [cols="1,2"]

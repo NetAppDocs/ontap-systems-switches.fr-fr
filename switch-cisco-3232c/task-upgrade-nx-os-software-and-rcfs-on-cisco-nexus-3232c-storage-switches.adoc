@@ -13,6 +13,7 @@ summary: 'Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration F
 [role="lead"]
 Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) peuvent être mis à niveau sur des switchs de stockage Cisco Nexus 3232C.
 
+.Avant de commencer
 Les conditions suivantes doivent être réunies avant de mettre à niveau le logiciel NX-OS et les RCFC sur le commutateur de stockage :
 
 * Le commutateur doit fonctionner entièrement (il ne doit pas y avoir d'erreurs dans les journaux ni de problèmes similaires).
@@ -26,11 +27,11 @@ Si vous devez modifier les variables de démarrage pour qu'elles reflètent les 
 
 *Résumé de la procédure :*
 
-* **I. Vérifier l'état de santé des commutateurs et des ports (,Étapes 1- ,4)**
-* **II Copiez le FCR sur le commutateur Cisco S2 (,Étapes 5 - ,8)**
-* **III Téléchargez l'image NX-OS sur le commutateur Cisco S2 et redémarrez (,Étapes 9 - ,12)**
-* **IV Vérifier à nouveau l'état de santé des commutateurs et des ports (,Étapes 13 - ,15)**
-* **V. Recommencez ,Étapes 1- ,17 Pour le commutateur Cisco S1.**
+* **I. Vérifier l'état de santé des commutateurs et des ports (<<step1_upgrade_3232c,Étapes 1>>- <<step4_upgrade_3232c,4>>)**
+* **II Copiez le FCR sur le commutateur Cisco S2 (<<step5_upgrade_3232c,Étapes 5>> - <<step8_upgrade_3232c,8>>)**
+* **III Téléchargez l'image NX-OS sur le commutateur Cisco S2 et redémarrez (<<step9_upgrade_3232c,Étapes 9>> - <<step12_upgrade_3232c,12>>)**
+* **IV Vérifier à nouveau l'état de santé des commutateurs et des ports (<<step13_upgrade_3232c,Étapes 13>> - <<step15_upgrade_3232c,15>>)**
+* **V. Recommencez <<step1_upgrade_3232c,Étapes 1>>- <<step17_upgrade_3232c,17>> Pour le commutateur Cisco S1.**
 
 
 Les exemples de cette procédure utilisent deux nœuds ; le nœud 1 avec deux ports de stockage et le nœud 2 avec deux ports de stockage. Voir la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier que les ports de stockage de vos plates-formes sont corrects.

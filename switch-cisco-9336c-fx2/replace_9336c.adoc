@@ -13,6 +13,7 @@ summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux sur un r�
 [role="lead"]
 Le remplacement d'un commutateur Nexus 9336C-FX2 défectueux sur un réseau en cluster est une procédure sans interruption (NDU).
 
+.Avant de commencer
 Les conditions suivantes doivent exister avant d'effectuer le remplacement du commutateur dans l'environnement actuel et sur le commutateur de remplacement.
 
 * Infrastructure réseau et cluster existante :

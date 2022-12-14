@@ -33,6 +33,7 @@ Les dernières versions de RCF et de NX-OS sur vos commutateurs.
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Commutateurs de cluster Nexus 3132Q-V, C1 et C2.
@@ -57,9 +58,9 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs C
 
 ====
 * Le cluster commence par deux nœuds connectés et fonctionne dans un cluster à deux nœuds sans commutateur.
-* Le premier port du cluster a été déplacé vers C1 (,Étapes 1- ,20)
-* Le second port du cluster a été déplacé vers C2 (,Étapes 21- ,32).
-* Désactivez l'option de cluster sans commutateur à deux nœuds (,Étapes 33- ,35)
+* Le premier port du cluster a été déplacé vers C1 (<<step1_migrate_2node3132q,Étapes 1>>- <<step20_migrate_2node3132q,20>>)
+* Le second port du cluster a été déplacé vers C2 (<<step21_migrate_2node3132q,Étapes 21>>- <<step32_migrate_2node3132q,32>>).
+* Désactivez l'option de cluster sans commutateur à deux nœuds (<<step33_migrate_2node3132q,Étapes 33>>- <<step35_migrate_2node3132q,35>>)
 
 
 .Étapes

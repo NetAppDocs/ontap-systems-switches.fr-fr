@@ -17,6 +17,7 @@ Si vous disposez d'un cluster à deux nœuds avec des commutateurs d'interconnex
 * Chaque nœud doit disposer du nombre requis de ports de cluster dédiés qui fournissent des connexions d'interconnexion de cluster redondantes pour prendre en charge votre configuration système, par exemple deux ports redondants pour un système avec deux ports d'interconnexion de cluster dédiés sur chaque nœud.
 
 
+.Description de la tâche
 La procédure suivante supprime les commutateurs du cluster dans un cluster à deux nœuds et remplace chaque connexion au commutateur par une connexion directe au nœud partenaire.
 
 image::../media/tnsc_clusterswitches_and_direct_connections.PNG[Les commutateurs du cluster ont été remplacés par des connexions directes]

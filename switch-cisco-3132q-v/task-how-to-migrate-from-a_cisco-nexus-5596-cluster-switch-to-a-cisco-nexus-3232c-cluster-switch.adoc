@@ -13,6 +13,7 @@ summary: Pour remplacer un commutateur de cluster Nexus 5596 par un commutateur 
 [role="lead"]
 Pour remplacer un commutateur de cluster Nexus 5596 par un commutateur de cluster Nexus 3132Q-V, vous devez effectuer une séquence spécifique de tâches.
 
+.Description de la tâche
 Les exemples de cette procédure décrivent le remplacement des commutateurs Nexus 5596 par des commutateurs Nexus 3132Q-V. Vous pouvez utiliser ces étapes (avec modifications) pour remplacer d'autres commutateurs Cisco plus anciens. La procédure utilise la nomenclature de commutateur et de nœud suivante :
 
 * Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
@@ -34,7 +35,7 @@ NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutat
 Cette procédure couvre les scénarios suivants :
 
 * Le cluster commence avec deux nœuds connectés et fonctionnant dans un 2 commutateurs de cluster Nexus 5596.
-* Le commutateur CL2 du bloc d'instruments à remplacer par C2 (,Étapes 1 - ,19)
+* Le commutateur CL2 du bloc d'instruments à remplacer par C2 (<<step1_replace5596_3232q,Étapes 1>> - <<step19_replace5596_3232q,19>>)
 +
 ** Le trafic sur tous les ports de cluster et les LIFs de tous les nœuds connectés à CL2 est migré vers les premiers ports de cluster et les LIFs connectés à CL1.
 ** Déconnectez le câblage de tous les ports du cluster sur tous les nœuds connectés à CL2, puis utilisez le câblage de déconnexion pris en charge pour reconnecter les ports au nouveau commutateur C2 du cluster.
@@ -42,7 +43,7 @@ Cette procédure couvre les scénarios suivants :
 ** Le trafic sur tous les ports de cluster et les LIFs connectés à C2 sur tous les nœuds est rétabli.
 
 
-* Le commutateur CL2 du bloc d'instruments à remplacer par C2 (,Étapes 20 - ,33)
+* Le commutateur CL2 du bloc d'instruments à remplacer par C2 (<<step20_replace5596_3232q,Étapes 20>> - <<step33_replace5596_3232q,33>>)
 +
 ** Le trafic sur tous les ports de cluster ou LIF de tous les nœuds connectés à CL1 est migré vers les ports du second cluster ou les LIF connectées à C2.
 ** Débranchez le câblage de tous les ports de cluster de tous les nœuds connectés à CL1 et reconnectez-les au nouveau commutateur C1 à l'aide de câbles de rupture pris en charge.
@@ -50,7 +51,7 @@ Cette procédure couvre les scénarios suivants :
 ** Le trafic sur tous les ports de cluster ou LIFs connectés à C1 sur tous les nœuds est rétabli.
 
 
-* Deux nœuds FAS9000 ont été ajoutés au cluster avec des exemples de détails du cluster (,Étapes 34 - ,37).
+* Deux nœuds FAS9000 ont été ajoutés au cluster avec des exemples de détails du cluster (<<step34_replace5596_3232q,Étapes 34>> - <<step37_replace5596_3232q,37>>).
 
 
 .Étapes

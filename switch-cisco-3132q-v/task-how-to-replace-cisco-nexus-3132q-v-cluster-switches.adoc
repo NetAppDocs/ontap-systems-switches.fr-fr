@@ -35,6 +35,7 @@ Le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateu
 
 
 
+.Description de la tâche
 Cette procédure remplace le deuxième commutateur CL2 du bloc de commutateurs Nexus 3132Q-V par le nouveau commutateur 332Q-V C2. Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * n1_concluA1 est la première interface logique (LIF) de cluster connectée au commutateur de cluster C1 pour le nœud n1.
@@ -48,7 +49,7 @@ Cette procédure remplace le deuxième commutateur CL2 du bloc de commutateurs N
 Cette procédure couvre le scénario suivant :
 
 * Le cluster commence par quatre nœuds connectés à deux commutateurs de cluster Nexus 3132Q-V, CL1 et CL2.
-* Le commutateur CL2 du bloc d'instruments doit être remplacé par C2 (,Étapes 1 -,21)
+* Le commutateur CL2 du bloc d'instruments doit être remplacé par C2 (<<step1_replace3132q,Étapes 1>> -<<step21_replace3132q,21>>)
 +
 ** Sur chaque nœud, les LIFs de cluster connectées à CL2 sont migrées sur les ports de cluster connectés à CL1.
 ** Débranchez le câblage de tous les ports du CL2 et rebranchez le câblage aux mêmes ports sur le commutateur de remplacement C2.

@@ -22,6 +22,7 @@ Vous devez connaître certaines informations de configuration, les connexions de
 * Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
 
 
+.Avant de commencer
 Vous pouvez migrer d'anciens commutateurs de stockage Cisco sans interruption pour un cluster ONTAP vers des commutateurs de stockage NVIDIA SN2100.
 
 * Le cluster existant doit être correctement configuré et opérationnel.
@@ -44,6 +45,7 @@ NOTE: Dans cette procédure, les commutateurs de stockage Cisco Nexus 9336C-FX2 
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les commutateurs de stockage Cisco Nexus 9336C-FX2 existants sont _S1_ et _S2_.

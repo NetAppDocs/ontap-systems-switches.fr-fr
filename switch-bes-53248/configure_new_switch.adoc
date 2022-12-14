@@ -13,6 +13,7 @@ summary: Vous pouvez configurer un nouveau commutateur de cluster BES-53248 en s
 [role="lead"]
 Vous pouvez configurer un nouveau commutateur de cluster BES-53248 en suivant les étapes décrites dans ce chapitre.
 
+.Description de la tâche
 L'installation du commutateur de cluster BES-53248 sur les systèmes exécutant ONTAP commence par la configuration d'une adresse IP et d'une configuration permettant au commutateur de communiquer via l'interface de gestion. Vous pouvez alors installer le logiciel Ethernet Fabric OS (EFOS), le fichier RCF (Reference Configuration File) et d'autres licences si nécessaire. Cette procédure est destinée à préparer le commutateur BES-53248 avant l'ajout des contrôleurs. De plus, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le moniteur de santé du commutateur de cluster (CSHM) pour les commutateurs de cluster BES-53248. Voir link:configure-health-monitor.html["Installation du fichier de configuration CSHM (Cluster Switch Health Monitor)"] pour en savoir plus.
 
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :

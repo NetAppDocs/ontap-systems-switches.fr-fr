@@ -13,6 +13,7 @@ summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris
 [role="lead"]
 Le remplacement d'un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom sur un réseau de cluster constitue une procédure sans interruption (NDU, non-Disruptive Procedure).
 
+.Avant de commencer
 Les conditions suivantes doivent exister avant d'effectuer le remplacement du commutateur dans l'environnement actuel et sur le commutateur de remplacement.
 
 * Infrastructure réseau et cluster existante :
@@ -38,6 +39,7 @@ Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, doit êt
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les noms des commutateurs BES-53248 existants sont `cs1` et `cs2`.

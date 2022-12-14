@@ -13,6 +13,7 @@ summary: 'Le remplacement d"un commutateur NVIDIA SN2100 défectueux sur un rés
 [role="lead"]
 Le remplacement d'un commutateur NVIDIA SN2100 défectueux sur un réseau de clusters est une procédure sans interruption (NDU, non-Disruptive Procedure).
 
+.Avant de commencer
 Les conditions suivantes doivent exister avant d'effectuer le remplacement du commutateur dans l'environnement actuel et sur le commutateur de remplacement.
 
 * Infrastructure réseau et cluster existante :
@@ -40,6 +41,7 @@ Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, doit êt
 
 Vous devez exécuter la commande pour migrer une LIF de cluster à partir du nœud sur lequel la LIF de cluster est hébergée.
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Les noms des commutateurs NVIDIA SN2100 existants sont _sw1_ et _sw2_.

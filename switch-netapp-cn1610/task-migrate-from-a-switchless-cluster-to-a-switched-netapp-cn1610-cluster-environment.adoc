@@ -13,6 +13,7 @@ summary: 'Si vous disposez d"un environnement en cluster sans commutateur à deu
 [role="lead"]
 Si vous disposez d'un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster avec commutateur à deux nœuds en utilisant des commutateurs du réseau de cluster CN1610 qui vous permettent d'évoluer au-delà de deux nœuds.
 
+.Avant de commencer
 Configuration sans commutateur à 2 nœuds :
 
 * La configuration sans commutateur à deux nœuds doit être correctement configurée et fonctionnelle.
@@ -37,6 +38,7 @@ Toute personnalisation de site précédente, telle que SMTP, SNMP et SSH, doit �
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
 
 * Les noms des commutateurs CN1610 sont cs1 et cs2.

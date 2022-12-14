@@ -33,12 +33,13 @@ Les deux nœuds doivent être connectés et fonctionner dans un cluster à 2 nœ
 
 
 
+.Description de la tâche
 *Résumé de la procédure*
 
-* *I. Afficher et migrer les ports physiques et logiques (étapes ,1-,10)*
-* *II Arrêter les LIF réaffectées et déconnecter les câbles (étapes ,11-,14))*
-* *III Activer les ports du cluster (étapes ,15-,20)*
-* *IV Activer les LIF réaffectées (étapes ,21-,33)*
+* *I. Afficher et migrer les ports physiques et logiques (étapes <<joyce,1>>-<<beckett,10>>)*
+* *II Arrêter les LIF réaffectées et déconnecter les câbles (étapes <<casey,11>>-<<heaney,14)>>)*
+* *III Activer les ports du cluster (étapes <<yeats,15>>-<<friel,20>>)*
+* *IV Activer les LIF réaffectées (étapes <<wilde,21>>-<<swift,33>>)*
 
 
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :

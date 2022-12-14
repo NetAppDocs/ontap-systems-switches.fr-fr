@@ -13,6 +13,7 @@ summary: Vous pouvez installer le switch Cisco Nexus 3232C et le panneau de pass
 [role="lead"]
 Vous pouvez installer le switch Cisco Nexus 3232C et le panneau de pass-through dans une armoire NetApp avec les supports standard inclus dans le switch.
 
+.Avant de commencer
 Vous devez avoir passé en revue les exigences de préparation initiale, le contenu du kit et les précautions de sécurité indiquées dans le link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guide d'installation matérielle Cisco Nexus 3000 Series"^].
 
 .Description de la tâche

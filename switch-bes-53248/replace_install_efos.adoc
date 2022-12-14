@@ -17,6 +17,7 @@ Vous pouvez utiliser cette procédure pour installer le logiciel EFOS sur le com
 
 == Description de la tâche
 
+[]
 ====
 *Notez ce qui suit :*
 

@@ -13,6 +13,7 @@ summary: 'Vous pouvez migrer d"anciens commutateurs de cluster Cisco sans interr
 [role="lead"]
 Vous pouvez migrer d'anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs réseau de cluster Cisco Nexus 9336C-FX2.
 
+.Avant de commencer
 Les conditions suivantes doivent être réunies avant de remplacer un ancien commutateur de cluster Cisco Nexus par un commutateur de cluster Cisco Nexus 9336C-FX2 :
 
 * Le cluster doit fonctionner parfaitement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
@@ -27,6 +28,7 @@ Les conditions suivantes doivent être réunies avant de remplacer un ancien com
 * Vous devez vous être référé aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco à la https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.htmlCisco["Commutateurs Nexus 9000 Series"^].
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 

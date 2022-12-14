@@ -13,6 +13,7 @@ summary: 'Pour remplacer les commutateurs de cluster CN1610 existants d"un clust
 [role="lead"]
 Pour remplacer les commutateurs de cluster CN1610 existants d'un cluster par des commutateurs de cluster Cisco Nexus 3132Q-V, vous devez effectuer une séquence spécifique de tâches.
 
+.Description de la tâche
 Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux câbles fibre d'interconnexion de cluster 40/100 GbE : e4a et e4e. Le link:https://hwu.netapp.com/["Hardware Universe"^] contient des informations sur les câbles à fibre optique du cluster de vos plates-formes.
 
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
@@ -30,7 +31,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 Cette procédure couvre le scénario suivant :
 
 * Le cluster commence avec deux nœuds connectés à deux commutateurs de cluster CN1610.
-* Le commutateur CL2 du bloc d'instruments doit être remplacé par C2 (,Étapes 2 - ,22)
+* Le commutateur CL2 du bloc d'instruments doit être remplacé par C2 (<<step2_replacecn1610,Étapes 2>> - <<step22_replacecn1610,22>>)
 +
 ** Le trafic sur tous les ports de cluster et les LIFs de tous les nœuds connectés à CL2 est migré vers les premiers ports de cluster et les LIFs connectés à CL1.
 ** Déconnectez le câblage de tous les ports du cluster sur tous les nœuds connectés à CL2, puis utilisez le câble de dérivation pris en charge pour reconnecter les ports au nouveau commutateur C2 du cluster.
@@ -38,7 +39,7 @@ Cette procédure couvre le scénario suivant :
 ** Le trafic sur tous les ports de cluster et les LIFs connectés à C2 sur tous les nœuds est rétabli.
 
 
-* Le commutateur CL1 du bloc d'instruments doit être remplacé par C1 (,Étapes 23 - ,43)
+* Le commutateur CL1 du bloc d'instruments doit être remplacé par C1 (<<step23_replacecn1610,Étapes 23>> - <<step43_replacecn1610,43>>)
 +
 ** Le trafic sur tous les ports de cluster et les LIFs de tous les nœuds connectés à CL1 est migré vers les ports du second cluster et les LIFs connectées à C2.
 ** Déconnectez le câblage de tous les ports du cluster sur tous les nœuds connectés à CL1, puis utilisez le câble de dérivation pris en charge pour reconnecter les ports au nouveau commutateur C1 du cluster.

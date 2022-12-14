@@ -13,6 +13,7 @@ summary: Vous pouvez remplacer un switch Cisco Nexus 3232C défectueux dans un c
 [role="lead"]
 Vous pouvez remplacer un switch Cisco Nexus 3232C défectueux dans un cluster sans interruption en exécutant une séquence de tâches spécifique.
 
+.Avant de commencer
 Les caractéristiques suivantes de la configuration existante du cluster et du réseau sont les suivantes :
 
 * L'infrastructure de cluster Nexus 3232C doit être redondante et entièrement fonctionnelle sur les deux switchs.
@@ -32,12 +33,13 @@ Les caractéristiques du switch Cisco Nexus 3232C de remplacement doivent être 
 * La personnalisation initiale du commutateur doit être terminée.
 
 
+.Description de la tâche
 *Résumé de la procédure*
 
-* *Afficher et migrer les ports du cluster vers le commutateur C2 (étapes ,1-,7)*
-* *Rebrancher les câbles ISL du commutateur CL2 au commutateur C2, puis migrer les liens ISL vers le commutateur CL1 et C2 (étapes ,8-,14)*
-* *Revert toutes les LIFs vers les ports attribués à l'origine (étapes ,15-,18)*
-* *Vérifiez que tous les ports et LIF sont correctement migrés (étapes ,19-,21)*
+* *Afficher et migrer les ports du cluster vers le commutateur C2 (étapes <<one,1>>-<<seven,7)>>*
+* *Rebrancher les câbles ISL du commutateur CL2 au commutateur C2, puis migrer les liens ISL vers le commutateur CL1 et C2 (étapes <<eight,8>>-<<fourteen,14)>>*
+* *Revert toutes les LIFs vers les ports attribués à l'origine (étapes <<fifteen,15>>-<<eighteen,18)>>*
+* *Vérifiez que tous les ports et LIF sont correctement migrés (étapes <<nineteen,19>>-<<twentyone,21>>)*
 
 
 Cette procédure remplace le second switch de cluster Nexus 3232C CL2 par le nouveau switch 3232C de C2. Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :

@@ -13,6 +13,7 @@ summary: Pour remplacer les switchs de cluster Cisco Nexus 5596 existants dans u
 [role="lead"]
 Pour remplacer les switchs de cluster Cisco Nexus 5596 existants dans un cluster par des switchs de cluster Nexus 3232C, vous devez effectuer une séquence de tâches spécifique.
 
+.Description de la tâche
 Les exemples de cette procédure décrivent le remplacement des switchs Cisco Nexus 5596 par des switchs Cisco Nexus 3232C. Vous pouvez utiliser ces étapes (avec modifications) pour d'autres commutateurs Cisco plus anciens (par exemple, 3132Q-V). La procédure utilise également la nomenclature de commutateur et de nœud suivante :
 
 * Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.

@@ -13,6 +13,7 @@ summary: Cette version inclut la prise en charge du protocole SNMPv3 pour la sur
 [role="lead"]
 Cette version inclut la prise en charge du protocole SNMPv3 pour la collecte du journal de commutation pour Switch Health Monitoring (SHM).
 
+.Description de la tâche
 Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs NVIDIA SN2100 :
 
 * Pour *pas d'authentification* :

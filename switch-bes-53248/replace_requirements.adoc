@@ -51,6 +51,7 @@ Des nœuds de port de cluster 100 GbE, avec des licences, ajoutés de droite à 
 Ports ISL (Inter-Switch Link) de cluster 100 GbE, configuration de base
 
 |===
+.Contrainte de vitesse du groupe de ports
 Sur les switchs de cluster BES-53248, les ports 48 10 GbE (SFP28/SFP+) sont regroupés en groupes à 12 ports 4 comme suit :
 
 * Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.

@@ -97,6 +97,7 @@ Si vous téléchargez la version prise en charge par NetApp du logiciel, vous de
 
 
 
+.Informations associées
 xref:setup-required-information.adoc[Informations requises pour la configuration du cluster]
 
 xref:setup-required-documentation.adoc[Documentation requise]

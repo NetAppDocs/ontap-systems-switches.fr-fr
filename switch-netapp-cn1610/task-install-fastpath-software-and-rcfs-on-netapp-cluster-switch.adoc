@@ -28,6 +28,7 @@ Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe
 
 NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée en raison de problèmes de sécurité. Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé. Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur du commutateur NetApp® CN1610"^] A plus d'informations sur SSH.
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
 * Ce document utilise la syntaxe de clustered Data ONTAP 8.2. Par conséquent, le Vserver, les noms des LIF et les résultats de l'interface de ligne de commande du cluster seront différents de ceux du Data ONTAP 8.3.

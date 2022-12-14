@@ -41,6 +41,7 @@ Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] cont
 
 
 
+.Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
 
 * Les noms des commutateurs SN2100 sont _sw1_ et _sw2_.

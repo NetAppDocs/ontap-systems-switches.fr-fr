@@ -3249,7 +3249,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-15 09:19:41 +0000">11/15/2022</time>
+    <time datetime="2022-12-14 18:26:26 +0000">12/14/2022</time>
     
   
 
@@ -3265,6 +3265,7 @@
 <p>Le remplacement d&#8217;un commutateur partagé Nexus 9336C-FX2 défectueux est une procédure sans interruption (NDU).</p>
 </div>
 <div class="paragraph">
+<div class="title">Avant de commencer</div>
 <p>Les conditions suivantes doivent exister avant d&#8217;effectuer le remplacement du commutateur dans l&#8217;environnement actuel et sur le commutateur de remplacement.</p>
 </div>
 <div class="ulist">
@@ -3316,6 +3317,7 @@
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Description de la tâche</div>
 <p>Vous devez exécuter la commande pour migrer une LIF de cluster à partir du nœud sur lequel la LIF de cluster est hébergée.</p>
 </div>
 <div class="paragraph">
@@ -3441,7 +3443,7 @@ Total entries displayed: 4</pre>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et NX-OS pour le nouveau commutateur. Si vous avez vérifié que le nouveau switch est correctement configuré et qu&#8217;il n&#8217;a pas besoin de mises à jour du logiciel RCF et NX-OS, passez à la ,Étape 3.</p>
+<p>Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et NX-OS pour le nouveau commutateur. Si vous avez vérifié que le nouveau switch est correctement configuré et qu&#8217;il n&#8217;a pas besoin de mises à jour du logiciel RCF et NX-OS, passez à la <a href="#step3">Étape 3</a>.</p>
 </li>
 <li>
 <p>Accédez à la page de description des commutateurs de réseau de gestion et de cluster NetApp sur le site de support NetApp.</p>
@@ -3459,7 +3461,7 @@ Total entries displayed: 4</pre>
 </div>
 </li>
 <li>
-<p><a id="step3"></a>]sur le nouveau commutateur, connectez-vous en tant qu&#8217;administrateur et arrêtez tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1/1 à 1/34). Si le commutateur que vous remplacez ne fonctionne pas et est hors tension, passer à ,Étape 4. Les LIFs des nœuds du cluster doivent déjà avoir basculer sur l&#8217;autre port du cluster pour chaque nœud.</p>
+<p><a id="step3"></a>]sur le nouveau commutateur, connectez-vous en tant qu&#8217;administrateur et arrêtez tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1/1 à 1/34). Si le commutateur que vous remplacez ne fonctionne pas et est hors tension, passer à <a href="#step4">Étape 4</a>. Les LIFs des nœuds du cluster doivent déjà avoir basculer sur l&#8217;autre port du cluster pour chaque nœud.</p>
 <div class="listingblock">
 <div class="content">
 <pre>newsh2# <strong>config</strong>

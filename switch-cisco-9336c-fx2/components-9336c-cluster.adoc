@@ -1,0 +1,87 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2/components-9336c-cluster.html 
+keywords: shared storage cluster switch 
+summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé. 
+---
+= Composants et références pour les commutateurs de cluster Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, veillez à consulter la liste des composants et références.
+
+Le tableau suivant répertorie le numéro de référence et la description du commutateur 9336C-FX2, des ventilateurs et des alimentations électriques :
+
+[cols="1,2"]
+|===
+| Numéro de référence | Description 
+
+
+ a| 
+X190200-CS-PE
+ a| 
+N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190200-CS-PI
+ a| 
+N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PE
+ a| 
+N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190210-FE-PI
+ a| 
+N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+
+
+
+ a| 
+X190002
+ a| 
+Kit d'accessoires X190001/X190003
+
+
+
+ a| 
+X-NXA-PAC-1100W-PE2
+ a| 
+N9K-9336C CA 1 100 W PSU - ventilation d'échappement côté port
+
+
+
+ a| 
+X-NXA-PAC-1100W-PI2
+ a| 
+N9K-9336C CA 1 100 W PSU - ventilation d'admission côté port
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PE
+ a| 
+N9K-9336C 65CFM, débit d'air d'échappement côté port
+
+
+
+ a| 
+X-NXA-FAN-65CFM-PI
+ a| 
+N9K-9336C 65CFM, débit d'air d'admission côté port
+
+|===

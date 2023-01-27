@@ -1,0 +1,34 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/install-9336c-shared.html 
+keywords:  
+summary:  
+---
+= Installez les commutateurs partagés Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Suivez ces instructions pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2.
+
+.Ce dont vous avez besoin
+* Documentation partagée requise sur le commutateur, documentation sur le contrôleur et documentation ONTAP. Voir link:required-documentation-9336c-shared.html["Documentation requise pour les commutateurs partagés Cisco Nexus 9336C-FX2"] et https://docs.netapp.com/us-en/ontap/index.html["Documentation NetApp ONTAP"^].
+* Licences applicables, informations sur le réseau et la configuration, et câbles.
+* Feuilles de calcul de câblage remplies. Voir link:cable-9336c-shared.html["Complétez la fiche technique de câblage Cisco Nexus 9336C-FX2"]. Pour plus d'informations sur le câblage, reportez-vous au https://hwu.netapp.com["Hardware Universe"].
+
+
+.Étapes
+. Installez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224.
++
+Voir la https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Instructions de rayonnage"] Pour apprendre à monter en rack le commutateur dans une armoire NetApp.
+
+. Mettez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224 sous tension.
+
+
+.Et la suite ?
+Accédez à link:.setup-and-configure-9336c-shared.html["Configurez le commutateur partagé Cisco Nexus 9336C-FX2"].

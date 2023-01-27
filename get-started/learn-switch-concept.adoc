@@ -1,0 +1,58 @@
+---
+permalink: get-started/learn-switch-concept.html 
+sidebar: sidebar 
+keywords:  
+summary: Découvrez la mise en cluster, le stockage et les commutateurs partagés. 
+---
+= En savoir plus sur Cluster, Storage et Shared switches
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp propose des clusters, des systèmes de stockage et des commutateurs partagés qui offrent des communications internes avec la possibilité de déplacer des données et des interfaces réseau sans interruption dans le cluster.
+
+Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tandis que les commutateurs de cluster « back-end » assurent des connexions entre deux ou plusieurs contrôleurs NetApp.
+
+
+
+== Commutateurs de cluster
+
+Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds. Les commutateurs de cluster pris en charge par NetApp comprennent :
+
+* Broadcom BES-53248
+* Cisco Nexus 9336C-FX2
+* NVIDIA SN2100
+
+
+
+
+== Commutateurs de stockage
+
+Les commutateurs de stockage vous permettent d'acheminer des données entre les serveurs et les baies de stockage d'un réseau de stockage (SAN). Les commutateurs de cluster pris en charge par NetApp comprennent :
+
+* Cisco Nexus 9336C-FX2
+* NVIDIA SN2100
+
+
+
+
+== Commutateurs partagés
+
+Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagé, en prenant en charge l'utilisation de clusters partagés et de RFC de stockage. Le commutateur partagé pris en charge par NetApp est :
+
+* Cisco Nexus 9336C-FX2
+
+
+
+
+== Fin de disponibilité
+
+Les commutateurs de stockage suivants ne sont plus disponibles à la vente, mais sont toujours pris en charge :
+
+* Cisco Nexus 3232C
+* Cisco Nexus 3132Q-V
+* Cisco Nexus 92300YC
+* NetApp CN1610
+

@@ -1,0 +1,78 @@
+---
+permalink: switch-bes-53248/configure-reqs-bes53248.html 
+sidebar: sidebar 
+keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cluster switch port assignments - bes-53428 switches 
+summary: 'Vous pouvez utiliser la table d"affectation des ports du commutateur de cluster BES-53248 pour configurer votre cluster.' 
+---
+= Configuration requise pour les commutateurs de cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur BES-53248, vérifiez les exigences de configuration et de prise en charge du système d'exploitation.
+
+
+
+== Systèmes d'exploitation pris en charge
+
+Le commutateur BES-53248 prend en charge les éléments suivants :
+
+* *Micrologiciel EFOS version 3.4.4.6 et ultérieure*. Le commutateur BES-53248 s'exécute sur un système d'exploitation intégré Broadcom appelé Ethernet Fabric OS (EFOS). La prise en charge des ports de cluster 40/100 GbE commence par la version 3.4.4.6 du firmware EFOS et les versions ultérieures.
+* *ONTAP 9.5P8 et ultérieure*. Les commutateurs de cluster BES-53248 pris en charge par Broadcom sont conçus pour fonctionner dans des clusters de tailles allant de deux à 24 nœuds dans ONTAP 9.5P8 et versions ultérieures.
+
+
+
+
+== Configuration requise
+
+Pour configurer un cluster, il faut un nombre et un type appropriés de câbles et de connecteurs de câbles pour les commutateurs du cluster. Selon le type de commutateur de cluster que vous configurez au départ, vous devez vous connecter au port console du commutateur avec le câble console inclus.
+
+
+
+=== Affectations des ports des commutateurs de cluster
+
+Vous pouvez utiliser le tableau des attributions de ports de commutateur de cluster BES-53248 pris en charge par Broadcom pour configurer votre cluster.
+
+[cols="1,2"]
+|===
+| Commutateurs | Utilisation des ports 
+
+
+ a| 
+01-16
+ a| 
+Nœuds de cluster 10 GbE avec port, configuration de base
+
+
+
+ a| 
+17-48
+ a| 
+Nœuds de cluster 10 GbE avec licences
+
+
+
+ a| 
+49-54
+ a| 
+Des nœuds de port de cluster 100 GbE, avec des licences, ajoutés de droite à gauche
+
+
+
+ a| 
+55-56
+ a| 
+Ports ISL (Inter-Switch Link) de cluster 100 GbE, configuration de base
+
+|===
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+
+
+
+=== Contrainte de vitesse du groupe de ports
+
+Sur les switchs de cluster BES-53248, les ports 48 10 GbE (SFP28/SFP+) sont combinés en groupes à 12 ports 4-ports comme suit : ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
+
+La vitesse des ports SFP28/SFP+ doit être identique (10 GbE ou 25 GbE) sur tous les ports du groupe à 4 ports.

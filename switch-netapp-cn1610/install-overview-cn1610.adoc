@@ -1,0 +1,24 @@
+---
+permalink: switch-netapp-cn1610/install-overview-cn1610.html 
+sidebar: sidebar 
+keywords: install, fastpath, software, rcfs 
+summary: Avant de configurer les commutateurs NetApp CN1610, consultez la présentation de la procédure. 
+---
+= Installer et configurer le flux de travail des commutateurs NetApp CN1610
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour installer et configurer un commutateur NetApp CN1610 sur les systèmes exécutant ONTAP, effectuez les opérations suivantes :
+
+. link:install-hardware-cn1610.html["Installer le matériel de fixation"]
+. link:install-fastpath-software.html["Installez le logiciel FASTPATH"]
+. link:install-rcf-file.html["Installer un fichier de configuration de référence"]
++
+
+NOTE: Si les commutateurs exécutent ONTAP 8.3.1 ou une version ultérieure, suivez les instructions de la section link:install-fastpath-rcf-831.html["Installez LES COMMUTATEURS FASTPATH et RCFC sur les commutateurs exécutant ONTAP 8.3.1 et versions ultérieures."]
+
+. link:configure-hardware-cn1610.html["Configurer le commutateur"]
+

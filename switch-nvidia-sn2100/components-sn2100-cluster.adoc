@@ -1,0 +1,75 @@
+---
+permalink: switch-nvidia-sn2100/components-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs. 
+---
+= Composants et références pour les switchs NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur NVIDIA SN2100, consultez la liste des composants et références des kits d'armoire et de rail.
+
+
+
+== Détails de l'armoire
+
+Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire de commutation double/simple NVIDIA à l'aide des supports standard fournis avec le commutateur.
+
+
+
+== Détails du kit de rails
+
+Le tableau suivant répertorie le numéro de référence et la description des commutateurs SN2100 et des kits de rails :
+
+[cols="1,2"]
+|===
+| Numéro de référence | Description 
+
+
+ a| 
+X190006-PE
+ a| 
+Commutateur de cluster, NVIDIA SN2100, 16PT 100G, PTSX
+
+
+
+ a| 
+X190006-PI
+ a| 
+Commutateur de cluster, NVIDIA SN2100, 16 PT 100 G, PSIN
+
+
+
+ a| 
+X190106-FE-PE
+ a| 
+Commutateur, NVIDIA SN2100, 16PT 100G, PTSX, frontal
+
+
+
+ a| 
+X190106-FE-PI
+ a| 
+Switch, NVIDIA SN2100, 16PT 100G, PSIN, Front End
+
+
+
+ a| 
+X-MTEF-KIT-D
+ a| 
+Kit de rails, commutateur double NVIDIA côte à côte
+
+
+
+ a| 
+X-MTEF-KIT-E
+ a| 
+Kit de rails, commutateur simple NVIDIA faible profondeur
+
+|===
+
+NOTE: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].

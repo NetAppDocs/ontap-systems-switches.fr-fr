@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
+keywords: shared storage cluster switch cable 
+summary: Utilisez les images de câblage pour terminer le câblage entre les contrôleurs et les commutateurs. 
+---
+= Complétez la fiche technique de câblage Cisco Nexus 9336C-FX2
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Utilisez les images de câblage suivantes pour terminer le câblage entre les contrôleurs et les commutateurs.
+
+
+
+== Câble de stockage NS224 relié par un commutateur
+
+Si vous souhaitez raccorder un câble de stockage NS224 à un commutateur, suivez le diagramme ci-dessous :
+
+image:9336c_image1.jpg["Connexion par commutateur"]
+
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+
+
+
+== Câble de rangement NS224 en tant que connexion directe
+
+Si vous souhaitez raccorder un câble de stockage NS224 à connexion directe au lieu d'utiliser les ports de stockage de commutateur partagé, suivez le diagramme à connexion directe :
+
+image:9336c_image2.jpg["Connexion directe"]
+
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+
+
+
+== Fiche technique de câblage Cisco Nexus 9336C-FX2
+
+Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant un exemple de fiche de câblage rempli comme guide.
+
+L'exemple de définition de port sur chaque paire de commutateurs est le suivant :image:cabling_worksheet.jpg["Fiche de câblage"]
+
+Où ?
+
+* 100G ISL pour commuter Un port 35
+* 100G ISL pour commuter Un port 36
+* 100G ISL vers le port 35 du commutateur B.
+* 100G ISL vers le port 36 du commutateur B.
+
+
+
+
+== Feuille de câblage vierge
+
+Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. Le tableau connexions de cluster prises en charge du Hardware Universe définit les ports de cluster utilisés par la plateforme.
+
+image:blank_cabling_worksheet.jpg["Feuille de câblage vierge"]
+
+Où ?
+
+* 100G ISL pour commuter Un port 35
+* 100G ISL pour commuter Un port 36
+* 100G ISL vers le port 35 du commutateur B.
+* 100G ISL vers le port 36 du commutateur B.
+

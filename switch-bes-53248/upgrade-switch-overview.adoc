@@ -1,0 +1,26 @@
+---
+permalink: switch-bes-53248/upgrade-switch-overview.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
+summary: Avant de configurer les commutateurs de cluster BES-53248, consultez un aperçu du processus et de la nomenclature. 
+---
+= Présentation du processus de mise à niveau des commutateurs BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de configurer les commutateurs de cluster BES-53248 pour une mise à niveau, consultez la présentation de la configuration.
+
+Pour mettre à niveau un commutateur de cluster BES-53248, procédez comme suit :
+
+. link:replace-upgrade.html["Préparez le commutateur de cluster BES-53248 pour la mise à niveau"]. Préparer le contrôleur, puis installer le logiciel EFOS, les licences et le fichier RCF (Reference Configuration File). Vérifiez en dernier lieu la configuration.
+. link:configure-efos-software.html["Installez le logiciel EFOS"]. Téléchargez et installez le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.
+. link:configure-licenses.html["Installez les licences pour les commutateurs de cluster BES-53248"]. Vous pouvez également ajouter de nouveaux ports en achetant et en installant des licences supplémentaires. Le modèle de base de switchs est conçu pour 16 ports 10 GbE ou 25 GbE et 2 ports 100 GbE.
+. link:configure-install-rcf.html["Installer le fichier RCF (Reference Configuration File)"]. Installez ou mettez à niveau le RCF sur le commutateur de cluster BES-53248, puis vérifiez si les ports ne correspondent pas à une licence supplémentaire après l'application du RCF.
+. link:configure-health-monitor.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"]. Installez le fichier de configuration applicable pour la surveillance de l'état du commutateur du cluster.
+. link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"]. Si vous utilisez les fonctions CSHM (Cluster Switch Health Monitor) et de collecte de journaux, activez SSH sur les commutateurs.
+. link:configure-log-collection.html["Activez la fonction de collecte de journaux"]. Utilisez cette fonction pour collecter les fichiers journaux relatifs au commutateur dans ONTAP.
+. link:replace-verify.html["Vérifiez la configuration"]. Utilisez les commandes recommandées pour vérifier les opérations après une mise à niveau du commutateur de cluster BES-53248.
+

@@ -1,0 +1,503 @@
+---
+permalink: switch-netapp-cn1610/install-fastpath-software.html 
+sidebar: sidebar 
+keywords: install, fastpath, software 
+summary: Lorsque vous installez le logiciel FASTPATH sur les commutateurs NetApp, vous devez commencer la mise à niveau avec le second commutateur, cs2. 
+---
+= Installez le logiciel FASTPATH
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Lorsque vous installez le logiciel FASTPATH sur les commutateurs NetApp, vous devez commencer la mise à niveau avec le second commutateur, _cs2_.
+
+
+
+== Examen des conditions requises
+
+.Ce dont vous avez besoin
+* Sauvegarde actuelle de la configuration du commutateur.
+* Un cluster totalement opérationnel (aucune erreur dans les journaux, ni carte réseau de cluster défectueuse, ni aucun problème similaire).
+* Connexions de port entièrement opérationnelles sur le commutateur du cluster.
+* Tous les ports de cluster sont configurés.
+* Toutes les interfaces logiques (LIF) de cluster sont configurées (elles ne doivent pas avoir été migrées).
+* Un chemin de communication réussi : le ONTAP (privilège : avancé) `cluster ping-cluster -node node1` la commande doit indiquer cela `larger than PMTU communication` a réussi sur tous les chemins.
+* Une version prise en charge DE FASTPATH et ONTAP.
++
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Pour les versions FASTPATH et ONTAP prises en charge.
+
+
+
+
+
+== Installez LE RACCOURCI
+
+La procédure suivante utilise la syntaxe de clustered Data ONTAP 8.2. Par conséquent, le Vserver, les noms des LIF et les résultats de l'interface de ligne de commande sont différents de ceux du Data ONTAP 8.3.
+
+Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe de commande.
+
+.À propos des exemples
+Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* les deux commutateurs NetApp sont cs1 et cs2.
+* Les deux LIF de cluster sont de type 1 et de type 1.
+* Les vServers sont vs1 et vs2.
+* Le `cluster::*>` l'invite indique le nom du cluster.
+* Les ports de cluster de chaque nœud sont nommés e1a et e2a.
++
+https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
+
+* Les liaisons ISL (Inter-Switch Links) prises en charge sont les ports 0/13 à 0/16.
+* Les ports 0/1 à 0/12 sont pris en charge par les connexions de nœuds.
+
+
+
+
+=== Étape 1 : migrer le cluster
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all - message MAINT=xh`
+
++
+_x_ représente la durée de la fenêtre de maintenance en heures.
+
++
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+. Connectez-vous au commutateur en tant qu'administrateur. Par défaut, aucun mot de passe n'est défini. Au `(cs2) #` entrez l'invite `enable` commande. Là encore, il n'y a pas de mot de passe par défaut. Ceci vous donne accès au mode d’exécution privilégié, qui vous permet de configurer l’interface réseau.
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # enable
+Password (Enter)
+(cs2) #
+----
+====
+. Sur la console de chaque nœud, migrez clus2 vers le port e1a :
++
+`network interface migrate`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface migrate -vserver vs1 -lif clus2 -destnode node1 -dest-port e1a
+cluster::*> network interface migrate -vserver vs2 -lif clus2 -destnode node2 -dest-port e1a
+----
+====
+. Sur la console de chaque nœud, vérifiez que la migration a eu lieu :
++
+`network interface show`
+
++
+L'exemple suivant montre que clus2 a migré vers le port e1a sur les deux nœuds :
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+
+         Logical    Status     Network        Current  Current  Is
+Vserver  Interface  Admin/Open Address/Mask   Node     Port     Home
+-------- ---------- ---------- -------------- -------- -------  ----
+vs1
+         clus1      up/up      10.10.10.1/16  node1    e1a      true
+         clus2      up/up      10.10.10.2/16  node1    e1a      false
+vs2
+         clus1      up/up      10.10.10.1/16  node2    e1a      true
+         clus2      up/up      10.10.10.2/16  node2    e1a      false
+----
+====
+
+
+
+
+=== Étape 2 : installez le logiciel FASTPATH
+
+. Arrêter le port cluster e2a sur les deux nœuds :
++
+`network port modify`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que le port e2a est arrêté sur les deux nœuds :
+
+[listing]
+----
+cluster::*> network port modify -node node1 -port e2a -up-admin false
+cluster::*> network port modify -node node2 -port e2a -up-admin false
+----
+====
+. Vérifiez que le port e2a est arrêté sur les deux nœuds :
++
+`network port show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show -role cluster
+
+                                 Auto-Negot  Duplex      Speed (Mbps)
+Node   Port Role     Link MTU    Admin/Oper  Admin/Oper  Admin/Oper
+------ ---- -------- ---- -----  ----------  ----------  ------------
+node1
+       e1a  cluster  up   9000   true/true   full/full   auto/10000
+       e2a  cluster  down 9000   true/true   full/full   auto/10000
+node2
+       e1a  cluster  up   9000   true/true   full/full   auto/10000
+       e2a  cluster  down 9000   true/true   full/full   auto/10000
+----
+====
+. Arrêter les ports ISL (Inter-Switch Link) sur cs1, le commutateur NetApp actif :
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs1) # configure
+(cs1)(config) # interface 0/13-0/16
+(cs1)(Interface 0/13-0/16) # shutdown
+(cs1)(Interface 0/13-0/16) # exit
+(cs1)(config) # exit
+----
+====
+. Sauvegardez l'image active actuelle sur cs2.
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # show bootvar
+
+ Image Descriptions   .
+
+  active:
+  backup:
+
+ Images currently available on Flash
+
+----------------------------------------------------------------------
+ unit        active       backup     current-active       next-active
+----------------------------------------------------------------------
+
+    1        1.1.0.3      1.1.0.1          1.1.0.3           1.1.0.3
+
+(cs2) # copy active backup
+Copying active to backup
+Copy operation successful
+
+(cs2) #
+----
+====
+. Téléchargez le fichier image sur le commutateur.
++
+La copie du fichier image sur l'image active signifie que lors du redémarrage, cette image établit la version FastPath en cours d'exécution. L'image précédente reste disponible comme sauvegarde.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # copy tftp://10.0.0.1/NetApp_CN1610_1.1.0.5.stk active
+
+
+Mode...................................... TFTP
+Set Server IP............................. 10.0.0.1
+Path...................................... ./
+Filename.................................. NetApp_CN1610_1.1.0.5.stk
+Data Type................................. Code
+Destination Filename...................... active
+
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) y
+TFTP Code transfer starting...
+
+
+File transfer operation completed successfully.
+----
+====
+. Vérifiez la version en cours d'exécution du logiciel FASTPATH.
++
+`show version`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # show version
+
+Switch: 1
+
+System Description.................. Broadcom Scorpion 56820
+                                     Development System - 16 TENGIG,
+                                     1.1.0.3, Linux 2.6.21.7
+Machine Type........................ Broadcom Scorpion 56820
+                                     Development System - 16TENGIG
+Machine Model....................... BCM-56820
+Serial Number....................... 10611100004
+FRU Number..........................
+Part Number......................... BCM56820
+Maintenance Level................... A
+Manufacturer........................ 0xbc00
+Burned In MAC Address............... 00:A0:98:4B:A9:AA
+Software Version.................... 1.1.0.3
+Operating System.................... Linux 2.6.21.7
+Network Processing Device........... BCM56820_B0
+Additional Packages................. FASTPATH QOS
+                                     FASTPATH IPv6 Management
+----
+====
+. Afficher les images de démarrage de la configuration active et de sauvegarde.
++
+`show bootvar`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # show bootvar
+
+Image Descriptions
+
+ active :
+ backup :
+
+ Images currently available on Flash
+
+----------------------------------------------------------------------
+ unit        active       backup     current-active       next-active
+----------------------------------------------------------------------
+
+    1        1.1.0.3      1.1.0.3          1.1.0.3           1.1.0.5
+----
+====
+. Redémarrez le commutateur.
++
+`reload`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # reload
+
+Are you sure you would like to reset the system? (y/n)  y
+
+System will now restart!
+----
+====
+
+
+
+
+=== Étape 3 : validation de l'installation
+
+. Reconnectez-vous et vérifiez la nouvelle version du logiciel FASTPATH.
++
+`show version`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # show version
+
+Switch: 1
+
+System Description................... Broadcom Scorpion 56820
+                                      Development System - 16 TENGIG,
+                                      1.1.0.5, Linux 2.6.21.7
+Machine Type......................... Broadcom Scorpion 56820
+                                      Development System - 16TENGIG
+Machine Model........................ BCM-56820
+Serial Number........................ 10611100004
+FRU Number...........................
+Part Number.......................... BCM56820
+Maintenance Level.................... A
+Manufacturer......................... 0xbc00
+Burned In MAC Address................ 00:A0:98:4B:A9:AA
+Software Version..................... 1.1.0.5
+Operating System..................... Linux 2.6.21.7
+Network Processing Device............ BCM56820_B0
+Additional Packages.................. FASTPATH QOS
+                                      FASTPATH IPv6 Management
+----
+====
+. Mettre les ports ISL sur cs1, le commutateur actif.
++
+`configure`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs1) # configure
+(cs1) (config) # interface 0/13-0/16
+(cs1) (Interface 0/13-0/16) # no shutdown
+(cs1) (Interface 0/13-0/16) # exit
+(cs1) (config) # exit
+----
+====
+. Vérifiez que les liens ISL sont opérationnels.
++
+`show port-channel 3/1`
+
++
+Le champ État du lien doit indiquer `Up`.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # show port-channel 3/1
+
+Local Interface................................ 3/1
+Channel Name................................... ISL-LAG
+Link State..................................... Up
+Admin Mode..................................... Enabled
+Type........................................... Static
+Load Balance Option............................ 7
+(Enhanced hashing mode)
+
+Mbr    Device/       Port      Port
+Ports  Timeout       Speed     Active
+------ ------------- --------- -------
+0/13   actor/long    10G Full  True
+       partner/long
+0/14   actor/long    10G Full  True
+       partner/long
+0/15   actor/long    10G Full  True
+       partner/long
+0/16   actor/long    10G Full  True
+       partner/long
+----
+====
+. Copiez le `running-config` vers le `startup-config` fichier lorsque vous êtes satisfait des versions du logiciel et des paramètres du commutateur.
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+(cs2) # write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) y
+
+Config file 'startup-config' created successfully .
+
+Configuration Saved!
+----
+====
+. Activer le second port cluster, e2a, sur chaque nœud :
++
+`network port modify`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port modify -node node1 -port e2a -up-admin true
+cluster::*> **network port modify -node node2 -port e2a -up-admin true**
+----
+====
+. Rvert no2 associé au port e2a :
++
+`network interface revert`
+
++
+Il est possible que le LIF soit revert automatiquement, en fonction de votre version du logiciel ONTAP.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface revert -vserver Cluster -lif n1_clus2
+cluster::*> network interface revert -vserver Cluster -lif n2_clus2
+----
+====
+. Vérifier que le LIF est déjà chez lui (`true`) sur les deux nœuds :
++
+`network interface show -_role cluster_`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+
+          Logical    Status     Network        Current  Current Is
+Vserver   Interface  Admin/Oper Address/Mask   Node     Port    Home
+--------  ---------- ---------- -------------- -------- ------- ----
+vs1
+          clus1      up/up      10.10.10.1/24  node1    e1a     true
+          clus2      up/up      10.10.10.2/24  node1    e2a     true
+vs2
+          clus1      up/up      10.10.10.1/24  node2    e1a     true
+          clus2      up/up      10.10.10.2/24  node2    e2a     true
+----
+====
+. Afficher l'état des nœuds :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::> cluster show
+
+Node                 Health  Eligibility
+-------------------- ------- ------------
+node1                true    true
+node2                true    true
+----
+====
+. Répétez les étapes précédentes pour installer le logiciel FASTPATH sur l'autre commutateur, cs1.
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

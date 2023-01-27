@@ -1,0 +1,74 @@
+---
+permalink: switch-bes-53248/components-bes53248.html 
+sidebar: sidebar 
+keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
+summary: 'Pour l"installation et la maintenance du commutateur BES-53248, veillez à consulter la liste des composants et des références.' 
+---
+= Composants et références des commutateurs de cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur BES-53248, veillez à consulter la liste des composants et des références.
+
+Le tableau suivant répertorie le numéro de référence et la description des composants du commutateur de cluster BES-53248, y compris le kit de rails de montage en rack, les ventilateurs et les alimentations.
+
+[cols="1,2"]
+|===
+| Numéro de référence | Description 
+
+
+ a| 
+X190005
+ a| 
+BES-53248, CLSW, 16Pt10/25 Gb, PTSX, BRDCM SUPP (PTSX = échappement côté port)
+
+
+
+ a| 
+X190005R
+ a| 
+BES-53248, CLSW, 16Pt10/25 Gb, PSIN, SUPPLÉMENT BRDCM (PSIN = admission côté port)
+
+
+
+ a| 
+X-RAIL-4POST-190005
+ a| 
+Kit de rails de montage sur rack Ozeki 4 montants 19"
+
+
+
+ a| 
+X-FAN-190005-R
+ a| 
+Ventilateur, côté orifice d'admission X190005
+
+
+
+ a| 
+X-FAN-190005-F
+ a| 
+Ventilateur, côté orifice d'échappement X190005
+
+
+
+ a| 
+X-PSU-190005-R
+ a| 
+Alimentation, prise côté orifice X190005
+
+Air d'admission côté orifice (air inversé) : l'air frais pénètre dans le châssis par l'extrémité de l'orifice dans l'allée froide et s'échappe par les modules de ventilateur et d'alimentation dans l'allée chaude.
+
+
+
+ a| 
+X-PSU-190005-F
+ a| 
+Alimentation, côté orifice d'échappement X190005
+
+Flux d'air d'échappement côté port (air standard) : l'air frais pénètre dans le châssis par le ventilateur et les modules d'alimentation dans l'allée froide et s'échappe par l'extrémité du port du châssis dans l'allée chaude. La couleur bleue indique le débit d'air d'échappement côté port. Il s'agit de l'option la plus courante.
+
+|===

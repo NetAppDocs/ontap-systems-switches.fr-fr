@@ -1,0 +1,22 @@
+---
+permalink: switch-nvidia-sn2100/install-hardware-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: switches hardware installation 
+summary: Pour installer le matériel SN2100, reportez-vous à la documentation de NVIDIA. 
+---
+= Installez le matériel du commutateur NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour installer le matériel SN2100, reportez-vous à la documentation de NVIDIA.
+
+.Étapes
+. Vérifiez le link:configure-reqs-sn2100-cluster.html["configuration requise"].
+. Suivez les instructions de la section https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation du commutateur NVIDIA"^].
+
+
+.Et la suite ?
+link:configure-sn2100-cluster.html["Configurer le commutateur"].

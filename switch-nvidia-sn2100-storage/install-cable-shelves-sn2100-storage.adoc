@@ -1,0 +1,28 @@
+---
+permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html 
+sidebar: sidebar 
+keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
+summary: 'Si vous disposez d"un système dans lequel les tiroirs de disques NS224 doivent être câblés en tant que stockage de type commutateur (pas de stockage DAS), utilisez les informations fournies ici.' 
+---
+= Reliez les tiroirs NS224 au stockage relié au commutateur
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous disposez d'un système dans lequel les tiroirs de disques NS224 doivent être câblés en tant que stockage de type commutateur (pas de stockage DAS), utilisez les informations fournies ici.
+
+* Câbler les tiroirs disques NS224 via des commutateurs de stockage :
++
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informations relatives au câblage des tiroirs disques NS224 connectés au commutateur"^]
+
+* Installez vos commutateurs de stockage :
++
+https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentation sur les commutateurs AFF et FAS"^]
+
+* Vérifiez le matériel pris en charge, comme les commutateurs et les câbles, pour votre modèle de plateforme :
++
+https://hwu.netapp.com/["NetApp Hardware Universe"^]
+
+

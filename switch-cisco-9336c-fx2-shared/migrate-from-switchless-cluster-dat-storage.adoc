@@ -1,0 +1,868 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html 
+keywords:  
+summary:  
+---
+= Migrez depuis un cluster sans commutateur avec du stockage DAS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez migrer d'un cluster sans commutateur doté d'un système de stockage DAS en ajoutant deux nouveaux commutateurs partagés.
+
+La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 GbE BASE-T intégrés pour les ports de réseau de clusters.
+
+La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] pour en savoir plus.
+
+Si vous disposez déjà d'un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement en cluster avec commutateur à deux nœuds à l'aide des commutateurs Cisco Nexus 9336C-FX2 pour évoluer au-delà de deux nœuds du cluster.
+
+
+
+== Examen des conditions requises
+
+Assurez-vous que :
+
+* Pour la configuration sans commutateur à 2 nœuds :
++
+** La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.
+** Les nœuds exécutent ONTAP 9.8 et version ultérieure.
+** Tous les ports de cluster sont à l'état *up*.
+** Toutes les interfaces logiques de cluster (LIFS) sont dans l'état *up* et sur leurs ports *home*.
+
+
+* Pour la configuration du commutateur Cisco Nexus 9336C-FX2 :
++
+** Les deux commutateurs disposent d'une connectivité réseau de gestion.
+** Il y a un accès à la console aux commutateurs du cluster.
+** Les connexions de commutateur à nœud et de commutateur à commutateur Nexus 9336C-FX2 utilisent des câbles Twinax ou à fibre optique.
+** La solution NetApp https://hwu.netapp.com["Hardware Universe"] contient plus d'informations sur le câblage.
+** Les câbles ISL (Inter-Switch Link) sont connectés aux ports 1/35 et 1/36 sur les deux commutateurs 9336C-FX2.
+
+
+* La personnalisation initiale des commutateurs 9336C-FX2 est terminée. Pour que :
++
+** Les commutateurs 9336C-FX2 exécutent la dernière version du logiciel
+** Les fichiers de configuration de référence (RCFs) ont été appliqués aux commutateurs
+** Toute personnalisation de site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
+
+
+
+
+
+
+== Migrer les commutateurs
+
+.À propos des exemples
+Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
+
+* Les noms des commutateurs 9336C-FX2 sont _cs1_ et _cs2_.
+* Les noms des SVM du cluster sont _node1_ et _node2_.
+* Les noms des LIFS sont respectivement _node1_clude1_ et _node1_clus2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
+* L'invite cluster1:*> indique le nom du cluster.
+* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, comme pour le contrôleur AFF A400. Le https://hwu.netapp.com["Hardware Universe"] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+
+
+
+
+=== Étape 1 : migration depuis un cluster sans commutateur avec connexion directe
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :  `system node autosupport invoke -node * -type all -message MAINT=xh`.
++
+où x représente la durée de la fenêtre de maintenance en heures.
+
+
+
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+. [[step2]]définissez le niveau de privilège sur avancé, en entrant y lorsque vous êtes invité à continuer :
++
+`set -privilege advanced`
+
++
+L'invite avancée (*>) apparaît.
+
+. Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les nouveaux commutateurs de cluster cs1 et cs2. Vous ne devez pas désactiver les ports ISL.
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports 1 à 34 orientés nœud sont désactivés sur le commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e/1-34*
+cs1(config-if-range)# *shutdown*
+----
+====
+
+
+. [[step4]]vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs 9336C-FX2 cs1 et cs2 sont en service sur les ports 1/35 et 1/36 :
++
+`show port-channel summary`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports ISL sont active sur le commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+L'exemple suivant montre que les ports ISL sont active sur le commutateur cs2 :
+
+[listing, subs="+quotes"]
+----
+       cs2# *show port-channel summary*
+        Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+====
+
+
+. [[step5]]affiche la liste des périphériques voisins :
++
+`show cdp neighbors`
+
++
+Cette commande fournit des informations sur les périphériques connectés au système.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+Total entries displayed: 2
+----
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs2 :
+
+[listing, subs="+quotes"]
+----
+cs2# *show cdp neighbors*
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1                Eth1/35        177    R S I s     N9K-C9336C    Eth1/35
+cs1           )    Eth1/36        177    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2
+----
+====
+
+
+. [[étape6]]Vérifiez que tous les ports du cluster sont bien en service :
++
+`network port show - ipspace Cluster`
+
++
+Chaque port doit s'afficher pour Link et Healthy pour Health Status.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                  Speed(Mbps)  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status
+--------- ------------ ---------------- ---- ---- ------------ ---------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy
+
+Node: node2
+                                                  Speed(Mbps)  Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status
+--------- ------------ ---------------- ---- ---- ------------ ---------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy
+4 entries were displayed.
+----
+====
+
+
+. [[step7]]vérifier que toutes les LIF de cluster sont opérationnelles :
++
+`network interface show - vserver Cluster`
+
++
+Chaque LIF de cluster doit afficher la valeur true pour `Is Home` Et disposer d'un statut Admin/Oper up/up.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical     Status     Network            Current       Current Is
+Vserver     Interface   Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e3a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e3b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
+4 entries were displayed.
+----
+====
+
+
+. [[step8]]vérifier que la fonction de restauration automatique est activée sur toutes les LIFs de cluster :
++
+`network interface show - vserver Cluster -fields auto-revert`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
+       Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+          node1_clus1   true
+          node1_clus2   true
+          node2_clus1   true
+          node2_clus2   true
+4 entries were displayed.
+----
+====
+
+
+. [[step9]]déconnectez le câble du port du cluster e3a sur le nœud1, puis connectez e3a au port 1 du commutateur du cluster cs1 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
++
+La solution NetApp https://hwu.netapp.com["Hardware Universe"] contient plus d'informations sur le câblage.
+
+. Déconnectez le câble du port e3a du bloc d'instruments sur le nœud2, puis connectez e3a au port 2 du commutateur cs1 du bloc d'instruments à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e1/1-34*
+cs1(config-if-range)# *no shutdown*
+----
+====
+
+
+. [[step12]]Vérifiez que toutes les LIFs de cluster sont *up*, opérationnelles et affichées comme TRUE `Is Home`:
++
+`network interface show - vserver Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que toutes les LIFs sont *up* sur le nœud1 et le nœud2 et ainsi `Is Home` les résultats sont *vrais* :
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+          Logical      Status     Network            Current     Current Is
+Vserver   Interface    Admin/Oper Address/Mask       Node        Port    Home
+--------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+          node1_clus1  up/up      169.254.209.69/16  node1       e3a     true
+          node1_clus2  up/up      169.254.49.125/16  node1       e3b     true
+          node2_clus1  up/up      169.254.47.194/16  node2       e3a     true
+          node2_clus2  up/up      169.254.19.183/16  node2       e3b     true
+4 entries were displayed.
+----
+====
+
+
+. [[step13]]affiche des informations sur l'état des nœuds du cluster :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+2 entries were displayed.
+----
+====
+
+
+. [[step14]]déconnectez le câble du port du cluster e3b sur le node1, puis connectez e3b au port 1 du commutateur de cluster cs2 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Déconnectez le câble du port du cluster e3b sur le nœud2, puis connectez e3b au port 2 du commutateur du cluster cs2 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Activer tous les ports orientés nœud sur le commutateur de cluster cs2.
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs2 :
+
+[listing, subs="+quotes"]
+----
+cs2# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs2(config)# *interface e1/1-34*
+cs2(config-if-range)# *no shutdown*
+----
+====
+
+
+. [[step17]]vérifier que tous les ports du cluster sont up :
++
+`network port show - ipspace Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que tous les ports du cluster apparaissent sur les nœuds 1 et sur le nœud 2 :
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
+
+Node: node2
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e3a       Cluster      Cluster          up   9000  auto/100000 healthy  false
+e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
+4 entries were displayed.
+----
+====
+
+
+. [[step18]]Vérifiez que toutes les interfaces sont vraies pour `Is Home`:
++
+`network interface show - vserver Cluster`
+
++
+
+NOTE: Cette opération peut prendre plusieurs minutes.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que toutes les LIFs sont *up* sur node1 et node2 et cela `Is Home` les résultats sont vrais :
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+          Logical      Status     Network            Current    Current Is
+Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
+--------- ------------ ---------- ------------------ ---------- ------- ----
+Cluster
+          node1_clus1  up/up      169.254.209.69/16  node1      e3a     true
+          node1_clus2  up/up      169.254.49.125/16  node1      e3b     true
+          node2_clus1  up/up      169.254.47.194/16  node2      e3a     true
+          node2_clus2  up/up      169.254.19.183/16  node2      e3b     true
+4 entries were displayed.
+----
+====
+
+
+. [[step19]]vérifier que les deux nœuds disposent chacun d'une connexion à chaque switch :
++
+`show cdp neighbors`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           AFFA400       e3a
+node2              Eth1/2         133    H           AFFA400       e3a
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+Total entries displayed: 4
+cs2# show cdp neighbors
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           AFFA400       e3b
+node2              Eth1/2         133    H           AFFA400       e3b
+cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+Total entries displayed: 4
+----
+====
+
+
+. [[step20]]affiche des informations sur les périphériques réseau détectés dans votre cluster :
++
+`network device-discovery show -protocol cdp`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2       /cdp
+            e3a    cs1                       0/2               N9K-C9336C
+            e3b    cs2                       0/2               N9K-C9336C
+
+node1       /cdp
+            e3a    cs1                       0/1               N9K-C9336C
+            e3b    cs2                       0/1               N9K-C9336C
+4 entries were displayed.
+----
+====
+
+
+. [[step21]]vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et ne contient aucune erreur :
++
+`system switch ethernet show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system switch ethernet show*
+Switch                    Type                   Address         Model
+------------------------- ---------------------- --------------- ----------
+sh1
+                          storage-network        172.17.227.5    C9336C
+
+       Serial Number: FOC221206C2
+        Is Monitored: true
+              Reason: None
+    Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                      9.3(5)
+      Version Source: CDP
+sh2
+                          storage-network        172.17.227.6    C9336C
+       Serial Number: FOC220443LZ
+        Is Monitored: true
+              Reason: None
+    Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                      9.3(5)
+      Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+====
+
+
+. [[step22]]Vérifiez que les paramètres sont désactivés :
++
+`network options switchless-cluster show`
+
++
+
+NOTE: La commande peut prendre plusieurs minutes. Attendez l'annonce « 3 minutes d'expiration de la durée de vie ».
+
++
+Le `false` l'exemple suivant montre que les paramètres de configuration sont désactivés :
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network options switchless-cluster show*
+Enable Switchless Cluster: false
+----
+====
+
+
+. [[step23]]Vérifiez l'état des membres du nœud dans le cluster :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  --------
+node1                true    true          false
+node2                true    true          false
+----
+====
+
+
+. [[step24]]Assurez-vous que le réseau en cluster dispose d'une connectivité complète :
++
+`cluster ping-cluster -node node-name`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node node2*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e3a
+Cluster node1_clus2 169.254.49.125 node1 e3b
+Cluster node2_clus1 169.254.47.194 node2 e3a
+Cluster node2_clus2 169.254.19.183 node2 e3b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+
+
+. [[step25]]remplacez le niveau de privilège par admin :
++
+`set -privilege admin`
+
+. Activez la fonction de collecte des journaux du contrôle de l'état du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur à l'aide des commandes :
++
+** `system switch ethernet log setup-password`
+** `system switch ethernet log enable-collection`
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: <return>
+The switch name entered is not recognized.
+
+Choose from the following list:
+*cs1*
+*cs2*
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *cs1*
+RSA key fingerprint is e5:8b:c6:dc:e2:18:18:09:36:63:d9:63:dd:03:d9:cc
+Do you want to continue? {y|n}::[n] *y*
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *cs2*
+RSA key fingerprint is 57:49:86:a1:b9:80:6a:61:9a:86:8e:3c:e3:b7:1f:b1
+Do you want to continue? {y|n}:: [n] *y*
+Enter the password: <enter switch password>
+Enter the password again: <enter switch password>
+cluster1::*> *system  switch ethernet log enable-collection*
+Do you want to enable cluster log collection for all nodes in the cluster? {y|n}: [n] *y*
+Enabling cluster switch log collection.
+cluster1::*>
+----
+====
+
+
+
+
+
+
+=== Étape 2 : configurer le commutateur partagé
+
+Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* Les noms des deux commutateurs partagés sont _sh1_ et _sh2_.
+* Les nœuds sont _node1_ et _node2_.
+
+
+
+NOTE: La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes Cisco Nexus 9000 Series Commutateuret des commandes ONTAP sauf indication contraire.
+
+. Vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
++
+`system switch ethernet show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system switch ethernet show*
+Switch                    Type                   Address         Model
+------------------------- ---------------------  --------------- -------
+sh1
+                          storage-network        172.17.227.5    C9336C
+
+      Serial Number: FOC221206C2
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(5)
+     Version Source: CDP
+sh2
+                          storage-network        172.17.227.6    C9336C
+       Serial Number: FOC220443LZ
+        Is Monitored: true
+              Reason: None
+    Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                      9.3(5)
+      Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+====
+. Vérifiez que les ports du nœud de stockage sont opérationnels et fonctionnels :
++
+`storage port show -port-type ENET`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                   Speed                             VLAN
+Node    Port    Type    Mode       (Gb/s)      State      Status       ID
+------- ------- ------- ---------- ----------- ---------- ---------- -----
+node1
+        e0c     ENET   storage          100      enabled  online        30
+        e0d     ENET   storage          100      enabled  online        30
+        e5a     ENET   storage          100      enabled  online        30
+        e5b     ENET   storage          100      enabled  online        30
+
+node2
+        e0c     ENET  storage           100      enabled  online        30
+        e0d     ENET  storage           100      enabled  online        30
+        e5a     ENET  storage           100      enabled  online        30
+        e5b     ENET  storage           100      enabled  online        30
+----
+====
+
+
+. [[step3]]déplacer la paire HA 1, NSM224 chemin A ports vers la plage de ports sh1 11-22.
+. Installez un câble entre la paire HA 1, node1, chemin A et la plage de ports sh1 11-22. Par exemple, le chemin D'accès À Un port de stockage sur un système AFF A400 est e0c.
+. Installez un câble de la paire HA 1, node2, chemin A vers la plage de ports sh1 11-22.
+. Vérifiez que les ports du nœud sont sains et opérationnels :
++
+`storage port show -port-type ENET`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                   Speed                             VLAN
+Node    Port    Type    Mode       (Gb/s)      State      Status       ID
+------- ------- ------- ---------- ----------- ---------- ---------- -----
+node1
+        e0c     ENET   storage          100      enabled  online        30
+        e0d     ENET   storage            0      enabled  offline       30
+        e5a     ENET   storage            0      enabled  offline       30
+        e5b     ENET   storage          100      enabled  online        30
+
+node2
+        e0c     ENET  storage           100      enabled  online        30
+        e0d     ENET  storage             0      enabled  offline       30
+        e5a     ENET  storage             0      enabled  offline       30
+        e5b     ENET  storage           100      enabled  online        30
+----
+====
+. Vérifier l'absence de problèmes de câblage ou de commutateur de stockage au niveau du cluster :
++
+`system health alert show -instance`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system health alert show -instance*
+There are no entries matching your query.
+----
+====
+. Déplacez les ports B de la paire HA 1, du chemin NSM224 vers la plage de ports sh2 11-22.
+. Installez un câble entre la paire HA 1, node1, chemin B et la plage de ports sh2 11-22. Par exemple, le port de stockage du chemin B d'un AFF A400 est e5b.
+. Installez un câble entre la paire HA 1, node2, chemin B et la plage de ports sh2 11-22.
+. Vérifiez que les ports du nœud sont sains et opérationnels :
++
+`storage port show -port-type ENET`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                   Speed                             VLAN
+Node    Port    Type    Mode       (Gb/s)      State      Status       ID
+------- ------- ------- ---------- ----------- ---------- ---------- -----
+node1
+        e0c     ENET   storage          100      enabled  online        30
+        e0d     ENET   storage            0      enabled  offline       30
+        e5a     ENET   storage            0      enabled  offline       30
+        e5b     ENET   storage          100      enabled  online        30
+
+node2
+        e0c     ENET  storage           100      enabled  online        30
+        e0d     ENET  storage             0      enabled  offline       30
+        e5a     ENET  storage             0      enabled  offline       30
+        e5b     ENET  storage           100      enabled  online        30
+----
+====
+. Vérifiez que la configuration du stockage de la paire HA 1 est correcte et ne contient aucune erreur :
++
+`system switch ethernet show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *system switch ethernet show*
+Switch                    Type                   Address          Model
+------------------------- ---------------------- ---------------- ----------
+sh1
+                          storage-network        172.17.227.5     C9336C
+
+      Serial Number: FOC221206C2
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(5)
+     Version Source: CDP
+sh2
+                          storage-network        172.17.227.6     C9336C
+      Serial Number: FOC220443LZ
+       Is Monitored: true
+             Reason: None
+   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                     9.3(5)
+     Version Source: CDP
+2 entries were displayed.
+storage::*>
+----
+====
+. Reconfigurez les ports de stockage secondaires inutilisés (contrôleur) de la paire HA 1 entre le stockage et la mise en réseau. Si plusieurs NS224 étaient connectés directement, il y aura des ports qui devraient être reconfigurés.
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage port modify –node [node name] –port [port name] –mode network
+----
+====
++
+Pour placer des ports de stockage dans un broadcast domain :
+
++
+** `network port broadcast-domain create` (pour créer un nouveau domaine, si nécessaire)
+** `network port broadcast-domain add-ports` (pour ajouter des ports à un domaine existant)
+
+
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

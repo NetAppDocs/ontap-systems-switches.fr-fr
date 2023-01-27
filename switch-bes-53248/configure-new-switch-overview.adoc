@@ -1,0 +1,41 @@
+---
+permalink: switch-bes-53248/configure-new-switch-overview.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
+summary: Avant de configurer les commutateurs de cluster BES-53248, consultez la présentation de la configuration. 
+---
+= Présentation de l'installation et de la configuration des commutateurs BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le BES-53248 est un commutateur sans système d'exploitation conçu pour fonctionner dans des clusters ONTAP de deux à 24 nœuds.
+
+
+
+== Présentation de la configuration initiale
+
+Pour configurer initialement un commutateur de cluster BES-53248 sur les systèmes exécutant ONTAP, procédez comme suit :
+
+. link:install-hardware-bes53248.html["Installez le matériel du commutateur de bloc BES-53248"]. Des instructions sont disponibles dans le _Broadcom-pris en charge BES-53248 Cluster Switch installation Guide_.
+. link:configure-install-initial.html["Configurez le commutateur du cluster BES-53248"]. Effectuez une configuration initiale du commutateur de cluster BES-53248.
+. link:configure-efos-software.html["Installez le logiciel EFOS"]. Téléchargez et installez le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.
+. link:configure-licenses.html["Installez les licences pour les commutateurs de cluster BES-53248"]. Vous pouvez également ajouter de nouveaux ports en achetant et en installant des licences supplémentaires. Le modèle de base de switchs est conçu pour 16 ports 10 GbE ou 25 GbE et 2 ports 100 GbE.
+. link:configure-install-rcf.html["Installer le fichier RCF (Reference Configuration File)"]. Installez ou mettez à niveau le RCF sur le commutateur de cluster BES-53248, puis vérifiez si les ports ne correspondent pas à une licence supplémentaire après l'application du RCF.
+. link:configure-health-monitor.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"]. Installez le fichier de configuration applicable pour la surveillance de l'état du commutateur du cluster.
+. link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"]. Si vous utilisez les fonctions CSHM (Cluster Switch Health Monitor) et de collecte de journaux, activez SSH sur les commutateurs.
+. link:configure-log-collection.html["Activez la fonction de collecte de journaux"]. Utilisez cette fonction pour collecter les fichiers journaux relatifs au commutateur dans ONTAP.
+
+
+
+
+== Informations supplémentaires
+
+Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
+
+* link:configure-reqs-bes53248.html["Configuration requise"]
+* link:components-bes53248.html["Composants et références"]
+* link:required-documentation-bes53248.html["Documentation requise"]
+

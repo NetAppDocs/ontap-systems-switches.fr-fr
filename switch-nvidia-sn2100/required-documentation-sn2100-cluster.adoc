@@ -1,0 +1,40 @@
+---
+permalink: switch-nvidia-sn2100/required-documentation-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: nvidia SN2100 switches 
+summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, consultez la documentation recommandée.' 
+---
+= Exigences en matière de documentation pour les switchs NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur NVIDIA SN2100, consultez la documentation recommandée.
+
+[cols="1,2"]
+|===
+| Titre | Description 
+
+
+ a| 
+https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation du commutateur NVIDIA"^]
+ a| 
+Décrit l'installation des switchs NVIDIA SN2100.
+
+
+
+ a| 
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guide de câblage de tiroirs disques NVMe NS224"^]
+ a| 
+Présentation et illustrations des configurations du câblage des tiroirs disques.
+
+
+
+ a| 
+https://hwu.netapp.com/["NetApp Hardware Universe"^]
+ a| 
+Permet de confirmer le matériel pris en charge, comme les commutateurs de stockage et les câbles, pour votre modèle de plate-forme.
+
+|===

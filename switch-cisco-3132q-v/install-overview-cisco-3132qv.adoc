@@ -1,0 +1,39 @@
+---
+permalink: switch-cisco-3132q-v/install-overview-cisco-3132qv.html 
+sidebar: sidebar 
+keywords: install, Cisco Nexus 3132Q-V 
+summary: Avant de configurer des commutateurs Cisco Nexus 3132Q-V, consultez une présentation du processus et de la nomenclature. 
+---
+= Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 3132Q-V.
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.
+
+
+
+== Présentation de la configuration initiale
+
+Pour configurer initialement un commutateur Cisco Nexus 3132Q-V sur les systèmes exécutant ONTAP, effectuez la procédure suivante :
+
+. link:setup_worksheet_3132q.html["Fiche technique de câblage Cisco Nexus 3132Q-V."]. L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+. link:install-cisco-nexus-3232c.html["Installez un commutateur de cluster Cisco Nexus 3132Q-V dans une armoire NetApp"]. Installez le commutateur Cisco Nexus 3132Q-V et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.
+. link:setup-switch.html["Configurez le commutateur Cisco Nexus 3132Q-V"]. Installer et configurer le commutateur Cisco Nexus 3132Q-V
+. link:prepare-install-cisco-nexus-3132q.html["Préparez l'installation du logiciel NX-OS et du fichier de configuration de référence"]. Préparez-vous à installer le logiciel NX-OS et le fichier RCF (Reference Configuration File).
+. link:install-nx-os-software-3132q-v.html["Installez le logiciel NX-OS"]. Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3132Q-V.
+. link:install-rcf-3132q-v.html["Installer le fichier RCF (Reference Configuration File)"]. Suivre cette procédure pour installer la FCR après avoir configuré pour la première fois le commutateur Nexus 3132Q-V. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+
+
+
+
+== Informations supplémentaires
+
+Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
+
+* link:configure-reqs-3132q.html["Configuration requise"]
+* link:required-documentation-3132q.html["Documentation requise"]
+* link:smart-call-home-3132q.html["Configuration requise pour le service d'appel intelligent"]
+

@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-92300/install-overview-cisco-92300.html 
+sidebar: sidebar 
+keywords: install, cisco nexus 92300 switch, 
+summary: Avant de configurer des commutateurs Cisco Nexus 92300, consultez un aperçu du processus et de la nomenclature. 
+---
+= Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 92300
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de configurer les commutateurs Cisco Nexus 92300, consultez la présentation de la procédure.
+
+Pour configurer au départ un commutateur Cisco Nexus 92300 sur des systèmes exécutant ONTAP, procédez comme suit :
+
+. link:setup-worksheet-92300yc.html["Remplir la fiche technique de câblage Cisco Nexus 92300YC"]. L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+. link:configure-install-initial.html["Configurez le commutateur Cisco Nexus 92300YC"]. Configurer et configurer le commutateur Cisco Nexus 92300YC.
+. link:install-nxos-overview.html["Préparation à l'installation du logiciel NX-OS et du fichier RCF (Reference Configuration File)"]. Préparation de l'installation du logiciel NX-OS et du fichier RCF (Reference Configuration File).
+. link:install-nxos-software.html["Installez le logiciel NX-OS"]. Installez le logiciel NX-OS sur le commutateur Nexus 92300YC. NX-OS est un système d'exploitation réseau destiné à la gamme Nexus de commutateurs Ethernet et aux commutateurs réseau SAN Fibre Channel (FC) proposés par Cisco Systems.
+. link:install-the-rcf-file.html["Installer le fichier RCF (Reference Configuration File)"]. Installez le FCR après avoir configuré pour la première fois le commutateur Nexus 92300YC. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+. link:setup-install-cshm-file.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"]. Installez le fichier de configuration applicable pour la surveillance de l'état du commutateur de cluster des commutateurs de cluster Nexus 92300YC.
+
+
+
+
+== Informations supplémentaires
+
+Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
+
+* link:configure-reqs-92300.html["Configuration requise"]
+* link:components-92300.html["Composants et références"]
+* link:required-documentation-92300.html["Documentation requise"]
+* link:smart-call-home-92300.html["Configuration requise pour le service d'appel intelligent"]
+

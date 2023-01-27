@@ -1,0 +1,46 @@
+---
+permalink: switch-nvidia-sn2100/configure-overview-sn2100-cluster.html 
+sidebar: sidebar 
+keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
+summary: Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 GbE exécutant Cumulus Linux. Le commutateur SN2100 sert les applications de stockage et de cluster dans ONTAP 9.10.1 sur différentes paires de switchs. 
+---
+= Présentation de l'installation et de la configuration des switchs NVIDIA SN2100
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La carte NVIDIA SN2100 est un commutateur de cluster qui permet de créer des clusters ONTAP avec plus de deux nœuds.
+
+
+
+== Présentation de la configuration initiale
+
+Pour configurer un switch NVIDIA SN2100 sur les systèmes exécutant ONTAP, procédez comme suit :
+
+. link:install-hardware-sn2100-cluster.html["Installez le matériel du commutateur NVIDIA SN2100"]. Les instructions sont disponibles dans le _NVIDIA Switch installation Guide_.
+. link:configure-sn2100-cluster.html["Configurer le commutateur"]. Des instructions sont disponibles dans la documentation de NVIDIA.
+. link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"]. Consultez les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.
+. link:install-cable-shelves-sn2100-cluster.html["Reliez les étagères NS224 à un stockage relié à un commutateur"]. Suivez ces procédures si vous disposez d'un système dans lequel les tiroirs disques du NS224 doivent être câblés en tant que stockage connecté à un commutateur (pas de stockage à connexion directe).
+. link:install-cumulus-mode-sn2100-cluster.html["Installez Cumulus Linux en mode Cumulus"] ou link:install-onie-mode-sn2100-cluster.html["Installez Cumulus Linux en mode ONIE"]. Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE.
+. link:install-rcf-sn2100-cluster.html["Installez le script RCF (Reference Configuration File)"]. Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
+. link:install-snmpv3-sn2100-cluster.html["Configurer SNMPv3 pour la collecte log switch"]. Cette version inclut la prise en charge du protocole SNMPv3 pour la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
+
+
+
+NOTE: Les procédures utilisent l'utilitaire NCLU (Network Command Line Utility), qui est une interface de ligne de commande qui garantit que Cumulus Linux est entièrement accessible à tous. La commande net est l'utilitaire wrapper que vous utilisez pour exécuter des actions à partir d'un terminal.
+
+
+NOTE: Voir https://hwu.netapp.com["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
+
+
+
+== Informations supplémentaires
+
+Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
+
+* link:configure-reqs-sn2100-cluster.html["Configuration requise"]
+* link:components-sn2100-cluster.html["Composants et références"]
+* link:required-documentation-sn2100-cluster.html["Documentation requise"]
+

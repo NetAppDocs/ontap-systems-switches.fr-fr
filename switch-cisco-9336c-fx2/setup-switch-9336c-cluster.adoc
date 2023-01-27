@@ -1,0 +1,199 @@
+---
+permalink: switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2. 
+---
+= Configurez le commutateur du bloc d'instruments 9336C-FX2
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2.
+
+.Ce dont vous avez besoin
+* Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
+* Licences applicables, informations sur le réseau et la configuration, et câbles.
+* Terminé link:setup-worksheet-9336c-cluster.html["fiches de câblage"].
+* Réseau de gestion et de réseau en cluster NetApp(R) en vigueur téléchargeable depuis le site de support NetApp, à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
+* link:required-documentation-9336c-cluster.html["Documentation relative aux commutateurs et à ONTAP requise"].
+
+
+.Étapes
+. Effectuer une configuration initiale des commutateurs du réseau de cluster.
++
+Lors du premier démarrage du commutateur, répondez aux questions de configuration initiale suivantes. La politique de sécurité de votre site définit les réponses et les services à activer.
+
++
+[cols="1,2"]
+|===
+| À l'invite | Réponse 
+
+
+ a| 
+Abandonner le provisionnement automatique et poursuivre la configuration normale ? (oui/non) ?
+ a| 
+Répondez par *oui*. La valeur par défaut est non
+
+
+
+ a| 
+Voulez-vous appliquer une norme de mot de passe sécurisée ? (oui/non) ?
+ a| 
+Répondez par *oui*. La valeur par défaut est oui.
+
+
+
+ a| 
+Entrez le mot de passe pour l'administrateur.
+ a| 
+Le mot de passe par défaut est ""admin""; vous devez créer un nouveau mot de passe fort. Un mot de passe faible peut être rejeté.
+
+
+
+ a| 
+Voulez-vous entrer la boîte de dialogue de configuration de base ? (oui/non) ?
+ a| 
+Répondre par *oui* à la configuration initiale du commutateur.
+
+
+
+ a| 
+Créer un autre compte de connexion ? (oui/non) ?
+ a| 
+Votre réponse dépend des stratégies de votre site concernant les administrateurs secondaires. La valeur par défaut est *non*.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture seule ? (oui/non) ?
+ a| 
+Répondre par *non*. La valeur par défaut est non
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture-écriture ? (oui/non) ?
+ a| 
+Répondre par *non*. La valeur par défaut est non
+
+
+
+ a| 
+Entrez le nom du commutateur.
+ a| 
+Saisissez le nom du commutateur, qui est limité à 63 caractères alphanumériques.
+
+
+
+ a| 
+Poursuivre la configuration de gestion hors bande (mgmt0) ? (oui/non) ?
+ a| 
+Répondez par *yes* (par défaut) à cette invite. À l'invite mgmt0 adresse IPv4 :, entrez votre adresse IP : adresse_ip.
+
+
+
+ a| 
+Configurer la passerelle par défaut ? (oui/non) ?
+ a| 
+Répondez par *oui*. À l'invite Default-Gateway:, saisissez votre passerelle_par_défaut.
+
+
+
+ a| 
+Configurer les options IP avancées ? (oui/non) ?
+ a| 
+Répondre par *non*. La valeur par défaut est non
+
+
+
+ a| 
+Activer le service telnet ? (oui/non) ?
+ a| 
+Répondre par *non*. La valeur par défaut est non
+
+
+
+ a| 
+Service SSH activé ? (oui/non) ?
+ a| 
+Répondez par *oui*. La valeur par défaut est oui.
+
+
+NOTE: SSH est recommandé lors de l'utilisation du moniteur CSHM (Cluster Switch Health Monitor) pour ses fonctions de collecte de journaux. SSHv2 est également recommandé pour une sécurité améliorée.
+
+
+
+ a| 
+Entrez le type de clé SSH que vous souhaitez générer (dsa/rsa/rsa1).
+ a| 
+La valeur par défaut est *rsa*.
+
+
+
+ a| 
+Entrez le nombre de bits de clé (1024-2048).
+ a| 
+Entrez le nombre de bits de clé compris entre 1024 et 2048.
+
+
+
+ a| 
+Configurer le serveur NTP ? (oui/non) ?
+ a| 
+Répondre par *non*. La valeur par défaut est non
+
+
+
+ a| 
+Configuration de la couche d'interface par défaut (L3/L2)
+ a| 
+Répondre avec *L2*. La valeur par défaut est L2.
+
+
+
+ a| 
+Configurer l'état d'interface du port du commutateur par défaut (shutr/nosolt)
+ a| 
+Répondre avec *nohut*. La valeur par défaut est nosott.
+
+
+
+ a| 
+Configuration du profil du système Copp (strict/modéré/ELEDent/dense)
+ a| 
+Répondez avec *strict*. La valeur par défaut est stricte.
+
+
+
+ a| 
+Voulez-vous modifier la configuration ? (oui/non) ?
+ a| 
+La nouvelle configuration est à présent visible. Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir. Répondez par *non* à l'invite si vous êtes satisfait de la configuration. Répondez par *yes* si vous souhaitez modifier vos paramètres de configuration.
+
+
+
+ a| 
+Utilisez cette configuration et enregistrez-la ? (oui/non) ?
+ a| 
+Répondez avec *yes* pour enregistrer la configuration. Ceci met automatiquement à jour les images kickstart et système.
+
+
+NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modifications ne sera effective lors du prochain redémarrage du commutateur.
+
+|===
+. Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.
+. Vérifier la version des commutateurs du réseau du cluster et, le cas échéant, télécharger la version prise en charge par NetApp du logiciel vers les commutateurs.
++
+Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le _NetApp Cluster Network Switch Reference Configuration File_ et la fusionner avec la configuration enregistrée à l'étape 5. Vous pouvez télécharger le fichier et les instructions à partir du https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] page.
+
+. Vérifiez la version logicielle des commutateurs réseau et, le cas échéant, téléchargez la version prise en charge par NetApp des commutateurs. Si vous disposez de vos propres commutateurs, reportez-vous à la https://cisco.com["Site Cisco"^].
++
+Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le _NetApp Management Network Switch Reference Configuration File_ et la fusionner avec la configuration que vous avez précédemment enregistrée. Vous pouvez télécharger le fichier et les instructions à partir du https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] page.
+
+
+
+.Et la suite ?
+Si vous le souhaitez, vous pouvez link:install-switch-and-passthrough-panel-9336c-cluster.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"]. Sinon, passez à link:install-nxos-overview-9336c-cluster.html["Préparez-vous à installer NX-OS et RCF"].

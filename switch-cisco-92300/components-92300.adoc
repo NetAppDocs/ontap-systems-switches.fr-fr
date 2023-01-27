@@ -1,0 +1,68 @@
+---
+permalink: switch-cisco-92300/components-92300.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs. 
+---
+= Composants pour les commutateurs Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez tous les composants et références du commutateur.
+
+Le tableau suivant répertorie le numéro de référence et la description du commutateur 92300YC, des ventilateurs et des alimentations électriques :
+
+[cols="1,2"]
+|===
+| Numéro de référence | Description 
+
+
+ a| 
+190003
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25 Gb, 18Pt100G, PTSX (PTSX = échappement côté port)
+
+
+
+ a| 
+190003R
+ a| 
+Cisco 92300YC, CLSW, 48Pt10/25 Gb, 18Pt100G, PSIN (PSIN = admission côté port)
+
+
+
+ a| 
+X-NXA-FAN-35CFM-B
+ a| 
+Ventilateur, air d'admission côté orifice N9K de Cisco
+
+
+
+ a| 
+X-NXA-FAN-35CFM-F
+ a| 
+Ventilateur, air d'échappement côté port Cisco N9K
+
+
+
+ a| 
+X-NXA-PAC-650W-B
+ a| 
+Alimentation, Cisco 650W - prise d'air côté orifice
+
+
+
+ a| 
+X-NXA-PAC-650W-F
+ a| 
+Alimentation, échappement côté port Cisco 650W
+
+|===
+Détails du débit d'air du commutateur Cisco Nexus 92300YC :
+
+* Flux d'air d'échappement côté port (air standard) -- l'air froid pénètre dans le châssis par le ventilateur et les modules d'alimentation dans l'allée froide et s'échappe par l'extrémité du port du châssis dans l'allée chaude. Débit d'air d'échappement côté orifice avec coloration bleue.
+* Air d'admission côté orifice (air inversé) -- l'air froid pénètre dans le châssis par l'extrémité de l'orifice dans l'allée froide et s'échappe par le ventilateur et les modules d'alimentation dans l'allée chaude. Air d'admission côté port avec couleur bordeaux.
+

@@ -1,66 +1,42 @@
 ---
 section: switch-cisco-92300
-title: Commutateurs Cisco Nexus 92300YC
+title: Cisco Nexus 92300YC
 entries:
 - title: Présentation
-  url: "/switch-cisco-92300/92300-overview.html"
-- title: Configuration
   entries:
-  - title: Configurer les commutateurs
-    url: "/switch-cisco-9336c-fx2/setup-switches.html"
-  - title: Informations requises pour la configuration du cluster
-    url: "/switch-cisco-9336c-fx2/setup-required-information.html"
-  - title: Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)
-      pour les commutateurs 92300YC
-    url: "/switch-cisco-9336c-fx2/setup-install-cshm-file.html"
+  - title: Présentation de la configuration
+    url: "/switch-cisco-92300/install-overview-cisco-92300.html"
+  - title: Configuration requise
+    url: "/switch-cisco-92300/configure-reqs-92300.html"
+  - title: Composants et références
+    url: "/switch-cisco-92300/components-92300.html"
   - title: Documentation requise
-    url: "/switch-cisco-9336c-fx2/setup-required-documentation.html"
-  - title: Considérations relatives à l'utilisation de la fonction d'appel intelligent
-    url: "/switch-cisco-9336c-fx2/setup-considerations-smart-call.html"
-  - title: Exemple de fiches de câblage vierges
-    entries:
-    - title: Fiche technique de câblage Cisco Nexus 9336C-FX2
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-9336c.html"
-    - title: Fiche technique de câblage Cisco Nexus 92300YC
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-92300yc.html"
-    - title: Fiche de câblage Cisco Nexus 3232C
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-3232c.html"
-    - title: Fiche technique de câblage Cisco Nexus 3132Q-V.
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-3132q.html"
-    - title: Fiche de câblage Cisco Nexus 5596UP et 5596T
-      url: "/switch-cisco-9336c-fx2/setup-worksheet-5596.html"
-    - title: Exemple de fiche de câblage
-      url: "/switch-cisco-9336c-fx2/setup-worksheets-sample-cabling.html"
-- title: Configurez un nouveau commutateur Cisco Nexus 92300YC
+    url: "/switch-cisco-92300/required-documentation-92300.html"
+  - title: Configuration requise pour le service d'appel intelligent
+    url: "/switch-cisco-92300/smart-call-home-92300.html"
+- title: Installer le matériel de fixation
   entries:
-  - title: Présentation
-    url: "/switch-cisco-92300/configure-overview.html"
-  - title: Installation initiale du commutateur Cisco Nexus 92300YC
+  - title: Remplir la fiche de câblage
+    url: "/switch-cisco-92300/setup-worksheet-92300yc.html"
+  - title: Configurer le commutateur
     url: "/switch-cisco-92300/configure-install-initial.html"
-  - title: Installez le logiciel NX-OS
-    url: "/switch-cisco-92300/configure-install-nxos.html"
-  - title: Installez le fichier de configuration de référence
-    url: "/switch-cisco-92300/install-the-rcf-file.html"
-- title: Installez le logiciel NX-OS et RCF sur les commutateurs de cluster Cisco
-    Nexus 92300YC
+- title: Configurez le logiciel
   entries:
-  - title: Présentation
+  - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-92300/install-nxos-overview.html"
-  - title: Installez le logiciel NX-OS
+  - title: Installez NX-OS
     url: "/switch-cisco-92300/install-nxos-software.html"
-  - title: Installez le fichier de configuration de référence
+  - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-92300/install-the-rcf-file.html"
-- title: Migrez vers un cluster à deux nœuds avec commutateur Cisco Nexus 92300YC
+  - title: Installer CSHM
+    url: "/switch-cisco-92300/setup-install-cshm-file.html"
+- title: Migration des commutateurs
   entries:
-  - title: Présentation
-    url: "/switch-cisco-92300/migrate-to-2n-switched-overview.html"
-  - title: Comment migrer
+  - title: Migrer vers un cluster à deux nœuds avec commutateur
     url: "/switch-cisco-92300/migrate-to-2n-switched.html"
-- title: Migration d'un commutateur Cisco vers un commutateur Cisco Nexus 92300YC
-  entries:
-  - title: Présentation
-    url: "/switch-cisco-92300/migrate-to-92300yc-overview.html"
-  - title: Comment migrer d'un commutateur Cisco vers un commutateur Cisco Nexus 92300YC
+  - title: Migrer depuis un switch Cisco plus ancien
     url: "/switch-cisco-92300/migrate-to-92300yc.html"
-- title: Remplacez un commutateur Cisco Nexus 92300YC
+  - title: Migrer vers un cluster à 2 nœuds sans commutateur
+    url: "/switch-cisco-92300/migrate-to-switchless-cluster-interconnect.html"
+- title: Remplacer l'interrupteur
   url: "/switch-cisco-92300/replace-92300yc.html"

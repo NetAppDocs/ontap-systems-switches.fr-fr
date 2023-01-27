@@ -1,35 +1,44 @@
 ---
 section: switch-nvidia-sn2100
-title: Switchs NVIDIA SN2100
+title: NVIDIA SN2100
 entries:
 - title: Présentation
-  url: "/switch-nvidia-sn2100/sn2100-overview.html"
-- title: Installer et configurer les switchs NVIDIA SN2100
   entries:
-  - title: Présentation
-    url: "/switch-nvidia-sn2100/install_setup_sn2100_switches_overview.html"
-  - title: Considérations relatives au câblage et à la configuration
-    url: "/switch-nvidia-sn2100/install_cabling_config_considerations_sn2100.html"
+  - title: Présentation de la configuration
+    url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+  - title: Configuration requise
+    url: "/switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html"
+  - title: Composants et références
+    url: "/switch-nvidia-sn2100/components-sn2100-cluster.html"
+  - title: Documentation requise
+    url: "/switch-nvidia-sn2100/required-documentation-sn2100-cluster.html"
+- title: Installer le matériel de fixation
+  entries:
+  - title: Poser le commutateur
+    url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
+  - title: Configurer le commutateur
+    url: "/switch-nvidia-sn2100/configure-sn2100-cluster.html"
+  - title: Examiner le câblage et la configuration
+    url: "/switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html"
+  - title: Reliez les étagères NS224
+    url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html"
+- title: Configurez le logiciel
+  entries:
+  - title: Workflow d'installation du logiciel
+    url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
   - title: Installez Cumulus Linux en mode Cumulus
-    url: "/switch-nvidia-sn2100/install_cumulus_linux_cumulus_mode.html"
+    url: "/switch-nvidia-sn2100/install-cumulus-mode-sn2100-cluster.html"
   - title: Installez Cumulus Linux en mode ONIE
-    url: "/switch-nvidia-sn2100/install_cumulus_linux_onie_mode.html"
+    url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
   - title: Installez le script RCF
-    url: "/switch-nvidia-sn2100/install_sn2100_rcf.html"
-  - title: Configurer SNMPv3 pour la collecte log switch
-    url: "/switch-nvidia-sn2100/install_snmpv3_support_for_log_collection.html"
-  - title: Reliez les tiroirs NS224 au stockage relié au commutateur
-    url: "/switch-nvidia-sn2100/install_cable_shelves_SAT_sn2100.html"
-- title: Migrez des switchs de cluster Cisco vers les switchs de cluster NVIDIA SN2100
-  url: "/switch-nvidia-sn2100/migrate_cisco_sn2100_cluster_switch.html"
-- title: Migrer des switchs de stockage Cisco vers les switchs de stockage NVIDIA
-    SN2100
-  url: "/switch-nvidia-sn2100/migrate_cisco_sn2100_storage_switch.html"
-- title: Migrez vers un cluster à deux nœuds avec switch et avec switchs NVIDIA SN2100
-  url: "/switch-nvidia-sn2100/migrate_2n_switched_sn2100_switches.html"
-- title: Remplacement des switchs NVIDIA SN2100
+    url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
+  - title: Configurer la collecte du journal du commutateur
+    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html"
+- title: Migration des commutateurs
   entries:
-  - title: Remplacement d'un commutateur de cluster NVIDIA SN2100
-    url: "/switch-nvidia-sn2100/replace_sn2100_switch_cluster.html"
-  - title: Remplacement d'un commutateur de stockage NVIDIA SN2100
-    url: "/switch-nvidia-sn2100/replace_sn2100_switch_storage.html"
+  - title: Migrer depuis les commutateurs de cluster Cisco
+    url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+  - title: Migrer vers un cluster à 2 nœuds sans commutateur
+    url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"
+- title: Remplacer le commutateur du bloc d'instruments
+  url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"

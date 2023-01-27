@@ -1,0 +1,27 @@
+---
+permalink: switch-cisco-9336c-fx2/smart-call-9336c-cluster.html 
+sidebar: sidebar 
+keywords: cisco smart call,small call home 
+summary: 'Smart Call Home surveille le matériel et les composants logiciels de votre réseau afin de générer une notification par e-mail des conditions système critiques. Lorsqu"un événement se produit sur votre terminal, l"appel intelligent affiche une alerte pour tous les destinataires configurés dans votre profil de destination.' 
+---
+= Configuration requise pour le service d'appel intelligent
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour utiliser la fonction d'appel intelligent, consultez les directives suivantes.
+
+Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par e-mail et génère une alerte à tous les destinataires configurés dans votre profil de destination. Pour utiliser l'appel à distance intelligent, vous devez configurer un commutateur de réseau de cluster pour communiquer par courrier électronique avec le système d'appel à distance intelligent. De plus, vous pouvez configurer votre commutateur de réseau de cluster pour tirer parti de la fonction de prise en charge intégrée de Smart Call Home de Cisco.
+
+Avant de pouvoir utiliser le système d'appel intelligent, prenez en compte les considérations suivantes :
+
+* Un serveur de messagerie doit être en place.
+* Le commutateur doit disposer d'une connexion IP au serveur de messagerie.
+* Le nom du contact (contact du serveur SNMP), le numéro de téléphone et l'adresse postale doivent être configurés. Ceci est nécessaire pour déterminer l'origine des messages reçus.
+* Un CCO ID doit être associé à un contrat Cisco SMARTnet Service approprié pour votre entreprise.
+* Le service Cisco SMARTnet doit être en place pour que le périphérique soit enregistré.
+
+
+Le http://www.cisco.com/c/en/us/products/switches/index.html["Site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer l'appel intelligent.

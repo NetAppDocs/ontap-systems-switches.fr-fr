@@ -1,0 +1,35 @@
+---
+permalink: switch-cisco-92300/configure-reqs-92300.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs. 
+---
+= Configuration requise pour les commutateurs Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez toutes les exigences de configuration et de réseau.
+
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs.
+
+
+
+== Configuration requise
+
+Pour configurer votre cluster, vous devez disposer du nombre et du type appropriés de câbles et de connecteurs de câbles pour les commutateurs. Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console des commutateurs avec le câble console inclus ; vous devez également fournir des informations réseau spécifiques.
+
+
+
+== Exigences liées au réseau
+
+Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :
+
+* Sous-réseau IP pour le trafic du réseau de gestion
+* Noms d'hôte et adresses IP pour chaque contrôleur du système de stockage et tous les commutateurs applicables
+* La plupart des contrôleurs de système de stockage sont gérés par l'interface e0M en vous connectant au port de service Ethernet (icône de clé anglaise). Sur les systèmes AFF A800 et AFF A700, l'interface e0M utilise un port Ethernet dédié.
+
+
+Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.

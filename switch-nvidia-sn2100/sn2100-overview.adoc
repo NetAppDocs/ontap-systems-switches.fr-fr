@@ -4,20 +4,33 @@ sidebar: sidebar
 keywords: nvidia SN2100 switches 
 summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs. 
 ---
-= Commutateur NVIDIA SN2100
+= Présentation et configuration requise : switchs NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-À partir de la version 9.10.1P3 de ONTAP, vous pouvez utiliser les switchs NVIDIA SN2100 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
+Pour l'installation et la maintenance du commutateur NVIDIA SN2100, vérifiez toutes les conditions et la documentation recommandée.
 
 Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs.
 
+
+
+== Prise en charge de ONTAP et Linux
+
+Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 Go exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :
+
+* ONTAP 9.10.1P3. Le commutateur SN2100 sert les applications de stockage et de cluster dans le ONTAP 9.10.1P3 sur différentes paires de commutateurs. À partir de la conférence ONTAP 9.10.1P3, vous pouvez utiliser les switchs NVIDIA SN2100 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
+* Cumulus Linux (CL) version 4.4.2. Cumulus Linux peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE.
+
+
+
+
+== Détails du kit d'armoires et de rails
+
 Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire de commutation double/simple NVIDIA à l'aide des supports standard fournis avec le commutateur.
 
-.Détails sur les commutateurs SN2100 et le kit de rails
 Le tableau suivant répertorie le numéro de référence et la description des commutateurs et kits de rails MSN2100 :
 
 [cols="1,2"]
@@ -67,9 +80,12 @@ Kit de rails, commutateur simple NVIDIA faible profondeur
 
 |===
 
-IMPORTANT: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].
+NOTE: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].
 
-.Documentation disponible
+
+
+== Documentation disponible
+
 Le tableau suivant répertorie la documentation disponible pour les commutateurs NVIDIA SN2100.
 
 [cols="1,2"]

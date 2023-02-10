@@ -3444,8 +3444,6 @@
   <block id="ae93751a93d78c7a46cb2fb14c4ee8b7" category="paragraph"><block ref="37012567363af00fe31747157af69b42" prefix="" category="inline-code"></block></block>
   <block id="9678824a283295181839404bacab6aec" category="paragraph">Dans la sortie de la bannière du<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> Commande, vous devez lire et suivre les instructions de la section *REMARQUES IMPORTANTES* pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.</block>
   <block id="5691cd5298e545e7d1addfde1db9b5b8" category="list-text">Après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> vers le<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> Fichier sur le commutateur S2.</block>
-  <block id="e3adda4268a7e7bd78f47e8cc5f86c48" category="section-title">Étape 3 : téléchargez l'image NX-OS sur le commutateur Cisco S2 et redémarrez</block>
-  <block id="fb7ec7093f3964bd1d568e19bda96e76" category="list-text">Téléchargez l'image NX-OS pour passer au commutateur S2.</block>
   <block id="4e829ce6afd35ae225b70f58b27f634a" category="paragraph">Vous êtes invité à redémarrer le système.</block>
   <block id="9f78f2ea8dc9f03e722eb98915e83eae" category="list-text">Vérifiez que le nouveau numéro de version NX-OS est activé sur le commutateur :</block>
   <block id="8492932a4b3a469a1fb900aea61b22ff" category="section-title">Étape 4 : vérifier à nouveau l'état de santé des commutateurs et des ports</block>
@@ -4310,4 +4308,6 @@
   <block id="a8bb0b5314965a8ac1d110202d7aae1f" category="sidebar">Installez NX-OS</block>
   <block id="72f2a813dae956304645ec60ccd278dd" category="sidebar">Installer CSHM</block>
   <block id="9c065304d8a82e97da8536d4c7484ee2" category="sidebar">Migrer depuis un switch Cisco plus ancien</block>
+  <block id="c95ced7468e70606897322014b89e5b3" category="section-title">Étape 3 : copiez l'image NX-OS sur le commutateur Cisco S2 et redémarrez</block>
+  <block id="04677d95852adc11088eca251913d172" category="list-text">Copiez l'image NX-OS sur le commutateur S2.</block>
 </blocks>

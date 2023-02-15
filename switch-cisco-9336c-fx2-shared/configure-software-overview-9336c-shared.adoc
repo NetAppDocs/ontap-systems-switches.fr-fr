@@ -13,7 +13,10 @@ summary: Présentation de la configuration logicielle des commutateurs partagés
 [role="lead"]
 Pour installer et configurer le logiciel pour un commutateur Cisco Nexus 9336C-FX2, procédez comme suit :
 
-. link:install-nxos-overview-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"]. Suivez les procédures préliminaires pour préparer l'installation du logiciel Cisco NX-OS et des fichiers de configuration de référence (RCFs).
-. link:install-nxos-software-9336c-shared.html["Installez le logiciel NX-OS"]. Installez le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.
-. link:install-nxos-rcf-9336c-shared.html["Installez le fichier de configuration RCF"]. Installer le FCR après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+. link:install-nxos-overview-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"]Fichiers de configuration .Reference (RCFs).
+. link:install-nxos-software-9336c-shared.html["Installez le logiciel NX-OS"].
+. link:install-nxos-rcf-9336c-shared.html["Installez le fichier de configuration RCF"].
++
+Installer le FCR après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+
 

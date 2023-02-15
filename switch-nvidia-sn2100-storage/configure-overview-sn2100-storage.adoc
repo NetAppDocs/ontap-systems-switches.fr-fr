@@ -19,17 +19,37 @@ La carte NVIDIA SN2100 est un commutateur de stockage qui vous permet d'achemine
 
 Pour configurer un switch NVIDIA SN2100 sur les systèmes exécutant ONTAP, procédez comme suit :
 
-. link:install-hardware-sn2100-storage.html["Installez le matériel du commutateur NVIDIA SN2100"]. Les instructions sont disponibles dans le _NVIDIA Switch installation Guide_.
-. link:configure-sn2100-storage.html["Configurer le commutateur"]. Des instructions sont disponibles dans la documentation NVIDIA.
-. link:cabling-considerations-sn2100-storage.html["Examinez les considérations relatives au câblage et à la configuration"]. Consultez les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.
-. link:install-cable-shelves-sn2100-storage.html["Reliez les tiroirs NS224 au stockage relié au commutateur"]. Suivez ces procédures si vous disposez d'un système dans lequel les tiroirs disques du NS224 doivent être câblés en tant que stockage connecté à un commutateur (pas de stockage à connexion directe).
-. link:install-cumulus-mode-sn2100-storage.html["Installez Cumulus Linux en mode Cumulus"] ou link:install-onie-mode-sn2100-storage.html["Installez Cumulus Linux en mode ONIE"]. Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE.
-. link:install-rcf-sn2100-storage.html["Installez le script du fichier de configuration de référence"]. Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster.
-. link:install-snmpv3-sn2100-storage.html["Configurer SNMPv3 pour la collecte log switch"]. Cette version inclut la prise en charge du protocole SNMPv3 pour la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
+. link:install-hardware-sn2100-storage.html["Installez le matériel du commutateur NVIDIA SN2100"].
++
+Les instructions sont disponibles dans le _NVIDIA Switch installation Guide_.
+
+. link:configure-sn2100-storage.html["Configurer le commutateur"].
++
+Des instructions sont disponibles dans la documentation NVIDIA.
+
+. link:cabling-considerations-sn2100-storage.html["Examinez les considérations relatives au câblage et à la configuration"].
++
+Consultez les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.
+
+. link:install-cable-shelves-sn2100-storage.html["Reliez les tiroirs NS224 au stockage relié au commutateur"].
++
+Suivez ces procédures si vous disposez d'un système dans lequel les tiroirs disques du NS224 doivent être câblés en tant que stockage connecté à un commutateur (pas de stockage à connexion directe).
+
+. link:install-cumulus-mode-sn2100-storage.html["Installez Cumulus Linux en mode Cumulus"] ou link:install-onie-mode-sn2100-storage.html["Installez Cumulus Linux en mode ONIE"].
++
+Vous pouvez installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur exécute Cumulus Linux ou ONIE.
+
+. link:install-rcf-sn2100-storage.html["Installez le script du fichier de configuration de référence"].
++
+Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster.
+
+. link:install-snmpv3-sn2100-storage.html["Configurer SNMPv3 pour la collecte log switch"].
++
+Cette version inclut la prise en charge du protocole SNMPv3 pour la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
 
 
 
-NOTE: Les procédures utilisent l'utilitaire NCLU (Network Command Line Utility), qui est une interface de ligne de commande qui garantit que Cumulus Linux est entièrement accessible à tous. La commande net est l'utilitaire wrapper que vous utilisez pour exécuter des actions à partir d'un terminal.
+Les procédures utilisent l'utilitaire NCLU (Network Command Line Utility), qui est une interface de ligne de commande qui garantit que Cumulus Linux est entièrement accessible à tous. La commande net est l'utilitaire wrapper que vous utilisez pour exécuter des actions à partir d'un terminal.
 
 
 

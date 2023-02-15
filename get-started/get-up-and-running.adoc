@@ -27,8 +27,6 @@ Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instru
 
  a| 
 .Systèmes AFF
-[%collapsible]
-====
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
 * https://docs.netapp.com/us-en/ontap-systems/a220/install-setup.html["AVEC AFF A220"]
 * https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
@@ -37,19 +35,15 @@ Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instru
 * https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
 * https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
 
-
-==== a| 
+ a| 
 .Systèmes FAS
-[%collapsible]
-====
 * https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"]
 * https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
 * https://docs.netapp.com/us-en/ontap-systems/fas8700/install-setup.html["FAS8700"]
 * https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
 * https://docs.netapp.com/us-en/ontap-systems/fas9500/install-setup.html["FAS9500"]
 
-
-==== a| 
+ a| 
 
 |===
 
@@ -64,29 +58,20 @@ Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions 
 
  a| 
 .Commutateurs de cluster
-[%collapsible]
-====
 * link:../switch-bes-53248/install-hardware-bes53248.html["Installer le commutateur BES-53248"]
 * link:../switch-cisco-9336c-fx2/install-switch-9336c-cluster.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["Installez le commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs de stockage
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/install-hardware-sn2100-storage.html["Installez le commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs partagés
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-shared/install-9336c-shared.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
 
 
-====
 |===
 
 
@@ -100,29 +85,20 @@ Les instructions d'installation et de configuration du système AFF/FAS comprenn
 
  a| 
 .Commutateurs de cluster
-[%collapsible]
-====
 * link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["Câble du commutateur BES-53248"]
 * link:../switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html["Câble du commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html["Câble du commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs de stockage
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html["Câble du commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/cabling-considerations-sn2100-storage.html["Câble du commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs partagés
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-shared/cable-9336c-shared.html["Câble du commutateur Cisco Nexus 9336C-FX2"]
 
 
-====
 |===
 
 
@@ -136,29 +112,20 @@ Effectuez une configuration initiale des commutateurs. Consultez les instruction
 
  a| 
 .Commutateurs de cluster
-[%collapsible]
-====
 * link:../switch-bes-53248/configure-install-initial.html["Configurer le commutateur BES-53248"]
 * link:../switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html["Configurez le commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/configure-sn2100-cluster.html["Configurez le commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs de stockage
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-storage/setup-switch-9336c-storage.html["Configurez le commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/configure-sn2100-storage.html["Configurez le commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs partagés
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html["Configurez le commutateur Cisco Nexus 9336C-FX2"]
 
 
-====
 |===
 
 
@@ -172,29 +139,20 @@ Pour installer et configurer le logiciel sur votre commutateur, suivez le workfl
 
  a| 
 .Commutateurs de cluster
-[%collapsible]
-====
 * link:../switch-bes-53248/configure-software-overview-bes53248.html["Installer le logiciel pour les commutateurs BES-53248"]
 * link:../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html["Installation du logiciel pour le commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs de stockage
-[%collapsible]
-====
 * link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 * link:../switch-nvidia-sn2100/configure-software-sn2100-storage.html["Installation du logiciel pour le commutateur NVIDIA SN2100"]
 
-
-==== a| 
+ a| 
 .Commutateurs partagés
-[%collapsible]
-====
-* link:../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
+* link:../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 
 
-====
 |===
 
 
@@ -208,8 +166,6 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
 
  a| 
 .Systèmes AFF
-[%collapsible]
-====
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
 * https://docs.netapp.com/us-en/ontap-systems/a220/install-setup.html["AVEC AFF A220"]
 * https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
@@ -218,19 +174,15 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
 * https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
 * https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
 
-
-==== a| 
+ a| 
 .Systèmes FAS
-[%collapsible]
-====
 * https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"]
 * https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
 * https://docs.netapp.com/us-en/ontap-systems/fas8700/install-setup.html["FAS8700"]
 * https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
 * https://docs.netapp.com/us-en/ontap-systems/fas9500/install-setup.html["FAS9500"]
 
-
-==== a| 
+ a| 
 
 |===
 

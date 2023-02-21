@@ -101,9 +101,6 @@ Non conforme à la norme FIPS
 
 |===
 
-IMPORTANT: Notez qu'après la mise à niveau des commutateurs de cluster BES-53248 de EFOS 3.3.x.x ou 3.4.x.x vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et le canal de port sont marqués dans l'état *down*. Consultez cet article de la base de connaissances : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["La mise à niveau sans interruption du commutateur de cluster BES-53248 a échoué à la mise à niveau vers EFOS 3.7.0.4 et versions ultérieures"^] pour plus d'informations.
-
-
 
 == Installez le logiciel
 
@@ -118,6 +115,9 @@ Utilisez l'une des méthodes suivantes :
 === Méthode 1 : installez EFOS
 
 Procédez comme suit pour installer ou mettre à niveau le logiciel EFOS.
+
+
+IMPORTANT: Notez qu'après la mise à niveau des commutateurs de cluster BES-53248 de EFOS 3.3.x.x ou 3.4.x.x vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et le canal de port sont marqués dans l'état *down*. Consultez cet article de la base de connaissances : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["La mise à niveau sans interruption du commutateur de cluster BES-53248 a échoué à la mise à niveau vers EFOS 3.7.0.4 et versions ultérieures"^] pour plus d'informations.
 
 .Étapes
 . Connectez le commutateur de cluster BES-53248 au réseau de gestion.

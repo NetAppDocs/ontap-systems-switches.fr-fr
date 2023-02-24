@@ -43,6 +43,8 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 .Description de la tâche
 La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
+Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+
 Veiller à terminer la procédure dans link:prepare-install-cisco-nexus-3232c.html["Préparez-vous à installer NX-OS et RCF"], puis suivez les étapes ci-dessous.
 
 .Étapes

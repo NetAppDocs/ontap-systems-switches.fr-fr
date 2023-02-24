@@ -130,16 +130,7 @@ Répondez avec *yes* pour enregistrer la configuration. Ceci met automatiquement
 
 NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modifications ne sera effective lors du prochain redémarrage du commutateur.
 
-. Vérifier la version logicielle sur les commutateurs et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs.
-+
-Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le fichier de configuration de référence du commutateur réseau NetApp et la fusionner avec la configuration enregistrée dans <<step3,Étape 3>>.
-
-+
-Vous pouvez télécharger le fichier et les instructions à partir du https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] page.
-
-+
-Si vous disposez de vos propres commutateurs, reportez-vous à la http://www.cisco.com["Cisco"] le site.
-
+. Vérifier la version sur les commutateurs du réseau du cluster et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
 
 
 .Et la suite ?

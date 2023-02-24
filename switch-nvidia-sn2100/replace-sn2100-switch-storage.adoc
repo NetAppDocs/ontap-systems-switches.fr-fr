@@ -63,6 +63,9 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 `storage port show -port-type ENET`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage port show -port-type ENET*
@@ -81,9 +84,13 @@ node2
                e7b  ENET  storage 100    enabled  online      30
 cluster1::*>
 ----
+====
 . Vérifier que le commutateur de stockage sw1 est disponible :
 `network device-discovery show`
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network device-discovery show protocol lldp*
@@ -96,10 +103,14 @@ node2/lldp
            e3a   sw1 (b8:ce:f6:19:1b:42)   swp4        -
 cluster1::*>
 ----
+====
 . Exécutez le
 `net show interface` commande sur le commutateur de travail pour confirmer que vous pouvez voir les deux nœuds et tous les tiroirs :
 `net show interface`
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface*
@@ -117,9 +128,13 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ...
 ----
+====
 . Vérifiez les ports shelf dans le système de stockage :
 `storage shelf port show -fields remote-device, remote-port`
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage shelf port show -fields remote-device, remote-port*
@@ -135,11 +150,15 @@ shelf   id  remote-port   remote-device
 3.20    3   -             -
 cluster1::*>
 ----
+====
 . Retirer tous les câbles reliés au commutateur de stockage sw2.
 . Rebranchez tous les câbles au commutateur de remplacement nsw2.
 . Vérifier à nouveau l'état de santé des ports du nœud de stockage :
 `storage port show -port-type ENET`
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage port show -port-type ENET*
@@ -158,9 +177,13 @@ node2
                  e7b  ENET  storage 100    enabled  online      30
 cluster1::*>
 ----
+====
 . Vérifier que les deux commutateurs sont disponibles :
 `net device-discovery show`
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network device-discovery show protocol lldp*
@@ -175,9 +198,13 @@ node2/lldp
           e7b  nsw2 (b8:ce:f6:19:1a:7e)   swp2        -
 cluster1::*>
 ----
+====
 . Vérifiez les ports shelf dans le système de stockage :
 `storage shelf port show -fields remote-device, remote-port`
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *storage shelf port show -fields remote-device, remote-port*
@@ -193,11 +220,15 @@ shelf   id    remote-port     remote-device
 3.20    3     swp6            nsw2
 cluster1::*>
 ----
+====
 . Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur à l'aide des deux commandes suivantes : `system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
 +
 Entrez : `system switch ethernet log setup-password`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log setup-password*
@@ -225,10 +256,14 @@ Do you want to continue? {y|n}:: [n] *y*
 Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
+====
 +
 Suivi par : `system switch ethernet log enable-collection`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system  switch ethernet log enable-collection*
@@ -240,6 +275,7 @@ Enabling cluster switch log collection.
 
 cluster1::*>
 ----
+====
 +
 
 NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
@@ -249,6 +285,9 @@ NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
 Attendez 10 minutes, puis vérifiez que la collecte de journaux a réussi à l'aide de la commande : `system switch ethernet log show`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *system switch ethernet log show*
@@ -259,6 +298,7 @@ Index  Switch                       Log Timestamp        Status
 1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
 2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
 ----
+====
 . Rétablissez le niveau de privilège sur admin : `set -privilege admin`
 . Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
 `system node autosupport invoke -node * -type all -message MAINT=END`

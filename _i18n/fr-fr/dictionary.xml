@@ -2,8 +2,6 @@
 <blocks>
   <block id="296d00e3f1c056ceb3df91d743049f0c" category="summary">Utilisez les documents fournis sur ce site pour installer, mettre à niveau et gérer votre cluster, votre système de stockage partagé et vos commutateurs MetroCluster.</block>
   <block id="97a30f090fd38397124788f1f0376eda" category="doc">Documentation sur les commutateurs AFF et FAS</block>
-  <block id="aaea07599d1157945444c3c301565e94" category="summary">Switchs NVIDIA SN2100</block>
-  <block id="d502e4d284e017c272fbc044d1c805ee" category="paragraph">À partir de la certification ONTAP 9.10.1P3, vous pouvez utiliser les switchs NVIDIA SN2100 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé.</block>
   <block id="9d36413c7ae238ebf79e37939969b9ee" category="summary">Vous pouvez migrer d'anciens switchs Cisco sans interruption pour un cluster ONTAP vers des switchs de stockage NVIDIA SN2100.</block>
   <block id="c0e54fd32010cccd4fea353a8f62265e" category="doc">Migrez d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA SN2100</block>
   <block id="bdcdaedb42f04c50f04fe5d093e593c6" category="list-text">Les commutateurs de stockage suivants sont pris en charge :</block>
@@ -114,7 +112,6 @@
   <block id="5bb8ca227d3f9b0b9fc45003bbe7d06c" category="list-text">Une fois l'installation terminée, connectez-vous au commutateur :</block>
   <block id="098d312f939d7511ad5f9bf80ccaea96" category="list-text">Vérifiez la version de Cumulus Linux :</block>
   <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">Installez le script RCF</block>
-  <block id="f0628c60efd94ed2822e83944aa83ad5" category="list-text">Cumulus Linux 4.4.2 est installé.</block>
   <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">Adresse IP, masque de sous-réseau et passerelle par défaut définis via DHCP ou configurés manuellement.</block>
   <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">Considérations relatives au câblage et à la configuration</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.</block>
@@ -287,7 +284,6 @@
   <block id="83d1563d45527134091bdab8d6e5072d" category="list-text">Suivez les options du menu à l'écran pour sélectionner la zone géographique et la région.</block>
   <block id="fe0f6a5f9b992c1eea817100a2c1c148" category="list-text">Pour définir le fuseau horaire de tous les services et démons, redémarrez le commutateur.</block>
   <block id="61d6aab01fc093c66c1e769d05c39812" category="list-text">Vérifier que la date et l'heure sur le commutateur sont correctes et mettre à jour si nécessaire.</block>
-  <block id="f415282bef0374e283b8082be4765eea" category="list-text">Installez Cumulus Linux 4.4.2 :</block>
   <block id="9a828cf107e0b55e82b0e52b871aa982" category="paragraph">Le programme d'installation démarre le téléchargement. Tapez *y* lorsque vous y êtes invité.</block>
   <block id="b64202cf747d1cf1ed877a2b16051b9b" category="list-text">Redémarrez le commutateur NVIDIA SN2100 :</block>
   <block id="9f4f33c5c40ac522549c3e58d187e0a0" category="list-text">L'installation démarre automatiquement et les écrans GRUB suivants s'affichent. Effectuer *pas* de sélection :</block>
@@ -295,7 +291,6 @@
   <block id="a64ef5ea949c8d49f35a27151295f942" category="list-text">ONIE : installez le système d'exploitation</block>
   <block id="e0fb005ad468c2c6da5d94ae5ee83311" category="list-text">CUMULUS - INSTALLATION</block>
   <block id="aaf5ecccbfaebfdecab9b13474cd1016" category="list-text">Répétez les étapes 1 à 4 pour vous connecter.</block>
-  <block id="c883d7af8e0067ad8d312770086b2d07" category="list-text">Vérifiez que la version de Cumulus Linux est 4.4.2 :</block>
   <block id="a1db73a47f571c20627d62d37a2069c2" category="summary">Le remplacement d'un commutateur NVIDIA SN2100 défectueux sur un réseau de clusters est une procédure \(NDU\) sans interruption.</block>
   <block id="a3651ea5ff10cfef31750e91f195d5ee" category="doc">Remplacement d'un commutateur de cluster NVIDIA SN2100</block>
   <block id="087a0cdfa40d1253f83403998d37833d" category="paragraph">Le remplacement d'un commutateur NVIDIA SN2100 défectueux sur un réseau de clusters est une procédure sans interruption (NDU, non-Disruptive Procedure).</block>
@@ -633,12 +628,7 @@
   <block id="3f78f0799975521235b2bb917acb7e24" category="list-text">Reliez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs à l'aide des fiches de câblage complétées.</block>
   <block id="21a670863d46552ac67aada9cba01bdc" category="list-text">Mettez le réseau de cluster sous tension, ainsi que les commutateurs et les contrôleurs du réseau de gestion.</block>
   <block id="d51ed7f10b5732d6e9ec975c89648212" category="list-text">Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.</block>
-  <block id="96ed0cc56c5e8196aceb1b998f9535d1" category="list-text">Vérifier la version des commutateurs du réseau du cluster et, le cas échéant, télécharger la version prise en charge par NetApp du logiciel vers les commutateurs.</block>
   <block id="70399670eb37f7ebf7bbd91e15766e17" category="inline-link">Commutateurs Ethernet Cisco</block>
-  <block id="d7de59d570551ce510d04111914f9ad7" category="paragraph">Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le _NetApp Cluster Network Switch Reference Configuration File_ et la fusionner avec la configuration enregistrée à l'étape 5. Vous pouvez télécharger le fichier et les instructions à partir du<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> page.</block>
-  <block id="e75e1151ec00758e18759a8f40279f42" category="inline-link">Site Cisco</block>
-  <block id="771335554e309a1fffe48143bbab90a9" category="list-text">Vérifiez la version logicielle des commutateurs réseau et, le cas échéant, téléchargez la version prise en charge par NetApp des commutateurs. Si vous disposez de vos propres commutateurs, reportez-vous à la<block ref="c602ce64cde2f26d0f98979dc6b3aef5" category="inline-link-rx"></block>.</block>
-  <block id="b2cb13c509425b76d525187f976cf094" category="paragraph">Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le _NetApp Management Network Switch Reference Configuration File_ et la fusionner avec la configuration enregistrée à l'étape 5. Vous pouvez télécharger le fichier et les instructions à partir du<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> page.</block>
   <block id="c32a2c4a7520ad02a1a78600f2a6b3bd" category="admonition">Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au commutateur à l'aide de la console série pour effacer les paramètres du commutateur.</block>
   <block id="31ec2342f350b363afaee03f3ba95d8b" category="list-text">Redémarrer le commutateur cs1. Vous pouvez ainsi déclencher des LIF de cluster afin de rétablir leur port de départ. Vous pouvez ignorer les événements « ports de cluster arrêtés » signalés sur les nœuds pendant le redémarrage du commutateur.</block>
   <block id="f4041989c699a535116c689437df5c7f" category="inline-link">Téléchargement de logiciels NetApp</block>
@@ -1340,7 +1330,6 @@
   <block id="9043114d5258d60e49a6ff62966f1f4d" category="paragraph">Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le<block ref="08aac397a11274cd898dfbb3a635cf19" prefix=" " category="inline-code"></block> commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du<block ref="9437e02f9ec4a8d602d396abd2c360b4" prefix=" " category="inline-code"></block> commande.</block>
   <block id="602a4b60cc5ad4be9e63d89704b18e8e" category="list-text">Vous avez terminé la planification, la migration et lu la documentation sur la connectivité 10 GbE et 40/100 GbE des nœuds vers les switchs de cluster Nexus 3232C.</block>
   <block id="7b6ff18fcd7bcccf15479952d46c3045" category="list-text">Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le <block ref="6fcc01e37a7dd69c8ffb5466943697e1" category="inline-link-macro-rx"></block>.</block>
-  <block id="dc41570bc2d65bc76b561aeb1f830c14" category="summary">Migration vers un cluster commuté à deux nœuds</block>
   <block id="ce2661fa29f176161a85d160887a17ef" category="summary">Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer vers un cluster avec commutateur à deux nœuds incluant des commutateurs de réseau en cluster Cisco Nexus 3132Q-V.</block>
   <block id="4dd112d6804b4f82a4602d3778c99cdb" category="list-text">L'infrastructure en cluster Nexus 3132 redondante et entièrement fonctionnelle sur les deux commutateurs.</block>
   <block id="562c64546c069c9f72cfdcfa74fb7f82" category="paragraph">Les dernières versions de RCF et de NX-OS sur vos commutateurs.</block>
@@ -1741,7 +1730,6 @@
   <block id="c04ce9c1c44c5e07bf7a73e79811a429" category="list-text">Pour définir une adresse IP statique, utilisez le<block ref="be61298f670927dc76b9ef87aec3538b" prefix=" " category="inline-code"></block>,<block ref="0b1b9820b62e4a0d7f72c76456845979" prefix=" " category="inline-code"></block>, et<block ref="a14092a0fca1bb648cb5a74d7dfe7995" prefix=" " category="inline-code"></block> commandes comme indiqué dans l'exemple.</block>
   <block id="ec633497488ed81a95ccbbbb57302ba3" category="list-text">Accéder au paramètre de mode avancé à partir de l'un des systèmes ONTAP du cluster, au moyen de la commande<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block>:</block>
   <block id="77050d62a86740ca649977f25aae1ddc" category="list-text">Lancer la commande<block ref="694b56ad85eb627acc97ea9295f39018" prefix=" " category="inline-code"></block> Sur le système ONTAP et assurez-vous que les commutateurs de cluster sont détectés avec le champ surveillé défini sur « vrai ».</block>
-  <block id="1069b9aeccd9318ca5a0004bd8b60a99" category="summary">Pour configurer votre cluster, vous devez disposer du nombre et du type appropriés de câbles et de connecteurs de câbles pour les commutateurs de cluster. Selon le type de commutateur de cluster que vous configurez au départ, vous devez vous connecter au port console des commutateurs avec le câble de console inclus et vous devez disposer d'informations réseau spécifiques.</block>
   <block id="16c3e502f28be460a987ad28ccd36874" category="paragraph">Vous pouvez utiliser le tableau des attributions de ports de commutateur de cluster BES-53248 pris en charge par Broadcom pour configurer votre cluster.</block>
   <block id="dc3310fe82b8aa736508dff9756c1c6a" category="cell">Commutateurs</block>
   <block id="670c1649b9af213cff68a904e9de20ed" category="cell">Utilisation des ports</block>
@@ -1898,10 +1886,6 @@
   <block id="7668c4617f543fa5b89a9bee8a3a7a61" category="paragraph">L'exemple suivant montre la sortie de la commande :</block>
   <block id="9486f276b196ea9042dc3f0bfb576743" category="summary">La mise à niveau des commutateurs de cluster BES-53248 commence par la préparation du contrôleur en vue de la mise à niveau, de l'installation du logiciel EFOS, des licences et du fichier de configuration de référence \(RCF\). Une fois l'installation effectuée, vous pouvez restaurer la configuration du contrôleur dans un environnement de mise à niveau \(NDU\) sans interruption de l'activité \(NDO\).</block>
   <block id="35b8787b3c7d1523bc42aa8f180a1ed1" category="list-text">Il peut y avoir des dépendances entre la syntaxe de commande dans les versions RCF et EFOS.</block>
-  <block id="9e94cbd196ed6920e8f54f3638a877cf" category="summary">cn1610, commutateur, netapp</block>
-  <block id="7644ee6a5d07b8a490380246b4f6b79a" category="doc">Commutateurs NetApp CN1610</block>
-  <block id="4ea3ead37abb65fd297ca7404c0252a6" category="paragraph">Le CN1610 est un commutateur de couche 2 géré à large bande passante qui fournit des ports SFP+ (Small Form-Factor Pluggable plus) 16 10 Gigabit. Le commutateur comprend des blocs d'alimentation redondants et des ventilateurs qui prennent en charge le remplacement à chaud pour une haute disponibilité.</block>
-  <block id="c9538971330f4f4fca683d6a1d65a1a4" category="paragraph">Ce commutateur 1U peut être installé dans une armoire système standard 42U NetApp 19 pouces ou une armoire tierce.</block>
   <block id="8cd379638fc4ccb9fe87c298fc5389eb" category="paragraph">Le commutateur prend en charge la gestion locale via le port de console ou la gestion à distance en utilisant Telnet ou SSH via une connexion réseau. Le CN1610 inclut un port de gestion RJ45 1 Gigabit Ethernet dédié pour la gestion des commutateurs hors bande. Vous pouvez gérer le commutateur en entrant des commandes dans l'interface de ligne de commande (CLI) ou en utilisant un système de gestion de réseau basé sur SNMP (NMS).</block>
   <block id="be35c0433e2f088bb58b07aa0870c632" category="inline-link">Référence de commande</block>
   <block id="5a94efc38357a37454f2b1ef3e4786bb" category="inline-link">Guide de l'administrateur</block>
@@ -2200,8 +2184,6 @@
   <block id="eac9e7086f92a026c0dbe06001206204" category="doc">Guide d'installation et de configuration des commutateurs partagés Cisco</block>
   <block id="ce5a4a36cafe8a250cdeaae60cd5a4e3" category="inline-link">Documentation NetApp ONTAP</block>
   <block id="33b51f739542d105d7c5028b7244b26e" category="list-text">Mettez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224 sous tension.</block>
-  <block id="39ea6d6c5412ec7e0e17dd391cd35f3a" category="list-text">Vérifier la version logicielle sur les commutateurs et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs.</block>
-  <block id="7b1d1185b835814de783483f686e9825" category="inline-link">Cisco</block>
   <block id="2d5ce426423eeeead4f35769cd8b1b27" category="inline-xref">Étape 3</block>
   <block id="42129f3fe0d8a21bc1cebadaaaa93763" category="list-text">La plupart des contrôleurs de système de stockage sont gérés par l'interface e0M en vous connectant au port de service Ethernet (icône de clé anglaise). Sur les systèmes AFF A800 et AFF A700s, l'interface e0M utilise un port Ethernet dédié.</block>
   <block id="667cf55da9f4ccd45815c0c40a5e0099" category="list-text">Reportez-vous à la<block ref="e8018b6e740a667345f4bcc94e4023fc" category="inline-link-rx"></block> pour obtenir les informations les plus récentes.</block>
@@ -2217,7 +2199,6 @@
   <block id="63380e79f39db6a40b46be28e461cc74" category="paragraph">La nouvelle configuration est à présent visible. Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir. Répondez sans à l'invite si vous êtes satisfait de la configuration. Répondez par *yes* si vous souhaitez modifier vos paramètres de configuration.</block>
   <block id="82024d6a2c01f0a8732caf928f9407bf" category="inline-link">Guide d'installation et de mise à jour Cisco Nexus 9336C-FX2</block>
   <block id="f5cfc940c5ab0e780c503445cb40f82d" category="paragraph">Pour plus d'informations sur la configuration initiale de votre commutateur, reportez-vous au guide suivant :<block ref="c68d672ce672475dc8c9199a02c5303f" category="inline-link-rx"></block>.</block>
-  <block id="e2cd1c4a8333627097591821747e2b1b" category="paragraph">Pour configurer le réseau ONTAP, vous avez besoin de documentation spécifique sur les commutateurs et les contrôleurs.</block>
   <block id="9f74bb1a4ed2d5fe3c6d27623df1cf32" category="paragraph">Pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2, reportez-vous au<block ref="ccf9a5ebd47a9c01263e95d2949e4af7" category="inline-link-rx"></block> page.</block>
   <block id="15d9978fa28b29e838c1a90820c21d36" category="inline-link-macro">Guide d'installation du matériel de la gamme Nexus 9000</block>
   <block id="7d4653ec512f04431d73bb9bf8ab903c" category="cell"><block ref="7d4653ec512f04431d73bb9bf8ab903c" category="inline-link-macro-rx"></block></block>
@@ -2706,7 +2687,6 @@
   <block id="936c629e80045932a8ce12daf69dd2f2" category="section-title">Prise en charge de ONTAP et Linux</block>
   <block id="8b62efe83d10f30e759dd095dcc5c1ab" category="paragraph">Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 Go exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :</block>
   <block id="9f1786af24b58b6fc579205bca0e1f44" category="list-text">ONTAP 9.10.1P3. Le commutateur SN2100 sert les applications de stockage et de cluster dans le ONTAP 9.10.1P3 sur différentes paires de commutateurs. À partir de la conférence ONTAP 9.10.1P3, vous pouvez utiliser les switchs NVIDIA SN2100 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.</block>
-  <block id="ce72203fd2d1702e41b12d3f834f5510" category="list-text">Cumulus Linux (CL) version 4.4.2. Cumulus Linux peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE.</block>
   <block id="902062c9f73682ab740f80dc154485ac" category="paragraph">Suivez cette procédure pour installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur est en mode ONIE.</block>
   <block id="8eccd947fcc871d4b4604f444046acb0" category="inline-link-macro">Installer en mode Cumulus</block>
   <block id="bcef27e6ee4d7b0cfadf8dab3f3c4b0a" category="admonition">Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE (voir <block ref="0bb74764c4aee6316512b3110279fce2" category="inline-link-macro-rx"></block>).</block>
@@ -3130,7 +3110,6 @@
   <block id="e6119e5e7b756f5ac645bab3bd6b7cf5" category="paragraph">Configurer l'état d'interface du port du commutateur par défaut (shutr/nosolt)</block>
   <block id="ddcc83d63cc173465ab257f25d480cfc" category="paragraph">Configuration du profil du système Copp (strict/modéré/ELEDent/dense)</block>
   <block id="91e900250e74122a13484678f32eb0d2" category="inline-link-macro">Installez le commutateur dans l'armoire NetApp</block>
-  <block id="4b336a78fcb64b240386ab171f94f2ba" category="paragraph">Si vous le souhaitez, vous pouvez <block ref="bc9b639ac839607472e9d3ce7e8971cb" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="470cefaa9702bc5da534dfcfab6d903d" category="doc">Présentation et configuration requise : commutateurs Cisco Nexus 9336C-FX2</block>
   <block id="c7bc672c5005e17eaf6387fbc19b5add" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, vérifiez les exigences de configuration et la documentation.</block>
   <block id="c7c3b8d53ffb83548ff8a021ca0fa284" category="section-title">Composants du commutateur</block>
@@ -3273,17 +3252,6 @@
   <block id="9cb3b79ca9481ccd4278c560494c2d07" category="list-text">Activer tous les ports d'interconnexion de cluster connectés au nouveau commutateur 3132Q-V C1 sur tous les nœuds :</block>
   <block id="1c8cc06f1e9ac44e68001d74b84384f5" category="list-text">Restaurez toutes les LIF d'interconnexion de cluster migrées qui étaient connectées à C1 sur tous les nœuds :</block>
   <block id="b79fbcaa83bfb2240ef82f145e0ade9d" category="list-text">[[step43_replacegn1610]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
-  <block id="cd60c40cb099f72abfc853944220530f" category="doc">Présentation et configuration requise : commutateurs Cisco Nexus 3132Q-V</block>
-  <block id="c8bb0ea97175165d9cb903f8d96ce128" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, vérifiez toutes les exigences et la documentation recommandée.</block>
-  <block id="061d0bb17fcfd90ff506c4e0ba0995e9" category="section-title">Présentation des tâches</block>
-  <block id="bb99d6e220fd145b5cefd52c57ea3853" category="paragraph">Vous pouvez utiliser les commutateurs Cisco Nexus 3132Q-V comme commutateurs de cluster dans votre cluster AFF ou FAS. Les tâches d'installation et de maintenance sont les suivantes :</block>
-  <block id="f99d3ad769eb6a80131b2f32d1f6d984" category="list-text">Installation des fichiers NX-OS et RCFs (Reference Configuration Files) sur le commutateur de cluster Cisco Nexus 3132Q-V.</block>
-  <block id="37150b17ca4ead4cf5b8564bbf5b4ada" category="list-text">Migration d'un environnement en cluster à deux nœuds sans commutateur vers un environnement commuté à deux nœuds à l'aide de commutateurs de cluster Cisco Nexus 3132Q-V.</block>
-  <block id="63ab9ba5d362a8345289de5dd4ef671c" category="list-text">Remplacer un commutateur Cisco Nexus 3132Q-V défectueux dans un cluster et télécharger le système d'exploitation du commutateur et le fichier de configuration de référence.</block>
-  <block id="0ad9affe7411783bea0f8abc713ab787" category="list-text">Remplacer les commutateurs de cluster Cisco Nexus 5596, Nexus 5020 ou Nexus 5010 par des commutateurs Cisco Nexus 3132Q-V.</block>
-  <block id="f5f56ff081c321e780acd2585ec8712c" category="list-text">Remplacement des commutateurs NetApp CN1610 par des commutateurs de cluster Cisco Nexus 3132Q-V.</block>
-  <block id="009c6d363796a7a3590b6e6f670884a1" category="paragraph">Avant de pouvoir utiliser la fonction d'appel intelligent, prenez en compte les considérations suivantes :</block>
-  <block id="c6c3624138815835afae980d749118db" category="paragraph">Vous avez besoin de documentation spécifique sur les commutateurs et les contrôleurs pour configurer les commutateurs 3132Q-V et le cluster ONTAP.</block>
   <block id="0ae7af765bea22243f2f0d22cbd558db" category="doc">Migrez un commutateur de cluster Cisco Nexus 5596 vers un commutateur de cluster Cisco Nexus 3132Q-V.</block>
   <block id="e1b10a45ea0ae3c414f25517bb673cf2" category="paragraph">Suivez cette procédure pour remplacer un commutateur de cluster Nexus 5596 par un commutateur de cluster Nexus 3132Q-V.</block>
   <block id="6f36587c0914b621e91edeb0829de1d4" category="paragraph">Consultez les exigences relatives à Cisco Nexus 5596 dans le <block ref="e02fb67277400e729fb31d4ea6e688c9" category="inline-link-macro-rx"></block>.</block>
@@ -3429,15 +3397,6 @@
   <block id="cc4668ea483152a8c3b841b60a9a3199" category="list-text">Vérifiez à nouveau que les commutateurs de stockage sont disponibles après le redémarrage :</block>
   <block id="5655241624f11355f5911ce18ad8e847" category="list-text">Vérifier que les ports switchs sont opérationnels après le redémarrage :</block>
   <block id="c75fb03f38414ef60d8a0ffe8c2f06d8" category="list-text">Vérifier à nouveau l'absence de problèmes de câblage ou de commutateur de stockage sur le cluster :</block>
-  <block id="c8c9a67674bc39cd6ff6f1f5d95bad32" category="doc">Présentation et configuration requise : switchs Cisco Nexus 3232C</block>
-  <block id="8d0990009da02bfb69d0f3cee5617945" category="paragraph">Pour l'installation et la maintenance des switchs Cisco Nexus 3232C, veillez à vérifier toutes les exigences et la documentation recommandée.</block>
-  <block id="7da82735909dbd5f8aa65552d57af14d" category="paragraph">Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. Les tâches d'installation et de maintenance sont les suivantes :</block>
-  <block id="e09ce0e5fae2834fe0f24812765b6050" category="list-text">En installant le switch Cisco Nexus 3232C (X190100) dans une armoire système NetApp, ou avec les supports personnalisés fournis avec le switch, ou en l'installant sur un rack avec les supports standard également inclus avec le switch.</block>
-  <block id="37fdb404fc626b9459958f33fd8220cd" category="list-text">Installation du logiciel NX-OS et des fichiers RCF (Reference Configuration Files) sur le switch de cluster Cisco Nexus 3232C.</block>
-  <block id="3901ea2aee7007d4cd8300eb64cdbf75" category="list-text">Migration d'un cluster sans commutateur à 2 nœuds vers un cluster avec des switchs de cluster Cisco Nexus 3232C.</block>
-  <block id="6b5b64523be0a7bcbb1d9e9aa431e32c" category="list-text">Remplacement d'un switch de cluster Cisco Nexus 3232C.</block>
-  <block id="2ce673c77c644931c93f242577cbd91f" category="list-text">Remplacement d'un switch de stockage Cisco Nexus 3232C.</block>
-  <block id="e4c54c8db8fd1960a63e83ce1690c9f3" category="paragraph">Vous avez besoin de documentation spécifique sur les switchs et les contrôleurs pour configurer les switchs Cisco Nexus 3232C et le cluster ONTAP.</block>
   <block id="25728c1247afd773544099da70e4ed57" category="paragraph">En fonction de votre configuration, vous devrez peut-être installer le switch de cluster Cisco Nexus 3232C et le panneau de connexion dans une armoire NetApp avec les supports standard inclus avec le switch.</block>
   <block id="1b01ab832fc13ad817bc43472fbf49f8" category="list-text">Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité indiquées dans le <block ref="68653a00888238590f65028b21764ae9" category="inline-link-macro-rx"></block>.</block>
   <block id="72f88d930a53e783f0262d218e3c5d3c" category="list-text">Pour chaque commutateur, les huit vis 10-32 ou 12-24 et écrous à clip pour monter les supports et les rails coulissants sur les montants avant et arrière de l'armoire.</block>
@@ -3508,7 +3467,6 @@
   <block id="d372b5993852e5fcd13774ff6d442ef6" category="list-text">Répéter l'étape <block ref="aa6048c113ff8f7e2716bc5a5cbbd5d4" category="inline-xref-macro-rx"></block> pour le montant arrière droit.</block>
   <block id="64e83e4557dbf8dfd8cb98fc07acc1b4" category="paragraph"><block ref="ab999189278342fe22cdb57d13e768ab" category="inline-link-macro-rx"></block>.</block>
   <block id="71f5a93eca776f3223a87d3523ce52d8" category="paragraph">Saisissez le nom du commutateur, qui est limité à 63 caractères alphanumériques.</block>
-  <block id="1b9261a17b2793d1fa348fcdce0863ee" category="paragraph">Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le _NetApp Management Network Switch Reference Configuration File_ et la fusionner avec la configuration que vous avez précédemment enregistrée. Vous pouvez télécharger le fichier et les instructions à partir du<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> page.</block>
   <block id="95f749c32572d23c36c0f33b9f48fa88" category="inline-link-macro">Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp</block>
   <block id="80f16525d7b1d7efe562fab354c53efe" category="paragraph">Si vous le souhaitez, vous pouvez <block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>.</block>
   <block id="e87b8cb8ca5f95ffd4513eaaf405e559" category="list-text">Vous devez vous être référé aux logiciels et aux guides de mise à niveau appropriés disponibles sur le site Web de Cisco. Commutateurs Cisco Nexus 3000 Series</block>
@@ -3704,10 +3662,6 @@
   <block id="079b4ba0dd763c21408e99412798ff7b" category="paragraph">Décrit les exigences relatives à l'alimentation et au site du matériel NetApp, notamment les armoires système, et fournit des informations sur les connecteurs et les options de câbles pertinents à utiliser avec les références correspondantes.</block>
   <block id="3d7b67107ab62f1ba7647d7f71e21e7d" category="paragraph">_Comment ajouter une licence de port supplémentaire pour le commutateur BES-53248 pris en charge par Broadcom_</block>
   <block id="b1e6a082f60aae6bd5b63862087e8984" category="paragraph">Fournit des informations détaillées sur l'ajout de licences de port. Accédez au<block ref="652dcea6ca57beb1d11dc2f4bb08f5a8" category="inline-link-rx"></block>.</block>
-  <block id="834c9cf25896d0e8e1155bcd47d30a15" category="summary">Pour l'installation et la maintenance du commutateur BES-53248, vérifiez la prise en charge du système d'exploitation, les références, les exigences de configuration et les exigences de documentation.</block>
-  <block id="8593819c144c2a2ce810206970a5c7be" category="doc">Présentation et configuration requise : commutateurs BES-53248</block>
-  <block id="21c14aede5215fb90baeafb94920857f" category="section-title">Références des composants du commutateur</block>
-  <block id="dd2a270d46b6de5fa30967cb2fe61249" category="paragraph">Vous avez besoin de documentation spécifique sur le commutateur et le contrôleur pour configurer le commutateur de cluster BES-53248 et le cluster ONTAP.</block>
   <block id="086e3414d27dd4eda456c29fa97b5f6c" category="summary">Procédez comme suit pour installer le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.</block>
   <block id="ae80de4c0477a1c32fdc86bbe008ce88" category="paragraph">Le logiciel EFOS inclut un ensemble de fonctions et de protocoles réseau avancés pour le développement de systèmes d'infrastructure Ethernet et IP. Cette architecture logicielle convient à tout périphérique d'organisation réseau utilisant des applications nécessitant une inspection ou une séparation complète des paquets.</block>
   <block id="67f289221dc2b8315be57c85a28e0619" category="section-title">Avant l'installation</block>
@@ -3913,9 +3867,6 @@
   <block id="f1763dacc91922ffa978d054dfd1f86a" category="list-text">Démarrez le commutateur.</block>
   <block id="dccfac69359fbbc2d697ceff2f471768" category="paragraph">Lors du premier démarrage du commutateur, fournissez les réponses applicables aux questions de configuration initiale suivantes.</block>
   <block id="aae42f96c85f765e2daf91cfda78fbed" category="paragraph">La politique de sécurité de votre site définit les réponses et les services à activer.</block>
-  <block id="5cc7848076482937d11b61240634ed7a" category="paragraph">Si vous téléchargez la version prise en charge par NetApp du logiciel, vous devez également télécharger le fichier de configuration de référence du commutateur réseau NetApp et la fusionner avec la configuration enregistrée dans <block ref="6f5e80c5f38b7c17bfcb05f65cf8fc44" category="inline-xref-macro-rx"></block>.</block>
-  <block id="bca39608d42dd06cd48d84cb90bcb0ae" category="paragraph">Vous pouvez télécharger le fichier et les instructions à partir du<block ref="5c27bdff6f5cc32ce77bb635aee5a3ec" category="inline-link-rx"></block> page.</block>
-  <block id="02940b8528baa18ab229adf16971aad1" category="paragraph">Si vous disposez de vos propres commutateurs, reportez-vous à la<block ref="352cc6d5e14cbc28943a82cb55bedc13" category="inline-link-rx"></block> le site.</block>
   <block id="39f03c8807c9d36b2901f7198a4ae0c2" category="paragraph">Selon votre configuration, vous pouvez <block ref="bd7e5f56c6474a1d0a59eeac0ce681d7" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="e0f95538095f3006db4ec3d4d022f616" category="summary">Présentation de l'installation et de la configuration des commutateurs partagés Cisco Nexus 9336C-FX2</block>
   <block id="c4081cf1ddd1a31c8c993d369968dbdb" category="paragraph">Le commutateur partagé Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagée, en prenant en charge l'utilisation de fichiers partagés de configuration de référence de cluster et de stockage.</block>
@@ -3945,8 +3896,6 @@
   <block id="bfc5294e5ec405aadbddd5d6b87ef37c" category="list-text">Arrêter le contacteur c1.</block>
   <block id="0e9098f369329f68f24cdf1947b5a673" category="list-text">[[step16]]vérifier que le cluster fonctionne correctement :</block>
   <block id="611b08d930d48a09d5b2a633fec085d8" category="doc">Composants et références pour les commutateurs partagés Cisco Nexus 9336C-FX2</block>
-  <block id="49274a22f777d8ee156d9a597e66731d" category="doc">Présentation et configuration requise</block>
-  <block id="7a22fc80a0833e5d697b1429fc1b1020" category="section-title">Présentation du Nexus 9336C-FX2</block>
   <block id="aaa9a0d5919f5957251180d5a620f385" category="paragraph">Vous pouvez migrer d'un cluster sans commutateur doté d'un système de stockage DAS en ajoutant deux nouveaux commutateurs partagés.</block>
   <block id="683b159b896f30df8627114e632f35d6" category="paragraph">La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 GbE BASE-T intégrés pour les ports de réseau de clusters.</block>
   <block id="331c391844ed254b61d20d8c72f4fb90" category="paragraph">La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur. Voir<block ref="5c27bdff6f5cc32ce77bb635aee5a3ec" category="inline-link-rx"></block> pour en savoir plus.</block>
@@ -4203,9 +4152,6 @@
   <block id="6b7440a940de051fd62b68b3fd600735" category="doc">Configuration requise pour les commutateurs Cisco Nexus 92300YC</block>
   <block id="8917a30f03f4abae51ca9229e01f580d" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez toutes les exigences de configuration et de réseau.</block>
   <block id="d0cbcb031a5b57d5da00e038ff554757" category="list-text">Vous devez avoir consulté la table de compatibilité des commutateurs sur le<block ref="eea3e069983adcbba5050ccdef577ded" category="inline-link-rx"></block> Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.</block>
-  <block id="3cd6cf1ddcb9cbb3fdccae78cac22205" category="doc">Présentation et configuration requise : commutateurs Cisco Nexus 92300YC</block>
-  <block id="56ff75ac3271a4d12336e888f7c3fc0c" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez toutes les conditions requises et la documentation recommandée.</block>
-  <block id="56cfe07bba5e5bd0c1c2e82679c82db5" category="paragraph">Vous avez besoin de documentation spécifique sur les commutateurs et les contrôleurs pour configurer les commutateurs Cisco Nexus 92300YC et le cluster ONTAP.</block>
   <block id="fcd690b297e7e3c7cf5c4f955d666313" category="doc">Modèles précédents</block>
   <block id="1a92cf34ae749613ec6e73e2cb76ed75" category="paragraph">Vous pouvez utiliser ces liens pour trouver de la documentation pour les modèles précédents de cluster et de commutateurs de stprage. Les liens vous mènent à un autre site de documentation.</block>
   <block id="d1059cc15870b94d15f8576dff3bde50" category="list-text"><block ref="b450a925c158be20e54006429377daec" category="inline-link-rx"></block></block>
@@ -4325,4 +4271,18 @@
   <block id="f179eebc625c94b5b94fc136b78506e5" category="inline-link-macro">Installer le fichier de configuration de référence</block>
   <block id="67bea00aeda47411a539357c5eea36bd" category="list-text"><block ref="67bea00aeda47411a539357c5eea36bd" category="inline-link-macro-rx"></block></block>
   <block id="a4cc27f030d5855528a867889ecb752b" category="list-text"><block ref="a4cc27f030d5855528a867889ecb752b" category="inline-link-macro-rx"></block></block>
+  <block id="0b12903428200835d01a68c020062f58" category="inline-link">Commutateurs Ethernet NVIDIA</block>
+  <block id="cce7d8d927747eb9a2c6b20af69fbb8a" category="list-text">Cumulus Linux (CL) OS version 4.4.3. Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block ref="f6aa36fb7711a9179cbd2c4c52b8d6ef" category="inline-link-rx"></block> page d'informations.</block>
+  <block id="6bb3008abc00d2a0fe4d634f0b89831e" category="list-text">Vous pouvez installer Cumulus Linux lorsque le commutateur exécute Cumulus Linux ou ONIE.</block>
+  <block id="8f77c20cd9bd8afa1521eb15ea44a8ef" category="list-text">Cumulus Linux 4.4.3 est installé.</block>
+  <block id="2da5e3ee5bdcbc1a5443b42db962c1bb" category="list-text">Installez Cumulus Linux 4.4.3:</block>
+  <block id="d639f69fd7b303cd7aefe025e7d76848" category="list-text">Vérifiez que la version de Cumulus Linux est 4.4.3:</block>
+  <block id="4a4b6084f06cc45c6f17ae2aa9bd4dc4" category="inline-link">Téléchargement du logiciel Cisco</block>
+  <block id="0a6aaed7ba5c231511f7822eac6c4607" category="list-text">Version NX-OS applicable, téléchargée à partir du<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> page.</block>
+  <block id="b27df45c7b9d2b8ac8126550ac4038eb" category="list-text">Vérifier la version sur les commutateurs du réseau du cluster et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs à partir du<block ref="f823faeecc1cbb37f2d732cc29c07d86" category="inline-link-rx"></block> page.</block>
+  <block id="23ff17cc831acddb66c70196f1a8295f" category="paragraph">Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.</block>
+  <block id="c00379eb260028495e53ff62fa9b3a5a" category="inline-link">Téléchargement de logiciels Cisco</block>
+  <block id="03f4e394a093a045e6047871ed96a882" category="list-text">Version NX-OS applicable, téléchargée à partir du<block ref="5a1c929e557009655aef79d819d791d1" category="inline-link-rx"></block> page.</block>
+  <block id="c5490cef816a5fdfd03bfbae460638f5" category="paragraph"><block ref="c5490cef816a5fdfd03bfbae460638f5" category="inline-link-macro-rx"></block></block>
+  <block id="674dac01986b07db44266812735775f6" category="paragraph">Si vous le souhaitez, vous pouvez <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
 </blocks>

@@ -44,6 +44,9 @@ IMPORTANT: Voir link:cabling-considerations-sn2100-cluster.html["Examinez les co
 ** Les commutateurs SN2100 exécutent la dernière version de Cumulus Linux
 ** Les fichiers de configuration de référence (RCFs) sont appliqués aux commutateurs
 ** Toute personnalisation de site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
++
+Le https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+
 
 
 

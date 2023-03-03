@@ -38,6 +38,8 @@ entries:
   entries:
   - title: Migrer depuis les commutateurs de cluster Cisco
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+  - title: Migrer vers un cluster à deux nœuds avec commutateur
+    url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
   - title: Migrer vers un cluster à 2 nœuds sans commutateur
     url: "/switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-cluster.html"
 - title: Remplacer le commutateur du bloc d'instruments

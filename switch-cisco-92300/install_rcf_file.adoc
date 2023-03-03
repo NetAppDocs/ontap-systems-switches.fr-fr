@@ -26,6 +26,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 ====
 * La procédure nécessite l'utilisation des commandes ONTAP et https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus 9000 Series"^]; Les commandes ONTAP sont utilisées sauf indication contraire.
 * Avant d'effectuer cette procédure, assurez-vous d'avoir une sauvegarde actuelle de la configuration du commutateur.
+* Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
 
 
 ====
@@ -33,7 +34,10 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 . Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
 `network device-discovery show`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
@@ -47,12 +51,16 @@ node2/cdp
             e0b    cs2                       Ethernet1/1/2     N9K-C92300YC
 cluster1::*>
 ----
+====
 . Vérifiez le statut administratif et opérationnel de chaque port du cluster.
 +
 .. Vérifier que tous les ports du cluster sont défectueux :
 `network port show -ipspace Cluster`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network port show -ipspace Cluster*
 
@@ -73,10 +81,14 @@ e0c       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 cluster1::*>
 ----
+====
 .. Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical            Status     Network           Current      Current Is
@@ -89,10 +101,14 @@ Cluster
             node2_clus2        up/up      169.254.3.9/23    node2        e0d     true
 cluster1::*>
 ----
+====
 .. Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
 `system cluster-switch show -is-monitoring-enabled-operational true`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
@@ -115,6 +131,7 @@ cs2                         cluster-network    10.233.205.93    N9K-C92300YC
 
 2 entries were displayed.
 ----
+====
 
 
 . Désactivez la fonction de restauration automatique sur les LIF du cluster.
@@ -133,7 +150,10 @@ cs2(config-if-range)# *shutdown*
 . Vérifiez que les ports de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical           Status     Network            Current       Current Is
@@ -146,10 +166,14 @@ Cluster
             node2_clus2       up/up      169.254.3.9/23     node2         e0c     false
 cluster1::*>
 ----
+====
 . Vérifiez que le cluster fonctionne correctement :
 `cluster show`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health  Eligibility   Epsilon
@@ -158,6 +182,7 @@ node1          true    true          false
 node2          true    true          false
 cluster1::*>
 ----
+====
 . Si vous ne disposez pas déjà d'une sauvegarde en cours du commutateur, vous pouvez enregistrer la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier journal :
 +
 `show running-config`
@@ -314,7 +339,10 @@ This command will reboot the system. (y/n)?  [n] *y*
 .. Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :
 `network port show -ipspace Cluster`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network port show -ipspace Cluster*
 
@@ -334,9 +362,13 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
+====
 .. Vérifiez l'état du commutateur depuis le cluster (il se peut que le commutateur cs2 n'affiche pas, car les LIF ne sont pas homeed sur e0d).
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
@@ -370,6 +402,7 @@ cs2                         cluster-network    10.233.205.91    N9K-C92300YC
 
 2 entries were displayed.
 ----
+====
 
 
 +
@@ -395,7 +428,10 @@ cs1(config-if-range)# *shutdown*
 ----
 . Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes. `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical          Status     Network            Current           Current Is
@@ -408,10 +444,14 @@ Cluster
             node2_clus2      up/up      169.254.3.9/23     node2             e0d     true
 cluster1::*>
 ----
+====
 . Vérifiez que le cluster fonctionne correctement :
 `cluster show`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health   Eligibility   Epsilon
@@ -420,6 +460,7 @@ node1          true     true          false
 node2          true     true          false
 cluster1::*>
 ----
+====
 . Répétez les étapes 7 à 14 sur le commutateur cs1.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
@@ -451,7 +492,10 @@ Ethernet1/4      1       eth  trunk  up      none                   100G(D) --
 . Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :
 `show port-channel summary`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
@@ -469,10 +513,14 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/65(P)   Eth1/66(P)
 cs1#
 ----
+====
 . Vérifier que les LIFs du cluster ont rétabli leur port de base :
 `network interface show -vserver Cluster`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *network interface show -vserver Cluster*
             Logical       Status     Network            Current       Current Is
@@ -485,10 +533,14 @@ Cluster
             node2_clus2   up/up      169.254.3.9/23     node2         e0d     true
 cluster1::*>
 ----
+====
 . Vérifiez que le cluster fonctionne correctement :
 `cluster show`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster show*
 Node           Health  Eligibility   Epsilon
@@ -496,10 +548,14 @@ Node           Health  Eligibility   Epsilon
 node1          true    true          false
 node2          true    true          false
 ----
+====
 . Exécutez une commande ping sur les interfaces de cluster distantes pour vérifier la connectivité :
 `cluster ping-cluster -node local`
 +
-[listing, subs="+quotes"]
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
 ----
 cluster1::*> *cluster ping-cluster -node local*
 Host is node1
@@ -534,6 +590,7 @@ RPC status:
 6 paths up, 0 paths down (tcp check)
 6 paths up, 0 paths down (udp check)
 ----
+====
 
 
 [role="tabbed-block"]

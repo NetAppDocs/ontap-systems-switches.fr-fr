@@ -4285,4 +4285,5 @@
   <block id="03f4e394a093a045e6047871ed96a882" category="list-text">Version NX-OS applicable, téléchargée à partir du<block ref="5a1c929e557009655aef79d819d791d1" category="inline-link-rx"></block> page.</block>
   <block id="c5490cef816a5fdfd03bfbae460638f5" category="paragraph"><block ref="c5490cef816a5fdfd03bfbae460638f5" category="inline-link-macro-rx"></block></block>
   <block id="674dac01986b07db44266812735775f6" category="paragraph">Si vous le souhaitez, vous pouvez <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
+  <block id="3eb0f8cafe973dd42647b7ade90f7100" category="admonition">Avant de passer à l'étape suivante, vous devez attendre au moins deux minutes pour confirmer une connexion de retour à l'arrière sur le groupe 1.</block>
 </blocks>

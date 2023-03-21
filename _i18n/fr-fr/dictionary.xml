@@ -1134,7 +1134,6 @@
   <block id="25ea268f832f9b1eec50e6576dee1fa5" category="list-text">Affichez les informations relatives aux périphériques de votre configuration :</block>
   <block id="055b5822d0b3ee471e58a1ade8da9c16" category="list-text">Activez la fonction de collecte des journaux du commutateur cluster Health Monitor pour collecter les fichiers journaux relatifs au commutateur :</block>
   <block id="e70a9461d84eea1517aa3881f4d10089" category="paragraph"><block ref="bbe141170e1456bfc88d5bf7571880dd" prefix="" category="inline-code"></block></block>
-  <block id="d33f2a600ba4fe43084a26e95e4908c0" category="paragraph">*Informations connexes*</block>
   <block id="f775db4015a6969e3d7826094686747b" category="inline-link">Description du commutateur Ethernet Cisco</block>
   <block id="fb80612154aea33b3943669136f170ab" category="paragraph"><block ref="fb80612154aea33b3943669136f170ab" category="inline-link-rx"></block></block>
   <block id="c611db29cc6e6a239383ecd8e657d54c" category="paragraph"><block ref="c611db29cc6e6a239383ecd8e657d54c" category="inline-link-rx"></block></block>
@@ -2526,16 +2525,8 @@
   <block id="aedb89363510ad27a3d565acd684aa56" category="list-text">Le nom IPspace est<block ref="249694a485fc5d3289c38986b4f8e887" prefix=" " category="inline-code"></block>.</block>
   <block id="8c24c8f1f5492e3c2d260cfb0bc25caa" category="list-text">Les liaisons interswitch (ISL) prises en charge par les commutateurs Nexus 92300YC sont les ports 1/65 et 1/66.</block>
   <block id="6661eb47e9ec5d9c548abbe3d7e6a8cc" category="list-text">Les connexions de nœud prises en charge pour les commutateurs Nexus 92300YC sont les ports 1/1 à 1/66.</block>
-  <block id="9f5be684442d922984d48ddc3b7aa93f" category="summary">Vous pouvez passer à un cluster à deux nœuds qui utilise des commutateurs d'interconnexion de cluster à un cluster où deux nœuds sont directement connectés.</block>
   <block id="ff5ad6d56644222030f6f4bc94bd5506" category="paragraph">Si vous disposez déjà d'un cluster à deux nœuds avec des commutateurs d'interconnexion de cluster et qu'il exécute ONTAP 9.3 ou une version ultérieure, vous pouvez remplacer les commutateurs par des connexions directes et retour entre les nœuds.</block>
   <block id="759516932a18c0379d0054bce4b2e64e" category="paragraph">Vous ne pouvez pas utiliser la fonctionnalité d'interconnexion de cluster sans commutateur avec plus de deux nœuds.</block>
-  <block id="a2c17c2ce71b362b920e8850ba8c4dbc" category="paragraph">La transition vers une configuration de cluster sans commutateur à 2 nœuds n'assure pas de continuité de l'activité. La plupart des systèmes disposent de deux ports d'interconnexion de cluster dédiés sur chaque nœud, mais cette procédure peut également être utilisée pour les systèmes avec un plus grand nombre de ports d'interconnexion de cluster dédiés sur chaque nœud, tels que quatre, six ou huit.</block>
-  <block id="4d60464781e02c960e35d4e4cea119aa" category="paragraph">Cette procédure décrit la transition d'un cluster avec un réseau de clusters commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.</block>
-  <block id="e92a37c58dda9b6ad3b2129262043d6a" category="summary">Vous pouvez remplacer les commutateurs dans un cluster à deux nœuds par des connexions directes et retour entre les nœuds.</block>
-  <block id="42831c80a579ed060615d4e90f0500cf" category="doc">Remplacer les interrupteurs par des connexions directes</block>
-  <block id="f9ca0dca2bbe2bca99b0ad5e676f7bb6" category="paragraph">Si vous disposez d'un cluster à deux nœuds avec des commutateurs d'interconnexion de cluster, remplacez les commutateurs par des connexions directes et retour entre les nœuds. Il s'agit là d'une opération sans interruption.</block>
-  <block id="085c76ece7f19b4de00a80d42051e8df" category="list-text">Le cluster doit fonctionner correctement et se compose de deux nœuds connectés par des commutateurs de cluster, et les nœuds doivent exécuter la même version de ONTAP.</block>
-  <block id="aadaf9415e70bd5bc3b6c11d549fbe14" category="list-text">Chaque nœud doit disposer du nombre requis de ports de cluster dédiés qui fournissent des connexions d'interconnexion de cluster redondantes pour prendre en charge votre configuration système, par exemple deux ports redondants pour un système avec deux ports d'interconnexion de cluster dédiés sur chaque nœud.</block>
   <block id="2f5c59a7e0a2102f6d7508bee5ccb15b" category="paragraph">La procédure suivante supprime les commutateurs du cluster dans un cluster à deux nœuds et remplace chaque connexion au commutateur par une connexion directe au nœud partenaire.</block>
   <block id="8a2504e6dbf1489f594645cb7c55753d" category="image-alt">Les commutateurs du cluster ont été remplacés par des connexions directes</block>
   <block id="2a2f19f24bfba5cc72f797777f88530a" category="paragraph">Les exemples de la procédure suivante illustrent les nœuds qui utilisent « e0a » et « e0b » comme ports de cluster. Il est possible que les nœuds utilisent différents ports de cluster, car ils varient selon le système.</block>
@@ -2544,7 +2535,6 @@
   <block id="e127f1d4385ec7a8d3e94aacf34721de" category="paragraph">Vous pouvez vérifier que la détection des clusters sans commutateur est activée en exécutant la commande Advanced Privilege :</block>
   <block id="8b70a23bbedce91a74790296a731d7bb" category="paragraph"><block ref="39706b7cad1160a03e951a03179e38a8" prefix="" category="inline-code"></block></block>
   <block id="47b756a48fc6435a553f74738cb41468" category="paragraph">L'exemple de sortie suivant indique si l'option est activée.</block>
-  <block id="9c4d948f63c8c6f48823d7e858286716" category="paragraph">Si l'option « Activer la détection de cluster sans commutateur » est de<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, contactez l'assistance.</block>
   <block id="790ec52cbe66e86d508c608424b62c2d" category="paragraph"><block ref="f31ce0b777890764c844edbf84c8b1af" prefix="" category="inline-code"></block></block>
   <block id="de1ef371a5c4d9b1200b8a294381f2c8" category="paragraph">où<block ref="2510c39011c5be704182423e3a695e91" prefix=" " category="inline-code"></block> est la durée de la fenêtre de maintenance en heures. Ce message informe le support technique de cette tâche de maintenance de manière à ce qu'il puisse supprimer la création automatique de dossier pendant la fenêtre de maintenance.</block>
   <block id="31aa5da225dda6126c6cbf160562d03b" category="paragraph">Dans l'exemple suivant, la commande supprime la création automatique de dossiers pendant deux heures :</block>
@@ -2552,18 +2542,15 @@
   <block id="57c684517aec25172f7d07c58ad05de8" category="list-text">Identifier les ports du cluster et vérifier l'état et l'état de la liaison :</block>
   <block id="b4cb3437a4bd287cc325f112caa8be67" category="paragraph">Dans l'exemple suivant pour les nœuds avec des ports de cluster « e0a » et « e0b », un groupe est identifié comme « node1:e0a » et « node2:e0a » et l'autre groupe comme « node1:e0b » et « node2:e0b ». Vos nœuds peuvent utiliser différents ports de cluster car ils varient selon le système.</block>
   <block id="af10d52efe2cd47b065f90fdd28575f5" category="image-alt">Connexions du commutateur de cluster entre le nœud 1 et le nœud 2</block>
-  <block id="1742cd0ed0e3d9a5d0c757426e551f53" category="paragraph">Vérifier que les ports ont une valeur de<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Pour la colonne “liaison” et une valeur de<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> Pour la colonne Etat de l'intégrité, comme illustré dans l'exemple suivant :</block>
   <block id="ff66496bf4e9ec1deed0dc59b97eb6cb" category="list-text">Vérifier que toutes les LIFs du cluster se trouvent sur leurs ports de type home.</block>
   <block id="455e2d37ef416448b13da810b3bf798a" category="paragraph">Vérifiez que la colonne « est-home » est de<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> Pour chaque LIF de cluster :</block>
   <block id="4db0b2597279fa6c63908e8a06d54f68" category="paragraph"><block ref="09c5dcb6f33a923553d055a8a564dffe" prefix="" category="inline-code"></block></block>
-  <block id="fd894a783c8c8400a3021bd2ad147cba" category="paragraph">Un résultat similaire à l'exemple suivant s'affiche :</block>
   <block id="12769ddb40f8063f816fcbdca9a00d5d" category="paragraph">Si des LIF de cluster ne se trouvent pas sur leurs ports de départ, rerestaurez ces LIFs à leurs ports de base :</block>
   <block id="268d66b259b50e25cbef3d39885d450f" category="paragraph"><block ref="d4a4086e7952a80201c11ae52219be46" prefix="" category="inline-code"></block></block>
   <block id="fc7b1f226781bbe058721d0dcebf5133" category="list-text">Désactiver l'auto-revert pour les LIFs de cluster :</block>
   <block id="b1046cdb57cd97fe9c20f711ba08bed8" category="paragraph"><block ref="76be4589a0f314371f336c42f473092c" prefix="" category="inline-code"></block></block>
   <block id="5509fa38d3415bf6dfbd28918cf766f3" category="list-text">Vérifiez que tous les ports répertoriés à l'étape précédente sont connectés à un commutateur réseau :</block>
   <block id="101ead84905a0da72281347a2d3e5846" category="paragraph"><block ref="3c9df67ecefdc0250ea054cef3d4555b" prefix="" category="inline-code"></block></block>
-  <block id="fe02c7580400b9e0117d9abf6c4cbde1" category="paragraph">La colonne “périphérique découvert” doit être le nom du commutateur de cluster auquel le port est connecté. L'exemple suivant montre que les ports de cluster « e0a » et « e0b » sont correctement connectés aux commutateurs de cluster « cs1 » et « cs2 ».</block>
   <block id="fad8bc8bd6f8c2ecbc098cd96431ebde" category="list-text">Vérifiez la connectivité du cluster :</block>
   <block id="e477c0774c6014b5173ffa6810d512ab" category="paragraph"><block ref="484f24f8e4da80a1185aa63fa1d5fc08" prefix="" category="inline-code"></block></block>
   <block id="c992f99b79e71a5eb5127e5f190fab4e" category="paragraph">Toutes les unités doivent être maîtres ou secondaires.</block>
@@ -2588,9 +2575,7 @@
   <block id="fdd6dd4aa052ef34512800aa4ec60d74" category="image-alt">Connexion directe entre les ports du node1 et du node2</block>
   <block id="fbbe76d16326b63ad1d4f272c5493136" category="list-text">Vérifiez que les ports des deux nœuds sont correctement connectés :</block>
   <block id="65abe70d5b91b27886fd257d6422593d" category="paragraph">L'exemple suivant montre que les ports de cluster « e0a » et « e0b » sont correctement connectés au port correspondant du partenaire de cluster :</block>
-  <block id="7d828f71c40144b012224932607715ca" category="list-text">Reactiver l'auto-revert pour les LIFs du cluster :</block>
   <block id="2c70d9b6ebd85a5ee2fff0f363a115ac" category="paragraph"><block ref="bf3c84eda3ab699c2564d177a409447a" prefix="" category="inline-code"></block></block>
-  <block id="5fa7d5204d3d489974fd1ec321213563" category="list-text">Vérifier que toutes les LIFs sont bien. Cette opération peut prendre quelques secondes :</block>
   <block id="e602723d0e5f9bdd1222eae8ea457289" category="paragraph"><block ref="c3b05a86918302a773f398302b53b622" prefix="" category="inline-code"></block></block>
   <block id="038dfaef435585ad7a241ece49eb90ca" category="paragraph">Les LIFs ont été rétablies si la colonne « est à l'origine » est<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>, comme indiqué pour<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> et<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> dans l'exemple suivant :</block>
   <block id="ca781b2f6ba431222707604fe0989dc1" category="paragraph">Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :</block>
@@ -2599,7 +2584,6 @@
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">L'exemple suivant montre epsilon sur les deux nœuds à être<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>:</block>
   <block id="26ba805ccb9566fb36369f48374b79c8" category="list-text">Vérifier la connectivité entre les ports du cluster :</block>
   <block id="a76aa36cc43767185eb24bf3e6381bdb" category="paragraph"><block ref="a12fdc96dc49a3d64afa69d8bb631cbf" prefix="" category="inline-code"></block></block>
-  <block id="fb49a7219fb53efa33b80ec1a40ab7ce" category="paragraph"><block ref="fb49a7219fb53efa33b80ec1a40ab7ce" category="inline-link-macro-rx"></block></block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Mentions légales</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Les mentions légales donnent accès aux déclarations de copyright, aux marques, aux brevets, etc.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Droits d'auteur</block>
@@ -2635,8 +2619,6 @@
   <block id="7bd0358c3b996edfe19bd3da912bde62" category="sidebar">Commutateurs partagés Cisco Nexus 9336C-FX2</block>
   <block id="467a501ced0eaaee20142a975e074f95" category="sidebar">Migrer d'une configuration switched avec stockage DAT en ajoutant deux nouveaux switches partagés</block>
   <block id="62bb127cfc33134b4b7ba3eb79ae05f3" category="sidebar">Migrer d'un cluster commuté avec stockage SAT en réutilisant les commutateurs de stockage</block>
-  <block id="e55e97993d59e593f9db82748c7205cd" category="sidebar">Autres procédures d'interrupteur</block>
-  <block id="66a1a209b630861db25c9013c19efe3b" category="sidebar">Transition vers un cluster à 2 nœuds sans commutateur</block>
   <block id="42e6721e3b083e11b448b7e21c1008d0" category="paragraph-title">Documentation disponible</block>
   <block id="d59db7846bd10b6d60d21543df9faa9e" category="paragraph-title">Ce dont vous avez besoin</block>
   <block id="25ad5dd0170e12e51f3d415d1db041cd" category="paragraph-title">Contrainte de vitesse du groupe de ports</block>
@@ -2817,7 +2799,6 @@
   <block id="ec493d1a781282d3b831640adff57617" category="paragraph"><block ref="1be2284fb441d5fc39c1bb2882bcfe33" prefix="" category="inline-code"></block></block>
   <block id="609878b299dde0e13898cea02c9f40e5" category="paragraph"><block ref="780e8a1ebd2c830e4aeaebb59c666b98" prefix="" category="inline-code"></block></block>
   <block id="fa7a3d1e5babb00593a110ab5870ff56" category="summary">Vous pouvez migrer d'un cluster avec un réseau de cluster commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.</block>
-  <block id="cc0e36a3f48f0af38ed8ceca6914ee74" category="doc">Migrez vers un cluster sans commutateur à 2 nœuds avec des commutateurs de cluster NVIDIA SN2100</block>
   <block id="af68aec6a9ff864bb2ea1a13ec1ac66f" category="paragraph-title">Directives</block>
   <block id="d2c3016b1c4893861f6df9e9ca35fb38" category="paragraph">Consultez les directives suivantes :</block>
   <block id="9a784caf906fcaf3bc3613af15e2f622" category="list-text">La migration vers une configuration de cluster à 2 nœuds sans commutateur assure une continuité de l'activité. La plupart des systèmes disposent de deux ports d'interconnexion de cluster dédiés sur chaque nœud, mais cette procédure peut également être utilisée pour les systèmes avec un plus grand nombre de ports d'interconnexion de cluster dédiés sur chaque nœud, tels que quatre, six ou huit.</block>
@@ -3126,7 +3107,6 @@
   <block id="5ec6a450c60171f21b1076c5993144d4" category="section-title">Exigences de Cisco Nexus 3132Q-V</block>
   <block id="ac3ce89c8c9c9f66bbf4ad6b656b2b3d" category="section-title">Exigences de Cisco Nexus 5596</block>
   <block id="401f989556f238d07b2eafd80fc659ea" category="section-title">Exigences liées à NetApp CN1610</block>
-  <block id="f04a3d7452808e95f394e61a165ad1fe" category="doc">Migrez vers un cluster sans commutateur à 2 nœuds avec les commutateurs de cluster Cisco Nexus 3132Q-V.</block>
   <block id="50deaa4511349944fdb3f83e9e71b2ea" category="paragraph">Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3132Q-V.</block>
   <block id="c53a80ec8e0774b5eddfd4e730423c8f" category="list-text"><block ref="ad06ca9efd8c48f3172ea76c98c07c9d" category="inline-link-macro-rx"></block>. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.</block>
   <block id="c19675ad0cf38e4e44e264f2faeabe8e" category="list-text"><block ref="a014456b3700b06b3f3b1342793857e1" category="inline-link-rx"></block>. Consultez les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.</block>
@@ -3282,7 +3262,6 @@
   <block id="8c07dbda42a02c1008be4ff51c99a589" category="list-text">Revert toutes les LIF d'interconnexion de cluster migrées sur tous les nœuds :</block>
   <block id="2df774d6207fb031b6abd4d615f47823" category="section-title">Étape 4 : vérifier que tous les ports et les LIF sont correctement migrés</block>
   <block id="8a65c50dffa17d7eca2c3fe845041ce0" category="list-text">Affichez les informations relatives aux périphériques de votre configuration en entrant les commandes suivantes :</block>
-  <block id="489ffb441a69ef8ab5ae302c7d5a28e3" category="doc">Migrez vers un cluster sans commutateur à 2 nœuds avec des switchs de cluster Cisco Nexus 3232C</block>
   <block id="0a16e487073b824b443013a4386a6758" category="doc">Migrez un switch de cluster CN1610 vers un switch de cluster Cisco Nexus 3232C</block>
   <block id="981f990772f790f1d7f9d3b70afc44a5" category="inline-link-macro">Conditions requises pour la migration</block>
   <block id="0c0fcfb1c62bc821a6649a0cb742f88b" category="paragraph">Avant la migration, n'oubliez pas de la consulter <block ref="6894d466d0e09d0e91d8f514ea5bb845" category="inline-link-macro-rx"></block>.</block>
@@ -4058,7 +4037,6 @@
   <block id="7d75cce0f07e7a1c58b3241f78030967" category="list-text">Sur les deux nœuds, revert clus2 associé au port e2a :</block>
   <block id="bc180ffe4db9a9890fc4625e4a46260d" category="list-text">Afficher l'état des membres du nœud :</block>
   <block id="0e022017a995285e6b4205898808a5dc" category="list-text">Répéter les étapes précédentes pour installer la FCR sur l'autre commutateur, cs1.</block>
-  <block id="ebc12b227052e3324f3307fa003df8b8" category="doc">Migrez vers un cluster à 2 nœuds sans commutateur avec commutateurs de cluster Cisco Nexus 92300YC</block>
   <block id="af21e8e29322e4f9d397354867978c51" category="doc">Configurez le commutateur Cisco Nexus 92300YC</block>
   <block id="5e38bf6c3da8935e2dab0ce962eb8d7a" category="paragraph">Suivez cette procédure pour configurer le commutateur Cisco Nexus 92300YC.</block>
   <block id="b52f4f15c81d9427837c55a98f1f473b" category="list-text">Lors du premier démarrage ou du redémarrage après effacement de la configuration en cours d'exécution, le commutateur Nexus 92300YC effectue une boucle lors d'un cycle de démarrage. Interrompez ce cycle en tapant *yes* pour abandonner la mise sous tension de l'approvisionnement automatique.</block>
@@ -4184,14 +4162,12 @@
   <block id="46fd2d8570ac9394d60d1c59d30d738d" category="sidebar">Remplacer l'interrupteur</block>
   <block id="0b3c99e812c06053658bbb2a0b59fbb8" category="sidebar">Reliez les étagères NS224</block>
   <block id="ad8c6613a9c5149c2f22f875459b6a06" category="sidebar">Migrer depuis les commutateurs de cluster Cisco</block>
-  <block id="ea70cda597fdbaa3684515ff3dec86c9" category="sidebar">Migrer vers un cluster à 2 nœuds sans commutateur</block>
   <block id="194d828d5f6903e0190e08180b8af056" category="sidebar">Remplacer le commutateur du bloc d'instruments</block>
   <block id="7fda27801f23bbd9656018fa8a6f6af0" category="sidebar">Migrer depuis un ancien commutateur Cisco</block>
   <block id="512f694616622dd7d0109c65f582ba21" category="sidebar">Remplacer le commutateur de stockage</block>
   <block id="07d35609271d556894601ed6d4518ed5" category="sidebar">Migrer depuis les commutateurs CN5596</block>
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrer depuis les commutateurs CN1610</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrez d'un cluster sans commutateur vers un cluster commuté</block>
-  <block id="6d980346baee6b5e5651aafe9e5bbb87" category="sidebar">Migrez d'un cluster commuté vers un cluster sans commutateur</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Remplacer les interrupteurs</block>
   <block id="4e8b0737e5a683e7ada812ad2005b768" category="sidebar">Remplacer les commutateurs CN3132Q-V.</block>
   <block id="88af8e6a19edbffd16db05ce4d139e3f" category="sidebar">Migrer depuis le commutateur de cluster CN1610</block>
@@ -4286,4 +4262,12 @@
   <block id="c5490cef816a5fdfd03bfbae460638f5" category="paragraph"><block ref="c5490cef816a5fdfd03bfbae460638f5" category="inline-link-macro-rx"></block></block>
   <block id="674dac01986b07db44266812735775f6" category="paragraph">Si vous le souhaitez, vous pouvez <block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="3eb0f8cafe973dd42647b7ade90f7100" category="admonition">Avant de passer à l'étape suivante, vous devez attendre au moins deux minutes pour confirmer une connexion de retour à l'arrière sur le groupe 1.</block>
+  <block id="2592c17fec9ee0f2f1d872bee517581e" category="doc">Migrez du cluster commuté au cluster sans commutateur avec les commutateurs de cluster NVIDIA SN2100</block>
+  <block id="a7e9b61c9cfaadc2f123f50dfe481898" category="doc">Remplacez les switchs de cluster NVIDIA SN2100 par des connexions sans commutateur</block>
+  <block id="a1e3722d1b72e15c4741491bfdfdb45c" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 3132Q-V par des connexions sans commutateur</block>
+  <block id="6772e4d59dd062c5a9260242b751786f" category="doc">Remplacez les switchs de cluster Cisco Nexus 3232C par des connexions sans switch</block>
+  <block id="6dd41d8a8ed57c2ab7e587572c2bf8c5" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 92300YC par des connexions sans commutateur</block>
+  <block id="5e1805c74a69eb3dca33ebb7e0f38ef6" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 9336C-FX2 par des connexions sans commutateur</block>
+  <block id="1991711774b7f5c3d1ceb09a3f94be78" category="doc">Migrez d'un cluster commuté vers un cluster sans commutateur avec les commutateurs de cluster Cisco Nexus 9336C-FX2</block>
+  <block id="0cb146d69d0fe75b8dbae294e40edac5" category="sidebar">Remplacez les switchs de cluster par des connexions sans commutateur</block>
 </blocks>

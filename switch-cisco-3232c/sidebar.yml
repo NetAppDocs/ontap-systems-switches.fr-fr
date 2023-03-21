@@ -38,13 +38,13 @@ entries:
     url: "/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html"
   - title: Migrer depuis un cluster à 2 nœuds sans commutateur
     url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
-  - title: Migrer vers un cluster à 2 nœuds sans commutateur
-    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: Remplacer les interrupteurs
   entries:
   - title: Remplacer le commutateur du bloc d'instruments
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: Remplacer le commutateur de stockage
     url: "/switch-cisco-3232c/replace-storage-switch.html"
+  - title: Remplacez les switchs de cluster par des connexions sans commutateur
+    url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: Mettre à niveau les commutateurs
   url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrate, switchless cluster interconnect, NVIDIA SN2100 
 summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.' 
 ---
-= Migrez vers un cluster sans commutateur à 2 nœuds avec des commutateurs de cluster NVIDIA SN2100
+= Migrez du cluster commuté au cluster sans commutateur avec les commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -252,6 +252,10 @@ Enable Switchless Cluster: true
 . Vérifiez que le réseau de clusters n'est pas interrompu :
 +
 `cluster ping-cluster -node local`
+
++
+
+IMPORTANT: Avant de passer à l'étape suivante, vous devez attendre au moins deux minutes pour confirmer une connexion de retour à l'arrière sur le groupe 1.
 
 . Configurez la configuration sans commutateur pour les ports du groupe 2.
 +

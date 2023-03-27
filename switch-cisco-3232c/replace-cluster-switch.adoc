@@ -75,7 +75,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 
 Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 
-Les exemples de cette procédure de remplacement utilisent quatre nœuds. Deux des nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com/SWITCH/INDEX.html["Hardware Universe"^] pour vérifier les ports de cluster appropriés pour votre plate-forme.
+Les exemples de cette procédure de remplacement utilisent quatre nœuds. Deux des nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com["Hardware Universe"^] pour vérifier les ports de cluster appropriés pour votre plate-forme.
 
 
 

@@ -19,7 +19,7 @@ Procédez comme suit pour effectuer une configuration initiale du commutateur de
 +
 ** link:configure-reqs-bes53248.html["Configuration requise"]
 ** link:components-bes53248.html["Composants et références"]
-** link:required-documentation-53248.html["Exigences de documentation"]
+** link:required-documentation-bes53248.html["Exigences de documentation"]
 
 
 

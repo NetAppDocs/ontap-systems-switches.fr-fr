@@ -79,7 +79,7 @@ Le tableau suivant répertorie la documentation disponible pour les commutateurs
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-9336c-fx2/setup-switches.html["_Configurer les commutateurs de cluster Cisco® Nexus 92300YC_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-overview-cisco-92300.html["_Configurer les commutateurs de cluster Cisco® Nexus 92300YC_"^]
  a| 
 Décrit comment configurer les commutateurs de cluster Cisco Nexus 92300YC.
 
@@ -93,7 +93,7 @@ Décrit l'installation de NX-OS et des fichiers de configuration de référence 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-overview.html["_Configurer un nouveau commutateur Cisco Nexus 92300YC_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html["_Configurer un nouveau commutateur Cisco Nexus 92300YC_"^]
  a| 
 Décrit comment migrer des environnements utilisant des commutateurs Cisco plus anciens vers des environnements utilisant des commutateurs Cisco 92300YC.
 

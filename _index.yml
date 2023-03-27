@@ -28,7 +28,7 @@ indexpage:
     - title: Systèmes matériels AFF/FAS
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Logiciel ONTAP
-      url: https://docs.netapp.com/us-en/ontap/index.htmly/
+      url: https://docs.netapp.com/us-en/ontap/index.html
   - title: Les outils prennent en charge
     links:
     - title: Matrice d'interopérabilité NetApp

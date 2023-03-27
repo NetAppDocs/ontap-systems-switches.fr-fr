@@ -134,4 +134,4 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 
 .Et la suite ?
-Selon votre configuration, vous pouvez link:install-switch-and-passthrough-panel-9336c-shared.html["Installez le commutateur dans l'armoire NetApp"]. Sinon, passez à link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
+Selon votre configuration, vous pouvez link:install-switch-and-passthrough-panel-9336c-shared.html["Installez le commutateur dans l'armoire NetApp"]. Sinon, passez à link:prepare-nxos-rcf-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"].

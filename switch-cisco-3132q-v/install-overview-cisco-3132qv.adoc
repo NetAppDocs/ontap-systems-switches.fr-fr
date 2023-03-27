@@ -20,7 +20,7 @@ Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs 
 Pour configurer initialement un commutateur Cisco Nexus 3132Q-V sur les systèmes exécutant ONTAP, effectuez la procédure suivante :
 
 . link:setup_worksheet_3132q.html["Fiche technique de câblage Cisco Nexus 3132Q-V."]. L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
-. link:install-cisco-nexus-3232c.html["Installez un commutateur de cluster Cisco Nexus 3132Q-V dans une armoire NetApp"]. Installez le commutateur Cisco Nexus 3132Q-V et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.
+. link:install-cisco-nexus-3132qv.html["Installez un commutateur de cluster Cisco Nexus 3132Q-V dans une armoire NetApp"]. Installez le commutateur Cisco Nexus 3132Q-V et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.
 . link:setup-switch.html["Configurez le commutateur Cisco Nexus 3132Q-V"]. Installer et configurer le commutateur Cisco Nexus 3132Q-V
 . link:prepare-install-cisco-nexus-3132q.html["Préparez l'installation du logiciel NX-OS et du fichier de configuration de référence"]. Préparez-vous à installer le logiciel NX-OS et le fichier RCF (Reference Configuration File).
 . link:install-nx-os-software-3132q-v.html["Installez le logiciel NX-OS"]. Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3132Q-V.

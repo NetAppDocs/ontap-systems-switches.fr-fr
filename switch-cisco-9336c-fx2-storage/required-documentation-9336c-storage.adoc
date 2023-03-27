@@ -132,7 +132,7 @@ Le décrit les unités remplaçables sur site associées à l'armoire système 4
 
 
  a| 
-link:install-switch-and-passthrough-panel.html["Installez un commutateur Cisco 9336-FX2 dans une armoire NetApp"^]
+link:install-switch-and-passthrough-panel-9336c-storage.html["Installez un commutateur Cisco 9336-FX2 dans une armoire NetApp"^]
  a| 
 Décrit l'installation d'un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp à quatre montants.
 

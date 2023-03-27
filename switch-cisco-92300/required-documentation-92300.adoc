@@ -129,7 +129,7 @@ Le décrit les unités remplaçables sur site associées à l'armoire système 4
 
 
  a| 
-link:install-switch-and-passthrough-panel.html["Installez un commutateur Cisco Nexus 92300YC dans une armoire NetApp"]
+link:install-cisco-nexus-3132qv.html["[Installez un commutateur Cisco Nexus 92300YC dans une armoire NetApp"]
  a| 
 Décrit l'installation d'un commutateur Cisco Nexus 92300YC dans une armoire NetApp à quatre montants.
 

@@ -13,7 +13,7 @@ summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS 
 [role="lead"]
 Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur partagé Nexus 9336C-FX2.
 
-Avant de commencer, complétez la procédure dans link:install-nxos-overview-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"].
+Avant de commencer, complétez la procédure dans link:prepare-nxos-rcf-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"].
 
 
 
@@ -369,4 +369,4 @@ GEM  FPGA                        0x2
 
 
 .Et la suite ?
-link:install-nxos-rcf-9336c-shared.html["Installez le fichier de configuration RCF"].
+link:install-nxos-rcf-9336c-shared.html["Installez le fichier de configuration RCF"]

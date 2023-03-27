@@ -129,7 +129,7 @@ Le décrit les unités remplaçables sur site associées à l'armoire système 4
 
 
  a| 
-link:task-install-a-cisco-nexus-3232c-cluster-switch-and-pass-through-panel-in-a-netapp-cabinet.html["Installez un switch Cisco Nexus 3232C dans une armoire NetApp"^]
+link:install-cisco-nexus-3232c.html["Installez un switch Cisco Nexus 3232C dans une armoire NetApp"^]
  a| 
 Décrit l'installation d'un switch Cisco Nexus 3232C dans une armoire NetApp à quatre montants.
 

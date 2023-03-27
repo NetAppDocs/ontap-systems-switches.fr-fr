@@ -43,6 +43,6 @@ Vous devez connaître certaines informations de configuration, les connexions de
 * Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] page.
 +
 
-NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voir _installation du fichier de configuration CSHM (Cluster Switch Health Monitor) pour les commutateurs 92300YC_ dans link:../com.netapp.doc.hw-sw-cisco-setup/home.html["Configuration"] guide.
+NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voir link:setup-install-cshm-file.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"] pour plus d'informations.
 
 

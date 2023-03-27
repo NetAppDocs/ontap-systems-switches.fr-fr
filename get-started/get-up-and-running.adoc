@@ -15,16 +15,15 @@ Pour optimiser la mise en cluster, le stockage et les commutateurs partagés, vo
 
 Le déploiement du switch implique le workflow suivant.
 
-
-
-== Étape 1 : installer des contrôleurs AFF/FAS
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez des contrôleurs AFF/FAS
+[role="quick-margin-para"]
 Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instructions d'installation et de configuration de votre modèle de plateforme AFF/FAS.
 
-[cols="9,9,9"]
+[cols="4,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Systèmes AFF
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
@@ -46,16 +45,15 @@ Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instru
  a| 
 
 |===
-
-
-== Étape 2 : installer le matériel de fixation du commutateur
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Installez le matériel de fixation du commutateur
+[role="quick-margin-para"]
 Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions suivantes pour votre modèle de commutateur.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Commutateurs de cluster
 * link:../switch-bes-53248/install-hardware-bes53248.html["Installer le commutateur BES-53248"]
@@ -73,16 +71,15 @@ Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions 
 
 
 |===
-
-
-== Étape 3 : relier les commutateurs aux contrôleurs
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Connectez les commutateurs aux contrôleurs
+[role="quick-margin-para"]
 Les instructions d'installation et de configuration du système AFF/FAS comprennent des instructions de câblage des ports de contrôleur au switch. Cependant, si vous avez besoin de listes de câbles et d'émetteurs-récepteurs pris en charge et d'informations détaillées sur les ports hôtes de votre commutateur, accédez aux instructions suivantes pour votre modèle de commutateur.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Commutateurs de cluster
 * link:../switch-bes-53248/configure-reqs-bes53248.html#configuration-requirements["Câble du commutateur BES-53248"]
@@ -100,16 +97,15 @@ Les instructions d'installation et de configuration du système AFF/FAS comprenn
 
 
 |===
-
-
-== Étape 4 : configurer le commutateur
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]Configurer le commutateur
+[role="quick-margin-para"]
 Effectuez une configuration initiale des commutateurs. Consultez les instructions suivantes pour votre modèle de commutateur.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Commutateurs de cluster
 * link:../switch-bes-53248/configure-install-initial.html["Configurer le commutateur BES-53248"]
@@ -127,16 +123,15 @@ Effectuez une configuration initiale des commutateurs. Consultez les instruction
 
 
 |===
-
-
-== Étape 5 : installer le logiciel du commutateur
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"] Installer le logiciel du commutateur
+[role="quick-margin-para"]
 Pour installer et configurer le logiciel sur votre commutateur, suivez le workflow d'installation du logiciel correspondant à votre modèle de commutateur.
 
-[cols="9,9,9"]
+[cols="2,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Commutateurs de cluster
 * link:../switch-bes-53248/configure-software-overview-bes53248.html["Installer le logiciel pour les commutateurs BES-53248"]
@@ -154,16 +149,15 @@ Pour installer et configurer le logiciel sur votre commutateur, suivez le workfl
 
 
 |===
-
-
-== Étape 6 : configuration complète du système
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"] Terminez l'installation et la configuration du système
+[role="quick-margin-para"]
 Une fois les commutateurs configurés et le logiciel requis installé, accédez aux instructions d'installation et de configuration pour votre modèle de plateforme AFF/FAS afin de terminer la configuration du système.
 
-[cols="9,9,9"]
+[cols="4,9,9,9"]
 |===
 
 
+ a| 
  a| 
 .Systèmes AFF
 * https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
@@ -185,12 +179,11 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
  a| 
 
 |===
-
-
-== Étape 7 : Configuration complète de ONTAP
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"] Configuration ONTAP complète
+[role="quick-margin-para"]
 Une fois que vous avez installé et configuré vos contrôleurs et switchs AFF/FAS, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.
 
+[role="quick-margin-list"]
 * Pour les déploiements ONTAP, voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP"].
 * Pour les déploiements ONTAP avec MetroCluster, consultez https://docs.netapp.com/us-en/ontap-metrocluster/["Configurez MetroCluster avec ONTAP"].
 

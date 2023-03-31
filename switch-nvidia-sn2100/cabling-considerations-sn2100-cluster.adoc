@@ -26,55 +26,89 @@ Avant de configurer votre commutateur NVIDIA SN2100, prenez en compte les consid
  a| 
 swp1s0-3
  a| 
-10/40 nœuds de port de cluster
+Nœuds de ports de cluster breakout 4 x 10 GbE
 
 
 
  a| 
 swp2s0-3
  a| 
-25/100 nœuds de port de cluster
+Nœuds de ports de cluster breakout 4 x 25GbE
 
 
 
  a| 
-swp3-14 40/100 nœuds de port de cluster
+swp3-14
  a| 
-Swp15-16 40/100 ports ISL (Inter-Switch Link)
+40/100 nœuds de ports de cluster
+
+
+
+ a| 
+swp15-16
+ a| 
+40/100 ports ISL (Inter-Switch Link)
 
 |===
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
 
 
 
 == Connexions optiques
 
-Seules les connexions optiques sont prises en charge sur les switchs SN2100 avec carte réseau X1151A, carte réseau X1146A ou ports 100GbE intégrés. Par exemple :
+Pour Cumulus Linux 4.4.2, seules les connexions optiques sont prises en charge sur les commutateurs SN2100 avec carte réseau X1151A, carte réseau X1146A ou ports 100GbE intégrés. Par exemple :
 
 * AFF A800 sur les ports e0a et e0b
 * AFF A320 sur les ports e0g et e0h
 
 
+Pour Cumulus Linux 4.4.3 et versions ultérieures, les modifications de configuration suivantes sont nécessaires pour résoudre ce problème.
+
+. Ajoutez les deux lignes suivantes au `/etc/cumulus/switchd.conf` Fichier pour chaque port (swjpg <n>) utilisant des câbles en cuivre 40 GbE :
++
+** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
+** `interface.swp<n>.enable_short_tuning=TRUE`
+
+
+. Redémarrez le démon switchd : `systemctl restart switchd`
+
+
+Voir ci-dessous https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["KO"^] pour plus d'informations.
+
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp3*
+interface.swp3.enable_media_depended_linkup_flow=TRUE
+interface.swp3.enable_short_tuning=TRUE
+cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp6*
+interface.swp6.enable_media_depended_linkup_flow=TRUE
+interface.swp6.enable_short_tuning=TRUE
+cumulus@cumulus:mgmt:~$
+----
+====
 
 
 == Adaptateur QSA
 
-Lorsqu'une carte QSA est utilisée pour se connecter aux ports intégrés de cluster Intel sur une plate-forme, toutes les liaisons ne s'allument pas. Prenons un exemple de plateforme : FAS2750, AFF A300, FAS8200 (All 10G) et AFF A250 (25G).
+Lorsqu'une carte QSA est utilisée pour se connecter aux ports de cluster intégrés d'une plate-forme, la liaison peut ne pas se trouver.
 
 Pour résoudre ce problème, procédez comme suit :
 
-. Pour Intel 10G, définissez manuellement la vitesse de liaison swp1s0-3 sur 10000 et désactivez la négociation automatique.
-. Pour Chelsio 25G, définissez manuellement la vitesse de liaison swp2s0-3 sur 25000 et désactivez la négociation automatique.
+* Pour 10G, définissez manuellement la vitesse de liaison swp1s0-3 sur 10000 et la négociation automatique sur Désactivé.
+* Pour 25G, définissez manuellement la vitesse de liaison swp2s0-3 sur 25000 et définissez la négociation automatique sur Désactivé.
 
 
 
-NOTE: Utiliser les ports 40/100G non arraché à l'aide de 10G/25G QSA. N'insérez pas l'adaptateur QSA sur les ports configurés pour l'arrachage.
+NOTE: Lors de l'utilisation de QSA 10G/25G, insérez-les dans les ports 40/100G non écorchés. N'insérez pas l'adaptateur QSA sur les ports configurés pour l'arrachage.
 
 
 
-== Vitesse du port de commutation
+== Définition de la vitesse de l'interface sur les ports écorchés
 
-En fonction de l'émetteur-récepteur dans le port du commutateur, vous devrez peut-être régler la vitesse du port du commutateur sur une vitesse fixe. Si vous utilisez des ports de dérivation 10G et 25G, assurez-vous que la négociation automatique est désactivée et que la vitesse du port est définie sur le commutateur. Par exemple :
+Selon l'émetteur-récepteur du port de commutateur, vous devrez peut-être régler la vitesse de l'interface de commutateur sur une vitesse fixe. Si vous utilisez des ports de dérivation 10G et 25G, assurez-vous que la négociation automatique est désactivée et que la vitesse d'interface du commutateur est définie en dur. Par exemple :
 
 [listing, subs="+quotes"]
 ----

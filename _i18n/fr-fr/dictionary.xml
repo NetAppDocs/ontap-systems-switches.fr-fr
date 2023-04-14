@@ -4039,9 +4039,6 @@
   <block id="4db4d99be4b5b2288798925cd1faeda3" category="list-text">La personnalisation initiale du commutateur est terminée, comme indiqué dans : <block ref="f0d24ec92e2951fca3ce05ded916eb30" category="inline-link-macro-rx"></block>.</block>
   <block id="2367f63a291e7e1383961daf65d8b44f" category="example-title">Afficher la topologie</block>
   <block id="255c4d8b5fe19006ce3e32d6abe4c5dd" category="summary">Avant de configurer des commutateurs Cisco Nexus 92300, consultez un aperçu du processus et de la nomenclature.</block>
-  <block id="69614c5d5f9b9621dc6f19eb2e11553a" category="doc">Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 92300</block>
-  <block id="c5576d656ffb0b43f469f79ee2d05339" category="paragraph">Avant de configurer les commutateurs Cisco Nexus 92300, consultez la présentation de la procédure.</block>
-  <block id="13c3fd465bc0082cbe1310f539553cfc" category="paragraph">Pour configurer au départ un commutateur Cisco Nexus 92300 sur des systèmes exécutant ONTAP, procédez comme suit :</block>
   <block id="ffbe1aba3ae8a278e4f28ac52b2be316" category="list-text"><block ref="d38e35e34a06630798f8736804a06d84" category="inline-link-macro-rx"></block>. L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.</block>
   <block id="71be1affbed75bebb8eb96c3572e9f1b" category="list-text"><block ref="f0d24ec92e2951fca3ce05ded916eb30" category="inline-link-macro-rx"></block>. Configurer et configurer le commutateur Cisco Nexus 92300YC.</block>
   <block id="1aaeb527f308dd42bbc5d35f0f59358b" category="list-text"><block ref="8b831959a634cc7821f2f066cbf13103" category="inline-link-macro-rx"></block>. Préparation de l'installation du logiciel NX-OS et du fichier RCF (Reference Configuration File).</block>
@@ -4061,7 +4058,6 @@
   <block id="e617d80a2294adb5c3c62b25af747e57" category="inline-link-macro">Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)</block>
   <block id="a08609130428631761bac82d994b04c7" category="paragraph"><block ref="6f694a83f3a80cbdd0707c7c90c80946" category="inline-link-macro-rx"></block>.</block>
   <block id="06f7473ee7b667cf7e6c7384b4e91957" category="doc">Composants pour les commutateurs Cisco Nexus 92300YC</block>
-  <block id="cca2cd595451689ee569b5dab14cb718" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez tous les composants et références du commutateur.</block>
   <block id="26961e618ecd01e172d0cc2829344d09" category="list-text">Flux d'air d'échappement côté port (air standard) -- l'air froid pénètre dans le châssis par le ventilateur et les modules d'alimentation dans l'allée froide et s'échappe par l'extrémité du port du châssis dans l'allée chaude. Débit d'air d'échappement côté orifice avec coloration bleue.</block>
   <block id="a65de0b2540eeae253ed86b6c80d5cd8" category="list-text">Air d'admission côté orifice (air inversé) -- l'air froid pénètre dans le châssis par l'extrémité de l'orifice dans l'allée froide et s'échappe par le ventilateur et les modules d'alimentation dans l'allée chaude. Air d'admission côté port avec couleur bordeaux.</block>
   <block id="c24412eff0fdd364ed38f42c78180f6d" category="list-text">Un cluster existant entièrement fonctionnel.</block>
@@ -4296,4 +4292,8 @@
   <block id="6b7eaec843bb5fcdab1371328ab1e94c" category="admonition">Lors de l'utilisation de QSA 10G/25G, insérez-les dans les ports 40/100G non écorchés. N'insérez pas l'adaptateur QSA sur les ports configurés pour l'arrachage.</block>
   <block id="92f8e266fe70da4f6717e931d81faa46" category="section-title">Définition de la vitesse de l'interface sur les ports écorchés</block>
   <block id="577c386d1bb7bbffa59ac5c15182ada1" category="paragraph">Selon l'émetteur-récepteur du port de commutateur, vous devrez peut-être régler la vitesse de l'interface de commutateur sur une vitesse fixe. Si vous utilisez des ports de dérivation 10G et 25G, assurez-vous que la négociation automatique est désactivée et que la vitesse d'interface du commutateur est définie en dur. Par exemple :</block>
+  <block id="5501293605b4b8c8957b68e1854b0f11" category="doc">Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 92300YC</block>
+  <block id="c5fed3189b0ec4237029df463c0c1f64" category="paragraph">Avant de configurer les commutateurs Cisco Nexus 92300YC, consultez la présentation de la procédure.</block>
+  <block id="109e216a5aa6e526f504483738dabc7b" category="paragraph">Pour configurer initialement un commutateur Cisco Nexus 92300YC sur des systèmes exécutant ONTAP, procédez comme suit :</block>
+  <block id="ed6ae629414abab8b0e9b2e8deadb8c2" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez tous les composants et références du commutateur. Voir la<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour plus d'informations.</block>
 </blocks>

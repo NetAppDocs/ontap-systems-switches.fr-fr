@@ -4,16 +4,16 @@ sidebar: sidebar
 keywords: install, cisco nexus 92300 switch, 
 summary: Avant de configurer des commutateurs Cisco Nexus 92300, consultez un aperçu du processus et de la nomenclature. 
 ---
-= Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 92300
+= Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer les commutateurs Cisco Nexus 92300, consultez la présentation de la procédure.
+Avant de configurer les commutateurs Cisco Nexus 92300YC, consultez la présentation de la procédure.
 
-Pour configurer au départ un commutateur Cisco Nexus 92300 sur des systèmes exécutant ONTAP, procédez comme suit :
+Pour configurer initialement un commutateur Cisco Nexus 92300YC sur des systèmes exécutant ONTAP, procédez comme suit :
 
 . link:setup-worksheet-92300yc.html["Remplir la fiche technique de câblage Cisco Nexus 92300YC"]. L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 . link:configure-install-initial.html["Configurez le commutateur Cisco Nexus 92300YC"]. Configurer et configurer le commutateur Cisco Nexus 92300YC.

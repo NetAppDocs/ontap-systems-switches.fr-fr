@@ -681,22 +681,32 @@ node2      /cdp
 ----
 ====
 . Supprimez les commutateurs CN1610 remplacés s'ils ne sont pas automatiquement supprimés :
-+
+
+
+[role="tabbed-block"]
+====
+.Pour ONTAP 9.8 et versions ultérieures
+--
+`system switch ethernet delete -device _device-name_`
+
+[listing]
+----
+cluster::*> system switch ethernet delete –device CL2
+cluster::*> system switch ethernet delete –device CL1
+----
+--
+.Pour ONTAP 9.4 et versions ultérieures
+--
 `system cluster-switch delete -device _device-name_`
 
-+
-.Montrer l'exemple
-[%collapsible]
-====
-L'exemple suivant montre comment supprimer les commutateurs CN1610 :
-
-[listing, subs="+quotes"]
+[listing]
 ----
-cluster::*> *system cluster-switch delete –device CL2*
-cluster::*> *system cluster-switch delete –device CL1*
+cluster::*> system cluster-switch delete –device CL2
+cluster::*> system cluster-switch delete –device CL1
 ----
+--
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. [[step5]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

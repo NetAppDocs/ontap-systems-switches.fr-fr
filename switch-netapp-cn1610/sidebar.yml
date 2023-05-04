@@ -28,3 +28,7 @@ entries:
     url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
   - title: Migrer vers un cluster à deux nœuds avec commutateur
     url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"
+- title: Remplacer les interrupteurs
+  entries:
+  - title: Remplacez les switchs de cluster par des connexions sans commutateur
+    url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

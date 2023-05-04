@@ -34,6 +34,8 @@ entries:
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
   - title: Configurer la collecte du journal du commutateur
     url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html"
+  - title: Mettez à niveau la version de Cumulus Linux
+    url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: Migration des commutateurs
   entries:
   - title: Migrer depuis les commutateurs de cluster Cisco

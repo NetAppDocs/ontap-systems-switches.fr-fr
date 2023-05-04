@@ -13,24 +13,57 @@ summary: 'Pour l"installation et la maintenance du commutateur BES-53248, veille
 [role="lead"]
 Pour l'installation et la maintenance du commutateur BES-53248, veillez à consulter la liste des composants et des références.
 
-Le tableau suivant répertorie le numéro de référence et la description des composants du commutateur de cluster BES-53248, y compris le kit de rails de montage en rack, les ventilateurs et les alimentations.
+Le tableau suivant répertorie la référence, la description et les versions minimales de EFOS et de ONTAP pour les composants du commutateur de cluster BES 53248, y compris les détails du kit de rails de montage en rack.
 
-[cols="1,2"]
+
+NOTE: Une version EFOS minimale de *3.10.0.3* est requise pour les références *X190005-B* et *X190005R-B*.
+
+[cols="20,40,20,20"]
 |===
-| Numéro de référence | Description 
+| Numéro de référence | Description | Version minimale de EFOS | Version minimale de ONTAP 
+
+
+ a| 
+X190005-B.
+ a| 
+BES-53248-B/IX8, CLSW, 16PT10/25Go, PTSX (PTSX = évacuation côté port)
+ a| 
+3.10.0.3
+ a| 
+9.8
+
+
+
+ a| 
+X190005R-B.
+ a| 
+BES-53248-B/IX8, CLSW, 16PT10/25 Go, PSIN (PSIN = admission côté port)
+ a| 
+3.10.0.3
+ a| 
+9.8
+
 
 
  a| 
 X190005
  a| 
-BES-53248, CLSW, 16Pt10/25 Gb, PTSX, BRDCM SUPP (PTSX = échappement côté port)
+BES-53248, CLSW, 16PT10/25GO, PTSX, ASSISTANCE BRDCM
+ a| 
+3.4.4.6
+ a| 
+9.5P8
 
 
 
  a| 
 X190005R
  a| 
-BES-53248, CLSW, 16Pt10/25 Gb, PSIN, SUPPLÉMENT BRDCM (PSIN = admission côté port)
+BES-53248, CLSW, 16PT10/25GO, PSIN, ASSISTANCE BRDCM
+ a| 
+3.4.4.6
+ a| 
+9.5P8
 
 
 
@@ -38,37 +71,58 @@ BES-53248, CLSW, 16Pt10/25 Gb, PSIN, SUPPLÉMENT BRDCM (PSIN = admission côté 
 X-RAIL-4POST-190005
  a| 
 Kit de rails de montage sur rack Ozeki 4 montants 19"
-
-
-
  a| 
-X-FAN-190005-R
+S/O
  a| 
-Ventilateur, côté orifice d'admission X190005
-
-
-
- a| 
-X-FAN-190005-F
- a| 
-Ventilateur, côté orifice d'échappement X190005
-
-
-
- a| 
-X-PSU-190005-R
- a| 
-Alimentation, prise côté orifice X190005
-
-Air d'admission côté orifice (air inversé) : l'air frais pénètre dans le châssis par l'extrémité de l'orifice dans l'allée froide et s'échappe par les modules de ventilateur et d'alimentation dans l'allée chaude.
-
-
-
- a| 
-X-PSU-190005-F
- a| 
-Alimentation, côté orifice d'échappement X190005
-
-Flux d'air d'échappement côté port (air standard) : l'air frais pénètre dans le châssis par le ventilateur et les modules d'alimentation dans l'allée froide et s'échappe par l'extrémité du port du châssis dans l'allée chaude. La couleur bleue indique le débit d'air d'échappement côté port. Il s'agit de l'option la plus courante.
+S/O
 
 |===
+
+IMPORTANT: Noter les informations suivantes concernant les types de machine :
+
+[cols="50,50"]
+|===
+| Type de machine | Version EFOS 
+
+
+ a| 
+BES 53248A1
+| 3.4.4.6 
+
+
+ a| 
+BES 53248A2
+| 3.10.0.3 
+
+
+ a| 
+BES-53248A3
+| 3.10.0.3 
+|===
+Vous pouvez déterminer votre type de machine spécifique à l'aide de la commande : `show version`
+
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs1)# *show version*
+
+Switch: cs1
+
+System Description............................. EFOS, 3.10.0.3, Linux 5.4.2-b4581018, 2016.05.00.07
+Machine Type................................... *_BES-53248A3_*
+Machine Model.................................. BES-53248
+Serial Number.................................. QTWCU225xxxxx
+Part Number.................................... 1IX8BZxxxxx
+Maintenance Level.............................. a3a
+Manufacturer................................... QTMC
+Burned In MAC Address.......................... C0:18:50:F4:3x:xx
+Software Version............................... 3.10.0.3
+Operating System............................... Linux 5.4.2-b4581018
+Network Processing Device...................... BCM56873_A0
+.
+.
+.
+----
+====

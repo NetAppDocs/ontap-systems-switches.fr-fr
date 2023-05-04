@@ -45,31 +45,50 @@ Pour une adresse IP de serveur Web interne 192.168.2.20, et en supposant qu'il e
 cluster1::> *set -privilege advanced*
 ----
 . Lancer la commande Switch Health Monitor configure :
-+
+
+
+[role="tabbed-block"]
+====
+.Pour ONTAP 9.8 et versions ultérieures
+--
+`system switch ethernet configure-health-monitor -node * -package-url \http://server/file-location`
+
+[listing]
+----
+cluster1::> switch ethernet configure-health-monitor -node * -package-url
+http://192.168.2.20/usr/download/Broadcom_BES-53248.zip
+----
+--
+.Pour ONTAP 9.4 et versions ultérieures
+--
 `system cluster-switch configure-health-monitor -node * -package-url \http://server/file-location`
 
-+
-.Montrer l'exemple
-[%collapsible]
+[listing]
+----
+cluster1::> system cluster-switch configure-health-monitor -node * -package-url
+http://192.168.2.20/usr/download/Broadcom_BES-53248.zip
+----
+--
 ====
-[listing, subs="+quotes"]
-----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url
-http://192.168.2.20/usr/download/Broadcom_BES-53248.zip*
-----
+. [[step5]]Vérifiez que la sortie de la commande contient la chaîne de texte : `downloaded package processed successfully`. En cas d'erreur, contactez le support NetApp.
+. Lancer la commande sur le système ONTAP et vérifier que les commutateurs de cluster sont détectés avec le champ surveillé défini sur « vrai » :
+
+
+[role="tabbed-block"]
 ====
-. Vérifiez que la sortie de la commande contient la chaîne de texte : `downloaded package processed successfully`. En cas d'erreur, contactez le support NetApp.
-. Lancer la commande `system cluster-switch show` Sur le système ONTAP et assurez-vous que les commutateurs de cluster sont détectés avec le champ surveillé défini sur « vrai ».
-+
-[listing, subs="+quotes"]
-----
-cluster1::> *system cluster-switch show*
-----
-+
+.Pour ONTAP 9.8 et versions ultérieures
+--
+`system switch ethernet show`
+
+--
+.Pour ONTAP 9.4 et versions ultérieures
+--
+`system cluster-switch show`
+
+--
+====
 
 NOTE: Si vous restaurez à tout moment une version antérieure de ONTAP, vous devez à nouveau installer le fichier de configuration CSHM pour activer la surveillance de l'état du commutateur des commutateurs de cluster BES-53248.
-
-
 
 .Et la suite ?
 Pour utiliser toutes les fonctions disponibles dans CSHM, activez SSH comme décrit dans link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"].

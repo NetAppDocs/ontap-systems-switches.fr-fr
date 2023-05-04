@@ -19,7 +19,7 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez
 
 == Prise en charge de ONTAP et Linux
 
-Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 Go exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :
+Le commutateur NVIDIA SN2100 est un commutateur 10/25/40 GbE exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :
 
 * ONTAP 9.10.1P3. Le commutateur SN2100 sert les applications de stockage et de cluster dans le ONTAP 9.10.1P3 sur différentes paires de commutateurs. À partir de la conférence ONTAP 9.10.1P3, vous pouvez utiliser les switchs NVIDIA SN2100 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
 * Cumulus Linux (CL) OS version 4.4.3. Pour plus d'informations sur la compatibilité actuelle, reportez-vous au https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Commutateurs Ethernet NVIDIA"^] page d'informations.
@@ -42,28 +42,28 @@ Le tableau suivant répertorie le numéro de référence et la description des c
  a| 
 X190006-PE
  a| 
-Commutateur de cluster, NVIDIA SN2100, 16PT 100G, PTSX
+Commutateur de cluster, NVIDIA SN2100, 16PT 100 GbE, PTSX
 
 
 
  a| 
 X190006-PI
  a| 
-Commutateur de cluster, NVIDIA SN2100, 16 PT 100 G, PSIN
+Commutateur de cluster, NVIDIA SN2100, 16 PT 100 GbE, PSIN
 
 
 
  a| 
 X190106-FE-PE
  a| 
-Commutateur, NVIDIA SN2100, 16PT 100G, PTSX, frontal
+Switch, NVIDIA SN2100, 16PT 100GbE, PTSX, frontal
 
 
 
  a| 
 X190106-FE-PI
  a| 
-Switch, NVIDIA SN2100, 16PT 100G, PSIN, Front End
+Switch, NVIDIA SN2100, 16PT 100 GbE, PSIN, frontal
 
 
 

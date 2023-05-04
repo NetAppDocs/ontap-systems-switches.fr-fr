@@ -40,79 +40,194 @@ Nœuds de ports de cluster breakout 4 x 25GbE
  a| 
 swp3-14
  a| 
-40/100 nœuds de ports de cluster
+Nœuds de ports de cluster 40 GbE
 
 
 
  a| 
 swp15-16
  a| 
-40/100 ports ISL (Inter-Switch Link)
+Ports ISL (Inter-Switch Link) 40 GbE
 
 |===
 Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
 
 
 
-== Connexions optiques
+== Délais de liaison avec connexions optiques
 
-Pour Cumulus Linux 4.4.2, seules les connexions optiques sont prises en charge sur les commutateurs SN2100 avec carte réseau X1151A, carte réseau X1146A ou ports 100GbE intégrés. Par exemple :
+Si vous rencontrez des retards de liaison de plus de cinq secondes, Cumulus Linux 5.4 et versions ultérieures prend en charge la liaison rapide. Vous pouvez configurer les liens à l'aide du `nv set` commande comme suit :
 
-* AFF A800 sur les ports e0a et e0b
-* AFF A320 sur les ports e0g et e0h
-
-
-Pour Cumulus Linux 4.4.3 et versions ultérieures, les modifications de configuration suivantes sont nécessaires pour résoudre ce problème.
-
-. Ajoutez les deux lignes suivantes au `/etc/cumulus/switchd.conf` Fichier pour chaque port (swjpg <n>) utilisant des câbles en cuivre 40 GbE :
-+
-** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
-** `interface.swp<n>.enable_short_tuning=TRUE`
-
-
-. Redémarrez le démon switchd : `systemctl restart switchd`
-
-
-Voir ci-dessous https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["KO"^] pour plus d'informations.
-
+[listing, subs="+quotes"]
+----
+*nv set interface <interface-id> link fast-linkup on*
+*nv config apply*
+*reload the switchd*
+----
 .Montrer l'exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp3*
-interface.swp3.enable_media_depended_linkup_flow=TRUE
-interface.swp3.enable_short_tuning=TRUE
-cumulus@cumulus:mgmt:~$ *cat /etc/cumulus/switchd.conf | grep swp6*
-interface.swp6.enable_media_depended_linkup_flow=TRUE
-interface.swp6.enable_short_tuning=TRUE
-cumulus@cumulus:mgmt:~$
+cumulus@cumulus-cs13:mgmt:~$ *nv set interface swp5 link fast-linkup on*
+cumulus@cumulus-cs13:mgmt:~$ *nv config apply*
+*switchd need to reload on this config change*
+
+Are you sure? [y/N] *y*
+applied [rev_id: 22]
+
+Only switchd reload required
 ----
 ====
 
 
+== Prise en charge des connexions en cuivre
+
+Les modifications de configuration suivantes sont nécessaires pour résoudre ce problème.
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
+. Identifiez le nom de chaque interface à l'aide de câbles en cuivre 40 GbE/100 GbE :
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface pluggables*
+
+Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
+---------  -------------  --------------  -----------  -------------  ----------
+swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
+swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
+----
+. Ajoutez les deux lignes suivantes au `/etc/cumulus/switchd.conf` Fichier pour chaque port (swjpg <n>) utilisant des câbles cuivre 40 GbE/100 GbE :
++
+** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
+** `interface.swp<n>.enable_short_tuning=TRUE`
++
+Par exemple :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo nano /etc/cumulus/switchd.conf*
+.
+.
+interface.swp3.enable_media_depended_linkup_flow=TRUE
+interface.swp3.enable_short_tuning=TRUE
+interface.swp4.enable_media_depended_linkup_flow=TRUE
+interface.swp4.enable_short_tuning=TRUE
+----
+
+
+. Redémarrez le `switchd` service :
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *sudo systemctl restart switchd.service*
+----
+. Vérifier que les ports fonctionnent :
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface all*
+
+State  Name      Spd   MTU    Mode       LLDP              Summary
+-----  --------- ----  -----  ---------- ----------------- --------
+UP     swp3      100G  9216   Trunk/L2                     Master: bridge(UP)
+UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
+----
+
+
+--
+.Cumulus Linux 5.x.
+--
+. Identifiez le nom de chaque interface à l'aide de câbles en cuivre 40 GbE/100 GbE :
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show interface pluggables*
+
+Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
+---------  -------------  --------------  -----------  -------------  ----------
+swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
+swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
+----
+. Configurez les liens à l'aide du `nv set` commande comme suit :
++
+** `nv set interface <interface-id> link fast-linkup on`
+** `nv config apply`
+** Rechargez le `switchd` services
++
+Par exemple :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set interface swp5 link fast-linkup on*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+switchd need to reload on this config change
+
+Are you sure? [y/N] *y*
+applied [rev_id: 22]
+
+Only switchd reload required
+----
+
+
+. Vérifier que les ports fonctionnent :
++
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface all*
+
+State  Name      Spd   MTU    Mode       LLDP              Summary
+-----  --------- ----  -----  ---------- ----------------- --------
+UP     swp3      100G  9216   Trunk/L2                     Master: bridge(UP)
+UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
+----
+
+
+--
+====
+Voir https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Cette base de connaissances"^] pour plus d'informations.
+
+Sur Cumulus Linux 4.4.2, les connexions en cuivre ne sont pas prises en charge sur les commutateurs SN2100 dotés d'une carte réseau X1151A, d'une carte réseau X1146A ou de ports 100GbE intégrés. Par exemple :
+
+* AFF A800 sur les ports e0a et e0b
+* AFF A320 sur les ports e0g et e0h
+
+
+
+
 == Adaptateur QSA
 
-Lorsqu'une carte QSA est utilisée pour se connecter aux ports de cluster intégrés d'une plate-forme, la liaison peut ne pas se trouver.
+Lorsqu'un adaptateur QSA est utilisé pour se connecter aux ports de cluster 10 GbE/25 GbE d'une plateforme, la liaison peut ne pas se trouver.
 
 Pour résoudre ce problème, procédez comme suit :
 
-* Pour 10G, définissez manuellement la vitesse de liaison swp1s0-3 sur 10000 et la négociation automatique sur Désactivé.
-* Pour 25G, définissez manuellement la vitesse de liaison swp2s0-3 sur 25000 et définissez la négociation automatique sur Désactivé.
+* Pour 10GbE, définissez manuellement la vitesse de liaison swp1s0-3 sur 10000 et la négociation automatique sur Désactivé.
+* Pour 25 GbE, définissez manuellement la vitesse de liaison swp2s0-3 sur 25000 et définissez la négociation automatique sur Désactivé.
 
 
 
-NOTE: Lors de l'utilisation de QSA 10G/25G, insérez-les dans les ports 40/100G non écorchés. N'insérez pas l'adaptateur QSA sur les ports configurés pour l'arrachage.
+NOTE: Si vous utilisez des adaptateurs QSA 10 GbE/25 GbE, insérez-les dans des ports 40 GbE/100 GbE non séparationés (swp3-swp14). N'insérez pas la carte QSA dans un port configuré pour le tri.
 
 
 
 == Définition de la vitesse de l'interface sur les ports écorchés
 
-Selon l'émetteur-récepteur du port de commutateur, vous devrez peut-être régler la vitesse de l'interface de commutateur sur une vitesse fixe. Si vous utilisez des ports de dérivation 10G et 25G, assurez-vous que la négociation automatique est désactivée et que la vitesse d'interface du commutateur est définie en dur. Par exemple :
+Selon l'émetteur-récepteur du port de commutateur, vous devrez peut-être régler la vitesse de l'interface de commutateur sur une vitesse fixe. Si vous utilisez des ports de dérivation 10 GbE et 25 GbE, vérifiez que la négociation automatique est désactivée et définissez la vitesse de l'interface sur le commutateur.
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.3
+--
+Par exemple :
 
 [listing, subs="+quotes"]
 ----
-cumulus@cumulus:mgmt:~$ net add int swp1s3 link autoneg off && net com
+cumulus@cumulus:mgmt:~$ *net add int swp1s3 link autoneg off && net com*
 --- /etc/network/interfaces     2019-11-17 00:17:13.470687027 +0000
 +++ /run/nclu/ifupdown2/interfaces.tmp  2019-11-24 00:09:19.435226258 +0000
 @@ -37,21 +37,21 @@
@@ -139,5 +254,83 @@ iface swp2s0
      link-autoneg off
      link-speed 25000 *<---- port speed set*
 ----
+Vérifiez l'état de l'interface et du port pour vous assurer que les paramètres sont appliqués :
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *net show interface*
+
+State  Name      Spd    MTU    Mode        LLDP             Summary
+-----  --------  -----  -----  ----------  ---------------  --------------------------------------
+.
+.
+UP     swp1s0     10G   9216   Trunk/L2    cs07 (e4c)       Master: br_default(UP)
+UP     swp1s1     10G   9216   Trunk/L2    cs07 (e4d)       Master: br_default(UP)
+UP     swp1s2     10G   9216   Trunk/L2    cs08 (e4c)       Master: br_default(UP)
+UP     swp1s3     10G   9216   Trunk/L2    cs08 (e4d)       Master: br_default(UP)
+.
+.
+UP     swp3       40G   9216   Trunk/L2    cs03 (e4e)       Master: br_default(UP)
+UP     swp4       40G   9216   Trunk/L2    cs04 (e4e)       Master: br_default(UP)
+DN     swp5       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp6       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp7       N/A   9216   Trunk/L2                     Master: br_default(UP)
+.
+.
+UP     swp15      100G  9216   BondMember  cs01 (swp15)     Master: cluster_isl(UP)
+UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cluster_isl(UP)
+.
+.
+----
+--
+.Cumulus Linux 5.x.
+--
+Par exemple :
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv set interface swp1s3 link auto-negotiate off*
+cumulus@cumulus:mgmt:~$ *nv set interface swp1s3 link speed 10G*
+cumulus@cumulus:mgmt:~$ *nv show interface swp1s3*
+
+link                                                                                            
+  auto-negotiate        off                     off                     off                   
+  duplex                full                    full                    full                  
+  speed                 10G                     10G                     10G                   
+  fec                   auto                    auto                    auto                  
+  mtu                   9216                    9216                    9216                  
+[breakout]                                                                                    
+  state                 up                      up                      up
+----
+Vérifiez l'état de l'interface et du port pour vous assurer que les paramètres sont appliqués :
+
+[listing, subs="+quotes"]
+----
+cumulus@cumulus:mgmt:~$ *nv show interface*
+
+State  Name      Spd    MTU    Mode        LLDP             Summary
+-----  --------  -----  -----  ----------  ---------------  --------------------------------------
+.
+.
+UP     swp1s0     10G   9216   Trunk/L2    cs07 (e4c)       Master: br_default(UP)
+UP     swp1s1     10G   9216   Trunk/L2    cs07 (e4d)       Master: br_default(UP)
+UP     swp1s2     10G   9216   Trunk/L2    cs08 (e4c)       Master: br_default(UP)
+UP     swp1s3     10G   9216   Trunk/L2    cs08 (e4d)       Master: br_default(UP)
+.
+.
+UP     swp3       40G   9216   Trunk/L2    cs03 (e4e)       Master: br_default(UP)
+UP     swp4       40G   9216   Trunk/L2    cs04 (e4e)       Master: br_default(UP)
+DN     swp5       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp6       N/A   9216   Trunk/L2                     Master: br_default(UP)
+DN     swp7       N/A   9216   Trunk/L2                     Master: br_default(UP)
+.
+.
+UP     swp15      100G  9216   BondMember  cs01 (swp15)     Master: cluster_isl(UP)
+UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cluster_isl(UP)
+.
+.
+----
+--
+====
 .Et la suite ?
 link:install-cable-shelves-sn2100-cluster.html["Reliez les tiroirs NS224 au stockage relié au commutateur"].

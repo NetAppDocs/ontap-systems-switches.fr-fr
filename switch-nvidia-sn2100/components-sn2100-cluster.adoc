@@ -17,7 +17,7 @@ Pour l'installation et la maintenance du commutateur NVIDIA SN2100, consultez la
 
 == Détails de l'armoire
 
-Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire de commutation double/simple NVIDIA à l'aide des supports standard fournis avec le commutateur.
+Vous installez le commutateur NVIDIA SN2100 (X190006) dans l'armoire de commutateur NVIDIA double/simple avec les supports standard fournis avec le commutateur.
 
 
 
@@ -33,28 +33,14 @@ Le tableau suivant répertorie le numéro de référence et la description des c
  a| 
 X190006-PE
  a| 
-Commutateur de cluster, NVIDIA SN2100, 16PT 100G, PTSX
+Commutateur de cluster, NVIDIA SN2100, 16PT 100 GbE, PTSX
 
 
 
  a| 
 X190006-PI
  a| 
-Commutateur de cluster, NVIDIA SN2100, 16 PT 100 G, PSIN
-
-
-
- a| 
-X190106-FE-PE
- a| 
-Commutateur, NVIDIA SN2100, 16PT 100G, PTSX, frontal
-
-
-
- a| 
-X190106-FE-PI
- a| 
-Switch, NVIDIA SN2100, 16PT 100G, PSIN, Front End
+Commutateur de cluster, NVIDIA SN2100, 16 PT 100 GbE, PSIN
 
 
 

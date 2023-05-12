@@ -29,7 +29,7 @@ Voir la link:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] pour les 
 .Ports et connexions de nœuds pris en charge
 * Les liaisons interswitch (ISL) prises en charge par les commutateurs Nexus 92300YC sont les ports 1/65 et 1/66.
 * Les connexions de nœud prises en charge pour les commutateurs Nexus 92300YC sont les ports 1/1 à 1/66.
-* Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+* Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
 .Avant de commencer
@@ -37,7 +37,7 @@ Voir la link:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] pour les 
 * Le cluster doit fonctionner parfaitement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
 * Vous devez avoir vérifié ou défini la configuration de démarrage souhaitée dans la FCR pour qu'elle reflète les images de démarrage souhaitées si vous installez uniquement NX-OS et que vous gardez la version actuelle de RCF.
 * Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-* Vous devez avoir consulté la table de compatibilité des commutateurs sur le https://support.netapp.com/NOW/download/software/cm_switches/["Commutateur Ethernet Cisco"^] Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.
+* Vous devez avoir consulté la table de compatibilité des commutateurs sur le https://["Commutateur Ethernet Cisco"^] Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.
 * Il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et celle trouvée dans les versions de NX-OS.
 
 

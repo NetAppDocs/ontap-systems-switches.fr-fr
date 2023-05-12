@@ -40,7 +40,7 @@ Le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateu
 ** La personnalisation initiale du commutateur est terminée.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Hardware Universe"^]
 
 
 

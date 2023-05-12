@@ -17,7 +17,7 @@ Pour l'installation et la maintenance du commutateur BES 53248, vérifiez les ex
 
 == Prise en charge de EFOS et ONTAP
 
-Voir la https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^] et https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matrice de compatibilité des commutateurs Broadcom"^] Pour les informations de compatibilité EFOS et ONTAP avec les commutateurs BES-53248. La prise en charge de l'EFOS et de l'ONTAP peut varier selon le type de machine spécifique du commutateur BES-53248. Pour plus de détails sur tous les types de machines à commutateur BES-52348, voir link:components-bes53248.html["Composants et références des commutateurs de cluster BES-53248"].
+Voir la https://["NetApp Hardware Universe"^] et https://["Matrice de compatibilité des commutateurs Broadcom"^] Pour les informations de compatibilité EFOS et ONTAP avec les commutateurs BES-53248. La prise en charge de l'EFOS et de l'ONTAP peut varier selon le type de machine spécifique du commutateur BES-53248. Pour plus de détails sur tous les types de machines à commutateur BES-52348, voir link:components-bes53248.html["Composants et références des commutateurs de cluster BES-53248"].
 
 
 
@@ -63,7 +63,7 @@ Ajout de nœuds de port de cluster 40 GbE avec licences, de droite à gauche
 Ports ISL (Inter-Switch Link) de cluster 100 GbE, configuration de base
 
 |===
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir la https://["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
 
 
 

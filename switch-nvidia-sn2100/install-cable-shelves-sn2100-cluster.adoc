@@ -15,11 +15,11 @@ Si vous disposez d'un système dans lequel les tiroirs de disques NS224 doivent 
 
 * Câbler les tiroirs disques NS224 via des commutateurs de stockage :
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Câblage des tiroirs disques NS224 connectés par commutateur"^]
+https://["Câblage des tiroirs disques NS224 connectés par commutateur"^]
 
 * Vérifiez le matériel pris en charge, comme les commutateurs et les câbles, pour votre modèle de plateforme :
 +
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
+https://["NetApp Hardware Universe"^]
 
 
 

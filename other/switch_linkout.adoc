@@ -12,11 +12,11 @@ summary: 'Vous pouvez utiliser ces liens pour d"autres modèles de commutateur.'
 
 Vous pouvez utiliser ces liens pour trouver de la documentation pour les modèles précédents de cluster et de commutateurs de stprage. Les liens vous mènent à un autre site de documentation.
 
-* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62376&language=en-US["Commutateurs Cisco Nexus 5596"]
-* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62373&language=en-USNetApp["CN1601"]
+* https://["Commutateurs Cisco Nexus 5596"]
+* https://["CN1601"]
 
 
 
 NOTE: Les commutateurs de cluster Nexus 5596UP/5596T ne sont plus disponibles auprès de NetApp, mais ils seront pris en charge par Cisco pour un tim limité.
 
-La documentation sur les modèles de commutateurs AFF et FAS, qui ont atteint la fin de la prise en charge matérielle, est disponible pour l'utilisation par les clients dans le https://mysupport.netapp.com/documentation/productsatoz/index.html?archive=true["Archivage"].
+La documentation sur les modèles de commutateurs AFF et FAS, qui ont atteint la fin de la prise en charge matérielle, est disponible pour l'utilisation par les clients dans le https://["Archivage"].

@@ -26,21 +26,21 @@ Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instru
  a| 
  a| 
 .Systèmes AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AVEC AFF A220"]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
+* https://["AFF C190"]
+* https://["AVEC AFF A220"]
+* https://["AFF A250"]
+* https://["AFF A400"]
+* https://["AFF A700"]
+* https://["AFF A800"]
+* https://["AFF A900"]
 
  a| 
 .Systèmes FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
+* https://["FAS500f"]
+* https://["FAS8300"]
+* https://["FAS8700"]
+* https://["FAS9000"]
+* https://["FAS9500"]
 
  a| 
 
@@ -160,21 +160,21 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
  a| 
  a| 
 .Systèmes AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AVEC AFF A220"]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"]
+* https://["AFF C190"]
+* https://["AVEC AFF A220"]
+* https://["AFF A250"]
+* https://["AFF A400"]
+* https://["AFF A700"]
+* https://["AFF A800"]
+* https://["AFF A900"]
 
  a| 
 .Systèmes FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
+* https://["FAS500f"]
+* https://["FAS8300"]
+* https://["FAS8700"]
+* https://["FAS9000"]
+* https://["FAS9500"]
 
  a| 
 
@@ -184,6 +184,6 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
 Une fois que vous avez installé et configuré vos contrôleurs et switchs AFF/FAS, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.
 
 [role="quick-margin-list"]
-* Pour les déploiements ONTAP, voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP"].
-* Pour les déploiements ONTAP avec MetroCluster, consultez https://docs.netapp.com/us-en/ontap-metrocluster/["Configurez MetroCluster avec ONTAP"].
+* Pour les déploiements ONTAP, voir https://["Configurez ONTAP"].
+* Pour les déploiements ONTAP avec MetroCluster, consultez https://["Configurez MetroCluster avec ONTAP"].
 

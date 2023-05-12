@@ -38,7 +38,7 @@ Pour la configuration du commutateur de cluster NVIDIA SN2100, vérifiez que :
 NOTE: Voir link:cabling-considerations-sn2100-storage.html["Considérations relatives au câblage et à la configuration"] pour mises en garde et autres détails.
 
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+Le https://["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
 
 * Les câbles ISL (Inter-Switch Link) sont connectés aux ports swp15 et swp16 sur les deux commutateurs NVIDIA SN2100.
 * La personnalisation initiale des deux commutateurs SN2100 est terminée, de sorte que :
@@ -64,7 +64,7 @@ Les exemples de cette procédure utilisent la nomenclature de commutateurs et de
 * Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
 * Les ports de dérivation prennent le format suivant : swp[port]s[port de dérivation 0-3]. Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp13_.
 +
-Le https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+Le https://["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
 
 
 
@@ -235,7 +235,7 @@ Cluster
 ====
 . Débranchez le câble du port du bloc d'instruments e3a sur le nœud1, puis connectez e3a au port 3 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+Le https://["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
 
 . Débranchez le câble du port du bloc d'instruments e3a sur le nœud2, puis connectez e3a au port 4 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
 . Sur le commutateur sw1, activez tous les ports orientés nœud.

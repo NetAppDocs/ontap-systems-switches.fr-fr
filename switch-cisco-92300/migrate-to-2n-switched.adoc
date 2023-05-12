@@ -39,7 +39,7 @@ Pour la configuration du commutateur Cisco Nexus 92300YC :
 * Il y a un accès à la console aux commutateurs du cluster.
 * Les switchs nœud à nœud Nexus 92300YC et les connexions switch à commutateur utilisent des câbles Twinax ou à fibre optique.
 +
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+https://["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
 
 * Les câbles ISL (Inter-Switch Link) sont connectés aux ports 1/65 et 1/66 des deux commutateurs 92300YC.
 * La personnalisation initiale des deux commutateurs 92300YC est terminée. Pour que :
@@ -63,7 +63,7 @@ Les exemples de cette procédure utilisent la nomenclature de commutateurs et de
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 * les ports de cluster utilisés dans cette procédure sont e0a et e0b.
 +
-https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+https://["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
 
 
 
@@ -309,7 +309,7 @@ Cluster
 ====
 . Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, à l'aide du câblage approprié pris en charge par les commutateurs 92300YC.
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - interrupteurs_"^] contient plus d'informations sur le câblage.
+Le https://["_Hardware Universe - interrupteurs_"^] contient plus d'informations sur le câblage.
 
 . Débranchez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster, à l'aide du câblage approprié pris en charge par les commutateurs 92300YC.
 . Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.

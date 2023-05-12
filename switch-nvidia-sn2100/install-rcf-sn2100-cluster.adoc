@@ -16,12 +16,12 @@ Suivez cette procédure pour installer le script RCF.
 .Ce dont vous avez besoin
 Avant d'installer le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
 
-* Cumulus Linux est installé. Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour les versions prises en charge.
+* Cumulus Linux est installé. Voir la https://["Hardware Universe"^] pour les versions prises en charge.
 * Adresse IP, masque de sous-réseau et passerelle par défaut définis via DHCP ou configurés manuellement.
 
 
 .Versions actuelles du script RCF
-Deux scripts RCF sont disponibles pour les applications de cluster et de stockage. Téléchargez les fichiers RCF depuis https://mysupport.netapp.com/site/info/nvidia-cluster-switch["ici"^]. La procédure pour chaque est la même.
+Deux scripts RCF sont disponibles pour les applications de cluster et de stockage. Téléchargez les fichiers RCF depuis https://["ici"^]. La procédure pour chaque est la même.
 
 * Cluster : *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*
 * Stockage : *MSN2100-FCR-v1._x_-stockage*
@@ -104,7 +104,7 @@ NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /
 
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://["Support NetApp"^] pour obtenir de l'aide.
 
 . Vérifiez la configuration après le redémarrage :
 +
@@ -357,7 +357,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 ----
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://["Support NetApp"^] pour obtenir de l'aide.
 
 . Vérifiez la configuration après le redémarrage :
 +

@@ -18,7 +18,7 @@ Vous pouvez migrer d'un cluster sans commutateur doté d'un système de stockage
 
 La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 GbE BASE-T intégrés pour les ports de réseau de clusters.
 
-La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] pour en savoir plus.
+La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur. Voir https://["Commutateurs Ethernet Cisco"] pour en savoir plus.
 
 Si vous disposez déjà d'un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement en cluster avec commutateur à deux nœuds à l'aide des commutateurs Cisco Nexus 9336C-FX2 pour évoluer au-delà de deux nœuds du cluster.
 
@@ -41,7 +41,7 @@ Assurez-vous que :
 ** Les deux commutateurs disposent d'une connectivité réseau de gestion.
 ** Il y a un accès à la console aux commutateurs du cluster.
 ** Les connexions de commutateur à nœud et de commutateur à commutateur Nexus 9336C-FX2 utilisent des câbles Twinax ou à fibre optique.
-** La solution NetApp https://hwu.netapp.com["Hardware Universe"] contient plus d'informations sur le câblage.
+** La solution NetApp https://["Hardware Universe"] contient plus d'informations sur le câblage.
 ** Les câbles ISL (Inter-Switch Link) sont connectés aux ports 1/35 et 1/36 sur les deux commutateurs 9336C-FX2.
 
 
@@ -65,7 +65,7 @@ Les exemples de cette procédure utilisent la nomenclature de commutateurs et de
 * Les noms des SVM du cluster sont _node1_ et _node2_.
 * Les noms des LIFS sont respectivement _node1_clude1_ et _node1_clus2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
 * L'invite cluster1:*> indique le nom du cluster.
-* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, comme pour le contrôleur AFF A400. Le https://hwu.netapp.com["Hardware Universe"] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, comme pour le contrôleur AFF A400. Le https://["Hardware Universe"] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
 
 
 
@@ -283,7 +283,7 @@ Cluster
 
 . [[step9]]déconnectez le câble du port du cluster e3a sur le nœud1, puis connectez e3a au port 1 du commutateur du cluster cs1 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
 +
-La solution NetApp https://hwu.netapp.com["Hardware Universe"] contient plus d'informations sur le câblage.
+La solution NetApp https://["Hardware Universe"] contient plus d'informations sur le câblage.
 
 . Déconnectez le câble du port e3a du bloc d'instruments sur le nœud2, puis connectez e3a au port 2 du commutateur cs1 du bloc d'instruments à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
 . Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.

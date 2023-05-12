@@ -18,8 +18,8 @@ Assurez-vous que :
 ** Toute personnalisation de site, telle que DNS, NTP, SMTP, SNMP, Et SSH, sont configurés sur les nouveaux commutateurs.
 
 
-* Vous avez accès à la table de compatibilité des commutateurs sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.
-* Vous avez consulté les manuels de mise à niveau et de mise à niveau appropriés disponibles sur le site Web de Cisco pour connaître les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco à l'adresse https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page.
+* Vous avez accès à la table de compatibilité des commutateurs sur le https://["Commutateurs Ethernet Cisco"^] Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.
+* Vous avez consulté les manuels de mise à niveau et de mise à niveau appropriés disponibles sur le site Web de Cisco pour connaître les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco à l'adresse https://["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page.
 
 
 
@@ -27,7 +27,7 @@ Assurez-vous que :
 == Migrer les commutateurs
 
 .À propos des exemples
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
@@ -46,7 +46,9 @@ Au cours de cette procédure, se référer à l'exemple suivant :
 image::../media/Initial_setup.png[Configuration initiale du commutateur]
 
 .Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs Nexus 9000 Series"^] Commandes ; les commandes ONTAP sont utilisées, sauf indication contraire.
+La procédure nécessite l'utilisation des commandes ONTAP et https://["Commutateurs Nexus 9000 Series"^] Commandes ; les commandes ONTAP sont utilisées, sauf indication contraire.
+
+Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
 
 
 
@@ -280,12 +282,12 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Déplacez toutes les connexions de nœud de cluster de l'ancien commutateur cs2 vers le nouveau commutateur cs2-New.
+. Déplacez tous les câbles de connexion des nœuds du cluster de l'ancien commutateur cs2 vers le nouveau commutateur cs2-New.
 +
-*Les connexions de nœud de cluster ont été déplacées vers le nouveau commutateur cs2*
+*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New*
 
 +
-image::../media/new_switch_cs1.png[Les connexions de nœud de cluster sont déplacées vers le nouveau commutateur cs2]
+image::../media/new_switch_cs1.png[Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New]
 
 . Confirmez l'intégrité des connexions réseau transférées vers cs2-New :
 +
@@ -401,12 +403,12 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Déplacez les connexions de cs1 vers le nouveau commutateur cs1-New.
+. Déplacez les câbles de connexion du nœud de cluster de cs1 vers le nouveau commutateur cs1-New.
 +
-*Les connexions de nœud de cluster ont été déplacées vers le nouveau commutateur cs1*
+*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs1-New*
 
 +
-image::../media/new_switch_cs2.png[Les connexions de nœud de cluster sont déplacées vers le nouveau commutateur cs1]
+image::../media/new_switch_cs2.png[Câbles de connexion de nœud de cluster déplacés vers le commutateur cs1-New]
 
 . Confirmez l'intégrité des connexions réseau transférées vers cs1-New :
 +
@@ -692,4 +694,5 @@ cluster1::*>
 
 --
 ====
-Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+. [[step6]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+

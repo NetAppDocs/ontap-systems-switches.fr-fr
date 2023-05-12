@@ -13,11 +13,11 @@ summary: Pour installer le matériel NetApp CN1610, reportez-vous à la document
 [role="lead"]
 Pour installer le matériel du commutateur NetApp CN1610, suivez les instructions de l'un des guides suivants.
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guide d'installation 1G"^].
+* https://["Guide d'installation 1G"^].
 +
 Présentation des fonctionnalités matérielles et logicielles du commutateur CN1601 et du processus d'installation.
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["Guide d'installation 10G"^]
+* https://["Guide d'installation 10G"^]
 +
 Présentation des fonctions logicielles et matérielles du commutateur CN1610 et décrit les fonctionnalités à installer et à accéder à l'interface de ligne de commande.
 

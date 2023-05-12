@@ -23,7 +23,7 @@ Les commutateurs suivants sont pris en charge :
 * Nexus 3232C
 
 
-Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur la page des commutateurs Ethernet Cisco. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"].
+Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur la page des commutateurs Ethernet Cisco. Voir https://["Commutateurs Ethernet Cisco"].
 
 .Ports de connexion
 Les switches utilisent les ports suivants pour se connecter aux nœuds :
@@ -48,7 +48,7 @@ Les switches utilisent les ports suivants pour se connecter aux nœuds :
 
 
 
-Le https://hwu.netapp.com["Hardware Universe"] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
+Le https://["Hardware Universe"] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
 
 .Ce dont vous avez besoin
 * Assurez-vous d'avoir effectué les tâches suivantes :

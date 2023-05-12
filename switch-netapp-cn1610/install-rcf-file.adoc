@@ -28,7 +28,7 @@ Avant d'installer une FCR, vous devez d'abord migrer les LIF de cluster en les �
 * Un chemin de communication réussi : le ONTAP (privilège : avancé) `cluster ping-cluster -node node1` la commande doit indiquer cela `larger than PMTU communication` a réussi sur tous les chemins.
 * Version prise en charge de FCR et ONTAP.
 +
-Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Pour les versions RCF et ONTAP prises en charge.
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://["Commutateurs NetApp CN1601 et CN1610"^] Pour les versions RCF et ONTAP prises en charge.
 
 
 
@@ -41,7 +41,7 @@ La procédure suivante utilise la syntaxe de clustered Data ONTAP 8.2. Par cons�
 Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe de commande.
 
 
-NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée en raison de problèmes de sécurité. Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé. Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur des commutateurs NetApp CN1610"^] A plus d'informations sur SSH.
+NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée en raison de problèmes de sécurité. Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé. Le https://["Guide de l'administrateur des commutateurs NetApp CN1610"^] A plus d'informations sur SSH.
 
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
@@ -52,13 +52,13 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Le `cluster::*>` l'invite indique le nom du cluster.
 * Les ports de cluster de chaque nœud sont nommés e1a et e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
+https://["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
 
 * Les liaisons ISL (Inter-Switch Links) prises en charge sont les ports 0/13 à 0/16.
 * Les ports 0/1 à 0/12 sont pris en charge par les connexions de nœuds.
 * Version prise en charge DE FASTPATH, RCF et ONTAP.
 +
-Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Consultez cette page pour les versions FASTPATH, RCF et ONTAP prises en charge.
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://["Commutateurs NetApp CN1601 et CN1610"^] Consultez cette page pour les versions FASTPATH, RCF et ONTAP prises en charge.
 
 
 

@@ -21,9 +21,9 @@ Passez en revue les exigences liées à la configuration NetApp CN1610 dans link
 
 Pour plus d'informations, voir :
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Page de description NetApp CN1601 et CN1610"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Page de description NetApp CN1601 et CN1610"^]
+* http://["Description du commutateur Ethernet Cisco"^]
+* http://["Hardware Universe"^]
 
 
 
@@ -40,7 +40,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * n1_CL2 est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
 * n1_clus3 est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1. Les nœuds sont n1, n2, n3 et n4.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 
 
 .À propos des exemples
@@ -252,7 +252,7 @@ Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre 
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
 .. Téléchargez la version appropriée du logiciel d'image.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
+http://["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
 
 
 

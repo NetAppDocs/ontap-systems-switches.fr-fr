@@ -70,8 +70,8 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 ** Ports e1/13-20 (10 GbE) : Nexus 5010
 
 
-* https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
-* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le https://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] page.
+* https://["Hardware Universe - commutateurs"^] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
+* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le https://["Commutateurs Ethernet Cisco"^] page.
 
 
 

@@ -26,9 +26,9 @@ Les conditions suivantes doivent être réunies avant d'installer le logiciel NX
 * Vous devez avoir vérifié ou défini la configuration de démarrage souhaitée dans la FCR pour qu'elle reflète les images de démarrage souhaitées si vous installez uniquement NX-OS et que vous gardez la version actuelle de RCF.
 * Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
 * Vous devez disposer d'une connexion de console au commutateur, obligatoire lors de l'installation de la FCR.
-* Vous devez avoir consulté le tableau de compatibilité des commutateurs sur la page des switchs Ethernet Cisco pour les versions ONTAP, NX-OS et RCF prises en charge. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] pour en savoir plus.
+* Vous devez avoir consulté le tableau de compatibilité des commutateurs sur la page des switchs Ethernet Cisco pour les versions ONTAP, NX-OS et RCF prises en charge. Voir https://["Commutateurs Ethernet Cisco"] pour en savoir plus.
 * Il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et celle trouvée dans les versions de NX-OS.
-* Vous devez vous être référé aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau des commutateurs Cisco Nexus 9000 Series. Voir https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Commutateurs Cisco Nexus 9000 Series"] pour en savoir plus.
+* Vous devez vous être référé aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau des commutateurs Cisco Nexus 9000 Series. Voir https://["Commutateurs Cisco Nexus 9000 Series"] pour en savoir plus.
 * Vous devez avoir la FCR actuelle.
 
 
@@ -36,7 +36,7 @@ Les conditions suivantes doivent être réunies avant d'installer le logiciel NX
 
 ===== Configuration initiale
 
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 100 GbE e3a et e3b, comme par contrôleur A400. Voir la https://hwu.netapp.com["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 100 GbE e3a et e3b, comme par contrôleur A400. Voir la https://["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
@@ -665,7 +665,7 @@ cs2#
 . Effectuer une configuration de base du contacteur.
 
 
-. [[step11]]Copier la FCR dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+. [[step11]]Copier la FCR dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 +
 Cet exemple montre que TFTP est utilisé pour copier une FCR dans le bootflash sur le commutateur cs2.
 
@@ -680,7 +680,7 @@ Trying to connect to tftp server...Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
-. [[step12]]appliquez la FCR précédemment téléchargée sur bootflash. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+. [[step12]]appliquez la FCR précédemment téléchargée sur bootflash. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 +
 Cet exemple montre le fichier RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs2.
 
@@ -744,7 +744,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 . Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 
 
 
@@ -1052,8 +1052,8 @@ Les conditions suivantes doivent exister avant de mettre à niveau la FCR sur le
 * Le commutateur doit fonctionner entièrement (il ne doit pas y avoir d'erreurs dans les journaux ni de problèmes similaires).
 * Vous devez avoir vérifié ou défini les variables de démarrage souhaitées dans la FCR pour qu'elles reflètent les images de démarrage souhaitées si vous installez uniquement NX-OS et que vous gardez la version actuelle de RCF.
 * Si vous devez modifier les variables de démarrage pour qu'elles reflètent les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-* Vous devez avoir dirigé les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du stockage Cisco. Voir https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html["Commutateurs Cisco Nexus 9000 Series"] pour en savoir plus.
-* Le nombre de ports 100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] page.
+* Vous devez avoir dirigé les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du stockage Cisco. Voir https://["Commutateurs Cisco Nexus 9000 Series"] pour en savoir plus.
+* Le nombre de ports 100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Commutateurs Ethernet Cisco"] page.
 
 
 
@@ -1252,7 +1252,7 @@ st2#
 ----
 . [[step9]]copiez le commutateur RCF on st2 sur le commutateur bootflash à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 
 +
 L'exemple suivant montre que HTTP est utilisé pour copier une FCR sur le commutateur bootflash on st2 :
@@ -1339,7 +1339,7 @@ st2#
 ----
 . [[step12]]après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config du commutateur st2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 
 +
 L'exemple suivant montre le `running-config` le fichier a été copié dans le `startup-config` fichier :
@@ -1430,7 +1430,7 @@ There are no entries matching your query.
 .Étapes
 . Copiez le RCF sur le commutateur sh2 sur le commutateur bootflash à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 
 +
 L'exemple suivant montre que HTTP est utilisé pour copier une FCR dans le bootflash sur le commutateur sh2 :
@@ -1521,7 +1521,7 @@ sh2#
 ----
 . [[step4]]après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le `running-config` fichier dans le fichier startup-config sur le commutateur sh2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Guides de référence des commandes Cisco Nexus série 9000 NX-OS"].
 
 +
 L'exemple suivant montre le `running-config` le fichier a été copié dans le `startup-config` fichier :

@@ -24,9 +24,9 @@ NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutat
 
 Si nécessaire, se référer aux sections suivantes pour plus d'informations :
 
-* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Page de description NetApp CN1601 et CN1610"^]
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Page de description NetApp CN1601 et CN1610"^]
+* http://["Description du commutateur Ethernet Cisco"^]
+* http://["Hardware Universe"^]
 
 
 
@@ -46,7 +46,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * n1_CL2 est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
 * n1_clus3 est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 
 
 
@@ -333,7 +333,7 @@ RPC status:
 ====
 . Arrêter les ports ISL 13 à 16 sur le commutateur CN1610 actif CL1 en utilisant la commande appropriée.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -352,7 +352,7 @@ L'exemple suivant montre que les ports ISL 13 à 16 sont arrêtés sur le commut
 ====
 . Construire un ISL temporaire entre CL1 et C2 :
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -395,7 +395,7 @@ Lors du reconnexion des câbles au nouveau switch Cisco 3232C, les câbles utili
 Cette configuration correspond à la configuration ISL sur le switch 3232C de 2 lorsque les liens ISL sont activés sur les deux switchs.
 
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -415,7 +415,7 @@ L'exemple suivant montre l'interface ISL 3/1 configurée pour rendre le ISL dyna
 ====
 . Intégrez des liens ISL 13 à 16 sur le commutateur CN1610 actif CL1.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -471,7 +471,7 @@ Ports  Timeout       Speed       Active
 `show port-channel summary`
 
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 Les ports eth1/24/1 à eth1/24/4 doivent indiquer `(P)`, Ce qui signifie que les quatre ports ISL sont dans le canal de port. Eth1/31 et eth1/32 doivent indiquer `(D)` car ils ne sont pas connectés.
@@ -734,7 +734,7 @@ cluster::*> network port modify -node n2 -port e0d -up-admin false
 ====
 . Arrêter les ports ISL 24, 31 et 32 sur le switch actif 3232C C2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -765,7 +765,7 @@ Vous devez connecter les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 su
 
 . Restaurez la configuration sur le port 24 et retirez le canal 2 temporaire du port C2 :
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -800,7 +800,7 @@ Copy Complete.
 ====
 . Mettre les ports ISL 31 et 32 sur C2, le switch actif 3232C.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -822,7 +822,7 @@ Copy Complete.
 ====
 . Vérifiez que les connexions ISL sont `up` Sur le switch 3232C C2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple

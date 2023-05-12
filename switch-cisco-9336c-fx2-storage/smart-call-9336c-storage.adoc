@@ -24,4 +24,4 @@ Avant de pouvoir utiliser le système d'appel intelligent, prenez en compte les 
 * Le service Cisco SMARTnet doit être en place pour que le périphérique soit enregistré.
 
 
-Le http://www.cisco.com/c/en/us/products/switches/index.html["Site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer l'appel intelligent.
+Le http://["Site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer l'appel intelligent.

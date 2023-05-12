@@ -40,8 +40,8 @@ Les caractéristiques du switch Cisco Nexus 3232C de remplacement sont les suiva
 .Pour en savoir plus
 Voir les éléments suivants :
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Description du commutateur Ethernet Cisco"^]
+* http://["Hardware Universe"^]
 
 
 
@@ -73,7 +73,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster CL1, pour le nœud n1.
 
 
-Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 
 Les exemples de cette procédure de remplacement utilisent quatre nœuds. Deux des nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com["Hardware Universe"^] pour vérifier les ports de cluster appropriés pour votre plate-forme.
 
@@ -255,17 +255,17 @@ Version Source: CDP
 +
 .. Accédez au site de support NetApp.
 +
-http://mysupport.netapp.com/["mysupport.netapp.com"^]
+http://["mysupport.netapp.com"^]
 
 .. Accédez à la page *commutateurs Ethernet Cisco* et notez les versions logicielles requises dans le tableau.
 +
-https://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^]
+https://["Commutateurs Ethernet Cisco"^]
 
 .. Téléchargez la version appropriée de la FCR.
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis accédez à la page *Télécharger*.
 .. Téléchargez la version correcte du logiciel d'image à partir de la page de téléchargement* du fichier de référence du commutateur de réseau de gestion et de cluster Cisco®.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
+http://["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
 
 
 
@@ -424,7 +424,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 
 . Arrêtez les ports 1/31 et 1/32 sur le commutateur de bloc d'instruments CL1.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -443,7 +443,7 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répe
 . Retirez les câbles de liaison interswitch (ISL) des ports e1/31 et e1/32 du commutateur CL2 du cluster et reconnectez-les aux mêmes ports du commutateur C2 de remplacement.
 . Mettre les ports ISL 1/31 et 1/32 sur le commutateur de cluster CL1.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -461,7 +461,7 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répe
 ====
 . Vérifiez que les liens ISL sont dans le CL1.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 Les ports eth1/31 et eth1/32 doivent indiquer `(P)`, Ce qui signifie que les ports ISL sont dans le port-Channel :
@@ -488,7 +488,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . Vérifiez que les liens ISL sont dans le commutateur C2 du cluster.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple

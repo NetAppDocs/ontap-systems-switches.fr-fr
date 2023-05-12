@@ -281,7 +281,7 @@ cs2#
 .. Effectuer une configuration de base du contacteur.
 
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 +
 .Montrer l'exemple
 [%collapsible]
@@ -300,7 +300,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF préalablement téléchargé sur le bootflash.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple
@@ -384,7 +384,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 . Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 
 +
 [listing]

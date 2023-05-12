@@ -79,42 +79,42 @@ Le tableau suivant répertorie la documentation disponible pour les commutateurs
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-overview-cisco-92300.html["_Configurer les commutateurs de cluster Cisco® Nexus 92300YC_"^]
+https://["_Configurer les commutateurs de cluster Cisco® Nexus 92300YC_"^]
  a| 
 Décrit comment configurer les commutateurs de cluster Cisco Nexus 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html["_Installer les fichiers NX-OS et de configuration de référence (RCFs)_"^]
+https://["_Installer les fichiers NX-OS et de configuration de référence (RCFs)_"^]
  a| 
 Décrit l'installation de NX-OS et des fichiers de configuration de référence (RCFs) sur le commutateur de cluster Nexus 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html["_Configurer un nouveau commutateur Cisco Nexus 92300YC_"^]
+https://["_Configurer un nouveau commutateur Cisco Nexus 92300YC_"^]
  a| 
 Décrit comment migrer des environnements utilisant des commutateurs Cisco plus anciens vers des environnements utilisant des commutateurs Cisco 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html["_Migrer d'un ancien commutateur Cisco vers un commutateur Cisco Nexus 92300YC_"^]
+https://["_Migrer d'un ancien commutateur Cisco vers un commutateur Cisco Nexus 92300YC_"^]
  a| 
 Décrit la procédure à suivre pour remplacer un ancien commutateur Cisco par un commutateur de cluster Cisco Nexus 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html["_Migrer à partir d'un cluster sans commutateur à deux nœuds_"^]
+https://["_Migrer à partir d'un cluster sans commutateur à deux nœuds_"^]
  a| 
 Décrit comment migrer d'un environnement de cluster sans commutateur à deux nœuds vers un environnement à deux nœuds avec commutateur à l'aide des commutateurs de cluster Cisco Nexus 92300YC.
 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html["_Remplacer un commutateur de cluster Cisco Nexus 92300YC_"^]
+https://["_Remplacer un commutateur de cluster Cisco Nexus 92300YC_"^]
  a| 
 Décrit la procédure à suivre pour remplacer un commutateur Cisco Nexus 92300YC défectueux dans un cluster et télécharger le système d'exploitation du commutateur et le fichier de configuration de référence.
 

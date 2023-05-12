@@ -25,6 +25,43 @@ Les licences suivantes sont disponibles pour une utilisation sur le commutateur 
 
 
  a| 
+SW-BES-53248A2-8P-2P
+ a| 
+Clé de licence Broadcom 8PT-10G25G + 2PT-40G100G, X190005/R.
+ a| 
+EFOS 3.4.4.6 et versions ultérieures
+
+
+
+ a| 
+SW-BES-53248A2-8P-1025G
+ a| 
+Clé de licence Broadcom 8 ports 10G25G, X190005/R.
+ a| 
+EFOS 3.4.4.6 et versions ultérieures
+
+
+
+ a| 
+SW-BES53248A2-6P-40-100G
+ a| 
+Clé de licence Broadcom 6 ports 40G100G, X190005/R.
+ a| 
+EFOS 3.4.4.6 et versions ultérieures
+
+|===
+
+
+== Licences héritées
+
+Le tableau suivant répertorie les anciennes licences disponibles sur le commutateur de cluster BES-53248 :
+
+[cols="1,2,3"]
+|===
+| Type de licence | Détails de licence | Version du firmware prise en charge 
+
+
+ a| 
 SW-BES-53248A1-G1-8P-LIC
  a| 
 Clé de licence Broadcom 8P 10-25,2P40-100, X190005/R
@@ -196,7 +233,7 @@ Les ports des fichiers de licence supplémentaires ne sont pas affichés tant qu
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *show port all \| exclude Detach*
+(cs2)# *show port all | exclude Detach*
 
                  Admin     Physical   Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout
@@ -274,7 +311,7 @@ License Index  License Type              Status
 ====
 [listing, subs="+quotes"]
 ----
-(cs2)# *show port all \| exclude Detach*
+(cs2)# *show port all | exclude Detach*
 
                  Admin     Physical   Physical   Link   Link    LACP   Actor
 Intf      Type   Mode      Mode       Status     Status Trap    Mode   Timeout

@@ -15,7 +15,7 @@ Pour installer le matériel BES-53248, reportez-vous à la documentation de Broa
 
 .Étapes
 . Vérifiez le link:configure-reqs-bes53248.html["configuration requise"].
-. Suivez les instructions du https://library.netapp.com/ecm/ecm_download_file/ECMLP2864537["Guide d'installation du commutateur de cluster BES-53248 pris en charge par Broadcom"^].
+. Suivez les instructions du https://["Guide d'installation du commutateur de cluster BES-53248 pris en charge par Broadcom"^].
 
 
 .Et la suite ?

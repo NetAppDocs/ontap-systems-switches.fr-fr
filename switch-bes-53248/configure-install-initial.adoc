@@ -13,7 +13,7 @@ summary: 'Vous pouvez utiliser cette procédure pour effectuer l"installation in
 [role="lead"]
 Procédez comme suit pour effectuer une configuration initiale du commutateur de cluster BES-53248.
 
-.Ce dont vous avez besoin
+.Avant de commencer
 * Le matériel est installé, comme décrit à la section link:install-hardware-bes53248.html["Installer le matériel de fixation"].
 * Vous avez passé en revue les points suivants :
 +
@@ -31,7 +31,7 @@ Les exemples des procédures de configuration utilisent la nomenclature de commu
 * Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour le noeud 1, et `node2_clus1` et `node2_clus2` pour le noeud 2.
 * Le nom IPspace est le Cluster.
 * Le `cluster1::>` l'invite indique le nom du cluster.
-* Les ports de cluster de chaque nœud sont nommés `e0a` et `e0b`. Voir la https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] pour les ports réels de cluster pris en charge sur votre plateforme.
+* Les ports de cluster de chaque nœud sont nommés `e0a` et `e0b`. Voir la https://["NetApp Hardware Universe"^] pour les ports réels de cluster pris en charge sur votre plateforme.
 * Les liaisons interswitch (ISL) prises en charge pour les commutateurs NetApp sont les ports 0/55 et 0/56.
 * Les connexions de nœuds prises en charge pour les switchs NetApp sont les ports 0/1 à 0/16 avec une licence par défaut.
 * Les exemples utilisent deux nœuds, mais il peut y avoir jusqu'à 24 nœuds dans un cluster.

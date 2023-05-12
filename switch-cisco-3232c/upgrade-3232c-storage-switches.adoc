@@ -25,8 +25,8 @@ Avant de mettre à niveau le logiciel NX-OS et les RCFC sur le commutateur de st
 +
 Si vous devez modifier les variables de démarrage pour qu'elles reflètent les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
 
-* Vous avez indiqué les logiciels et guides de mise à niveau appropriés disponibles sur le http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Commutateurs Cisco Nexus 3000 Series"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du stockage Cisco.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco®"^] page.
+* Vous avez indiqué les logiciels et guides de mise à niveau appropriés disponibles sur le http://["Commutateurs Cisco Nexus 3000 Series"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du stockage Cisco.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Commutateurs Ethernet Cisco®"^] page.
 
 
 
@@ -141,7 +141,7 @@ There are no entries matching your query.
 
 . Copiez le RCF sur le commutateur S2 sur le commutateur bootflash à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -245,7 +245,7 @@ NOTE: Lors de l'application de FCR pour la première fois, le message *ERROR: Fa
 
 . Après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le `running-config` vers le `startup-config` Fichier sur le commutateur S2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 .Montrer l'exemple
@@ -378,7 +378,7 @@ S2#
 ====
 . Enregistrez la configuration.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Références des commandes Cisco Nexus série 3000 NX-OS"^].
 
 +
 Vous êtes invité à redémarrer le système.

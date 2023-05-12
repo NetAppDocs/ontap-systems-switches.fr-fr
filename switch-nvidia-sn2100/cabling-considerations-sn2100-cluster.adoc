@@ -50,7 +50,7 @@ swp15-16
 Ports ISL (Inter-Switch Link) 40 GbE
 
 |===
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
+Voir la https://["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Voir https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Cette base de connaissances"^] pour plus d'informations.
+Voir https://["Cette base de connaissances"^] pour plus d'informations.
 
 Sur Cumulus Linux 4.4.2, les connexions en cuivre ne sont pas prises en charge sur les commutateurs SN2100 dotés d'une carte réseau X1151A, d'une carte réseau X1146A ou de ports 100GbE intégrés. Par exemple :
 

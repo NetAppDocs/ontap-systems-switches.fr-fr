@@ -25,7 +25,7 @@ NX-OS est un système d'exploitation réseau destiné à la gamme Nexus de commu
 
 
 .Ce dont vous avez besoin
-* En savoir plus sur le logiciel NetApp Cisco NX-OS pour les commutateurs disponibles sur le site de support NetApp http://mysupport.netapp.com/["mysupport.netapp.com"]
+* En savoir plus sur le logiciel NetApp Cisco NX-OS pour les commutateurs disponibles sur le site de support NetApp http://["mysupport.netapp.com"]
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
 

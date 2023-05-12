@@ -15,11 +15,11 @@ Avant d'installer le logiciel NX-OS et le fichier RCF (Reference Configuration F
 
 .Ce dont vous avez besoin
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Logiciels et guides de mise à niveau appropriés, disponibles sur le site https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus 9000 Series"^].
+* Logiciels et guides de mise à niveau appropriés, disponibles sur le site https://["Commutateurs Cisco Nexus 9000 Series"^].
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 

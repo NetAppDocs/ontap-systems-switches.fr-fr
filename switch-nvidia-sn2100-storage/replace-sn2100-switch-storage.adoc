@@ -20,7 +20,7 @@ Avant d'installer le logiciel Cumulus et les RCFs sur un commutateur de stockage
 * Vous avez téléchargé les CFR applicables.
 
 
-Le http://hwu.netapp.com["Hardware Universe"^] fournit des détails complets sur les ports pris en charge et leurs configurations.
+Le http://["Hardware Universe"^] fournit des détails complets sur les ports pris en charge et leurs configurations.
 
 La configuration réseau existante doit présenter les caractéristiques suivantes :
 

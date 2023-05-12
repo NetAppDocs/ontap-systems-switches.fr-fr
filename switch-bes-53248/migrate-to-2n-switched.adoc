@@ -38,7 +38,7 @@ Vérifiez les conditions suivantes pour l'environnement du cluster.
 ** Il y a un accès à la console aux commutateurs du cluster.
 ** Les connexions de commutateur à nœud et de commutateur à commutateur BES-53248 utilisent des câbles Twinax ou fibre optique.
 +
-Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] Contient des informations sur la compatibilité ONTAP, le micrologiciel EFOS pris en charge et le câblage aux commutateurs BES-53248.
+Le https://["_NetApp Hardware Universe_"^] Contient des informations sur la compatibilité ONTAP, le micrologiciel EFOS pris en charge et le câblage aux commutateurs BES-53248.
 
 
 
@@ -66,7 +66,7 @@ Les exemples de cette procédure utilisent la nomenclature de commutateurs et de
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 * Les ports de cluster utilisés dans cette procédure sont `e0a` et `e0b`.
 +
-Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+Le https://["_NetApp Hardware Universe_"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
 
 
 
@@ -293,7 +293,7 @@ Cluster
 ====
 . Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 +
-Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contient plus d'informations sur le câblage.
+Le https://["_NetApp Hardware Universe_"^] contient plus d'informations sur le câblage.
 
 . Débranchez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 . Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
@@ -589,7 +589,7 @@ cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=EN
 ----
 ====
 +
-Pour plus d'informations, voir : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Article de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^]
+Pour plus d'informations, voir : https://["Article de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^]
 
 
 

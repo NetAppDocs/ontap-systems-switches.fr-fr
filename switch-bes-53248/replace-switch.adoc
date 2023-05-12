@@ -104,13 +104,24 @@ cs1                      0/56      179       R          BES-53248        0/56
 ====
 .Étapes
 . Vérifiez le link:replace-switch-reqs.html["Exigences de remplacement"].
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+où _x_ représente la durée de la fenêtre de maintenance en heures.
+
++
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
 . Installez le fichier RCF (Reference Configuration File) approprié et l'image sur le commutateur, newcs2, puis effectuez les préparations nécessaires au site.
 +
 Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et EFOS pour le nouveau commutateur. Si vous avez vérifié que le nouveau commutateur est correctement configuré et qu'il n'a pas besoin de mises à jour du logiciel RCF et EFOS, passez à l'étape 2.
 
 +
-.. Vous pouvez télécharger le logiciel Broadcom EFOS applicable pour vos commutateurs de cluster à partir du https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] le site. Suivez les étapes de la page de téléchargement pour télécharger le fichier EFOS de la version du logiciel ONTAP que vous installez.
-.. La FCR appropriée est disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page. Suivez les étapes de la page de téléchargement pour télécharger la FCR appropriée pour la version du logiciel ONTAP que vous installez.
+.. Vous pouvez télécharger le logiciel Broadcom EFOS applicable pour vos commutateurs de cluster à partir du https://["Prise en charge des commutateurs Ethernet Broadcom"^] le site. Suivez les étapes de la page de téléchargement pour télécharger le fichier EFOS de la version du logiciel ONTAP que vous installez.
+.. La FCR appropriée est disponible sur le https://["Commutateurs de cluster Broadcom"^] page. Suivez les étapes de la page de téléchargement pour télécharger la FCR appropriée pour la version du logiciel ONTAP que vous installez.
 
 
 . Sur le nouveau commutateur, connectez-vous en tant que `admin` et arrêter tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1 à 16).
@@ -410,6 +421,10 @@ cs1          0/55    179         R             BES-53248   0/55
 cs1          0/56    179         R             BES-53248   0/56
 ----
 ====
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
 
 
 .Et la suite ?

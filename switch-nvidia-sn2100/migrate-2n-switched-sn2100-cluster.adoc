@@ -36,7 +36,7 @@ Assurez-vous que :
 * Les connexions de nœud à nœud NVIDIA SN2100 et de commutateur à commutateur utilisent des câbles Twinax ou fibre optique.
 +
 
-IMPORTANT: Voir link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"] pour mises en garde et autres détails. Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient également plus d'informations sur le câblage.
+IMPORTANT: Voir link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"] pour mises en garde et autres détails. Le https://["Hardware Universe - commutateurs"^] contient également plus d'informations sur le câblage.
 
 * Les câbles ISL (Inter-Switch Link) sont connectés aux ports swp15 et swp16 sur les deux commutateurs NVIDIA SN2100.
 * La personnalisation initiale des deux commutateurs SN2100 est terminée, de sorte que :
@@ -45,7 +45,7 @@ IMPORTANT: Voir link:cabling-considerations-sn2100-cluster.html["Examinez les co
 ** Les fichiers de configuration de référence (RCFs) sont appliqués aux commutateurs
 ** Toute personnalisation de site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
 +
-Le https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+Le https://["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
 
 
 
@@ -227,7 +227,7 @@ Cluster
 ====
 . Débranchez le câble du port du bloc d'instruments e3a sur le nœud1, puis connectez e3a au port 3 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+Le https://["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
 
 . Débranchez le câble du port du bloc d'instruments e3a sur le nœud2, puis connectez e3a au port 4 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
 . Sur le commutateur sw1, activez tous les ports orientés nœud.

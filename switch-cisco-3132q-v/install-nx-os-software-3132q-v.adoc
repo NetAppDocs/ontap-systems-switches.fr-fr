@@ -24,7 +24,7 @@ Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de c
 
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateur Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
-* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]. Consultez les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.
+* https://["Commutateurs Cisco Nexus 3000 Series"^]. Consultez les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.
 
 
 
@@ -51,7 +51,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Copiez le logiciel NX-OS sur le commutateur Nexus 3132Q-V à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guides de référence des commandes Cisco Nexus série 3000 NX-OS"^].
+. Copiez le logiciel NX-OS sur le commutateur Nexus 3132Q-V à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans https://["Guides de référence des commandes Cisco Nexus série 3000 NX-OS"^].
 +
 .Montrer l'exemple
 [%collapsible]

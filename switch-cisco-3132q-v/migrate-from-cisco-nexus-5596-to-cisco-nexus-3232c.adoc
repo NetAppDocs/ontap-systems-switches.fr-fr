@@ -21,8 +21,8 @@ Consultez les exigences relatives à Cisco Nexus 5596 dans le link:switch-requir
 
 Pour plus d'informations, voir :
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* http://["Description du commutateur Ethernet Cisco"^]
+* http://["Hardware Universe"^]
 
 
 
@@ -43,7 +43,7 @@ La procédure utilise la nomenclature de commutateur et de nœud suivante :
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.
 * Les nœuds sont n1, n2, n3 et n4.
 * Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster 40/100 GbE : e4a, e4e. Le link:https://hwu.netapp.com/["Hardware Universe"^] le répertorie les ports réels du cluster sur vos plateformes.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 +
 
 NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.

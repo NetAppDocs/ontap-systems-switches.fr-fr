@@ -329,7 +329,7 @@ Réservé
 
 == Feuille de câblage vierge
 
-Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
+Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
 
 [cols="1, 1, 1, 1"]
 |===

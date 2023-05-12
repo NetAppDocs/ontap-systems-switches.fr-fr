@@ -11,4 +11,4 @@ summary: Pour installer le matériel NetApp CN1610, reportez-vous à la document
 
 
 [role="lead"]
-Pour configurer le matériel et le logiciel du commutateur pour votre environnement de cluster, reportez-vous au  https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guide de configuration et de configuration des commutateurs CN1601 et CN1610"^].
+Pour configurer le matériel et le logiciel du commutateur pour votre environnement de cluster, reportez-vous au  https://["Guide de configuration et de configuration des commutateurs CN1601 et CN1610"^].

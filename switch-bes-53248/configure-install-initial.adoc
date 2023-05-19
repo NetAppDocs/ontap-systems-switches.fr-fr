@@ -150,6 +150,10 @@ Burned In MAC Address.......................... D8:C4:97:71:12:3C
 (cs2) (Config)#
 ----
 ====
++
+
+NOTE: Pour EFOS version 3.10.0.3 et ultérieure, utilisez la commande `ntp`.
+
 .. Configurez l'heure manuellement :
 +
 `clock`

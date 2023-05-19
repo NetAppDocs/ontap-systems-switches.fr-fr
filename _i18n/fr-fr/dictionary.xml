@@ -405,7 +405,6 @@
   <block id="47c173b91782927bfc36acfeeaec5f9f" category="paragraph">Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :</block>
   <block id="2a4c49daad6f24fc930342baa230202a" category="list-text">La bannière RCF</block>
   <block id="f867470f4d681a0d1ba65ec5afb71681" category="list-text">Les paramètres du nœud et du port</block>
-  <block id="52ffc473f824bd729618f53fb6d14415" category="list-text">Personnalisation de la sortie varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.</block>
   <block id="f84dbe517c4cab37d96220b08c6a7430" category="list-text">Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.</block>
   <block id="751ae8e5b1f665d84208a0d929c57d52" category="list-text">Redémarrer le commutateur cs2. Vous pouvez ignorer les événements « ports de cluster arrêtés » signalés sur les nœuds pendant le redémarrage du commutateur.</block>
   <block id="a8b215fa6b6d814a7e68d02c02b35409" category="list-text">Vérifiez l'état du commutateur depuis le cluster (il se peut que le commutateur cs2 n'affiche pas, car les LIF ne sont pas homeed sur e0d).</block>
@@ -1377,12 +1376,9 @@
   <block id="28d7612827f82272affeaf30e405e24a" category="paragraph"><block ref="7af866342cc7e87972580d7b709d8820" prefix="" category="inline-code"></block></block>
   <block id="98f234e93ec030ce67a050ab46bd6ee6" category="list-text">Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :</block>
   <block id="5d0fccc0c22c6cabff0054b67831dfdc" category="paragraph"><block ref="7ca607e345a217b6fb9148234fe84d0c" prefix="" category="inline-code"></block></block>
-  <block id="d4d708e45e34a1416e859c8024a9e7c1" category="admonition">Pour ONTAP 9.8 et versions ultérieures, utilisez la commande<block ref="75a6cff01f343774ea81762529908faa" prefix=" " category="inline-code"></block>.</block>
   <block id="835044aeea65c8864816e5160f4d5f92" category="list-text">Vérifiez que les ports de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.</block>
   <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">Vérifiez que le cluster fonctionne correctement :</block>
   <block id="494cb4f7976c64f111b74e9089d5bbd5" category="paragraph"><block ref="639161158d7426b3865ce9c5a6f648b3" prefix="" category="inline-code"></block></block>
-  <block id="8a69d7327337bf7d6152482b16e42f84" category="list-text">Nettoyez la configuration.</block>
-  <block id="88b2ab3c3baa9b0c5faeb2e8a0fec98a" category="admonition">Cette étape nécessite une connexion de console au commutateur.</block>
   <block id="0bdc52e912f1ecc312522eb07e5f2cbb" category="list-text">Vérifiez que le fichier RCF est la version la plus récente correcte :</block>
   <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> guides.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :</block>
@@ -3024,7 +3020,6 @@
   <block id="1238025070f42c2c91970d4a31d2a5c4" category="paragraph"><block ref="229e8d1240617e0b97c680c36bbc9564" prefix="" category="inline-code"></block></block>
   <block id="80ab93e3822e7ed7a0bd76c9ee9103bb" category="section-title">Étape 2 : configurer les ports</block>
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">L'exemple suivant utilise la sortie d'interface :</block>
-  <block id="0d338ee833fbd097dbf87aa3c232f048" category="list-text">Répétez les étapes précédentes sur le commutateur cs1.</block>
   <block id="28f363620ef0b78f100aebcc28cca7da" category="list-text">Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.</block>
   <block id="5a60cb8f615fe52bbea3a0ce20d7cbf3" category="paragraph">Pour utiliser la fonction d'appel intelligent, consultez les directives suivantes.</block>
   <block id="196735c2e16dea95e9e52940e995e4d3" category="paragraph">Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par e-mail et génère une alerte à tous les destinataires configurés dans votre profil de destination. Pour utiliser l'appel à distance intelligent, vous devez configurer un commutateur de réseau de cluster pour communiquer par courrier électronique avec le système d'appel à distance intelligent. De plus, vous pouvez configurer votre commutateur de réseau de cluster pour tirer parti de la fonction de prise en charge intégrée de Smart Call Home de Cisco.</block>
@@ -3134,7 +3129,6 @@
   <block id="f85e9af89252fc6fd85cfbb4e0aa1add" category="section-title">Étape 1 : vérifier l'état des ports</block>
   <block id="c35204e874fcafc94c7c67e31162e966" category="paragraph">Assurez-vous que la fonction de restauration automatique est désactivée après avoir exécuté cette commande.</block>
   <block id="d08074ca4afc3cad1b1b41c1134b3f1e" category="section-title">Étape 2 : configurer et vérifier la configuration</block>
-  <block id="0c0b4ff8f510dfc18a7d95bef227ea58" category="paragraph"><block ref="ed3fe2a45ef033acf306fc90fbafdd66" prefix="" category="inline-code"></block></block>
   <block id="b6ec5ccd50e4a92a636c1dc432c89581" category="admonition">Les nœuds de cluster peuvent prendre jusqu'à 5 minutes pour qu'ils fonctionnent correctement.</block>
   <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Répétez les étapes 1 à 10 de l'interrupteur cs1.</block>
   <block id="06e9c44ff7df8ac56c0fec0f8ded0121" category="section-title">Étape 3 : redémarrez et vérifiez la configuration</block>
@@ -4429,4 +4423,13 @@
   <block id="2e58f874fe5dd7ef46fee2c92b1e77eb" category="paragraph">*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs1-New*</block>
   <block id="7d829570fe05df690649474b2bb97a3b" category="image-alt">Câbles de connexion de nœud de cluster déplacés vers le commutateur cs1-New</block>
   <block id="ec5ea2f0318e4d906c296f5576b9c026" category="list-text">[[step6]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
+  <block id="0429fa776d68090e46718ac7e32390ef" category="admonition">Pour EFOS version 3.10.0.3 et ultérieure, utilisez la commande<block ref="c09633a606c51a161b16f8bf38f5ebb1" prefix=" " category="inline-code"></block>.</block>
+  <block id="455129a1d85d80f79e8d763a25910c74" category="admonition">Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. L'accès au commutateur SSH est conservé si vous pouvez désactiver PowerOn Auto Provisioning (POAP) (nécessite NX-OS 9.2P1 ou une version ultérieure). Par précaution supplémentaire, connectez-vous au commutateur à l'aide de la console série si l'accès SSH n'est pas possible après le redémarrage du commutateur.</block>
+  <block id="2df26e386d021172b261bcb47e157019" category="list-text">Nettoyez la configuration :</block>
+  <block id="a5247127c3e0a3fcdf9f80746c33cb54" category="list-text">Désactiver POAP :</block>
+  <block id="b64ae68f672b168b4456ea13b494a759" category="inline-link">Utilisation de PowerOn Auto Provisioning</block>
+  <block id="01197fee3250d671fd8c51972b5f4745" category="paragraph">Voir<block ref="ff53901c2c0b0d51a17df0925879b1a5" category="inline-link-rx"></block> pour plus d'informations.</block>
+  <block id="b8363a3557b5e1732a20eb45a96853b7" category="list-text">Vérifiez que le POAP est désactivé lors du rechargement suivant :</block>
+  <block id="f306e2be0abd8aabfa0b014c372bbac8" category="list-text">Répétez les étapes 4 à 11 sur le commutateur cs1.</block>
+  <block id="256be937ef390f7d6dd71ad092869119" category="admonition">Pour ONTAP 9.8 et versions ultérieures, utilisez la commande<block ref="c57378c3b3bb81c6b42a2b31a30ddda7" prefix=" " category="inline-code"></block>.</block>
 </blocks>

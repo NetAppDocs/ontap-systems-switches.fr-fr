@@ -21,7 +21,7 @@ Les commutateurs de stockage suivants sont pris en charge :
 
 * Cisco Nexus 9336C-FX2
 * Cisco Nexus 3232C
-* Voir la https://["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
+* Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
 
 
 .Ce dont vous avez besoin
@@ -38,7 +38,7 @@ Assurez-vous que :
 ** Ports ISL activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
 
 
-* Voir la https://["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
+* Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
 * Certains ports sont configurés sur des switchs NVIDIA SN2100 pour s'exécuter à 100 GbE.
 * Vous avez planifié, migré et documenté la connectivité 100 GbE des nœuds vers les commutateurs de stockage NVIDIA SN2100.
 

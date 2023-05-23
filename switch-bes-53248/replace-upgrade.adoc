@@ -34,7 +34,7 @@ Avant d'installer le logiciel EFOS, les licences et le fichier RCF sur un commut
 NOTE: Il peut y avoir des dépendances entre la syntaxe de commande dans les versions RCF et EFOS.
 
 
-NOTE: Pour la compatibilité du commutateur, consulter le tableau de compatibilité sur le https://["Commutateurs de cluster Broadcom"^] Consultez cette page pour les versions EFOS, RCF et ONTAP prises en charge.
+NOTE: Pour la compatibilité du commutateur, consulter le tableau de compatibilité sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] Consultez cette page pour les versions EFOS, RCF et ONTAP prises en charge.
 
 
 

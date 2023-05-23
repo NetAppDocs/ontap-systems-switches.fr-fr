@@ -120,8 +120,8 @@ NOTE: Le message AutoSupport informe le support technique de cette tâche de mai
 Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et EFOS pour le nouveau commutateur. Si vous avez vérifié que le nouveau commutateur est correctement configuré et qu'il n'a pas besoin de mises à jour du logiciel RCF et EFOS, passez à l'étape 2.
 
 +
-.. Vous pouvez télécharger le logiciel Broadcom EFOS applicable pour vos commutateurs de cluster à partir du https://["Prise en charge des commutateurs Ethernet Broadcom"^] le site. Suivez les étapes de la page de téléchargement pour télécharger le fichier EFOS de la version du logiciel ONTAP que vous installez.
-.. La FCR appropriée est disponible sur le https://["Commutateurs de cluster Broadcom"^] page. Suivez les étapes de la page de téléchargement pour télécharger la FCR appropriée pour la version du logiciel ONTAP que vous installez.
+.. Vous pouvez télécharger le logiciel Broadcom EFOS applicable pour vos commutateurs de cluster à partir du https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] le site. Suivez les étapes de la page de téléchargement pour télécharger le fichier EFOS de la version du logiciel ONTAP que vous installez.
+.. La FCR appropriée est disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page. Suivez les étapes de la page de téléchargement pour télécharger la FCR appropriée pour la version du logiciel ONTAP que vous installez.
 
 
 . Sur le nouveau commutateur, connectez-vous en tant que `admin` et arrêter tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1 à 16).

@@ -21,7 +21,7 @@ Assurez-vous que le cluster ONTAP est opérationnel.
 Procédez comme suit pour installer le fichier de configuration CSHM (Cluster Switch Health Monitor).
 
 .Étapes
-. Téléchargez le fichier zip CSHM en fonction de la version ONTAP correspondante. Ce fichier est disponible à partir de la page : https://["Téléchargement de logiciels NetApp"^]
+. Téléchargez le fichier zip CSHM en fonction de la version ONTAP correspondante. Ce fichier est disponible à partir de la page : https://mysupport.netapp.com/NOW/cgi-bin/software/["Téléchargement de logiciels NetApp"^]
 +
 .. Sur la page de téléchargement du logiciel, sélectionnez *changer les fichiers de configuration du moniteur d'intégrité*.
 .. Sélectionnez plate-forme = *ONTAP* et cliquez sur *Go!*.

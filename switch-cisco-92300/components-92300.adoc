@@ -11,7 +11,7 @@ summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, v
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez tous les composants et références du commutateur. Voir la https://["Hardware Universe"^] pour plus d'informations.
+Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, vérifiez tous les composants et références du commutateur. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour plus d'informations.
 
 Le tableau suivant répertorie le numéro de référence et la description du commutateur 92300YC, des ventilateurs et des alimentations électriques :
 

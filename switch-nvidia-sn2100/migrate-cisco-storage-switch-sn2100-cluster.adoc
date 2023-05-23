@@ -26,7 +26,7 @@ Les commutateurs de stockage suivants sont pris en charge :
 * Cisco Nexus 3232C
 
 
-Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au https://["Hardware Universe"^].
+Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au https://hwu.netapp.com/["Hardware Universe"^].
 
 .Ce dont vous avez besoin
 Assurez-vous que :

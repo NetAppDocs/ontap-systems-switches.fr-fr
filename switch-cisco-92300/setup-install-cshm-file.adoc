@@ -22,7 +22,7 @@ Avant de configurer le moniteur d'état du commutateur pour les commutateurs de 
 NOTE: Vous devez également activer SSH pour utiliser toutes les fonctions disponibles dans CSHM.
 
 .Étapes
-. Téléchargez le fichier zip de la configuration du switch de cluster Health Monitor sur la base de la version ONTAP correspondante. Ce fichier est disponible à partir du https://["Téléchargement de logiciels NetApp"^] page.
+. Téléchargez le fichier zip de la configuration du switch de cluster Health Monitor sur la base de la version ONTAP correspondante. Ce fichier est disponible à partir du https://mysupport.netapp.com/NOW/cgi-bin/software/["Téléchargement de logiciels NetApp"^] page.
 +
 .. Sur la page de téléchargement du logiciel, sélectionnez *changer les fichiers de configuration du moniteur d'intégrité*
 .. Sélectionnez plate-forme = *ONTAP* et cliquez sur *Go!*

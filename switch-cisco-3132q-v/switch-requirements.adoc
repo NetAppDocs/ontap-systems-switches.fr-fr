@@ -58,7 +58,7 @@ Le link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutat
 ** Nexus 3132Q-V
 
 
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 * Les commutateurs de cluster utilisent les ports suivants pour les connexions aux nœuds :
 +
 ** Ports e1/1-40 (10 GbE) : Nexus 5596

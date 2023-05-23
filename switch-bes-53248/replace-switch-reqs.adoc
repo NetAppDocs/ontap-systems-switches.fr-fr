@@ -45,6 +45,6 @@ Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, est copi
 
 == Pour en savoir plus
 
-* https://["Site de support NetApp"^]
-* https://["NetApp Hardware Universe"^]
+* https://mysupport.netapp.com/["Site de support NetApp"^]
+* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
 

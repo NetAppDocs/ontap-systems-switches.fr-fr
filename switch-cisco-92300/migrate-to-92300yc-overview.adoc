@@ -37,10 +37,10 @@ Vous devez connaître certaines informations de configuration, les connexions de
 ** Ports e1/13-20 (10 GbE) : Nexus 5010
 
 
-* Le https://["_Hardware Universe_"^] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
+* Le https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe_"^] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
 * Vous avez configuré certains ports sur les commutateurs Nexus 92300YC pour fonctionner à 10 GbE ou 40 GbE.
 * Vous avez planifié, migré et documenté une connectivité 10 GbE et 40 GbE depuis les nœuds vers les commutateurs de cluster Nexus 92300YC.
-* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le https://["Commutateurs Ethernet Cisco"^] page.
+* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] page.
 +
 
 NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voir link:setup-install-cshm-file.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"] pour plus d'informations.

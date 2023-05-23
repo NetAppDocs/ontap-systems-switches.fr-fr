@@ -30,6 +30,6 @@ Pour connaître les instructions de câblage, reportez-vous à la section link:c
 Le commutateur NVIDIA SN2100 est un commutateur 10/25/40 GbE exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :
 
 * ONTAP 9.10.1P3. Le commutateur SN2100 sert les applications de stockage et de cluster dans le ONTAP 9.10.1P3 sur différentes paires de commutateurs.
-* Version du système d'exploitation Cumulus Linux (CL). Pour télécharger le logiciel SN2100 Cumulus, connectez-vous au https://["Portail de support NVIDIA Enterprise"^]. Notez que vous devez disposer des informations d'identification de connexion pour accéder au logiciel Cumulus. Pour plus d'informations sur la compatibilité actuelle, reportez-vous au https://["Commutateurs Ethernet NVIDIA"^] page d'informations.
+* Version du système d'exploitation Cumulus Linux (CL). Pour télécharger le logiciel SN2100 Cumulus, connectez-vous au https://enterprise-support.nvidia.com/s/["Portail de support NVIDIA Enterprise"^]. Notez que vous devez disposer des informations d'identification de connexion pour accéder au logiciel Cumulus. Pour plus d'informations sur la compatibilité actuelle, reportez-vous au https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Commutateurs Ethernet NVIDIA"^] page d'informations.
 * Vous pouvez installer Cumulus Linux lorsque le commutateur exécute Cumulus Linux ou ONIE.
 

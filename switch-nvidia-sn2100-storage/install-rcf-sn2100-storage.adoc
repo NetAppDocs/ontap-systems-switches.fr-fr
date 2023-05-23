@@ -104,7 +104,7 @@ Le script RCF effectue les étapes indiquées ci-dessus.
 
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
 
 . Vérifiez la configuration après le redémarrage :
 +

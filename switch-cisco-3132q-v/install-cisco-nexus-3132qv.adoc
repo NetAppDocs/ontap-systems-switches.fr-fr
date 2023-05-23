@@ -14,7 +14,7 @@ summary: 'Vous pouvez installer le commutateur Cisco Nexus 3132Q-V et le panneau
 Selon votre configuration, vous devrez peut-être installer le commutateur Cisco Nexus 3132Q-V et le panneau d'accès dans une armoire NetApp avec les supports standard inclus avec le commutateur.
 
 .Ce dont vous avez besoin
-* Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité indiquées dans le http://["Guide d'installation matérielle Cisco Nexus 3000 Series"^]. Passez en revue ces documents avant de commencer la procédure.
+* Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité indiquées dans le http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guide d'installation matérielle Cisco Nexus 3000 Series"^]. Passez en revue ces documents avant de commencer la procédure.
 * Le kit de panneau pass-through, disponible auprès de NetApp (référence X8784-R6). Le kit de panneau d'intercommunication NetApp contient les composants suivants :
 +
 ** Un obturateur traversant

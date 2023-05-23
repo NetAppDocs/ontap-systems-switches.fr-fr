@@ -15,7 +15,7 @@ Pour configurer le commutateur SN2100, reportez-vous à la documentation de NVID
 
 .Étapes
 . Vérifiez le link:configure-reqs-sn2100-cluster.html["configuration requise"].
-. Suivez les instructions de la section https://["Reprise du système NVIDIA."^].
+. Suivez les instructions de la section https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Reprise du système NVIDIA."^].
 
 
 .Et la suite ?

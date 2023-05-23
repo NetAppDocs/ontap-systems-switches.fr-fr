@@ -15,7 +15,7 @@ Pour installer le matériel SN2100, reportez-vous à la documentation de NVIDIA.
 
 .Étapes
 . Vérifiez le link:configure-reqs-sn2100-storage.html["configuration requise"].
-. Suivez les instructions de la section https://["Guide d'installation du commutateur NVIDIA"^].
+. Suivez les instructions de la section https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation du commutateur NVIDIA"^].
 
 
 .Et la suite ?

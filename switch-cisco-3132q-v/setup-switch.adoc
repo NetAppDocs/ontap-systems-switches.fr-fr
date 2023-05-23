@@ -15,11 +15,11 @@ Suivez cette procédure pour configurer le commutateur Cisco Nexus 3132Q-V.
 
 .Ce dont vous avez besoin
 * Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
-* Version NX-OS applicable, téléchargée à partir du https://["Téléchargement du logiciel Cisco"^] page.
+* Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
 * Documentation requise sur les commutateurs réseau, la documentation du contrôleur et la documentation ONTAP. Pour plus d'informations, voir link:required-documentation-3132q.html["Documentation requise"].
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
 * Feuilles de calcul de câblage remplies. Voir link:setup_worksheet_3132q.html["Fiche technique de câblage Cisco Nexus 3132Q-V."].
-* NetApp applicable au réseau de clusters et au réseau de gestion, téléchargés depuis le site de support NetApp à l'adresse http://["mysupport.netapp.com"^] pour les commutateurs que vous recevez. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
+* NetApp applicable au réseau de clusters et au réseau de gestion, téléchargés depuis le site de support NetApp à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^] pour les commutateurs que vous recevez. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
 
 
 .Étapes
@@ -208,7 +208,7 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 |===
 . Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.
-. Vérifier la version sur les commutateurs du réseau du cluster et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs à partir du https://["Téléchargement du logiciel Cisco"^] page.
+. Vérifier la version sur les commutateurs du réseau du cluster et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
 
 
 .Et la suite ?

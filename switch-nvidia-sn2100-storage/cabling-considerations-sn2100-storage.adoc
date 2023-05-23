@@ -43,7 +43,7 @@ swp3-14 40/100 nœuds de port de cluster
 Swp15-16 40/100 ports ISL (Inter-Switch Link)
 
 |===
-Voir la https://["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
 
 
 

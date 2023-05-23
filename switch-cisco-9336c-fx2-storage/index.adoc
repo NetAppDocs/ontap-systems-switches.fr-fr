@@ -107,7 +107,7 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 * La plupart des contrôleurs de système de stockage sont gérés par l'interface e0M en vous connectant au port de service Ethernet (icône de clé anglaise). Sur les systèmes AFF A800 et AFF A700, l'interface e0M utilise un port Ethernet dédié.
 
 
-Reportez-vous à la https://["Hardware Universe"^] pour obtenir les informations les plus récentes.
+Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
 
 
 
@@ -126,7 +126,7 @@ Avant de pouvoir utiliser la fonction d'appel intelligent, vous devez prendre en
 * Le service Cisco SMARTnet doit être en place pour que le périphérique soit enregistré.
 
 
-Le http://["Site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer l'appel intelligent.
+Le http://www.cisco.com/c/en/us/products/switches/index.html["Site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer l'appel intelligent.
 
 
 
@@ -138,7 +138,7 @@ Pour configurer les commutateurs Cisco 9336-FX2 et le cluster ONTAP, vous devez 
 
 === Documentation du commutateur
 
-Pour configurer les commutateurs Cisco Nexus 9336C-FX2, vous devez disposer de la documentation suivante à partir du https://["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page :
+Pour configurer les commutateurs Cisco Nexus 9336C-FX2, vous devez disposer de la documentation suivante à partir du https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page :
 
 [cols="1,2"]
 |===
@@ -204,7 +204,7 @@ Fournit des informations réglementaires, de sécurité et de conformité aux or
 
 === Documentation sur les systèmes ONTAP
 
-Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation à partir du https://["Centre de documentation ONTAP 9"^].
+Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation à partir du https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"^].
 
 [cols="1,2"]
 |===
@@ -226,7 +226,7 @@ Fournit des informations détaillées sur tous les aspects des versions de ONTAP
 
 
  a| 
-https://["Hardware Universe"^]
+https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Fournit des informations sur la compatibilité et la configuration matérielle NetApp.
 
@@ -243,7 +243,7 @@ Pour installer un commutateur Cisco 9336-FX2 dans une armoire NetApp, consultez 
 
 
  a| 
-https://["Armoire système 42U, Guide profond"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armoire système 42U, Guide profond"^]
  a| 
 Le décrit les unités remplaçables sur site associées à l'armoire système 42U, et fournit des instructions de maintenance et de remplacement des unités remplaçables sur site.
 

@@ -17,7 +17,7 @@ Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, consul
 
 == Documentation du commutateur
 
-Pour configurer les commutateurs Cisco Nexus 92300YC, vous avez besoin de la documentation suivante du https://["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page :
+Pour configurer les commutateurs Cisco Nexus 92300YC, vous avez besoin de la documentation suivante du https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page :
 
 [cols="1,2"]
 |===
@@ -83,7 +83,7 @@ Fournit des informations réglementaires, de sécurité et de conformité aux or
 
 == Documentation sur les systèmes ONTAP
 
-Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation à partir du https://["Centre de documentation ONTAP 9"^].
+Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation à partir du https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"^].
 
 [cols="1,2"]
 |===
@@ -105,7 +105,7 @@ Fournit des informations détaillées sur tous les aspects des versions de ONTAP
 
 
  a| 
-https://["Hardware Universe"^]
+https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Fournit des informations sur la compatibilité et la configuration matérielle NetApp.
 
@@ -122,7 +122,7 @@ Pour installer un commutateur Cisco Nexus 92300YC dans une armoire NetApp, consu
 
 
  a| 
-https://["Armoire système 42U, Guide profond"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armoire système 42U, Guide profond"^]
  a| 
 Le décrit les unités remplaçables sur site associées à l'armoire système 42U, et fournit des instructions de maintenance et de remplacement des unités remplaçables sur site.
 

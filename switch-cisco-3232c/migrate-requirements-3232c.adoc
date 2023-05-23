@@ -66,7 +66,7 @@ Final
 2 câbles à connexion directe cuivre ou fibre optique QSFP
 
 |===
-Vous devez avoir téléchargé les fichiers de configuration de référence applicables (CFR). Le nombre de ports 10 GbE et 40/100 GbE est défini dans les CFR disponibles sur le https://["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+Vous devez avoir téléchargé les fichiers de configuration de référence applicables (CFR). Le nombre de ports 10 GbE et 40/100 GbE est défini dans les CFR disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 
 Les versions ONTAP et NX-OS prises en charge dans cette procédure sont répertoriées sur le link:https://mysupport.netapp.com/NOW/download/software/cm_switches/.html["Page commutateurs Ethernet Cisco"^].
 

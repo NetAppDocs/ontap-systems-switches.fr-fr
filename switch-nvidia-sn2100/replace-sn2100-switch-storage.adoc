@@ -18,7 +18,7 @@ Vous devez vérifier que les conditions suivantes sont présentes avant d'instal
 
 * Votre système peut prendre en charge les switchs de stockage NVIDIA SN2100.
 * Vous devez avoir téléchargé les CFR applicables.
-* Le http://["Hardware Universe"^] fournit des détails complets sur les ports pris en charge et leurs configurations.
+* Le http://hwu.netapp.com["Hardware Universe"^] fournit des détails complets sur les ports pris en charge et leurs configurations.
 
 
 .Description de la tâche

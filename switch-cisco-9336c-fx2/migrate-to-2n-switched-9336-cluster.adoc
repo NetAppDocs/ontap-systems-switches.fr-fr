@@ -25,7 +25,7 @@ Le processus de migration fonctionne pour tous les nœuds via des ports optiques
 ** La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.
 ** Tous les ports de cluster sont à l'état *up*.
 ** Toutes les interfaces logiques (LIF) de cluster sont à l'état *up* et sur leurs ports de base.
-** Voir https://["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
+** Voir https://hwu.netapp.com["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
 
 
 * Pour la configuration du commutateur Cisco Nexus 9336C-FX2 :
@@ -34,7 +34,7 @@ Le processus de migration fonctionne pour tous les nœuds via des ports optiques
 ** Il y a un accès à la console aux commutateurs du cluster.
 ** Les connexions de commutateur à nœud et de commutateur à commutateur Nexus 9336C-FX2 utilisent des câbles Twinax ou à fibre optique.
 +
-Voir https://["Hardware Universe"^] pour plus d'informations sur le câblage.
+Voir https://hwu.netapp.com["Hardware Universe"^] pour plus d'informations sur le câblage.
 
 
 
@@ -57,7 +57,7 @@ Les exemples de cette procédure utilisent la nomenclature de commutateurs et de
 * les ports de cluster utilisés dans cette procédure sont e0a et e0b.
 
 
-Voir https://["Hardware Universe"^] pour plus d'informations sur les ports de cluster de vos plates-formes.
+Voir https://hwu.netapp.com["Hardware Universe"^] pour plus d'informations sur les ports de cluster de vos plates-formes.
 
 
 
@@ -290,10 +290,10 @@ Cluster
 ====
 . Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
 +
-Le https://["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
 
 +
-https://["Hardware Universe - commutateurs"^]
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^]
 
 . Déconnectez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
 . Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.

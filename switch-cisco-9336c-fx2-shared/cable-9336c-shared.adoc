@@ -24,7 +24,7 @@ Si vous souhaitez raccorder un câble de stockage NS224 à un commutateur, suive
 
 image:9336c_image1.jpg["Connexion par commutateur"]
 
-Voir la https://["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
 
 
 
@@ -34,7 +34,7 @@ Si vous souhaitez raccorder un câble de stockage NS224 à connexion directe au 
 
 image:9336c_image2.jpg["Connexion directe"]
 
-Voir la https://["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
 
 
 

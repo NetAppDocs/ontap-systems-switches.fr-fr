@@ -23,7 +23,7 @@ Avant de commencer, complétez la procédure dans link:prepare-nxos-rcf-9336c-sh
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
-* Les logiciels et guides de mise à niveau appropriés disponibles sur le site Web de Cisco pour les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco. Voir https://["Commutateurs Cisco Nexus 9000 Series"^].
+* Les logiciels et guides de mise à niveau appropriés disponibles sur le site Web de Cisco pour les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco. Voir https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Commutateurs Cisco Nexus 9000 Series"^].
 
 
 .À propos des exemples

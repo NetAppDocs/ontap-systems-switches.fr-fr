@@ -60,5 +60,5 @@ Avant de commencer l'installation ou la maintenance, vérifiez les points suivan
 * link:configure-reqs-sn2100-cluster.html["Configuration requise"]
 * link:components-sn2100-cluster.html["Composants et références"]
 * link:required-documentation-sn2100-cluster.html["Documentation requise"]
-* https://["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
+* https://hwu.netapp.com["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
 

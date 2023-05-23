@@ -19,21 +19,21 @@ Pour l'installation et la maintenance du commutateur NVIDIA SN2100, consultez la
 
 
  a| 
-https://["Guide d'installation du commutateur NVIDIA"^]
+https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation du commutateur NVIDIA"^]
  a| 
 Décrit l'installation des switchs NVIDIA SN2100.
 
 
 
  a| 
-https://["Guide de câblage de tiroirs disques NVMe NS224"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guide de câblage de tiroirs disques NVMe NS224"^]
  a| 
 Présentation et illustrations des configurations du câblage des tiroirs disques.
 
 
 
  a| 
-https://["NetApp Hardware Universe"^]
+https://hwu.netapp.com/["NetApp Hardware Universe"^]
  a| 
 Permet de confirmer le matériel pris en charge, comme les commutateurs de stockage et les câbles, pour votre modèle de plate-forme.
 

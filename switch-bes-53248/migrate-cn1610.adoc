@@ -49,7 +49,7 @@ Les commutateurs de cluster utilisent les ports ISL (Inter-switch Link) suivants
 * BES-53248 : ports 0/55-0/56 (100 GbE)
 
 
-Le https://["_NetApp Hardware Universe_"^] Contient des informations sur la compatibilité ONTAP, le micrologiciel EFOS pris en charge et le câblage aux commutateurs de cluster BES-53248.
+Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] Contient des informations sur la compatibilité ONTAP, le micrologiciel EFOS pris en charge et le câblage aux commutateurs de cluster BES-53248.
 
 
 
@@ -343,7 +343,7 @@ Ports   Timeout        Speed     Active
 ====
 . Sur tous les nœuds, retirez les câbles reliés au commutateur CN1610 CL2.
 +
-Vous devez ensuite reconnecter les ports déconnectés de tous les nœuds au nouveau commutateur BES-53248 cs2. Reportez-vous à la https://["_NetApp Hardware Universe_"^] pour les options de câblage approuvées.
+Vous devez ensuite reconnecter les ports déconnectés de tous les nœuds au nouveau commutateur BES-53248 cs2. Reportez-vous à la https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] pour les options de câblage approuvées.
 
 . Retirez quatre câbles ISL des ports 13 à 16 du commutateur CN1610 CL2.
 +
@@ -529,7 +529,7 @@ RPC status:
 ====
 . Sur tous les nœuds, retirez les câbles reliés au commutateur CN1610 CL1.
 +
-Vous devez ensuite reconnecter les ports déconnectés de tous les nœuds au nouveau commutateur BES-53248 cs1. Reportez-vous à la https://["_NetApp Hardware Universe_"^] pour les options de câblage approuvées.
+Vous devez ensuite reconnecter les ports déconnectés de tous les nœuds au nouveau commutateur BES-53248 cs1. Reportez-vous à la https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] pour les options de câblage approuvées.
 
 . Retirer quatre câbles ISL des ports 13 à 16 du commutateur BES-53248 cs2.
 . Retirez le canal de port temporaire 2 du cs2.

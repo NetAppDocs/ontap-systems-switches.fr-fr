@@ -33,7 +33,7 @@ Pour la configuration du commutateur de cluster CN1610 :
 * Il y a un accès à la console aux commutateurs du cluster.
 * Les connexions du commutateur nœud à nœud CN1610 et du commutateur à commutateur utilisent des câbles Twinax ou fibre.
 +
-Le https://["Hardware Universe"^] contient plus d'informations sur le câblage.
+Le https://hwu.netapp.com/["Hardware Universe"^] contient plus d'informations sur le câblage.
 
 * Les câbles ISL (Inter-Switch Link) sont connectés aux ports 13 à 16 sur les deux commutateurs CN1610.
 * La personnalisation initiale des deux commutateurs CN1610 est terminée.
@@ -43,10 +43,10 @@ Toute personnalisation de site précédente, telle que SMTP, SNMP et SSH, doit �
 
 
 .Informations associées
-* http://["Hardware Universe"^]
-* http://["Page de description NetApp CN1601 et CN1610"^]
-* https://["Guide de configuration et de configuration des commutateurs CN1601 et CN1610"^]
-* https://["Article 1010449 de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^]
+* http://hwu.netapp.com["Hardware Universe"^]
+* http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Page de description NetApp CN1601 et CN1610"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guide de configuration et de configuration des commutateurs CN1601 et CN1610"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Article 1010449 de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^]
 
 
 
@@ -62,7 +62,7 @@ Les exemples de cette procédure utilisent la nomenclature de commutateurs et de
 * Le `cluster::*>` l'invite indique le nom du cluster.
 * Les ports de cluster utilisés dans cette procédure sont les ports e1a et e2a.
 +
-Le https://["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+Le https://hwu.netapp.com/["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
 
 
 

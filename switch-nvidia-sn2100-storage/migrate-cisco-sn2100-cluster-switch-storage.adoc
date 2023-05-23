@@ -36,7 +36,7 @@ Vous pouvez migrer d'anciens commutateurs de cluster Cisco sans interruption pou
 ** Ports ISL activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
 
 
-* Voir la https://["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
+* Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
 * Vous avez configuré certains ports sur les switchs NVIDIA SN2100 pour qu'ils s'exécutent à 40 GbE ou 100 GbE.
 * Vous avez planifié, migré et documenté une connectivité 40 GbE et 100 GbE entre les nœuds et les commutateurs de cluster NVIDIA SN2100.
 +

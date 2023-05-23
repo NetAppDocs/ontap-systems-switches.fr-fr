@@ -32,4 +32,4 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 * La plupart des contrôleurs de système de stockage sont gérés par l'interface e0M en vous connectant au port de service Ethernet (icône de clé anglaise). Sur les systèmes AFF A800 et AFF A700, l'interface e0M utilise un port Ethernet dédié.
 
 
-Reportez-vous à la https://["Hardware Universe"^] pour obtenir les informations les plus récentes.
+Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.

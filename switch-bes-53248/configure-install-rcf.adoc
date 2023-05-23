@@ -13,7 +13,7 @@ summary: 'Vous pouvez installer le fichier RCF (Reference Configuration File) ap
 [role="lead"]
 Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.
 
-Si vous mettez à niveau une FCR à partir d'une version antérieure, vous devez réinitialiser les paramètres du commutateur Broadcom et effectuer une configuration de base pour appliquer à nouveau la FCR. Vous devez effectuer cette opération à chaque fois que vous souhaitez mettre à niveau ou modifier une FCR. Voir la https://["Article de la base de connaissances"^] pour plus d'informations.
+Si vous mettez à niveau une FCR à partir d'une version antérieure, vous devez réinitialiser les paramètres du commutateur Broadcom et effectuer une configuration de base pour appliquer à nouveau la FCR. Vous devez effectuer cette opération à chaque fois que vous souhaitez mettre à niveau ou modifier une FCR. Voir la https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Article de la base de connaissances"^] pour plus d'informations.
 
 
 
@@ -22,14 +22,14 @@ Si vous mettez à niveau une FCR à partir d'une version antérieure, vous devez
 .Avant de commencer
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Le fichier RCF actuel, disponible sur le https://["Commutateurs de cluster Broadcom"^] page.
+* Le fichier RCF actuel, disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
 * Configuration de démarrage dans le fichier RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-* Une connexion de console au commutateur, nécessaire lors de l'installation du RCF à partir d'un état par défaut défini en usine. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances  https://["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
+* Une connexion de console au commutateur, nécessaire lors de l'installation du RCF à partir d'un état par défaut défini en usine. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances  https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
 
 
 .Documentation suggérée
-* Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Voir la https://["Téléchargement du logiciel EFOS"^] page. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de commande dans le fichier RCF et celle trouvée dans les versions de EFOS.
-* Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le https://["Broadcom"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur BES-53248.
+* Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Voir la https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Téléchargement du logiciel EFOS"^] page. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de commande dans le fichier RCF et celle trouvée dans les versions de EFOS.
+* Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le https://www.broadcom.com/support/bes-switch["Broadcom"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur BES-53248.
 
 
 
@@ -43,7 +43,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Les noms des nœuds sont cluster1-01, cluster1-02, cluster1-03 et cluster1-04.
 * Les noms de LIF du cluster sont cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 et cluster1-04_clus2.
 * Le `cluster1::*>` l'invite indique le nom du cluster.
-* Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+* Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://hwu.netapp.com/Home/Index["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
 
@@ -55,7 +55,7 @@ La procédure nécessite l'utilisation de commandes ONTAP et de commandes de com
 Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
 
 
-CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et des RCF, utilisez le https://["KB : Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^]. Si vous devez effacer complètement les paramètres du commutateur, vous devrez effectuer à nouveau la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série, car un effacement complet de la configuration réinitialise la configuration du réseau de gestion.
+CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et des RCF, utilisez le https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["KB : Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^]. Si vous devez effacer complètement les paramètres du commutateur, vous devrez effectuer à nouveau la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série, car un effacement complet de la configuration réinitialise la configuration du réseau de gestion.
 
 
 

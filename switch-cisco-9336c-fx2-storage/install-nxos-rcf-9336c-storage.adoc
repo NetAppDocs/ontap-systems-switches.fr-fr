@@ -45,7 +45,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 
 
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
@@ -327,7 +327,7 @@ Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
 +
-Voir https://["Utilisation de PowerOn Auto Provisioning"^] pour plus d'informations.
+Voir https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["Utilisation de PowerOn Auto Provisioning"^] pour plus d'informations.
 
 .. Vérifiez que le POAP est désactivé lors du rechargement suivant :
 +
@@ -361,7 +361,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.
 
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 +
 .Montrer l'exemple
 [%collapsible]
@@ -380,7 +380,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF préalablement téléchargé sur le bootflash.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple
@@ -453,7 +453,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 . Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple

@@ -16,7 +16,7 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C
 [role="lead"]
 Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, veillez à consulter la documentation spécifique sur le commutateur et le contrôleur afin de configurer les commutateurs Cisco 9336-FX2 et le cluster ONTAP.
 
-Pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2, reportez-vous au https://["Prise en charge des commutateurs Cisco Nexus 9000 Series"] page.
+Pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2, reportez-vous au https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"] page.
 
 |===
 | Titre du document | Description 

@@ -21,42 +21,42 @@ Le tableau suivant répertorie la documentation disponible pour les commutateurs
 
 
  a| 
-https://["_Configurer et configurer les commutateurs NVIDIA SN2100_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["_Configurer et configurer les commutateurs NVIDIA SN2100_"^]
  a| 
 Décrit comment configurer et configurer les commutateurs NVIDIA SN2100, y compris l'installation de Cumulus Linux et des RCFs applicables.
 
 
 
  a| 
-https://["_Migrer d'un commutateur de cluster Cisco vers un commutateur de cluster NVIDIA SN2100_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html["_Migrer d'un commutateur de cluster Cisco vers un commutateur de cluster NVIDIA SN2100_"^]
  a| 
 Décrit comment migrer d'environnements qui utilisent des switchs de cluster Cisco vers des environnements utilisant des switchs de cluster NVIDIA SN2100.
 
 
 
  a| 
-https://["_Migrer d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html["_Migrer d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA_"^]
  a| 
 Décrit comment migrer d'environnements qui utilisent des switchs de stockage Cisco vers des environnements utilisant des switchs de stockage NVIDIA SN2100.
 
 
 
  a| 
-https://["_Migrer vers un cluster à deux nœuds avec commutateurs de cluster NVIDIA SN2100_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_Migrer vers un cluster à deux nœuds avec commutateurs de cluster NVIDIA SN2100_"^]
  a| 
 Décrit la migration vers un environnement commuté de deux nœuds à l'aide de switchs de cluster NVIDIA SN2100.
 
 
 
  a| 
-https://["_Remplacer un commutateur de cluster NVIDIA SN2100_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html["_Remplacer un commutateur de cluster NVIDIA SN2100_"^]
  a| 
 Décrit la procédure à suivre pour remplacer un commutateur NVIDIA SN2100 défectueux dans un cluster et télécharger Cumulus Linux et le fichier de configuration de référence.
 
 
 
  a| 
-https://["_Remplacer un commutateur de stockage NVIDIA SN2100_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/replace-sn2100-switch-storage.html["_Remplacer un commutateur de stockage NVIDIA SN2100_"^]
  a| 
 Décrit la procédure à suivre pour remplacer un commutateur de stockage NVIDIA SN2100 défectueux et télécharger Cumulus Linux et le fichier de configuration de référence.
 

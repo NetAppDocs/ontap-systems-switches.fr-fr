@@ -276,7 +276,7 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Si ce n'est déjà fait, enregistrez la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier journal :
+. Si ce n'est pas déjà fait, enregistrez une copie de la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier texte :
 +
 [listing]
 ----
@@ -285,23 +285,9 @@ show running-config
 . Nettoyez la configuration du commutateur cs2 et effectuez une configuration de base.
 +
 
-CAUTION: Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. L'accès au commutateur SSH est conservé si vous pouvez désactiver PowerOn Auto Provisioning (POAP) (nécessite NX-OS 9.2P1 ou une version ultérieure). Par précaution supplémentaire, connectez-vous au commutateur à l'aide de la console série si l'accès SSH n'est pas possible après le redémarrage du commutateur.
+CAUTION: Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au port série console du commutateur pour pouvoir le configurer à nouveau.
 
 +
-.. SSH dans le commutateur.
-+
-Continuez uniquement lorsque toutes les LIFs du cluster ont été retirées des ports du switch et que la configuration du switch est prête à être effacée.
-
-.. Entrer le mode privilège :
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)> *enable*
-----
-====
 .. Nettoyez la configuration :
 +
 .Montrer l'exemple
@@ -314,35 +300,6 @@ Continuez uniquement lorsque toutes les LIFs du cluster ont été retirées des 
 Warning: This command will erase the startup-configuration.
 
 Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Désactiver POAP :
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *system no poap*
-----
-====
-+
-Voir https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/103x/configuration/fundamentals/cisco-nexus-9000-nx-os-fundamentals-configuration-guide-103x/m-using-poap.html?bookSearch=true#id_85315["Utilisation de PowerOn Auto Provisioning"^] pour plus d'informations.
-
-.. Vérifiez que le POAP est désactivé lors du rechargement suivant :
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)#  *show boot*
-Current Boot Variables:
- sup-1
-NXOS variable = bootflash:/nxos.9.2.1.125.bin
-Boot POAP Disabled
-
-POAP permanently disabled using 'system no poap'
 ----
 ====
 .. Redémarrer le commutateur :
@@ -358,7 +315,6 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 ----
 ====
-.. Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.
 
 
 . Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.

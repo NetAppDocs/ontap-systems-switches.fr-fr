@@ -38,6 +38,8 @@ entries:
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: Migration des commutateurs
   entries:
+  - title: Migration à partir des commutateurs de cluster CN1610
+    url: "/switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html"
   - title: Migrer depuis les commutateurs de cluster Cisco
     url: "/switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
   - title: Migrer vers un cluster à deux nœuds avec commutateur

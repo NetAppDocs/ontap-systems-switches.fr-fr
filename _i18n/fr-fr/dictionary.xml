@@ -4490,4 +4490,47 @@
   <block id="85d166e992ca6f11afb6f8661ce70bf4" category="list-text"><block ref="85d166e992ca6f11afb6f8661ce70bf4" category="inline-link-rx"></block></block>
   <block id="b54483c149c4951b43214e0e419d0882" category="list-text">Pour les déploiements ONTAP, voir<block ref="daad8f612ac7448a64fdb14518a581cb" category="inline-link-rx"></block>.</block>
   <block id="aeaeb10b6f9fde2ae4de6c336b6e2a09" category="list-text">Pour les déploiements ONTAP avec MetroCluster, consultez<block ref="63d00fc18e84d6621c63394dbe0320b4" category="inline-link-rx"></block>.</block>
+  <block id="58233cc3bf4f9a457c5037d8366a019f" category="summary">Vous pouvez migrer sans interruption des commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de réseau de cluster NVIDIA SN2100.</block>
+  <block id="0a0432ddd8cc67e6faabbfc7f3b3830a" category="doc">Migrez les commutateurs de cluster CN1610 vers les commutateurs de cluster NVIDIA SN2100</block>
+  <block id="8ea2a6912c6f82674bf8bba7e59595cf" category="paragraph">Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de cluster NVIDIA SN2100. Cette procédure ne fonctionne pas sans interruption.</block>
+  <block id="395c77a333cd07968a4952d343ed8bc5" category="paragraph">Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster NVIDIA SN2100. Voir <block ref="d007e33ffeb91af7b1ca0d25ce622b32" category="inline-link-macro-rx"></block>.</block>
+  <block id="688329e2d8991daa1267ab5847767b9e" category="paragraph">Vérifiez que vous répondez aux exigences suivantes pour votre configuration :</block>
+  <block id="815a47d30e15149fc110b6a00eefcfca" category="list-text">Le cluster existant est correctement configuré et fonctionne.</block>
+  <block id="0818cf807c37bde58d5f3b6c2c6cdaff" category="list-text">Les commutateurs de cluster NVIDIA SN2100 sont configurés et fonctionnent sous la version correcte de Cumulus Linux installée avec le fichier de configuration de référence (RCF) appliqué.</block>
+  <block id="d80e9af81b3112047acb97f82a585ab4" category="list-text">Un cluster NetApp redondant et entièrement fonctionnel utilisant des commutateurs CN1610.</block>
+  <block id="62e335f2b7a1fec6337f4500ec85b4a0" category="list-text">Connectivité de gestion et accès à la console des commutateurs CN1610 et des nouveaux commutateurs.</block>
+  <block id="172f9b944970489ecdac26061399cf36" category="list-text">Toutes les LIFs du cluster à l'état up avec les LIFs du cluster sur leurs ports home.</block>
+  <block id="8352596a2dc809409bca6c071df33f7d" category="list-text">Ports ISL activés et câblés entre les commutateurs CN1610 et entre les nouveaux commutateurs.</block>
+  <block id="228c692878c55b6b708452532ab07090" category="list-text">Certains ports sont configurés sur les switchs NVIDIA SN2100 pour s'exécuter à 40 GbE ou 100 GbE.</block>
+  <block id="8adef8d2aa43ec468f8916cb4d160300" category="list-text">Vous avez planifié, migré et documenté la connectivité 40 GbE et 100 GbE depuis les nœuds vers les switchs de cluster NVIDIA SN2100.</block>
+  <block id="520a02b14079c6a46859df2a37c9febb" category="list-text">Les commutateurs de cluster CN1610 existants sont _c1_ et _c2_.</block>
+  <block id="7b2c7aa281e097d0b9bbd57ac76fb359" category="paragraph">Chaque port doit s'afficher pendant<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> et<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> pour<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
+  <block id="284cd410e60c4e505551ad2599982d4c" category="list-text">Afficher des informations sur les LIF et leurs nœuds de base désignés :</block>
+  <block id="d6969185bcc915329c1f2c87b692d720" category="paragraph">Chaque LIF doit afficher<block ref="fc7c1443e5c7b6439706b6132a4c0829" prefix=" " category="inline-code"></block> pour<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> et<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>.</block>
+  <block id="13ee56de24afc64015b6d9b81206a3a8" category="paragraph"><block ref="dbda9fa81591dd4f13b3b1e98408c845" prefix="" category="inline-code"></block></block>
+  <block id="db038ea8b37b62294a9f3eebe698b28a" category="paragraph">Chaque port doit s'afficher<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> pour<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> et<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> pour<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
+  <block id="0f2a4526602865cc9158a56028bf97de" category="summary">Vous pouvez migrer sans interruption des commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de réseau de cluster Cisco Nexus 9336C-FX2.</block>
+  <block id="4732368f30b7afd2065dc4cc0c57584f" category="doc">Migration d'un commutateur de cluster NetApp CN1610 vers un commutateur de cluster Cisco 9336C-FX2</block>
+  <block id="c8fc8239bd9ec37b7c36847589d5c8a0" category="paragraph">Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de cluster Cisco 9336C-FX2. Cette procédure ne fonctionne pas sans interruption.</block>
+  <block id="b6bd832f0692f49d1480e52df106a51f" category="paragraph">Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2.</block>
+  <block id="059d31543d448499bd1a9c454a8d1ebb" category="list-text">Cisco 9336C-FX2</block>
+  <block id="3cb2d5707cdf5f5290ac6608ce8b5278" category="paragraph">Vérifiez que votre configuration répond aux exigences suivantes :</block>
+  <block id="6195676dbe2277e0d3edb2d8c3a50b2e" category="list-text">Les commutateurs de cluster Cisco 9336C-FX2 sont configurés et fonctionnent sous la version NX-OS installée, avec le fichier de configuration de référence (RCF) appliqué.</block>
+  <block id="f782426a4cdf95a0b55da18e28ebf175" category="list-text">Cluster NetApp redondant et entièrement fonctionnel utilisant des commutateurs NetApp CN1610.</block>
+  <block id="b5151f51cad20da0989e60f2f67b1b88" category="list-text">Connectivité de gestion et accès à la console des commutateurs NetApp CN1610 et des nouveaux commutateurs.</block>
+  <block id="b10363b52a35e01590fe1de363abbec3" category="list-text">Ports ISL activés et câblés entre les commutateurs NetApp CN1610 et entre les nouveaux commutateurs.</block>
+  <block id="ef76bcea64dcb3d0ca7a96e4f9da6812" category="list-text">Certains ports sont configurés sur les switchs Cisco 9336C-FX2 pour une exécution à 40 GbE ou 100 GbE.</block>
+  <block id="d3be97c754d4396e13d0406452fc2fb0" category="list-text">Vous avez planifié, migré et documenté la connectivité 40 GbE et 100 GbE depuis des nœuds vers des commutateurs de cluster Cisco 9336C-FX2.</block>
+  <block id="9d9d3ff89e1f212fa1f66986336ed0c1" category="list-text">Les commutateurs de cluster CN1610 existants sont _C1_ et _C2_.</block>
+  <block id="584cd7559b010eb68304bdb5ed2c60d2" category="list-text">Les nouveaux commutateurs de cluster 9336C-FX2 sont _cs1_ et _cs2_.</block>
+  <block id="bf50ad9c8205601ab87f52d53897d187" category="list-text">Le commutateur C2 est remplacé d'abord par le commutateur cs2, puis le commutateur C1 est remplacé par le commutateur cs1.</block>
+  <block id="336662c525771f82353eb880f4507911" category="list-text">Le câblage entre les nœuds et C2 est ensuite déconnecté de C2 et reconnecté à cs2</block>
+  <block id="ba8f22a022d24c1e6a519a5e6a867762" category="list-text">Le câblage entre les nœuds et C1 est ensuite déconnecté de C1 et reconnecté à cs1.</block>
+  <block id="413712aa4f400acdac067e9bcde8736d" category="list-text">Sur le commutateur C2, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
+  <block id="d14fe42ffba032ed843b9363b0fb3908" category="list-text">Déplacez les ports de cluster de nœuds de l'ancien commutateur C2 vers le nouveau commutateur cs2, à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.</block>
+  <block id="56c5592f9041f8677e5bee9e1ae96f0a" category="list-text">Sur le commutateur cs2, vérifiez que tous les ports du cluster de nœuds sont activés :</block>
+  <block id="f2c6d0da02e9db5edf3d6c608d708936" category="list-text">Sur le commutateur C1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
+  <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Déplacez les ports de cluster de nœuds de l'ancien commutateur C1 vers le nouveau commutateur cs1 à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.</block>
+  <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">Sur les commutateurs cs1 et cs2, vérifiez que tous les ports de cluster de nœuds sont activés :</block>
+  <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migration à partir des commutateurs de cluster CN1610</block>
 </blocks>

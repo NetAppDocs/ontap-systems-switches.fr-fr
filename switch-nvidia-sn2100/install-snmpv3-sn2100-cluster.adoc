@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: Cette version inclut la prise en charge du protocole SNMPv3 pour la surveillance des journaux. 
 ---
-= Configurer SNMPv3 pour la collecte log switch
+= Configurer SNMPv3
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour configurer le protocole SNMPv3 qui prend en charge la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
+Suivez cette procédure pour configurer SNMPv3, qui prend en charge la surveillance de l'état du commutateur (CSHM).
 
 .Description de la tâche
 Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs NVIDIA SN2100 :
@@ -27,7 +27,7 @@ Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur
 La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
-La commande suivante établit le nom d'utilisateur SNMPv3 avec SHM :
+La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .Étapes

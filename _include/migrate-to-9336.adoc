@@ -8,8 +8,8 @@
 
 Assurez-vous que :
 
-* Certains ports des commutateurs Nexus 9336C-FX2 sont configurés pour fonctionner à 10 GbE ou 40 GbE.
-* La connectivité 10 GbE et 40 GbE des nœuds aux commutateurs de cluster Nexus 9336C-FX2 a été planifiée, migrée et documentée.
+* Certains des ports des switchs Nexus 9336C-FX2 sont configurés pour s'exécuter à 10 GbE ou 40 GbE.
+* La connectivité 10 GbE et 40 GbE entre les nœuds et les commutateurs de cluster Nexus 9336C-FX2 a été planifiée, migrée et documentée.
 * Le cluster fonctionne entièrement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
 * La personnalisation initiale des commutateurs Cisco Nexus 9336C-FX2 est terminée :
 +
@@ -550,14 +550,44 @@ Si les LIF de cluster n'ont pas été rétablies sur leur port de départ, elles
 +
 `cluster show`
 
-. Exécutez une commande ping sur les interfaces de cluster distantes pour vérifier la connectivité :
-+
+. Vérifiez la connectivité des interfaces de cluster distantes :
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2_clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
 `cluster ping-cluster -node <name>`
 
-+
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node node2*
@@ -585,8 +615,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour la collecte des fichiers journaux relatifs au commutateur.
+. [[step5]]activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux liés au commutateur.
 
 
 [role="tabbed-block"]

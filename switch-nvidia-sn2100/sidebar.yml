@@ -3,6 +3,7 @@ section: switch-nvidia-sn2100
 title: NVIDIA SN2100
 entries:
 - title: Présentation
+  pdf-filename: Présentation_sn2100
   entries:
   - title: Présentation de la configuration
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
@@ -13,6 +14,7 @@ entries:
   - title: Documentation requise
     url: "/switch-nvidia-sn2100/required-documentation-sn2100-cluster.html"
 - title: Installer le matériel de fixation
+  pdf-filename: Install_hardware_sn2100
   entries:
   - title: Poser le commutateur
     url: "/switch-nvidia-sn2100/install-hardware-sn2100-cluster.html"
@@ -23,6 +25,7 @@ entries:
   - title: Reliez les étagères NS224
     url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html"
 - title: Configurez le logiciel
+  pdf-filename: Configure_Software_sn2100
   entries:
   - title: Workflow d'installation du logiciel
     url: "/switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
@@ -37,6 +40,7 @@ entries:
   - title: Mettez à niveau la version de Cumulus Linux
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: Migration des commutateurs
+  pdf-filename: Migrate_switches_sn2100
   entries:
   - title: Migration à partir des commutateurs de cluster CN1610
     url: "/switch-nvidia-sn2100/migrate-cn1610-sn2100-cluster-switch.html"
@@ -45,6 +49,7 @@ entries:
   - title: Migrer vers un cluster à deux nœuds avec commutateur
     url: "/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html"
 - title: Remplacer les interrupteurs
+  pdf-filename: Replace_switches_sn2100
   entries:
   - title: Remplacer le commutateur du bloc d'instruments
     url: "/switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"

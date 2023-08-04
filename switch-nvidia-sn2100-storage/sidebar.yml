@@ -3,6 +3,7 @@ section: switch-nvidia-sn2100-storage
 title: NVIDIA SN2100
 entries:
 - title: Présentation
+  pdf-filename: Overview_sn2100-Storage
   entries:
   - title: Présentation de la configuration
     url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
@@ -13,6 +14,7 @@ entries:
   - title: Documentation requise
     url: "/switch-nvidia-sn2100/required-documentation-sn2100-storage.html"
 - title: Installer le matériel de fixation
+  pdf-filename: Install_hardware_sn2100-Storage
   entries:
   - title: Poser le commutateur
     url: "/switch-nvidia-sn2100/install-hardware-sn2100-storage.html"
@@ -23,6 +25,7 @@ entries:
   - title: Brancher les clayettes NS224
     url: "/switch-nvidia-sn2100/install-cable-shelves-sn2100-storage.html"
 - title: Configurez le logiciel
+  pdf-filename: Configure_Software_sn2100-Storage
   entries:
   - title: Workflow d'installation du logiciel
     url: "/switch-nvidia-sn2100/configure-software-sn2100-storage.html"
@@ -35,8 +38,10 @@ entries:
   - title: Configurer la collecte du journal du commutateur
     url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html"
 - title: Migration des commutateurs
+  pdf-filename: Migrate_switches_sn2100-Storage
   entries:
   - title: Migrer depuis les commutateurs de stockage Cisco
     url: "/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html"
 - title: Remplacer l'interrupteur
+  pdf-filename: Remplace_switch_sn2100-Storage
   url: "/switch-nvidia-sn2100/replace-sn2100-switch-storage.html"

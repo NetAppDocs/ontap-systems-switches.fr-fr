@@ -3,6 +3,7 @@ section: switch-cisco-3132q-v
 title: Cisco Nexus 3132Q-V
 entries:
 - title: Présentation
+  pdf-filename: Présentation_3132q-v
   entries:
   - title: Présentation de la configuration
     url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
@@ -13,6 +14,7 @@ entries:
   - title: Configuration requise pour le service d'appel intelligent
     url: "/switch-cisco-3132q-v/smart-call-home-3132q.html"
 - title: Installer le matériel de fixation
+  pdf-filename: Install_Hardware_3132q-v
   entries:
   - title: Remplir la fiche de câblage
     url: "/switch-cisco-3132q-v/setup_worksheet_3132q.html"
@@ -21,6 +23,7 @@ entries:
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
 - title: Configurez le logiciel
+  pdf-filename: Configure_Software_3132q-v
   entries:
   - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
@@ -29,6 +32,7 @@ entries:
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
 - title: Migration des commutateurs
+  pdf-filename: Migrate_switches_3132q-v
   entries:
   - title: Migrer depuis les commutateurs CN5596
     url: "/switch-cisco-3132q-v/migrate-from-cisco-nexus-5596-to-cisco-nexus-3232c.html"
@@ -37,6 +41,7 @@ entries:
   - title: Migrez d'un cluster sans commutateur vers un cluster commuté
     url: "/switch-cisco-3132q-v/migrate-from-switchless-cluster-to-cisco-nexus-3132q-v.html"
 - title: Remplacer les interrupteurs
+  pdf-filename: Replace_switches_3132q-v
   entries:
   - title: Exigences de remplacement
     url: "/switch-cisco-3132q-v/switch-requirements.html"

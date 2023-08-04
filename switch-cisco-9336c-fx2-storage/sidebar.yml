@@ -3,6 +3,7 @@ section: switch-cisco-9336c-fx2-storage
 title: Cisco Nexus 9336C-FX2
 entries:
 - title: Présentation
+  pdf-filename: Présentation_9336c-fx2-stockage
   entries:
   - title: Présentation de la configuration
     url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -15,6 +16,7 @@ entries:
   - title: Configuration requise pour le service d'appel intelligent
     url: "/switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html"
 - title: Installer le matériel de fixation
+  pdf-filename: Install_hardware_9336c-fx2-Storage
   entries:
   - title: Remplir la fiche de câblage
     url: "/switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html"
@@ -25,6 +27,7 @@ entries:
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
 - title: Configurez le logiciel
+  pdf-filename: Configure_Software_9336c-fx2-stockage
   entries:
   - title: Workflow d'installation du logiciel
     url: "/switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
@@ -35,10 +38,12 @@ entries:
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
 - title: Migration des commutateurs
+  pdf-filename: Migrate_switches_9336c-fx2-stockage
   entries:
   - title: Migrer depuis un ancien commutateur Cisco
     url: "/switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html"
   - title: Migrer vers un cluster à deux nœuds avec commutateur
     url: "/switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html"
 - title: Remplacer le commutateur de stockage
+  pdf-filename: Replace_switch_9336c-fx2-Storage
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

@@ -3,6 +3,7 @@ section: switch-bes-53248
 title: BES-53248 pris en charge par Broadcom
 entries:
 - title: Présentation
+  pdf-filename: Présentation_bes53248
   entries:
   - title: Présentation de la configuration
     url: "/switch-bes-53248/configure-new-switch-overview.html"
@@ -13,12 +14,14 @@ entries:
   - title: Documentation requise
     url: "/switch-bes-53248/required-documentation-bes53248.html"
 - title: Installer le matériel de fixation
+  pdf-filename: Install_Hardware_bes53248
   entries:
   - title: Poser le commutateur
     url: "/switch-bes-53248/install-hardware-bes53248.html"
   - title: Configurer le commutateur
     url: "/switch-bes-53248/configure-install-initial.html"
 - title: Configurez le logiciel
+  pdf-filename: Configure_Software_bes53248
   entries:
   - title: Workflow d'installation du logiciel
     url: "/switch-bes-53248/configure-software-overview-bes53248.html"
@@ -35,6 +38,7 @@ entries:
   - title: Activer la collecte de journaux
     url: "/switch-bes-53248/configure-log-collection.html"
 - title: Mettre à niveau les commutateurs
+  pdf-filename: Upgrade_switches_bes53248
   entries:
   - title: Présentation de la mise à niveau
     url: "/switch-bes-53248/upgrade-switch-overview.html"
@@ -43,12 +47,14 @@ entries:
   - title: Vérifiez la configuration de la mise à niveau
     url: "/switch-bes-53248/replace-verify.html"
 - title: Migration des commutateurs
+  pdf-filename: Migrate_switches_bes53248
   entries:
   - title: Migrer depuis les commutateurs CN1610
     url: "/switch-bes-53248/migrate-cn1610.html"
   - title: Migrer vers des commutateurs à deux nœuds
     url: "/switch-bes-53248/migrate-to-2n-switched.html"
 - title: Remplacer les interrupteurs
+  pdf-filename: Replace_switches_bes53248
   entries:
   - title: Exigences de remplacement
     url: "/switch-bes-53248/replace-switch-reqs.html"

@@ -353,4 +353,5 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
 ====
+. Répétez les étapes 1 à 8 pour installer le logiciel NX-OS sur le commutateur cs1.
 

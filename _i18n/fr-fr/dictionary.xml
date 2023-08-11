@@ -4501,8 +4501,6 @@
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
   <block id="e1d0dd82b8f2058c2b4c4d59c2f80125" category="paragraph">Attendez 10 minutes, puis vérifiez que la collecte du journal se termine à l'aide de la commande :</block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.</block>
-  <block id="cada8434ff5f9181d7ae07ce2a2c1336" category="list-text">Certains ports des commutateurs BES-53248 sont configurés pour s'exécuter à 10 GbE ou 40 GbE.</block>
-  <block id="9b8afb051b3fda2a9f3dcd0edcc95d79" category="list-text">La connectivité 10 GbE et 40 GbE entre les nœuds et les commutateurs de cluster BES-53248 a été planifiée, migrée et documentée.</block>
   <block id="df3b6dd54dfaeb972568b29147c67103" category="list-text">La personnalisation initiale des commutateurs BES-53248 est terminée, de sorte que :</block>
   <block id="8f7a04d5740dbba56b463f7bc775e27a" category="list-text">Les commutateurs BES-53248 exécutent la dernière version recommandée du logiciel EFOS.</block>
   <block id="2f16d56c4dbd9373c09b2be5c94c8c4a" category="list-text">NetApp CN1610 : ports 0/1 à 0/12 (10GbE)</block>
@@ -4513,24 +4511,16 @@
   <block id="10eb67b70ef8150836466766bdd3f2f8" category="list-text">Afficher les ports de cluster sur chaque nœud connecté aux commutateurs de cluster existants :</block>
   <block id="fc7a60af0bed9304a4ca478877f91450" category="list-text">Vérifiez que tous les ports du cluster sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> avec un<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> état :</block>
   <block id="0be9e89f86499b3770f2ce9bad1ba0eb" category="list-text">[[step5]]Désactiver la restauration automatique sur les LIFs du cluster.</block>
-  <block id="04b62972586827d401a3dea129d172c9" category="list-text">Sur le commutateur de cluster CL1, arrêter les ports connectés aux ports de cluster des nœuds :</block>
   <block id="d9f832c61b11e8d4b59ef0ae25ac9dd6" category="list-text">Vérifiez que les LIFs du cluster ont migré vers les ports hébergés sur le commutateur de cluster CL1. Cette opération peut prendre quelques secondes.</block>
-  <block id="eba3ff5e6602b380a875b5adacf6e6fd" category="list-text">Déplacez tous les câbles de connexion des nœuds du cluster de l'ancien commutateur CS2 vers le nouveau commutateur cs2.</block>
   <block id="8884e29d4b490f2084dae5227ca847a4" category="list-text">Vérifiez l'état de santé des connexions réseau déplacées vers cs2 :</block>
   <block id="308cecb0e156959b9d08b434ef110588" category="paragraph">Tous les ports du cluster déplacés doivent être de<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>.</block>
-  <block id="e2a6925a1c6094f573b02dac570783d1" category="list-text">Vérifiez les connexions des ports de commutateur du point de vue du commutateur cs2 à l'aide des commandes :</block>
-  <block id="ad38a12ff64b2cba000c16daea86aee6" category="list-text">Sur le commutateur de cluster CL2, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
   <block id="48281ee704bfb0f055c15fe754705f5a" category="paragraph">Toutes les LIFs du cluster sont déplacées vers le commutateur cs2.</block>
   <block id="18a308037b50cae9759f1f49af5aed58" category="list-text">Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes :</block>
   <block id="f20b906cc8acf5d97550e7a24fd7c69b" category="list-text">Déplacez les câbles de connexion du nœud de cluster de CL1 vers le nouveau commutateur cs1.</block>
   <block id="b7557e0e7f48313d82756b7481c1b1f6" category="list-text">Vérifiez l'état de santé des connexions réseau déplacées vers cs1 :</block>
-  <block id="a19beb91ec2195c2db049b5e003334f4" category="list-text">Vérifiez les connexions des ports de commutateur du point de vue du commutateur cs1 à l'aide des commandes :</block>
   <block id="ce16551695d7120d532abead22bee8c2" category="list-text">Vérifier que l'ISL entre cs1 et cs2 est toujours opérationnel :</block>
   <block id="b48ac462b57bcb2860eecd434bd2c80f" category="paragraph">Depuis ONTAP 9.8, utilisez la commande :<block ref="b4720f8aa09f4e4b3a04e78c558b6c90" prefix=" " category="inline-code"></block></block>
-  <block id="4ae8d24c72dd765a4920ac53c2dafe90" category="open-title">ONTAP 9.4 et versions antérieures</block>
-  <block id="7c0f7899f6a5609732991b637b6b77d8" category="paragraph">Pour ONTAP 9.4 et les versions antérieures, utilisez la commande :<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
   <block id="3e1fd1b016d89d236712e513bee2a170" category="list-text">Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet.</block>
-  <block id="300c1f24adf38203b39051c2816bed96" category="admonition">Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP 9.12.1 et versions ultérieures, ainsi que EFOS 3.8.0.2 et versions ultérieures.</block>
   <block id="079e7a1f80c26ff7b477dcbf014e4e70" category="list-text">Activez la fonction de collecte des journaux du moniteur d'état du commutateur Ethernet :</block>
   <block id="aae263170b5a7f23d3045f8a2b09091f" category="paragraph">Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :</block>
   <block id="c9a1a82d3af3d53e5132a5ce6181fc18" category="list-text">Certains des ports des switchs Nexus 9336C-FX2 sont configurés pour s'exécuter à 10 GbE ou 40 GbE.</block>
@@ -4606,4 +4596,20 @@
   <block id="ae6de81182adfafa064980e2532e7279" category="sidebar">Upgrade_switches_bes53248</block>
   <block id="267f0a6ee7bf547701400bdefcf3e255" category="sidebar">Migrate_switches_bes53248</block>
   <block id="368764dd3898433d38cff5ab40e268b0" category="sidebar">Replace_switches_bes53248</block>
+  <block id="b839c7212b07af22047708d290e9fc06" category="list-text">Certains ports des commutateurs BES-53248 sont configurés pour fonctionner à 10 GbE.</block>
+  <block id="c4a4e384df3331fa768c173d158b0aa5" category="list-text">La connectivité 10 GbE des nœuds aux commutateurs de cluster BES 53248 a été planifiée, migrée et documentée.</block>
+  <block id="67b660e2046176252fca76261bc42667" category="list-text">Sur le commutateur de cluster CL2, arrêter les ports connectés aux ports de cluster des nœuds :</block>
+  <block id="e6530d0201fae7d6787fd28d58724819" category="list-text">Déplacez tous les câbles de connexion du nœud de cluster de l'ancien commutateur CL2 vers le nouveau commutateur cs2.</block>
+  <block id="74473ad9515a4da22aa5f01542722c5b" category="list-text">Vérifiez que les connexions du port du commutateur sont correctes du point de vue du commutateur cs2 à l'aide des commandes :</block>
+  <block id="ca6f53e4266e008816889d83576a5877" category="list-text">Sur le commutateur de cluster CL1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
+  <block id="1dd6b9d779d28215b5d204a1be9c8b6a" category="list-text">Vérifiez que les connexions du port du commutateur sont correctes du point de vue du commutateur cs1 à l'aide des commandes :</block>
+  <block id="dae02701a0a247e1012b9b2832c32464" category="list-text">Supprimer les commutateurs CN1610 remplacés de la table des commutateurs du cluster, s'ils ne sont pas automatiquement supprimés :</block>
+  <block id="c8b9229aed88be3704b6c26029b7ae94" category="paragraph">Pour ONTAP 9.7 et les versions antérieures, utilisez la commande :<block ref="f055904a9fc3a4f0bc33aca13ecd2b2d" prefix=" " category="inline-code"></block></block>
+  <block id="b8590eb7d6b7365e1a0bee47b03d5b4f" category="admonition">Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP 9.10.1P15, 9.11.1P12 ou 9.12.1 et versions ultérieures et EFOS 3.8.0.2 et versions ultérieures.</block>
+  <block id="e88b6a67743cc664a0a237ba8d94eefc" category="sidebar">switch-cisco-9336c-fx2-cluster</block>
+  <block id="517242a1c337699950aef05a38af45a0" category="sidebar">switch-nvidia-sn2100-cluster</block>
+  <block id="3ed3b1cc0917edd8fddcdd478bb581fb" category="sidebar">switch-cisco-9336c-fx2-stockage</block>
+  <block id="701d9aab459b808d17f39aa5c50f97df" category="sidebar">switch-nvidia-sn2100-storage</block>
+  <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">cisco-9336c-fx2-partagé</block>
+  <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">cisco-9336c-fx2-cluster</block>
 </blocks>

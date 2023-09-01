@@ -1,7 +1,7 @@
 ---
 permalink: switch-bes-53248/configure-install-rcf.html 
 sidebar: sidebar 
-keywords: install rcf,setup rcf 
+keywords: install rcf,setup rcf,rcf file 
 summary: 'Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.' 
 ---
 = Installer le fichier RCF (Reference Configuration File)
@@ -591,6 +591,13 @@ Are you sure you would like to reset the system? (y/n) *y*
 System will now restart!
 ----
 ====
+. Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds.
++
+[listing, subs="+quotes"]
+----
+(cs2)(Config)# *interface 0/1-0/16*
+(cs2)(Interface 0/1-0/16)# *no shutdown*
+----
 . Vérifiez les ports du commutateur cs2 : `show interfaces status all | exclude Detach`
 +
 .Montrer l'exemple

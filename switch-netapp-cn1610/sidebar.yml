@@ -25,12 +25,8 @@ entries:
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_cn1610
   entries:
-  - title: Options de migration
-    url: "/switch-netapp-cn1610/migrate-overview.html"
-  - title: Migrer depuis un cluster sans commutateur
+  - title: Migrez d'un cluster sans commutateur vers un cluster commuté
     url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
-  - title: Migrer vers un cluster à deux nœuds avec commutateur
-    url: "/switch-netapp-cn1610/migrate-fas22xx-systems.html"
 - title: Remplacer les interrupteurs
   pdf-filename: Replace_switches_cn1610
   entries:

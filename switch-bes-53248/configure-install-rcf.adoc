@@ -756,7 +756,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step17]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
+. [[step18]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
 +
 L'exemple suivant utilise la sortie d'interface :
 

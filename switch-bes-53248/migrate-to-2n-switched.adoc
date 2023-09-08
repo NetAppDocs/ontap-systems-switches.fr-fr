@@ -272,25 +272,12 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
 ----
 ====
-. Vérifiez-le `auto-revert` Est activé sur toutes les LIFs du cluster : `network interface show -vserver Cluster -fields auto-revert`
+. Désactivez la fonction de restauration automatique sur les LIF du cluster.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
-
-          Logical
-Vserver   Interface     Auto-revert
---------- ------------- ------------
-Cluster
-          node1_clus1   true
-          node1_clus2   true
-          node2_clus1   true
-          node2_clus2   true
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-====
 . Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 +
 Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contient plus d'informations sur le câblage.
@@ -410,6 +397,22 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 === Étape 3 : vérifier la configuration
+
+. Activez la fonction de revert automatique sur les LIFs du cluster.
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
+----
+. Vérifier que les LIFs du cluster sont rétablies sur leurs ports de base (cette opération peut prendre une minute) :
++
+`network interface show -vserver Cluster`
+
++
+Si les LIF de cluster n'ont pas été rétablies sur leur port de départ, elles peuvent être revert manuellement :
+
++
+`network interface revert -vserver Cluster -lif *`
 
 . Vérifiez que toutes les interfaces s'affichent `true` pour `Is Home`:
 +

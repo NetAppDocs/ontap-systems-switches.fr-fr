@@ -1780,7 +1780,6 @@
   <block id="24a0cf33327e4a62375221300ce4db6c" category="paragraph">L'exemple suivant montre que les ports 1 à 16 orientés nœud sont désactivés sur le commutateur cs1 :</block>
   <block id="a65f9ba8402630e3a7bb85bd68d24320" category="list-text">Afficher la liste des périphériques voisins :</block>
   <block id="341290705782dd24b9948684702337d7" category="list-text">Vérifier que tous les ports de cluster sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
-  <block id="09b4c6d12807ef628dddcedb95f59fba" category="list-text">Vérifiez-le<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> Est activé sur toutes les LIFs du cluster :<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
   <block id="49de00b8e8c6586fcca9fad09c76b9ed" category="list-text">Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.</block>
   <block id="b2ca5d9b00c09954ba621c25b7a4bdbf" category="paragraph">Le<block ref="141c10db18cf1753fa5fc05f553c33ff" category="inline-link-rx"></block> contient plus d'informations sur le câblage.</block>
   <block id="4117e035e1d5632e3f6a3311cd104041" category="list-text">Débranchez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.</block>
@@ -4050,8 +4049,6 @@
   <block id="9f1444ca3aac0720c37a8103593b319f" category="sidebar">Installation et configuration</block>
   <block id="354a428ae5bd694cfeccb15e5faecafb" category="sidebar">Installer une FCR</block>
   <block id="c13171629fe31c1238a32f1e3650b982" category="sidebar">Installez FASTPATH et RCF pour ONTAP 8.3.1 ou version ultérieure</block>
-  <block id="c728d9401bdb127c12220b6c83da42da" category="sidebar">Options de migration</block>
-  <block id="dddf7ccc3477ae39c351d20ccb2691ab" category="sidebar">Migrer depuis un cluster sans commutateur</block>
   <block id="a8bb0b5314965a8ac1d110202d7aae1f" category="sidebar">Installez NX-OS</block>
   <block id="72f2a813dae956304645ec60ccd278dd" category="sidebar">Installer CSHM</block>
   <block id="9c065304d8a82e97da8536d4c7484ee2" category="sidebar">Migrer depuis un switch Cisco plus ancien</block>
@@ -4355,7 +4352,6 @@
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">Sur le switch, vérifiez que les ports sous licence supplémentaires s'affichent après l'application du RCF :</block>
   <block id="2a886bfc4f98f8b2263d47853859d640" category="list-text">Vérifiez les ports du commutateur cs2 :<block ref="3ecfeafb159bbded4fdecd6f5a860f4a" prefix=" " category="inline-code"></block></block>
   <block id="818dbe7dc43a870c6906959f7d426ba7" category="list-text">Vérifier que les ports e0b sont actifs et fonctionnent correctement sur tous les nœuds du cluster :<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
-  <block id="7780adb3deb169c3e834888c0fec0145" category="list-text">[[step17]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
   <block id="7fc0653470d537d0d0fc3997f25d581b" category="list-text">Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.<block ref="fb5130635551fff679ab6d902eaff8d9" prefix=" " category="inline-code"></block></block>
   <block id="b0553791d0540be1d52514a1a47621f6" category="list-text">Répétez les étapes 4 à 14 sur le commutateur cs1.</block>
   <block id="9cb99e0cdd58aac4297608fa8d8ef89b" category="list-text">Activer la fonction de revert automatique sur les LIFs du cluster :<block ref="478474aa0db28144d5db02c478cd5215" prefix=" " category="inline-code"></block></block>
@@ -4613,4 +4609,5 @@
   <block id="a5f4f9ed92853ea6128046eb985ff5a7" category="sidebar">cisco-9336c-fx2-partagé</block>
   <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">cisco-9336c-fx2-cluster</block>
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds.</block>
+  <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
 </blocks>

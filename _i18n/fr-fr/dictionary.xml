@@ -4610,4 +4610,6 @@
   <block id="759d203c3eb13a684379c7413a7ea760" category="sidebar">cisco-9336c-fx2-cluster</block>
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds.</block>
   <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
+  <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Les ports 10GbE d'un commutateur de cluster Cisco 3132Q ne sont pas mis en ligne</block>
+  <block id="20f0f9c709341c54050214259fc6c790" category="admonition">Pour savoir comment mettre en ligne les ports 10 GbE après une mise à niveau du RCF, consultez l'article de la base de connaissance<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
 </blocks>

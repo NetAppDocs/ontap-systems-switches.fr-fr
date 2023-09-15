@@ -21,7 +21,6 @@ Suivre cette procédure pour installer la FCR après avoir configuré pour la pr
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * Le fichier FCR (Reference Configuration File) actuel.
-* Une configuration de démarrage dans la FCR reflétant les images de démarrage souhaitées, requise si vous installez uniquement NX-OS et que vous conservant votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
 * Connexion de la console au commutateur, requise lors de l'installation du FCR.
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateur Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Notez que la syntaxe de la commande peut être utilisée dans la FCR et dans les versions de NX-OS.
 * https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]. Consultez les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.
@@ -383,6 +382,10 @@ Lorsque vous vérifiez que la sortie est correcte, vérifiez que les information
 ** Personnalisations
 +
 Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+
++
+
+NOTE: Pour savoir comment mettre en ligne les ports 10 GbE après une mise à niveau du RCF, consultez l'article de la base de connaissance https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Les ports 10GbE d'un commutateur de cluster Cisco 3132Q ne sont pas mis en ligne"^].
 
 
 

@@ -10,7 +10,6 @@
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * Fichier RCF actuel.
-* Une configuration de démarrage dans la FCR reflétant les images de démarrage souhaitées, requise si vous installez uniquement NX-OS et que vous conservant votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
 * Connexion de la console au commutateur, requise lors de l'installation du FCR.
 
 

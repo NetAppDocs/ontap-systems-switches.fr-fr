@@ -929,7 +929,6 @@
   <block id="479ed584b396173b350354bf716fddb2" category="list-text">Afficher la connectivité des ports du cluster sur chaque nœud :</block>
   <block id="6027156bd87e2981e7959642af7929d9" category="paragraph"><block ref="633709925611b54d23e52bde1cb56811" prefix="" category="inline-code"></block></block>
   <block id="07045e09dc5220012b124c8d76ed9e95" category="paragraph">L'exemple suivant montre la connectivité des ports du cluster, affichée dans le cas d'une configuration en cluster sans commutateur à deux nœuds :</block>
-  <block id="addd737ab6a0a43417b329262c42d3d2" category="paragraph"><block ref="5972024d6ed12d7726edeb1a8d467c28" prefix="" category="inline-code"></block></block>
   <block id="d72fef4ab8d9db529856e27c2fa2cd10" category="paragraph">Vous devez exécuter la commande pour chaque nœud local comme indiqué dans l'exemple suivant :</block>
   <block id="caa91255e9217c5daf23b979a945b884" category="paragraph">L'exemple suivant montre l'état « est à l'origine » pour les LIF n1_clum1 et n2_clum1 est devenu « faux » une fois la migration terminée :</block>
   <block id="0f717d9f0cdccd54283a68290db5a062" category="list-text">Fermez les ports du cluster pour les LIF n1_clum1 et n2_clum1, qui ont été migrées à l'étape 9 :</block>
@@ -1056,7 +1055,6 @@
   <block id="75f25895ca6e2ae979bdd258523b64d8" category="paragraph">Consultez la page de téléchargement __ONTAP 8.x ou version ultérieure Cluster and Management Network Switch Reference Files___, puis cliquez sur la version appropriée.</block>
   <block id="3765c5d59205afeccadd8e5bd55e38e9" category="paragraph">Pour trouver la version correcte, reportez-vous à la page de téléchargement du commutateur de réseau en cluster _ONTAP 8.x ou version ultérieure_.</block>
   <block id="dd3fa644952a65f1f6502b594da8056e" category="list-text">Migrer les LIF associées au second switch Nexus 5596 à remplacer :</block>
-  <block id="94969cbe0be7342cddbd9e412401c429" category="paragraph"><block ref="8e0128bc25b5dc5f9c047028168bbade" prefix="" category="inline-code"></block></block>
   <block id="23cd51d657266665ae8f8c9d2a2ae14f" category="paragraph">L'exemple suivant montre les LIF en cours de migration pour les nœuds n1 et n2 ; la migration LIF doit être effectuée sur tous les nœuds :</block>
   <block id="4dcbeb6667fd808ff27ae4150e7a8909" category="list-text">Vérifiez l'état du cluster :</block>
   <block id="fb0f753ded9498a080196f8272f79423" category="paragraph">L'exemple suivant montre le statut actuel de chaque cluster :</block>
@@ -1086,7 +1084,6 @@
   <block id="14860c40af5b70801e3ca603e17cb1ae" category="paragraph">L'exemple suivant montre le résultat de la précédente<block ref="c41d3983ecd2badd54b3bb9658675080" prefix=" " category="inline-code"></block> commande, vérification de la place de toutes les interconnexions du cluster<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
   <block id="35f01ed40b6310feec062211ce126c2d" category="paragraph"><block ref="67b370e4ed014395d701d60f8f886608" prefix="" category="inline-code"></block></block>
   <block id="f4df801f902ead90a2bade04e26cac42" category="list-text">Sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur Nexus 5596, CL1, à remplacer :</block>
-  <block id="4bb0a806c923415aa07fe9a1803d503f" category="paragraph"><block ref="78bb613cf8602a02eec8ff34d73bdf7a" prefix="" category="inline-code"></block></block>
   <block id="129a1c42491e08989734008419845f67" category="paragraph">L'exemple suivant montre les ports ou LIFs en cours de migration sur les nœuds n1 et n2 :</block>
   <block id="2f7e0ef82095fa5dae5874a5e402a389" category="list-text">Vérifiez le statut du cluster :</block>
   <block id="73610b963ec877545620c671a3e11854" category="paragraph">L'exemple suivant montre que les LIFs de cluster requises ont été migrées vers les ports de cluster appropriés hébergés sur le commutateur de cluster, C2 :</block>
@@ -1171,7 +1168,6 @@
   <block id="67dbd130b7f97be2f3adeeb97692aa5d" category="list-text">Voir la <block ref="03c4e3201f2c647c804c56964354a408" category="inline-link-macro-rx"></block> Sur le site de support NetApp.</block>
   <block id="3d8dff955662cfeaf1bbd38f49a7762a" category="inline-link-macro">Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management</block>
   <block id="ef84127d5ef060917ce0f8f8ec03bf82" category="list-text">Téléchargez la version appropriée du logiciel d'image à l'adresse <block ref="a1b5971027192ba8f103906f3e0c5af3" category="inline-link-macro-rx"></block>.</block>
-  <block id="593eea095fb5f0ea1367821afa7c0fe4" category="list-text">Migrer les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :<block ref="1b5c9a5a1fdd67b400dde19fe14f73dc" prefix=" " category="inline-code"></block></block>
   <block id="98eb99fcc0ed94997a2ab2be00fd87f8" category="paragraph">Vous devez migrer chaque LIF individuellement comme indiqué dans l'exemple suivant :</block>
   <block id="58e4c812934a7909bf27428e713ee5c1" category="paragraph">L'exemple suivant montre les quatre ports d'interconnexion de cluster en cours d'arrêt pour le nœud n1 et le nœud n2 :</block>
   <block id="1951e47d1525c6b1dfbe9f52df91cc7f" category="list-text">Exécutez une commande ping sur les interfaces de cluster distantes, puis effectuez une procédure à distance pour vérifier le serveur d'appel :</block>
@@ -1240,7 +1236,6 @@
   <block id="61bcf7a5eda4d122b02fd04b33e7755b" category="list-text">Téléchargez la version correcte du logiciel d'image à partir de la page de téléchargement* du fichier de référence du commutateur de réseau de gestion et de cluster Cisco®.</block>
   <block id="32314c4d0766541b8603617d61e16414" category="paragraph"><block ref="32314c4d0766541b8603617d61e16414" category="inline-link-rx"></block></block>
   <block id="3f193f35123de159859633b1b5db0152" category="list-text">Migrer les LIFs du cluster sur les ports du nœud physique connectés au commutateur de remplacement C2 :</block>
-  <block id="2735b3724e74edb6ccb4db8e28ba50da" category="paragraph"><block ref="93afd82621bbfc8165836252ea311809" prefix="" category="inline-code"></block></block>
   <block id="f81bd0da785b861ef3aa6aff482966d7" category="paragraph">Vous devez migrer toutes les LIFs du cluster individuellement, comme illustré ci-dessous :</block>
   <block id="ec6c6d07f8637f08eb764567ffc9140b" category="list-text">Vérifiez l'état des ports du cluster et leurs désignations comme origine :</block>
   <block id="fc73abe1b93232499d5b58811b19d5bd" category="paragraph">L'exemple suivant montre que les ports d'interconnexion de cluster sont arrêtés sur tous les nœuds :</block>
@@ -1286,7 +1281,6 @@
   <block id="05287537d898f5a1b2d701a759380d28" category="list-text">Appliquer la même FCR et sauvegarder la configuration en cours d'exécution pendant une seconde fois.</block>
   <block id="dd731ffd2ea93d5d4f7a6ec37ae136dc" category="list-text">Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
   <block id="4b45f9c3c89c6b4fd380706244fef39d" category="paragraph">Vous pouvez observer la sortie suivante sur la console des commutateurs cs1 en fonction de la version RCF précédemment chargée sur le commutateur</block>
-  <block id="01d6ab89c082cff9a22a80f6236ceceb" category="list-text">Redémarrez le commutateur cs1.vous pouvez alors déclencher les LIFs du cluster pour qu'elles rereviennent à leurs ports de base. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.</block>
   <block id="de5961cc4ba4008f669b392dba74a8da" category="list-text">Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block></block>
   <block id="0ecc223c2f66f6abde60759dd3185d04" category="list-text">Exécutez une commande ping sur les interfaces de cluster distantes pour vérifier la connectivité :<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
   <block id="c65be06145c6932d272087d8bd0dc751" category="list-text">Nexus 5596</block>
@@ -4612,4 +4606,15 @@
   <block id="325c324b922ed6e1b216f99766068e43" category="list-text">[[step18]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Les ports 10GbE d'un commutateur de cluster Cisco 3132Q ne sont pas mis en ligne</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">Pour savoir comment mettre en ligne les ports 10 GbE après une mise à niveau du RCF, consultez l'article de la base de connaissance<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
+  <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">Répétez les étapes 7 à 15 sur le commutateur cs1.</block>
+  <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
+  <block id="e459e50e2d5bebb928139aa0e4ce09ac" category="list-text">Vérifiez l'état de santé des ports du nœud de stockage :</block>
+  <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
+  <block id="cc689ef0feeba424bc4f0e37875d33b3" category="paragraph"><block ref="364a6d106eff03491354bfdab6856a69" prefix="" category="inline-code"></block></block>
+  <block id="a2d242366fa878251941b37993d9c788" category="list-text">Migrer les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :</block>
+  <block id="bac3eff3de1438929f64e35c9c1d753e" category="paragraph"><block ref="44d01163c6b63fd73868a8216bae200c" prefix="" category="inline-code"></block></block>
+  <block id="bc83504dbf5dda25d37f158b52b6802c" category="paragraph"><block ref="1ae08a2455b8010c97a491c02e58e474" prefix="" category="inline-code"></block></block>
+  <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">Les ports eth1/31 et eth1/32 doivent indiquer (P), ce qui signifie que les deux ports ISL sont présents dans le port-Channel.</block>
+  <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
+  <block id="2744015fafc5955101dabee4165aca61" category="admonition">Seuls les switchs validés par NetApp (commandés auprès de NetApp) sont pris en charge.</block>
 </blocks>

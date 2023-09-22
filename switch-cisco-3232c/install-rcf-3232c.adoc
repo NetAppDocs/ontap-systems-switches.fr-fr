@@ -55,9 +55,9 @@ Veiller à terminer la procédure dans link:prepare-install-cisco-nexus-3232c.ht
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show
+cluster1::*> *network device-discovery show*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------  --------
@@ -86,9 +86,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -role cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -134,9 +134,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -161,9 +161,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> system cluster-switch show -is-monitoring-enabled-operational true
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
 cs1                         cluster-network    10.233.205.92    NX3232C
@@ -192,9 +192,9 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert false
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
 ====
 . Sur le commutateur de cluster cs2, arrêtez les ports connectés aux ports de cluster des nœuds.
@@ -202,10 +202,10 @@ cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert fals
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2(config)# interface eth1/1/1-2,eth1/7-8
-cs2(config-if-range)# shutdown
+cs2(config)# *interface eth1/1/1-2,eth1/7-8*
+cs2(config-if-range)# *shutdown*
 ----
 ====
 . Vérifiez que les ports de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
@@ -216,9 +216,9 @@ cs2(config-if-range)# shutdown
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -243,9 +243,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------  -------
 cluster1-01          true    true          false
@@ -302,11 +302,11 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 Cet exemple montre que TFTP est utilisé pour copier une FCR dans le bootflash sur le commutateur cs2 :
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy tftp: bootflash: vrf management
-Enter source filename: Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt
-Enter hostname for the tftp server: 172.22.201.50
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
@@ -322,9 +322,9 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous au guide appropr
 ====
 Cet exemple montre le fichier RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs2 :
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
 ====
 . Examinez le résultat de la bannière du `show banner motd` commande. Vous devez lire et suivre les instructions sous *remarques importantes* pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
@@ -407,10 +407,10 @@ cs2# copy running-config startup-config [#######################################
 ----
 . Redémarrer le commutateur cs2. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# reload
-This command will reboot the system. (y/n)?  [n] y
+cs2# *reload*
+This command will reboot the system. (y/n)?  [n] *y*
 ----
 . Appliquer la même FCR et sauvegarder la configuration en cours d'exécution pendant une seconde fois.
 +
@@ -433,9 +433,9 @@ cs2# copy running-config startup-config [#######################################
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network port show -role cluster
+cluster1::*> *network port show -role cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -476,9 +476,9 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network device-discovery show -protocol cdp
+cluster1::*> *network device-discovery show -protocol cdp*
 Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
 ----------- ------ ------------------------- ----------------- --------
@@ -541,10 +541,10 @@ NOTE: Les nœuds de cluster peuvent prendre jusqu'à 5 minutes pour qu'ils fonct
 ====
 L'exemple suivant utilise la sortie d'exemple d'interface de l'étape 1 :
 
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1(config)# interface eth1/1/1-2,eth1/7-8
-cs1(config-if-range)# shutdown
+cs1(config)# *interface eth1/1/1-2,eth1/7-8*
+cs1(config-if-range)# *shutdown*
 ----
 ====
 . Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.
@@ -555,9 +555,9 @@ cs1(config-if-range)# shutdown
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface show -role cluster
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -582,9 +582,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health   Eligibility   Epsilon
 -------------------- -------- ------------- -------
 cluster1-01          true     true          false
@@ -595,32 +595,23 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Répétez les étapes 7 à 14 sur le commutateur cs1.
+. Répétez les étapes 7 à 15 sur le commutateur cs1.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> network interface modify -vserver Cluster -lif \* -auto-revert True
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Redémarrez le commutateur cs1.vous pouvez alors déclencher les LIFs du cluster pour qu'elles rereviennent à leurs ports de base. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing]
-----
-cs1# reload
-This command will reboot the system. (y/n)?  [n] y
-----
-====
+
+
 . Vérifier que les ports de commutateurs connectés aux ports du cluster sont bien connectés.
 +
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# show interface brief \| grep up
+cs1# *show interface brief | grep up*
 .
 .
 Eth1/1/1      1       eth  access up      none                    10G(D) --
@@ -639,9 +630,9 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs1# show port-channel summary
+cs1# *show port-channel summary*
 Flags:  D - Down        P - Up in port-channel (members)
         I - Individual  H - Hot-standby (LACP only)
         s - Suspended   r - Module-removed
@@ -666,9 +657,9 @@ cs1#
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> **network interface show -role cluster**
+cluster1::*> *network interface show -role cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----
@@ -685,6 +676,10 @@ Cluster
 cluster1::*>
 ----
 ====
++
+Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :
+`network interface revert -vserver _vserver_name_ -lif _lif_name_`
+
 . Vérifiez que le cluster fonctionne correctement :
 +
 `cluster show`
@@ -693,9 +688,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster show
+cluster1::*> *cluster show*
 Node                 Health  Eligibility   Epsilon
 -------------------- ------- ------------- -------
 cluster1-01          true    true          false
@@ -714,9 +709,9 @@ cluster1::*>
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node local
+cluster1::*> *cluster ping-cluster -node local*
 Host is cluster1-03
 Getting addresses from network interface table...
 Cluster cluster1-03_clus1 169.254.1.3 cluster1-03 e0a

@@ -38,13 +38,6 @@ entries:
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-rcf-9336c-storage.html"
-- title: Migration des commutateurs
-  pdf-filename: Migrate_switches_9336c-fx2-stockage
-  entries:
-  - title: Migrer depuis un ancien commutateur Cisco
-    url: "/switch-cisco-9336c-fx2-storage/migrate-to-9336-storage.html"
-  - title: Migrer vers un cluster à deux nœuds avec commutateur
-    url: "/switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html"
 - title: Remplacer le commutateur de stockage
   pdf-filename: Replace_switch_9336c-fx2-Storage
   url: "/switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"

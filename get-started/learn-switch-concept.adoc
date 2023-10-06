@@ -16,7 +16,7 @@ NetApp propose des clusters, des systèmes de stockage et des commutateurs parta
 Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tandis que les commutateurs de cluster « back-end » assurent des connexions entre deux ou plusieurs contrôleurs NetApp.
 
 
-NOTE: Seuls les switchs validés par NetApp (commandés auprès de NetApp) sont pris en charge.
+NOTE: Seuls les switchs back-end validés par NetApp (commandés auprès de NetApp) sont pris en charge.
 
 
 

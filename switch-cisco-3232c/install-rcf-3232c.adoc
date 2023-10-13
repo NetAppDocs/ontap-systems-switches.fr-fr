@@ -260,7 +260,7 @@ cluster1::*>
 +
 `show running-config`
 
-. Nettoyez la configuration du commutateur cs2 et effectuez une configuration de base.
+. Nettoyez la configuration du commutateur cs2 et redémarrez le commutateur.
 +
 
 CAUTION: Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au port série console du commutateur pour pouvoir le configurer à nouveau.
@@ -280,7 +280,7 @@ Warning: This command will erase the startup-configuration.
 Do you wish to proceed anyway? (y/n)  [n]  *y*
 ----
 ====
-.. Redémarrer le commutateur :
+.. Redémarrez le commutateur :
 +
 .Montrer l'exemple
 [%collapsible]
@@ -295,6 +295,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 
 
+. Effectuer une configuration de base du contacteur. Voir link:setup-switch.html["Configuration du switch de cluster 3232C"] pour plus d'informations.
 . Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 +
 .Montrer l'exemple
@@ -602,8 +603,6 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-
-
 . Vérifier que les ports de commutateurs connectés aux ports du cluster sont bien connectés.
 +
 .Montrer l'exemple

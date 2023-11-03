@@ -23,6 +23,9 @@ Assurez-vous que :
 
 
 
+NOTE: Si vous modifiez la vitesse de port des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800, vous pouvez observer que des paquets mal formés sont reçus après la conversion de vitesse. Voir  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bogue n° 1570339"^] Et l'article de la base de connaissances https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Erreurs CRC sur les ports T6 après la conversion de 40 GbE à 100 GbE"^] pour obtenir des conseils.
+
+
 
 == Migrer les commutateurs
 

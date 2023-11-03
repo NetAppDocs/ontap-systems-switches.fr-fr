@@ -4636,4 +4636,8 @@
   <block id="669c1a3fa77bc8a049e5cd4a16e5cff8" category="paragraph">Vérifiez que vous avez configuré votre environnement à l'aide du commutateur de cluster 9336C-FX2 *CLI*.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :</block>
   <block id="1f40996ca4617ab17127143171aa4ea4" category="sidebar">Installez le fichier de configuration SHM</block>
+  <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">Bogue n° 1570339</block>
+  <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">Erreurs CRC sur les ports T6 après la conversion de 40 GbE à 100 GbE</block>
+  <block id="835174c5c468acf2b423cff0eb23994f" category="admonition">Si vous modifiez la vitesse de port des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800, vous pouvez observer que des paquets mal formés sont reçus après la conversion de vitesse. Voir <block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> Et l'article de la base de connaissances<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> pour obtenir des conseils.</block>
+  <block id="5958c0f6bda471fafb31ea3acb4b20da" category="admonition">Si vous modifiez la vitesse de port des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800, vous pouvez observer que des paquets mal formés sont reçus après la conversion de vitesse. Voir<block ref="f867b947e44d8d6bccd25f3219f3d6d9" category="inline-link-rx"></block> Et l'article de la base de connaissances<block ref="2a93cc61bbc3892324bc1b6369d71212" category="inline-link-rx"></block> pour obtenir des conseils.</block>
 </blocks>

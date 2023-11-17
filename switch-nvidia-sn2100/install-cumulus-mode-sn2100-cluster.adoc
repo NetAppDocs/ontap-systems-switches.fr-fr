@@ -263,8 +263,8 @@ CAUTION: N'utilisez pas de trait de soulignement (_), d'apostrophe (') ou de car
 cumulus@cumulus:mgmt:~$ *nv set system hostname sw1*
 cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip address 10.233.204.71/24*
 cumulus@cumulus:mgmt:~$ *nv set interface eth0 ip gateway 10.233.204.1*
-cumulus@cumulus:mgmt:~$ *nv pending*
-cumulus@cumulus:mgmt:~$ *nv commit*
+cumulus@cumulus:mgmt:~$ *nv config apply*
+cumulus@cumulus:mgmt:~$ *nv config save*
 ----
 +
 Cette commande modifie les deux `/etc/hostname` et `/etc/hosts` fichiers.

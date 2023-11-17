@@ -74,6 +74,10 @@ cumulus@cumulus:mgmt: */tmp$ scp _<user>@<host:/<path>_/MSN2100-RCF-v1.x-Cluster
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP         100% 8607   111.2KB/s         00:00
 ----
++
+
+NOTE: Pendant `scp` est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers.
+
 . Appliquez le script FCR python *MSN2100-FCR-v1.x-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
@@ -291,6 +295,10 @@ cumulus@cumulus:mgmt: */tmp$ scp _<user>@<host:/<path>_/MSN2100-RCF-v1.x-Cluster
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s         00:00
 ----
++
+
+NOTE: Pendant `scp` est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers.
+
 . Appliquez le script FCR python *MSN2100-FCR-v1.x-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]

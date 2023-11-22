@@ -4644,4 +4644,28 @@
   <block id="fdb970c02e151be8ab0a83ca880cb56a" category="inline-link">Comment s'inscrire auprès de NVIDIA pour accéder au portail de support de l'entreprise</block>
   <block id="e524be73a3787217a070c244dbdccb8e" category="paragraph">Pour télécharger le logiciel SN2100 Cumulus de NVIDIA, vous devez disposer d'informations de connexion pour accéder au portail de support d'entreprise de NVIDIA. Consultez l'article de la base de connaissances<block ref="d8e3d3a02615584c2a7ac4c59cc440b8" category="inline-link-rx"></block>.
 Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block ref="f6aa36fb7711a9179cbd2c4c52b8d6ef" category="inline-link-rx"></block> page d'informations.</block>
+  <block id="db3af2b70c973de4437c254b7d216816" category="paragraph-title">Configurations RCF disponibles</block>
+  <block id="befc06ea45891beb4f36157b08754476" category="paragraph">Le tableau suivant décrit les CFR disponibles pour différentes configurations. Choisissez la FCR applicable à votre configuration.</block>
+  <block id="422d547a919ce56042b89a80c5d53dc8" category="paragraph">Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et remarques importantes de votre FCR.</block>
+  <block id="59c42d9289518207f0e6b1663d576298" category="cell">Nom de la FCR</block>
+  <block id="737cac36105716296fdb972979a60c19" category="paragraph">2-Cluster-HA-Breakout</block>
+  <block id="fbad7a3e9d1c3be9344866d5d8095541" category="paragraph">Prend en charge deux clusters ONTAP avec au moins huit nœuds, y compris les nœuds qui utilisent des ports Cluster+HA partagés.</block>
+  <block id="db759bcb99e3ec070d51357815ec0db6" category="paragraph">4-Cluster-HA-Breakout</block>
+  <block id="df501bed190c2e9d513b2f1fb0598e17" category="paragraph">Prend en charge quatre clusters ONTAP avec au moins quatre nœuds, y compris les nœuds qui utilisent des ports Cluster+HA partagés.</block>
+  <block id="15dc418f7827e448caec965c8d6899ee" category="paragraph">1-Cluster-HA</block>
+  <block id="382d5fb25026bcec237a7db7751b765b" category="paragraph">Tous les ports sont configurés pour le 40 GbE. Prend en charge le trafic partagé cluster/haute disponibilité sur les ports. Requis pour les systèmes AFF A320, AFF A250 et FAS500f. En outre, tous les ports peuvent être utilisés en tant que ports dédiés du cluster.</block>
+  <block id="c940238f4423743995b99e3d47cec744" category="paragraph">1-Cluster-HA-Breakout</block>
+  <block id="65ca7d1055bbc5c2afaa8f8db0fbaae3" category="paragraph">Les ports sont configurés pour 4 ports de dérivation 10 GbE, 4 ports de dérivation 25 GbE (FCR 1.6+ sur les switchs 40 GbE) et 4/100 GbE. Prise en charge du trafic partagé cluster/haute disponibilité sur les ports pour les nœuds qui utilisent des ports partagés cluster/haute disponibilité : systèmes AFF A320, AFF A250 et FAS500f. En outre, tous les ports peuvent être utilisés en tant que ports dédiés du cluster.</block>
+  <block id="ef6ec6c3227d99b527b0f12e8d83330e" category="paragraph">Cluster-haute-disponibilité-stockage</block>
+  <block id="4538da9d5a0e6ade8902da0c6cb04eaf" category="paragraph">Les ports sont configurés pour le 40 GbE pour Cluster+HA, l'écorché 4 x 10 GbE pour Cluster et l'écorché 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.</block>
+  <block id="249694a485fc5d3289c38986b4f8e887" category="paragraph">Cluster</block>
+  <block id="b9e95d5844128e0ae9ee0ab6e4e048ec" category="paragraph">Deux versions de FCR avec différentes allocations de ports 4 x 10 GbE (répartition) et ports 40 GbE. Tous les nœuds FAS/AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f.</block>
+  <block id="8c4aa541ee911e8d80451ef8cc304806" category="paragraph">Stockage</block>
+  <block id="f75b5ab79be24a496ce9f3eb45e23937" category="paragraph">Tous les ports sont configurés pour les connexions de stockage NVMe 100 GbE.</block>
+  <block id="7abab77cb8cac2636cdea1300fe00dc4" category="paragraph">Pour plus de détails sur les configurations de FCR disponibles, reportez-vous à la section <block ref="eec33f028810711693e15987e41f3b2a" category="inline-link-macro-rx"></block>.</block>
+  <block id="44ff10d140597f1cb51bd7445d226660" category="paragraph"><block ref="9bacb249b0368cefba275373cd07ba98" prefix="" category="inline-code"></block></block>
+  <block id="332a7a8d77748a421e7945cefc8ccf89" category="list-text">Vérifier que les nœuds attendus sont toujours connectés :</block>
+  <block id="2672a0c9ba5986c403c26e013c160859" category="list-text">Vérifiez que les nœuds de cluster se trouvent dans leurs VLAN de cluster corrects à l'aide des commandes suivantes :</block>
+  <block id="89706bbdab62cd83048f38305d846f95" category="paragraph"><block ref="7d4adecb4116bbfb7ed1130103f872a7" prefix="" category="inline-code"></block></block>
+  <block id="12bc122b0d9a4c902fdf52bfcc13ddc2" category="paragraph"><block ref="c01eca2c804c6a35b8aa8d87eceefe5d" prefix="" category="inline-code"></block></block>
 </blocks>

@@ -11,7 +11,9 @@ summary: Vous pouvez installer la FCR après la première configuration du switc
 
 
 [role="lead"]
-Suivez cette procédure pour installer la FCR après la configuration du switch Nexus 3232C pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+Suivez cette procédure pour installer la FCR après la configuration du switch Nexus 3232C pour la première fois.
+
+Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] Pour plus d'informations lors de la mise à niveau de votre FCR.
 
 
 

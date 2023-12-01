@@ -13,7 +13,7 @@ summary: 'La mise à niveau des commutateurs de cluster BES-53248 commence par l
 [role="lead"]
 Procédez comme suit pour mettre à niveau le commutateur de cluster BES-53248.
 
-Cette procédure s'applique à un cluster qui fonctionne et permet d'effectuer une mise à niveau sans interruption et un environnement assurant la continuité de l'activité.
+Cette procédure s'applique à un cluster qui fonctionne et permet d'effectuer une mise à niveau sans interruption et un environnement assurant la continuité de l'activité. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/ontap/hardware/How_to_prepare_ONTAP_for_a_cluster_switch_upgrade["Comment préparer ONTAP pour la mise à niveau d'un commutateur de cluster"^].
 
 
 

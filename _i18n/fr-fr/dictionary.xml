@@ -1490,7 +1490,6 @@
   <block id="05a9e5b7c0c83c8a1b0da673e6e07f22" category="list-text">Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
   <block id="0097ce0f8a70e3f4836e959cc2aab7af" category="summary">Pour remplacer les commutateurs de cluster CN1610 existants d'un cluster par des commutateurs de cluster Cisco Nexus 3132Q-V, vous devez effectuer une séquence spécifique de tâches.</block>
   <block id="bc01d49ccd216cbb296208344af71590" category="list-text">Les commutateurs Nexus 3132Q-V pour remplacer les commutateurs CN1610 sont C1 et C2.</block>
-  <block id="eb29e2026f68e263827bc6648e470d91" category="list-text">n1_CL4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1. Les nœuds sont n1, n2, n3 et n4.</block>
   <block id="fcaf9f39a9df76762021c3d64f44d4fe" category="list-text">Le cluster commence avec deux nœuds connectés à deux commutateurs de cluster CN1610.</block>
   <block id="168843148dff81e8fff6f3bf865c2988" category="list-text">Déconnectez le câblage de tous les ports du cluster sur tous les nœuds connectés à CL2, puis utilisez le câble de dérivation pris en charge pour reconnecter les ports au nouveau commutateur C2 du cluster.</block>
   <block id="5b467da6576c200097feff0bf43843e7" category="list-text">Déconnectez le câblage entre les ports ISL CL1 et CL2, puis reconnectez les ports de CL1 à C2 à l'aide du câble de dérivation pris en charge.</block>
@@ -3249,7 +3248,6 @@
   <block id="779fc6b934d55dc10ca87329087b2008" category="list-text">[[5]]vérifier les ports du tiroir dans le système de stockage :</block>
   <block id="d97a5e4575ee30a387104386bf3f240b" category="section-title">Étape 3 : vérifier toutes les configurations de périphérique sur le commutateur NS2</block>
   <block id="cb90078e1ca3fab95e047ce21d18bdc0" category="paragraph">Chaque switch peut être configuré en tant que seul port 100 GbE, 40 GbE ou 4 ports 10 GbE.</block>
-  <block id="5a5a12d4dbaeac060e4d6b7c5760ca7c" category="paragraph">Suivez cette procédure pour installer la FCR après la configuration du switch Nexus 3232C pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
   <block id="319869b1ac41d35b8bb0654bf94a816d" category="list-text">Examinez le résultat de la bannière du<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre les instructions sous *remarques importantes* pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.</block>
   <block id="aaee942f01ab7b858b2f2b63c62fe972" category="paragraph">Suivez ces étapes pour mettre à niveau le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration Files) sur des switchs Cisco Nexus 3232C.</block>
   <block id="ee01b78d6cadb3e6f6a563b8d4eb8dee" category="paragraph">Avant de mettre à niveau le logiciel NX-OS et les RCFC sur le commutateur de stockage, assurez-vous que les conditions suivantes existent :</block>
@@ -3446,7 +3444,6 @@
   <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">Pour installer et configurer initialement le logiciel pour un commutateur de cluster BES-53248, procédez comme suit :</block>
   <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">Mettez à niveau le commutateur de cluster BES-53248</block>
   <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">Procédez comme suit pour mettre à niveau le commutateur de cluster BES-53248.</block>
-  <block id="ca46577f8687df3ceb14eb4b66cfa89e" category="paragraph">Cette procédure s'applique à un cluster qui fonctionne et permet d'effectuer une mise à niveau sans interruption et un environnement assurant la continuité de l'activité.</block>
   <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">Avant d'installer le logiciel EFOS, les licences et le fichier RCF sur un commutateur de cluster NetApp BES-53248 existant, vérifiez que :</block>
   <block id="8e95d65cfa987ac59e9edd2e01c3a5f8" category="list-text">Le cluster fonctionne entièrement (aucun message du journal d'erreurs ou autre problème).</block>
   <block id="39268a4fe5b4dbf6e58a5a1147276955" category="list-text">Le cluster ne contient aucune carte d'interface réseau (NIC) défectueuse.</block>
@@ -4668,4 +4665,9 @@ Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block 
   <block id="2672a0c9ba5986c403c26e013c160859" category="list-text">Vérifiez que les nœuds de cluster se trouvent dans leurs VLAN de cluster corrects à l'aide des commandes suivantes :</block>
   <block id="89706bbdab62cd83048f38305d846f95" category="paragraph"><block ref="7d4adecb4116bbfb7ed1130103f872a7" prefix="" category="inline-code"></block></block>
   <block id="12bc122b0d9a4c902fdf52bfcc13ddc2" category="paragraph"><block ref="c01eca2c804c6a35b8aa8d87eceefe5d" prefix="" category="inline-code"></block></block>
+  <block id="5cb232b7121572a8cd994eb78f5bf42e" category="inline-link">Comment préparer ONTAP pour la mise à niveau d'un commutateur de cluster</block>
+  <block id="2c6ae2b5ab15a868c020423af475ce29" category="paragraph">Cette procédure s'applique à un cluster qui fonctionne et permet d'effectuer une mise à niveau sans interruption et un environnement assurant la continuité de l'activité. Consultez l'article de la base de connaissances<block ref="af19c072276b7cd7ef0c29b032a9fe34" category="inline-link-rx"></block>.</block>
+  <block id="3bf967e4da79afd8ac10997dbbfb40be" category="paragraph">Suivez cette procédure pour installer la FCR après la configuration du switch Nexus 3232C pour la première fois.</block>
+  <block id="ce8d24a452c1c94c4680d7ce098325a9" category="inline-link">Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance</block>
+  <block id="e5f3c3d2c754cc48938d50b1782093ac" category="paragraph">Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. Consultez l'article de la base de connaissances<block ref="c3cf8dee5fd4e009c0e2b38bfb97fe4d" category="inline-link-rx"></block> Pour plus d'informations lors de la mise à niveau de votre FCR.</block>
 </blocks>

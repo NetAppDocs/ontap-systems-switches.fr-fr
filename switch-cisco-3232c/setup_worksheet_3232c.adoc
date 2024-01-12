@@ -34,264 +34,264 @@ L'exemple de définition de port sur chaque paire de commutateurs est le suivant
  a| 
 1
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 1
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 2
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 2
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 3
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 3
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 4
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 4
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 5
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 5
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 6
  a| 
-4 x 10 G/40 G/100 Gnode
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 6
  a| 
-4 x 10 G/40 G/100 Gnode
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 7
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 7
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 8
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 8
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 9
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 9
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 10
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 10
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 11
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 11
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 12
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 12
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 13
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 13
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 14
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 14
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 15
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 15
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 16
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 16
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 17
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 17
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 18
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
  a| 
 18
  a| 
-Nœud 4 x 10 G/40 G/100 G
+4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
 
 
 
  a| 
 19
  a| 
-40G/100G nœud 19
+Nœud 40 Gbit/s/100 GbE 19
  a| 
 19
  a| 
-40G/100G nœud 19
+Nœud 40 Gbit/s/100 GbE 19
 
 
 
  a| 
 20
  a| 
-40G/100G nœud 20
+Nœud 40 Gbit/s/100 GbE 20
  a| 
 20
  a| 
-40G/100G nœud 20
+Nœud 40 Gbit/s/100 GbE 20
 
 
 
  a| 
 21
  a| 
-40G/100G nœud 21
+Nœud 40 Gbit/s/100 GbE 21
  a| 
 21
  a| 
-40G/100G nœud 21
+Nœud 40 Gbit/s/100 GbE 21
 
 
 
  a| 
 22
  a| 
-40G/100G nœud 22
+Nœud 40 Gbit/s/100 GbE 22
  a| 
 22
  a| 
-40G/100G nœud 22
+Nœud 40 Gbit/s/100 GbE 22
 
 
 
  a| 
 23
  a| 
-40G/100G nœud 23
+Nœud 40 Gbit/s/100 GbE 23
  a| 
 23
  a| 
-40G/100G nœud 23
+Nœud 40 Gbit/s/100 GbE 23
 
 
 
  a| 
 24
  a| 
-40G/100G nœud 24
+Nœud 40 Gbit/s/100 GbE 24
  a| 
 24
  a| 
-40G/100G nœud 24
+Nœud 40 Gbit/s/100 GbE 24
 
 
 
@@ -309,22 +309,22 @@ Réservé
  a| 
 31
  a| 
-100G ISL vers le port 31 du commutateur B.
+ISL 100 GbE vers le port 31 du commutateur B
  a| 
 31
  a| 
-100G ISL pour commuter Un port 31
+ISL 100 GbE vers le port 31 du commutateur A
 
 
 
  a| 
 32
  a| 
-100G ISL vers le port 32 du commutateur B.
+ISL 100 GbE vers le port 32 du commutateur B
  a| 
 32
  a| 
-100G ISL pour commuter Un port 32
+ISL 100 GbE vers le port 32 du commutateur A
 
 |===
 
@@ -571,21 +571,21 @@ Réservé
  a| 
 31
  a| 
-100G ISL vers le port 31 du commutateur B.
+ISL 100 GbE vers le port 31 du commutateur B
  a| 
 31
  a| 
-100G ISL pour commuter Un port 31
+ISL 100 GbE vers le port 31 du commutateur A
 
 
 
  a| 
 32
  a| 
-100G ISL vers le port 32 du commutateur B.
+ISL 100 GbE vers le port 32 du commutateur B
  a| 
 32
  a| 
-100G ISL pour commuter Un port 32
+ISL 100 GbE vers le port 32 du commutateur A
 
 |===

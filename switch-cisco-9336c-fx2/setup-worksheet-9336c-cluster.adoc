@@ -98,198 +98,198 @@ L'exemple de définition de port sur chaque paire de commutateurs est le suivant
  a| 
 7
  a| 
-Nœud 7 100 GbE
+Nœud 40 GbE 7
  a| 
 7
  a| 
-Nœud 7 100 GbE
+Nœud 40 GbE 7
 
 
 
  a| 
 8
  a| 
-Nœud 8 100 GbE
+Nœud 40 GbE 8
  a| 
 8
  a| 
-Nœud 8 100 GbE
+Nœud 40 GbE 8
 
 
 
  a| 
 9
  a| 
-Nœud 9 100 GbE
+Nœud 40 GbE 9
  a| 
 9
  a| 
-Nœud 9 100 GbE
+Nœud 40 GbE 9
 
 
 
  a| 
 10
  a| 
-Nœud 10 100 GbE
+Nœud 40 GbE 10
  a| 
 10
  a| 
-Nœud 10 100 GbE
+Nœud 40 GbE 10
 
 
 
  a| 
 11
  a| 
-Nœud 11 100 GbE
+Nœud 40 GbE 11
  a| 
 11
  a| 
-Nœud 11 100 GbE
+Nœud 40 GbE 11
 
 
 
  a| 
 12
  a| 
-Nœud 12 100 GbE
+Nœud 40 GbE 12
  a| 
 12
  a| 
-Nœud 12 100 GbE
+Nœud 40 GbE 12
 
 
 
  a| 
 13
  a| 
-Nœud 13 100 GbE
+Nœud 40 GbE 13
  a| 
 13
  a| 
-Nœud 13 100 GbE
+Nœud 40 GbE 13
 
 
 
  a| 
 14
  a| 
-Nœud 14 100 GbE
+Nœud 40 GbE 14
  a| 
 14
  a| 
-Nœud 14 100 GbE
+Nœud 40 GbE 14
 
 
 
  a| 
 15
  a| 
-Nœud 15 100 GbE
+Nœud 40 GbE 15
  a| 
 15
  a| 
-Nœud 15 100 GbE
+Nœud 40 GbE 15
 
 
 
  a| 
 16
  a| 
-Nœud 16 100 GbE
+Nœud 40 GbE 16
  a| 
 16
  a| 
-Nœud 16 100 GbE
+Nœud 40 GbE 16
 
 
 
  a| 
 17
  a| 
-Nœud 17 100 GbE
+Nœud 40 GbE 17
  a| 
 17
  a| 
-Nœud 17 100 GbE
+Nœud 40 GbE 17
 
 
 
  a| 
 18
  a| 
-Nœud 18 100 GbE
+Nœud 40 GbE 18
  a| 
 18
  a| 
-Nœud 18 100 GbE
+Nœud 40 GbE 18
 
 
 
  a| 
 19
  a| 
-Nœud 19 100 GbE
+Nœud 40 GbE 19
  a| 
 19
  a| 
-Nœud 19 100 GbE
+Nœud 40 GbE 19
 
 
 
  a| 
 20
  a| 
-Nœud 20 100 GbE
+Nœud 40 GbE 20
  a| 
 20
  a| 
-Nœud 20 100 GbE
+Nœud 40 GbE 20
 
 
 
  a| 
 21
  a| 
-Nœud 21 100 GbE
+Nœud 40 GbE 21
  a| 
 21
  a| 
-Nœud 21 100 GbE
+Nœud 40 GbE 21
 
 
 
  a| 
 22
  a| 
-Nœud 22 100 GbE
+Nœud 40 GbE 22
  a| 
 22
  a| 
-Nœud 22 100 GbE
+Nœud 40 GbE 22
 
 
 
  a| 
 23
  a| 
-Nœud 23 100 GbE
+Nœud 40 GbE 23
  a| 
 23
  a| 
-Nœud 23 100 GbE
+Nœud 40 GbE 23
 
 
 
  a| 
 24
  a| 
-Nœud 24 100 GbE
+Nœud 40 GbE 24
  a| 
 24
  a| 
-Nœud 24 100 GbE
+Nœud 40 GbE 24
 
 
 

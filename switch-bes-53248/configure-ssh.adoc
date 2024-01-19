@@ -82,6 +82,10 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
++
+
+WARNING: Assurez-vous que SSH est désactivé avant de modifier les clés, sinon un avertissement est signalé sur le commutateur.
+
 . Redémarrez le commutateur :
 +
 `reload`

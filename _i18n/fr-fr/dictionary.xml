@@ -4689,4 +4689,5 @@ Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block 
   <block id="abcd8d3f588678870638aff6d2b158be" category="paragraph">Nœud 40 GbE 22</block>
   <block id="acd5b19e96fe10bf67f0e3b493444cdb" category="paragraph">Nœud 40 GbE 23</block>
   <block id="a03b317075029ec2eb6886719507222d" category="paragraph">Nœud 40 GbE 24</block>
+  <block id="6cc558c5fd7b268022c9cd6a5f86134b" category="admonition">Les exceptions répertoriées n'affectent pas les performances et peuvent être ignorées en toute sécurité.</block>
 </blocks>

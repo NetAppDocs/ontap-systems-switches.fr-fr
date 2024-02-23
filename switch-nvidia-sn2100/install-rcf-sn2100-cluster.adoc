@@ -20,6 +20,9 @@ Avant d'installer le script RCF, assurez-vous que les éléments suivants sont d
 * Adresse IP, masque de sous-réseau et passerelle par défaut définis via DHCP ou configurés manuellement.
 
 
+
+NOTE: Vous devez spécifier un utilisateur dans le fichier RCF (en plus de l'utilisateur admin) à utiliser spécifiquement pour la collecte des journaux.
+
 .Versions actuelles du script RCF
 Deux scripts RCF sont disponibles pour les applications de cluster et de stockage. Téléchargez les fichiers RCF depuis https://mysupport.netapp.com/site/info/nvidia-cluster-switch["ici"^]. La procédure pour chaque est la même.
 

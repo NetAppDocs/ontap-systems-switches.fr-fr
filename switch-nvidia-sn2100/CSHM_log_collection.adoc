@@ -1,0 +1,134 @@
+---
+permalink: switch-nvidia-sn2100/CSHM_log_collection.html 
+sidebar: sidebar 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,SN2100 setup,SN2100 switches configuration,cumulus linux os 
+summary: 'La fonction de collecte des journaux du contrôleur d"état du commutateur Ethernet (CSHM) permet de collecter des journaux à partir des commutateurs du cluster ou du réseau de stockage dans ONTAP.' 
+---
+= Collecte du journal de surveillance de l'état du commutateur Ethernet
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *support* détaillés à partir du commutateur et démarre une collecte horaire de données *périodiques* collectées par AutoSupport.
+
+.Avant de commencer
+* L'utilisateur de la collecte des journaux doit être spécifié lorsque le fichier RCF (Reference Configuration File) est appliqué. Par défaut, cet utilisateur est défini sur « admin ». Si vous souhaitez utiliser un autre utilisateur, vous devez le spécifier dans la section *# SHM User*s de la FCR.
+* L'utilisateur doit avoir accès aux commandes *nv show*. Ceci peut être ajouté en exécutant `sudo adduser USER nv show` Et remplacement de l'utilisateur par l'utilisateur pour la collecte des journaux.
+* La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
+
+
+.Étapes
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
++
+`system switch ethernet log setup-password`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log setup-password*
+Enter the switch name: *<return>*
+The switch name entered is not recognized.
+Choose from the following list:
+*cs1*
+*cs2*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs1*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+
+cluster1::*> *system switch ethernet log setup-password*
+
+Enter the switch name: *cs2*
+Would you like to specify a user other than admin for log collection? {y|n}: *n*
+
+Enter the password: *<enter switch password>*
+Enter the password again: *<enter switch password>*
+----
+====
+. Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci démarre les deux types de collecte de journaux : le détaillé `Support` journaux et un ensemble horaire de `Periodic` les données.
++
+`system switch ethernet log modify -device _<switch-name>_ -log-request true`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
+----
+====
++
+Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :
+
++
+`system switch ethernet log show`
+
++
+
+CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.
+
+
+
+.Dépannage
+Si vous rencontrez l'un des États d'erreur suivants signalés par la fonction de collecte de journaux (visible dans la sortie de `system switch ethernet log show`), essayez les étapes de débogage correspondantes :
+
+|===
+
+
+| *Etat d'erreur de collecte de journaux* | *Résolution* 
+
+
+ a| 
+*Clés RSA non présentes*
+ a| 
+Régénérer les clés SSH ONTAP. Contactez le support NetApp.
+
+
+
+ a| 
+*erreur de mot de passe de commutateur*
+ a| 
+Vérifiez les identifiants, testez la connectivité SSH et régénérez les clés SSH ONTAP. Consultez la documentation du commutateur ou contactez le support NetApp pour obtenir des instructions.
+
+
+
+ a| 
+*Clés ECDSA non présentes pour FIPS*
+ a| 
+Si le mode FIPS est activé, les clés ECDSA doivent être générées sur le commutateur avant de réessayer.
+
+
+
+ a| 
+*journal préexistant trouvé*
+ a| 
+Supprimez le répertoire de collecte de journaux précédent et le fichier '.tar' situé à l' `/tmp/shm_log` sur le commutateur.
+
+
+
+ a| 
+*erreur du journal de vidage du commutateur*
+ a| 
+Assurez-vous que l'utilisateur du commutateur dispose des autorisations de collecte de journaux. Reportez-vous aux conditions préalables ci-dessus.
+
+|===

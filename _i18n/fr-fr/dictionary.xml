@@ -1664,7 +1664,6 @@
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">Site de support NetApp</block>
   <block id="df9f9e9d2170bb250eb3337384525b86" category="paragraph"><block ref="df9f9e9d2170bb250eb3337384525b86" category="inline-link-rx"></block></block>
   <block id="c04ce9c1c44c5e07bf7a73e79811a429" category="list-text">Pour définir une adresse IP statique, utilisez le<block ref="be61298f670927dc76b9ef87aec3538b" prefix=" " category="inline-code"></block>,<block ref="0b1b9820b62e4a0d7f72c76456845979" prefix=" " category="inline-code"></block>, et<block ref="a14092a0fca1bb648cb5a74d7dfe7995" prefix=" " category="inline-code"></block> commandes comme indiqué dans l'exemple.</block>
-  <block id="ec633497488ed81a95ccbbbb57302ba3" category="list-text">Accéder au paramètre de mode avancé à partir de l'un des systèmes ONTAP du cluster, au moyen de la commande<block ref="0581d0d071ad835f74bf419081ce5d75" prefix=" " category="inline-code"></block>:</block>
   <block id="16c3e502f28be460a987ad28ccd36874" category="paragraph">Vous pouvez utiliser le tableau des attributions de ports de commutateur de cluster BES-53248 pris en charge par Broadcom pour configurer votre cluster.</block>
   <block id="dc3310fe82b8aa736508dff9756c1c6a" category="cell">Commutateurs</block>
   <block id="670c1649b9af213cff68a904e9de20ed" category="cell">Utilisation des ports</block>
@@ -3379,7 +3378,6 @@
   <block id="9343a353b1f82fabd9ee240e066471c9" category="list-text">Suivez les instructions du<block ref="2499b40383e5eeae4a8e13c0ef2b5e8c" category="inline-link-rx"></block>.</block>
   <block id="2c313ef83d1daadd03ff286fd1bc25ab" category="paragraph"><block ref="b88c299eeb38820fb709454fcd144438" category="inline-link-macro-rx"></block>.</block>
   <block id="4a79c6270afcb7ed4e28cd8c98692b07" category="inline-link-macro">Vérifiez la configuration de la mise à niveau</block>
-  <block id="201928a01eb0d8a784dcd677be49e1a6" category="paragraph">Si vous mettez le commutateur à niveau, passez à <block ref="4ea612b493226a65342298638fddee90" category="inline-link-macro-rx"></block>.</block>
   <block id="e8ab0c1581dc0dcc64441ffb1b729ce5" category="summary">Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs de cluster BES-53248 pris en charge par Broadcom</block>
   <block id="aa7dd6235ef36f2c7e4cd4edddab41eb" category="paragraph">Si vous disposez d'un environnement existant à deux nœuds _switch_ cluster, vous pouvez migrer vers un environnement à deux nœuds _Switched_ cluster à l'aide de commutateurs de cluster BES-53248 pris en charge par Broadcom, ce qui vous permet d'évoluer au-delà de deux nœuds du cluster.</block>
   <block id="784bdcc078009075bac39754a34c1477" category="paragraph">Le processus de migration fonctionne pour tous les ports de nœud de cluster via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau de clusters.</block>
@@ -3445,21 +3443,6 @@
   <block id="c1321e94fa70c8284c7eb8048b1e5076" category="paragraph">Suivez ces instructions pour installer le logiciel.</block>
   <block id="6e542d7f228623e0d93cb14b578964d6" category="summary">Pour l'installation et la maintenance du commutateur BES-53248, veillez à consulter la liste des composants et des références.</block>
   <block id="d243834ab21b34f6cc60b0c0c7b6ef45" category="doc">Composants et références des commutateurs de cluster BES-53248</block>
-  <block id="2e251bbc5cf5abac11349f16ad8e95e7" category="summary">Vous pouvez installer le fichier de configuration CSHM (Cluster Switch Health Monitor) qui surveille les commutateurs de cluster BES-53248.</block>
-  <block id="4db171b1958310050d33a6161ba14156" category="paragraph">Dans les versions 9.5P7 et antérieures de ONTAP et 9.6P2 et antérieures, vous devez télécharger le fichier CSHM séparément. Dans ONTAP versions 9.5P8 et ultérieures, 9.6P3 et ultérieures, et 9.7 et ultérieures, le fichier CSHM est fourni avec ONTAP.</block>
-  <block id="294206f940bbd4f3ec7f79996b76c616" category="paragraph">Assurez-vous que le cluster ONTAP est opérationnel.</block>
-  <block id="40994b29c419b8208b2a2299233e65bc" category="list-text">Téléchargez le fichier zip CSHM en fonction de la version ONTAP correspondante. Ce fichier est disponible à partir de la page :<block ref="cb382f539d8e67a00135c8306b3d74b6" category="inline-link-rx"></block></block>
-  <block id="180d45d6eb8919b41d1d751b68ec3336" category="list-text">Sur la page de téléchargement du logiciel, sélectionnez *changer les fichiers de configuration du moniteur d'intégrité*.</block>
-  <block id="390cb4e02a776b0ea4f0d39cda973281" category="list-text">Sélectionnez plate-forme = *ONTAP* et cliquez sur *Go!*.</block>
-  <block id="b968620db21ffac13bf35d77c6fd4614" category="list-text">Sur la page changer de fichiers de configuration du moniteur d'intégrité pour ONTAP, cliquez sur *Afficher et télécharger*.</block>
-  <block id="9d0ff069783ed268f22d4d924d776da5" category="list-text">Sur la page Switch Health Monitor Configuration Files for ONTAP - Description, cliquez sur *Download* pour le modèle de commutateur de cluster applicable, par exemple : *Broadcom-supportées BES-53248*.</block>
-  <block id="f8f1088542203d1665d06d92000f4391" category="list-text">Sur la page Contrat de licence utilisateur final, cliquez sur *Accept*.</block>
-  <block id="36ca16251e030a0ff50eeef91c11841c" category="list-text">Sur la page de téléchargement changer de fichiers de configuration du moniteur d'intégrité pour ONTAP, sélectionnez le fichier de configuration applicable, par exemple *Broadcom_BES-53248.zip*.</block>
-  <block id="108fad13cb4557ce639ff2d509f833b5" category="paragraph">Pour une adresse IP de serveur Web interne 192.168.2.20, et en supposant qu'il existe un répertoire /usr/download, vous pouvez télécharger le fichier zip sur votre serveur Web à l'aide de<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block>:</block>
-  <block id="add89e2862924c702a738f3d2a28fa51" category="list-text">Lancer la commande Switch Health Monitor configure :</block>
-  <block id="57dedb9cbe459a7c90ef4837093192ae" category="paragraph"><block ref="2f9091db6d94c377cc0c7e2fbd67bc1a" prefix="" category="inline-code"></block></block>
-  <block id="edcd33ebd5d3817ccdc17b64134c7ec8" category="admonition">Si vous restaurez à tout moment une version antérieure de ONTAP, vous devez à nouveau installer le fichier de configuration CSHM pour activer la surveillance de l'état du commutateur des commutateurs de cluster BES-53248.</block>
-  <block id="914288f821c5d88db21f926b4e94b1b3" category="paragraph">Pour utiliser toutes les fonctions disponibles dans CSHM, activez SSH comme décrit dans <block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>.</block>
   <block id="4cf79f99b322552a5fe0fadeb4c0ae5b" category="doc">Exigences de remplacement</block>
   <block id="62dbb19af179fc4e75d76db194377a60" category="paragraph">Avant de remplacer le contacteur, s'assurer que les conditions suivantes sont réunies dans l'environnement actuel et sur le commutateur de remplacement.</block>
   <block id="92dcda45f07d847bb79e184ed7087556" category="list-text">Toutes les interfaces logiques de cluster (LIFS) sont administrativement et de manière opérationnelle * up* et sur leurs ports de base.</block>
@@ -4009,7 +3992,6 @@
   <block id="ae5073b7cedbbc7111f9e806343efc7e" category="sidebar">Migrer depuis un cluster à 2 nœuds sans commutateur</block>
   <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Mettre à niveau les commutateurs</block>
   <block id="5990fb757a59a934aeb2786bac162e97" category="sidebar">Installez le logiciel EFOS</block>
-  <block id="b954609be582bc6760c67ae6e58cd7a9" category="sidebar">Installez le fichier de configuration CSHM</block>
   <block id="e7d694813a2146a3ab31b4b907988620" category="sidebar">Activez SSH</block>
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">Activer la collecte de journaux</block>
   <block id="71f5771dab663d80ba4dad1627e3386a" category="sidebar">Présentation de la mise à niveau</block>
@@ -4166,9 +4148,6 @@
   <block id="0367a2a79bd73fd44da88774641890f6" category="inline-link-macro">Activez les ports de nouvelles licences</block>
   <block id="9c561ca9ef6d5814e15c1944c030d12d" category="list-text">Si vous achetez des licences supplémentaires, reportez-vous à la section <block ref="78172331b9d74469f8abaa21c5813f50" category="inline-link-macro-rx"></block> pour plus de détails sur la façon de les activer.</block>
   <block id="1ad4f5dc9889f4859c43a213e21f389c" category="list-text">Si SSH est actif, vous devez le réactiver manuellement après avoir exécuté la commande<block ref="1fb554759d9d32d450daa4da09330114" prefix=" " category="inline-code"></block> et redémarrage du commutateur.</block>
-  <block id="fa29548058837254e54c0910a42e81ed" category="paragraph"><block ref="7d77b5b7ecc6e91232de4d87c6f561de" prefix="" category="inline-code"></block></block>
-  <block id="25e09b4fadd3fa8202fa95ea688667c1" category="list-text">[[step5]]Vérifiez que la sortie de la commande contient la chaîne de texte :<block ref="bb932139b2106289945776f4f81d066a" prefix=" " category="inline-code"></block>. En cas d'erreur, contactez le support NetApp.</block>
-  <block id="d28bbd717c002acf43e747edb594c750" category="list-text">Lancer la commande sur le système ONTAP et vérifier que les commutateurs de cluster sont détectés avec le champ surveillé défini sur « vrai » :</block>
   <block id="1ad47980611dd1ee749c3478e99b4edd" category="paragraph">Le tableau suivant répertorie la référence, la description et les versions minimales de EFOS et de ONTAP pour les composants du commutateur de cluster BES 53248, y compris les détails du kit de rails de montage en rack.</block>
   <block id="4a47a181e94c352883a8741b3ec5e291" category="admonition">Une version EFOS minimale de *3.10.0.3* est requise pour les références *X190005-B* et *X190005R-B*.</block>
   <block id="c37b8196896554a6da47b74fe6581c98" category="cell">Version minimale de EFOS</block>
@@ -4281,9 +4260,7 @@
   <block id="b70d80924ca5c08e45b9b84343687a46" category="section-title">Licences héritées</block>
   <block id="e6459831eff3ab73436a3472b543daed" category="paragraph">Le tableau suivant répertorie les anciennes licences disponibles sur le commutateur de cluster BES-53248 :</block>
   <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Vérifiez que SSH est désactivé :</block>
-  <block id="7481f181e296e575db2349974a47cc2c" category="paragraph">Procédez comme suit pour installer le fichier de configuration CSHM (Cluster Switch Health Monitor).</block>
   <block id="810bc3d02021061ba2b8f87b703a66dd" category="paragraph">Vous pouvez utiliser la fonction de collecte de journaux pour collecter des fichiers journaux liés aux commutateurs dans ONTAP.</block>
-  <block id="ee3c886759b6a2517a47e20c04320ed6" category="admonition">Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP version 9.12.1 et ultérieure et EFOS 3.8.0.2 et versions ultérieures.</block>
   <block id="b8df928a1a67f132ebda54d2c7fee7dc" category="paragraph">Si vous mettez à niveau une FCR à partir d'une version antérieure, vous devez réinitialiser les paramètres du commutateur Broadcom et effectuer une configuration de base pour appliquer à nouveau la FCR. Vous devez effectuer cette opération à chaque fois que vous souhaitez mettre à niveau ou modifier une FCR. Voir la<block ref="ca0e22b4f868295e6cf32a824edc5c13" category="inline-link-rx"></block> pour plus d'informations.</block>
   <block id="fecbf70623c5c07c3f3c4c8793d5061b" category="list-text">Le fichier RCF actuel, disponible sur le<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> page.</block>
   <block id="23c89511c80ceef00a8d3343b5f08569" category="list-text">Configuration de démarrage dans le fichier RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.</block>
@@ -4462,11 +4439,9 @@
   <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Déplacez les ports de cluster de nœuds de l'ancien commutateur C1 vers le nouveau commutateur cs1 à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.</block>
   <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">Sur les commutateurs cs1 et cs2, vérifiez que tous les ports de cluster de nœuds sont activés :</block>
   <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migration à partir des commutateurs de cluster CN1610</block>
-  <block id="6c174914ef0e9418a778018f9f416565" category="paragraph">Vérifiez que vous avez configuré votre environnement à l'aide du commutateur de cluster BES-53248 *CLI*.</block>
   <block id="f82e463abb944d54e7eb997507aada97" category="list-text">Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block></block>
   <block id="3da8b58ec29508478eb281950ce7a85f" category="list-text">Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet.</block>
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
-  <block id="e1d0dd82b8f2058c2b4c4d59c2f80125" category="paragraph">Attendez 10 minutes, puis vérifiez que la collecte du journal se termine à l'aide de la commande :</block>
   <block id="0eedc6e86bf0684694a5f74d12cd17d7" category="admonition">Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.</block>
   <block id="df3b6dd54dfaeb972568b29147c67103" category="list-text">La personnalisation initiale des commutateurs BES-53248 est terminée, de sorte que :</block>
   <block id="8f7a04d5740dbba56b463f7bc775e27a" category="list-text">Les commutateurs BES-53248 exécutent la dernière version recommandée du logiciel EFOS.</block>
@@ -4501,7 +4476,6 @@
   <block id="d576f6342b019a4a22e71708ae81b0d9" category="paragraph">Pour toutes les versions de ONTAP, vous pouvez également utiliser<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block> pour vérifier la connectivité :</block>
   <block id="090015dd47b4cd238b646c5f1dbc231d" category="list-text">[[step5]]activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux liés au commutateur.</block>
   <block id="079555d3c02274a2f31c4ed0065d657e" category="doc">Configurer SNMPv3</block>
-  <block id="75e0b0aa735bcccb4bf1267f69cc872e" category="paragraph">Suivez cette procédure pour configurer SNMPv3, qui prend en charge la surveillance de l'état du commutateur (CSHM).</block>
   <block id="1bd553f48f18f76a761092d0bebbe5a4" category="paragraph">La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :<block ref="bc0f2549b8e026bfa298fbc575ba6020" prefix=" " category="inline-code"></block></block>
   <block id="44dd2902e6a8940e811d66f001eb74b8" category="list-text">Répétez les étapes 1 à 8 pour installer le logiciel NX-OS sur le commutateur cs1.</block>
   <block id="52009bb7ee17227f566cd26a02caee56" category="inline-link-macro"><block ref="52009bb7ee17227f566cd26a02caee56" category="inline-link-rx"></block></block>
@@ -4690,4 +4664,39 @@ Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block 
   <block id="acd5b19e96fe10bf67f0e3b493444cdb" category="paragraph">Nœud 40 GbE 23</block>
   <block id="a03b317075029ec2eb6886719507222d" category="paragraph">Nœud 40 GbE 24</block>
   <block id="6cc558c5fd7b268022c9cd6a5f86134b" category="admonition">Les exceptions répertoriées n'affectent pas les performances et peuvent être ignorées en toute sécurité.</block>
+  <block id="b61075ba30803dc13c18190d95bb660c" category="summary">La fonction de collecte des journaux du contrôleur d'état du commutateur Ethernet (CSHM) permet de collecter des journaux à partir des commutateurs du cluster ou du réseau de stockage dans ONTAP.</block>
+  <block id="cc96021e22980976473658b2f1ba6e98" category="doc">Collecte du journal de surveillance de l'état du commutateur Ethernet</block>
+  <block id="bf4e0c74d0d64f033de371084e1f1021" category="paragraph">Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *support* détaillés à partir du commutateur et démarre une collecte horaire de données *périodiques* collectées par AutoSupport.</block>
+  <block id="ae4749ec36ab32554e1987f66caacdb7" category="list-text">Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP version 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.</block>
+  <block id="8d36506446d5ad8477c75d9150e6528f" category="list-text">La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le<block ref="83bb5774e6e4dc96959b12bfa4334f18" prefix=" " category="inline-code"></block> le champ est défini sur *true* dans la sortie du<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> commande.</block>
+  <block id="09a5c8e72e479c23dfcdb0045312203a" category="list-text">Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.</block>
+  <block id="51e57b530a227b04924d2803cdc52930" category="list-text">Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci lance les deux types de collecte de journaux : les journaux détaillés *support* et une collecte horaire de données *périodiques*.</block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="paragraph-title">Dépannage</block>
+  <block id="37c0786b751e8b6bed2adbf850ab884e" category="paragraph">Si vous rencontrez l'un des États d'erreur suivants signalés par la fonction de collecte de journaux (visible dans la sortie de<block ref="88354d538ba5d4e1746193ec5949ab4b" prefix=" " category="inline-code"></block>), essayez les étapes de débogage correspondantes :</block>
+  <block id="f766c25c90ea3bb9aa3798d25e0a5087" category="cell">*Etat d'erreur de collecte de journaux*</block>
+  <block id="2d424e5dd89f6819ff42231c7a18b118" category="cell">*Résolution*</block>
+  <block id="018a74682c62c75c7c75d90d5ddf1cbf" category="paragraph">*Clés RSA non présentes*</block>
+  <block id="6654dac813e45b08b32b58fbbd49eed9" category="paragraph">Régénérer les clés SSH ONTAP. Contactez le support NetApp.</block>
+  <block id="5b75a2412f91e51d9c828c1eedc4678f" category="paragraph">*erreur de mot de passe de commutateur*</block>
+  <block id="5bc4d3730ab537bc31f24f538828bcf8" category="paragraph">Vérifiez les identifiants, testez la connectivité SSH et régénérez les clés SSH ONTAP. Consultez la documentation du commutateur ou contactez le support NetApp pour obtenir des instructions.</block>
+  <block id="bd6021089b0b22b779073ce64186e7fd" category="paragraph">*Clés ECDSA non présentes pour FIPS*</block>
+  <block id="c75d07c4d4aaf4fdb88aab5f0675be1c" category="paragraph">Si le mode FIPS est activé, les clés ECDSA doivent être générées sur le commutateur avant de réessayer.</block>
+  <block id="c66550e1243c24f8c299886b45f636e8" category="paragraph">*journal préexistant trouvé*</block>
+  <block id="ad20b6964df2e6ea3df2b394efc811ed" category="paragraph">Supprimez le fichier de collecte de journaux précédent sur le commutateur.</block>
+  <block id="20c7a250c756306872ccbb15d529b664" category="paragraph">*erreur du journal de vidage du commutateur*</block>
+  <block id="282efbd3d7380f8a34d8579ad5d9c11f" category="paragraph">Assurez-vous que l'utilisateur du commutateur dispose des autorisations de collecte de journaux. Reportez-vous aux conditions préalables ci-dessus.</block>
+  <block id="b8731468035c2cab5635961a32d46c38" category="summary">SNMPv3 peut être utilisé avec le moniteur d'état du commutateur Ethernet (CSHM).</block>
+  <block id="86da6292895a71bdd61d82bd76a5649d" category="paragraph">Suivez cette procédure pour configurer SNMPv3, qui prend en charge la surveillance de l'état du commutateur Ethernet (CSHM).</block>
+  <block id="f00216e423dd65c7a8b4a0768c1cf2bc" category="paragraph">Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Broadcom BES-53248 :</block>
+  <block id="0e428ea0cadb7e39f8fa4eb48dd9ea98" category="paragraph"><block ref="0ae39c023aff4fed8d1a872fd04e3d83" prefix="" category="inline-code"></block></block>
+  <block id="6b9f542dd155c40aa5e4484b5ff61711" category="list-text">Configurez CSHM pour qu'il surveille avec le nouvel utilisateur SNMPv3 :</block>
+  <block id="7645c6b839b29d79d56508ac59b17a0f" category="paragraph"><block ref="e455ca07bfb78eb821e00f72366d7972" prefix="" category="inline-code"></block></block>
+  <block id="d4d693d9dd779d0daf149c2e448b60b2" category="list-text">Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui décrit à l'étape précédente après la fin de la période d'interrogation CSHM.</block>
+  <block id="28444591fb832d5dcae593ad2a8f56da" category="admonition">Vous devez spécifier un utilisateur dans le fichier RCF (en plus de l'utilisateur admin) à utiliser spécifiquement pour la collecte des journaux.</block>
+  <block id="f2a9c66f4943798b57467021b65ab75a" category="list-text">L'utilisateur de la collecte des journaux doit être spécifié lorsque le fichier RCF (Reference Configuration File) est appliqué. Par défaut, cet utilisateur est défini sur « admin ». Si vous souhaitez utiliser un autre utilisateur, vous devez le spécifier dans la section *# SHM User*s de la FCR.</block>
+  <block id="41418696440702a63005a485c96de621" category="list-text">L'utilisateur doit avoir accès aux commandes *nv show*. Ceci peut être ajouté en exécutant<block ref="d019363df09b88c795c1354553c6fe8f" prefix=" " category="inline-code"></block> Et remplacement de l'utilisateur par l'utilisateur pour la collecte des journaux.</block>
+  <block id="f9659d3e6fcf03c716c20b733c8e68fc" category="list-text">Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci démarre les deux types de collecte de journaux : le détaillé<block ref="db5eb84117d06047c97c9a0191b5fffe" prefix=" " category="inline-code"></block> journaux et un ensemble horaire de<block ref="cdcc32a064503184053bd2018d1c0e7e" prefix=" " category="inline-code"></block> les données.</block>
+  <block id="b9c519617ddb8983725afb0a6830a2f9" category="paragraph">Supprimez le répertoire de collecte de journaux précédent et le fichier '.tar' situé à l'<block ref="0793027f48f71fa4fc10baf29d75e685" prefix=" " category="inline-code"></block> sur le commutateur.</block>
+  <block id="c2d06740bdd189b6a9e5c66037c2fca6" category="list-text">Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui décrit à l'étape précédente une fois la période d'interrogation CSHM terminée.</block>
+  <block id="d185f7c4f8a7ee7fcc5143d7f639a45b" category="sidebar">Configurer SNMPv3 pour la surveillance</block>
 </blocks>

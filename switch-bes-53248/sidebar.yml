@@ -31,12 +31,12 @@ entries:
     url: "/switch-bes-53248/configure-licenses.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-bes-53248/configure-install-rcf.html"
-  - title: Installez le fichier de configuration CSHM
-    url: "/switch-bes-53248/configure-health-monitor.html"
   - title: Activez SSH
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Activer la collecte de journaux
-    url: "/switch-bes-53248/configure-log-collection.html"
+    url: "/switch-bes-53248/CSHM_log_collection.html"
+  - title: Configurer SNMPv3 pour la surveillance
+    url: "/switch-bes-53248/CSHM_snmpv3.html"
 - title: Mettre à niveau les commutateurs
   pdf-filename: Upgrade_switches_bes53248
   entries:

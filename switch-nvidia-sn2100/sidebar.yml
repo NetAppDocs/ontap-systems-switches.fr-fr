@@ -36,8 +36,10 @@ entries:
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
   - title: Installez le script RCF
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
-  - title: Configurer la collecte du journal du commutateur
-    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-cluster.html"
+  - title: Activer la collecte de journaux
+    url: "/switch-nvidia-sn2100/CSHM_log_collection.html"
+  - title: Configurer SNMPv3 pour la surveillance
+    url: "/switch-nvidia-sn2100/CSHM_snmpv3.html"
   - title: Mettez à niveau la version de Cumulus Linux
     url: "/switch-nvidia-sn2100/upgrade-cl-version.html"
 - title: Migration des commutateurs

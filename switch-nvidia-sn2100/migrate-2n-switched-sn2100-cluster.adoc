@@ -84,16 +84,18 @@ L'invite avancée (`*>`) s'affiche.
 
 === Étape 2 : configurer les ports et le câblage
 
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.x.
+--
 . Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les nouveaux commutateurs sw1 et sw2 du cluster.
 +
 Vous ne devez pas désactiver les ports ISL.
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 Les commandes suivantes désactivent les ports node-face sur les commutateurs sw1 et sw2 :
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
@@ -104,17 +106,14 @@ cumulus@sw2:~$ *net add interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-====
 . Vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs SN2100 sw1 et sw2 sont en service sur les ports swp15 et swp16 :
 +
 `net show interface`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
-L'exemple suivant montre que les ports ISL sont active sur le commutateur sw1 :
+Les commandes suivantes montrent que les ports ISL sont activés sur les commutateurs sw1 et sw2 :
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface*
@@ -125,13 +124,7 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 ...
 UP     swp15      100G  9216   BondMember  sw2 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw2 (swp16)  Master: cluster_isl(UP)
-----
-+ l'exemple suivant montre que les ports ISL sont activés sur le commutateur sw2 :
 
-+
-
-[listing, subs="+quotes"]
-----
 cumulus@sw2:~$ *net show interface*
 
 State  Name       Spd   MTU    Mode        LLDP         Summary
@@ -141,8 +134,65 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 UP     swp15      100G  9216   BondMember  sw1 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw1 (swp16)  Master: cluster_isl(UP)
 ----
+
+
+--
+.Cumulus Linux 5.x.
+--
+. Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les deux nouveaux commutateurs sw1 et sw2 du cluster.
++
+Vous ne devez pas désactiver les ports ISL.
+
++
+Les commandes suivantes désactivent les ports node-face sur les commutateurs sw1 et sw2 :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv save*
+
+cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv config apply*
+cumulus@sw2:~$ *nv save*
+----
+. Vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs SN2100 sw1 et sw2 sont en service sur les ports swp15 et swp16 :
++
+`nv show interface`
+
++
+Les exemples suivants montrent que les ports ISL sont activés sur les commutateurs sw1 et sw2 :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface*
+
+Interface     MTU    Speed  State  Remote Host  Remote Port                          Type    Summary
+------------- ------ -----  ------ ------------ ------------------------------------ ------- -------
+...
+...
++ swp14       9216          down                                                     swp
++ swp15       9216   100G   up     ossg-rcf1    Intra-Cluster Switch ISL Port swp15  swp
++ swp16       9216   100G   up     ossg-rcf2    Intra-Cluster Switch ISL Port swp16  swp
+
+
+cumulus@sw2:~$ *nv show interface*
+
+Interface     MTU    Speed  State  Remote Host  Remote Port                          Type    Summary
+------------- ------ -----  ------ ------------ ------------------------------------ ------- -------
+...
+...
++ swp14       9216          down                                                     swp
++ swp15       9216   100G   up     ossg-rcf1    Intra-Cluster Switch ISL Port swp15  swp
++ swp16       9216   100G   up     ossg-rcf2    Intra-Cluster Switch ISL Port swp16  swp
+----
+
+
+--
 ====
-. Vérifier que tous les ports du cluster sont bien :
+. [[step3]] Vérifiez que tous les ports du cluster sont en service :
 +
 `network port show`
 
@@ -230,28 +280,30 @@ Cluster
 Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
 
 . Débranchez le câble du port du bloc d'instruments e3a sur le nœud2, puis connectez e3a au port 4 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
-. Sur le commutateur sw1, activez tous les ports orientés nœud.
-+
-.Montrer l'exemple
-[%collapsible]
-====
-La commande suivante active tous les ports node-face sur le switch sw1 :
 
+
+[role="tabbed-block"]
+====
+.Cumulus Linux 4.4.x.
+--
+. [[step8]] sur le commutateur sw1, activez tous les ports orientés nœuds.
++
+Les commandes suivantes activent tous les ports orientés nœuds sur le commutateur sw1.
+
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
-====
-. Sur le commutateur sw1, vérifiez que tous les ports sont en service :
+
+
+. [[STEP]] sur le commutateur sw1, vérifiez que tous les ports sont activés :
 +
 `net show interface all`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:~$ *net show interface all*
@@ -275,8 +327,58 @@ UP     swp15     100G  9216   BondMember  swp15          Master: cluster_isl(UP)
 UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
+
+
+--
+.Cumulus Linux 5.x.
+--
+. [[step8]] sur le commutateur sw1, activez tous les ports orientés nœuds.
++
+Les commandes suivantes activent tous les ports orientés nœuds sur le commutateur sw1.
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv config apply*
+cumulus@sw1:~$ *nv config save*
+----
+
+
+. [[step9]] sur le commutateur sw1, vérifiez que tous les ports sont en service :
++
+`nv show interface`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface*
+
+Interface    State  Speed  MTU    Type      Remote Host                 Remote Port  Summary
+-----------  -----  -----  -----  --------  --------------------------  -----------  ----------
+...
+...
+swp1s0       up     10G    9216   swp       odq-a300-1a                         e0a
+swp1s1       up     10G    9216   swp       odq-a300-1b                         e0a
+swp1s2       down   10G    9216   swp
+swp1s3       down   10G    9216   swp
+swp2s0       down   25G    9216   swp
+swp2s1       down   25G    9216   swp
+swp2s2       down   25G    9216   swp
+swp2s3       down   25G    9216   swp
+swp3         down          9216   swp
+swp4         down          9216   swp
+...
+...
+swp14        down          9216   swp
+swp15        up     100G   9216   swp       ossg-int-rcf10                    swp15
+swp16        up     100G   9216   swp       ossg-int-rcf10                    swp16
+----
+
+
+--
 ====
-. Vérifier que tous les ports du cluster sont bien :
+. [[step10]] Vérifiez que tous les ports du cluster sont en service :
 +
 `network port show -ipspace Cluster`
 
@@ -331,28 +433,28 @@ node2                true    true          false
 ====
 . Déconnectez le câble du port du cluster e3b sur le nœud1, puis connectez e3b au port 3 du commutateur sw2 du cluster, en utilisant le câblage approprié pris en charge par les commutateurs SN2100.
 . Déconnectez le câble du port du cluster e3b sur le nœud2, puis connectez e3b au port 4 du commutateur sw2 du cluster, en utilisant le câblage approprié pris en charge par les commutateurs SN2100.
-. Sur le commutateur sw2, activez tous les ports orientés nœud.
-+
-.Montrer l'exemple
-[%collapsible]
+
+
+[role="tabbed-block"]
 ====
+.Cumulus Linux 4.4.x.
+--
+. [[step14]] sur le commutateur sw2, activez tous les ports orientés nœuds.
++
 Les commandes suivantes permettent d'activer les ports orientés nœud sur le commutateur sw2 :
 
++
 [listing, subs="+quotes"]
 ----
 cumulus@sw2:~$ *net del interface swp1s0-3, swp2s0-3, swp3-14 link down*
 cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
-====
-. Sur le commutateur sw2, vérifiez que tous les ports sont en service :
+. [[step15]] sur le commutateur sw2, vérifiez que tous les ports sont en service :
 +
 `net show interface all`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cumulus@sw2:~$ *net show interface all*
@@ -376,16 +478,16 @@ UP     swp15     100G  9216   BondMember  swp15          Master: cluster_isl(UP)
 UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
-====
-. Sur les deux commutateurs sw1 et sw2, vérifier que les deux nœuds ont chacun une connexion à chaque commutateur :
+
+
+. [[step16]] sur les deux commutateurs sw1 et sw2, vérifiez que les deux nœuds ont chacun une connexion à chaque commutateur :
 +
 `net show lldp`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 L'exemple suivant montre les résultats appropriés pour les deux commutateurs sw1 et sw2 :
+
+
 
 [listing, subs="+quotes"]
 ----
@@ -407,10 +509,112 @@ swp4       100G   Trunk/L2    node2              e3b
 swp15      100G   BondMember  sw1                swp15
 swp16      100G   BondMember  sw1                swp16
 ----
-====
-. Affiche des informations sur les périphériques réseau détectés dans votre cluster :
+--
+.Cumulus Linux 5.x.
+--
+. [[step14]] sur le commutateur sw2, activez tous les ports orientés nœuds.
 +
-`net device-discovery show -protocol lldp`
+Les commandes suivantes permettent d'activer les ports orientés nœud sur le commutateur sw2 :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv config apply*
+cumulus@sw2:~$ *nv config save*
+----
+. [[step15]] sur le commutateur sw2, vérifiez que tous les ports sont en service :
++
+`nv show interface`
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw2:~$ *nv show interface*
+
+Interface    State  Speed  MTU    Type      Remote Host                 Remote Port  Summary
+-----------  -----  -----  -----  --------  --------------------------  -----------  ----------
+...
+...
+swp1s0       up     10G    9216   swp       odq-a300-1a                         e0a
+swp1s1       up     10G    9216   swp       odq-a300-1b                         e0a
+swp1s2       down   10G    9216   swp
+swp1s3       down   10G    9216   swp
+swp2s0       down   25G    9216   swp
+swp2s1       down   25G    9216   swp
+swp2s2       down   25G    9216   swp
+swp2s3       down   25G    9216   swp
+swp3         down          9216   swp
+swp4         down          9216   swp
+...
+...
+swp14        down          9216   swp
+swp15        up     100G   9216   swp       ossg-int-rcf10                    swp15
+swp16        up     100G   9216   swp       ossg-int-rcf10                    swp16
+----
+
+
+. [[step16]] sur les deux commutateurs sw1 et sw2, vérifiez que les deux nœuds ont chacun une connexion à chaque commutateur :
++
+`nv show interface --view=lldp`
+
++
+Les exemples suivants montrent les résultats appropriés pour les deux commutateurs sw1 et sw2 :
+
++
+[listing, subs="+quotes"]
+----
+cumulus@sw1:~$ *nv show interface --view=lldp*
+
+Interface    Speed  Type      Remote Host                         Remote Port
+-----------  -----  --------  ----------------------------------  -----------
+...
+...
+swp1s0       10G    swp       odq-a300-1a                         e0a
+swp1s1       10G    swp       odq-a300-1b                         e0a
+swp1s2       10G    swp
+swp1s3       10G    swp
+swp2s0       25G    swp
+swp2s1       25G    swp
+swp2s2       25G    swp
+swp2s3       25G    swp
+swp3                swp
+swp4                swp
+...
+...
+swp14               swp
+swp15        100G   swp       ossg-int-rcf10                      swp15
+swp16        100G   swp       ossg-int-rcf10                      swp16
+
+cumulus@sw2:~$ *nv show interface --view=lldp*
+
+Interface    Speed  Type      Remote Host                         Remote Port
+-----------  -----  --------  ----------------------------------  -----------
+...
+...
+swp1s0       10G    swp       odq-a300-1a                         e0a
+swp1s1       10G    swp       odq-a300-1b                         e0a
+swp1s2       10G    swp
+swp1s3       10G    swp
+swp2s0       25G    swp
+swp2s1       25G    swp
+swp2s2       25G    swp
+swp2s3       25G    swp
+swp3                swp
+swp4                swp
+...
+...
+swp14               swp
+swp15        100G   swp       ossg-int-rcf10                      swp15
+swp16        100G   swp       ossg-int-rcf10                      swp16
+----
+
+
+--
+====
+. [[step17]] affiche des informations sur les périphériques réseau détectés dans votre cluster :
++
+`network device-discovery show -protocol lldp`
 
 +
 .Montrer l'exemple
@@ -591,7 +795,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
 `system switch ethernet log setup-password`
 
@@ -625,7 +829,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet.
+. Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci lance les deux types de collecte de journaux : les journaux détaillés *support* et une collecte horaire de données *périodiques*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
@@ -635,13 +839,13 @@ Enter the password again: *<enter switch password>*
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
+cluster1::*> *system switch ethernet log modify -device sw1 -log-request true*
 
 Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+cluster1::*> *system switch ethernet log modify -device sw2 -log-request true*
 
 Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
@@ -663,15 +867,15 @@ Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :
 cluster1::*> system switch ethernet log show
 Log Collection Enabled: true
 
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
+Index  Switch                       Log Timestamp        Status
+------ ---------------------------- -------------------- ---------
+1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete
+2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
 ====
 +
 
-CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.
+CAUTION: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
 
 . Rétablissez le niveau de privilège sur admin :
 +

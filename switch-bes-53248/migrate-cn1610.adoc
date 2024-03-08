@@ -98,11 +98,13 @@ Cette procédure couvre le scénario suivant :
 * Le cluster commence avec deux nœuds connectés à deux commutateurs de cluster CN1610.
 * Le commutateur CN1610 CL2 est remplacé par le commutateur BES-53248 cs2 :
 +
+** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
 ** Déconnectez les câbles de tous les ports du cluster de tous les nœuds connectés à CL2, puis utilisez les câbles pris en charge pour reconnecter les ports au nouveau commutateur cs2 du cluster.
 
 
 * Le commutateur CN1610 CL1 est remplacé par le commutateur BES-53248 cs1 :
 +
+** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
 ** Déconnectez les câbles de tous les ports du cluster de tous les nœuds connectés à CL1, puis utilisez les câbles pris en charge pour reconnecter les ports au nouveau commutateur cs1 du cluster.
 
 
@@ -342,11 +344,8 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. Sur le commutateur de cluster CL2, arrêter les ports connectés aux ports de cluster des nœuds :
+. Sur le commutateur de cluster CL2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster :
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (CL2)# *configure*
@@ -356,8 +355,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 (CL2)(Config)# *exit*
 (CL2)#
 ----
-====
-. Vérifiez que les LIFs du cluster ont migré vers les ports hébergés sur le commutateur de cluster CL1. Cette opération peut prendre quelques secondes.
+. Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster CL1. Cette opération peut prendre quelques secondes.
 +
 `network interface show -vserver Cluster`
 
@@ -450,14 +448,14 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Vérifiez que les connexions du port du commutateur sont correctes du point de vue du commutateur cs2 à l'aide des commandes :
+. Vérifiez que les connexions du port du commutateur sont correctes du point de vue du commutateur cs2 :
 +
 [listing, subs="+quotes"]
 ----
 cs2# *show port all*
 cs2# *show isdp neighbors*
 ----
-. Sur le commutateur de cluster CL1, arrêtez les ports connectés aux ports de cluster des nœuds.
+. Sur le commutateur de cluster CL1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -469,9 +467,9 @@ cs2# *show isdp neighbors*
 (CL1)#
 ----
 +
-Toutes les LIFs du cluster sont déplacées vers le commutateur cs2.
+Toutes les LIFs du cluster basculent sur le commutateur cs2.
 
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes :
+. Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes :
 +
 `network interface show -vserver Cluster`
 
@@ -564,7 +562,7 @@ node2      /cdp
             e0b    cs2                       0/2               BES-53248
 ----
 ====
-. Vérifiez que les connexions du port du commutateur sont correctes du point de vue du commutateur cs1 à l'aide des commandes :
+. Vérifiez que les connexions du port du commutateur sont correctes du point de vue du commutateur cs1 :
 +
 [listing, subs="+quotes"]
 ----
@@ -711,11 +709,7 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet.
-+
-
-IMPORTANT: Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP 9.10.1P15, 9.11.1P12 ou 9.12.1 et versions ultérieures et EFOS 3.8.0.2 et versions ultérieures.
-
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
 `system switch ethernet log setup-password`
 
@@ -749,7 +743,7 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Activez la fonction de collecte des journaux du moniteur d'état du commutateur Ethernet :
+. Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci lance les deux types de collecte de journaux : les journaux détaillés *support* et une collecte horaire de données *périodiques*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 

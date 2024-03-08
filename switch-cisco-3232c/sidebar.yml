@@ -31,6 +31,10 @@ entries:
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-3232c/install-rcf-3232c.html"
+  - title: Activer la collecte de journaux
+    url: "/switch-cisco-3232c/CSHM_log_collection.html"
+  - title: Configurer SNMPv3 pour la surveillance
+    url: "/switch-cisco-3232c/CSHM_snmpv3.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_3232c
   entries:

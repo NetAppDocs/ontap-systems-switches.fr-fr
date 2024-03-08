@@ -58,9 +58,20 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Les LIFS du cluster sont respectivement _node1_clum1_ et _node1_clum2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 * Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
-* Le commutateur C2 est remplacé d'abord par le commutateur cs2, puis le commutateur C1 est remplacé par le commutateur cs1.
+
+
+.Description de la tâche
+Cette procédure couvre le scénario suivant :
+
+* Le commutateur C2 est remplacé en premier par le commutateur cs2.
 +
-** Le câblage entre les nœuds et C2 est ensuite déconnecté de C2 et reconnecté à cs2
+** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
+** Le câblage entre les nœuds et C2 est ensuite déconnecté de C2 et reconnecté à cs2.
+
+
+* Le commutateur C1 est remplacé par le commutateur cs1.
++
+** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
 ** Le câblage entre les nœuds et C1 est ensuite déconnecté de C1 et reconnecté à cs1.
 
 
@@ -91,17 +102,6 @@ L'invite avancée (*>) apparaît.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-
-Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
-----
-====
 
 
 
@@ -271,11 +271,8 @@ RPC status:
 2 paths up, 0 paths down (udp check)
 ----
 ====
-. Sur le commutateur C2, arrêtez les ports connectés aux ports de cluster des nœuds.
+. Sur le commutateur C2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (C2)# *configure*
@@ -284,7 +281,6 @@ RPC status:
 (C2)(Interface 0/1-0/12)# *exit*
 (C2)(Config)# *exit*
 ----
-====
 . Déplacez les ports de cluster de nœuds de l'ancien commutateur C2 vers le nouveau commutateur cs2, à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.
 . Afficher les attributs des ports réseau :
 +
@@ -359,11 +355,8 @@ Cluster
             node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
 ----
 ====
-. Sur le commutateur C1, arrêtez les ports connectés aux ports de cluster des nœuds.
+. Sur le commutateur C1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (C1)# *configure*
@@ -372,7 +365,6 @@ Cluster
 (C1)(Interface 0/1-0/12)# *exit*
 (C1)(Config)# *exit*
 ----
-====
 . Déplacez les ports de cluster de nœuds de l'ancien commutateur C1 vers le nouveau commutateur cs1 à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.
 . Vérifier la configuration finale du cluster :
 +
@@ -515,12 +507,10 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur à l'aide des deux commandes suivantes :
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
-`system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
+`system switch ethernet log setup-password`
 
-+
-.. Entrez : `system switch ethernet log setup-password`
 +
 .Montrer l'exemple
 [%collapsible]
@@ -553,33 +543,30 @@ Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
 ====
-.. Suivi par : `system switch ethernet log enable-collection`
+. Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci lance les deux types de collecte de journaux : les journaux détaillés *support* et une collecte horaire de données *périodiques*.
++
+`system switch ethernet log modify -device _<switch-name>_ -log-request true`
+
 +
 .Montrer l'exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *system  switch ethernet log enable-collection*
+cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
 
-Do you want to enable cluster log collection for all nodes in the cluster?
-{y|n}: [n] *y*
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
 
 Enabling cluster switch log collection.
 
+cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
+
+Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
+
+Enabling cluster switch log collection.
 cluster1::*>
 ----
 ====
-+
-
-NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
-
-
-
-. Lancez la fonction de collecte du journal du commutateur :
-+
-`system switch ethernet log collect -device *`
-
 +
 Attendez 10 minutes, puis vérifiez que la collecte de journaux a réussi à l'aide de la commande :
 
@@ -587,20 +574,9 @@ Attendez 10 minutes, puis vérifiez que la collecte de journaux a réussi à l'a
 `system switch ethernet log show`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> system switch ethernet log show
-Log Collection Enabled: true
 
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      cs1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
-2      cs2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
-----
-====
+NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
+
 . Rétablissez le niveau de privilège sur admin :
 +
 `set -privilege admin`

@@ -31,6 +31,10 @@ entries:
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
+  - title: Activer la collecte de journaux
+    url: "/switch-cisco-3132q-v/CSHM_log_collection.html"
+  - title: Configurer SNMPv3 pour la surveillance
+    url: "/switch-cisco-3132q-v/CSHM_snmpv3.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_3132q-v
   entries:

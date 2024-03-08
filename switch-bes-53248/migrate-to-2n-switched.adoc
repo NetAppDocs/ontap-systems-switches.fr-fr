@@ -112,11 +112,9 @@ L'invite avancée (`*>`) s'affiche.
 NOTE: Vous ne devez pas désactiver les ports ISL.
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 L'exemple suivant montre que les ports 1 à 16 orientés nœud sont désactivés sur le commutateur cs1 :
 
++
 [listing, subs="+quotes"]
 ----
 (cs1)# *configure*
@@ -125,7 +123,6 @@ L'exemple suivant montre que les ports 1 à 16 orientés nœud sont désactivés
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-====
 . Vérifiez que l'ISL et les ports physiques de l'ISL entre les deux commutateurs BES-53248 cs1 et cs2 sont *UP* :
 +
 `show port-channel`
@@ -285,11 +282,9 @@ Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contient plu
 . Débranchez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 . Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs1 :
 
++
 [listing, subs="+quotes"]
 ----
 (cs1)# *configure*
@@ -298,7 +293,6 @@ L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur 
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-====
 . Vérifier que toutes les LIFs du cluster sont bien opérationnelles et affichées en tant que `true` pour `Is Home`:
 +
 `network interface show -vserver Cluster`
@@ -347,11 +341,9 @@ node2                true    true          false
 . Déconnectez le câble du port de cluster e0b sur le nœud 2, puis connectez le port e0b au port 2 du commutateur de cluster cs2, en utilisant le câblage approprié pris en charge par les commutateurs BES-53248.
 . Activer tous les ports orientés nœud sur le commutateur de cluster cs2.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs2 :
 
++
 [listing, subs="+quotes"]
 ----
 (cs2)# *configure*
@@ -360,7 +352,6 @@ L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur 
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)# *exit*
 ----
-====
 . Vérifiez que tous les ports du cluster sont *UP* :
 +
 `network port show -ipspace Cluster`

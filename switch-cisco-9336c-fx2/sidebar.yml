@@ -39,7 +39,9 @@ entries:
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html"
   - title: Activer la collecte de journaux
-    url: "/switch-cisco-9336c-fx2/configure-log-collection.html"
+    url: "/switch-cisco-9336c-fx2/CSHM_log_collection.html"
+  - title: Configurer SNMPv3 pour la surveillance
+    url: "/switch-cisco-9336c-fx2/CSHM_snmpv3.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_9336c-fx2
   entries:

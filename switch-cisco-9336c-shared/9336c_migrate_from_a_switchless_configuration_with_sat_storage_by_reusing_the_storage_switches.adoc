@@ -10,14 +10,17 @@ summary:
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 
 
 == Migrer les commutateurs de stockage
 
-En réutilisant les commutateurs de stockage, les switchs de stockage de la paire haute disponibilité 1 deviennent les switchs partagés. *Schéma de câblage pour connexion à un commutateur*image:9336c_image1.jpg["Connexion par commutateur"]
+En réutilisant les commutateurs de stockage, les switchs de stockage de la paire haute disponibilité 1 deviennent les switchs partagés.
+*Schéma de câblage pour connexion à un commutateur*
+
+image:9336c_image1.jpg["Connexion par commutateur"]
 
 .Étapes
 . Vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
@@ -83,7 +86,7 @@ node2
 storage::*> system health alert show -instance
 There are no entries matching your query.
 ----
-. [[step7]]remplacer la FCR de stockage sur le commutateur a partagé par le fichier RCF partagé. Voir http://9336c_install_nx-os_software_and_reference_configuration_files_@rcfs@.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
+. [[step7]]remplacez le fichier RCF de stockage sur le commutateur partagé A par le fichier RCF partagé. Voir link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
 . Vérifier que le stockage relié à la paire HA 1, le commutateur de stockage B fonctionne correctement :
 `system health alert show -instance`
 
@@ -105,7 +108,7 @@ There are no entries matching your query.
 storage::*> system health alert show -instance
 There are no entries matching your query.
 ----
-. [[step13]]remplacer le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir link:9336c_install_nx-os_software_and_reference_configuration_files_@rcfs@.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
+. [[step13]]remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html#install-the-rcf-on-a-cisco-nexus-9336c-fx2-shared-switch["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
 . Vérifier que le stockage relié à la paire HA 1, le commutateur de stockage B fonctionne correctement :
 `system health alert show -instance`
 
@@ -135,7 +138,7 @@ sh1 (config-if)# spanning-tree port type network
 sh1 (config-if)# exit
 sh1 (config)# exit
 ----
-. [[step16]]convertir la paire haute disponibilité 1 d'un cluster sans commutateur en cluster commuté. Utiliser les affectations des ports du cluster définies par le FCR partagé. Voir link:9336c_install_nx-os_software_and_reference_configuration_files_@rcfs@.html["Installer le logiciel NX-OS et les fichiers RCFs (Reference Configuration Files)"]pour plus d'informations.
+. [[step16]]convertir la paire haute disponibilité 1 d'un cluster sans commutateur en cluster commuté. Utiliser les affectations des ports du cluster définies par le FCR partagé. Voir link:9336c_install_nx-os_software_and_reference_configuration_files_rcfs.html["Installer le logiciel NX-OS et les fichiers RCFs (Reference Configuration Files)"]pour plus d'informations.
 . Vérifiez que la configuration du réseau commuté est valide :
 `network port show`
 

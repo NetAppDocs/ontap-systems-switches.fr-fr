@@ -2071,7 +2071,6 @@
   <block id="fc35a9ec43fa15619b7584ce5c4daa8a" category="list-text">Activer la fonction de revert automatique sur les LIFs du cluster :</block>
   <block id="5542e924104d087ae00a02e0143b2f6b" category="section-title">Migrer les commutateurs de stockage</block>
   <block id="29c04d28b21adc7e1a7b356455c263a4" category="inline-image-macro">Connexion par commutateur</block>
-  <block id="7424e91fe1d742657d5ad736cc938704" category="paragraph">En réutilisant les commutateurs de stockage, les switchs de stockage de la paire haute disponibilité 1 deviennent les switchs partagés. *Schéma de câblage pour connexion à un commutateur*<block ref="6a2cf54f6a37518ec42d92fd7fd3e59c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="514085dcc3bcd7f871a43182b26fc37f" category="list-text">[[step2]]déplacer la paire haute disponibilité 1, chemin NSM224, câbles A du commutateur de stockage A vers les ports de stockage NSM224 pour la paire haute disponibilité 1, chemin A du commutateur de stockage A.</block>
   <block id="9adac45c8f65af4ce2b61c1a4a107e6f" category="list-text">Déplacez le câble de la paire HA 1, nœud A, chemin A vers le port de stockage NSM224 pour la paire HA 1, nœud A du commutateur de stockage A.</block>
   <block id="0e537830f3d70ee3a080b4d98d4c355a" category="list-text">Déplacez le câble de la paire HA 1, nœud B, chemin A vers le port de stockage NSM224 pour la paire HA 1, nœud B du commutateur de stockage A.</block>
@@ -2125,7 +2124,6 @@
   <block id="6c2050d09711322397bf2564af018947" category="paragraph"><block ref="6c2050d09711322397bf2564af018947" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d2aa2982691bcb6b044696b6691d5677" category="paragraph">Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant un exemple de fiche de câblage rempli comme guide.</block>
   <block id="3d7fd5afdd3e2a9008c8eb6e9d19e41c" category="inline-image-macro">Fiche de câblage</block>
-  <block id="7bfa22cf35645d8a9b2e335b3ee5f0b0" category="paragraph">L'exemple de définition de port sur chaque paire de commutateurs est le suivant :<block ref="5965a3db7e52c18148f117f0240c1e3f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4cd361459ea2bb087ed6c989579796c7" category="paragraph">Où ?</block>
   <block id="9ec84c8a49c539fada5b23f8acb3e112" category="paragraph">Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. Le tableau connexions de cluster prises en charge du Hardware Universe définit les ports de cluster utilisés par la plateforme.</block>
   <block id="eff06c6a47d34c39807f7ae5e22214f9" category="paragraph"><block ref="eff06c6a47d34c39807f7ae5e22214f9" category="inline-image-macro-rx" type="image"></block></block>
@@ -2270,9 +2268,6 @@
   <block id="97d338e8c659dde4173ceb593a7ccc43" category="list-text">[[step28]]vérifier que le cluster fonctionne correctement :<block ref="639161158d7426b3865ce9c5a6f648b3" prefix=" " category="inline-code"></block></block>
   <block id="309143a0feb1ae92f31c8e20212e99bb" category="list-text">[[step29]]Envoyez un ping aux interfaces de cluster distantes pour vérifier la connectivité :<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
   <block id="31a64a44fce8ed03b7b71b06a1ddc567" category="doc">Migrer d'une configuration sans commutateur avec stockage SAT en réutilisant les commutateurs de stockage</block>
-  <block id="a791669229b197424a1c53af3c935995" category="list-text">[[step7]]remplacer la FCR de stockage sur le commutateur a partagé par le fichier RCF partagé. Voir<block ref="f6e7f441bcff51ec3d8080f15010fd4c" category="inline-link-rx"></block> pour plus d'informations.</block>
-  <block id="ded104c4c31658cbea5c009e1de22984" category="list-text">[[step13]]remplacer le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir <block ref="41062cda0a6ae510a0f118eb961870a4" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
-  <block id="533661dac93384c9c5129a0888e57a1d" category="list-text">[[step16]]convertir la paire haute disponibilité 1 d'un cluster sans commutateur en cluster commuté. Utiliser les affectations des ports du cluster définies par le FCR partagé. Voir <block ref="2cdb0ef9b29e3206865e37e4f43be394" category="inline-link-macro-rx"></block>pour plus d'informations.</block>
   <block id="0087b0de389e5b9f017430f157337f28" category="summary">Vous pouvez migrer d'anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs de réseau de cluster Cisco Nexus 92300YC.</block>
   <block id="ee9f18fe03ee9b0dd7c1625d630104b6" category="list-text">Toutes les LIFs de cluster à l'état up avec les LIFs de cluster sont sur leurs ports de type home.</block>
   <block id="861442a3532c3e685a51468723598110" category="list-text">Les commutateurs de cluster Cisco Nexus 5596UP existants sont c1 et c2.</block>
@@ -4739,4 +4734,10 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
   <block id="6fa86324fabffaee853e6eeee2824329" category="list-text">Le commutateur C1 est remplacé par le commutateur cs1.</block>
   <block id="9f4f9b4efa8b2eb74b227e6e2a18f872" category="list-text">Sur le commutateur C2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
   <block id="54c071b600d8be038e07b18d66329aa7" category="list-text">Sur le commutateur C1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
+  <block id="5965a3db7e52c18148f117f0240c1e3f" category="paragraph"><block ref="5965a3db7e52c18148f117f0240c1e3f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6a5dd15f930e244dadfd412b53dd1ac0" category="paragraph">En réutilisant les commutateurs de stockage, les switchs de stockage de la paire haute disponibilité 1 deviennent les switchs partagés.
+*Schéma de câblage pour connexion à un commutateur*</block>
+  <block id="5851bb17419faa449f719ec90fe12181" category="list-text">[[step7]]remplacez le fichier RCF de stockage sur le commutateur partagé A par le fichier RCF partagé. Voir <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="ea9f3090e45d8199fc92892a96dd0214" category="list-text">[[step13]]remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="779f2e1ced3dc42aa441f71771bcb993" category="list-text">[[step16]]convertir la paire haute disponibilité 1 d'un cluster sans commutateur en cluster commuté. Utiliser les affectations des ports du cluster définies par le FCR partagé. Voir <block ref="2e68fbe1bf6d8e813f758c3b7509ff6f" category="inline-link-macro-rx"></block>pour plus d'informations.</block>
 </blocks>

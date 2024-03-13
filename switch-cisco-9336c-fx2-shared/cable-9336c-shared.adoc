@@ -10,7 +10,7 @@ summary: Utilisez les images de câblage pour terminer le câblage entre les con
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -42,7 +42,9 @@ Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'inf
 
 Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant un exemple de fiche de câblage rempli comme guide.
 
-L'exemple de définition de port sur chaque paire de commutateurs est le suivant :image:cabling_worksheet.jpg["Fiche de câblage"]
+L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+
+image:cabling_worksheet.jpg["Fiche de câblage"]
 
 Où ?
 

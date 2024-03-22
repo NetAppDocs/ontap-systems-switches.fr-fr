@@ -38,6 +38,8 @@ entries:
     url: "/switch-cisco-9336c-fx2/install-nxos-software-9336c-cluster.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html"
+  - title: Activez SSH
+    url: "/switch-cisco-9336c-fx2/configure-ssh.html"
   - title: Activer la collecte de journaux
     url: "/switch-cisco-9336c-fx2/CSHM_log_collection.html"
   - title: Configurer SNMPv3 pour la surveillance

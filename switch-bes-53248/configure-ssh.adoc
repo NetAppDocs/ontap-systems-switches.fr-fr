@@ -1,7 +1,7 @@
 ---
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, chsm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
 summary: 'SSH est une condition requise lors de l"utilisation des fonctions de surveillance de l"état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous devez d"abord générer les clés SSH, puis activer SSH.' 
 ---
 = Activez SSH sur les commutateurs de cluster BES-53248
@@ -119,4 +119,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Et la suite ?
-link:configure-log-collection.html["Activez la fonction de collecte de journaux"].
+link:CSHM_log_collection.html["Activer la collecte de journaux"].

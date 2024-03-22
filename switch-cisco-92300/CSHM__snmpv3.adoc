@@ -1,7 +1,7 @@
 ---
-permalink: switch-cisco-9336c-fx2/CSHM_snmpv3.html 
+permalink: switch-cisco-92300/CSHM_snmpv3.html 
 sidebar: sidebar 
-keywords: SNMP,SNMPv3,SNMPv3 setup,Cisco setup, 9336C-FX2 switches configuration, NX-OS 
+keywords: SNMP,SNMPv3,SNMPv3 setup,Cisco setup,Cisco switches configuration,NX-OS 
 summary: 'SNMPv3 peut être utilisé avec le moniteur d"état du commutateur Ethernet (CSHM).' 
 ---
 = Configurer SNMPv3
@@ -14,7 +14,7 @@ summary: 'SNMPv3 peut être utilisé avec le moniteur d"état du commutateur Eth
 Suivez cette procédure pour configurer SNMPv3, qui prend en charge la surveillance de l'état du commutateur Ethernet (CSHM).
 
 .Description de la tâche
-Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Cisco 9336C-FX2 :
+Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Cisco 92300YC :
 
 * Pour *pas d'authentification* :
 `snmp-server user _SNMPv3_USER_ NoAuth`
@@ -110,7 +110,7 @@ cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
                                   SNMP Version: SNMPv2c
                                  Is Discovered: true
    SNMPv2c Community String or SNMPv3 Username: cshm1!
-                                  Model Number: N9K-C9336C-FX2
+                                  Model Number: N9K-C92300YC
                                 Switch Network: cluster-network
                               Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 9.3(7)
                      Reason For Not Monitoring: None  *<---- displays when SNMP settings are valid*
@@ -144,7 +144,7 @@ cluster1::*> *system switch ethernet show-all -device "sw1" -instance*
                                   SNMP Version: SNMPv3
                                  Is Discovered: true
    SNMPv2c Community String or SNMPv3 Username: SNMPv3User
-                                  Model Number: N9K-C9336C-FX2
+                                  Model Number: N9K-C92300YC
                                 Switch Network: cluster-network
                               Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 9.3(7)
                      Reason For Not Monitoring: None  *<---- displays when SNMP settings are valid*

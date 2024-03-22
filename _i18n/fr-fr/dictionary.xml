@@ -3994,7 +3994,6 @@
   <block id="354a428ae5bd694cfeccb15e5faecafb" category="sidebar">Installer une FCR</block>
   <block id="c13171629fe31c1238a32f1e3650b982" category="sidebar">Installez FASTPATH et RCF pour ONTAP 8.3.1 ou version ultérieure</block>
   <block id="a8bb0b5314965a8ac1d110202d7aae1f" category="sidebar">Installez NX-OS</block>
-  <block id="72f2a813dae956304645ec60ccd278dd" category="sidebar">Installer CSHM</block>
   <block id="9c065304d8a82e97da8536d4c7484ee2" category="sidebar">Migrer depuis un switch Cisco plus ancien</block>
   <block id="c95ced7468e70606897322014b89e5b3" category="section-title">Étape 3 : copiez l'image NX-OS sur le commutateur Cisco S2 et redémarrez</block>
   <block id="04677d95852adc11088eca251913d172" category="list-text">Copiez l'image NX-OS sur le commutateur S2.</block>
@@ -4740,4 +4739,12 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
   <block id="5851bb17419faa449f719ec90fe12181" category="list-text">[[step7]]remplacez le fichier RCF de stockage sur le commutateur partagé A par le fichier RCF partagé. Voir <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="ea9f3090e45d8199fc92892a96dd0214" category="list-text">[[step13]]remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir <block ref="2e5583639979312d3d691c4092c19d52" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="779f2e1ced3dc42aa441f71771bcb993" category="list-text">[[step16]]convertir la paire haute disponibilité 1 d'un cluster sans commutateur en cluster commuté. Utiliser les affectations des ports du cluster définies par le FCR partagé. Voir <block ref="2e68fbe1bf6d8e813f758c3b7509ff6f" category="inline-link-macro-rx"></block>pour plus d'informations.</block>
+  <block id="3e4a731a25f6cb42856b944eca270383" category="paragraph"><block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block>.</block>
+  <block id="a11987d46687611ce124e7db3e587d99" category="list-text">Pour *pas d'authentification* :<block ref="ba6af8270ffe8be26bb38b923ee39375" prefix=" " category="inline-code"></block></block>
+  <block id="00a862cbf647531bcc4b5bf9faba74e4" category="list-text">Pour l'authentification *MD5/SHA* :<block ref="31b98def7e9f7bb02cdfd9ac87afcda4" prefix=" " category="inline-code"></block></block>
+  <block id="7286c151c11606a97b24bba616cce292" category="list-text">Pour l'authentification *MD5/SHA avec cryptage AES/DES* :<block ref="6a48e8cc740517cd540e6de4c0a5585b" prefix=" " category="inline-code"></block></block>
+  <block id="e7d18f4dea6cb0b4877fd6a9e25a2411" category="paragraph"><block ref="e3949fbf38af37f5381ecfa4e157ffa8" prefix="" category="inline-code"></block></block>
+  <block id="7733a6a16b4fa24d09c107d2b3eefb78" category="summary">La fonctionnalité de collecte des journaux du contrôle de l'état du commutateur de cluster est utilisée pour collecter les fichiers journaux relatifs aux commutateurs dans ONTAP. Vous devez vous assurer que vous avez configuré votre environnement à l'aide de l'interface de ligne de commande du commutateur de cluster 92300YC, comme indiqué ici.</block>
+  <block id="e7c823ebcf9c688c2043749093639ce5" category="paragraph">Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Cisco 92300YC :</block>
+  <block id="d60c463bb4096f3ed4bd1618626dfe10" category="paragraph-title">Résoudre les problèmes</block>
 </blocks>

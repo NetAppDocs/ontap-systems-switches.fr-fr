@@ -17,11 +17,11 @@ Suivez cette procédure pour configurer SNMPv3, qui prend en charge la surveilla
 Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Broadcom BES-53248 :
 
 * Pour *pas d'authentification* :
-`net add snmp-server username _SNMPv3_USER_ auth-none`
+`snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth`
 * Pour l'authentification *MD5/SHA* :
-`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
+`snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]`
 * Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
-`net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
+`snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [priv-aes128|priv-des]`
 
 
 La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
@@ -33,7 +33,7 @@ La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
 .Étapes
 . Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le cryptage :
 +
-`net show snmp status`
+`show snmp status`
 
 +
 .Montrer l'exemple

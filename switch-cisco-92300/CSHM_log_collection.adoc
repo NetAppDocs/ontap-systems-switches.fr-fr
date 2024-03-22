@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-3132q-v/CSHM_log_collection.html 
+permalink: switch-cisco-92300/CSHM_log_collection.html 
 sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La fonctionnalité de collecte des journaux du contrôle de l"état du commutateur de cluster est utilisée pour collecter les fichiers journaux relatifs aux commutateurs dans ONTAP. Vous devez vous assurer que vous avez configuré votre environnement à l"aide de l"interface de ligne de commande du commutateur de cluster 92300YC, comme indiqué ici.' 
+keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,92300YC Cisco setup,92300YC switches configuration,NX-OS 
+summary: 'La fonction de collecte des journaux du contrôleur d"état du commutateur Ethernet (CSHM) permet de collecter des journaux à partir des commutateurs du cluster ou du réseau de stockage dans ONTAP.' 
 ---
 = Collecte du journal de surveillance de l'état du commutateur Ethernet
 :allow-uri-read: 
@@ -11,17 +11,10 @@ summary: 'La fonctionnalité de collecte des journaux du contrôle de l"état du
 
 
 [role="lead"]
-Vous pouvez utiliser la fonction de collecte de journaux pour collecter des fichiers journaux liés aux commutateurs dans ONTAP.
-
 Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *support* détaillés à partir du commutateur et démarre une collecte horaire de données *périodiques* collectées par AutoSupport.
 
-.Avant de commencer
-* Vérifiez que vous avez configuré votre environnement à l'aide du commutateur de cluster Cisco 3132Q-V *CLI*.
-* La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
-
-
 .Étapes
-. Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
 `system switch ethernet log setup-password`
 
@@ -90,7 +83,7 @@ CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des jour
 
 
 
-.Dépannage
+.Résoudre les problèmes
 Si vous rencontrez l'un des États d'erreur suivants signalés par la fonction de collecte de journaux (visible dans la sortie de `system switch ethernet log show`), essayez les étapes de débogage correspondantes :
 
 |===

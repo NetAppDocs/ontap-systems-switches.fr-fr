@@ -51,7 +51,7 @@ entries:
   entries:
   - title: Migrer depuis les commutateurs CN1610
     url: "/switch-bes-53248/migrate-cn1610.html"
-  - title: Migrer vers des commutateurs à deux nœuds
+  - title: Migration vers un switch à deux nœuds
     url: "/switch-bes-53248/migrate-to-2n-switched.html"
 - title: Remplacer les interrupteurs
   pdf-filename: Replace_switches_bes53248

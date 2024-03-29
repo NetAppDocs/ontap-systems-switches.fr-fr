@@ -1759,13 +1759,11 @@
   <block id="4117e035e1d5632e3f6a3311cd104041" category="list-text">Débranchez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.</block>
   <block id="a2c09169aae3d453a5de75708a6aea92" category="paragraph">L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs1 :</block>
   <block id="1cd3efec31f045ffb5449349f414844d" category="list-text">Vérifier que toutes les LIFs du cluster sont bien opérationnelles et affichées en tant que<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>:</block>
-  <block id="fcad649cb098b84dccd4a01a3b2eaa7f" category="paragraph">L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et le nœud2, ainsi<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> les résultats sont<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
   <block id="37389337e6e35d88b5139f8a3c830f35" category="list-text">Afficher des informations relatives à l'état des nœuds du cluster :</block>
   <block id="c5642fd4b778b82aea74ab00968dce4b" category="list-text">Déconnectez le câble du port de cluster e0b sur le nœud1, puis connectez le port 1 du commutateur de cluster cs2 en utilisant le câblage approprié pris en charge par les commutateurs BES-53248.</block>
   <block id="44e579a0b4e1ad763dcbac7dd27eb57a" category="list-text">Déconnectez le câble du port de cluster e0b sur le nœud 2, puis connectez le port e0b au port 2 du commutateur de cluster cs2, en utilisant le câblage approprié pris en charge par les commutateurs BES-53248.</block>
   <block id="3d7d92fe9fa50ff07a52fda11ae8d646" category="paragraph">L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs2 :</block>
   <block id="30530896511238b69b0e6acc7e04d6ce" category="list-text">Vérifiez que toutes les interfaces s'affichent<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>:</block>
-  <block id="920dd0f6e71089afe68eba9aa2f22c90" category="paragraph">L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et celui du nœud2, ainsi que celui-ci<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> les résultats sont<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
   <block id="90c03200b8f85b5e421787d5bb39a45c" category="list-text">Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur :</block>
   <block id="34898bfa473a2408e3c8f536845f48e5" category="list-text">Affiche des informations sur les périphériques réseau détectés dans votre cluster :</block>
   <block id="7c1d0d7ab06895c113f21e219b92b052" category="list-text">Vérifiez que les paramètres sont désactivés :</block>
@@ -2496,7 +2494,6 @@
   <block id="bc8a2cd252a5beb1dbf4f209baea67eb" category="sidebar">Commutateurs partagés</block>
   <block id="626a7cbe056796bcb1c158b143866230" category="sidebar">Notes de version de ONTAP</block>
   <block id="bc8be72fdc9d6054f356bb2b7f80fd12" category="sidebar">Matrice d'interopérabilité NetApp</block>
-  <block id="831835779ddae8b680a8580d383f130b" category="sidebar">Documentation sur les commutateurs AFF et FAS</block>
   <block id="e12f54ec861369fe9d4230c607023240" category="sidebar">Installez les licences</block>
   <block id="446e9d64184ff722494a9a706bbd9d06" category="sidebar">Migrer vers un environnement de cluster NetApp commuté</block>
   <block id="31714f8663c6dc67f31bca71f386b811" category="sidebar">Préparer le contrôleur</block>
@@ -3383,18 +3380,10 @@
   <block id="d1f4afd8356da4e0148299e8020db15b" category="list-text">Les fichiers de configuration de référence (RCFs) sont appliqués aux commutateurs.</block>
   <block id="3162ac93186b03e54de9e68256dbb924" category="list-text">Toute personnalisation de site (SMTP, SNMP et SSH) est configurée sur les nouveaux commutateurs.</block>
   <block id="f0b02a6a42b62e57a146137078a39635" category="section-title">Migrer vers l'environnement du cluster</block>
-  <block id="af0f02b80aaae2d29a88a56209cd3dd0" category="list-text">Vérifiez que l'ISL et les ports physiques de l'ISL entre les deux commutateurs BES-53248 cs1 et cs2 sont *UP* :</block>
   <block id="09a5fb271719ecae04d6c0f573fa3099" category="paragraph">L'exemple suivant montre que les ports ISL sont *UP* sur le commutateur cs1 :</block>
   <block id="f9431300de8d1a48bf2e554ad1605071" category="paragraph">L'exemple suivant montre que les ports ISL sont *UP* sur le commutateur cs2 :</block>
-  <block id="96725f7c30dba4b02784c4f6b22b76f2" category="list-text">Vérifier que tous les ports du cluster sont « en service » :</block>
-  <block id="711d7f6899df1dfa47e13a5fbedae706" category="paragraph">Chaque port doit afficher « UP » pour<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> et « en bonne santé » pendant<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
-  <block id="b9342006c263bb81a72635a40bccef85" category="list-text">Vérifier que toutes les LIFs de cluster sont « opérationnelles » :<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="a5d7c0c5e08447fc2eab20dfb2acee00" category="paragraph">Chaque LIF de cluster doit afficher « true » sur le<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> et avoir un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de « up/up »</block>
-  <block id="cd6df0359bdf1ee77a48901029c8c000" category="list-text">Vérifiez que tous les ports du cluster sont *UP* :</block>
-  <block id="9f7da2912010ab11954f77bf548cc0d8" category="paragraph">L'exemple suivant montre que tous les ports du cluster sont *up* sur les nœuds 1 et nœud2 :</block>
   <block id="99905a9acf063a85c4bbaa70f4455984" category="list-text">Vérifiez que le réseau en cluster dispose d'une connectivité complète via la commande :</block>
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">Pour plus d'informations, voir :<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
-  <block id="291315307e480f559eb88bb2d33ce0be" category="paragraph">Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster BES-53248. Voir <block ref="22274518ab78de16bd162dd23a69479d" category="inline-link-macro-rx"></block> et <block ref="42a9a40a2570039f7bbb890cc28e41e6" category="inline-link-macro-rx"></block>.</block>
   <block id="77d285017f370185656b54b03d5b5a16" category="paragraph">Le modèle de base de switch de cluster BES-53248 est disponible avec une licence pour 16 ports 10 GbE ou 25 GbE et deux ports 100 GbE. Vous pouvez ajouter de nouveaux ports en achetant d'autres licences.</block>
   <block id="f95b7ecd3b114623b8699a07a36fd860" category="section-title">Examiner les licences disponibles</block>
   <block id="d0b4658a7d84a9eac4898488fcaa5c83" category="admonition">Aucune licence n'est requise pour la configuration de base.</block>
@@ -3942,12 +3931,10 @@
   <block id="b41c4700bab043f1f20ef00a3ca30550" category="admonition">Les commutateurs de cluster Nexus 5596UP/5596T ne sont plus disponibles auprès de NetApp, mais ils seront pris en charge par Cisco pour un tim limité.</block>
   <block id="e727b00944f81e1d0a95c12886ac4641" category="inline-link">Archivage</block>
   <block id="43700a28b6a0a6d22cee566cf110c1ac" category="paragraph">La documentation sur les modèles de commutateurs AFF et FAS, qui ont atteint la fin de la prise en charge matérielle, est disponible pour l'utilisation par les clients dans le<block ref="e7b678559b63d2ae51b0bdc075b51522" category="inline-link-rx"></block>.</block>
-  <block id="3190ff33d621d64996efea42085e5a0e" category="sidebar">NetApp propose des clusters, un système de stockage et des switchs partagés pour assurer la connectivité entre le stockage hôte et deux ou plusieurs contrôleurs AFF/FAS, ce qui vous permet de déplacer des données et des interfaces réseau sans interruption entre votre infrastructure de stockage.</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">Commencez</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">Quoi de neuf</block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="sidebar">Démarrage rapide</block>
   <block id="732eab758bc032e5cc4992b97650c69b" category="sidebar">Documents ONTAP connexes</block>
-  <block id="495d87219d733f7402b03ba10a7576fc" category="sidebar">Systèmes matériels AFF/FAS</block>
   <block id="efd44736fee0b29831bc101f834f9425" category="sidebar">Logiciel ONTAP</block>
   <block id="974ad78dc53c253ebfe5b2b8b376f353" category="sidebar">Les outils prennent en charge</block>
   <block id="668e2078ef1b1722c77cdb5c523a4463" category="sidebar">Base de connaissances NetApp</block>
@@ -3983,7 +3970,6 @@
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">Activer la collecte de journaux</block>
   <block id="71f5771dab663d80ba4dad1627e3386a" category="sidebar">Présentation de la mise à niveau</block>
   <block id="1f23e03e99812c23b47ad60d475647df" category="sidebar">Mettre à niveau le commutateur</block>
-  <block id="2707e98202897bbf6d508b6f4c5232cc" category="sidebar">Migrer vers des commutateurs à deux nœuds</block>
   <block id="90f9408edf534ae6691bfa241e3cef32" category="sidebar">Remplacer le commutateur BES-53248</block>
   <block id="c4767bb3bd142c908fcfd8a9e5fab38c" category="sidebar">Migrez depuis un cluster DAS sans commutateur</block>
   <block id="3c0c4451f5d8950dc9b9a962b87ff4ae" category="sidebar">Migrer depuis une configuration DAS commutée</block>
@@ -4747,4 +4733,44 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
   <block id="7733a6a16b4fa24d09c107d2b3eefb78" category="summary">La fonctionnalité de collecte des journaux du contrôle de l'état du commutateur de cluster est utilisée pour collecter les fichiers journaux relatifs aux commutateurs dans ONTAP. Vous devez vous assurer que vous avez configuré votre environnement à l'aide de l'interface de ligne de commande du commutateur de cluster 92300YC, comme indiqué ici.</block>
   <block id="e7c823ebcf9c688c2043749093639ce5" category="paragraph">Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Cisco 92300YC :</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="paragraph-title">Résoudre les problèmes</block>
+  <block id="3e7c0049318f1d54d121bd59293ae3f8" category="summary">Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les informations suivantes.</block>
+  <block id="6f46a467644090d99e7affb0172248d7" category="paragraph">Avant de configurer votre commutateur Cisco 9336C-FX2, prenez en compte les points suivants.</block>
+  <block id="4c53e24e451af6129456f6303c30d40c" category="section-title">Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7</block>
+  <block id="9631cf0fb6580db66010faf0ddf48e5a" category="paragraph">Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports de carte réseau NVIDIA ConnectX-6 (CX6), ConnectX-6 DX (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.</block>
+  <block id="814d720814ffd5b1d8710ed1cff64233" category="section-title">Exigences FEC 25 GbE</block>
+  <block id="5179acf3e9761e0b0a93230fb2e3563e" category="section-title">Ports FAS2820 e0a/e0b</block>
+  <block id="16492a28b092a6c397b2ace11004d3ae" category="paragraph">Les ports FAS2820 e0a et e0b nécessitent des modifications de configuration FEC pour la liaison avec des ports commutateurs 9336C-FX2.
+Pour les ports switchs e0a et e0b, le paramètre fec est défini sur<block ref="49bb002a2d60e4cc69c3dc5b31861c1e" prefix=" " category="inline-code"></block>.</block>
+  <block id="4f87522819ea00e934b0a0922889948b" category="list-title">Contraintes de vitesse du groupe de ports</block>
+  <block id="ffb3876ecec1241eb99eed3e2c199c30" category="list-text">Les ports 48 10 GbE (SFP28/SFP+) sont combinés en 12 groupes de 4 ports comme suit : ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.</block>
+  <block id="3262b02fba07b6c88ff94cf729a2d880" category="list-text">Si les vitesses d'un groupe de 4 ports sont différentes, les ports de commutateur ne fonctionneront pas correctement.</block>
+  <block id="44419445a2db4f385ef269ec6901c6f0" category="list-text">Vérifiez que l'ISL et les ports physiques sur l'ISL entre les deux commutateurs BES-53248 cs1 et cs2 sont activés :</block>
+  <block id="d3ca9236c4922d1ced4f46317b142939" category="paragraph">Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le moniteur d'état du commutateur Ethernet (CSHM) pour les commutateurs de cluster BES-53248. Voir <block ref="69a3b5b5b3e87ce1bcae2811d815d9de" category="inline-link-macro-rx"></block>.</block>
+  <block id="884341494cf0683252982193822b1820" category="summary">Avant de configurer votre commutateur Broadcom BES-53248, consultez les informations suivantes.</block>
+  <block id="07da2741be958e9f66a97df92910bd8a" category="paragraph">Avant de configurer votre commutateur Broadcom BES-53248, consultez les considérations suivantes.</block>
+  <block id="5ff0ed2baf5dbbaa7302070081cdcb21" category="section-title">Affectations des commutateurs des ports du cluster</block>
+  <block id="6d2daece992ad0842c43707d5f1dd7e0" category="paragraph">Vous pouvez utiliser le tableau d'attribution des ports des commutateurs de cluster BES-53248 pris en charge par Broadcom pour configurer votre cluster.</block>
+  <block id="8a97863dc2bb67b8312833e0e1177b9a" category="paragraph">0-16</block>
+  <block id="8f165dca42f321f16043254a0b0519b2" category="section-title">Exigences FEC</block>
+  <block id="c54cb1d1758401e3642d17bb93a69d93" category="list-text">Pour les ports 25G avec câbles en cuivre, voir le tableau suivant pour plus de détails.</block>
+  <block id="195cd18c7f8998650d35b4c351942586" category="paragraph">Si le côté contrôleur est<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block>, Le côté commutateur est réglé sur FEC 25G.</block>
+  <block id="a00291ce16531c65ee398b6881feea1f" category="paragraph">+
+Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]</block>
+  <block id="4acde917814132a561bfa4351ff46435" category="list-text">Pour les ports 25G avec câbles Fibre/optique, reportez-vous au tableau suivant pour plus de détails :</block>
+  <block id="c6539246443696c8a670f430b739b72e" category="image-alt">Ports 25 G avec câbles fibre optique</block>
+  <block id="6e780ba970adeac360d7606298c46e9e" category="section-title">Mise en œuvre de Bootarg</block>
+  <block id="128b15f7c069993f4d8608bed503593c" category="paragraph">Utilisez la commande suivante pour définir le FEC du port 25G sur l'un ou l'autre<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> ou<block ref="e05fe30750d3ea262a610d17ebc07019" prefix=" " category="inline-code"></block>, selon les besoins :</block>
+  <block id="82f8a8d293c0abf4e508fba4f90f77de" category="list-text">Lorsqu'il est réglé sur <block ref="9df22f196a33acd0b372fe502de51211" prefix="*" category="inline-code"></block>* :</block>
+  <block id="a2db881e6e788aef3d98248893ac183d" category="list-text">Le<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> ce paramètre propage immédiatement le paramètre au matériel et aucun redémarrage n'est nécessaire.</block>
+  <block id="69c272de4bab8db62256f54da8bcde70" category="list-text">Si<block ref="ec0f1fb6d4ad0a1c5956dbfae578b508" prefix=" " category="inline-code"></block>, il est supprimé du stockage de bootarg.</block>
+  <block id="e36b105e2f0954e014a0653c4237275f" category="list-text">Après un redémarrage, le<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> le réglage reste en place depuis<block ref="9df22f196a33acd0b372fe502de51211" prefix=" " category="inline-code"></block> Est le paramètre FEC par défaut.</block>
+  <block id="4cf5b76257838a13f7eaf6e128780b63" category="list-text">Lorsqu'il est réglé sur <block ref="e05fe30750d3ea262a610d17ebc07019" prefix="*" category="inline-code"></block>* :</block>
+  <block id="33374324ada2340989bc045d67e0bc1e" category="list-text">Le<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> le paramètre propage immédiatement le paramètre au matériel et aucun redémarrage n'est nécessaire.</block>
+  <block id="c5a74ce2f4585cd46c311a5822607b9f" category="list-text">Une nouvelle<block ref="4b077bb4cc781686a7abd72c8354ba70" prefix=" " category="inline-code"></block> est créé avec la valeur définie sur « true ».</block>
+  <block id="72477c9fa5c7321db80c98ce8db97acf" category="list-text">Après un redémarrage,<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> le réglage reste en place pour que le code du pilote puisse être utilisé.</block>
+  <block id="6015ba5fcef1f3caa77869608d6c2789" category="doc">Documentation des commutateurs pour les systèmes matériels ONTAP</block>
+  <block id="25cb4346e07d274b036816fdb6e793af" category="sidebar">NetApp propose un cluster, un système de stockage et des commutateurs partagés pour assurer la connectivité entre le stockage hôte et au moins deux contrôleurs NetApp. Vous pouvez ainsi déplacer les données et les interfaces réseau sans interruption au sein de votre infrastructure de stockage.</block>
+  <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">Systèmes matériels ONTAP</block>
+  <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">Documents de commutation pour le matériel ONTAP</block>
+  <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">Migration vers un switch à deux nœuds</block>
 </blocks>

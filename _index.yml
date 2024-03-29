@@ -1,9 +1,9 @@
 ---
 indexpage:
-  lead: NetApp propose des clusters, un système de stockage et des switchs partagés
-    pour assurer la connectivité entre le stockage hôte et deux ou plusieurs contrôleurs
-    AFF/FAS, ce qui vous permet de déplacer des données et des interfaces réseau sans
-    interruption entre votre infrastructure de stockage.
+  lead: NetApp propose un cluster, un système de stockage et des commutateurs partagés
+    pour assurer la connectivité entre le stockage hôte et au moins deux contrôleurs
+    NetApp. Vous pouvez ainsi déplacer les données et les interfaces réseau sans interruption
+    au sein de votre infrastructure de stockage.
   tiles:
   - title: Commencez
     links:
@@ -25,7 +25,7 @@ indexpage:
       url: "/overview-eod.html"
   - title: Documents ONTAP connexes
     links:
-    - title: Systèmes matériels AFF/FAS
+    - title: Systèmes matériels ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Logiciel ONTAP
       url: https://docs.netapp.com/us-en/ontap/index.html

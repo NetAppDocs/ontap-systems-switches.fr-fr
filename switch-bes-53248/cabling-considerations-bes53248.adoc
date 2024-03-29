@@ -1,0 +1,108 @@
+---
+permalink: switch-bes-53248/cabling-considerations-bes-53248.html 
+sidebar: sidebar 
+keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
+summary: Avant de configurer votre commutateur Broadcom BES-53248, consultez les informations suivantes. 
+---
+= Examinez les considérations relatives au câblage et à la configuration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de configurer votre commutateur Broadcom BES-53248, consultez les considérations suivantes.
+
+
+
+== Affectations des commutateurs des ports du cluster
+
+Vous pouvez utiliser le tableau d'attribution des ports des commutateurs de cluster BES-53248 pris en charge par Broadcom pour configurer votre cluster.
+
+|===
+
+
+| *Ports de commutateur* | *Utilisation des ports* 
+
+
+ a| 
+0-16
+ a| 
+Nœuds de cluster 10 GbE avec port, configuration de base
+
+
+
+ a| 
+17-48
+ a| 
+Nœuds de cluster 10 GbE avec licences
+
+
+
+ a| 
+49-54
+ a| 
+Ajout de nœuds de port de cluster 40 GbE avec licences, de droite à gauche
+
+
+
+ a| 
+55-56
+ a| 
+Ports ISL (Inter-Switch Link) de cluster 100 GbE, configuration de base
+
+|===
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
+
+
+
+== Contrainte de vitesse du groupe de ports
+
+* Sur les switchs de cluster BES-53248, les ports 48 10 GbE (SFP28/SFP+) sont combinés en groupes à 12 ports 4-ports comme suit : ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
+* La vitesse des ports SFP28/SFP+ doit être identique (10 GbE ou 25 GbE) sur tous les ports du groupe à 4 ports.
+* Si les vitesses d'un groupe de 4 ports sont différentes, les ports de commutateur ne fonctionneront pas correctement.
+
+
+
+
+== Exigences FEC
+
+* Pour les ports 25G avec câbles en cuivre, voir le tableau suivant pour plus de détails.
+
+
+Si le côté contrôleur est `auto`, Le côté commutateur est réglé sur FEC 25G.
+
++
+Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]
+
+* Pour les ports 25G avec câbles Fibre/optique, reportez-vous au tableau suivant pour plus de détails :
++
+image::../media/FEC_fiber_table.jpg[Ports 25 G avec câbles fibre optique]
+
+
+
+
+
+=== Mise en œuvre de Bootarg
+
+Utilisez la commande suivante pour définir le FEC du port 25G sur l'un ou l'autre `auto` ou `fc`, selon les besoins :
+
+[listing]
+----
+systemshell -node <node> -command sudo sysctl dev.ice.<X>.requested_fec=<auto/fc>
+----
+* Lorsqu'il est réglé sur *`auto`* :
++
+** Le `auto` ce paramètre propage immédiatement le paramètre au matériel et aucun redémarrage n'est nécessaire.
+** Si `bootarg.cpk_fec_fc_eXx already exists`, il est supprimé du stockage de bootarg.
+** Après un redémarrage, le `auto` le réglage reste en place depuis `auto` Est le paramètre FEC par défaut.
+
+
+* Lorsqu'il est réglé sur *`fc`* :
++
+** Le `FC-FEC` le paramètre propage immédiatement le paramètre au matériel et aucun redémarrage n'est nécessaire.
+** Une nouvelle `bootarg.cpk_fec_fc_eXx` est créé avec la valeur définie sur « true ».
+** Après un redémarrage, `FC-FEC` le réglage reste en place pour que le code du pilote puisse être utilisé.
+
+
+

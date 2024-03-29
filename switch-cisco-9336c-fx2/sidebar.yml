@@ -27,6 +27,8 @@ entries:
     url: "/switch-cisco-9336c-fx2/setup-switch-9336c-cluster.html"
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html"
+  - title: Examiner le câblage et la configuration
+    url: "/switch-cisco-9336c-fx2/cabling-considerations-9336c-fx2.html"
 - title: Configurez le logiciel
   pdf-filename: Configure_Software_9336c-fx2
   entries:

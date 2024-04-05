@@ -22,6 +22,8 @@ entries:
     url: "/switch-cisco-3232c/setup-switch.html"
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
+  - title: Examiner le câblage et la configuration
+    url: "/switch-cisco-3232c/cabling-considerations-3232c.html"
 - title: Configurez le logiciel
   pdf-filename: Configure_Software_3232c
   entries:

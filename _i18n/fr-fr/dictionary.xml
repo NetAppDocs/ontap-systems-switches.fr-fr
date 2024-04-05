@@ -2471,7 +2471,6 @@
   <block id="2c70d9b6ebd85a5ee2fff0f363a115ac" category="paragraph"><block ref="bf3c84eda3ab699c2564d177a409447a" prefix="" category="inline-code"></block></block>
   <block id="e602723d0e5f9bdd1222eae8ea457289" category="paragraph"><block ref="c3b05a86918302a773f398302b53b622" prefix="" category="inline-code"></block></block>
   <block id="038dfaef435585ad7a241ece49eb90ca" category="paragraph">Les LIFs ont été rétablies si la colonne « est à l'origine » est<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>, comme indiqué pour<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> et<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> dans l'exemple suivant :</block>
-  <block id="ca781b2f6ba431222707604fe0989dc1" category="paragraph">Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :</block>
   <block id="31d2e20cefb76721dace23dfd9a35896" category="paragraph"><block ref="28a65537759ae55070780c50a3b3b9a6" prefix="" category="inline-code"></block></block>
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">Vérifiez l'état du cluster des nœuds depuis la console système de l'un ou l'autre nœuds :</block>
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">L'exemple suivant montre epsilon sur les deux nœuds à être<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>:</block>
@@ -4773,4 +4772,11 @@ Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]</block>
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">Systèmes matériels ONTAP</block>
   <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">Documents de commutation pour le matériel ONTAP</block>
   <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">Migration vers un switch à deux nœuds</block>
+  <block id="baeb2b9edd2060971ec4838ea0641d18" category="paragraph">Si une LIF DE cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :</block>
+  <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Avant de configurer votre switch Cisco 3232C, vérifiez les informations suivantes.</block>
+  <block id="855541c4370cb556c283600de9f0d1df" category="paragraph">Avant de configurer votre switch Cisco 3232C, vérifiez les points suivants.</block>
+  <block id="249c296c1de730eddbe0ead3fe930200" category="summary">Avant de configurer votre commutateur Cisco 92300YC, consultez les informations suivantes.</block>
+  <block id="709ea8965bb4964023cd6e82df0d3c62" category="paragraph">Avant de configurer votre commutateur Cisco 92300YC, consultez les considérations suivantes.</block>
+  <block id="ae721238017915904e94acd87eddf78c" category="summary">Avant de configurer votre commutateur Cisco 3132Q-V, consultez les informations suivantes.</block>
+  <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Avant de configurer votre commutateur Cisco 3132Q-V, consultez les considérations suivantes.</block>
 </blocks>

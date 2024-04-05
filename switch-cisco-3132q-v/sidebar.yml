@@ -22,6 +22,8 @@ entries:
     url: "/switch-cisco-3132q-v/setup-switch.html"
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
+  - title: Examiner le câblage et la configuration
+    url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
 - title: Configurez le logiciel
   pdf-filename: Configure_Software_3132q-v
   entries:

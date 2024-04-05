@@ -344,7 +344,7 @@ Cluster  node2_clus2   e0b       true
 ----
 ====
 +
-Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :
+Si une LIF DE cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :
 
 +
 `network interface revert -vserver Cluster -lif _lif_name_`

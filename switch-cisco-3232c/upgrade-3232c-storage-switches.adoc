@@ -49,7 +49,7 @@ NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutat
 
 === Étape 1 : vérifier l'état de santé des commutateurs et des ports
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
@@ -119,7 +119,7 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Vérifier l'absence de problèmes de câblage ou de commutateur de stockage au niveau du cluster :
+. Vérifiez qu'il n'y a pas de problème de câblage ou de commutateur de stockage :
 +
 `system health alert show -instance`
 
@@ -352,9 +352,9 @@ Module       Image                  Running-Version(pri:alt)           New-Versi
 
 
 Switch will be reloaded for disruptive upgrade.
-Do you want to continue with the installation (y/n)?  [n]  y
+Do you want to continue with the installation (y/n)?  [n] *y*
 input string too long
-Do you want to continue with the installation (y/n)?  [n] y
+Do you want to continue with the installation (y/n)?  [n] *y*
 
 Install is in progress, please wait.
 
@@ -482,7 +482,7 @@ S1
     Version Source: CDP
 
 S2
-                            storage-network    172.17.227.6     NX3232C
+                            storage-network    172.17.227.6    NX3232C
      Serial Number: FOC220443LZ
       Is Monitored: true
             Reason: None

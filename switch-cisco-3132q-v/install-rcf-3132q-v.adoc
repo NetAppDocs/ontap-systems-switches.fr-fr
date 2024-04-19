@@ -621,12 +621,6 @@ cluster1::*>
 ----
 ====
 . Répétez les étapes 1 à 10 de l'interrupteur cs1.
-
-
-
-
-=== Étape 3 : redémarrez et vérifiez la configuration
-
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
 .Montrer l'exemple
@@ -639,15 +633,17 @@ cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 . Redémarrer le commutateur cs1. Vous pouvez ainsi déclencher des LIF de cluster afin de rétablir leur port de départ. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 cs1# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-====
+
+
+
+
+=== Étape 3 : vérifier la configuration
+
 . Vérifier que les ports de commutateurs connectés aux ports du cluster sont bien connectés.
 +
 `show interface brief | grep up`

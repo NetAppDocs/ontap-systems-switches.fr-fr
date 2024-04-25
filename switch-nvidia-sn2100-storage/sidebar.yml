@@ -36,8 +36,10 @@ entries:
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-storage.html"
   - title: Installez le script RCF
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-storage.html"
-  - title: Configurer la collecte du journal du commutateur
-    url: "/switch-nvidia-sn2100/install-snmpv3-sn2100-storage.html"
+  - title: Activer la collecte de journaux
+    url: "/switch-nvidia-sn2100/CSHM_log_collection.html"
+  - title: Configurer SNMPv3 pour la surveillance
+    url: "/switch-nvidia-sn2100/CSHM_snmpv3.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_sn2100-Storage
   entries:

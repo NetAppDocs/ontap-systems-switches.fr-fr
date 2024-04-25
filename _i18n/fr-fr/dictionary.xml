@@ -827,7 +827,6 @@
   <block id="1a0894513362fda649e11ba9de926b82" category="list-text">Déterminez le statut administratif ou opérationnel pour chaque port du cluster.</block>
   <block id="be6163ad0c362d632b28f98dea1fdaaa" category="paragraph">Tous les ports de cluster qui ont été déplacés doivent être en service.</block>
   <block id="d0141bcaf704f75f043a7384708a3131" category="paragraph">Vérifiez que les ports de cluster déplacés voient le commutateur cs2-New comme voisin.</block>
-  <block id="8c61118abc6e9e30fd4469d362e96e00" category="paragraph">Toutes les LIF de cluster seront déplacées vers le nouveau commutateur cs2.</block>
   <block id="2a5fc0afbcb2299e24c73a909b297e93" category="paragraph">Vérifiez que les ports de cluster déplacés voient le commutateur cs1-New comme voisin.</block>
   <block id="9e25219bfef39dc2d94805b599244f8d" category="open-title">ONTAP 9.8 et versions ultérieures</block>
   <block id="c341f6ea60d7e8508c7d6cd8d529fd71" category="paragraph">Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour la collecte des fichiers journaux relatifs au commutateur, en utilisant les deux commandes suivantes :<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> et<block ref="ff5aaae616b6f326cad680284f32b588" prefix=" " category="inline-code"></block></block>
@@ -4695,10 +4694,8 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
   <block id="415f7d338cb2daf9bc58ecb9861e7a38" category="list-text">Le câblage entre les nœuds et cs2 est ensuite déconnecté du cs2 et reconnecté au cs2-New.</block>
   <block id="4c583a66e2c7985bcc194e39f55ceea5" category="list-text">Le commutateur cs1 est remplacé par le commutateur cs1-New.</block>
   <block id="e36cd913095fb9e4f8b81c803f89930b" category="list-text">Le câblage entre les nœuds et cs1 est ensuite déconnecté de cs1 et reconnecté à cs1-New.</block>
-  <block id="c541a676ea1012971e3e092cd0c456bb" category="list-text">Sur le commutateur de cluster cs2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster :</block>
   <block id="3e504b88532082c592970766665ca3a1" category="list-text">Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.</block>
   <block id="501db48c47898b7316de60a2bcbe9a16" category="list-text">Vérifiez les connexions des ports de commutateur du point de vue du commutateur cs2-New :</block>
-  <block id="4b9f132828deb041b404e712b378ac77" category="list-text">Sur le commutateur de cluster cs1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster. L'exemple suivant utilise la sortie d'exemple d'interface de STEP 7.</block>
   <block id="32172ed3b8d9ced5da325e5230b7981b" category="list-text">Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur cs2-New. Cette opération peut prendre quelques secondes :</block>
   <block id="85e04ff5dd770cff5dbbe435ea94a7dd" category="list-text">Vérifiez les connexions des ports de commutateur du point de vue du commutateur cs1-New :</block>
   <block id="784542320767d69b7e7fc2bfeb64a5b4" category="list-text">Sur le commutateur de cluster CL2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster :</block>
@@ -4780,4 +4777,11 @@ Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]</block>
   <block id="eae32a8cbb7853bbc6b25138f2911afa" category="paragraph">Avant de configurer votre commutateur Cisco 3132Q-V, consultez les considérations suivantes.</block>
   <block id="e3e32349be8562dbe95d6af1fcba4bbe" category="list-text">Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :<block ref="80cae18d0d871afff6b1bcabf727d6da" prefix=" " category="inline-code"></block></block>
   <block id="abd1e059b59ee3b3be9267c9c1319923" category="list-text">Vérifiez qu'il n'y a pas de problème de câblage ou de commutateur de stockage :</block>
+  <block id="54be17cb6ddfe931b6d4ca0454c7bcc8" category="admonition">La désactivation de la fonction de restauration automatique garantit que ONTAP ne bascule que sur les LIFs du cluster lorsque les ports du switch sont arrêtés ultérieurement.</block>
+  <block id="3947ff32e82f86e7176dc28b3ee33db0" category="list-text">Sur le commutateur de cluster cs2, arrêter les ports connectés aux ports de cluster de *tous* les nœuds afin de basculer sur les LIFs du cluster :</block>
+  <block id="022c00ee7f7e6672d82cc079623d6e22" category="list-text">Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster de *tous* les nœuds afin de faire basculer les LIFs de cluster.</block>
+  <block id="e6eb1709bc8131372d63990293ab75f8" category="paragraph">Toutes les LIFs du cluster basculent sur le commutateur cs2-New.</block>
+  <block id="af7a19b4dbadf7641102bf88598cfd8b" category="paragraph">+
+Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *support* détaillés à partir du commutateur et démarre une collecte horaire de données *périodiques* collectées par AutoSupport.</block>
+  <block id="a13c9d4c750715a8b993a3fec916189f" category="list-text">L'utilisateur de la collecte des journaux doit être spécifié lorsque le fichier RCF (Reference Configuration File) est appliqué. Par défaut, cet utilisateur est défini sur _admin_. Si vous souhaitez utiliser un autre utilisateur, vous devez le spécifier dans la section *# SHM User*s de la FCR.</block>
 </blocks>

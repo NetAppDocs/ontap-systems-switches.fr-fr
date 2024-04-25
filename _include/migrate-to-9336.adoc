@@ -247,7 +247,11 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Sur le commutateur de cluster cs2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster :
++
+
+NOTE: La désactivation de la fonction de restauration automatique garantit que ONTAP ne bascule que sur les LIFs du cluster lorsque les ports du switch sont arrêtés ultérieurement.
+
+. Sur le commutateur de cluster cs2, arrêter les ports connectés aux ports de cluster de *tous* les nœuds afin de basculer sur les LIFs du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -365,7 +369,7 @@ Vérifiez que les ports de cluster déplacés voient le commutateur cs2-New comm
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. Sur le commutateur de cluster cs1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster. L'exemple suivant utilise la sortie d'exemple d'interface de STEP 7.
+. Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster de *tous* les nœuds afin de faire basculer les LIFs de cluster.
 +
 [listing, subs="+quotes"]
 ----
@@ -373,7 +377,7 @@ cs1(config)# *interface eth1/1-1/2*
 cs1(config-if-range)# *shutdown*
 ----
 +
-Toutes les LIF de cluster seront déplacées vers le nouveau commutateur cs2.
+Toutes les LIFs du cluster basculent sur le commutateur cs2-New.
 
 . Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur cs2-New. Cette opération peut prendre quelques secondes :
 +

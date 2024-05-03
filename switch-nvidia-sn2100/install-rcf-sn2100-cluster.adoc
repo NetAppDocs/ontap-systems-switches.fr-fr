@@ -605,4 +605,4 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 ====
 .Et la suite ?
-link:install-snmpv3-sn2100-cluster.html["Configurer la collecte du journal du commutateur"].
+link:CSHM_log_collection.html["Activer la collecte de journaux"]

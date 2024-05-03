@@ -4,38 +4,25 @@ sidebar: sidebar
 keywords: install rcf, cisco switches 
 summary: Vous pouvez installer la FCR après la première configuration du commutateur Nexus 9336C-FX2.vous pouvez également utiliser cette procédure pour mettre à niveau votre version FCR. 
 ---
-= Installer le fichier RCF (Reference Configuration File)
+= Installation ou mise à niveau du fichier RCF (Reference Configuration File)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
-
-Avant de commencer, complétez la procédure dans link:install-nxos-overview-9336c-cluster.html["Préparez-vous à installer NX-OS et RCF"].
-
-Pour plus de détails sur les configurations de FCR disponibles, reportez-vous à la section link:configure-software-overview-9336c-cluster.html["Workflow d'installation du logiciel"].
-
-
-
-== Examen des conditions requises
-
-.Ce dont vous avez besoin
-* Sauvegarde actuelle de la configuration du commutateur.
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Fichier RCF actuel.
-* Connexion de la console au commutateur, requise lors de l'installation du FCR.
-
+Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur votre commutateur.
 
 .Documentation suggérée
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^] Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Notez que la syntaxe de la commande peut être utilisée dans la FCR et dans les versions de NX-OS.
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]. Reportez-vous aux guides de mise à niveau et aux logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
++
+Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]
++
+Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.
 
 
-
-
-== Installer la FCR
 
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
@@ -46,22 +33,404 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 
 
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
 
-.Description de la tâche
+Pour plus de détails sur les configurations de FCR disponibles, reportez-vous à la section link:configure-software-overview-9336c-cluster.html["Workflow d'installation du logiciel"].
+
+.Commandes utilisées
 La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
 
 
-CAUTION: Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série. Cette tâche réinitialise la configuration du réseau de gestion.
+== Option 1 : installez le fichier RCF sur un nouveau commutateur
+
+Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.
+
+.Avant de commencer
+Assurez-vous de ce qui suit :
+
+* Une connexion de console au commutateur. La connexion à la console est facultative si vous disposez d'un accès à distance au commutateur.
+* Le commutateur cs1 et le commutateur cs2 sont mis sous tension et la configuration initiale du commutateur est terminée (l'adresse IP de gestion et SSH sont configurés)
+* La version NX-OS souhaitée a été installée.
+* Les connexions ISL entre les switchs sont connectées.
+* Les ports du cluster de nœuds ONTAP ne sont pas connectés.
 
 
 
-=== Étape 1 : préparer l'installation
+
+=== Étape 1 : installez le RCF sur les switchs
+
+. Connectez-vous au commutateur cs1 à l'aide de SSH ou d'une console série.
+. Copiez la FCR dans le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple montre que TFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. Appliquez le RCF préalablement téléchargé sur le bootflash.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple montre le fichier RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs1 :
+
+[listing]
+----
+cs1# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+----
+====
+. Examinez le résultat de la bannière du `show banner motd` commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cs1# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : Nexus N9K-C9336C-FX2
+* Filename : Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt
+* Date     : 10-23-2020
+* Version  : v1.6
+*
+* Port Usage:
+* Ports  1- 3: Breakout mode (4x10G) Intra-Cluster Ports, int e1/1/1-4, e1/2/1-4
+, e1/3/1-4
+* Ports  4- 6: Breakout mode (4x25G) Intra-Cluster/HA Ports, int e1/4/1-4, e1/5/
+1-4, e1/6/1-4
+* Ports  7-34: 40/100GbE Intra-Cluster/HA Ports, int e1/7-34
+* Ports 35-36: Intra-Cluster ISL Ports, int e1/35-36
+*
+* Dynamic breakout commands:
+* 10G: interface breakout module 1 port <range> map 10g-4x
+* 25G: interface breakout module 1 port <range> map 25g-4x
+*
+* Undo breakout commands and return interfaces to 40/100G configuration in confi
+g mode:
+* no interface breakout module 1 port <range> map 10g-4x
+* no interface breakout module 1 port <range> map 25g-4x
+* interface Ethernet <interfaces taken out of breakout mode>
+* inherit port-profile 40-100G
+* priority-flow-control mode auto
+* service-policy input HA
+* exit
+*
+******************************************************************************
+----
+====
+. Vérifiez que le fichier RCF est la version la plus récente correcte :
++
+`show running-config`
+
++
+Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :
+
++
+** La bannière RCF
+** Les paramètres du nœud et du port
+** Personnalisations
++
+Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+
+
+
+. Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
++
+`copy running-config startup-config`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cs1# copy running-config startup-config [########################################] 100% Copy complete
+----
+====
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^].
+
+. Redémarrez le commutateur cs1.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Répéter les étapes 1 à 7 sur le commutateur cs2.
+. Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
+
+
+
+
+=== Étape 2 : vérifier les connexions du commutateur
+
+. Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.
++
+`show interface brief`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/1/1      1       eth  access up      none                    10G(D) --
+Eth1/1/2      1       eth  access up      none                    10G(D) --
+Eth1/7        1       eth  trunk  up      none                   100G(D) --
+Eth1/8        1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+====
+. Vérifiez que les nœuds de cluster se trouvent dans leurs VLAN de cluster corrects à l'aide des commandes suivantes :
++
+`show vlan brief`
+
++
+`show interface trunk`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show vlan brief*
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Po1, Eth1/1, Eth1/2, Eth1/3
+                                                Eth1/4, Eth1/5, Eth1/6, Eth1/7
+                                                Eth1/8, Eth1/35, Eth1/36
+                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
+                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
+                                                Eth1/10/3, Eth1/10/4
+17   VLAN0017                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
+                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
+                                                Eth1/10/3, Eth1/10/4
+18   VLAN0018                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
+                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
+                                                Eth1/10/3, Eth1/10/4
+31   VLAN0031                         active    Eth1/11, Eth1/12, Eth1/13
+                                                Eth1/14, Eth1/15, Eth1/16
+                                                Eth1/17, Eth1/18, Eth1/19
+                                                Eth1/20, Eth1/21, Eth1/22
+32   VLAN0032                         active    Eth1/23, Eth1/24, Eth1/25
+                                                Eth1/26, Eth1/27, Eth1/28
+                                                Eth1/29, Eth1/30, Eth1/31
+                                                Eth1/32, Eth1/33, Eth1/34
+33   VLAN0033                         active    Eth1/11, Eth1/12, Eth1/13
+                                                Eth1/14, Eth1/15, Eth1/16
+                                                Eth1/17, Eth1/18, Eth1/19
+                                                Eth1/20, Eth1/21, Eth1/22
+34   VLAN0034                         active    Eth1/23, Eth1/24, Eth1/25
+                                                Eth1/26, Eth1/27, Eth1/28
+                                                Eth1/29, Eth1/30, Eth1/31
+                                                Eth1/32, Eth1/33, Eth1/34
+
+cs1# *show interface trunk*
+
+-----------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+-----------------------------------------------------
+Eth1/1        1       trunking      --
+Eth1/2        1       trunking      --
+Eth1/3        1       trunking      --
+Eth1/4        1       trunking      --
+Eth1/5        1       trunking      --
+Eth1/6        1       trunking      --
+Eth1/7        1       trunking      --
+Eth1/8        1       trunking      --
+Eth1/9/1      1       trunking      --
+Eth1/9/2      1       trunking      --
+Eth1/9/3      1       trunking      --
+Eth1/9/4      1       trunking      --
+Eth1/10/1     1       trunking      --
+Eth1/10/2     1       trunking      --
+Eth1/10/3     1       trunking      --
+Eth1/10/4     1       trunking      --
+Eth1/11       33      trunking      --
+Eth1/12       33      trunking      --
+Eth1/13       33      trunking      --
+Eth1/14       33      trunking      --
+Eth1/15       33      trunking      --
+Eth1/16       33      trunking      --
+Eth1/17       33      trunking      --
+Eth1/18       33      trunking      --
+Eth1/19       33      trunking      --
+Eth1/20       33      trunking      --
+Eth1/21       33      trunking      --
+Eth1/22       33      trunking      --
+Eth1/23       34      trunking      --
+Eth1/24       34      trunking      --
+Eth1/25       34      trunking      --
+Eth1/26       34      trunking      --
+Eth1/27       34      trunking      --
+Eth1/28       34      trunking      --
+Eth1/29       34      trunking      --
+Eth1/30       34      trunking      --
+Eth1/31       34      trunking      --
+Eth1/32       34      trunking      --
+Eth1/33       34      trunking      --
+Eth1/34       34      trunking      --
+Eth1/35       1       trnk-bndl     Po1
+Eth1/36       1       trnk-bndl     Po1
+Po1           1       trunking      --
+
+------------------------------------------------------
+Port          Vlans Allowed on Trunk
+------------------------------------------------------
+Eth1/1        1,17-18
+Eth1/2        1,17-18
+Eth1/3        1,17-18
+Eth1/4        1,17-18
+Eth1/5        1,17-18
+Eth1/6        1,17-18
+Eth1/7        1,17-18
+Eth1/8        1,17-18
+Eth1/9/1      1,17-18
+Eth1/9/2      1,17-18
+Eth1/9/3      1,17-18
+Eth1/9/4      1,17-18
+Eth1/10/1     1,17-18
+Eth1/10/2     1,17-18
+Eth1/10/3     1,17-18
+Eth1/10/4     1,17-18
+Eth1/11       31,33
+Eth1/12       31,33
+Eth1/13       31,33
+Eth1/14       31,33
+Eth1/15       31,33
+Eth1/16       31,33
+Eth1/17       31,33
+Eth1/18       31,33
+Eth1/19       31,33
+Eth1/20       31,33
+Eth1/21       31,33
+Eth1/22       31,33
+Eth1/23       32,34
+Eth1/24       32,34
+Eth1/25       32,34
+Eth1/26       32,34
+Eth1/27       32,34
+Eth1/28       32,34
+Eth1/29       32,34
+Eth1/30       32,34
+Eth1/31       32,34
+Eth1/32       32,34
+Eth1/33       32,34
+Eth1/34       32,34
+Eth1/35       1
+Eth1/36       1
+Po1           1
+..
+..
+..
+..
+..
+----
+====
++
+
+NOTE: Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et remarques importantes de votre FCR.
+
+. Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :
++
+`show port-channel summary`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)        Eth1/36(P)
+cs1#
+----
+====
+
+
+
+
+=== Étape 3 : configuration du cluster ONTAP
+
+NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters.
+
+System Manager simplifie et simplifie l'installation et la configuration du cluster, notamment l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et le provisionnement du stockage initial.
+
+Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
+
+
+
+== Option 2 : mise à niveau des switchs existants avec une nouvelle version RCF
+
+Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur vos switchs opérationnels.
+
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
+* Sauvegarde actuelle de la configuration du commutateur.
+* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
+* Fichier RCF actuel.
+* Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration d'amorçage dans la mémoire RCF qui reflète les images d'amorçage souhaitées.
++
+Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
+
+
+
+
+NOTE: Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+
+
+CAUTION: Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.
+
+
+
+=== Étape 1 : préparation de la mise à niveau
 
 . Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
 +
@@ -204,32 +573,22 @@ cluster1::*>
 
 . Désactivez la fonction de restauration automatique sur les LIF du cluster.
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
-----
-====
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*`
+
 
 
 
 
 === Étape 2 : configurer les ports
 
-. Sur le commutateur de cluster cs2, arrêtez les ports connectés aux ports de cluster des nœuds.
+. Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs2(config)# *interface eth1/1/1-2,eth1/7-8*
-cs2(config-if-range)# *shutdown*
-----
-====
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
+`cs1(config)# *interface eth1/1/1-2,eth1/7-8*`
+
++
+`cs1(config-if-range)# *shutdown*`
+
+. Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
 +
 `network interface show -role cluster`
 
@@ -279,55 +638,64 @@ cluster1::*>
 ====
 . Si ce n'est pas déjà fait, enregistrez une copie de la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier texte :
 +
-[listing]
-----
-show running-config
-----
-. Nettoyez la configuration du commutateur cs2 et effectuez une configuration de base.
-+
-
-CAUTION: Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au port série console du commutateur pour pouvoir le configurer à nouveau.
+`show running-config`
 
 +
-.. Nettoyez la configuration :
+.. Enregistrez tous les ajouts personnalisés entre le fichier running-config actuel et le fichier RCF utilisé (par exemple, une configuration SNMP pour votre organisation).
+.. Pour NX-OS 10.2 et versions ultérieures, utilisez le `show diff running-config` Commande permettant de comparer avec le fichier RCF enregistré dans le bootflash.  Sinon, utilisez un outil de comparaison/différence de troisième partie.
+
+
+. Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
++
+`switch# show run | i "username admin password" > bootflash:write_erase.cfg`
+
++
+`switch# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`switch# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`switch# show run | section "switchname" >> bootflash:write_erase.cfg`
+
+. Exécutez la commande write erase pour effacer la configuration actuellement enregistrée :
++
+`switch# write erase`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] y`
+
+. Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
++
+`switch# copy write_erase.cfg startup-config`
+
+. Redémarrer le commutateur :
++
+`switch# reload`
+
++
+`This command will reboot the system. (y/n)?  [n] y`
+
+. Une fois que l'adresse IP de gestion est à nouveau accessible, connectez-vous au commutateur via SSH.
++
+Vous devrez peut-être mettre à jour les entrées de fichier hôte liées aux clés SSH.
+
+. Copiez la FCR dans le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+
 +
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing, subs="+quotes"]
-----
-(cs2)# *write erase*
-
-Warning: This command will erase the startup-configuration.
-
-Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Redémarrer le commutateur :
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *reload*
-
-Are you sure you would like to reset the system? (y/n) *y*
-
-----
-====
-
-
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
-+
-.Montrer l'exemple
-[%collapsible]
-====
-Cet exemple montre que TFTP est utilisé pour copier une FCR dans le bootflash sur le commutateur cs2 :
+Cet exemple montre que TFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
-cs2# *copy tftp: bootflash: vrf management*
+cs1# *copy tftp: bootflash: vrf management*
 Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
 Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
@@ -343,11 +711,11 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous au guide appropr
 .Montrer l'exemple
 [%collapsible]
 ====
-Cet exemple montre le fichier RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs2 :
+Cet exemple montre le fichier RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs1 :
 
 [listing]
 ----
-cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+cs1# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
 ----
 ====
 . Examinez le résultat de la bannière du `show banner motd` commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
@@ -357,7 +725,7 @@ cs2# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comma
 ====
 [listing]
 ----
-cs2# show banner motd
+cs1# show banner motd
 
 ******************************************************************************
 * NetApp Reference Configuration File (RCF)
@@ -408,33 +776,27 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 
-. Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
+. Réappliquez tous les ajouts personnalisés précédemment identifiés à la configuration du commutateur.
+. Une fois que vous avez vérifié que les versions de RCF, les ajouts personnalisés et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
 Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing]
-----
-cs2# copy running-config startup-config [########################################] 100% Copy complete
-----
-====
-. Redémarrer le commutateur cs2. Vous pouvez ignorer les événements « ports de cluster arrêtés » signalés sur les nœuds pendant le redémarrage du commutateur.
+`cs1# copy running-config startup-config`
+
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs2# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-----
-====
+`[########################################] 100% Copy complete`
+
+. Redémarrez le commutateur cs1. Vous pouvez ignorer les alertes « cluster switch Health Monitor » et les événements « cluster ports down » rapportés sur les nœuds lors du redémarrage du switch.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
 . Vérifier l'état de santé des ports du cluster sur le cluster.
 +
-.. Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
 +
 `network port show -role cluster`
 
@@ -480,7 +842,10 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Vérifiez l'état du commutateur depuis le cluster (il se peut que le commutateur cs2 n'affiche pas, car les LIF ne sont pas homeed sur e0d).
+.. Vérifiez l'état du commutateur depuis le cluster.
++
+`network device-discovery show -protocol cdp`
+
 +
 .Montrer l'exemple
 [%collapsible]
@@ -536,46 +901,6 @@ Vous pouvez observer les valeurs de sortie suivantes sur la console des commutat
 ====
 
 
-. Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
-+
-.Montrer l'exemple
-[%collapsible]
-====
-L'exemple suivant utilise la sortie d'interface :
-
-[listing, subs="+quotes"]
-----
-cs1(config)# *interface eth1/1/1-2,eth1/7-8*
-cs1(config-if-range)# *shutdown*
-----
-====
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.
-+
-`network interface show -role cluster`
-
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface show -role cluster*
-            Logical            Status     Network            Current             Current Is
-Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
------------ ------------------ ---------- ------------------ ------------------- ------- ----
-Cluster
-            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     false
-            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
-            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     false
-            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
-            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     false
-            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
-            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     false
-            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
-8 entries were displayed.
-cluster1::*>
-----
-====
 . Vérifiez que le cluster fonctionne correctement :
 +
 `cluster show`
@@ -597,33 +922,16 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Répétez les étapes 4 à 11 sur le commutateur cs1.
+. Répétez les étapes 1 à 18 sur le commutateur cs2.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*
-----
-====
-. Redémarrer le commutateur cs1. Vous pouvez ainsi déclencher des LIF de cluster afin de rétablir leur port de départ. Vous pouvez ignorer les événements « ports de cluster arrêtés » signalés sur les nœuds pendant le redémarrage du commutateur.
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cs1# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-----
-====
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
 
 
 
 
-=== Étape 3 : vérifier la configuration
+
+=== Étape 3 : vérifiez la configuration du réseau et l'état du cluster
 
 . Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.
 +
@@ -666,8 +974,8 @@ Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
 Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
 node1              Eth1/1         133    H           FAS2980       e0a
 node2              Eth1/2         133    H           FAS2980       e0a
-cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
-cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 
 Total entries displayed: 4
 ----
@@ -882,6 +1190,12 @@ Cluster
 cluster1::*>
 ----
 ====
++
+Si une LIF de cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :
+
++
+`network interface revert -vserver vserver_name -lif lif_name`
+
 . Vérifiez que le cluster fonctionne correctement :
 +
 `cluster show`

@@ -1,0 +1,28 @@
+---
+permalink: switch-bes-53248/complete-upgrade.html 
+sidebar: sidebar 
+keywords: BES-53248 switches, upgrade completion, upgrade bes-53248 switch 
+summary: Avant de configurer les commutateurs de cluster BES-53248, consultez un aperçu du processus et de la nomenclature. 
+---
+= Terminez la mise à niveau de votre commutateur de cluster BES-53248
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Procédez comme suit pour terminer la mise à niveau de vos commutateurs de cluster BES-54328, le cas échéant.
+
+. link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"].
++
+Si vous utilisez les fonctions CSHM (Cluster Switch Health Monitor) et de collecte de journaux, activez SSH sur les commutateurs.
+
+. link:configure-log-collection.html["Activez la fonction de collecte de journaux"].
++
+Utilisez cette fonction pour collecter les fichiers journaux relatifs au commutateur dans ONTAP.
+
+. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"].
++
+Si vous utilisez la fonction CSHM (Cluster Switch Health Monitor), configurez SNMPv3, qui prend en charge la surveillance de l'état du commutateur Ethernet (CSHM).
+
+

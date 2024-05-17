@@ -1,36 +1,30 @@
 ---
-permalink: switch-bes-53248/configure-install-rcf.html 
+permalink: switch-bes-53248/upgrade-rcf.html 
 sidebar: sidebar 
-keywords: install rcf,setup rcf,rcf file 
-summary: 'Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.' 
+keywords: upgrade rcf,setup rcf,rcf file 
+summary: Vous pouvez mettre à niveau le fichier RCF après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué de nouvelles licences. 
 ---
-= Installer le fichier RCF (Reference Configuration File)
+= Mise à niveau du fichier RCF (Reference Configuration File)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.
+Vous pouvez mettre à niveau le fichier RCF (Reference Configuration File) après la mise à niveau du commutateur de cluster BES-53248 EFOS et après l'application de nouvelles licences.
 
-
-
-== Examen des conditions requises
-
-.Avant de commencer
+.Ce dont vous avez besoin
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * Le fichier RCF actuel, disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
 * Configuration de démarrage dans le fichier RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-* Une connexion de console au commutateur, nécessaire lors de l'installation du RCF à partir d'un état par défaut défini en usine. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
+* Une connexion de console au commutateur, nécessaire lors de l'installation du RCF à partir d'un état par défaut défini en usine. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances  https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
 
 
 .Documentation suggérée
-Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Voir la https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Téléchargement du logiciel EFOS"^] page. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de commande dans le fichier RCF et celle trouvée dans les versions de EFOS.
+* Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Voir la https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Téléchargement du logiciel EFOS"^] page. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de commande dans le fichier RCF et celle trouvée dans les versions de EFOS.
+* Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le https://www.broadcom.com/support/bes-switch["Broadcom"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur BES-53248.
 
-
-
-== Installez le fichier de configuration
 
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
@@ -55,14 +49,12 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 
 
-== Étape 1 : préparer l'installation
+== Étape 1 : préparation de la mise à niveau
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
 +
-[source, cli]
-----
-system node autosupport invoke -node * -type all -message MAINT=xh
-----
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
 +
 où _x_ représente la durée de la fenêtre de maintenance en heures.
 
@@ -74,9 +66,9 @@ NOTE: Le message AutoSupport informe le support technique de cette tâche de mai
 La commande suivante supprime la création automatique de dossiers pendant deux heures :
 
 +
-[listing]
+[source, cli]
 ----
-cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=2h
+system node autosupport invoke -node * -type all -message MAINT=2h
 ----
 . Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
 +
@@ -281,7 +273,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ----
 show isdp neighbor
 ----
-. Sur le commutateur de cluster cs2, arrêtez les ports connectés aux ports de cluster des nœuds. Par exemple, si les ports 0/1 à 0/16 sont connectés aux nœuds ONTAP :
+. Sur le commutateur cs2, arrêtez les ports connectés aux ports de cluster des nœuds. Par exemple, si les ports 0/1 à 0/16 sont connectés aux nœuds ONTAP :
 +
 [listing, subs="+quotes"]
 ----
@@ -408,6 +400,9 @@ exit
 ----
 .. Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
 +
+`write memory`
+
++
 [listing, subs="+quotes"]
 ----
 (cs2)# *write memory*
@@ -418,18 +413,18 @@ Management interfaces will not be available during this time.
 Are you sure you want to save? (y/n) *y*
 
 Config file 'startup-config' created successfully.
-
 Configuration Saved!
 ----
 .. Redémarrer le commutateur :
 +
+`reload`
+
++
 [listing, subs="+quotes"]
 ----
 (cs2)# *reload*
-
 Are you sure you would like to reset the system? (y/n) *y*
 ----
-.. Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.
 
 
 . Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir link:configure-licenses.html#activate-newly-licensed-ports["Activation des ports sous licence nouvellement ouverts"^] pour plus d'informations.
@@ -438,9 +433,6 @@ Are you sure you would like to reset the system? (y/n) *y*
 Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -457,12 +449,14 @@ Are you sure you want to start? (y/n) *y*
 SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
-====
 . Vérifiez que le script a été téléchargé et enregistré dans le nom de fichier que vous lui avez donné :
 +
 `script list`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script list*
@@ -473,11 +467,15 @@ BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
 
 1 configuration script(s) found.
 ----
+====
 . Appliquer le script au commutateur :
 +
 `script apply`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
@@ -491,7 +489,11 @@ Configuration Saved!
 
 Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 ----
+====
 . Examinez le résultat de la bannière du `show clibanner` commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
++
+`show clibanner`
+
 +
 .Montrer l'exemple
 [%collapsible]
@@ -570,22 +572,20 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 0/56             Enable    100G Full               Down   Enable  Enable long
 ----
 ====
-. Vérifiez sur le commutateur que vos modifications ont été effectuées :
+. Vérifiez sur le commutateur que vos modifications ont été effectuées.
 +
 [source, cli]
 ----
-show running-config
-----
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *show running-config*
+show running config
 ----
 . Enregistrez la configuration en cours d'exécution afin qu'elle devienne la configuration de démarrage lorsque vous redémarrez le commutateur :
 +
 `write memory`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 (cs2)# *write memory*
@@ -595,10 +595,10 @@ Management interfaces will not be available during this time.
 Are you sure you want to save? (y/n) *y*
 
 Config file 'startup-config' created successfully.
-
 Configuration Saved!
 ----
-. Redémarrez le commutateur et vérifiez que la configuration en cours d'exécution est correcte :
+====
+. Redémarrez le commutateur et vérifiez que la configuration en cours est correcte.
 +
 `reload`
 
@@ -606,12 +606,10 @@ Configuration Saved!
 [listing, subs="+quotes"]
 ----
 (cs2)# *reload*
-
 Are you sure you would like to reset the system? (y/n) *y*
-
 System will now restart!
 ----
-. Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds. Par exemple, si les ports 0/1 à 0/16 sont connectés aux nœuds ONTAP :
+. Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds.
 +
 [listing, subs="+quotes"]
 ----
@@ -619,9 +617,29 @@ System will now restart!
 (cs2)# *configure*
 (cs2)(Config)# *interface 0/1-0/16*
 (cs2)(Interface 0/1-0/16)# *no shutdown*
-(cs2)(Interface 0/1-0/16)# *exit*
-(cs2)(Config)#
+(cs2)(Config)# *exit*
 ----
+. Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
++
+`write memory`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *write memory*
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+Configuration Saved!
+----
+====
 . Vérifiez les ports du commutateur cs2 :
 +
 [source, cli]
@@ -634,7 +652,7 @@ show interfaces status all | exclude Detach
 ====
 [listing, subs="+quotes"]
 ----
-(cs1)# show interfaces status all | exclude Detach
+(cs1)# *show interfaces status all | exclude Detach*
 
                                 Link    Physical    Physical    Media       Flow
 Port       Name                 State   Mode        Status      Type        Control     VLAN
@@ -712,7 +730,7 @@ e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
 +
 [source, cli]
 ----
-network device-discovery show -protocol cdp
+network device-discovery show
 ----
 +
 .Montrer l'exemple
@@ -804,82 +822,22 @@ cluster1::*>
 ----
 --
 ====
-. [[step20]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
-+
-L'exemple suivant utilise la sortie d'interface :
-
-+
-[listing, subs="+quotes"]
-----
-(cs1)> *enable*
-(cs1)# *configure*
-(cs1)(Config)# *interface 0/1-0/16*
-(cs1)(Interface 0/1-0/16)# *shutdown*
-----
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.
-+
-[source, cli]
-----
-network interface show -role cluster
-----
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *network interface show -role cluster*
-            Logical            Status     Network            Current            Current  Is
-Vserver     Interface          Admin/Oper Address/Mask       Node               Port     Home
------------ ------------------ ---------- ------------------ ------------------ -------- ----
-Cluster
-            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01        e0a      false
-            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01        e0b      true
-            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02        e0a      false
-            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02        e0b      true
-            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03        e0a      false
-            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03        e0b      true
-            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04        e0a      false
-            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04        e0b      true
-cluster1::*>
-----
-====
-. Vérifiez que le cluster fonctionne correctement :
-+
-`cluster show`
-
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *cluster show*
-Node                 Health   Eligibility   Epsilon
--------------------- -------- ------------- -------
-cluster1-01          true     true          false
-cluster1-02          true     true          false
-cluster1-03          true     true          true
-cluster1-04          true     true          false
-----
-====
-. Répétez les étapes 4 à 19 sur le commutateur cs1.
+. [[step21]]Répétez les étapes 1 à 20 sur le commutateur cs1.
 . Activer la fonction de revert automatique sur les LIFs du cluster :
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. Redémarrer le commutateur cs1. Vous pouvez ainsi déclencher des LIF de cluster afin de rétablir leur port de départ. Vous pouvez ignorer les événements “panne des ports de cluster” signalés sur les nœuds pendant le redémarrage du commutateur.
+. . Vérifier que les LIFs du cluster ont rétabli leur port de base :
 +
-[listing, subs="+quotes"]
+[source, cli]
 ----
-(cs1)# *reload*
-The system has unsaved changes.
-Would you like to save them now? (y/n) *y*
-Config file 'startup-config' created successfully.
-Configuration Saved! System will now restart!
+network interface show -role Cluster
 ----
++
+Pour plus de détails, voir link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ne rétablit pas un LIF à son port de départ"].
+
 
 
 
@@ -890,7 +848,7 @@ Configuration Saved! System will now restart!
 +
 [source, cli]
 ----
-show interfaces status all | exclude Detach
+show interfaces status all
 ----
 +
 .Montrer l'exemple
@@ -1061,6 +1019,3 @@ set -privilege admin
 system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
-
-.Et la suite ?
-link:configure-ssh.html["Activez SSH pour la collecte des journaux"].

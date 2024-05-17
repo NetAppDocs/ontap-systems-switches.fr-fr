@@ -31,20 +31,22 @@ entries:
     url: "/switch-bes-53248/configure-licenses.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-bes-53248/configure-install-rcf.html"
-  - title: Activez SSH
+  - title: Activez SSH pour la collecte des journaux
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Activer la collecte de journaux
     url: "/switch-bes-53248/CSHM_log_collection.html"
   - title: Configurer SNMPv3 pour la surveillance
     url: "/switch-bes-53248/CSHM_snmpv3.html"
-- title: Mettre à niveau les commutateurs
+- title: Commutateur de mise à niveau
   pdf-filename: Upgrade_switches_bes53248
   entries:
   - title: Présentation de la mise à niveau
     url: "/switch-bes-53248/upgrade-switch-overview.html"
-  - title: Mettre à niveau le commutateur
-    url: "/switch-bes-53248/replace-upgrade.html"
-  - title: Vérifiez la configuration de la mise à niveau
+  - title: Mise à niveau de la version EFOS
+    url: "/switch-bes-53248/upgrade-efos-software.html"
+  - title: Mise à niveau de la version RCF
+    url: "/switch-bes-53248/upgrade-rcf.html"
+  - title: Vérifiez le cluster après la mise à niveau
     url: "/switch-bes-53248/replace-verify.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_bes53248

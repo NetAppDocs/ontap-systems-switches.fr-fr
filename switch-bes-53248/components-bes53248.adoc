@@ -82,7 +82,7 @@ IMPORTANT: Noter les informations suivantes concernant les types de machine :
 
 [cols="50,50"]
 |===
-| Type de machine | Version EFOS 
+| Type de machine | Version minimale de EFOS 
 
 
  a| 

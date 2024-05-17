@@ -51,9 +51,6 @@ Les exemples des procédures de configuration utilisent la nomenclature de commu
 
 . Connectez-vous au commutateur en tant que `admin` Et appuyez sur *entrée* lorsque vous êtes invité à saisir un mot de passe. Le nom de commutateur par défaut est *routing*. À l'invite, entrez `enable`. Ceci vous donne accès au mode d’exécution privilégié pour la configuration du commutateur.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 User: *admin*
@@ -62,33 +59,24 @@ Password:
 Password:
 (Routing)#
 ----
-====
 . Définissez le nom du commutateur sur *cs2*.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-====
 . Pour définir une adresse IP statique, utilisez le `serviceport protocol`, `network protocol`, et `serviceport ip` commandes comme indiqué dans l'exemple.
 +
 Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *serviceport protocol none*
 (cs2)# *network protocol none*
 (cs2)# *serviceport ip ipaddr netmask gateway*
 ----
-====
 . Vérifiez les résultats à l'aide de la commande :
 +
 `show serviceport`
@@ -115,96 +103,124 @@ Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ====
 . Configurez le domaine et le serveur de noms :
 +
-`configure`
-
+[source, cli]
+----
+ip domain name <domain_name>
+ip name server <server_name>
+----
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *configure*
-(cs2) (Config)# *ip domain name company.com*
-(cs2) (Config)# *ip name server 10.10.99.1 10.10.99.2*
-(cs2) (Config)# *exit*
-(cs2) (Config)#
-----
-====
-. Configurez le serveur NTP.
-+
-.. Configurer le fuseau horaire et la synchronisation de l'heure (SNTP) :
-+
-`sntp`
-
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
+(cs2)(Config)# *ip domain name company.com*
+(cs2)(Config)# *ip name server 10.10.99.1 10.10.99.2*
+(cs2)(Config)# *exit*
 (cs2)#
-(cs2) (Config)# *sntp client mode unicast*
-(cs2) (Config)# *sntp server 10.99.99.5*
-(cs2) (Config)# *clock timezone -7*
-(cs2) (Config)# *exit*
-(cs2) (Config)#
 ----
-====
-+
-Pour EFOS version 3.10.0.3 et ultérieure, utilisez la commande `ntp`.
+. Configurez le serveur NTP.
 
-+
-`ntp`
 
-+
-.Montrer l'exemple
-[%collapsible]
+[role="tabbed-block"]
 ====
+.EFOS 3.10.0.3 et versions ultérieures
+--
+Configurez le fuseau horaire et la synchronisation de l'heure (NTP) :
+
+[source, cli]
+----
+sntp server <server_name>
+clock
+----
 [listing, subs="+quotes"]
 ----
-(cs2)configure
-(cs2)(Config)# *ntp ?*
-
-authenticate             Enables NTP authentication.
-authentication-key       Configure NTP authentication key.
-broadcast                Enables NTP broadcast mode.
-broadcastdelay           Configure NTP broadcast delay in microseconds.
-server                   Configure NTP server.
-source-interface         Configure the NTP source-interface.
-trusted-key              Configure NTP authentication key number for trusted time source.
-vrf                      Configure the NTP VRF.
-
-(cs2)(Config)# *ntp server ?*
-
-ip-address|ipv6-address|hostname  Enter a valid IPv4/IPv6 address or hostname.
-
+(cs2)# *configure*
 (cs2)(Config)# *ntp server 10.99.99.5*
+(cs2)(Config)# *clock timezone -7*
+(cs2)(Config)# *exit*
+(cs2)#
 ----
+--
+.EFOS 3.9.0.2 et versions antérieures
+--
+Configurer le fuseau horaire et la synchronisation de l'heure (SNTP) :
+
+[source, cli]
+----
+sntp client mode <client_mode>
+sntp server <server_name>
+clock
+----
+[listing, subs="+quotes"]
+----
+(cs2)# *configure*
+(cs2)(Config)# *sntp client mode unicast*
+(cs2)(Config)# *sntp server 10.99.99.5*
+(cs2)(Config)# *clock timezone -7*
+(cs2)(Config)# *exit*
+(cs2)#
+----
+--
 ====
-.. Configurez l'heure manuellement :
-+
+. [[step10]]configurez l'heure manuellement si vous n'avez pas configuré de serveur NTP à l'étape précédente.
+
+
+[role="tabbed-block"]
+====
+.EFOS 3.10.0.3 et versions ultérieures
+--
+Configurez l'heure manuellement.
+
 `clock`
 
-+
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
-(cs2)# *config*
-(cs2) (Config)# *no sntp client mode*
-(cs2) (Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
-(cs2) (Config)# *clock timezone -5 zone EST*
-(cs2) (Config)# *clock set 07:00:00
-(cs2) (Config)# *clock set 10/20/2020*
 
-(cs2) (Config)# *show clock*
+(cs2)# *configure*
+(cs2)(Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
+(cs2)(Config)# *clock timezone -5 zone EST*
+(cs2)(Config)# *clock set 07:00:00*
+(cs2)(Config)# *clock set 10/20/2023*
+(cs2)(Config)# *show clock*
 
-07:00:11 EST(UTC-5:00) Oct 20 2020
+07:00:11 EST(UTC-5:00) Oct 20 2023
 No time source
 
-(cs2) (Config)# *exit*
+(cs2)(Config)# *exit*
+(cs2)#
+----
+--
+.EFOS 3.9.0.2 et versions antérieures
+--
+Configurez l'heure manuellement.
 
+`clock`
+
+[listing, subs="+quotes"]
+----
+
+(cs2)# *configure*
+(cs2)(Config)# *no sntp client mode*
+(cs2)(Config)# *clock summer-time recurring 1 sun mar 02:00 1 sun nov 02:00 offset 60 zone EST*
+(cs2)(Config)# *clock timezone -5 zone EST*
+(cs2)(Config)# *clock set 07:00:00*
+(cs2)(Config)# *clock set 10/20/2023*
+(cs2)(Config)# *show clock*
+
+07:00:11 EST(UTC-5:00) Oct 20 2023
+No time source
+
+(cs2)(Config)# *exit*
+(cs2)#
+----
+--
+====
+. [[step11]]Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
++
+`write memory`
+
++
+[listing, subs="+quotes"]
+----
 (cs2)# *write memory*
 
 This operation may take a few minutes.
@@ -216,10 +232,7 @@ Config file 'startup-config' created successfully.
 
 Configuration Saved!
 ----
-====
-
-
 
 
 .Et la suite ?
-link:configure-efos-software.html["Installez le logiciel EFOS"].
+link:configure-efos-software.html["Installez le logiciel EFOS"]

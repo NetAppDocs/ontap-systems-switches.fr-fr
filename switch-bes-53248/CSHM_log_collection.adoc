@@ -14,7 +14,7 @@ summary: 'La fonction de collecte des journaux du contrôleur d"état du commuta
 Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *support* détaillés à partir du commutateur et démarre une collecte horaire de données *périodiques* collectées par AutoSupport.
 
 .Avant de commencer
-* Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP version 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.
+* Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP version 9.10.1P15, 9.11.1P12, ou 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.
 * La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
 
 
@@ -88,7 +88,7 @@ CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des jour
 
 
 
-.Dépannage
+.Résoudre les problèmes
 Si vous rencontrez l'un des États d'erreur suivants signalés par la fonction de collecte de journaux (visible dans la sortie de `system switch ethernet log show`), essayez les étapes de débogage correspondantes :
 
 |===

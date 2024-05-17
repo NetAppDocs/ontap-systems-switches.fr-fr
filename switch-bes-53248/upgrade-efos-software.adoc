@@ -1,0 +1,578 @@
+---
+permalink: switch-bes-53248/upgrade-efos-software.html 
+sidebar: sidebar 
+keywords: BES-53248 cluster switches,upgrading EFOS software 
+summary: 'Procédez comme suit pour mettre à niveau le logiciel EFOS (Ethernet Fabric OS) sur le commutateur de cluster BES-53248.' 
+---
+= Mettez à niveau le logiciel EFOS
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Procédez comme suit pour mettre à niveau le logiciel EFOS sur le commutateur de cluster BES-53248.
+
+Le logiciel EFOS inclut un ensemble de fonctions et de protocoles réseau avancés pour le développement de systèmes d'infrastructure Ethernet et IP. Cette architecture logicielle convient à tout périphérique d'organisation réseau utilisant des applications nécessitant une inspection ou une séparation complète des paquets.
+
+
+
+== Préparation de la mise à niveau
+
+.Avant de commencer
+* Téléchargez le logiciel Broadcom EFOS correspondant à vos commutateurs de cluster à partir du https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] le site.
+* Consultez les remarques suivantes concernant les versions de EFOS.
+
+
+[]
+====
+*Notez ce qui suit :*
+
+* Lors de la mise à niveau de EFOS 3.4.x.x vers EFOS 3.7.x.x ou version ultérieure, le commutateur doit exécuter EFOS 3.4.4.6 (ou version 3.4.x.x ultérieure). Si vous exécutez une version antérieure à celle-ci, mettez d'abord le commutateur à niveau vers EFOS 3.4.4.6 (ou version ultérieure 3.4.x.x), puis mettez-le à niveau vers EFOS 3.7.x.x ou version ultérieure.
+* La configuration de EFOS 3.4.x.x et 3.7.x.x ou ultérieure est différente. Pour changer la version EFOS de 3.4.x.x à 3.7.x.x ou ultérieure, ou vice versa, le commutateur doit être réinitialisé aux valeurs par défaut et les fichiers RCF pour la version EFOS correspondante doivent être (ré)appliqués. Cette procédure nécessite un accès via le port série console.
+* À partir de la version 3.7.x.x ou ultérieure de EFOS, une version non conforme à la norme FIPS et une version conforme à la norme FIPS sont disponibles. Différentes étapes sont appliquées lors du passage d'une version non conforme à la norme FIPS à une version conforme à la norme FIPS, et inversement. Le fait de remplacer EFOS d'une version non conforme à la norme FIPS par une version conforme à la norme FIPS ou vice versa réinitialise les paramètres par défaut du commutateur. Cette procédure nécessite un accès via le port série console.
+
+
+====
+|===
+
+
+| *Procédure* | *Version actuelle de EFOS* | *Nouvelle version EFOS* | *Pas de niveau élevé* 
+
+
+ a| 
+Procédure de mise à niveau de EFOS entre deux versions (non conformes à la norme FIPS
+ a| 
+3.4.x.x
+ a| 
+3.4.x.x
+ a| 
+Mettez à niveau la nouvelle image EFOS à l'aide de <<Méthode 1 : mise à niveau de EFOS>>.
+Les informations de configuration et de licence sont conservées.
+
+
+
+ a| 
+3.4.4.6 (ou version ultérieure 3.4.x.x)
+ a| 
+3.7.x.x ou version ultérieure non conforme FIPS
+ a| 
+Mettre EFOS à niveau à l'aide de <<Méthode 1 : mise à niveau de EFOS>>.
+Réinitialisez le commutateur sur les paramètres par défaut et appliquez le fichier RCF pour EFOS 3.7.x.x ou version ultérieure.
+
+
+
+.2+| 3.7.x.x ou version ultérieure non conforme FIPS  a| 
+3.4.4.6 (ou version ultérieure 3.4.x.x)
+ a| 
+Rétrograder EFOS à l'aide de <<Méthode 1 : mise à niveau de EFOS>>.
+Réinitialisez le commutateur sur les paramètres par défaut et appliquez le fichier RCF pour EFOS 3.4.x.x
+
+
+
+ a| 
+3.7.x.x ou version ultérieure non conforme FIPS
+ a| 
+Mettez à niveau la nouvelle image EFOS à l'aide de <<Méthode 1 : mise à niveau de EFOS>>. Les informations de configuration et de licence sont conservées.
+
+
+
+ a| 
+Conforme à la norme FIPS 3.7.x.x ou ultérieure
+ a| 
+Conforme à la norme FIPS 3.7.x.x ou ultérieure
+ a| 
+Mettez à niveau la nouvelle image EFOS à l'aide de <<Méthode 1 : mise à niveau de EFOS>>.
+Les informations de configuration et de licence sont conservées.
+
+
+
+ a| 
+Procédure de mise à niveau vers/à partir d'une version conforme à la norme FIPS EFOS
+ a| 
+Non conforme à la norme FIPS
+ a| 
+Conforme à la norme FIPS
+ a| 
+Mise à niveau de l'image EFOS à l'aide de <<Méthode 2 : mise à niveau de EFOS à l'aide de l'installation ONIE OS>>. La configuration du commutateur et les informations de licence seront perdues.
+
+
+
+ a| 
+Conforme à la norme FIPS
+ a| 
+Non conforme à la norme FIPS
+
+|===
+[IMPORTANT]
+====
+Pour vérifier si votre version d'EFOS est conforme à la norme FIPS ou non conforme à la norme FIPS, utilisez le `show fips status` commande. Dans les exemples suivants, *IP_switch_a1* utilise EFOS conforme FIPS et *IP_switch_a2* utilise EFOS non conforme FIPS.
+
+* Sur le commutateur IP_Switch_a1 (EFOS conforme FIPS) :
++
+[listing, subs="+quotes"]
+----
+IP_switch_a1 # *show fips status*
+
+System running in FIPS mode
+----
+* Sur le commutateur IP_Switch_a2 (EFOS non conforme FIPS) :
++
+[listing, subs="+quotes"]
+----
+IP_switch_a2 # *show fips status*
+                     ^
+% Invalid input detected at ^ marker.
+----
+
+
+====
+
+
+== Mettez à niveau le logiciel
+
+Utilisez l'une des méthodes suivantes :
+
+* <<Méthode 1 : mise à niveau de EFOS>>. Utiliser pour la plupart des cas (voir le tableau ci-dessus).
+* <<Méthode 2 : mise à niveau de EFOS à l'aide de l'installation ONIE OS>>. Utilisez si une version de EFOS est conforme à la norme FIPS et que l'autre version de EFOS n'est pas conforme à la norme FIPS.
+
+
+
+NOTE: Mettez à niveau EFOS sur un commutateur à la fois pour assurer le fonctionnement continu du réseau de cluster.
+
+
+
+=== Méthode 1 : mise à niveau de EFOS
+
+Procédez comme suit pour mettre à niveau le logiciel EFOS.
+
+
+IMPORTANT: Notez qu'après la mise à niveau des commutateurs de cluster BES-53248 de EFOS 3.3.x.x ou 3.4.x.x vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et le canal de port sont marqués dans l'état *down*. Consultez cet article de la base de connaissances : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["La mise à niveau sans interruption du commutateur de cluster BES-53248 a échoué à la mise à niveau vers EFOS 3.7.0.4 et versions ultérieures"^] pour plus d'informations.
+
+.Étapes
+. Connectez le commutateur de cluster BES-53248 au réseau de gestion.
+. Utilisez le `ping` Commande pour vérifier la connectivité au serveur hébergeant EFOS, les licences et le fichier RCF.
++
+Cet exemple vérifie que le commutateur est connecté au serveur à l'adresse IP 172.19.2 :
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+. Désactivez la fonction de restauration automatique sur les LIF du cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert false
+----
+. Afficher les images de démarrage de la configuration active et de sauvegarde :
++
+`show bootvar`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show bootvar*
+
+ Image Descriptions
+
+ active :
+ backup :
+
+ Images currently available on Flash
+--------------------------------------------------------------------
+ unit      active      backup        current-active    next-active
+--------------------------------------------------------------------
+    1      3.7.0.4     3.4.4.6       3.7.0.4           3.7.0.4
+
+----
+====
+. Sauvegarder l'image active actuelle sur cs2 :
++
+[source, cli]
+----
+copy active backup
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *copy active backup*
+Copying active to backup
+Management access will be blocked for the duration of the operation
+Copy operation successful
+
+(cs2)# *show bootvar*
+
+Image Descriptions
+
+ active :
+ backup :
+ Images currently available on Flash
+--------------------------------------------------------------------
+ unit      active      backup      current-active    next-active
+------------------------------------------------------------------
+    1      3.7.0.4     3.4.4.6       3.7.0.4           3.7.0.4
+(cs2)#
+----
+====
+. Vérifiez la version en cours d'exécution du logiciel EFOS :
++
+`show version`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show version*
+
+Switch: 1
+
+System Description............................. BES-53248A1, 3.7.0.4, Linux 4.4.117-ceeeb99d, 2016.05.00.05
+Machine Type................................... BES-53248A1
+Machine Model.................................. BES-53248
+Serial Number.................................. QTFCU38260014
+Maintenance Level.............................. A
+Manufacturer................................... 0xbc00
+Burned In MAC Address.......................... D8:C4:97:71:12:3D
+Software Version............................... 3.7.0.4
+Operating System............................... Linux 4.4.117-ceeeb99d
+Network Processing Device...................... BCM56873_A0
+CPLD Version................................... 0xff040c03
+
+Additional Packages............................ BGP-4
+...............................................	QOS
+...............................................	Multicast
+............................................... IPv6
+............................................... Routing
+............................................... Data Center
+............................................... OpEN API
+............................................... Prototype Open API
+----
+====
++
+
+NOTE: Si vous avez installé des licences, vérifiez leur état.
+
+. Téléchargez le fichier image sur le commutateur.
++
+La copie du fichier image dans l'image active signifie que lors du redémarrage, cette image établit la version en cours d'exécution de EFOS. L'image précédente reste disponible comme sauvegarde.
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *copy sftp://root@172.19.2.1//tmp/EFOS-3.10.0.3.stk active*
+Remote Password:********
+
+Mode........................................... SFTP
+Set Server IP.................................. 172.19.2.1
+Path........................................... //tmp/
+Filename....................................... EFOS-3.10.0.3.stk
+Data Type...................................... Code
+Destination Filename........................... active
+
+Management access will be blocked for the duration of the transfer
+Are you sure you want to start? (y/n) *y*
+SFTP Code transfer starting...
+
+
+File transfer operation completed successfully.
+----
+. Afficher les images de démarrage de la configuration active et de sauvegarde :
++
+`show bootvar`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show bootvar*
+
+Image Descriptions
+
+ active :
+ backup :
+
+ Images currently available on Flash
+--------------------------------------------------------------------
+ unit      active      backup      current-active    next-active
+--------------------------------------------------------------------
+    1      3.7.0.4     3.7.0.4     3.7.0.4           3.10.0.3
+----
+====
+. Redémarrez le commutateur :
++
+`reload`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+Configuration Saved!
+System will now restart!
+----
+====
+. Reconnectez-vous et vérifiez la nouvelle version du logiciel EFOS :
++
+`show version`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show version*
+
+Switch: 1
+
+System Description............................. BES-53248A1, 3.10.0.3, Linux 4.4.211-28a6fe76, 2016.05.00.04
+Machine Type................................... BES-53248A1,
+Machine Model.................................. BES-53248
+Serial Number.................................. QTFCU38260023
+Maintenance Level.............................. A
+Manufacturer................................... 0xbc00
+Burned In MAC Address.......................... D8:C4:97:71:0F:40
+Software Version............................... 3.10.0.3
+Operating System............................... Linux 4.4.211-28a6fe76
+Network Processing Device...................... BCM56873_A0
+CPLD Version................................... 0xff040c03
+
+Additional Packages............................ BGP-4
+...............................................	QOS
+...............................................	Multicast
+............................................... IPv6
+............................................... Routing
+............................................... Data Center
+............................................... OpEN API
+............................................... Prototype Open API
+----
+====
+. Répétez les étapes 5 à 10 sur le commutateur cs1.
+. Activez la fonction de revert automatique sur les LIFs du cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
+. Vérifier que les LIFs du cluster ont rétabli leur port de base :
++
+[source, cli]
+----
+network interface show -role Cluster
+----
++
+Pour plus de détails, voir link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ne rétablit pas un LIF à son port de départ"].
+
+
+
+
+
+=== Méthode 2 : mise à niveau de EFOS à l'aide de l'installation ONIE OS
+
+Vous pouvez effectuer les étapes suivantes si une version de EFOS est conforme à la norme FIPS et que l'autre version de EFOS n'est pas compatible FIPS. Ces étapes peuvent être utilisées pour mettre à niveau l'image EFOS 3.7.x.x non conforme FIPS ou FIPS à partir d'ONIE si le commutateur ne parvient pas à démarrer.
+
+
+NOTE: Cette fonctionnalité n'est disponible que pour les versions non conformes à la norme FIPS EFOS 3.7.x.x ou ultérieures.
+
+
+CAUTION: Si vous mettez à niveau EFOS à l'aide de l'installation ONIE OS, la configuration est réinitialisée aux valeurs par défaut et les licences sont supprimées. Vous devez configurer le switch, installer des licences et un RCF pris en charge pour rétablir le fonctionnement normal du switch.
+
+.Étapes
+. Désactivez la fonction de restauration automatique sur les LIF du cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert false
+----
+. Démarrez le commutateur en mode d'installation ONIE.
++
+Au démarrage, sélectionnez ONIE lorsque l'invite s'affiche :
+
++
+[listing]
+----
++--------------------------------------------------------------------+
+|EFOS                                                                |
+|*ONIE                                                               |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
++--------------------------------------------------------------------+
+----
++
+Après avoir sélectionné *ONIE*, le commutateur se charge et vous offre plusieurs choix. Sélectionnez *installer OS*.
+
++
+[listing]
+----
++--------------------------------------------------------------------+
+|*ONIE: Install OS                                                   |
+| ONIE: Rescue                                                       |
+| ONIE: Uninstall OS                                                 |
+| ONIE: Update ONIE                                                  |
+| ONIE: Embed ONIE                                                   |
+| DIAG: Diagnostic Mode                                              |
+| DIAG: Burn-In Mode                                                 |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
+|                                                                    |
++--------------------------------------------------------------------+
+----
++
+Le commutateur démarre en mode d'installation ONIE.
+
+. Arrêtez la détection ONIE et configurez l'interface Ethernet.
++
+Lorsque le message suivant s'affiche, appuyez sur *entrée* pour appeler la console ONIE :
+
++
+[listing]
+----
+Please press Enter to activate this console. Info: eth0:  Checking link... up.
+ ONIE:/ #
+----
++
+
+NOTE: La détection ONIE se poursuit et les messages sont imprimés sur la console.
+
++
+[listing]
+----
+Stop the ONIE discovery
+ONIE:/ # onie-discovery-stop
+discover: installer mode detected.
+Stopping: discover... done.
+ONIE:/ #
+----
+. Configurez l'interface Ethernet et ajoutez la route à l'aide de `ifconfig eth0 <ipAddress> netmask <netmask> up` et `route add default gw <gatewayAddress>`
++
+[listing]
+----
+ONIE:/ # ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
+ONIE:/ # route add default gw 10.10.10.1
+----
+. Vérifiez que le serveur hébergeant le fichier d'installation ONIE est accessible :
++
+`ping`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+ONIE:/ # ping 50.50.50.50
+PING 50.50.50.50 (50.50.50.50): 56 data bytes
+64 bytes from 50.50.50.50: seq=0 ttl=255 time=0.429 ms
+64 bytes from 50.50.50.50: seq=1 ttl=255 time=0.595 ms
+64 bytes from 50.50.50.50: seq=2 ttl=255 time=0.369 ms
+^C
+--- 50.50.50.50 ping statistics ---
+3 packets transmitted, 3 packets received, 0% packet loss
+round-trip min/avg/max = 0.369/0.464/0.595 ms
+ONIE:/ #
+----
+====
+. Installez le nouveau logiciel du commutateur :
++
+`ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64
+discover: installer mode detected.
+Stopping: discover... done.
+Info: Fetching http://50.50.50.50/Software/onie-installer-3.7.0.4 ...
+Connecting to 50.50.50.50 (50.50.50.50:80)
+installer            100% |*******************************| 48841k  0:00:00 ETA
+ONIE: Executing installer: http://50.50.50.50/Software/onie-installer-3.7.0.4
+Verifying image checksum ... OK.
+Preparing image archive ... OK.
+----
+====
++
+Le logiciel installe puis redémarre le commutateur. Laissez le commutateur redémarrer normalement dans la nouvelle version de EFOS.
+
+. Vérifier que le nouveau logiciel de commutateur est installé :
++
+`show bootvar`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *show bootvar*
+Image Descriptions
+active :
+backup :
+Images currently available on Flash
+---- 	----------- -------- --------------- ------------
+unit 	active 	    backup   current-active  next-active
+---- 	----------- -------- --------------- ------------
+   1    3.7.0.4     3.7.0.4  3.7.0.4         3.10.0.3
+(cs2) #
+----
+====
+. Terminez l'installation. Le commutateur redémarre sans aucune configuration appliquée et revient aux paramètres d'usine par défaut. Pour reconfigurer le commutateur, procédez comme suit :
++
+.. link:configure-licenses.html["Installez les licences"]
+.. link:configure-install-rcf.html["Installer la FCR"]
+.. link:configure-ssh.html["Activez SSH"]
+.. link:CSHM_log_collection.html["Activer la collecte de journaux"]
+.. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"]
+
+
+. Répétez les étapes 2 à 8 sur le commutateur cs1.
+. Activez la fonction de revert automatique sur les LIFs du cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
+. Vérifier que les LIFs du cluster ont rétabli leur port de base :
++
+[source, cli]
+----
+network interface show -role Cluster
+----
++
+Pour plus de détails, voir link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Ne rétablit pas un LIF à son port de départ"].
+
+

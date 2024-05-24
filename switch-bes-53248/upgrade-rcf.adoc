@@ -427,7 +427,12 @@ Are you sure you would like to reset the system? (y/n) *y*
 ----
 
 
-. Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir link:configure-licenses.html#activate-newly-licensed-ports["Activation des ports sous licence nouvellement ouverts"^] pour plus d'informations.
+. Notez ce qui suit :
++
+.. Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir link:configure-licenses.html#activate-newly-licensed-ports["Activation des ports sous licence nouvellement ouverts"] pour plus d'informations.
+.. Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.
+
+
 . Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
 Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :

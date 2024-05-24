@@ -22,8 +22,25 @@ Avant de commencer, complétez la procédure dans link:install-nxos-overview-933
 .Ce dont vous avez besoin
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
-* Les logiciels et guides de mise à niveau appropriés disponibles sur le site Web de Cisco pour les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco. Voir https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Commutateurs Cisco Nexus 9000 Series"^].
+
+
+.Documentation suggérée
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]
++
+Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guides de mise à niveau et de mise à niveau des logiciels"^]
++
+Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Mise à niveau Cisco Nexus 9000 et 3000 et matrice ISSU"^]
++
+Fournit des informations sur les mises à niveau/mises à niveau vers une version antérieure disruptives du logiciel Cisco NX-OS sur les commutateurs de la gamme Nexus 9000
+en fonction de vos versions actuelles et cibles.
+
++
+Sur la page, sélectionnez *upgrade perturbateur* et sélectionnez votre version actuelle et votre version cible dans la liste déroulante.
+
 
 
 .À propos des exemples
@@ -45,30 +62,27 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs C
 . Connectez le commutateur de cluster au réseau de gestion.
 . Utilisez la commande ping pour vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le FCR.
 +
-.Montrer l'exemple
-[%collapsible]
-====
 Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2 :
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
-cs2# ping 172.19.2.1
+cs2# *ping 172.19.2.1*
 Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-====
 . Copiez le logiciel NX-OS et les images EPLD sur le commutateur Nexus 9336C-FX2.
 +
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# copy sftp: bootflash: vrf management
-Enter source filename: /code/nxos.9.3.5.bin
-Enter hostname for the sftp server: 172.19.2.1
-Enter username: user1
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.9.3.5.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
 
 Outbound-ReKey for 172.19.2.1:22
 Inbound-ReKey for 172.19.2.1:22
@@ -82,11 +96,10 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 
 
-cs2# copy sftp: bootflash: vrf management
-
-Enter source filename: /code/n9000-epld.9.3.5.img
-Enter hostname for the sftp server: 172.19.2.1
-Enter username: user1
+cs2# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.9.3.5.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
 
 Outbound-ReKey for 172.19.2.1:22
 Inbound-ReKey for 172.19.2.1:22
@@ -108,9 +121,9 @@ Copy complete.
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version
+cs2# *show version*
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
 Copyright (C) 2002-2020, Cisco and/or its affiliates.
@@ -171,9 +184,9 @@ L'installation du fichier image entraîne son chargement à chaque redémarrage 
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# install all nxos bootflash:nxos.9.3.5.bin
+cs2# *install all nxos bootflash:nxos.9.3.5.bin*
 
 Installer will perform compatibility check first. Please wait.
 Installer is forced disruptive
@@ -215,7 +228,7 @@ Module   Image    Running-Version(pri:alt                  New-Version         U
 
 Switch will be reloaded for disruptive upgrade.
 
-Do you want to continue with the installation (y/n)? [n] y
+Do you want to continue with the installation (y/n)? [n] *y*
 
 Install is in progress, please wait.
 
@@ -243,9 +256,9 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version
+cs2# *show version*
 
 Cisco Nexus Operating System (NX-OS) Software
 TAC support: http://www.cisco.com/tac
@@ -300,9 +313,9 @@ Active Package(s):
 .Montrer l'exemple
 [%collapsible]
 ====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version module 1 epld
+cs2# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -314,7 +327,7 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 
-cs2# install epld bootflash:n9000-epld.9.3.5.img module 1
+cs2# *install epld bootflash:n9000-epld.9.3.5.img module 1*
 Compatibility check:
 Module        Type         Upgradable        Impact   Reason
 ------  ------------------ ----------------- --------- -----
@@ -329,7 +342,7 @@ Module  Type   EPLD              Running-Version   New-Version  Upg-Required
      1  SUP    MI FPGA2          0x02              0x02         No
 The above modules require upgrade.
 The switch will be reloaded at the end of the upgrade
-Do you want to continue (y/n) ?  [n] y
+Do you want to continue (y/n) ?  [n] *y*
 
 Proceeding to upgrade Modules.
 
@@ -348,12 +361,9 @@ Module 1 EPLD upgrade is successful.
 ====
 . Après le redémarrage du commutateur, reconnectez-vous et vérifiez que la nouvelle version de EPLD a été chargée correctement.
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing]
+[listing, subs="+quotes"]
 ----
-cs2# show version module 1 epld
+cs2# *show version module 1 epld*
 
 EPLD Device                     Version
 ---------------------------------------
@@ -365,7 +375,6 @@ GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 GEM  FPGA                        0x2
 ----
-====
 . Répétez les étapes 1 à 8 pour installer le logiciel NX-OS sur le commutateur cs1.
 
 

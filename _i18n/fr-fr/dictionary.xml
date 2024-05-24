@@ -2847,7 +2847,6 @@
   <block id="7b93b1b58c897d187f4ffbd20253248f" category="list-text">Sauvegarde actuelle de la configuration du commutateur.</block>
   <block id="3f13e146c0acc26cac7163c687a6dcb7" category="list-text">Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).</block>
   <block id="0a444d29f1db9e9c818ae5dc2b30ac82" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block>. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.</block>
-  <block id="7314883bd7a56822f06716c652fae68d" category="list-text">Les logiciels et guides de mise à niveau appropriés disponibles sur le site Web de Cisco pour les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco. Voir<block ref="5845557b3f8314af89ad3b7e98ed4cae" category="inline-link-rx"></block>.</block>
   <block id="feb8e402dbfa149a080f8f87ee22069f" category="list-text">Les noms des nœuds sont cluster1-01, cluster1-02, cluster1-03 et cluster1-04.</block>
   <block id="1a4c52cc090c463e0a3949fd93af9ca2" category="section-title">Installez le logiciel</block>
   <block id="ec8855627efbb26afaa912164ff82dbd" category="inline-link-macro">Installez le fichier de configuration RCF</block>
@@ -3235,7 +3234,6 @@
   <block id="236c7e852889b030e9ecc664d388df22" category="paragraph">Voir<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> pour plus d'informations sur le câblage.</block>
   <block id="ebcf71eb39f7510f62abf6ea769fb245" category="paragraph">Chaque LIF de cluster doit afficher<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> et avoir un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de haut/haut.</block>
   <block id="242de61cd0710bcf5f8d68190d392f95" category="paragraph">Avant de commencer, complétez la procédure dans <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>.</block>
-  <block id="10e3581692b8c6e1da3364026ad637f0" category="paragraph"><block ref="1112ea12139746af7574c945e24cdc23" category="inline-link-macro-rx"></block>.</block>
   <block id="1dcfb07dc80ddc7f9df74317a5f57319" category="doc">Documentation requise pour les commutateurs Cisco Nexus 9336C-FX2</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Présentation de l'installation et de la configuration des commutateurs de cluster Cisco Nexus 9336C-FX2</block>
   <block id="a48d2f73b54f1c12d4039724748b5d7a" category="paragraph">Le commutateur de cluster Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.</block>
@@ -4214,7 +4212,6 @@
   <block id="3dcdf9c7761ce642c5fe2fe73d425b75" category="list-text">Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :</block>
   <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">Redémarrer le commutateur :</block>
   <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.</block>
-  <block id="a8935c8fdc41e9990bb4a300a40c1700" category="list-text">Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir <block ref="4d3fc05ce7b1ba9afd520aecf6c7f3bb" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.</block>
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :</block>
   <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Examinez le résultat de la bannière du<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.</block>
@@ -4786,7 +4783,6 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
-  <block id="6b76d59cad5464650213d5b0a1dd84d7" category="paragraph">Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.</block>
   <block id="8fa9b99093c5cdfb4cebad0008ba3e8d" category="paragraph">Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> pour vérifier les ports de cluster appropriés sur vos plates-formes.</block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Commandes utilisées</block>
   <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Option 1 : installez le fichier RCF sur un nouveau commutateur</block>
@@ -4941,4 +4937,22 @@ Réinitialisez le commutateur sur les paramètres par défaut et appliquez le fi
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">Mise à niveau de la version EFOS</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">Mise à niveau de la version RCF</block>
   <block id="24778145f75ec14966b06f3682e616c4" category="sidebar">Vérifiez le cluster après la mise à niveau</block>
+  <block id="77486b34dc8c8bacbe90fd1ff1bd8f61" category="inline-link-macro">Installez ou mettez à niveau le logiciel NX-OS</block>
+  <block id="0a41823d2a109b5dbd6f2fa1f8fe6689" category="paragraph"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
+  <block id="6b10db39cfed2551fdc8db011f0b1110" category="paragraph">Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.</block>
+  <block id="893355f35b6d198e6a02f43764951a73" category="paragraph">Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.</block>
+  <block id="f29158c7335be7b7fe0a46dd82de6ed4" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block></block>
+  <block id="72372752f11bdb84bf66a4ce05081de7" category="paragraph">Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.</block>
+  <block id="948f862fde95b79124df1918e756eb9e" category="inline-link-macro">Guides de mise à niveau et de mise à niveau des logiciels</block>
+  <block id="fb7a0f4817a9ebc7c1050442a67a2dc1" category="list-text"><block ref="fb7a0f4817a9ebc7c1050442a67a2dc1" category="inline-link-macro-rx"></block></block>
+  <block id="cfaaf5dbf06a0559b7026ab59fba9fd1" category="inline-link-macro">Mise à niveau Cisco Nexus 9000 et 3000 et matrice ISSU</block>
+  <block id="a3380d044e745afdb22a3e808fb74586" category="list-text"><block ref="a3380d044e745afdb22a3e808fb74586" category="inline-link-macro-rx"></block></block>
+  <block id="7d48e882dc8cfcd3a44f3f59ba949595" category="paragraph">Fournit des informations sur les mises à niveau/mises à niveau vers une version antérieure disruptives du logiciel Cisco NX-OS sur les commutateurs de la gamme Nexus 9000
+en fonction de vos versions actuelles et cibles.</block>
+  <block id="d6221baaf45cc1f4ed9ce13f32541fa8" category="paragraph">Sur la page, sélectionnez *upgrade perturbateur* et sélectionnez votre version actuelle et votre version cible dans la liste déroulante.</block>
+  <block id="103347887335950e25df4c7b93bdd950" category="paragraph"><block ref="103347887335950e25df4c7b93bdd950" category="inline-link-macro-rx"></block></block>
+  <block id="cf3a2d2c139bf5c9cc87fe714bfff3b1" category="list-text">Notez ce qui suit :</block>
+  <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.</block>
+  <block id="888174b5389281588448ee75f7ac8835" category="sidebar">Installer ou mettre à niveau le logiciel NX-OS</block>
 </blocks>

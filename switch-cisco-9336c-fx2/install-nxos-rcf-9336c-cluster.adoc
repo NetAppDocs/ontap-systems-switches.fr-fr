@@ -20,7 +20,7 @@ Consultez le tableau de compatibilité des switchs pour connaître les versions 
 
 * link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]
 +
-Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.
+Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
 
 
 

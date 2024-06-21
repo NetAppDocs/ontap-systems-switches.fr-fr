@@ -19,6 +19,7 @@ Procédez comme suit pour remplacer un commutateur Nexus 9336C-FX2 défectueux d
 
 Avant d'effectuer le remplacement du commutateur, assurez-vous que :
 
+* Vous avez vérifié le numéro de série du commutateur pour vous assurer que le commutateur correct est remplacé.
 * Sur l'infrastructure réseau et en cluster existante :
 +
 ** Le cluster existant est vérifié entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.

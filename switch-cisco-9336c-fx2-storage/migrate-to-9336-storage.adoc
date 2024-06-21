@@ -19,6 +19,7 @@ Vous pouvez migrer d'anciens commutateurs de cluster Cisco pour un cluster ONTAP
 
 Assurez-vous que :
 
+* Vous avez vérifié le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.
 * Certains des ports des switchs Nexus 9336C-FX2 sont configurés pour s'exécuter à 10 GbE ou 40 GbE.
 * La connectivité 10 GbE et 40 GbE entre les nœuds et les commutateurs de cluster Nexus 9336C-FX2 a été planifiée, migrée et documentée.
 * Le cluster fonctionne entièrement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).

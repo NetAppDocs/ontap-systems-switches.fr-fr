@@ -17,7 +17,7 @@ Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONT
 
 == Examen des conditions requises
 
-Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2.
+Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2. Vérifiez également le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.
 
 .Commutateurs pris en charge
 Les commutateurs de cluster suivants sont pris en charge :

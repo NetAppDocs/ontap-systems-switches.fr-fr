@@ -1348,7 +1348,6 @@
   <block id="1715d07a24988d9207de94794a6f01cc" category="list-text">Vérifiez que le cluster fonctionne correctement :</block>
   <block id="494cb4f7976c64f111b74e9089d5bbd5" category="paragraph"><block ref="639161158d7426b3865ce9c5a6f648b3" prefix="" category="inline-code"></block></block>
   <block id="0bdc52e912f1ecc312522eb07e5f2cbb" category="list-text">Vérifiez que le fichier RCF est la version la plus récente correcte :</block>
-  <block id="f1e487b54b162363f351d5d209fc59ac" category="paragraph">Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le<block ref="a793a8dbe6bab2f66743aaacba3b8ce6" category="inline-link-rx"></block> guides.</block>
   <block id="8fdae5a227344a83423005f83a057331" category="list-text">Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :</block>
   <block id="5d1ccfeff69430937e33ed02e46dbd94" category="list-text">Vérifiez l'état du commutateur depuis le cluster.</block>
   <block id="50f3bfc2fb822fc9657969a594a33322" category="list-text">Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.</block>
@@ -4325,7 +4324,6 @@
   <block id="0f2a4526602865cc9158a56028bf97de" category="summary">Vous pouvez migrer sans interruption des commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de réseau de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="4732368f30b7afd2065dc4cc0c57584f" category="doc">Migration d'un commutateur de cluster NetApp CN1610 vers un commutateur de cluster Cisco 9336C-FX2</block>
   <block id="c8fc8239bd9ec37b7c36847589d5c8a0" category="paragraph">Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de cluster Cisco 9336C-FX2. Cette procédure ne fonctionne pas sans interruption.</block>
-  <block id="b6bd832f0692f49d1480e52df106a51f" category="paragraph">Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2.</block>
   <block id="059d31543d448499bd1a9c454a8d1ebb" category="list-text">Cisco 9336C-FX2</block>
   <block id="3cb2d5707cdf5f5290ac6608ce8b5278" category="paragraph">Vérifiez que votre configuration répond aux exigences suivantes :</block>
   <block id="6195676dbe2277e0d3edb2d8c3a50b2e" category="list-text">Les commutateurs de cluster Cisco 9336C-FX2 sont configurés et fonctionnent sous la version NX-OS installée, avec le fichier de configuration de référence (RCF) appliqué.</block>
@@ -4931,8 +4929,6 @@ Réinitialisez le commutateur sur les paramètres par défaut et appliquez le fi
   <block id="f35806549fff4250f43cb0acde28b920" category="list-text">Redémarrez le commutateur et vérifiez que la configuration en cours est correcte.</block>
   <block id="7271f66e0cb527adb71302d7377910b7" category="list-text">[[step21]]Répétez les étapes 1 à 20 sur le commutateur cs1.</block>
   <block id="9b241cba96d2cafd3c0f5c9f7bf12560" category="list-text">. Vérifier que les LIFs du cluster ont rétabli leur port de base :</block>
-  <block id="de4042aa676f131e04bcf7d15edc5af9" category="list-text">Connexion de la console au commutateur, requise lors de l'installation du FCR. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
-  <block id="ced0e2e58f0a61a7676c9c092295acb0" category="admonition">Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au port série console du commutateur pour pouvoir le configurer à nouveau. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="f179a3654c26841201eb04f568431742" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
   <block id="ae0a7918183889538c2a432f5a54afa6" category="sidebar">Commutateur de mise à niveau</block>
   <block id="6bdce5afe823363897535ce22aa832a0" category="sidebar">Mise à niveau de la version EFOS</block>
   <block id="4dc6f468164162b89152d6960a79b9d0" category="sidebar">Mise à niveau de la version RCF</block>
@@ -4955,4 +4951,10 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="3ee80345befd8ba67ee5e3200beb2fd8" category="list-text">Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir <block ref="029ce138066352981401c2da3f4be7ea" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.</block>
   <block id="888174b5389281588448ee75f7ac8835" category="sidebar">Installer ou mettre à niveau le logiciel NX-OS</block>
+  <block id="a8294f2ff72d57253432505426ab555f" category="list-text">Vous avez vérifié le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.</block>
+  <block id="f4212fffa5e0c42b93f12013fbeaaa93" category="paragraph">Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2. Vérifiez également le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.</block>
+  <block id="87a5e94476d6bdcbe9c972165d34090a" category="list-text">Vous avez vérifié le numéro de série du commutateur pour vous assurer que le commutateur correct est remplacé.</block>
+  <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance</block>
+  <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">Une connexion console au commutateur est nécessaire lors de l'installation du RCF. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
+  <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous *devez* être connecté au port série console du commutateur pour configurer à nouveau le commutateur. Cependant, cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
 </blocks>

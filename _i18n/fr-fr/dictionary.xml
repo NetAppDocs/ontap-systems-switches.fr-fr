@@ -3921,7 +3921,6 @@
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrer depuis les commutateurs CN1610</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrez d'un cluster sans commutateur vers un cluster commuté</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Remplacer les interrupteurs</block>
-  <block id="4e8b0737e5a683e7ada812ad2005b768" category="sidebar">Remplacer les commutateurs CN3132Q-V.</block>
   <block id="88af8e6a19edbffd16db05ce4d139e3f" category="sidebar">Migrer depuis le commutateur de cluster CN1610</block>
   <block id="c40e2faa3e9cd894cbecfcf038ffe999" category="sidebar">Migrer depuis le commutateur de cluster Cisco Nexus 5596</block>
   <block id="ae5073b7cedbbc7111f9e806343efc7e" category="sidebar">Migrer depuis un cluster à 2 nœuds sans commutateur</block>
@@ -4957,4 +4956,16 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance</block>
   <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">Une connexion console au commutateur est nécessaire lors de l'installation du RCF. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
   <block id="83ad3b6efa173a2560e396a36d6ac2f0" category="admonition">Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous *devez* être connecté au port série console du commutateur pour configurer à nouveau le commutateur. Cependant, cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
+  <block id="bf2e41df1fe93346157f93aa59a48dd6" category="section-title">Activer la journalisation de la console</block>
+  <block id="a1f2e4cbaec8fa16860e427a059b89aa" category="paragraph">NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :</block>
+  <block id="7a15fb36e18a42514f358533c9af4dae" category="list-text">Laissez AutoSupport activé pendant la maintenance.</block>
+  <block id="c0aa3599fdcfc9e5e35fab592ea612f0" category="inline-link">SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées</block>
+  <block id="5c0d62310efa13f4e4c4ae41a7330f95" category="list-text">Déclencher une AutoSupport de maintenance avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance. Consultez cet article de la base de connaissance<block ref="9889375293ffeecac54c58b8cad125b2" category="inline-link-rx"></block> pour plus d'informations.</block>
+  <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link">Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP</block>
+  <block id="1d01c6e5d28fb955441f4f9d1b4678b7" category="list-text">Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances<block ref="969f6e4e41456399a13556dea44fc607" category="inline-link-rx"></block>.</block>
+  <block id="05e512c6037fe1bb54e099238cc8ce62" category="section-title">Les ports ne sont pas liés en raison des ressources TCAM</block>
+  <block id="f45e0e2e020e174164fe5413760ef4e4" category="paragraph">Sur le commutateur 9336C-FX2, les ressources TCAM (mémoire adressable de contenu ternaire) configurées dans la configuration utilisée par le commutateur sont épuisées.</block>
+  <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">Les ports ne sont pas liés sur Cisco Nexus 9336C-FX2 en raison des ressources TCAM</block>
+  <block id="293da448e2520766812e980a00821699" category="paragraph">Consultez l'article de la base de connaissances<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> pour plus d'informations sur la résolution de ce problème.</block>
+  <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Remplacer les commutateurs 3132Q-V.</block>
 </blocks>

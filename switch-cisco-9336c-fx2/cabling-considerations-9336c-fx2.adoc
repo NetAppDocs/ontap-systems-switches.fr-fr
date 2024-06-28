@@ -54,3 +54,10 @@ Pour les ports switchs e0a et e0b, le paramètre fec est défini sur `rs-cons16`
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
+
+
+== Les ports ne sont pas liés en raison des ressources TCAM
+
+Sur le commutateur 9336C-FX2, les ressources TCAM (mémoire adressable de contenu ternaire) configurées dans la configuration utilisée par le commutateur sont épuisées.
+
+Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Les ports ne sont pas liés sur Cisco Nexus 9336C-FX2 en raison des ressources TCAM"^] pour plus d'informations sur la résolution de ce problème.

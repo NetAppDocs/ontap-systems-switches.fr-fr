@@ -13,6 +13,10 @@ summary: Vous pouvez remplacer un commutateur de cluster NetApp CN1610 défectue
 [role="lead"]
 La procédure suivante permet de remplacer un commutateur NetApp CN1610 défectueux dans un réseau en cluster. Il s'agit d'une procédure sans interruption.
 
+
+
+== Examen des conditions requises
+
 .Ce dont vous avez besoin
 Avant d'effectuer le remplacement d'un commutateur, les conditions suivantes doivent être réunies avant d'effectuer le remplacement d'un commutateur dans l'environnement actuel et sur le commutateur de remplacement d'un cluster et d'une infrastructure réseau existants :
 
@@ -21,6 +25,21 @@ Avant d'effectuer le remplacement d'un commutateur, les conditions suivantes doi
 * Toutes les interfaces logiques (LIF) du cluster doivent être up et n'ont pas dû avoir été migrées.
 * Cluster ONTAP `ping-cluster -node node1` La commande doit indiquer que la connectivité de base et la communication plus grande que la communication PMTU ont réussi sur tous les chemins.
 
+
+
+
+== Activer la journalisation de la console
+
+NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :
+
+* Laissez AutoSupport activé pendant la maintenance.
+* Déclencher une AutoSupport de maintenance avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance. Consultez cet article de la base de connaissance https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus d'informations.
+* Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+
+
+== Remplacer le contacteur
 
 .Description de la tâche
 Vous devez exécuter la commande pour migrer une LIF de cluster à partir du nœud sur lequel la LIF de cluster est hébergée.

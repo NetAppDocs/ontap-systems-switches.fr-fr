@@ -36,6 +36,8 @@ entries:
     url: "/switch-nvidia-sn2100/install-onie-mode-sn2100-cluster.html"
   - title: Installez le script RCF
     url: "/switch-nvidia-sn2100/install-rcf-sn2100-cluster.html"
+  - title: Installez le fichier de configuration CSHM
+    url: "/switch-nvidia-sn2100/setup-install-cshm-file.html"
   - title: Activer la collecte de journaux
     url: "/switch-nvidia-sn2100/CSHM_log_collection.html"
   - title: Configurer SNMPv3 pour la surveillance

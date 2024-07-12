@@ -47,7 +47,7 @@ Nœuds de ports de cluster 40 GbE
  a| 
 swp15-16
  a| 
-Ports ISL (Inter-Switch Link) 40 GbE
+Ports ISL 100 GbE
 
 |===
 Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.

@@ -422,7 +422,7 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous au guide appropr
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
 ====
-. Redémarrer le commutateur cs2. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.
+. Redémarrez le commutateur cs2. Vous pouvez ignorer les événements de « panne des ports du cluster » signalés sur les nœuds lors du redémarrage du commutateur et la sortie d'erreur `% Invalid command at '^' marker` .
 +
 .Montrer l'exemple
 [%collapsible]
@@ -433,7 +433,7 @@ cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
 ====
-. Appliquer la même FCR et sauvegarder la configuration en cours d'exécution pendant une seconde fois.
+. Appliquer la même FCR et sauvegarder la configuration en cours d'exécution pendant une seconde fois. Cela est nécessaire car le RCF utilise QoS et nécessite une reconfiguration TCAM qui implique le chargement du RCF deux fois lorsque le commutateur est redémarré entre deux.
 +
 .Montrer l'exemple
 [%collapsible]

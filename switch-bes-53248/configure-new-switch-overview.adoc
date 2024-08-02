@@ -37,19 +37,11 @@ Vous pouvez également ajouter de nouveaux ports en achetant et en installant de
 
 . link:configure-install-rcf.html["Installer le fichier RCF (Reference Configuration File)"].
 +
-Installez le FCR sur le commutateur de cluster BES-53248, puis vérifiez les ports pour obtenir une licence supplémentaire après l'application du FCR.
+Installez ou mettez à niveau le RCF sur le commutateur de cluster BES-53248, puis vérifiez si les ports ne correspondent pas à une licence supplémentaire après l'application du RCF.
 
 . link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"].
 +
-Si vous utilisez les fonctions CSHM (Cluster Switch Health Monitor) et de collecte de journaux, activez SSH sur les commutateurs.
-
-. link:CSHM_log_collection.html["Activez la fonction de collecte de journaux"].
-+
-Utilisez les fonctions de collecte de journaux pour collecter des fichiers journaux liés au commutateur dans ONTAP.
-
-. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"].
-+
-Si vous utilisez la fonction CSHM (Cluster Switch Health Monitor), configurez SNMPv3, qui prend en charge la surveillance de l'état du commutateur Ethernet (CSHM).
+Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, activez SSH sur les commutateurs.
 
 
 

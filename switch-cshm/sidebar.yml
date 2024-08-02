@@ -1,0 +1,30 @@
+---
+section: switch-cshm
+title: Surveiller l'état des commutateurs
+entries:
+- title: Présentation de la surveillance de l'état des commutateurs
+  url: "/switch-cshm/cshm-overview.html"
+  pdf-filename: Switch_Health_cshm
+- title: Configurer la surveillance de l'état des commutateurs
+  pdf-filename: Configure_switch_Health
+  entries:
+  - title: Présentation de la configuration
+    url: "/switch-cshm/config-overview.html"
+  - title: Configurer la collecte des journaux
+    url: "/switch-cshm/config-log-collection.html"
+  - title: 'Facultatif : configurer SNMPv3'
+    url: "/switch-cshm/config-snmpv3.html"
+- title: Vérifier l'état du commutateur
+  pdf-filename: Monitor_Switch_Health
+  entries:
+  - title: Présentation du bilan de santé
+    url: "/switch-cshm/monitor-overview.html"
+  - title: Résolution des alertes
+    url: "/switch-cshm/monitor-troubleshoot.html"
+- title: Collecte de journaux
+  pdf-filename: log_collection_switch_health
+  entries:
+  - title: Présentation de la collecte des journaux
+    url: "/switch-cshm/log-collection-overview.html"
+  - title: Résoudre les problèmes
+    url: "/switch-cshm/log-collection-troubleshoot.html"

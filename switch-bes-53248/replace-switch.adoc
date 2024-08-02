@@ -400,4 +400,4 @@ cs1          0/56    179         R             BES-53248   0/56
 
 
 .Et la suite ?
-Voir link:configure-log-collection.html["Activez la fonction de collecte de journaux"] pour connaître les étapes requises pour activer la collecte des journaux du commutateur d'intégrité du cluster, utilisée pour collecter les fichiers journaux relatifs au commutateur.
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

@@ -22,16 +22,11 @@ Pour configurer initialement un commutateur Cisco Nexus 9336C-FX2 sur les systè
 . link:setup-worksheet-9336c-storage.html["Remplir la fiche de câblage"].
 . link:install-9336c-storage.html["Poser le commutateur"].
 . link:setup-switch-9336c-storage.html["Configurer le commutateur"].
-. link:install-switch-and-passthrough-panel-9336c-storage.html["Installez le commutateur dans l'armoire NetApp"].
-+
-En fonction de votre configuration, vous pouvez installer le commutateur Cisco Nexus 9336C-FX2 et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.
-
+. link:install-switch-and-passthrough-panel-9336c-storage.html["Installer le commutateur dans une armoire NetApp"].
 . link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
 . link:install-nxos-software-9336c-storage.html["Installez le logiciel NX-OS"].
 . link:install-nxos-rcf-9336c-storage.html["Installez le fichier de configuration RCF"].
-+
-Installer le FCR après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
-
+. link:configure-ssh.html["Activez SSH"].
 
 
 

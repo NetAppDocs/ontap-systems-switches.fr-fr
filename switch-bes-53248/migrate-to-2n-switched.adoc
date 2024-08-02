@@ -614,4 +614,4 @@ Pour plus d'informations, voir : https://kb.netapp.com/Advice_and_Troubleshootin
 
 
 .Et la suite ?
-Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le moniteur d'état du commutateur Ethernet (CSHM) pour les commutateurs de cluster BES-53248. Voir link:CSHM_log_collection.html["Activer la collecte de journaux"].
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

@@ -19,7 +19,7 @@ indexpage:
       url: "/switch-bes-53248/configure-new-switch-overview.html"
     - title: Commutateur de cluster - Cisco Nexus 9336C-FX2
       url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
-    - title: Commutateur de cluster - commutateur de cluster NVIDIA SN2100
+    - title: Commutateur de cluster - NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
     - title: 'Switch de stockage : Cisco Nexus 9336C-FX2'
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -33,10 +33,18 @@ indexpage:
       url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
     - title: Commutateur de cluster - Cisco Nexus 3132Q-V.
       url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
-    - title: Commutateur de cluster - Cisco Nexus 92300YC
+    - title: Commutateur de cluster - Cisco Nexus 92300YC.
       url: "/switch-cisco-92300/install-overview-cisco-92300.html"
     - title: Commutateur de cluster - NetApp CN1610
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
+  - title: Surveillance de l'état du commutateur Ethernet
+    links:
+    - title: Configurer la surveillance de l'état des commutateurs
+      url: "/switch-cshm/config-overview.html"
+    - title: Vérifier la surveillance de l'état du commutateur
+      url: "/switch-cshm/monitor-overview.html"
+    - title: Collectez des journaux pour la surveillance de l'état des switchs
+      url: "/switch-cshm/log-collection-overview.html"
   - title: Documents ONTAP connexes
     links:
     - title: Systèmes matériels ONTAP

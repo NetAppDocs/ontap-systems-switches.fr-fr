@@ -95,7 +95,7 @@ Répondez par *oui*. La valeur par défaut est oui.
 
 +
 
-NOTE: SSH est recommandé lors de l'utilisation du moniteur CSHM (Cluster Switch Health Monitor) pour ses fonctions de collecte de journaux. SSHv2 est également recommandé pour une sécurité améliorée.
+NOTE: SSH est recommandé lors de l'utilisation du moniteur d'état du commutateur Ethernet (CSHM) pour ses fonctions de collecte de journaux. SSHv2 est également recommandé pour une sécurité améliorée.
 
 .. [[step14]]Entrez le type de clé SSH que vous souhaitez générer (dsa/rsa/rsa1). La valeur par défaut est rsa.
 .. Entrez le nombre de bits de clé (1024- 2048).

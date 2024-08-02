@@ -25,6 +25,9 @@ Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, vér
 Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, deux commutateurs réseau sont nécessaires.
 
 
+NOTE: Le moniteur d'état du commutateur Ethernet ne prend pas en charge ONTAP 9.13.1P8 et versions antérieures et 9.14.1P3 ou NX-OS version 10.3(4a)(M).
+
+
 
 == Configuration requise
 

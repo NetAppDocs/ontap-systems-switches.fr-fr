@@ -11,7 +11,7 @@ summary: 'SSH est une condition requise lors de l"utilisation des fonctions de s
 
 
 [role="lead"]
-Si vous utilisez le moniteur d'intégrité du commutateur de cluster (CSHM) et les fonctions de collecte de journaux, vous devez générer les clés SSH, puis activer SSH sur les commutateurs du cluster.
+Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, vous devez générer les clés SSH, puis activer SSH sur les commutateurs du cluster.
 
 .Étapes
 . Vérifiez que SSH est désactivé :
@@ -115,4 +115,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Et la suite ?
-link:CSHM_log_collection.html["Activer la collecte de journaux"].
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

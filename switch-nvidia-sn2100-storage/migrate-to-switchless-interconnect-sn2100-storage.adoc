@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/migrate-to-switchless-interconnect-sn2100-storage.html 
+permalink: switch-nvidia-sn2100-storage/migrate-to-switchless-interconnect-sn2100-storage.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster interconnect, NVIDIA SN2100 
 summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.' 

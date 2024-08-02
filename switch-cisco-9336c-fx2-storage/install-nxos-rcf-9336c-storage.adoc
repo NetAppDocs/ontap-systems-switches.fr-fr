@@ -15,4 +15,360 @@ Vous pouvez installer la FCR après avoir configuré pour la première fois le c
 
 Avant de commencer, complétez la procédure dans link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
 
-Directive non résolue dans <stdin> - include:../_include/install-rcf-Software-9336c.adoc[]
+.Avant de commencer
+Assurez-vous de ce qui suit :
+
+* Une connexion de console au commutateur. La connexion à la console est facultative si vous disposez d'un accès à distance au commutateur.
+* Le commutateur cs1 et le commutateur cs2 sont mis sous tension et la configuration initiale du commutateur est terminée (l'adresse IP de gestion et SSH sont configurés)
+* La version NX-OS souhaitée a été installée.
+* Les connexions ISL entre les switchs sont connectées.
+* Les ports du cluster de nœuds ONTAP ne sont pas connectés.
+
+
+
+
+=== Étape 1 : installez le RCF sur les switchs
+
+. Connectez-vous au commutateur cs1 à l'aide de SSH ou d'une console série.
+. Copiez la FCR dans le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple montre que TFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. Appliquez le RCF préalablement téléchargé sur le bootflash.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple montre le fichier RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs1 :
+
+[listing]
+----
+cs1# copy Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands
+----
+====
+. Examinez le résultat de la bannière du `show banner motd` commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cs1# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : Nexus N9K-C9336C-FX2
+* Filename : Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt
+* Date     : 10-23-2020
+* Version  : v1.6
+*
+* Port Usage:
+* Ports  1- 3: Breakout mode (4x10G) Intra-Cluster Ports, int e1/1/1-4, e1/2/1-4
+, e1/3/1-4
+* Ports  4- 6: Breakout mode (4x25G) Intra-Cluster/HA Ports, int e1/4/1-4, e1/5/
+1-4, e1/6/1-4
+* Ports  7-34: 40/100GbE Intra-Cluster/HA Ports, int e1/7-34
+* Ports 35-36: Intra-Cluster ISL Ports, int e1/35-36
+*
+* Dynamic breakout commands:
+* 10G: interface breakout module 1 port <range> map 10g-4x
+* 25G: interface breakout module 1 port <range> map 25g-4x
+*
+* Undo breakout commands and return interfaces to 40/100G configuration in confi
+g mode:
+* no interface breakout module 1 port <range> map 10g-4x
+* no interface breakout module 1 port <range> map 25g-4x
+* interface Ethernet <interfaces taken out of breakout mode>
+* inherit port-profile 40-100G
+* priority-flow-control mode auto
+* service-policy input HA
+* exit
+*
+******************************************************************************
+----
+====
+. Vérifiez que le fichier RCF est la version la plus récente correcte :
++
+`show running-config`
+
++
+Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :
+
++
+** La bannière RCF
+** Les paramètres du nœud et du port
+** Personnalisations
++
+Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+
+
+
+. Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
++
+`copy running-config startup-config`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cs1# copy running-config startup-config [########################################] 100% Copy complete
+----
+====
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^].
+
+. Redémarrez le commutateur cs1.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Répéter les étapes 1 à 7 sur le commutateur cs2.
+. Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
+
+
+
+
+=== Étape 2 : vérifier les connexions du commutateur
+
+. Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.
++
+`show interface brief`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/1/1      1       eth  access up      none                    10G(D) --
+Eth1/1/2      1       eth  access up      none                    10G(D) --
+Eth1/7        1       eth  trunk  up      none                   100G(D) --
+Eth1/8        1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+====
+. Vérifiez que les nœuds de cluster se trouvent dans leurs VLAN de cluster corrects à l'aide des commandes suivantes :
++
+`show vlan brief`
+
++
+`show interface trunk`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show vlan brief*
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Po1, Eth1/1, Eth1/2, Eth1/3
+                                                Eth1/4, Eth1/5, Eth1/6, Eth1/7
+                                                Eth1/8, Eth1/35, Eth1/36
+                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
+                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
+                                                Eth1/10/3, Eth1/10/4
+17   VLAN0017                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
+                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
+                                                Eth1/10/3, Eth1/10/4
+18   VLAN0018                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9/1, Eth1/9/2, Eth1/9/3
+                                                Eth1/9/4, Eth1/10/1, Eth1/10/2
+                                                Eth1/10/3, Eth1/10/4
+31   VLAN0031                         active    Eth1/11, Eth1/12, Eth1/13
+                                                Eth1/14, Eth1/15, Eth1/16
+                                                Eth1/17, Eth1/18, Eth1/19
+                                                Eth1/20, Eth1/21, Eth1/22
+32   VLAN0032                         active    Eth1/23, Eth1/24, Eth1/25
+                                                Eth1/26, Eth1/27, Eth1/28
+                                                Eth1/29, Eth1/30, Eth1/31
+                                                Eth1/32, Eth1/33, Eth1/34
+33   VLAN0033                         active    Eth1/11, Eth1/12, Eth1/13
+                                                Eth1/14, Eth1/15, Eth1/16
+                                                Eth1/17, Eth1/18, Eth1/19
+                                                Eth1/20, Eth1/21, Eth1/22
+34   VLAN0034                         active    Eth1/23, Eth1/24, Eth1/25
+                                                Eth1/26, Eth1/27, Eth1/28
+                                                Eth1/29, Eth1/30, Eth1/31
+                                                Eth1/32, Eth1/33, Eth1/34
+
+cs1# *show interface trunk*
+
+-----------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+-----------------------------------------------------
+Eth1/1        1       trunking      --
+Eth1/2        1       trunking      --
+Eth1/3        1       trunking      --
+Eth1/4        1       trunking      --
+Eth1/5        1       trunking      --
+Eth1/6        1       trunking      --
+Eth1/7        1       trunking      --
+Eth1/8        1       trunking      --
+Eth1/9/1      1       trunking      --
+Eth1/9/2      1       trunking      --
+Eth1/9/3      1       trunking      --
+Eth1/9/4      1       trunking      --
+Eth1/10/1     1       trunking      --
+Eth1/10/2     1       trunking      --
+Eth1/10/3     1       trunking      --
+Eth1/10/4     1       trunking      --
+Eth1/11       33      trunking      --
+Eth1/12       33      trunking      --
+Eth1/13       33      trunking      --
+Eth1/14       33      trunking      --
+Eth1/15       33      trunking      --
+Eth1/16       33      trunking      --
+Eth1/17       33      trunking      --
+Eth1/18       33      trunking      --
+Eth1/19       33      trunking      --
+Eth1/20       33      trunking      --
+Eth1/21       33      trunking      --
+Eth1/22       33      trunking      --
+Eth1/23       34      trunking      --
+Eth1/24       34      trunking      --
+Eth1/25       34      trunking      --
+Eth1/26       34      trunking      --
+Eth1/27       34      trunking      --
+Eth1/28       34      trunking      --
+Eth1/29       34      trunking      --
+Eth1/30       34      trunking      --
+Eth1/31       34      trunking      --
+Eth1/32       34      trunking      --
+Eth1/33       34      trunking      --
+Eth1/34       34      trunking      --
+Eth1/35       1       trnk-bndl     Po1
+Eth1/36       1       trnk-bndl     Po1
+Po1           1       trunking      --
+
+------------------------------------------------------
+Port          Vlans Allowed on Trunk
+------------------------------------------------------
+Eth1/1        1,17-18
+Eth1/2        1,17-18
+Eth1/3        1,17-18
+Eth1/4        1,17-18
+Eth1/5        1,17-18
+Eth1/6        1,17-18
+Eth1/7        1,17-18
+Eth1/8        1,17-18
+Eth1/9/1      1,17-18
+Eth1/9/2      1,17-18
+Eth1/9/3      1,17-18
+Eth1/9/4      1,17-18
+Eth1/10/1     1,17-18
+Eth1/10/2     1,17-18
+Eth1/10/3     1,17-18
+Eth1/10/4     1,17-18
+Eth1/11       31,33
+Eth1/12       31,33
+Eth1/13       31,33
+Eth1/14       31,33
+Eth1/15       31,33
+Eth1/16       31,33
+Eth1/17       31,33
+Eth1/18       31,33
+Eth1/19       31,33
+Eth1/20       31,33
+Eth1/21       31,33
+Eth1/22       31,33
+Eth1/23       32,34
+Eth1/24       32,34
+Eth1/25       32,34
+Eth1/26       32,34
+Eth1/27       32,34
+Eth1/28       32,34
+Eth1/29       32,34
+Eth1/30       32,34
+Eth1/31       32,34
+Eth1/32       32,34
+Eth1/33       32,34
+Eth1/34       32,34
+Eth1/35       1
+Eth1/36       1
+Po1           1
+..
+..
+..
+..
+..
+----
+====
++
+
+NOTE: Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et remarques importantes de votre FCR.
+
+. Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :
++
+`show port-channel summary`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)        Eth1/36(P)
+cs1#
+----
+====
+
+
+
+
+=== Étape 3 : configuration du cluster ONTAP
+
+NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters.
+
+System Manager simplifie et simplifie l'installation et la configuration du cluster, notamment l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et le provisionnement du stockage initial.
+
+Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
+
+.Et la suite ?
+link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Activez SSH"].

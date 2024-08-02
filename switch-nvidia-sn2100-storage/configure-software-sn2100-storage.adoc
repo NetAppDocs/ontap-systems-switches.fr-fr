@@ -1,5 +1,5 @@
 ---
-permalink: switch-nvidia-sn2100/configure-software-sn2100-storage.html 
+permalink: switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
 summary: Présentation du processus de configuration logicielle pour les switchs de stockage NVIDIA SN2100 
@@ -21,10 +21,4 @@ Vous pouvez installer le système d'exploitation Cumulus Linux (CL) lorsque le c
 +
 Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster.
 
-. link:install-snmpv3-sn2100-storage.html["Configurer SNMPv3 pour la collecte log switch"].
-+
-Cette version inclut la prise en charge du protocole SNMPv3 pour la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
 
-
-
-Les procédures utilisent l'utilitaire NCLU (Network Command Line Utility), qui est une interface de ligne de commande qui garantit que Cumulus Linux est entièrement accessible à tous. La commande net est l'utilitaire wrapper que vous utilisez pour exécuter des actions à partir d'un terminal.

@@ -1,0 +1,14 @@
+---
+permalink: switch-cshm/cshm-overview.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: 'Le moniteur d"état des commutateurs Ethernet (CSHM) est chargé de garantir l"intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage.' 
+---
+= Présentation du contrôle de l'état des switchs
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage.

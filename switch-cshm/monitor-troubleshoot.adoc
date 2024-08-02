@@ -1,0 +1,20 @@
+---
+permalink: switch-cshm/monitor-troubleshoot.html 
+sidebar: sidebar 
+keywords: cshm, cluster, storage, switch logs, debugging, collection 
+summary: Vous pouvez utiliser les commandes suivantes... 
+---
+= Résolution des alertes
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Les alertes sont générées si une panne, un risque ou une condition critique est détecté pour un commutateur Ethernet de votre cluster.
+
+Si des alertes sont générées, l'état de santé du système indique une dégradation du cluster. Les alertes émises incluent les informations dont vous avez besoin pour remédier à la dégradation de l'état du système.
+
+Pour afficher les alertes de contrôle de l'état des commutateurs Ethernet disponibles, lancer la commande : `system health alert definition show -monitor ethernet-switch`
+
+Pour plus d'informations sur la résolution avancée des alertes, reportez-vous à l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guide de résolution des alertes du moniteur d'intégrité des commutateurs"^] .

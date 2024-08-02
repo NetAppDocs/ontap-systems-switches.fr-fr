@@ -43,17 +43,7 @@ Vous pouvez installer le système d'exploitation Cumulus Linux (CL) lorsque le c
 +
 Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
 
-. link:CSHM_log_collection.html["Activer la collecte de journaux"].
-+
-Utilisez cette fonction pour collecter les fichiers journaux relatifs au commutateur dans ONTAP.
 
-. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"].
-+
-Cette version inclut la prise en charge du protocole SNMPv3 pour la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
-
-
-
-Les procédures utilisent l'utilitaire NCLU (Network Command Line Utility), qui est une interface de ligne de commande qui garantit que Cumulus Linux est entièrement accessible à tous. La commande net est l'utilitaire wrapper que vous utilisez pour exécuter des actions à partir d'un terminal.
 
 
 

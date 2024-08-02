@@ -11,12 +11,10 @@ summary: Présentation de la configuration logicielle des commutateurs de stocka
 
 
 [role="lead"]
-Pour installer et configurer le logiciel pour un commutateur Cisco Nexus 9336C-FX2, procédez comme suit :
+Pour installer et configurer le logiciel d'un commutateur de stockage Cisco Nexus 9336C-FX2, effectuez la procédure suivante :
 
 . link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
 . link:install-nxos-software-9336c-storage.html["Installez le logiciel NX-OS"].
 . link:install-nxos-rcf-9336c-storage.html["Installez le fichier de configuration RCF"].
-+
-Installer le FCR après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
-
+. link:configure-ssh.html["Activez SSH"].
 

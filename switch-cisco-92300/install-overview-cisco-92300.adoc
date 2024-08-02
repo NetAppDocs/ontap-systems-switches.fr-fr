@@ -20,7 +20,6 @@ Pour configurer initialement un commutateur Cisco Nexus 92300YC sur des système
 . link:install-nxos-overview.html["Préparation à l'installation du logiciel NX-OS et du fichier RCF (Reference Configuration File)"]. Préparation de l'installation du logiciel NX-OS et du fichier RCF (Reference Configuration File).
 . link:install-nxos-software.html["Installez le logiciel NX-OS"]. Installez le logiciel NX-OS sur le commutateur Nexus 92300YC. NX-OS est un système d'exploitation réseau destiné à la gamme Nexus de commutateurs Ethernet et aux commutateurs réseau SAN Fibre Channel (FC) proposés par Cisco Systems.
 . link:install-the-rcf-file.html["Installer le fichier RCF (Reference Configuration File)"]. Installez le FCR après avoir configuré pour la première fois le commutateur Nexus 92300YC. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
-. link:setup-install-cshm-file.html["Installez le fichier de configuration CSHM (Cluster Switch Health Monitor)"]. Installez le fichier de configuration applicable pour la surveillance de l'état du commutateur de cluster des commutateurs de cluster Nexus 92300YC.
 
 
 

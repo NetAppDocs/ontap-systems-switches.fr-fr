@@ -1068,4 +1068,4 @@ system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .Et la suite ?
-link:configure-ssh.html["Activez SSH pour la collecte des journaux"].
+link:configure-ssh.html["Activez SSH"].

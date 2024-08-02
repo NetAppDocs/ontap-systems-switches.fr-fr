@@ -758,3 +758,6 @@ RPC status:
 ----
 ====
 
+
+.Et la suite ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"]

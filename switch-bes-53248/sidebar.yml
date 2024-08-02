@@ -33,10 +33,6 @@ entries:
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: Activez SSH pour la collecte des journaux
     url: "/switch-bes-53248/configure-ssh.html"
-  - title: Activer la collecte de journaux
-    url: "/switch-bes-53248/CSHM_log_collection.html"
-  - title: Configurer SNMPv3 pour la surveillance
-    url: "/switch-bes-53248/CSHM_snmpv3.html"
 - title: Commutateur de mise à niveau
   pdf-filename: Upgrade_switches_bes53248
   entries:

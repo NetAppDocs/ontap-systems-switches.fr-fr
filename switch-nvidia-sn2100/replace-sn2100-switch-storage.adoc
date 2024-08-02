@@ -221,89 +221,12 @@ shelf   id    remote-port     remote-device
 cluster1::*>
 ----
 ====
-. Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :
+. Rétablissez le niveau de privilège sur admin :
 +
-`system switch ethernet log setup-password`
+`set -privilege admin`
 
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log setup-password*
-Enter the switch name: *<return>*
-The switch name entered is not recognized.
-Choose from the following list:
-*sw1*
-*nsw2*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *csw1*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-
-cluster1::*> *system switch ethernet log setup-password*
-
-Enter the switch name: *nsw2*
-Would you like to specify a user other than admin for log collection? {y|n}: *n*
-
-Enter the password: *<enter switch password>*
-Enter the password again: *<enter switch password>*
-----
-====
-. Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet.
-+
-`system switch ethernet log modify -device _<switch-name>_ -log-request true`
-
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> *system switch ethernet log modify -device cs1 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-
-cluster1::*> *system switch ethernet log modify -device cs2 -log-request true*
-
-Do you want to modify the cluster switch log collection configuration? {y|n}: [n] *y*
-
-Enabling cluster switch log collection.
-----
-====
-+
-Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :
-
-+
-`system switch ethernet log show`
-
-+
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-cluster1::*> system switch ethernet log show
-Log Collection Enabled: true
-
-Index  Switch                       Log Timestamp        Status
------- ---------------------------- -------------------  ---------    
-1      sw1  (b8:ce:f6:19:1b:42)     4/29/2022 03:05:25   complete   
-2      nsw2 (b8:ce:f6:19:1b:96)     4/29/2022 03:07:42   complete
-----
-====
-+
-
-CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.
-
-. Rétablissez le niveau de privilège sur admin : `set -privilege admin`
 . Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
++
 `system node autosupport invoke -node * -type all -message MAINT=END`
+
 

@@ -13,71 +13,20 @@ summary: Présentation de la configuration logicielle des commutateurs de cluste
 [role="lead"]
 Pour installer et configurer le logiciel d'un commutateur Cisco Nexus 9336C-FX2 et pour installer ou mettre à niveau le fichier RCF (Reference Configuration File), procédez comme suit :
 
-. link:install-nxos-overview-9336c-cluster.html["Préparez-vous à installer le logiciel NX-OS et RCF"].
-. link:install-nxos-software-9336c-cluster.html["Installez le logiciel NX-OS"].
-. link:install-nxos-rcf-9336c-cluster.html["Installation ou mise à niveau du fichier RCF (Reference Configuration File)"].
+. link:install-nxos-overview-9336c-cluster.html["Préparez l'installation du logiciel NX-OS et du RCF"].
 +
-Installer le FCR après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) doivent être installés sur des switchs de cluster Cisco Nexus 9336C-FX2.
 
+. link:install-nxos-software-9336c-cluster.html["Installez ou mettez à niveau le logiciel NX-OS"].
 +
-.Configurations RCF disponibles
-Le tableau suivant décrit les CFR disponibles pour différentes configurations. Choisissez la FCR applicable à votre configuration.
+Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco Nexus 9336C-FX2.
 
+. link:install-nxos-rcf-9336c-cluster.html["Installez ou mettez à niveau le RCF"].
 +
-Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et remarques importantes de votre FCR.
+Installez ou mettez à niveau le RCF après la première configuration du commutateur Cisco Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 
+. link:configure-ssh.html["Activez SSH"].
 +
-[cols="1,2"]
-|===
-| Nom de la FCR | Description 
+Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, activez SSH sur les commutateurs.
 
-
- a| 
-2-Cluster-HA-Breakout
- a| 
-Prend en charge deux clusters ONTAP avec au moins huit nœuds, y compris les nœuds qui utilisent des ports Cluster+HA partagés.
-
-
-
- a| 
-4-Cluster-HA-Breakout
- a| 
-Prend en charge quatre clusters ONTAP avec au moins quatre nœuds, y compris les nœuds qui utilisent des ports Cluster+HA partagés.
-
-
-
- a| 
-1-Cluster-HA
- a| 
-Tous les ports sont configurés pour le 40 GbE. Prend en charge le trafic partagé cluster/haute disponibilité sur les ports. Requis pour les systèmes AFF A320, AFF A250 et FAS500f. En outre, tous les ports peuvent être utilisés en tant que ports dédiés du cluster.
-
-
-
- a| 
-1-Cluster-HA-Breakout
- a| 
-Les ports sont configurés pour 4 ports de dérivation 10 GbE, 4 ports de dérivation 25 GbE (FCR 1.6+ sur les switchs 40 GbE) et 4/100 GbE. Prise en charge du trafic partagé cluster/haute disponibilité sur les ports pour les nœuds qui utilisent des ports partagés cluster/haute disponibilité : systèmes AFF A320, AFF A250 et FAS500f. En outre, tous les ports peuvent être utilisés en tant que ports dédiés du cluster.
-
-
-
- a| 
-Cluster-haute-disponibilité-stockage
- a| 
-Les ports sont configurés pour le 40 GbE pour Cluster+HA, l'écorché 4 x 10 GbE pour Cluster et l'écorché 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.
-
-
-
- a| 
-Cluster
- a| 
-Deux versions de FCR avec différentes allocations de ports 4 x 10 GbE (répartition) et ports 40 GbE. Tous les nœuds FAS/AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f.
-
-
-
- a| 
-Stockage
- a| 
-Tous les ports sont configurés pour les connexions de stockage NVMe 100 GbE.
-
-|===
 

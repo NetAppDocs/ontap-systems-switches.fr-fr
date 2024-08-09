@@ -21,4 +21,8 @@ Vous pouvez installer le système d'exploitation Cumulus Linux (CL) lorsque le c
 +
 Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
 
+. link:setup-install-cshm-file.html["Installez le fichier CSHM"].
++
+Vous pouvez installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA.
+
 

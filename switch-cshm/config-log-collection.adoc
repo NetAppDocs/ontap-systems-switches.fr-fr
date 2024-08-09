@@ -234,5 +234,5 @@ cluster1::*> *system switch ethernet log show -instance*
 
 CAUTION: Si des États d'erreur sont signalés par la fonction de collecte de journaux (visible dans la sortie de `system switch ethernet log show`), voir link:log-collection-troubleshoot.html["Dépannage de la collecte des journaux"] pour plus de détails.
 
-|===
-|===
+.Et la suite ?
+link:config-snmpv3.html["Configurer SNMPv3 (facultatif)"].

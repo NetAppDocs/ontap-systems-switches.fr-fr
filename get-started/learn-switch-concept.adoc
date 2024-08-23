@@ -33,7 +33,7 @@ Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus
 
 == Commutateurs de stockage
 
-Les commutateurs de stockage vous permettent d'acheminer des données entre les serveurs et les baies de stockage d'un réseau de stockage (SAN). Les commutateurs de cluster pris en charge par NetApp comprennent :
+Les commutateurs de stockage vous permettent d'acheminer des données entre les serveurs et les baies de stockage d'un réseau de stockage (SAN). Les commutateurs de stockage pris en charge par NetApp sont les suivants :
 
 * Cisco Nexus 9336C-FX2
 * NVIDIA SN2100

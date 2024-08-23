@@ -113,6 +113,7 @@ NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /
 
 NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
 
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
@@ -204,7 +205,7 @@ swp16      100G   BondMember  sw14                    swp16
 ----
 . Vérifier l'état de santé des ports du cluster sur le cluster.
 +
-.. Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -370,6 +371,7 @@ admin@sw1:mgmt:~$ cat /etc/issue
 
 NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
 
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
@@ -540,7 +542,7 @@ swp16      100G   BondMember  sw2                      sw
 ----
 . Vérifier l'état de santé des ports du cluster sur le cluster.
 +
-.. Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
 +
 [listing, subs="+quotes"]
 ----

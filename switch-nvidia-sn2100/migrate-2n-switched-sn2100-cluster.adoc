@@ -339,7 +339,7 @@ Les commandes suivantes activent tous les ports orientés nœuds sur le commutat
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw1:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state up*
 cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
@@ -519,7 +519,7 @@ Les commandes suivantes permettent d'activer les ports orientés nœud sur le co
 +
 [listing, subs="+quotes"]
 ----
-cumulus@sw2:~$ *nv unset interface swp1s0-3,swp2s0-3,swp3-14 link state down*
+cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state up*
 cumulus@sw2:~$ *nv config apply*
 cumulus@sw2:~$ *nv config save*
 ----

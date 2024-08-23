@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Voir https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Cette base de connaissances"^] pour plus d'informations.
+Consultez l'article de la base de connaissances https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40 GbE"^] pour plus de détails.
 
 Sur Cumulus Linux 4.4.2, les connexions en cuivre ne sont pas prises en charge sur les commutateurs SN2100 dotés d'une carte réseau X1151A, d'une carte réseau X1146A ou de ports 100GbE intégrés. Par exemple :
 

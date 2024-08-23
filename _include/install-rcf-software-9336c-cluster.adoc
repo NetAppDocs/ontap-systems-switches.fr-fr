@@ -110,6 +110,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-9336c-fx2.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
 `copy running-config startup-config`
@@ -358,4 +359,4 @@ System Manager simplifie et simplifie l'installation et la configuration du clus
 Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
 
 .Et la suite ?
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Activez SSH"].
+link:configure-ssh.html["Activez SSH"].

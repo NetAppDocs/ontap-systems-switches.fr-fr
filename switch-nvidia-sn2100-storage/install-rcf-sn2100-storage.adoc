@@ -106,6 +106,7 @@ Le script RCF effectue les étapes indiquées ci-dessus.
 
 NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
 
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-storage.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Vérifiez la configuration après le redémarrage :
 +
 `net show interface all`

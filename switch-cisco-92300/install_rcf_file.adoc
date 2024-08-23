@@ -339,6 +339,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-92300.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
 Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus 9000 Series"^] guides.

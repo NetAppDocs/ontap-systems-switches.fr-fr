@@ -215,6 +215,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-9336c-fx2.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
 `copy running-config startup-config`
@@ -463,7 +464,7 @@ System Manager simplifie et simplifie l'installation et la configuration du clus
 Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
 
 .Et la suite ?
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Activez SSH"].
+link:configure-ssh.html["Activez SSH"].
 
 
 
@@ -837,7 +838,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 
-. Réappliquez tous les ajouts personnalisés précédemment identifiés à la configuration du commutateur.
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-9336c-fx2.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
 . Une fois que vous avez vérifié que les versions de RCF, les ajouts personnalisés et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
 Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.

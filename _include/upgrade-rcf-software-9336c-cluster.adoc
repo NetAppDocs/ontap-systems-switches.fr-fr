@@ -162,6 +162,10 @@ cluster1::*>
 +
 `cs1(config-if-range)# *shutdown*`
 
++
+
+CAUTION: Assurez-vous d'arrêter *tous* ports de cluster connectés pour éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Le nœud n'a pas le quorum lors de la migration de la LIF du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
+
 . Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
 +
 `network interface show -role cluster`
@@ -842,4 +846,4 @@ RPC status:
 
 
 .Et la suite ?
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Activez SSH"].
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

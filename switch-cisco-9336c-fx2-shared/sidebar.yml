@@ -36,8 +36,6 @@ entries:
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html"
   - title: Installez le fichier de configuration RCF
     url: "/switch-cisco-9336c-fx2-shared/install-nxos-rcf-9336c-shared.html"
-  - title: Activez SSH
-    url: "/switch-cisco-9336c-fx2-shared/configure-ssh.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_9336c-fx2-shared
   entries:

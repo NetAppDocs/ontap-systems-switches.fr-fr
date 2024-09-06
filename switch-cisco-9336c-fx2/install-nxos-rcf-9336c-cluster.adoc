@@ -91,7 +91,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 
 
-Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Reportez-vous au https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plates-formes.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
@@ -464,7 +464,7 @@ System Manager simplifie et simplifie l'installation et la configuration du clus
 Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
 
 .Et la suite ?
-link:configure-ssh.html["Activez SSH"].
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
 
 
 
@@ -649,6 +649,10 @@ cluster1::*>
 
 +
 `cs1(config-if-range)# *shutdown*`
+
++
+
+CAUTION: Assurez-vous d'arrêter *tous* ports de cluster connectés pour éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Le nœud n'a pas le quorum lors de la migration de la LIF du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
 
 . Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
 +
@@ -1330,4 +1334,4 @@ RPC status:
 
 
 .Et la suite ?
-link:../switch-cisco-9336c-fx2-storage/configure-ssh.html["Activez SSH"].
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

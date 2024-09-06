@@ -4381,8 +4381,6 @@
   <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">Seuls les switchs back-end validés par NetApp (commandés auprès de NetApp) sont pris en charge.</block>
   <block id="d69d8c23518c3e983c5799321eb27404" category="list-text">Nettoyez la configuration du commutateur cs2 et redémarrez le commutateur.</block>
   <block id="a3d5cbedb318ff78ae8c3f9bced7661b" category="list-text">Effectuer une configuration de base du contacteur. Voir <block ref="ab35665c267fa570f19ad0ebf8386ab4" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
-  <block id="6ab23d04af2dab64aaf06d089d134151" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336C-FX2, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
-  <block id="f213e7d15465742733b22d11eff1d4ac" category="doc">Activez SSH sur les commutateurs de cluster Cisco 9336C-FX2</block>
   <block id="a8d8d025a84c64f53b535b4e606fd65a" category="summary">Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs du cluster Nexus 92300YC.</block>
   <block id="0bf9f283c6d4cf639f7438f8d69e8f4f" category="doc">Installez le fichier de configuration SHM (Cluster Switch Health Monitor)</block>
   <block id="5a70ef3971f7a5956d9f9f829efc730c" category="paragraph">Suivez cette procédure pour installer le fichier de configuration applicable pour la surveillance SHM (Cluster Switch Health Monitoring) des commutateurs de cluster Nexus 9336C-FX2.</block>
@@ -4675,7 +4673,6 @@ Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]</block>
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
-  <block id="8fa9b99093c5cdfb4cebad0008ba3e8d" category="paragraph">Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la<block ref="e98f5e4074ae8b028a5791870586403d" category="inline-link-rx"></block> pour vérifier les ports de cluster appropriés sur vos plates-formes.</block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Commandes utilisées</block>
   <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Option 1 : installez le fichier RCF sur un nouveau commutateur</block>
   <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.</block>
@@ -4890,7 +4887,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="c947c5faccdddd0a9a87be7895f50511" category="list-text">Exécutez la commande<block ref="db3929a8e897b02a87f7f4bc42f38fc1" prefix=" " category="inline-code"></block> sur le système ONTAP et assurez-vous que les commutateurs de cluster sont détectés avec le champ surveillé défini sur *vrai* et que le champ du numéro de série n'affiche pas *Inconnu*.</block>
   <block id="31c020d11cc321faf9c0793a662d1e53" category="list-text">Redémarrez le commutateur cs2. Vous pouvez ignorer les événements de « panne des ports du cluster » signalés sur les nœuds lors du redémarrage du commutateur et la sortie d'erreur<block ref="a9e34a08c2be7359540cbf7337dc5ce9" prefix=" " category="inline-code"></block> .</block>
   <block id="db82c22b5434946b4bc226a3b9b7888a" category="list-text">Appliquer la même FCR et sauvegarder la configuration en cours d'exécution pendant une seconde fois. Cela est nécessaire car le RCF utilise QoS et nécessite une reconfiguration TCAM qui implique le chargement du RCF deux fois lorsque le commutateur est redémarré entre deux.</block>
-  <block id="5fdb34220ba0015ed7039c3f92044588" category="paragraph"><block ref="e28073c74a510a495bd318aad6ec05d2" category="inline-link-macro-rx"></block>.</block>
   <block id="c7ca49e9f550dc9b18f2402f13ad9430" category="list-text">[[step5]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :<block ref="9ac424c0d7b432975df36a19daf50c9c" prefix=" " category="inline-code"></block></block>
   <block id="58a19c530e54f6364edd838f35b1830e" category="inline-link-macro">Configurer la surveillance de l'état des commutateurs</block>
   <block id="d21243682bbd31fa9c0d32d291135394" category="paragraph"><block ref="5b8b393a675dcaaee97c02828356657c" category="inline-link-macro-rx"></block>.</block>
@@ -4923,7 +4919,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="ec348def7634a5754cf9d62e8bca7f24" category="list-text"><block ref="853bcb6b647712eac9646e8ede049d7b" category="inline-link-macro-rx"></block>.</block>
   <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">Les ports sont configurés pour le 40 GbE pour Cluster+HA, le 4 x 10 GbE Breakout pour Cluster et le 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.</block>
   <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Pour installer et configurer le logiciel d'un commutateur partagé Cisco Nexus 9336C-FX2, effectuez la procédure suivante :</block>
-  <block id="332339bcd9f462ab40cbf756a81eb021" category="doc">Activez SSH sur les switchs partagés Cisco 9336C-FX2</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">Installer le commutateur dans une armoire NetApp</block>
   <block id="343d8858c5eef7adcd6fc983a90c4848" category="list-text"><block ref="cad0a32a1376b86b466dd6cf29c7e620" category="inline-link-macro-rx"></block>.</block>
   <block id="d136348fb812c17c0d3c68bd85d3987f" category="inline-link-macro">Préparez l'installation du NX-OS et du RCF</block>
@@ -4932,7 +4927,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="bc2fac09fdd528e5067568b7be4074db" category="list-text">[[step18]]vérifier que les tiroirs sont correctement câblés :</block>
   <block id="783733d2f76fb1513a44bb7144679e76" category="list-text">[[step19]]retirez l'ancien commutateur sh2.</block>
   <block id="3e6dc141a56ffa03ce5afc78a5bbbef1" category="paragraph">Pour installer et configurer le logiciel d'un commutateur de stockage Cisco Nexus 9336C-FX2, effectuez la procédure suivante :</block>
-  <block id="d60d1714728d79a415d0da5a4975ae8f" category="doc">Activez SSH sur les switchs de stockage Cisco 9336C-FX2</block>
   <block id="e9c6db9ee4edb08184a082916cf1f56f" category="list-text"><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block>.</block>
   <block id="5537a63af1d3d4f5a6ffcc2a8619a2f8" category="list-text"><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block>.</block>
   <block id="cb037476ec4486d51b86d5dbeede8008" category="doc">Configurer la collecte des journaux</block>
@@ -5028,4 +5022,7 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="4af7c647d1c04eb805c9ecbc772595d1" category="list-text">Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block>à pour plus de détails sur les modifications supplémentaires requises.</block>
   <block id="e51054318a8dcf9b707bc011338e9665" category="section-title">Définissez la vitesse de l'interface sur les ports écorchés</block>
   <block id="e4da4813fef5b96a216a043d594bf245" category="list-text">Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous <block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block>à pour plus de détails sur les modifications supplémentaires requises.</block>
+  <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">Le nœud n'a pas le quorum lors de la migration de la LIF du cluster pendant la mise à niveau du système d'exploitation du commutateur</block>
+  <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">Assurez-vous d'arrêter *tous* ports de cluster connectés pour éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances<block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block> pour plus de détails.</block>
+  <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Reportez-vous au<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour vérifier les ports de cluster corrects sur vos plates-formes.</block>
 </blocks>

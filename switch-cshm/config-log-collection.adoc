@@ -17,9 +17,9 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 
 [NOTE]
 ====
-. Régénérer les clés ssh sur le commutateur, conformément aux instructions du fournisseur.
-. Régénérer les clés ssh côté ONTAP à l'aide de `debug system regenerate-systemshell-key-pair`
-. Exécutez à nouveau la routine de configuration de la collecte des journaux à l'aide de `system switch ethernet log setup-password`
+. Régénérer les clés SSH sur le commutateur en suivant les instructions du fournisseur.
+. Régénérer les clés SSH dans ONTAP à l'aide de `debug system regenerate-systemshell-key-pair`
+. Réexécutez la routine de configuration de la collecte des journaux à l'aide de la `system switch ethernet log setup-password` commande
 
 
 ====
@@ -29,8 +29,10 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 
 * L'utilisateur doit avoir accès aux commandes du commutateur `show` . S'ils ne sont pas disponibles, créez un nouvel utilisateur et accordez les autorisations nécessaires à l'utilisateur.
 * La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
-* Pour les switchs NVIDIA, l'utilisateur de la collecte de journaux doit être autorisé à exécuter les commandes de collecte de journaux sans afficher d'invite de mot de passe. Pour autoriser cette utilisation, lancer la commande :
-`echo '<username> ALL = NOPASSWD: /usr/cumulus/bin/cl-support, /usr/sbin/csmgrctl' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
+* Pour la prise en charge de la collecte de journaux avec les commutateurs NVIDIA, _user_ pour la collecte de journaux doit être autorisé à exécuter la `cl-support` commande sans avoir à fournir de mot de passe. Pour autoriser cette utilisation, lancer la commande :
++
+`echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
+
 
 
 

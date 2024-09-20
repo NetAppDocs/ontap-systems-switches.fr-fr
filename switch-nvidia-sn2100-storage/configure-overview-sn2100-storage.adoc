@@ -11,7 +11,7 @@ summary: Avant de configurer les switchs NVIDIA SN2100, consultez la présentati
 
 
 [role="lead"]
-La carte NVIDIA SN2100 est un commutateur de stockage qui vous permet d'acheminer les données entre les serveurs et les baies de stockage d'un réseau SAN.
+Le NVIDIA SN2100 est un commutateur Ethernet qui vous permet de basculer les données entre les contrôleurs et les tiroirs disques.
 
 
 

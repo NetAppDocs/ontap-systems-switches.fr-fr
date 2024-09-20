@@ -11,7 +11,7 @@ summary: 'Présentation de l"installation et de la configuration des commutateur
 
 
 [role="lead"]
-Le commutateur de stockage Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Les commutateurs de stockage vous permettent d'acheminer des données entre les serveurs et les baies de stockage d'un réseau de stockage (SAN).
+Le commutateur Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Le Nexus 9336C-FX2 est un commutateur Ethernet qui permet de basculer les données entre les contrôleurs et les tiroirs disques.
 
 
 

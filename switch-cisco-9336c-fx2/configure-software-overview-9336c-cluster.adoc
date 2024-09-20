@@ -25,8 +25,8 @@ Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutat
 +
 Installez ou mettez à niveau le RCF après la première configuration du commutateur Cisco Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 
-. link:configure-ssh.html["Activez SSH"].
+. link:configure-ssh-keys.html["Générez des clés SSH"].
 +
-Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, activez SSH sur les commutateurs.
+Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, générez des clés SSH sur les commutateurs.
 
 

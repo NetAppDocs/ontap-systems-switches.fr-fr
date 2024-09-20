@@ -464,7 +464,7 @@ System Manager simplifie et simplifie l'installation et la configuration du clus
 Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+link:configure-ssh-keys.html["Vérifier la configuration de SSH"].
 
 
 
@@ -1334,4 +1334,4 @@ RPC status:
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+link:configure-ssh-keys.html["Vérifier la configuration de SSH"].

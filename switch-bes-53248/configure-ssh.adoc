@@ -86,6 +86,54 @@ Configuration Saved!
 
 WARNING: Assurez-vous que SSH est désactivé avant de modifier les clés, sinon un avertissement est signalé sur le commutateur.
 
+. Chiffrez les clés SSH (pour *FIPS-mode uniquement*) :
++
+
+CAUTION: En mode FIPS, les clés doivent être chiffrées avec une phrase secrète pour des raisons de sécurité. En l'absence d'une clé chiffrée, l'application ne démarre pas. Les clés sont créées et chiffrées à l'aide des commandes suivantes :
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch) *configure*
+(switch) (Config)# *crypto key encrypt write rsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# *crypto key encrypt write dsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch)(Config)# *crypto key encrypt write ecdsa passphrase _<passphase>_*
+
+The key will be encrypted and saved on NVRAM.
+This will result in saving all existing configuration also.
+Do you want to continue? (y/n): *y*
+
+Config file 'startup-config' created successfully.
+
+(switch) (Config)# end
+(switch)# write memory
+
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
 . Redémarrez le commutateur :
 +
 `reload`

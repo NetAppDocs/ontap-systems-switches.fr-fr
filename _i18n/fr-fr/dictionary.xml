@@ -5041,4 +5041,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="c1433b541d8d99faed86a93460cb0bad" category="list-text">Pour la prise en charge de la collecte de journaux avec les commutateurs NVIDIA, _user_ pour la collecte de journaux doit être autorisé à exécuter la<block ref="c85737d6a0d20328583b59ea7320a5ef" prefix=" " category="inline-code"></block> commande sans avoir à fournir de mot de passe. Pour autoriser cette utilisation, lancer la commande :</block>
   <block id="a0379ee208b1ca86b0ce11e60c0e73eb" category="paragraph"><block ref="83e3f80a08612b0113ac48e3b9a3432e" prefix="" category="inline-code"></block></block>
   <block id="d97cf4e1b3c59ab22fc281643864890d" category="paragraph">Le NVIDIA SN2100 est un commutateur Ethernet qui vous permet de basculer les données entre les contrôleurs et les tiroirs disques.</block>
+  <block id="68cbc1ccd652f8f281a11d07040f5054" category="inline-link">Configurez la sécurité réseau à l'aide de FIPS</block>
+  <block id="ee73a5b7bde1ac3826492824ed56415e" category="admonition">Lorsque vous activez FIPS, vous devez modifier le nombre de bits à 256 sur le commutateur à l'aide de la commande<block ref="e945b32dfeddd45c02f47f82f234232f" prefix=" " category="inline-code"></block>. Voir<block ref="4ed77aafc2157fac88ce3125b253884f" category="inline-link-rx"></block> pour plus de détails.</block>
 </blocks>

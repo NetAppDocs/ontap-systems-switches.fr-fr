@@ -66,19 +66,27 @@ Cette procédure couvre le scénario suivant :
 * Le commutateur C2 est remplacé en premier par le commutateur cs2.
 +
 ** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
++
+*** Toutes les LIFs du cluster basculent sur le nouveau commutateur cs2.
+
+
 ** Le câblage entre les nœuds et C2 est ensuite déconnecté de C2 et reconnecté à cs2.
 
 
 * Le commutateur C1 est remplacé par le commutateur cs1.
 +
 ** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
++
+*** Toutes les LIFs du cluster basculent sur le nouveau commutateur cs1.
+
+
 ** Le câblage entre les nœuds et C1 est ensuite déconnecté de C1 et reconnecté à cs1.
 
 
 
 
 
-NOTE: Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+NOTE: Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer la continuité de l'activité du cluster, la procédure suivante bascule toutes les LIFs du cluster sur le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
 
 
 
@@ -98,7 +106,10 @@ où _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 L'invite avancée (*>) apparaît.
 
-. Désactiver la fonction de revert automatique sur les LIFs du cluster :
+. Désactivez la fonction de restauration automatique sur les LIF du cluster.
++
+Si vous désactivez la fonction de restauration automatique pour cette procédure, les LIF du cluster ne reviendront pas automatiquement sur leur port d'attache. Ils restent sur le port actuel pendant qu'il continue à être opérationnel.
+
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 

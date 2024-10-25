@@ -51,8 +51,6 @@ entries:
   entries:
   - title: Remplacer le commutateur du bloc d'instruments
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
-  - title: Remplacer le commutateur de stockage
-    url: "/switch-cisco-3232c/replace-storage-switch.html"
   - title: Remplacez les switchs de cluster par des connexions sans commutateur
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: Mettre à niveau les commutateurs

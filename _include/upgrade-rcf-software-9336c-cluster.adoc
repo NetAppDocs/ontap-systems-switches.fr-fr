@@ -795,14 +795,43 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Exécutez une commande ping sur les interfaces de cluster distantes pour vérifier la connectivité :
-+
-`cluster ping-cluster -node local`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source               Destination         Packet
+Node   Date                       LIF                  LIF                 Loss
+------ -------------------------- -------------------- ------------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   cluster1-01_clus2    cluster1-02-clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-01_clus2    cluster1-02_clus2   none
+node2
+       3/5/2022 19:21:18 -06:00   cluster1-02_clus2    cluster1-01_clus1   none
+       3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
 [listing, subs="+quotes"]
 ----
 cluster1::*> *cluster ping-cluster -node local*
@@ -842,8 +871,7 @@ RPC status:
 6 paths up, 0 paths down (tcp check)
 6 paths up, 0 paths down (udp check)
 ----
+--
 ====
-
-
 .Et la suite ?
 link:configure-ssh-keys.html["Vérifier la configuration de SSH"].

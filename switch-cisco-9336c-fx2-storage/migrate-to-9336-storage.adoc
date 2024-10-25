@@ -592,7 +592,7 @@ Vous pouvez utiliser le `network interface check cluster-connectivity` pour lanc
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----

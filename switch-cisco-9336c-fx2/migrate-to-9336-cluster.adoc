@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrating to a cluster with Cisco Nexus 9336C-FX2 cluster switches, how to migrate 
 summary: 'Vous pouvez migrer d"anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs réseau de cluster Cisco Nexus 9336C-FX2.' 
 ---
-= Migrer d'un ancien commutateur Cisco vers un commutateur de cluster Cisco Nexus 9336C-FX2
+= Migrer d'un ancien switch Cisco vers un switch Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -592,7 +592,7 @@ Vous pouvez utiliser le `network interface check cluster-connectivity` pour lanc
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----

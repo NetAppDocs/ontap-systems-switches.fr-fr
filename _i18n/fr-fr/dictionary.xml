@@ -199,7 +199,6 @@
   <block id="300c4a8af362f43878948de70117255e" category="paragraph">Chaque LIF doit afficher son contenu pendant<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> et vrai pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block>.</block>
   <block id="3dc587636ea58bb39b951053c233b58b" category="list-text">Les ports de cluster de chaque nœud sont connectés aux commutateurs de cluster existants de la manière suivante (du point de vue des nœuds) à l'aide de la commande :<block ref="628dcb12513dedee012c3c686cf33a79" prefix=" " category="inline-code"></block></block>
   <block id="866e9195c3f1e53c818cc1513b132bbc" category="list-text">Les ports et les commutateurs du cluster sont connectés de la manière suivante (du point de vue des commutateurs) à l'aide de la commande :<block ref="cdf610401d84a31ec0b35a9530629e42" prefix=" " category="inline-code"></block></block>
-  <block id="9e23ccbda503c8dd0fa60d4057a41702" category="list-text">Sur le commutateur c2, arrêtez les ports connectés aux ports du cluster des nœuds.</block>
   <block id="aba8d89ac417a82d843ceaf3c6ac2faa" category="list-text">Déplacez les ports du cluster de nœuds de l'ancien commutateur c2 vers le nouveau commutateur sw2, à l'aide du câblage approprié pris en charge par NVIDIA SN2100.</block>
   <block id="c1823cd6c866c4f070a5323fbfabc525" category="list-text">Les ports de cluster de chaque nœud sont désormais connectés aux commutateurs de cluster de la façon suivante, du point de vue des nœuds :</block>
   <block id="203a7f618c9b080eaa78a5e38ccd907d" category="list-text">Sur le commutateur sw2, vérifier que tous les ports de cluster de nœuds sont en service :<block ref="fba42a2ccc46f0a6204709f144e648ff" prefix=" " category="inline-code"></block></block>
@@ -754,8 +753,6 @@
   <block id="f523377f3be90c9c99ffba49f8f2ce16" category="list-text">Sur le nouveau switch, connectez-vous en tant qu'admin et arrêtez tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1/1 à 1/34).</block>
   <block id="65b12adbef5ea1ca868cfd0f85c4ee86" category="paragraph">Si le commutateur que vous remplacez ne fonctionne pas et est hors tension, passer à l'étape 4. Les LIFs des nœuds du cluster doivent déjà avoir basculer sur l'autre port du cluster pour chaque nœud.</block>
   <block id="7b5239f3a5575bedd1afcb0d613f5b2d" category="list-text">Vérifier que toutes les LIFs de cluster ont activé la fonction de restauration automatique :<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
-  <block id="b20219b8e5862f90d99ed9d31b9cbaf4" category="list-text">Vérifier que toutes les LIFs du cluster peuvent communiquer :<block ref="1ab036f1d4c42e6635eba8a8774bbfc9" prefix=" " category="inline-code"></block></block>
-  <block id="2956a3c58e1e9e09d89c37630ad846c1" category="list-text">Arrêter les ports ISL 1/35 et 1/36 sur le commutateur Nexus 9336C-FX2 cs1 :</block>
   <block id="2afc75d42480841e27d9b05235e39cde" category="list-text">Retirez tous les câbles du commutateur nexus 9336C-FX2 cs2, puis connectez-les aux mêmes ports du commutateur Nexus C9336C-FX2 newcs2.</block>
   <block id="78a32e32770c5475ef123676ee445f74" category="list-text">Mettez les ports ISL 1/35 et 1/36 entre les commutateurs cs1 et newcs2, puis vérifiez le statut du canal du port.</block>
   <block id="9976ce3dd89716631075e314d8369a88" category="paragraph">Port-Channel devrait indiquer Po1(SU) et les ports membres devraient indiquer eth1/35(P) et eth1/36(P).</block>
@@ -764,7 +761,6 @@
   <block id="8ae1e4542e61531049621a5845dc70cd" category="list-text">Sur le même nœud que celui utilisé dans l'étape précédente, ne restaurez pas la LIF de cluster associée au port à l'étape précédente en utilisant la commande network interface revert.</block>
   <block id="96b8aff7acc9d139c59c26c488001f3f" category="paragraph">Dans cet exemple, LIF node1_clus2 sur le nœud 1 est rétablie avec succès si la valeur Home est true et que le port est e0b.</block>
   <block id="f33c1f43ae94bca5556a5612cebb3895" category="paragraph">Les commandes suivantes renvoient LIF<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> marche<block ref="164546f60261c7e4be0c5f5f9aaeec86" prefix=" " category="inline-code"></block> vers le port de départ<block ref="922c556baf6272bffc4fa28b2e9a0bbc" prefix=" " category="inline-code"></block> Et affiche des informations relatives aux LIF sur les deux nœuds. L'ouverture du premier nœud réussit si la colonne est Home est vraie pour les deux interfaces de cluster et ils affichent les affectations de ports correctes, dans cet exemple<block ref="922c556baf6272bffc4fa28b2e9a0bbc" prefix=" " category="inline-code"></block> et<block ref="22fe67c2e87caff18249cf1804bbeaad" prefix=" " category="inline-code"></block> sur le noeud 1.</block>
-  <block id="b8fcfd0b86837de6abae197ea7ce1e77" category="list-text">Vérifiez la configuration suivante du réseau du cluster :<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
   <block id="867937cadaaec41c51512879188ec686" category="summary">Lors de la migration d'un cluster sans commutateur à deux nœuds sans interruption, vous devez connaître certaines informations de configuration, connexions de ports et exigences de câblage dans un cluster équipé de commutateurs de cluster Cisco Nexus 9336C-FX2. La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 GbE BASE-T intégrés pour les ports cluster-network.</block>
   <block id="cb3b33954945611e0ba8b2628e06d629" category="inline-link">Commutateurs Ethernet Cisco</block>
   <block id="f7ee6f50613eb8c232914988eb2db3eb" category="paragraph">Nœud 10/25 GbE</block>
@@ -902,9 +898,6 @@
   <block id="0f717d9f0cdccd54283a68290db5a062" category="list-text">Fermez les ports du cluster pour les LIF n1_clum1 et n2_clum1, qui ont été migrées à l'étape 9 :</block>
   <block id="e95612c7ef671203cc282ce38a48bdb4" category="paragraph"><block ref="fdb936507a9dbe73b5c4b16108a324e6" prefix="" category="inline-code"></block></block>
   <block id="c2c05b7104e31c97ee9d11ccf7ac3b14" category="paragraph">Vous devez exécuter la commande pour chaque port comme indiqué dans l'exemple suivant :</block>
-  <block id="6a7c10099f41c6e223cef671ebb76146" category="list-text">Envoyez une requête ping aux interfaces de cluster distantes et effectuez une vérification de serveur RPC :</block>
-  <block id="c08886eaed359b5e123b95c056c6e19b" category="paragraph"><block ref="1e494d7a0d114db00b18964bfb9147db" prefix="" category="inline-code"></block></block>
-  <block id="9868b1da05b1c2bf12a9e340575945d0" category="paragraph">L'exemple suivant montre le nœud n1 faisant l'objet d'une commande ping et l'état RPC indiqué par la suite :</block>
   <block id="cfc28d2866c14653d52dc05e54775304" category="paragraph">Vous pouvez faire référence à la configuration en cours d'exécution et connecter le premier port 40 GbE du switch C1 (port 1/7 dans cet exemple) à e4a sur n1 à l'aide du câblage pris en charge par les switchs Nexus 3232C.</block>
   <block id="410b3914a557be27dd3a3b5a77e4cf2b" category="paragraph">Vous pouvez vous reporter à la configuration en cours d'exécution et connecter e4a au prochain port 40 GbE disponible sur C1, port 1/8, à l'aide du câblage pris en charge.</block>
   <block id="70eeeed96560a359e5de8539aed23340" category="list-text">Activation de tous les ports orientés nœuds sur C1.</block>
@@ -959,8 +952,6 @@
   <block id="8df6d09a602fca4aa18fe9e0b5e94fd4" category="list-text">Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
   <block id="812c73458a9bcfba11e9f9ce18f5d870" category="list-text">Afficher les attributs des ports réseau :<block ref="5a2357a985889803fc9ad4bba1f860e2" prefix=" " category="inline-code"></block></block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">Afficher les informations relatives aux LIFs :<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="8e7dcc2f49cf13de0316cb76b4708706" category="list-text">Exécutez une commande ping des LIFs de cluster distantes :<block ref="1e494d7a0d114db00b18964bfb9147db" prefix=" " category="inline-code"></block></block>
-  <block id="916ba5b1774eaf295926db30f3bad132" category="list-text">Vérifiez que le<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> La commande est activée sur l'ensemble des LIFs du cluster :<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
   <block id="59f5de53d0bcaeeb4e4e9818bbf75f18" category="paragraph"><block ref="ff5aaae616b6f326cad680284f32b588" prefix="" category="inline-code"></block></block>
   <block id="0f8423ed5e0e5c2a15b9d97280628d07" category="doc">Remplacement d'un switch de cluster Cisco Nexus 3232C</block>
   <block id="5a9c1ae57a80076b39ad53020fd29eed" category="summary">Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) peuvent être mis à niveau sur des switchs de stockage Cisco Nexus 3232C.</block>
@@ -1025,7 +1016,6 @@
   <block id="fb0f753ded9498a080196f8272f79423" category="paragraph">L'exemple suivant montre le statut actuel de chaque cluster :</block>
   <block id="acd1d1d2ce5a2970e1b46fb53b75ad44" category="list-text">Arrêtez les ports d'interconnexion de cluster qui sont physiquement connectés au commutateur CL2 :</block>
   <block id="e2b1bfb579bd8470a604887ff8ca68d3" category="paragraph">Les commandes suivantes arrêtent les ports spécifiés sur n1 et n2, mais les ports doivent être arrêtés sur tous les nœuds :</block>
-  <block id="72611877ce7fbffb44381c1c62a69cd8" category="list-text">Arrêtez les liens ISL 41 via 48 sur CL1, le commutateur Nexus 5596 actif à l'aide de Cisco<block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix=" " category="inline-code"></block> commande.</block>
   <block id="c66e3aa8ea0ac093e4c0a3cf3a2362e7" category="paragraph">L'exemple suivant montre que des liens ISL 41 à 48 sont arrêtés sur le commutateur Nexus 5596 CL1 :</block>
   <block id="e611d5576e653114c65a96a266ece602" category="list-text">Créez un lien ISL temporaire entre CL1 et C2 à l'aide des commandes Cisco appropriées.</block>
   <block id="621728c29c88ed3282a78eafc103c550" category="paragraph">L'exemple suivant montre qu'un ISL temporaire est configuré entre CL1 et C2 :</block>
@@ -1047,8 +1037,6 @@
   <block id="9e34505e95067067c4258419479733a1" category="paragraph">L'exemple suivant montre que les LIF du clus2 sont rétablies sur leurs ports d'accueil et indique que les LIF sont rétablies si les ports de la colonne Current Port ont un statut<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> dans le<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> colonne. Si le<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> la valeur est<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>, La LIF n'a pas été rétablie.</block>
   <block id="b0522263b2b188ed6c32b8d81c7f9286" category="list-text">Vérifier que les ports Clustered sont connectés :</block>
   <block id="14860c40af5b70801e3ca603e17cb1ae" category="paragraph">L'exemple suivant montre le résultat de la précédente<block ref="c41d3983ecd2badd54b3bb9658675080" prefix=" " category="inline-code"></block> commande, vérification de la place de toutes les interconnexions du cluster<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
-  <block id="35f01ed40b6310feec062211ce126c2d" category="paragraph"><block ref="67b370e4ed014395d701d60f8f886608" prefix="" category="inline-code"></block></block>
-  <block id="f4df801f902ead90a2bade04e26cac42" category="list-text">Sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur Nexus 5596, CL1, à remplacer :</block>
   <block id="129a1c42491e08989734008419845f67" category="paragraph">L'exemple suivant montre les ports ou LIFs en cours de migration sur les nœuds n1 et n2 :</block>
   <block id="2f7e0ef82095fa5dae5874a5e402a389" category="list-text">Vérifiez le statut du cluster :</block>
   <block id="73610b963ec877545620c671a3e11854" category="paragraph">L'exemple suivant montre que les LIFs de cluster requises ont été migrées vers les ports de cluster appropriés hébergés sur le commutateur de cluster, C2 :</block>
@@ -1075,7 +1063,6 @@
   <block id="6ddfcc3224ee61de55be71f4235743ce" category="paragraph">L'exemple suivant montre que les LIFs de cluster spécifiques sont rétablies sur leurs ports de repos sur les nœuds n1 et n2 :</block>
   <block id="d4a8913469db1fc0f552292a60d6e828" category="list-text">Vérifiez que l'interface est à la maison :</block>
   <block id="daea7250d83f163412cc5379e80d5e82" category="paragraph">L'exemple suivant montre le statut des interfaces d'interconnexion de cluster sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> et<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> pour n1 et n2 :</block>
-  <block id="684b2e790316879de4577bb080c72bf3" category="list-text">Développez le cluster en ajoutant des nœuds aux switchs de cluster Nexus 3232C.</block>
   <block id="ade7d2702b97f21df7fd20dbf01f49fe" category="paragraph">Les exemples suivants illustrent les nœuds n3 et n4 disposent de ports de cluster 40 GbE connectés aux ports e1/7 et e1/8, respectivement, sur les deux switchs de cluster Nexus 3232C, et les deux nœuds ont rejoint le cluster. Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.</block>
   <block id="25ea268f832f9b1eec50e6576dee1fa5" category="list-text">Affichez les informations relatives aux périphériques de votre configuration :</block>
   <block id="f775db4015a6969e3d7826094686747b" category="inline-link">Description du commutateur Ethernet Cisco</block>
@@ -1133,8 +1120,6 @@
   <block id="ef84127d5ef060917ce0f8f8ec03bf82" category="list-text">Téléchargez la version appropriée du logiciel d'image à l'adresse <block ref="a1b5971027192ba8f103906f3e0c5af3" category="inline-link-macro-rx"></block>.</block>
   <block id="98eb99fcc0ed94997a2ab2be00fd87f8" category="paragraph">Vous devez migrer chaque LIF individuellement comme indiqué dans l'exemple suivant :</block>
   <block id="58e4c812934a7909bf27428e713ee5c1" category="paragraph">L'exemple suivant montre les quatre ports d'interconnexion de cluster en cours d'arrêt pour le nœud n1 et le nœud n2 :</block>
-  <block id="1951e47d1525c6b1dfbe9f52df91cc7f" category="list-text">Exécutez une commande ping sur les interfaces de cluster distantes, puis effectuez une procédure à distance pour vérifier le serveur d'appel :</block>
-  <block id="105dcee6d5ae30eca10110db38214b1e" category="list-text">Arrêter les ports ISL 13 à 16 sur le commutateur CN1610 actif CL1 en utilisant la commande appropriée.</block>
   <block id="06b942f634ce75ef69a38ebe9aa1d02c" category="paragraph">L'exemple suivant montre que les ports ISL 13 à 16 sont arrêtés sur le commutateur CN1610 CL1 :</block>
   <block id="8d9520a7db10148df2c9a1262cf4055a" category="list-text">Construire un ISL temporaire entre CL1 et C2 :</block>
   <block id="8b3c83619e5433d40fb01f0c00687515" category="paragraph">L'exemple suivant illustre la création d'un ISL temporaire entre CL1 (ports 13-16) et C2 (ports e1/24/1-4) à l'aide de Cisco<block ref="dcde5ecf700fb570ce819b9b94035298" prefix=" " category="inline-code"></block> commande :</block>
@@ -1245,7 +1230,6 @@
   <block id="dd731ffd2ea93d5d4f7a6ec37ae136dc" category="list-text">Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :<block ref="856f897c52a15ad9c779d1f7b82c2593" prefix=" " category="inline-code"></block></block>
   <block id="4b45f9c3c89c6b4fd380706244fef39d" category="paragraph">Vous pouvez observer la sortie suivante sur la console des commutateurs cs1 en fonction de la version RCF précédemment chargée sur le commutateur</block>
   <block id="de5961cc4ba4008f669b392dba74a8da" category="list-text">Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :<block ref="2f9f4462a41014889ceaf0991f774466" prefix=" " category="inline-code"></block></block>
-  <block id="0ecc223c2f66f6abde60759dd3185d04" category="list-text">Exécutez une commande ping sur les interfaces de cluster distantes pour vérifier la connectivité :<block ref="6d931e460f3e419ca5bc874e47132b6d" prefix=" " category="inline-code"></block></block>
   <block id="c65be06145c6932d272087d8bd0dc751" category="list-text">Nexus 5596</block>
   <block id="555e8da414bf5a2d01f0f64a306f311c" category="list-text">Les commutateurs de cluster utilisent les ports suivants pour les connexions aux nœuds :</block>
   <block id="c2f18641e43de285dd6439d822155502" category="list-text">Ports e1/1-40 (10 GbE) : Nexus 5596</block>
@@ -1294,8 +1278,6 @@
   <block id="21ac417b713f0b8db45ffff0c3af14dd" category="paragraph">Exécutez cette commande à partir de chaque nœud local.</block>
   <block id="3bf33ab1d6946b3f24d2516e6072bbfb" category="list-text">Vérifier la migration des interfaces de cluster :</block>
   <block id="e43adf663d10e04de01cdb70dba1ea3f" category="list-text">Fermez les ports de cluster de façon conclu1 LIF sur les deux nœuds :</block>
-  <block id="0c93dd1c3bc740b534dc19a4612c4120" category="paragraph"><block ref="1ab036f1d4c42e6635eba8a8774bbfc9" prefix="" category="inline-code"></block></block>
-  <block id="df920baf118cae8ed08bc0e67c930632" category="list-text">Débrancher le câble e4a du nœud n1.</block>
   <block id="656098cc9fb2598274636e89bfda9deb" category="paragraph">Vous pouvez vous reporter à la configuration en cours d'exécution et connecter le premier port 40 GbE du commutateur C1 (port 1/7 dans cet exemple) à e4a sur n1 à l'aide du câblage pris en charge sur le commutateur Nexus 3132Q-V.</block>
   <block id="916b11220f3f30d08ed357610e9a0f88" category="admonition">Lors de la reconnexion des câbles à un nouveau commutateur de cluster Cisco, les câbles utilisés doivent être pris en charge par Cisco à l'aide d'un câble ou d'une fibre optique.</block>
   <block id="1cd2a4b2269a32389e020110b6c528c4" category="list-text">Débrancher le câble e4a du nœud n2.</block>
@@ -1362,7 +1344,6 @@
   <block id="7fd77ba3dd5e636631a1eb65009f8b8d" category="paragraph">Cet exemple montre que la migration LIF s'effectue sur tous les nœuds :</block>
   <block id="43708903ed29a6b8f36b2d2012c5cd07" category="list-text">Vérifiez l'état du cluster :</block>
   <block id="74d7543cdff44d4d4d6b9c31a44929fd" category="paragraph">Cet exemple montre les ports spécifiés qui sont arrêtés sur tous les nœuds :</block>
-  <block id="4547e743de7a4493e60ec5a14011f213" category="list-text">Arrêter les ports 1/31 et 1/32 sur CL1 et le commutateur actif Nexus 3132Q-V :</block>
   <block id="1136531f8e26fab6ed3aa68ddd63c6cf" category="paragraph"><block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix="" category="inline-code"></block></block>
   <block id="7ed6ad166541eaeed2eb44050a4369b4" category="paragraph">Cet exemple montre que les ports ISL 1/31 et 1/32 sont arrêtés sur le commutateur CL1 :</block>
   <block id="4ce7327540877b4c9bb108e79d7ec741" category="list-text">Retirez tous les câbles reliés au commutateur Nexus 3132Q-V CL2 et reconnectez-les au commutateur C2 de remplacement sur tous les nœuds.</block>
@@ -1418,8 +1399,6 @@
   <block id="64d9658c6e0a01fd09972bb8e3bf80d8" category="paragraph">Consultez la page __ONTAP 8.x ou version ultérieure Cluster and Management Network Switch Reference Files__Download, puis cliquez sur la version appropriée.</block>
   <block id="f5532c44fa87b73888e57560b15f09ab" category="paragraph">L'exemple suivant montre n1 et n2, mais la migration LIF doit se faire sur tous les nœuds :</block>
   <block id="653081b7951ce57e5013f6673c162a3c" category="paragraph">L'exemple suivant montre le résultat de la précédente<block ref="b25040194b5c780d571a8835507279e9" prefix=" " category="inline-code"></block> commande :</block>
-  <block id="85c96d16aebcae293f2d70dbbf9cb1d0" category="paragraph">L'exemple suivant montre comment exécuter un commande ping sur les interfaces de cluster distantes :</block>
-  <block id="3deecfe62c85f26f915232658c689130" category="list-text">Arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :</block>
   <block id="609bda8dbabe0a84f343b546e3d7a65a" category="paragraph">L'exemple suivant montre comment arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 CL1 :</block>
   <block id="74bb8188e949e71bcfef0fd8d38fa91b" category="list-text">Construire un ISL temporaire entre CL1 et C2.</block>
   <block id="966456a7b0c13d93e99995ce83647e5f" category="paragraph">Avec le câblage pris en charge, reconnectez les ports déconnectés de tous les nœuds au commutateur Nexus 3132Q-V C2.</block>
@@ -1443,7 +1422,6 @@
   <block id="ad74bf339ee8d5d96a2bd94af6adee60" category="paragraph">L'exemple suivant montre tous les ports d'interconnexion de cluster mis en service pour n1 et n2 sur le commutateur 3132Q-V C1 :</block>
   <block id="f1cf8003cdf52e8ffcd5e3ec861861de" category="paragraph">L'exemple suivant vérifie que tous les ports d'interconnexion de cluster sur tous les nœuds du nouveau commutateur 3132Q-V C1 sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
   <block id="9fff40b9c7a12070faa3809a040494f9" category="paragraph">L'exemple suivant montre le statut des interfaces d'interconnexion de cluster est<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> et<block ref="7510f0cdc8fdc222ee844ed5b7a9d8cf" prefix=" " category="inline-code"></block> pour n1 et n2 :</block>
-  <block id="c88bbeb32e8a86a6536b0c77fe7f1ec8" category="list-text">Exécutez une commande ping sur les interfaces du cluster distant, puis effectuez une procédure à distance. Contrôlez le serveur d'appels :</block>
   <block id="9330abbaaa76e6624badc34f8f4a32ea" category="paragraph">L'exemple suivant montre comment supprimer le Nexus 5596 :</block>
   <block id="05a9e5b7c0c83c8a1b0da673e6e07f22" category="list-text">Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
   <block id="0097ce0f8a70e3f4836e959cc2aab7af" category="summary">Pour remplacer les commutateurs de cluster CN1610 existants d'un cluster par des commutateurs de cluster Cisco Nexus 3132Q-V, vous devez effectuer une séquence spécifique de tâches.</block>
@@ -1484,7 +1462,6 @@
   <block id="553d4b480ebd4c3c288cfa2be6c0e439" category="paragraph">L'exemple suivant montre comment afficher tous les ports d'interconnexion de cluster connectés au nouveau commutateur 3132Q-V C1 :</block>
   <block id="8fd12ba18f621197ae2f1f7203080e73" category="paragraph">L'exemple suivant vérifie que tous les ports d'interconnexion de cluster sur n1 et n2 sur le nouveau commutateur 3132Q-V C1 sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block>:</block>
   <block id="42f427229de718255616b52d13a2ec50" category="paragraph">L'exemple suivant montre comment rétablir les LIF de cluster migrées sur leurs ports de base :</block>
-  <block id="9337d28b60d4b0252c3592ab024c6fc9" category="list-text">Développez le cluster en ajoutant des nœuds aux commutateurs de cluster Nexus 3132Q-V.</block>
   <block id="d06b10417bc355c0e14c53d8eae6e76e" category="paragraph">Les exemples suivants illustrent les nœuds n3 et n4 avec des ports de cluster 40 GbE connectés aux ports e1/7 et e1/8, respectivement sur les commutateurs de cluster Nexus 3132Q-V, et les deux nœuds ont rejoint le cluster. Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.</block>
   <block id="7e742ccdfe23c1184022b4bc3a971881" category="paragraph">L'exemple suivant montre comment supprimer les commutateurs CN1610 :</block>
   <block id="e521258df15ab32738dc56ac4b1ce04f" category="list-text">Configurez les clusters cluA1 et clusion4 sur<block ref="28c988ac956ff7a16325cde07547fef0" prefix=" " category="inline-code"></block> sur chaque nœud et confirmez :</block>
@@ -1498,8 +1475,6 @@
   <block id="48e27bd4f05b8928a4da9e94eb1821b7" category="paragraph"><block ref="1ddf946090b02d8488854491b2232bce" prefix="" category="inline-code"></block></block>
   <block id="a06f69669c864cc0902a5e544ee247bc" category="paragraph"><block ref="5a2357a985889803fc9ad4bba1f860e2" prefix="" category="inline-code"></block></block>
   <block id="8eaf3d59876911ccca6dc5bdc347ee06" category="list-text">Afficher les informations relatives aux LIFs :</block>
-  <block id="e73ca78de91a85725d7897c5caaeeb3e" category="list-text">Exécutez une commande ping des LIFs de cluster distantes :</block>
-  <block id="b28871024a61db436088d8a57f04935d" category="list-text">Vérifiez que le<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> La commande est activée sur l'ensemble des LIFs du cluster :</block>
   <block id="e4490c39e3c7c690b2b28793dd430b44" category="paragraph"><block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix="" category="inline-code"></block></block>
   <block id="7899d4f691aaa93027bcd88691483be1" category="summary">Vous pouvez installer le commutateur Cisco Nexus 3132Q-V et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.</block>
   <block id="f7ad0a2648b0185763a6a88e903a53ac" category="list-text">Installez les supports de montage en rack sur le châssis du commutateur Nexus 3132Q-V.</block>
@@ -1591,7 +1566,6 @@
   <block id="fe96ff1088869051b509f707698aefd3" category="paragraph">La commande suivante supprime la création automatique de dossiers pendant deux heures :</block>
   <block id="e74ba48b87be882bffe68906351b713a" category="list-text">Vérifiez que la fonction de restauration automatique est activée sur l'ensemble des LIFs du cluster :</block>
   <block id="2e729d790188b76f9ff137fba89a9db0" category="list-text">Afficher les attributs des ports réseau du cluster :</block>
-  <block id="82214ffaae0abeffe761517344159444" category="list-text">Arrêter les ports ISL 13 à 16 sur le commutateur CN1610 actif CL1 :</block>
   <block id="148a1525f4c4b2d620941031bf03f670" category="inline-link">_NetApp Hardware Universe_</block>
   <block id="210c72bbad8c8bc1c0de6bc95f64dff9" category="list-text">Vérifier que tous les ports d'interconnexion de cluster sont restaurés sur leurs ports de base :</block>
   <block id="f9d6a6a75483c0ffe08b0dea9565ef0c" category="list-text">Vérifier que tous les ports du cluster sont connectés :</block>
@@ -1861,7 +1835,6 @@
   <block id="20fb8dfa050d34e66fdcb88cde52cd39" category="paragraph">Chaque LIF de cluster doit afficher<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> Dans la colonne « est domicile ».</block>
   <block id="a04a550528162e05ce99957d8bcaedf1" category="admonition">Les commandes de modification et de migration suivantes des étapes 10 à 13 doivent être effectuées à partir du nœud local.</block>
   <block id="e46a14518d3f20a82a8ea86aa3e1a91b" category="admonition">Pour les versions 8.3 et ultérieures, utiliser la commande suivante :<block ref="76be4589a0f314371f336c42f473092c" prefix=" " category="inline-code"></block></block>
-  <block id="1506e8a32c89125ba0188cab7beb0fb3" category="paragraph">Le résultat de la commande affiche la connectivité entre tous les ports du cluster.</block>
   <block id="159ba467749aba2dcf746508bf149877" category="paragraph">L'exemple suivant montre le processus de migration de clude1 vers le port e2a sur le node1 et le node2 :</block>
   <block id="a06d76059f0a519a64519b90a1dc32fa" category="admonition">Pour les versions 8.3 et ultérieures, utiliser la commande suivante :<block ref="3dff2bb172157fa699b52c962c80e9d7" prefix=" " category="inline-code"></block></block>
   <block id="90df6f76d556f5c6f67ea48d18403467" category="paragraph">L'exemple suivant vérifie que la migration de clude1 vers le port e2a sur les nœuds 1 et 2 :</block>
@@ -1932,7 +1905,6 @@
   <block id="03785619d55d01a3d9de759db10a42c2" category="list-text">Vérifiez que les ports de cluster 10 GbE connectés sur le commutateur sont configurés pour faire partie du même VLAN.</block>
   <block id="1935a529661750cc36f5da03c0214edf" category="paragraph">Si vous prévoyez de connecter les ports de cluster de chaque module de contrôleur à des commutateurs différents, vous devez vérifier que les ports sur lesquels les ports de cluster sont connectés sur chaque commutateur sont configurés pour le même VLAN et que l'agrégation est correctement configurée sur les deux commutateurs.</block>
   <block id="ad2c2b5612ae219cdefade565a2878a4" category="paragraph">L'exemple suivant montre que les LIFs sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Sur les noeuds 1 et node2 et que les résultats de la colonne "est à la maison" sont<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
-  <block id="a1f783c83c4d98e6eb5a7c79625862d7" category="paragraph">Le résultat de la commande doit afficher la connectivité entre tous les ports du cluster.</block>
   <block id="2f22a515e333c7902fee7e2dd01783af" category="summary">Vous devez installer le logiciel FASTPATH et les fichiers RCF (Reference Configuration File) sur un commutateur de cluster NetApp CN1610.</block>
   <block id="a968ac7024ff03437db257f2510e1999" category="list-text">Il ne doit pas y avoir de cartes d'interface réseau (NIC) de cluster défectueuses et tous les ports connectés du commutateur de cluster doivent être fonctionnels.</block>
   <block id="a33067cd064feec6d8796cb8f57391c8" category="list-text">Vous devez consulter le tableau de compatibilité des commutateurs sur le<block ref="ee1fcd300e124f1abbf347b76660f8d6" category="inline-link-rx"></block> Consultez cette page pour les versions FASTPATH, RCF et ONTAP prises en charge.</block>
@@ -2255,7 +2227,6 @@
   <block id="43a394f626014f93d34c2270873ed0f5" category="list-text">Pour le nœud2, déconnectez le câble de e1/2 sur c1, puis connectez le câble à e1/2 sur cs1, à l'aide du câblage approprié pris en charge par le commutateur Nexus 92300YC.</block>
   <block id="27781c87d25f863e4d8141fb97e91e1d" category="list-text">Supprimez l'ISL temporaire entre cs1 et c1.</block>
   <block id="8b46c589466074f9f6f08c5ac2e65338" category="list-text">Vérifier la configuration finale du cluster :</block>
-  <block id="cd21dfc849bb9ea2aa764a739849b964" category="list-text">Assurez-vous que le réseau en cluster dispose d'une connectivité complète :</block>
   <block id="33487880ee5d3cff6333b1c6471b70ba" category="summary">Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez d'anciens commutateurs de cluster Cisco Nexus par des commutateurs de cluster Cisco Nexus 92300YC.</block>
   <block id="96b8ff1634f6f4a5cc62e8b2c11e4a44" category="doc">Migration d'un commutateur Cisco vers un commutateur Cisco Nexus 92300YC</block>
   <block id="6ebe57c0a9d06f5e953e68c100387d0b" category="list-text">Nexus 5020</block>
@@ -2301,7 +2272,6 @@
   <block id="843e8bce6b1f5f343fc75f65042e3608" category="list-text">Cliquez sur la flèche de retour de votre navigateur pour revenir à la page *Description*, cliquez sur *CONTINUER*, acceptez le contrat de licence, puis accédez à la page *Télécharger*.</block>
   <block id="110c695d96cf5ad96f14ba25bfd860f2" category="list-text">Sur le nouveau switch, connectez-vous en tant qu'admin et arrêtez tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1/1 à 1/64).</block>
   <block id="09f3237a21e153d832b3546f85186cbc" category="list-text">Vérifier que toutes les LIFs de cluster ont activé la fonction de restauration automatique :</block>
-  <block id="eb7580a8ac3bae2040e96931950a989f" category="list-text">Vérifier que toutes les LIFs du cluster peuvent communiquer :</block>
   <block id="566992671ef338b9a51fdc8643a29803" category="list-text">Arrêtez les ports ISL 1/65 et 1/66 sur le commutateur Nexus 92300YC cs1 :</block>
   <block id="bcdc1c149628bee1646511fc29cd7407" category="list-text">Retirez tous les câbles du commutateur nexus 92300YC cs2, puis connectez-les aux mêmes ports du commutateur Nexus 92300YC newcs2.</block>
   <block id="2975370bf83bdfdcc1f7c7bc49f1e4a2" category="list-text">Mettez les ports ISL 1/65 et 1/66 entre les commutateurs cs1 et newcs2, puis vérifiez le statut du canal du port.</block>
@@ -2335,7 +2305,6 @@
   <block id="1f564e4f556cdb31888a8f9f8ba59571" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence \(RCFs\) doivent être installés sur les commutateurs de cluster Cisco Nexus 92300YC.</block>
   <block id="ae51aab75debd2e4f744aa3423ddf6cf" category="list-text">Les noms LIF de cluster sont<block ref="efdc0a97303fb41897cab634f9381835" prefix=" " category="inline-code"></block> et<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> pour les nœuds 1 et<block ref="a466bba1804a252e783c3e78c73981b0" prefix=" " category="inline-code"></block> et<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> pour le noeud 2.</block>
   <block id="57bf5d8f5891a8230d2c53c4b728728e" category="list-text">Afficher les attributs des ports réseau : <block ref="5a2357a985889803fc9ad4bba1f860e2" prefix=" " category="inline-code"></block></block>
-  <block id="f640804165fe8b3014b443db071bd7c2" category="list-text">Vérifier que la commande auto-revert est activée sur toutes les LIFs du cluster :</block>
   <block id="c3fefe6517671336a8a9051770e62e39" category="summary">Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur Nexus 92300YC.</block>
   <block id="dfd32790423f16dd03c31199222c75e8" category="list-text">Copiez le logiciel NX-OS et les images EPLD sur le commutateur Nexus 92300YC.</block>
   <block id="0d6e969eb5674b7d09ad640ad5ba08eb" category="list-text">Utiliser la commande ping pour vérifier la connectivité sur le serveur hébergeant la FCR.</block>
@@ -2406,7 +2375,6 @@
   <block id="b1046cdb57cd97fe9c20f711ba08bed8" category="paragraph"><block ref="76be4589a0f314371f336c42f473092c" prefix="" category="inline-code"></block></block>
   <block id="5509fa38d3415bf6dfbd28918cf766f3" category="list-text">Vérifiez que tous les ports répertoriés à l'étape précédente sont connectés à un commutateur réseau :</block>
   <block id="101ead84905a0da72281347a2d3e5846" category="paragraph"><block ref="3c9df67ecefdc0250ea054cef3d4555b" prefix="" category="inline-code"></block></block>
-  <block id="fad8bc8bd6f8c2ecbc098cd96431ebde" category="list-text">Vérifiez la connectivité du cluster :</block>
   <block id="e477c0774c6014b5173ffa6810d512ab" category="paragraph"><block ref="484f24f8e4da80a1185aa63fa1d5fc08" prefix="" category="inline-code"></block></block>
   <block id="c992f99b79e71a5eb5127e5f190fab4e" category="paragraph">Toutes les unités doivent être maîtres ou secondaires.</block>
   <block id="048592cc00af171e1fa6348b090a6c78" category="list-text">Configurez la configuration sans commutateur pour les ports du groupe 1.</block>
@@ -2419,8 +2387,6 @@
   <block id="cad47f7ffe7579e68a294494fa25af17" category="image-alt">Connexion directe entre les ports « e0a »</block>
   <block id="e9ec4835d23694aed9844bcf9e7e87ea" category="list-text">L'option de réseau en cluster sans commutateur passe de<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block> à<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>. Cette opération peut prendre jusqu'à 45 secondes. Vérifiez que l'option sans commutateur est définie sur<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>:</block>
   <block id="c412aebcb1566f8e5e0323f2afe60d0e" category="paragraph">L'exemple suivant montre que le cluster sans commutateur est activé :</block>
-  <block id="6d1b5eebdb14196ce07c51c623533431" category="list-text">Vérifiez que le réseau de clusters n'est pas interrompu :</block>
-  <block id="f643d26da1df28bcffc5c5067726246b" category="list-text">Configurez la configuration sans commutateur pour les ports du groupe 2.</block>
   <block id="863e48e1ab590a3004febd635c0c772c" category="admonition">Pour éviter des problèmes de mise en réseau potentiels, vous devez déconnecter les ports du groupe 2 et les reconnecter le plus rapidement possible, par exemple *en moins de 20 secondes*.</block>
   <block id="29f9df63556e07a416ddabb7ae9e6ad1" category="list-text">Déconnectez tous les câbles des ports du groupe 2 en même temps.</block>
   <block id="f7107cbf076f0517cc09ef7864ab4721" category="paragraph">Dans l'exemple suivant, les câbles sont déconnectés du port « e0b » sur chaque nœud, et le trafic des clusters continue via la connexion directe entre les ports « e0a » :</block>
@@ -2436,8 +2402,6 @@
   <block id="31d2e20cefb76721dace23dfd9a35896" category="paragraph"><block ref="28a65537759ae55070780c50a3b3b9a6" prefix="" category="inline-code"></block></block>
   <block id="aeb90980ffc18e4c949766c382d409d4" category="list-text">Vérifiez l'état du cluster des nœuds depuis la console système de l'un ou l'autre nœuds :</block>
   <block id="90d334e25f499d80506823cb341c39d7" category="paragraph">L'exemple suivant montre epsilon sur les deux nœuds à être<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>:</block>
-  <block id="26ba805ccb9566fb36369f48374b79c8" category="list-text">Vérifier la connectivité entre les ports du cluster :</block>
-  <block id="a76aa36cc43767185eb24bf3e6381bdb" category="paragraph"><block ref="a12fdc96dc49a3d64afa69d8bb631cbf" prefix="" category="inline-code"></block></block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Mentions légales</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Les mentions légales donnent accès aux déclarations de copyright, aux marques, aux brevets, etc.</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">Droits d'auteur</block>
@@ -2648,7 +2612,6 @@
   <block id="4d76f023f4fff5f776ba26426c03d7a6" category="doc">Composants et références pour les switchs NVIDIA SN2100</block>
   <block id="3f9c12e1d0acbeca7bc410db81110a76" category="section-title">Détails de l'armoire</block>
   <block id="2fca9b848223ad314bfc0417bb307186" category="section-title">Détails du kit de rails</block>
-  <block id="d897cc0b3682ab01fb074cad614e3d87" category="list-text">Vérifiez que le réseau en cluster dispose d'une connectivité complète via la commande :<block ref="67b370e4ed014395d701d60f8f886608" prefix=" " category="inline-code"></block></block>
   <block id="0fa2182996c829479a17f20108650375" category="admonition">Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute ONIE ou Cumulus Linux (voir <block ref="31c7752379437c6abd98c0b1cf8b984b" category="inline-link-macro-rx"></block>).</block>
   <block id="2a7caab78aad5f1306f0e841c8cc7233" category="paragraph">Vous pouvez installer Cumulus Linux à l'aide de l'environnement d'installation en réseau ouvert (ONIE) qui permet la détection automatique d'une image du programme d'installation réseau. Cela facilite le modèle de système de sécurisation des commutateurs avec un choix de systèmes d'exploitation, comme Cumulus Linux. La façon la plus simple d'installer Cumulus Linux avec ONIE est avec la découverte HTTP locale.</block>
   <block id="86f9e7e4dc0c337b97f8769ea5f62452" category="list-text">Téléchargez le fichier d'installation de Cumulus Linux dans le répertoire racine du serveur Web. Renommez ce fichier :<block ref="ad3b7e04b0013d13df088435d2fc4760" prefix=" " category="inline-code"></block>.</block>
@@ -2748,7 +2711,6 @@
   <block id="9284b77324fc2073740e195aa4d8c7bc" category="admonition">Voir <block ref="81e27480a79c2bb77194c038c9737157" category="inline-link-macro-rx"></block> pour mises en garde et autres détails. Le<block ref="fc1c96ca1130118b28ccd7598f63fe21" category="inline-link-rx"></block> contient également plus d'informations sur le câblage.</block>
   <block id="73150a01363aed5257939f818ac56b3b" category="list-text">Les fichiers de configuration de référence (RCFs) sont appliqués aux commutateurs</block>
   <block id="d334b073010dc4ca86957c663631fa0b" category="paragraph">Chaque LIF de cluster doit afficher la valeur true pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> et avoir un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de<block ref="fc7c1443e5c7b6439706b6132a4c0829" prefix=" " category="inline-code"></block>.</block>
-  <block id="9a82d0edb58bbaaf806da2f174490820" category="list-text">Vérifiez que le réseau de cluster dispose d'une connectivité complète :</block>
   <block id="e64b06ebdf8146ea2bc17ff7d5457eef" category="summary">Présentation de l'installation et de la configuration des commutateurs de stockage Cisco Nexus 9336C-FX2</block>
   <block id="be4cd7f1969695f8e6e1f2c8040abcd4" category="paragraph">Pour configurer initialement un commutateur Cisco Nexus 9336C-FX2 sur les systèmes exécutant ONTAP, procédez comme suit :</block>
   <block id="5ac09e984471f320b2e8920ece32b03d" category="inline-link-macro">Remplir la fiche de câblage</block>
@@ -3029,7 +2991,6 @@
   <block id="1665ddb906f550f2db99dc8dd8ac07cf" category="list-text">Vérifiez que les liens ISL sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Sur le commutateur CN1610 CL1 :</block>
   <block id="63a080ea10d13b471f345736a9e24da5" category="list-text">Ajouter tous les ports d'interconnexion de cluster connectés au commutateur 3132Q-V C2 sur tous les nœuds :</block>
   <block id="23fff82d9fb02c285b1502faee4ae332" category="list-text">Restaurez toutes les LIF d'interconnexion de cluster migrées qui sont connectées à C2 sur tous les nœuds :</block>
-  <block id="00327de917059c9e935218cad8596953" category="list-text">Sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur CN1610 CL1, à remplacer :</block>
   <block id="0a8253221b50cf222a53851a6ddbed1c" category="list-text">Arrêtez les ports de nœud qui sont connectés à CL1 sur tous les nœuds :</block>
   <block id="f5733555ddee6a45ef7d77727a730c77" category="list-text">Arrêter les ports ISL 24, 31 et 32 sur le commutateur actif 3132Q-V C2 :</block>
   <block id="23e226519bad1264ff6720a663714b83" category="list-text">Restaurez la configuration sur le port 24 et retirez le canal 2 temporaire du port C2 en copiant le<block ref="8ed2595e258fdd418e60bc54fb8390c0" prefix=" " category="inline-code"></block> vers le<block ref="811ed34e3f89e27ea59dac8cdeb3c7a1" prefix=" " category="inline-code"></block> fichier.</block>
@@ -3076,13 +3037,11 @@
   <block id="a2d66052febf9deb949f7d7e35df53a5" category="paragraph">Cette configuration correspond à la configuration ISL sur le switch 3232C de 2 lorsque les liens ISL sont activés sur les deux switchs.</block>
   <block id="0cc66efb5c8a511b569cd814c99c92d4" category="list-text">Vérifiez que les liens ISL sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> Sur le switch 3232C C2 :</block>
   <block id="b16c844dd0cab45182a4d3eae43625b0" category="list-text">Ajouter tous les ports d'interconnexion de cluster connectés au switch 3232C de tous les nœuds :</block>
-  <block id="f8d208c1f437dafdcc22eba9eebccb38" category="list-text">Migrer les LIF associées au premier commutateur CN1610 CL1 :</block>
   <block id="502a7ea7de47db18cb4d391cdc1c745e" category="paragraph"><block ref="e3b59667988659c950426714ec77861c" prefix="" category="inline-code"></block></block>
   <block id="80ba2298ea2e8bd12acd9eb6839d255c" category="section-title">Étape 3 : remplacer le commutateur CL1 du bloc d'instruments par C1</block>
   <block id="e750586a88360e325f160a338984da3a" category="list-text">Ajouter tous les ports d'interconnexion de cluster connectés au nouveau switch 3232C de tous les nœuds :</block>
   <block id="a200c052ea88ce45ca5da5c961c95cd2" category="section-title">Étape 4 : réaliser la procédure</block>
   <block id="53df53d4b9649d9b2a5ab348bc614229" category="paragraph"><block ref="fa6e1d1bde7406e301eb5451453f52d0" prefix="" category="inline-code"></block></block>
-  <block id="c8cd62d32eeff74bd4e4085156642109" category="paragraph"><block ref="9e1fb31e56a5a6b23a53159fb353b6be" prefix="" category="inline-code"></block></block>
   <block id="212c45c6e98833f0aea3bc1164020ecf" category="paragraph">Les exemples suivants illustrent les nœuds n3 et n4 avec des ports de cluster 40 GbE connectés aux ports e1/7 et e1/8, respectivement, sur les deux switchs de cluster Nexus 3232C. Les deux nœuds sont reliés au cluster. Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.</block>
   <block id="26f6491fcc908bd549c7f4064a11e2b0" category="paragraph"><block ref="fa49d5ecd63dc0afeae5cdf40805aaa2" prefix="" category="inline-code"></block></block>
   <block id="8a83614e560d59c264d55e32972bc26c" category="paragraph">Si vous disposez d'un cluster _sans commutateur_ à deux nœuds, vous pouvez migrer vers un cluster _commuté_ à deux nœuds qui inclut des switchs réseau de cluster Cisco Nexus 3232C. Cette procédure ne fonctionne pas sans interruption.</block>
@@ -3296,7 +3255,6 @@
   <block id="f0b02a6a42b62e57a146137078a39635" category="section-title">Migrer vers l'environnement du cluster</block>
   <block id="09a5fb271719ecae04d6c0f573fa3099" category="paragraph">L'exemple suivant montre que les ports ISL sont *UP* sur le commutateur cs1 :</block>
   <block id="f9431300de8d1a48bf2e554ad1605071" category="paragraph">L'exemple suivant montre que les ports ISL sont *UP* sur le commutateur cs2 :</block>
-  <block id="99905a9acf063a85c4bbaa70f4455984" category="list-text">Vérifiez que le réseau en cluster dispose d'une connectivité complète via la commande :</block>
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">Pour plus d'informations, voir :<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
   <block id="77d285017f370185656b54b03d5b5a16" category="paragraph">Le modèle de base de switch de cluster BES-53248 est disponible avec une licence pour 16 ports 10 GbE ou 25 GbE et deux ports 100 GbE. Vous pouvez ajouter de nouveaux ports en achetant d'autres licences.</block>
   <block id="f95b7ecd3b114623b8699a07a36fd860" category="section-title">Examiner les licences disponibles</block>
@@ -3508,12 +3466,9 @@
   <block id="6f48ab02f85ba15c8881b13dfb743c1f" category="list-text">Tous les ports ISL (Inter-Switch Link) sont désactivés sur les ports 1/35 et 1/36.</block>
   <block id="2400f4c6ea942e602ee72f34c92149fb" category="list-text">[[step4]]Vérifiez que toutes les LIF de cluster ont activé la fonction de restauration automatique.</block>
   <block id="77c477176f23eee3a054860c86ade8ee" category="paragraph"><block ref="3dc4656499b962a12e176f61ea51ff38" prefix="" category="inline-code"></block></block>
-  <block id="351f5135225bc1aa8573399c24aaee63" category="list-text">[[step5]]vérifier que toutes les LIFs du cluster peuvent communiquer :</block>
-  <block id="9a240210c2eead6e36900d78bed7eef4" category="paragraph"><block ref="6719f40a90253c4646383ef86ccea791" prefix="" category="inline-code"></block></block>
   <block id="cdfcdd135ec181475270de06d4e5f91e" category="list-text">[[step9]]Vérifiez que le port e3b est actif sur tous les nœuds :</block>
   <block id="1d559f001e58c1d63e11be4f19b5484b" category="list-text">[[step11]]affiche les informations sur les nœuds d'un cluster :</block>
   <block id="53c275e60a3964cc951d091cfc9d800d" category="list-text">[[step12]]Vérifiez que tous les ports physiques du cluster sont présents :</block>
-  <block id="d9c7fb52065c9f285a012f315313eb5e" category="list-text">[[step13]]vérifier que toutes les LIFs du cluster peuvent communiquer :</block>
   <block id="9354d16e8675ab0de41f89b86b5aae21" category="list-text">[[step14]]Confirmez la configuration réseau de cluster suivante :</block>
   <block id="c11677f97d3ee2a98d058ccf0190a185" category="list-text">Vérifiez que le stockage connecté à la paire HA 2, commutateur partagé newsh2 est sain :</block>
   <block id="31fa17eadf22890247f9b117b5591678" category="paragraph"><block ref="2a56be163fc199ace3546fc94a295c05" prefix="" category="inline-code"></block></block>
@@ -3602,8 +3557,6 @@
   <block id="58665a6b8c7ef44525f1c47106f6a5f7" category="list-text">[[step21]]vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et ne contient aucune erreur :</block>
   <block id="13982e86db6e34f25fefc25b6bdc9157" category="list-text">[[step22]]Vérifiez que les paramètres sont désactivés :</block>
   <block id="fc62df36a7229b3d62a69029133e4bad" category="list-text">[[step23]]Vérifiez l'état des membres du nœud dans le cluster :</block>
-  <block id="424f5bb3c0f9a5e7519b727f4bbfec8a" category="list-text">[[step24]]Assurez-vous que le réseau en cluster dispose d'une connectivité complète :</block>
-  <block id="57cbdf7660ff8108b68333b5cdd82f80" category="list-text">[[step25]]remplacez le niveau de privilège par admin :</block>
   <block id="8e2930bcf2c872a7120bbe73b8779424" category="section-title">Étape 2 : configurer le commutateur partagé</block>
   <block id="cee31e17ff4073484e137ee2159131bd" category="list-text">Vérifiez que les ports du nœud de stockage sont opérationnels et fonctionnels :</block>
   <block id="c7f29a8717b9bbffee0430b5ba54c983" category="list-text">Déplacez les ports B de la paire HA 1, du chemin NSM224 vers la plage de ports sh2 11-22.</block>
@@ -3678,7 +3631,6 @@
   <block id="d9bc9e589852186d0d0f7ee5549d5002" category="list-text">Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible :</block>
   <block id="751035e5db88d172e881299c202d9b13" category="paragraph"><block ref="ddf400f1cb6b8b9330ed6c79c508123c" prefix="" category="inline-code"></block></block>
   <block id="7585f91db102237924371a7e706740ac" category="list-text">Vérifiez que les LIFs de port du cluster fonctionnent correctement :</block>
-  <block id="975034487eab4a8e96e8e6d1c65f8552" category="list-text">Envoyez des requêtes ping aux ports du cluster pour vérifier la connectivité du cluster :</block>
   <block id="d70fd89df8aeadfc5b92548ac7980d1a" category="doc">Installez le logiciel FASTPATH et les RCFC pour ONTAP 8.3.1 et versions ultérieures</block>
   <block id="834cc0a95f99fae146baeb2e09562fa9" category="paragraph">Suivez cette procédure pour installer le logiciel FASTPATH et les RCFs pour ONTAP 8.3.1 et versions ultérieures.</block>
   <block id="ef07b7e35e16571ab7d77ce32508e689" category="list-text">Version prise en charge DE FASTPATH, RCF et ONTAP.</block>
@@ -3702,7 +3654,6 @@
   <block id="e358220f8af8ba071a86497546e7cc33" category="list-text">Vérifiez que chaque port du cluster est connecté au port correspondant sur le nœud de cluster partenaire :</block>
   <block id="19f96b9a58e58f1d934e5d8f924b7319" category="paragraph"><block ref="f4dd3947e6c3117e547b63d0f46346d0" prefix="" category="inline-code"></block></block>
   <block id="1437945719c1644405e8d8d8dc10b2fe" category="list-text">Vérifier que toutes les LIFs du cluster sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> et opérationnel :</block>
-  <block id="a9fdf49653825d5a49c2d40f6431dcad" category="list-text">Migration de la valeur de clu1 vers le port e2a sur la console de chaque nœud :</block>
   <block id="17c163c5f3cf27f9ab7909ef8b7a260f" category="list-text">Vérifiez que la migration a eu lieu :</block>
   <block id="6eb5b9b1a64f0c90925b30b2539544ff" category="list-text">Arrêter le port du cluster e1a sur les deux nœuds :</block>
   <block id="142949c61ce1a054812f0cd4f16acd78" category="list-text">Vérifiez le statut des ports :</block>
@@ -3715,7 +3666,6 @@
   <block id="2c7197850ace220e695ad5d7c75a398c" category="list-text">Revert clus2 (qui a déjà été migré) vers e2a sur les deux nœuds :</block>
   <block id="7a8f791edf07ab23985fcd68cfdd3ed6" category="section-title">Étape 3 : terminez la configuration</block>
   <block id="0f6a263c930f026250dc80aee9d05738" category="list-text">Vérifier que toutes les interfaces s'affichent<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> Dans la colonne « est domicile » :</block>
-  <block id="0f8ff5228b430fcf43b89da43ffa7d18" category="list-text">Vérifier que les deux nœuds ont deux connexions à chaque commutateur :</block>
   <block id="7d510ed73956b5df449722fc30f548c8" category="paragraph"><block ref="5300819d7d7e3d6993508c34b25e015b" prefix="" category="inline-code"></block></block>
   <block id="4ea8faad6b3f550eb586fe8a6e127d47" category="list-text">Désactivez les paramètres de configuration sans commutateur à deux nœuds sur les deux nœuds à l'aide de la commande Advanced Privilege :</block>
   <block id="f3bfe82b35272b9d6cd5e99a1930d66a" category="paragraph"><block ref="f4c4b4bcf8fade11f2bb6f27f2086ed6" prefix="" category="inline-code"></block></block>
@@ -4366,7 +4316,6 @@
   <block id="111cada5d22121a7e11aef39f4aca355" category="list-text">Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds.</block>
   <block id="427c15bca394e9d3b5f203c35b96c743" category="inline-link">Les ports 10GbE d'un commutateur de cluster Cisco 3132Q ne sont pas mis en ligne</block>
   <block id="20f0f9c709341c54050214259fc6c790" category="admonition">Pour savoir comment mettre en ligne les ports 10 GbE après une mise à niveau du RCF, consultez l'article de la base de connaissance<block ref="917fe6fdad3ed920883f4190398d0805" category="inline-link-rx"></block>.</block>
-  <block id="bc2be245d88ec44ff572954ca52f5e47" category="list-text">Répétez les étapes 7 à 15 sur le commutateur cs1.</block>
   <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
   <block id="e459e50e2d5bebb928139aa0e4ce09ac" category="list-text">Vérifiez l'état de santé des ports du nœud de stockage :</block>
   <block id="266daf0ca11ec57d9d3cb7598fd930b3" category="paragraph"><block ref="d14f00174ffa33ec8f559ffde7a52484" prefix="" category="inline-code"></block></block>
@@ -4521,7 +4470,6 @@ Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block 
   <block id="64ea4acdf8f09e3b62f8764dea1b5bf4" category="list-text">Le câblage entre les nœuds et c2 est ensuite déconnecté de c2 et reconnecté à sw2.</block>
   <block id="5f115706079e667394e9c5fb609142bb" category="list-text">Le contacteur c1 est remplacé par le contacteur sw1.</block>
   <block id="1b42870c5bc0619ec4b57583bfec41e7" category="list-text">Le câblage entre les nœuds et c1 est ensuite déconnecté de c1 et reconnecté à sw1.</block>
-  <block id="9c4f6f5aa4e55eb8ce92eee32e66b7cd" category="list-text">Sur le commutateur c2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
   <block id="670028f02a4239fb83dfde9087341e1c" category="list-text">Sur le commutateur c1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
   <block id="3e10fab2ffa4ef18685db0df5ee45e84" category="list-text">Les ports de cluster sur chaque nœud sont connectés aux commutateurs de cluster existants de la manière suivante (du point de vue des nœuds) :</block>
   <block id="c51f636604f29f6f814bde48e4fd4671" category="list-text">Les ports et commutateurs du cluster sont connectés de la manière suivante (du point de vue des commutateurs) :</block>
@@ -4543,7 +4491,6 @@ Pour plus d'informations sur la compatibilité actuelle, reportez-vous au<block 
   <block id="e9505b73caa990829220fedbb878ef68" category="list-text">Le commutateur C2 est remplacé en premier par le commutateur cs2.</block>
   <block id="39bba2bddb2bf527b701828442a18b5e" category="list-text">Le câblage entre les nœuds et C2 est ensuite déconnecté de C2 et reconnecté à cs2.</block>
   <block id="6fa86324fabffaee853e6eeee2824329" category="list-text">Le commutateur C1 est remplacé par le commutateur cs1.</block>
-  <block id="9f4f9b4efa8b2eb74b227e6e2a18f872" category="list-text">Sur le commutateur C2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
   <block id="54c071b600d8be038e07b18d66329aa7" category="list-text">Sur le commutateur C1, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
   <block id="5965a3db7e52c18148f117f0240c1e3f" category="paragraph"><block ref="5965a3db7e52c18148f117f0240c1e3f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6a5dd15f930e244dadfd412b53dd1ac0" category="paragraph">En réutilisant les commutateurs de stockage, les switchs de stockage de la paire haute disponibilité 1 deviennent les switchs partagés.
@@ -4913,8 +4860,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="0ca3ca41c2905b8f6347613ad99abeda" category="paragraph">Suivez les procédures préliminaires pour préparer l'installation du logiciel Cisco NX-OS et des fichiers de configuration de référence (RCFs).</block>
   <block id="146fe7ba55f154a00f7fdd5bc0bc3b7f" category="paragraph">Installer ou mettre à niveau le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.</block>
   <block id="c2682a02fa235bb20233662aeba236ad" category="paragraph">Installez ou mettez à niveau le RCF après la première configuration du switch Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
-  <block id="b98c51d6f722172518f1e38267bc1da4" category="inline-link-macro">Activez SSH sur les commutateurs de cluster Nexus 9336C-FX2</block>
-  <block id="ec348def7634a5754cf9d62e8bca7f24" category="list-text"><block ref="853bcb6b647712eac9646e8ede049d7b" category="inline-link-macro-rx"></block>.</block>
   <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">Les ports sont configurés pour le 40 GbE pour Cluster+HA, le 4 x 10 GbE Breakout pour Cluster et le 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.</block>
   <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Pour installer et configurer le logiciel d'un commutateur partagé Cisco Nexus 9336C-FX2, effectuez la procédure suivante :</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">Installer le commutateur dans une armoire NetApp</block>
@@ -5030,9 +4975,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="720c3ddeb84772ef2bbfeba7b1d17a28" category="paragraph"><block ref="df8bbc4b7a2a07f02d567d56129471ab" prefix="" category="inline-code"></block></block>
   <block id="3a88a5741f799dc33a61b15c6f06ef77" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
   <block id="1ea468ba4330d1b99a20149c0e78b4ed" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 92300YC, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
-  <block id="6740010e0f06e1b4faea70ce1b3a4a76" category="inline-link-macro">Générez des clés SSH</block>
-  <block id="c49d0af5a081eb64111a489cb2120d97" category="list-text"><block ref="52338aab140ac2dbc56c2c83d6349939" category="inline-link-macro-rx"></block>.</block>
-  <block id="f12f5027a3dbb2bbb22c5b1ca34d79d7" category="paragraph">Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, générez des clés SSH sur les commutateurs.</block>
   <block id="2e3301a364286013b9b29237fa347bb1" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
   <block id="243847a87ff7e0cb67ee578c74d8ad1c" category="paragraph">Le commutateur Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Le Nexus 9336C-FX2 est un commutateur Ethernet qui permet de basculer les données entre les contrôleurs et les tiroirs disques.</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">Régénérer les clés SSH sur le commutateur en suivant les instructions du fournisseur.</block>
@@ -5049,4 +4991,51 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="936b3180f1af844d99a2935c0f8f1407" category="paragraph">Si vous désactivez la fonction de restauration automatique pour cette procédure, les LIF du cluster ne reviendront pas automatiquement sur leur port d'attache. Ils restent sur le port actuel pendant qu'il continue à être opérationnel.</block>
   <block id="8cfe0e3d8ad280ac0655595fef97d183" category="list-text">Toutes les LIFs du cluster basculent sur le nouveau commutateur cs2.</block>
   <block id="7f59c84a99e8340f8584b604b173e044" category="list-text">Toutes les LIFs du cluster basculent sur le nouveau commutateur cs1.</block>
+  <block id="450c144a370eb64ad7b2fb87b5e08ccd" category="paragraph">*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter<block ref="a7dd12b1dab17d25467b0b0a4c8d4a92" prefix=" " category="inline-code"></block> la commande pour afficher les détails.</block>
+  <block id="1abee7895e26b219393999144625cf43" category="list-text">[[step7]] redéfinissez le niveau de privilège sur admin :</block>
+  <block id="7a073ea5ec2a763ddf5a0385781ed626" category="list-text">[[step6]] vérifier que la commande auto-revert est activée sur toutes les LIFs du cluster :</block>
+  <block id="2d7cd36455daea92f172ede16d765aae" category="list-text">[[step7]] Vérifiez que le cluster fonctionne correctement :</block>
+  <block id="acdfe379cf0ed5868b119418e7d41b82" category="list-text">[[step11]] configurez la configuration sans commutateur pour les ports du groupe 2.</block>
+  <block id="a2f7ec2dd8feebc2c1e30e5f859d4497" category="list-text">[[step6]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
+  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]]remplacez le niveau de privilège par admin :</block>
+  <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
+  <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]]remplacez le niveau de privilège par admin :</block>
+  <block id="991d705309210a9623a3f1d994c15150" category="list-text">[[step10]]Arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :</block>
+  <block id="86134d7d31c06aa0711aee6c64ddd4f3" category="list-text">[[step12]]sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur Nexus 5596, CL1, à remplacer :</block>
+  <block id="bbb276c46604db63ed55340efd9fdca4" category="list-text">[[step7]]développez le cluster en ajoutant des nœuds aux commutateurs de cluster Nexus 3132Q-V.</block>
+  <block id="5a941b8418c4fe0b34b15c50aa26a877" category="list-text">[[step10]]déconnectez le câble de e4a sur le nœud n1.</block>
+  <block id="654e3d51643a619895e470f1d55bc3ba" category="list-text">[[step2]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
+  <block id="8b7a1c5ca569b4edf87d12744a873c02" category="list-text">[[step6]]vérifier que la<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> commande est activée sur toutes les LIFs du cluster :</block>
+  <block id="2599d5f1ece8078590877d15b717f346" category="list-text">[[step9]]Arrêter les ports 1/31 et 1/32 sur CL1 et le commutateur Nexus 3132Q-V actif :</block>
+  <block id="e24c0f89ee0b0fb577ecce66e38a9e4d" category="list-text">[[step10]] Arrêter les ports ISL 13 à 16 sur le commutateur CN1610 actif CL1 :</block>
+  <block id="8401a156e54d36682ab941dd51ed3e9d" category="list-text">[[step12]] sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur CN1610 CL1 à remplacer :</block>
+  <block id="a1362b00e7776e62ab541ebf090bf150" category="list-text">Répétez les étapes 7 à 17 sur le commutateur cs1.</block>
+  <block id="09c97f0f4f7a646915b2abf749bc1d6f" category="list-text">[[step3]] arrêtez les ports ISL 13 à 16 sur le commutateur CN1610 CL1 actif à l'aide de la commande appropriée.</block>
+  <block id="e2ad2b2cb346f8abd448d557881c7dd5" category="list-text">[[step16]] migrer les LIFs associées au premier commutateur CN1610 CL1 :</block>
+  <block id="e542ca85e220af35c4b3a82c0642077a" category="list-text">[[step4]] étendre le cluster en ajoutant des nœuds aux switchs de cluster Nexus 3232C.</block>
+  <block id="0dee5df137b8161e82554818a557ccc2" category="list-text">[[step3]] arrête les liens ISL 41 à 48 sur CL1, le commutateur Nexus 5596 actif, à l'aide de la commande Cisco<block ref="5924f03a95ee6f7277e5bdd1e81b8fdc" prefix=" " category="inline-code"></block>.</block>
+  <block id="36cdf08b85e5feb55a70e6066970eb64" category="list-text">[[step15]] sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur Nexus 5596, CL1, à remplacer :</block>
+  <block id="5744be7d661c6ac9679e21ca3f4dfaeb" category="list-text">[[step29]] étendre le cluster en ajoutant des nœuds aux switchs de cluster Nexus 3232C.</block>
+  <block id="d05ecee4a6b0d861bcd1b9258b8245ca" category="list-text">[[step4]] déconnectez le câble de e4a sur le nœud n1.</block>
+  <block id="cc5ebab0ee641c8983f3228b4974ade1" category="list-text">[[step16]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
+  <block id="b18c2181f3eba90bca1c7f88f8586e11" category="list-text">[[step6]]vérifier que la<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> commande est activée sur toutes les LIFs du cluster :<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
+  <block id="2ddf49eb6c3fafb7644444a8f6985876" category="list-text">[[step8]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
+  <block id="22265ef643cb758bbeafeae6b9005960" category="list-text">[[step3]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
+  <block id="f7e86b0278da2d0f23dfd04e64f68478" category="list-text">[[step2]] Confirmez la configuration de réseau de cluster suivante :</block>
+  <block id="cb9e3eca5ee8f7c34a9beb30eb78e80e" category="inline-link-macro">Vérifier la configuration SSH sur les commutateurs de cluster Nexus 9336C-FX2</block>
+  <block id="9d35e90712940df4e7dd724e3a99eb05" category="list-text"><block ref="174530f10d1b6584efbd4bb64a5325d0" category="inline-link-macro-rx"></block>.</block>
+  <block id="1de33421daf77940fdd8929e277ba937" category="paragraph">Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, vérifiez que SSH est activé sur les commutateurs.</block>
+  <block id="51ad33f87e9af3baac880cb70771fe46" category="list-text">[[step5]] sur le commutateur C2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
+  <block id="09b863ebe2485d0260db2694f545c132" category="doc">Migrer d'un ancien switch Cisco vers un switch Cisco Nexus 9336C-FX2</block>
+  <block id="52f52fe5595841a94d975238199fecfa" category="list-text">[[step25]] redéfinissez le niveau de privilège sur admin :</block>
+  <block id="0804eaf4e04da57f4e0f01d9ed605047" category="list-text">[[step5]] Vérifiez la connectivité des interfaces de cluster distantes :</block>
+  <block id="1113f8069f1bf162e58048e7da3b5e76" category="list-text">[[step13]] Vérifiez la connectivité des interfaces de cluster distantes :</block>
+  <block id="8024b8439487d862ebc200f269b3fd06" category="list-text">[[step6]] arrêter les ports ISL 1/35 et 1/36 sur le commutateur Nexus 9336C-FX2 cs1 :</block>
+  <block id="179cedfc35b7060884a77fceb9fb4188" category="list-text">[[step14]] Confirmez la configuration de réseau de cluster suivante :<block ref="838c4deb1e9c47dcd4c44b6e40276467" prefix=" " category="inline-code"></block></block>
+  <block id="ed6ec01ef9cf24a0e109957a15ef2abc" category="list-text">[[step10]] migrer clus1 vers le port e2a sur la console de chaque nœud :</block>
+  <block id="8454a3a0cd1d8a969c0433bdbb3e8b5f" category="list-text">[[step3]] Vérifiez que les deux nœuds ont deux connexions à chaque commutateur :</block>
+  <block id="0e18e00d28d8ccbabfbea2b32f607774" category="list-text">[[step6]] redéfinissez le niveau de privilège sur admin :</block>
+  <block id="ff518749d3663227de48008bfca511bb" category="list-text">[[step5]] sur le commutateur c2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
+  <block id="c47f8dc188da37844fcf13bca92e64bd" category="list-text">[[step8]] activez la fonction de collecte de journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux liés au commutateur, à l'aide des commandes :</block>
+  <block id="d2370f0d6957d5e8b2747d5a02f35221" category="list-text">[[step8]] sur le commutateur c2, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
 </blocks>

@@ -373,21 +373,49 @@ cluster::*> *network port modify -node n1 -port e4a -up-admin false*
 cluster::*> *network port modify -node n2 -port e4a -up-admin false*
 ----
 ====
-. Envoyez une requête ping aux interfaces de cluster distantes et effectuez une vérification de serveur RPC :
-+
-`cluster ping-cluster -node _node-name_`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-L'exemple suivant montre le nœud n1 faisant l'objet d'une commande ping et l'état RPC indiqué par la suite :
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
-cluster::*> *cluster ping-cluster -node n1*
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
 
-Host is n1 Getting addresses from network interface table...
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2         n2-clus1         none
+       3/5/2022 19:21:20 -06:00   n1_clus2         n2_clus2         none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2         n1_clus1         none
+       3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is n1
+Getting addresses from network interface table...
 Cluster n1_clus1 n1        e4a    10.10.0.1
 Cluster n1_clus2 n1        e4e    10.10.0.2
 Cluster n2_clus1 n2        e4a    10.10.0.3
@@ -407,8 +435,9 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 1 paths up, 0 paths down (tcp check)
 1 paths up, 0 paths down (ucp check)
 ----
+--
 ====
-. Débrancher le câble e4a du nœud n1.
+. [[step4]] déconnectez le câble de e4a sur le nœud n1.
 +
 Vous pouvez faire référence à la configuration en cours d'exécution et connecter le premier port 40 GbE du switch C1 (port 1/7 dans cet exemple) à e4a sur n1 à l'aide du câblage pris en charge par les switchs Nexus 3232C.
 
@@ -748,18 +777,49 @@ Version Source: CDP 2 entries were displayed.
 +
 `network options switchless-cluster show`
 
-. Envoyez une requête ping aux interfaces de cluster distantes et effectuez une vérification de serveur RPC :
-+
-`cluster ping-cluster -node _node-name_`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
 [listing, subs="+quotes"]
 ----
-cluster::*> *cluster ping-cluster -node n1*
-Host is n1 Getting addresses from network interface table...
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2         n2-clus1         none
+       3/5/2022 19:21:20 -06:00   n1_clus2         n2_clus2         none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2         n1_clus1         none
+       3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is n1
+Getting addresses from network interface table...
 Cluster n1_clus1 n1        e4a    10.10.0.1
 Cluster n1_clus2 n1        e4e    10.10.0.2
 Cluster n2_clus1 n2        e4a    10.10.0.3
@@ -780,8 +840,9 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 1 paths up, 0 paths down (tcp check)
 1 paths up, 0 paths down (ucp check)
 ----
+--
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. [[step16]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

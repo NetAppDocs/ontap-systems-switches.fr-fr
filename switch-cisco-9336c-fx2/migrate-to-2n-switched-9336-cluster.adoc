@@ -552,17 +552,46 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Vérifiez que le réseau de cluster dispose d'une connectivité complète :
-+
-`cluster ping-cluster -node node-name`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-[listing]
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster1::*> cluster ping-cluster -node node2
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
 Host is node2
 Getting addresses from network interface table...
 Cluster node1_clus1 169.254.209.69 node1 e0a
@@ -587,8 +616,9 @@ RPC status:
 2 paths up, 0 paths down (tcp check)
 2 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Rétablissez le niveau de privilège sur admin :
+. [[step7]] redéfinissez le niveau de privilège sur admin :
 +
 `set -privilege admin`
 

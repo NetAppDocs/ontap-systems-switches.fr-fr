@@ -318,19 +318,47 @@ cluster::*> network port modify -node n2 -port e0b -up-admin false
 cluster::*> network port modify -node n2 -port e0c -up-admin false
 ----
 ====
-. Envoyez une requête ping aux interfaces de cluster distantes et effectuez une vérification de serveur RPC :
-+
-`cluster ping-cluster`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-L'exemple suivant montre comment exécuter un commande ping sur les interfaces de cluster distantes :
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
 
-[listing]
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -370,10 +398,11 @@ Detected 1500 byte MTU on 16 path(s):
 Larger than PMTU communication succeeds on 16 path(s)
 RPC status:
 4 paths up, 0 paths down (tcp check)
-4 paths up, 0 paths down (udp check
+4 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :
+. [[step10]]Arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :
 +
 .Montrer l'exemple
 [%collapsible]
@@ -606,19 +635,47 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-. Envoyez une requête ping aux interfaces de cluster distantes et effectuez une vérification de serveur RPC :
-+
-`cluster ping-cluster`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-L'exemple suivant montre comment exécuter un commande ping sur les interfaces de cluster distantes :
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
 
-[listing]
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -660,8 +717,9 @@ RPC status:
 4 paths up, 0 paths down (tcp check)
 4 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur Nexus 5596, CL1, à remplacer :
+. [[step12]]sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur Nexus 5596, CL1, à remplacer :
 +
 `network interface migrate`
 
@@ -861,7 +919,7 @@ L'exemple suivant vérifie que tous les ports d'interconnexion de cluster sur to
 
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore
@@ -932,19 +990,47 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Exécutez une commande ping sur les interfaces du cluster distant, puis effectuez une procédure à distance. Contrôlez le serveur d'appels :
-+
-`cluster ping-cluster`
+. Vérifiez la connectivité des interfaces de cluster distantes :
 
-+
-.Montrer l'exemple
-[%collapsible]
+
+[role="tabbed-block"]
 ====
-L'exemple suivant montre comment exécuter un commande ping sur les interfaces de cluster distantes :
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
 
-[listing]
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
 ----
-cluster::*> cluster ping-cluster -node n1
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source          Destination       Packet
+Node   Date                       LIF             LIF               Loss
+------ -------------------------- --------------- ----------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2        n2_clus1      none
+       3/5/2022 19:21:20 -06:00   n1_clus2        n2_clus2      none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2        n1_clus1      none
+       3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node n1*
 Host is n1
 Getting addresses from network interface table...
 Cluster n1_clus1 n1		e0a	10.10.0.1
@@ -986,8 +1072,9 @@ RPC status:
 4 paths up, 0 paths down (tcp check)
 4 paths up, 0 paths down (udp check)
 ----
+--
 ====
-. Développez le cluster en ajoutant des nœuds aux commutateurs de cluster Nexus 3132Q-V.
+. [[step7]]développez le cluster en ajoutant des nœuds aux commutateurs de cluster Nexus 3132Q-V.
 . Affichez les informations relatives aux périphériques de votre configuration :
 +
 ** `network device-discovery show`
@@ -1026,7 +1113,7 @@ n4         /cdp
 ----
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore
@@ -1142,8 +1229,8 @@ L'exemple suivant montre comment supprimer le Nexus 5596 :
 
 [listing]
 ----
-cluster::> system cluster-switch delete –device CL1
-cluster::> system cluster-switch delete –device CL2
+cluster::> system cluster-switch delete -device CL1
+cluster::> system cluster-switch delete -device CL2
 ----
 ====
 . Configurez les clusters de type 1 et de type 1 pour qu'ils reviennent automatiquement sur chaque nœud et confirmez.

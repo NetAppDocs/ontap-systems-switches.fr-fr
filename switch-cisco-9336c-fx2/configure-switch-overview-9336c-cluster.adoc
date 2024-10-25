@@ -1,7 +1,7 @@
 ---
 permalink: switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html 
 sidebar: sidebar 
-keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: 'Présentation de l"installation et de la configuration des commutateurs de cluster Cisco Nexus 9336C-FX2' 
 ---
 = Présentation de l'installation et de la configuration des commutateurs de cluster Cisco Nexus 9336C-FX2
@@ -47,9 +47,9 @@ Installer ou mettre à niveau le logiciel NX-OS sur le commutateur de cluster Ne
 +
 Installez ou mettez à niveau le RCF après la première configuration du switch Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 
-. link:configure-ssh.html["Activez SSH sur les commutateurs de cluster Nexus 9336C-FX2"].
+. link:configure-ssh-keys.html["Vérifier la configuration SSH sur les commutateurs de cluster Nexus 9336C-FX2"].
 +
-Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, activez SSH sur les commutateurs.
+Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, vérifiez que SSH est activé sur les commutateurs.
 
 
 

@@ -21,7 +21,7 @@ L'exemple de fiche technique de câblage fournit des exemples d'attributions de 
 
 L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
 
-[cols="1, 1, 1, 1"]
+[cols="1,3,1,3"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
@@ -32,66 +32,66 @@ L'exemple de définition de port sur chaque paire de commutateurs est le suivant
  a| 
 1
  a| 
-4 x 10 GbE nœud 1
+Nœud 4 x 100 GbE 1
  a| 
 1
  a| 
-4 x 10 GbE nœud 1
+Nœud 4 x 100 GbE 1
 
 
 
  a| 
 2
  a| 
-4 x 10 GbE nœud 2
+Nœud 4 x 100 GbE 2
  a| 
 2
  a| 
-4 x 10 GbE nœud 2
+Nœud 4 x 100 GbE 2
 
 
 
  a| 
 3
  a| 
-4 x 10 GbE nœud 3
+Nœud 4 x 100 GbE 3
  a| 
 3
  a| 
-4 x 10 GbE nœud 3
+Nœud 4 x 100 GbE 3
 
 
 
  a| 
 4
  a| 
-4 x 25 GbE nœud 4
+Nœud 4 x 100 GbE 4
  a| 
 4
  a| 
-4 x 25 GbE nœud 4
+Nœud 4 x 100 GbE 4
 
 
 
  a| 
 5
  a| 
-4 x 25 GbE nœud 5
+Nœud 4 x 100 GbE 5
  a| 
 5
  a| 
-4 x 25 GbE nœud 5
+Nœud 4 x 100 GbE 5
 
 
 
  a| 
 6
  a| 
-4 x 25 GbE nœud 6
+Nœud 4 x 100 GbE 6
  a| 
 6
  a| 
-4 x 25 GbE nœud 6
+Nœud 4 x 100 GbE 6
 
 
 
@@ -294,35 +294,145 @@ Nœud 4 x 100 GbE 24
 
 
  a| 
-25 à 34
+25
  a| 
-Réservé
+Nœud 4 x 100 GbE 25
  a| 
-25 à 34
+25
  a| 
-Réservé
+Nœud 4 x 100 GbE 25
+
+
+
+ a| 
+26
+ a| 
+Nœud 4 x 100 GbE 26
+ a| 
+26
+ a| 
+Nœud 4 x 100 GbE 26
+
+
+
+ a| 
+27
+ a| 
+Nœud 4 x 100 GbE 27
+ a| 
+27
+ a| 
+Nœud 4 x 100 GbE 27
+
+
+
+ a| 
+28
+ a| 
+Nœud 4 x 100 GbE 28
+ a| 
+28
+ a| 
+Nœud 4 x 100 GbE 28
+
+
+
+ a| 
+29
+ a| 
+Nœud 4 x 100 GbE 29
+ a| 
+29
+ a| 
+Nœud 4 x 100 GbE 29
+
+
+
+ a| 
+30
+ a| 
+Nœud 4 x 100 GbE 30
+ a| 
+30
+ a| 
+Nœud 4 x 100 GbE 30
+
+
+
+ a| 
+31
+ a| 
+Nœud 4 x 100 GbE 31
+ a| 
+31
+ a| 
+Nœud 4 x 100 GbE 31
+
+
+
+ a| 
+32
+ a| 
+Nœud 4 x 100 GbE 32
+ a| 
+32
+ a| 
+Nœud 4 x 100 GbE 32
+
+
+
+ a| 
+33
+ a| 
+Nœud 4 x 100 GbE 33
+ a| 
+33
+ a| 
+Nœud 4 x 100 GbE 33
+
+
+
+ a| 
+30
+ a| 
+Nœud 4 x 100 GbE 30
+ a| 
+30
+ a| 
+Nœud 4 x 100 GbE 33
+
+
+
+ a| 
+34
+ a| 
+Nœud 4 x 100 GbE 34
+ a| 
+34
+ a| 
+Nœud 4 x 100 GbE 34
 
 
 
  a| 
 35
  a| 
-100G ISL vers le port 35 du commutateur B.
+Nœud 4 x 100 GbE 35
  a| 
 35
  a| 
-100G ISL pour commuter Un port 35
+Nœud 4 x 100 GbE 35
 
 
 
  a| 
 36
  a| 
-100G ISL vers le port 36 du commutateur B.
+Nœud 4 x 100 GbE 36
  a| 
 36
  a| 
-100G ISL pour commuter Un port 36
+Nœud 4 x 100 GbE 36
 
 |===
 
@@ -331,7 +441,7 @@ Réservé
 
 Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
 
-[cols="1, 1, 1, 1"]
+[cols="5%, 45%, 5%, 45%"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
@@ -553,34 +663,109 @@ Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes p
 
 
  a| 
-25 à 34
+25
  a| 
-Réservé
  a| 
-25 à 34
+25
  a| 
-Réservé
+
+
+
+ a| 
+26
+ a| 
+ a| 
+26
+ a| 
+
+
+
+ a| 
+27
+ a| 
+ a| 
+27
+ a| 
+
+
+
+ a| 
+28
+ a| 
+ a| 
+28
+ a| 
+
+
+
+ a| 
+29
+ a| 
+ a| 
+29
+ a| 
+
+
+
+ a| 
+30
+ a| 
+ a| 
+30
+ a| 
+
+
+
+ a| 
+31
+ a| 
+ a| 
+31
+ a| 
+
+
+
+ a| 
+32
+ a| 
+ a| 
+32
+ a| 
+
+
+
+ a| 
+33
+ a| 
+ a| 
+33
+ a| 
+
+
+
+ a| 
+34
+ a| 
+ a| 
+34
+ a| 
 
 
 
  a| 
 35
  a| 
-100G ISL vers le port 35 du commutateur B.
  a| 
 35
  a| 
-100G ISL pour commuter Un port 35
 
 
 
  a| 
 36
  a| 
-100G ISL vers le port 36 du commutateur B.
  a| 
 36
  a| 
-100G ISL pour commuter Un port 36
 
 |===

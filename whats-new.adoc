@@ -11,7 +11,7 @@ summary: En savoir plus sur les nouveaux switchs pour les systèmes FAS et AFF.
 
 
 [role="lead"]
-En savoir plus sur les nouveaux switchs pour les systèmes FAS et AFF.
+En savoir plus sur les nouveaux switchs pour les systèmes FAS et AFF. Pour plus d'informations sur le commutateur, reportez-vous à la https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^].
 
 
 
@@ -23,7 +23,16 @@ En savoir plus sur les nouveaux switchs pour les systèmes FAS et AFF.
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 36 ports (X190200)"]
+Commutateur NVIDIA 100 GbE à 16 ports (X190006-PE et X190006-PI)
+ a| 
+Prise en charge du commutateur d'interconnexion de cluster NVIDIA SN2100 et du commutateur de stockage, y compris la prise en charge des configurations MetroCluster IP.
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+Commutateur Cisco 100 GbE à 36 ports (X190200-CS-PE et X190200-CS-PI)
  a| 
 Prise en charge d'une infrastructure partagée (cluster, haute disponibilité et stockage DAS) sur la même paire de commutateurs Cisco Nexus 9336C-FX2, y compris la prise en charge des configurations MetroCluster IP.
  a| 
@@ -32,27 +41,27 @@ ONTAP 9.9.1
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 36 ports (X190200 et X190210)"]
+Commutateur Cisco 100 GbE à 36 ports (X190200-CS-PE et X190200-CS-PI), (X190210-FE-PE et X190210-FE-PI)
  a| 
-Le commutateur d'interconnexion de cluster et le commutateur de stockage Cisco Nexus 9336C-FX2 prennent en charge les contrôleurs AFF/FAS, ainsi que la connectivité des données front-end.
- a| 
-ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/Switch/Index["Commutateur Broadcom BES-53248 (X190005 et X190005R)"]
- a| 
-Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 40 GbE.
+Prise en charge des commutateurs de stockage et des commutateurs d'interconnexion de cluster Cisco Nexus 9336C-FX2 pour les systèmes de stockage AFF et ASA, ainsi que pour la connectivité des données front-end.
  a| 
 ONTAP 9.8
 
 
 
  a| 
-https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 36 ports (X190200)"] https://hwu.netapp.com/Switch/Index["Commutateur Cisco 100 GbE 32 ports (X190100 et X190100R)"]
+Commutateur Broadcom BES-53248 (X190005 et X190005R)
  a| 
-Le commutateur Cisco Nexus 100 GbE peut être utilisé en tant que commutateur de stockage dédié pour connecter les tiroirs disques NVMe NS224 aux plateformes suivantes :
+Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 10 GbE et 40 GbE.
+ a| 
+ONTAP 9.8
+
+
+
+ a| 
+Commutateur Cisco 100 GbE à 36 ports (X190200) et commutateur Cisco 100 GbE à 32 ports (X190100 et X190100R)
+ a| 
+Prise en charge des switchs de stockage Cisco Nexus 3232C pour la connexion des tiroirs de disques NVMe NS224 avec les systèmes de stockage AFF et ASA :
 
 * AFF A800/AFF ASA A800
 * ASA AFF A700/AFF A700
@@ -61,14 +70,5 @@ Le commutateur Cisco Nexus 100 GbE peut être utilisé en tant que commutateur d
 
  a| 
 ONTAP 9.8
-
-
-
- a| 
-https://hwu.netapp.com/Switch/Index["Commutateur Broadcom BES-53248 (X190005 et X190005R)"]
- a| 
-Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 10 GbE.
- a| 
-ONTAP 9.5P8
 
 |===

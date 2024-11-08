@@ -1,20 +1,20 @@
 ---
-permalink: switch-bes-53248/configure-install-rcf.html 
+permalink: switch-bes-53248/efos-install-rcf-license-file.html 
 sidebar: sidebar 
-keywords: install rcf,setup rcf,rcf file 
+keywords: install rcf,setup rcf,rcf file, efos, license file 
 summary: 'Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.' 
 ---
-= Installer le fichier RCF (Reference Configuration File)
+= Installez le fichier RCF (Reference Configuration File) et le fichier de licence
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.
+Depuis EFOS 3.12.0.1, vous pouvez installer le fichier RCF (Reference Configuration File) et le fichier de licence après avoir configuré le commutateur de cluster BES-53248.
 
 
-CAUTION: Pour EFOS 3.12 et versions ultérieures, suivez les étapes d'installation de la section link:efos-install-rcf-license-file.html["Installez le fichier RCF (Reference Configuration File) et le fichier de licence"].
+CAUTION: Les ports Sall sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.
 
 
 
@@ -25,7 +25,7 @@ Vérifiez que les éléments suivants sont en place :
 
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Le fichier RCF actuel, disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
+* La FCR actuelle, disponible à partir de la https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
 * Configuration de démarrage dans le fichier RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
 * Une connexion de console au commutateur, nécessaire lors de l'installation du RCF à partir d'un état par défaut défini en usine. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
 
@@ -437,40 +437,40 @@ Are you sure you would like to reset the system? (y/n) *y*
 .. Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.
 
 
-. Notez ce qui suit :
+
+
+. Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.
+. Copiez la FCR dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
 +
-.. Si des licences de port supplémentaires ont été installées sur le switch, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir link:configure-licenses.html#activate-newly-licensed-ports["Activation des ports sous licence nouvellement ouverts"] pour plus d'informations.
-.. Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.
+Cet exemple montre que HTTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
 
-
-
-
-[role="tabbed-block"]
++
+.Montrer l'exemple
+[%collapsible]
 ====
-.EFOS version 3.12.x et ultérieure
---
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
-+
-Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
-
-
-
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt
-nvram:reference-config*
-Remote Password:**
-Mode........................................... TFTP
+(cs2)# *copy http://<ip-to-webserver>/path/to/BES-53248-RCF-v1.12-Cluster-HA.txt nvram:reference-config*
+
+Mode........................................... HTTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
-Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Path........................................... <ip-to-webserver>/path/to/
+Filename....................................... BES-53248-RCF-v1.12-Cluster-HA.txt
+Data Type...................................... Unknown
+
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-TFTP Code transfer starting...
+File transfer in progress.
+Management access will be blocked for the duration of the transfer.
+Please wait...
+HTTP Unknown file type transfer starting...
+Validating configuration script
+.....
+....
+Configuration script validated.
 File transfer operation completed successfully.
 ----
+====
 . Vérifiez que le script a été téléchargé et enregistré sous le nom de fichier que vous lui avez donné :
 +
 `script list`
@@ -483,14 +483,17 @@ File transfer operation completed successfully.
 Configuration Script Name                  Size(Bytes)  Date of Modification
 -----------------------------------------  -----------  --------------------
 Reference-config.scr                       2680         2024 05 31 21:54:22
-2 configuration script(s) found.
-2042 Kbytes free.
+1 configuration script(s) found.
+2045 Kbytes free.
 ----
 . Appliquer le script au commutateur :
 +
 `script apply`
 
 +
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
 (cs2)# *script apply reference-config.scr*
@@ -501,72 +504,51 @@ The system has unsaved changes.
 Would you like to save them now? (y/n) *y*
 Config file 'startup-config' created successfully.
 Configuration Saved!
-
-Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+...
+...
+Configuration script 'reference-config.scr' applied.
 ----
-
-
---
-.Toutes les autres versions de EFOS
---
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
+====
+. Installez le fichier de licence.
 +
-Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
-
-
-
+.Montrer l'exemple
+[%collapsible]
+====
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
-nvram:script BES-53248_RCF_v1.9-Cluster-HA.scr*
-Remote Password:**
-Mode........................................... SFTP
+(cs2)# *copy http://<ip-to-webserver>/path/to/BES-53248-LIC.dat nvram:license-key 1*
+Mode........................................... HTTP
 Set Server IP.................................. 172.19.2.1
-Path........................................... //tmp/
-Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
-Data Type...................................... Config Script
-Destination Filename........................... BES-53248_RCF_v1.9-Cluster-HA.scr
+Path........................................... <ip-to-webserver>/path/to/
+Filename....................................... BES-53248-LIC.dat
+Data Type...................................... license
+
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-SFTP Code transfer starting...
-File transfer operation completed successfully.
-----
-. Vérifiez que le script a été téléchargé et enregistré dans le nom de fichier que vous lui avez donné :
-+
-`script list`
 
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *script list*
+File transfer in progress. Management access will be blocked for the duration of the transfer.
 
-Configuration Script Name                  Size(Bytes)  Date of Modification
------------------------------------------  -----------  --------------------
-BES-53248_RCF_v1.9-Cluster-HA.scr          2241         2020 09 30 05:41:00
+Please wait...
 
-1 configuration script(s) found.
-----
-. Appliquer le script au commutateur :
-+
-`script apply`
+License Key transfer operation completed successfully.
 
-+
-[listing, subs="+quotes"]
-----
-(cs2)# *script apply BES-53248_RCF_v1.9-Cluster-HA.scr*
+System reboot is required.
+(cs2)# *write memory*
 
-Are you sure you want to apply the configuration script? (y/n) *y*
+This operation may take a few minutes.
 
-The system has unsaved changes.
-Would you like to save them now? (y/n) *y*
+Management interfaces will not be available during this time.
+Are you sure you want to save? (y/n) *y*
+
 Config file 'startup-config' created successfully.
+
 Configuration Saved!
 
-Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
+(cs2)# *reload*
+Are you sure you would like to reset the system? (y/n) *y*
+...
+...
 ----
-
-
---
 ====
 . Examinez la sortie de la bannière à partir de la `show clibanner` commande. Vous devez lire et suivre ces instructions pour vérifier la configuration et le fonctionnement corrects du commutateur.
 +
@@ -579,29 +561,25 @@ Configuration script 'BES-53248_RCF_v1.9-Cluster-HA.scr' applied.
 
 Banner Message configured :
 =========================
-BES-53248 Reference Configuration File v1.9 for Cluster/HA/RDMA
+BES-53248 Reference Configuration File v1.12 for Cluster/HA/RDMA
 
 Switch   : BES-53248
-Filename : BES-53248-RCF-v1.9-Cluster.txt
-Date     : 10-26-2022
-Version  : v1.9
+Filename : BES-53248-RCF-v1.12-Cluster.txt
+Date     : 11-04-2024
+Version  : v1.12
 Port Usage:
 Ports 01 - 16: 10/25GbE Cluster Node Ports, base config
 Ports 17 - 48: 10/25GbE Cluster Node Ports, with licenses
 Ports 49 - 54: 40/100GbE Cluster Node Ports, with licenses, added right to left
 Ports 55 - 56: 100GbE Cluster ISL Ports, base config
 NOTE:
-- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port
-speed:
-Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44,
-45-48
-The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port
-group
+- The 48 SFP28/SFP+ ports are organized into 4-port groups in terms of port speed:
+  Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44, 45-48
+  The port speed should be the same (10GbE or 25GbE) across all ports in a 4-port group
 - If additional licenses are purchased, follow the 'Additional Node Ports
-activated with Licenses' section for instructions
-- If SSH is active, it will have to be re-enabled manually after 'erase
-startup-config'
-command has been executed and the switch rebooted
+  activated with Licenses' section for instructions
+- If SSH is active, it will have to be re-enabled manually after 'erase startup-config'
+  command has been executed and the switch rebooted"
 ----
 ====
 . Sur le switch, vérifiez que les ports sous licence supplémentaires s'affichent après l'application du RCF :
@@ -647,7 +625,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 0/56             Enable    100G Full               Down   Enable  Enable long
 ----
 ====
-. Vérifiez sur le commutateur que vos modifications ont été effectuées :
+. Sur le commutateur, vérifiez que vos modifications ont été effectuées :
 +
 [source, cli]
 ----
@@ -881,7 +859,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step20]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
+. [[step21]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
 +
 L'exemple suivant utilise la sortie d'interface :
 

@@ -4076,7 +4076,6 @@
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :</block>
   <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Examinez le résultat de la bannière du<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">Sur le switch, vérifiez que les ports sous licence supplémentaires s'affichent après l'application du RCF :</block>
-  <block id="e23c199f14d9e7bf9dbb9da03bf726a2" category="list-text">Redémarrer le commutateur cs1. Vous pouvez ainsi déclencher des LIF de cluster afin de rétablir leur port de départ. Vous pouvez ignorer les événements “panne des ports de cluster” signalés sur les nœuds pendant le redémarrage du commutateur.</block>
   <block id="6285269d7b8b003aed53cad1f3d13717" category="list-text">Déplacez tous les câbles de connexion des nœuds du cluster de l'ancien commutateur cs2 vers le nouveau commutateur cs2-New.</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New*</block>
   <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New</block>
@@ -5059,4 +5058,21 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="c509ae209503be0a774ac204f0f2dc91" category="paragraph">Nœud 4 x 100 GbE 35</block>
   <block id="f992d2e7f110147780c9ce8e305e4981" category="paragraph">Nœud 4 x 100 GbE 36</block>
   <block id="cb02ea2e8f595e77e5e6585ac0421c1a" category="paragraph">En savoir plus sur les nouveaux switchs pour les systèmes FAS et AFF. Pour plus d'informations sur le commutateur, reportez-vous à la<block ref="341c1c8afc925d24c41903215e7d4958" category="inline-link-rx"></block>.</block>
+  <block id="d217db6e5c9fe01778df762ef953150e" category="inline-link-macro">Installez le fichier RCF (Reference Configuration File) et le fichier de licence</block>
+  <block id="6503ea0189c5cfc2f7fbdef509813892" category="admonition">Pour EFOS 3.12 et versions ultérieures, suivez les étapes d'installation de la section <block ref="2875012234c5bc616da894d0cc04d2b5" category="inline-link-macro-rx"></block>.</block>
+  <block id="138707357e50e83ca9a6f1bf487a4c4b" category="paragraph">Vérifiez que les éléments suivants sont en place :</block>
+  <block id="f3f5793bcca1ebb5ebbd53986eeb7aa2" category="admonition">Avant d'installer une nouvelle version du logiciel du commutateur et des RCF, consultez l'article de la base de connaissances<block ref="18b4271d2bf70dbfb01e42cb4850cea6" category="inline-link-rx"></block> . Si vous devez effacer complètement les paramètres du commutateur, vous devez effectuer à nouveau la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série car un effacement complet de la configuration réinitialise la configuration du réseau de gestion.</block>
+  <block id="760a43dbe67e92dafc9be460c7ec7a71" category="open-title">EFOS version 3.12.x et ultérieure</block>
+  <block id="b901c25333441ff036da53fab081d9f0" category="list-text">Vérifiez que le script a été téléchargé et enregistré sous le nom de fichier que vous lui avez donné :</block>
+  <block id="c996550fa25e7bc14821abd9c8d23ed7" category="open-title">Toutes les autres versions de EFOS</block>
+  <block id="cbaf87b69b101c8da09eb66a7e118196" category="list-text">Examinez la sortie de la bannière à partir de la<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour vérifier la configuration et le fonctionnement corrects du commutateur.</block>
+  <block id="d8b62ff42020df981e759bfaae3ea683" category="list-text">Redémarrez le commutateur cs1. Cela déclenche le rétablissement des LIFs du cluster sur leurs ports home. Vous pouvez ignorer les événements “panne des ports de cluster” signalés sur les nœuds pendant le redémarrage du commutateur.</block>
+  <block id="44b28482ab8476e86718a1ca5ff60e37" category="paragraph">Depuis EFOS 3.12.0.1, vous pouvez installer le fichier RCF (Reference Configuration File) et le fichier de licence après avoir configuré le commutateur de cluster BES-53248.</block>
+  <block id="9a155684dd1562ffdaa25731d825bbe9" category="admonition">Les ports Sall sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.</block>
+  <block id="fbec2ebb075cb19757cff7017cb93af5" category="list-text">La FCR actuelle, disponible à partir de la<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> page.</block>
+  <block id="4456b97c43334b2054b59141ede95e7a" category="list-text">Copiez la FCR dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.</block>
+  <block id="f33dd0ad3ffde0d7eeaba1d3a85f7205" category="paragraph">Cet exemple montre que HTTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :</block>
+  <block id="7bbcf8e324817b180739b7f7d821945a" category="list-text">Sur le commutateur, vérifiez que vos modifications ont été effectuées :</block>
+  <block id="a84263d893b250f940f2cfa8e599b7e2" category="list-text">[[step21]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
+  <block id="5bd6c874b20210387cbc3fd552b0e8bc" category="sidebar">Installez le fichier RCF et le fichier de licence pour EFOS 3.12 et versions ultérieures</block>
 </blocks>

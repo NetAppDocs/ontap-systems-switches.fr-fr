@@ -14,7 +14,7 @@ summary: 'Vous pouvez installer le fichier RCF (Reference Configuration File) ap
 Depuis EFOS 3.12.0.1, vous pouvez installer le fichier RCF (Reference Configuration File) et le fichier de licence après avoir configuré le commutateur de cluster BES-53248.
 
 
-CAUTION: Les ports Sall sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.
+CAUTION: Tous les ports sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.
 
 
 

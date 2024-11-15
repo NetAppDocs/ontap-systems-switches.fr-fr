@@ -3982,7 +3982,6 @@
   <block id="b6a9bacb15977dcaaa1e05f20cc4d13b" category="paragraph">Deux scripts RCF sont disponibles pour les applications de cluster et de stockage. Téléchargez les fichiers RCF depuis<block ref="89efcd657168a1e707caf54da1923871" category="inline-link-rx"></block>. La procédure pour chaque est la même.</block>
   <block id="54d4022f2a747cb4974fcf06961bdb21" category="list-text">Cluster : *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*</block>
   <block id="eac7436c884133e6b945a51430510a32" category="list-text">Stockage : *MSN2100-FCR-v1._x_-stockage*</block>
-  <block id="196428336c87b3c0c9bf24432335bd6f" category="list-text">Appliquez le script FCR python *MSN2100-FCR-v1.x-Cluster-HA-Breakout-LLDP*.</block>
   <block id="b9dfe38b5e91454220a6cd1f3cfb9ac8" category="admonition">À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande<block ref="900d965bd90d181d344d976a0e3093d8" prefix=" " category="inline-code"></block> est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.</block>
   <block id="0440c59cc67785ca7939ff4e3eba86ed" category="admonition">À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande<block ref="79a5f2bb850da898bd092e3a61bda06c" prefix=" " category="inline-code"></block> est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.</block>
   <block id="506c2c0c7f5b70af3df68c45c46f45a7" category="paragraph">Par exemple :</block>
@@ -4016,7 +4015,6 @@
   <block id="0d151e82f107d3039ec4952c010d46c4" category="admonition">Le mot de passe par défaut pour le compte utilisateur du umulus est *cumulus*. La première fois que vous vous connectez à Cumulus Linux, vous devez changer ce mot de passe par défaut. Vous devez mettre à jour tous les scripts d'automatisation avant d'installer une nouvelle image. Cumulus Linux propose des options de ligne de commande pour modifier automatiquement le mot de passe par défaut pendant le processus d'installation.</block>
   <block id="324fe5adbd1d84e1635133b2f3572f6d" category="open-title">De Cumulus Linux 4.4.x à Cumulus Linux 5.x.</block>
   <block id="6e86c333c0b662bb6dee3495ec26ec21" category="list-text">Vérifiez la version actuelle de Cumulus Linux et les ports connectés :</block>
-  <block id="698eeac576f2a03927debdd14725ba5e" category="list-text">Téléchargez l'image de Cumulux Linux 5.x :</block>
   <block id="a034a19ca9c1623f94c8f52b386d5a41" category="list-text">Modifier le mot de passe :</block>
   <block id="d853eef2a857cbfcf5b1ef1abe8db17e" category="list-text">Vérifiez la version de Cumulus Linux :<block ref="9fcc1ae85aac3dbd490f575cf5eb3d52" prefix=" " category="inline-code"></block></block>
   <block id="985599684d8f5a06353d35110138f1b2" category="list-text">Modifiez le nom d'hôte :</block>
@@ -5068,11 +5066,27 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="cbaf87b69b101c8da09eb66a7e118196" category="list-text">Examinez la sortie de la bannière à partir de la<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour vérifier la configuration et le fonctionnement corrects du commutateur.</block>
   <block id="d8b62ff42020df981e759bfaae3ea683" category="list-text">Redémarrez le commutateur cs1. Cela déclenche le rétablissement des LIFs du cluster sur leurs ports home. Vous pouvez ignorer les événements “panne des ports de cluster” signalés sur les nœuds pendant le redémarrage du commutateur.</block>
   <block id="44b28482ab8476e86718a1ca5ff60e37" category="paragraph">Depuis EFOS 3.12.0.1, vous pouvez installer le fichier RCF (Reference Configuration File) et le fichier de licence après avoir configuré le commutateur de cluster BES-53248.</block>
-  <block id="9a155684dd1562ffdaa25731d825bbe9" category="admonition">Les ports Sall sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.</block>
   <block id="fbec2ebb075cb19757cff7017cb93af5" category="list-text">La FCR actuelle, disponible à partir de la<block ref="b4c2fb45a290e6214474529bd84dd3bc" category="inline-link-rx"></block> page.</block>
   <block id="4456b97c43334b2054b59141ede95e7a" category="list-text">Copiez la FCR dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.</block>
   <block id="f33dd0ad3ffde0d7eeaba1d3a85f7205" category="paragraph">Cet exemple montre que HTTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :</block>
   <block id="7bbcf8e324817b180739b7f7d821945a" category="list-text">Sur le commutateur, vérifiez que vos modifications ont été effectuées :</block>
   <block id="a84263d893b250f940f2cfa8e599b7e2" category="list-text">[[step21]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.</block>
   <block id="5bd6c874b20210387cbc3fd552b0e8bc" category="sidebar">Installez le fichier RCF et le fichier de licence pour EFOS 3.12 et versions ultérieures</block>
+  <block id="939b4bb2ac041f54295eebf712381c6e" category="admonition">Tous les ports sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.</block>
+  <block id="95a409c28581e60b63d6744a63cec56e" category="list-text">Définissez la date, l'heure, le fuseau horaire et le serveur NTP sur le commutateur.</block>
+  <block id="506fa9ce3fedb50c852bedfbf3a7cdd3" category="list-text">Vérifiez le fuseau horaire actuel :</block>
+  <block id="a50a0e5cb483409f1fab325fb98837b7" category="list-text">Mise à jour vers le nouveau fuseau horaire :</block>
+  <block id="6da016a8d1ac9135eb58f58229421640" category="list-text">Vérifiez votre fuseau horaire actuel :</block>
+  <block id="f7831e2ba83d46ea1e5fff4e74fc5fa7" category="list-text">Pour définir le fuseau horaire à l'aide de l'assistant, exécutez la commande suivante :</block>
+  <block id="73780f50cf375867a0588e7492720e92" category="list-text">Réglez l'horloge logicielle en fonction du fuseau horaire configuré :</block>
+  <block id="79f42127edb075c94bf534a70bd9670a" category="list-text">Réglez la valeur actuelle de l'horloge logicielle sur l'horloge matérielle :</block>
+  <block id="cc4d69e34240960e74993e23c384c9dd" category="list-text">Ajoutez un serveur NTP si nécessaire :</block>
+  <block id="f24cc7b4e9b9029f28ce1ca2f70cdf80" category="list-text">Vérifiez que<block ref="0453ce67cb028d800c9476a4d09364c9" prefix=" " category="inline-code"></block> s'exécute sur le système :</block>
+  <block id="5f71b9c43a90b0d5c1da4caaf97582b9" category="list-text">Spécifiez l'interface source NTP. Par défaut, l'interface source utilisée par NTP est<block ref="a1a5b3d22e82bbd6f878d26feacc2c7d" prefix=" " category="inline-code"></block>. Vous pouvez configurer une interface source NTP différente comme suit :</block>
+  <block id="49a81a8314008caafc812f9c76617125" category="list-text">Définissez le fuseau horaire, la date, l'heure et le serveur NTP sur le commutateur.</block>
+  <block id="2747cbba0e5a031af50361e087bd59bb" category="list-text">Définissez le fuseau horaire :</block>
+  <block id="7db58b1ced05f0a1e8e0257017cd6c5b" category="list-text">Appliquez le script FCR python *MSN2100-FCR-v1._x_-Cluster-HA-Breakout-LLDP*.</block>
+  <block id="11b037d97237564e7d301df86420a468" category="inline-link">Installation d'une nouvelle image Cumulus Linux</block>
+  <block id="ab12f4d1e56479a81a361f6109b978de" category="paragraph">Voir<block ref="63da15f7ab7ce2a7550fdbf1e5e5d879" category="inline-link-rx"></block> pour plus d'informations.</block>
+  <block id="43622a7160f0cabed379e73776c14454" category="list-text">Téléchargez l'image Cumulux Linux 5.x:tmp</block>
 </blocks>

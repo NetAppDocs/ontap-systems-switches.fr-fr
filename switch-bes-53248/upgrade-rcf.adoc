@@ -397,6 +397,7 @@ vlan database
 no vlan 17
 no vlan 18
 exit
+show-running-config
 ----
 .. Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
 +

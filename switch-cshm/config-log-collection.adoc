@@ -45,6 +45,9 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 --
 . Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
+*REMARQUE :* si vous répondez à `y` l'invite de spécification de l'utilisateur, assurez-vous que l'utilisateur dispose des autorisations nécessaires, comme indiqué dans <<Avant de commencer>> .
+
++
 [source, cli]
 ----
 system switch ethernet log setup-password
@@ -111,6 +114,9 @@ system switch ethernet log show
 .ONTAP 9.15.1 et versions ultérieures
 --
 . Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
++
+*REMARQUE :* si vous répondez à `y` l'invite de spécification de l'utilisateur, assurez-vous que l'utilisateur dispose des autorisations nécessaires<<Avant de commencer>>, comme indiqué dans .
+
 +
 [source, cli]
 ----

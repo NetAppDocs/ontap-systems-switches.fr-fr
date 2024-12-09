@@ -24,13 +24,13 @@ Assurez-vous de bien comprendre les exigences de câblage et de connexion des po
 * Le link:https://hwu.netapp.com/["Hardware Universe"^] Contient des informations sur le câblage pris en charge vers les commutateurs Nexus 3132Q-V :
 +
 ** Les nœuds équipés de connexions de cluster 10 GbE requièrent des modules optiques QSFP avec des câbles à fibre optique de séparation ou des câbles QSFP avec des câbles en cuivre SFP+.
-** Les nœuds équipés de connexions de cluster 40/100 GbE requièrent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
+** Les nœuds avec des connexions de cluster 40 GbE nécessitent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
 ** Les commutateurs de cluster utilisent le câblage ISL approprié : 2 câbles à connexion directe en fibre ou en cuivre QSFP28.
 
 
-* Sur le Nexus 3132Q-V, vous pouvez utiliser les ports QSFP en mode Ethernet 40/100 Gb ou Ethernet 4 x 10 Gb.
+* Sur le Nexus 3132Q-V, vous pouvez utiliser les ports QSFP en mode Ethernet 40 Gb ou Ethernet 4 x10 Gb.
 +
-Par défaut, il y a 32 ports en mode Ethernet 40/100 Gb. Ces ports Ethernet 40 Gb sont numérotés en 2 points. Par exemple, le second port Ethernet 40 Gbit est numéroté 1/2. Le processus de modification de la configuration de 40 Go Ethernet à 10 Go Ethernet s'appelle _écorché_ et le processus de modification de la configuration de 10 Go Ethernet à 40 Go Ethernet s'appelle _Breakin_. Lorsque vous décomposent un port Ethernet 40/100 Gb en ports Ethernet 10 Gb, les ports qui en résultent sont numérotés en utilisant une convention de dénomination à 3 points. Par exemple, les ports de dérivation du second port Ethernet 40/100 Gbit sont numérotés en 1/2/1, 1/2/2, 1/2/3, 1/2/4.
+Par défaut, il y a 32 ports en mode Ethernet 40 Gb. Ces ports Ethernet 40 Gb sont numérotés en 2 points. Par exemple, le second port Ethernet 40 Gbit est numéroté 1/2. Le processus de modification de la configuration de 40 Go Ethernet à 10 Go Ethernet s'appelle _écorché_ et le processus de modification de la configuration de 10 Go Ethernet à 40 Go Ethernet s'appelle _Breakin_. Lorsque vous divisez un port Ethernet 40 Gb en ports Ethernet 10 Gb, les ports obtenus sont numérotés selon une convention de nommage 3-Tuple. Par exemple, les ports de dérivation du second port Ethernet 40 Gbit sont numérotés en 1/2/1, 1/2/2, 1/2/3 et 1/2/4.
 
 * Sur le côté gauche du Nexus 3132Q-V est un ensemble de quatre ports SFP+ multiplexés sur le premier port QSFP.
 +
@@ -39,11 +39,11 @@ Par défaut, la FCR est structurée de manière à utiliser le premier port QSFP
 +
 Vous pouvez activer quatre ports SFP+ au lieu d'un port QSFP pour Nexus 3132Q-V en utilisant le `hardware profile front portmode sfp-plus` commande. De même, vous pouvez réinitialiser Nexus 3132Q-V pour utiliser un port QSFP au lieu de quatre ports SFP+ en utilisant le `hardware profile front portmode qsfp` commande.
 
-* Assurez-vous de configurer certains ports du Nexus 3132Q-V pour qu'ils s'exécutent à 10 GbE ou 40/100 GbE.
+* Assurez-vous que vous avez configuré certains des ports du Nexus 3132Q-V pour qu'ils fonctionnent à 10 GbE ou 40 GbE.
 +
 Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du `no interface breakout module 1 port 1-6 map 10g-4x` commande.
 
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] page.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (CFR) disponibles sur la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] page.
 
 
 .Ce dont vous avez besoin
@@ -67,7 +67,7 @@ Le link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutat
 
 
 
-Vous devez également planifier, migrer et lire la documentation requise sur la connectivité 10 GbE et 40/100 GbE des nœuds vers les commutateurs de cluster Nexus 3132Q-V.
+En outre, vous devez planifier, migrer et lire la documentation requise sur la connectivité 10 GbE et 40 GbE depuis les nœuds vers les commutateurs de cluster Nexus 3132Q-V.
 
 
 
@@ -82,7 +82,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 
 [NOTE]
 ====
-Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40/100 GbE e4a et e4e. Le link:https://hwu.netapp.com/["Hardware Universe"^] possède des informations détaillées sur les ports de cluster de vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE e4a et e4e. link:https://hwu.netapp.com/["Hardware Universe"^]La contient des informations sur les ports de cluster sur vos plateformes.
 
 ====
 .Description de la tâche
@@ -92,7 +92,7 @@ Cette procédure couvre les scénarios suivants :
 * n1_clus2 est la première LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud n1.
 * n2_concluA1 est la première LIF de cluster à être connectée au commutateur de cluster C1 pour le nœud n2.
 * n2_clus2 est la deuxième LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud n2.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] page.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (CFR) disponibles sur la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] page.
 
 
 [NOTE]

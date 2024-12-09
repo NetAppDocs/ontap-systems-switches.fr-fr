@@ -67,7 +67,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * n1_CL2 est la première LIF de cluster connectée au commutateur de cluster CL2 ou C2, pour le nœud n1.
 * n1_conclue3 est la deuxième LIF connectée au commutateur de cluster C2, pour le nœud n1.
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster CL1, pour le nœud n1.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (CFR) disponibles sur la link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
 * Les nœuds sont n1, n2, n3 et n4. - Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com/["Hardware Universe"^] pour les ports réels de cluster sur vos plates-formes.
 
 

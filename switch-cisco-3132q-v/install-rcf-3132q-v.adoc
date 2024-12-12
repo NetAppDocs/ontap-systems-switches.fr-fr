@@ -17,7 +17,7 @@ Suivre cette procédure pour installer la FCR après avoir configuré pour la pr
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * Le fichier FCR (Reference Configuration File) actuel.

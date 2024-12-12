@@ -38,12 +38,47 @@ entries:
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_3132q-v
   entries:
-  - title: Migrer depuis les commutateurs CN5596
-    url: "/switch-cisco-3132q-v/migrate-from-cisco-nexus-5596-to-cisco-nexus-3232c.html"
-  - title: Migrer depuis les commutateurs CN1610
-    url: "/switch-cisco-3132q-v/replace-cn1610-with-cisco-nexus-3232c.html"
-  - title: Migrez d'un cluster sans commutateur vers un cluster commuté
-    url: "/switch-cisco-3132q-v/migrate-from-switchless-cluster-to-cisco-nexus-3132q-v.html"
+  - title: Migration du commutateur CN1610
+    pdf-filename: CN1610_switch_migration
+    entries:
+    - title: Flux de travail de migration du commutateur CN1610
+      url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
+    - title: Conditions requises pour la migration
+      url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
+    - title: La préparation à la migration
+      url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
+    - title: Configurez vos ports
+      url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
+    - title: Terminez votre migration
+      url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
+  - title: Migration des commutateurs Cisco Nexus 5596
+    pdf-filename: CN5596_switch_migration
+    entries:
+    - title: Workflow de migration des commutateurs Cisco Nexus 5596
+      url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
+    - title: Conditions requises pour la migration
+      url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
+    - title: La préparation à la migration
+      url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
+    - title: Configurez vos ports
+      url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
+    - title: Terminez la migration
+      url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
+  - title: Migration de clusters sans commutateur vers des clusters à 2 nœuds avec
+      commutateur
+    pdf-filename: Migrate_from_switchless_to_switched_cluster
+    entries:
+    - title: Migration d'un workflow sans commutateur vers un workflow à 2 nœuds avec
+        commutateur
+      url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
+    - title: Conditions requises pour la migration
+      url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html"
+    - title: La préparation à la migration
+      url: "/switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html"
+    - title: Configurez vos ports
+      url: "/switch-cisco-3132q-v/migrate-switchless-configure-ports.html"
+    - title: Terminez la migration
+      url: "/switch-cisco-3132q-v/migrate-switchless-complete-migration.html"
 - title: Remplacer les interrupteurs
   pdf-filename: Replace_switches_3132q-v
   entries:

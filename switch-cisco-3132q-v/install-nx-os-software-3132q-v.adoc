@@ -17,7 +17,7 @@ Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de c
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 

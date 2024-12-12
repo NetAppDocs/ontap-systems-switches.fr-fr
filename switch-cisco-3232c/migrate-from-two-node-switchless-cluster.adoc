@@ -17,11 +17,8 @@ Si vous disposez d'un cluster _sans commutateur_ à deux nœuds, vous pouvez mig
 
 == Examen des conditions requises
 
-.Conditions requises pour la migration
-Avant la migration, n'oubliez pas de la consulter link:migrate-requirements-3232c.html["Conditions requises pour la migration"].
-
-.Ce dont vous avez besoin
-Assurez-vous que :
+.Avant de commencer
+Vérifiez les installations et les connexions suivantes :
 
 * Les ports sont disponibles pour les connexions de nœuds. Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) e1/31-32.
 * Vous disposez de câbles appropriés pour les connexions du cluster :
@@ -50,10 +47,6 @@ Les deux nœuds doivent être connectés et fonctionner dans un cluster à 2 nœ
 
 
 
-
-
-== Migrer les commutateurs
-
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
@@ -77,7 +70,7 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs C
 ====
 
 
-=== Étape 1 : affichage et migration des ports physiques et logiques
+== Étape 1 : affichage et migration des ports physiques et logiques
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
 +
@@ -330,7 +323,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
-=== Étape 2 : arrêter les LIF réaffectées et débrancher les câbles
+== Étape 2 : arrêter les LIF réaffectées et débrancher les câbles
 
 . Vérifier que les interfaces de cluster ont bien migré :
 +
@@ -445,7 +438,7 @@ Vous pouvez faire référence à la configuration en cours d'exécution et conne
 
 
 
-=== Étape 3 : activer les ports du cluster
+== Étape 3 : activer les ports du cluster
 
 . Débrancher le câble e4a du nœud n2.
 +
@@ -561,7 +554,7 @@ Cluster
 
 
 
-=== Étape 4 : activer les LIF réaffectées
+== Étape 4 : activer les LIF réaffectées
 
 . Afficher la connectivité des ports du cluster sur chaque nœud :
 +

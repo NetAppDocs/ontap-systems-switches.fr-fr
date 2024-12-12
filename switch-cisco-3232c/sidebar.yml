@@ -3,7 +3,7 @@ section: switch-cisco-3232c
 title: Cisco Nexus 3232C
 entries:
 - title: Présentation
-  pdf-filename: Présentation_3232c
+  pdf-filename: Overview_3232C
   entries:
   - title: Présentation de la configuration
     url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
@@ -14,7 +14,7 @@ entries:
   - title: Configuration requise pour le service d'appel intelligent
     url: "/switch-cisco-3232c/smart-call-home-3232c.html"
 - title: Installer le matériel de fixation
-  pdf-filename: Install_hardware_3232c
+  pdf-filename: Install_hardware_3232C
   entries:
   - title: Remplir la fiche de câblage
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
@@ -25,7 +25,7 @@ entries:
   - title: Examiner le câblage et la configuration
     url: "/switch-cisco-3232c/cabling-considerations-3232c.html"
 - title: Configurez le logiciel
-  pdf-filename: Configure_Software_3232c
+  pdf-filename: Configure_software_3232C
   entries:
   - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
@@ -36,23 +36,56 @@ entries:
   - title: Vérifier la configuration de SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
 - title: Migration des commutateurs
-  pdf-filename: Migrate_switches_3232c
+  pdf-filename: Migrate_switches_3232C
   entries:
-  - title: Conditions requises pour la migration
-    url: "/switch-cisco-3232c/migrate-requirements-3232c.html"
-  - title: Migrer depuis le commutateur de cluster CN1610
-    url: "/switch-cisco-3232c/migrate-cn1610-cluster-switches.html"
-  - title: Migrer depuis le commutateur de cluster Cisco Nexus 5596
-    url: "/switch-cisco-3232c/migrate-from-cisco-nexus-5596.html"
-  - title: Migrer depuis un cluster à 2 nœuds sans commutateur
-    url: "/switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html"
+  - title: Migration du commutateur CN1610
+    pdf-filename: CN1610_switch_migration
+    entries:
+    - title: Migration à partir du workflow des commutateurs CN1610
+      url: "/switch-cisco-3232c/cn1610-migrate-workflow.html"
+    - title: Conditions requises pour la migration
+      url: "/switch-cisco-3232c/cn1610-migrate-to-3232c-overview.html"
+    - title: La préparation à la migration
+      url: "/switch-cisco-3232c/cn1610-prepare-to-migrate.html"
+    - title: Remplacer le commutateur CL2 du bloc d'instruments
+      url: "/switch-cisco-3232c/cn1610-replace-CL2.html"
+    - title: Remplacer le commutateur CL1 du bloc d'instruments
+      url: "/switch-cisco-3232c/cn1610-replace-CL1.html"
+    - title: Terminez la migration
+      url: "/switch-cisco-3232c/cn1610-complete-migration.html"
+  - title: Migration des commutateurs Nexus 5596
+    pdf-filename: CN5596_switch_migration
+    entries:
+    - title: Migrez du workflow des switchs Cisco Nexus 5596
+      url: "/switch-cisco-3232c/cn5596-migrate-workflow.html"
+    - title: Conditions requises pour la migration
+      url: "/switch-cisco-3232c/cn5596-migrate-requirements.html"
+    - title: La préparation à la migration
+      url: "/switch-cisco-3232c/cn5596-prepare-to-migrate.html"
+    - title: Configurez vos ports
+      url: "/switch-cisco-3232c/cn5596-configure-ports.html"
+    - title: Terminez la migration
+      url: "/switch-cisco-3232c/cn5596-complete-migration.html"
+  - title: Migrez à partir de clusters à 2 nœuds sans commutateur
+    pdf-filename: Migrate_from_switchless_clusters
+    entries:
+    - title: Migrez le flux de production à partir de clusters à 2 nœuds sans commutateur
+      url: "/switch-cisco-3232c/migrate-from-switchless-workflow.html"
+    - title: Conditions requises pour la migration
+      url: "/switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html"
+    - title: La préparation à la migration
+      url: "/switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html"
+    - title: Configurez vos ports
+      url: "/switch-cisco-3232c/migrate-from-switchless-configure-ports.html"
+    - title: Terminez la migration
+      url: "/switch-cisco-3232c/migrate-from-switchless-complete-migration.html"
 - title: Remplacer les interrupteurs
-  pdf-filename: Replace_switches_3232c
+  pdf-filename: Replace_switches_3232C
   entries:
   - title: Remplacer le commutateur du bloc d'instruments
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: Remplacez les switchs de cluster par des connexions sans commutateur
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
 - title: Mettre à niveau les commutateurs
-  pdf-filename: Upgrade_switches_3232c
+  pdf-filename: Upgrade_switches_3232C
   url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"

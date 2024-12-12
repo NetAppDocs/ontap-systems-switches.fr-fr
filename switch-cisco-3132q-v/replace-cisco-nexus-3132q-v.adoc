@@ -20,7 +20,7 @@ Suivez cette procédure pour remplacer un commutateur Cisco Nexus 3132Q-V défec
 .De commutateurs
 Vérifiez le link:switch-requirements.html["Conditions requises pour remplacer les commutateurs de cluster Cisco Nexus 3132Q-V."].
 
-.Ce dont vous avez besoin
+.Avant de commencer
 * La configuration existante de cluster et de réseau comporte les éléments suivants :
 +
 ** L'infrastructure de cluster Nexus 3132Q-V est redondante et entièrement fonctionnelle sur les deux commutateurs.

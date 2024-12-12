@@ -17,7 +17,7 @@ Suivez ces étapes pour mettre à niveau le logiciel Cisco NX-OS et les fichiers
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant de mettre à niveau le logiciel NX-OS et les RCFC sur le commutateur de stockage, assurez-vous que les conditions suivantes existent :
 
 * Le commutateur fonctionne entièrement (il ne doit y avoir aucune erreur dans les journaux ou des problèmes similaires).
@@ -186,8 +186,6 @@ Lorsque vous vérifiez que la sortie est correcte, vérifiez que les information
 ** La bannière RCF
 ** Les paramètres du nœud et du port
 ** Personnalisations
-
-
 +
 Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
 
@@ -242,6 +240,8 @@ S2#
 +
 
 NOTE: Lors de l'application de FCR pour la première fois, le message *ERROR: Failed to write VSH commands* est attendu et peut être ignoré.
+
+
 
 . Après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le `running-config` vers le `startup-config` Fichier sur le commutateur S2.
 +

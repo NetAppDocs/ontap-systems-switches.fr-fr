@@ -1,0 +1,30 @@
+---
+permalink: switch-cisco-3232c/cn5596-migrate-workflow.html 
+sidebar: sidebar 
+keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
+summary: Avant de configurer votre switch Cisco 3232C, vérifiez les informations suivantes. 
+---
+= Migrer du workflow de switchs Nexus 5596 vers des switchs Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez ces étapes de workflow pour migrer vos switchs Cisco Nexus 5596 vers des switchs Cisco Nexus 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:cn5596-migrate-requirements.html["Conditions requises pour la migration"]
+[role="quick-margin-para"]
+Passez en revue l'exemple d'informations de commutateur pour le processus de migration.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:cn5596-prepare-to-migrate.html["La préparation à la migration"]
+[role="quick-margin-para"]
+Préparez vos switchs Nexus 5596 pour une migration vers des switchs Nexus 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:cn5596-configure-ports.html["Configurez vos ports"]
+[role="quick-margin-para"]
+Configurez vos ports pour la migration vers les nouveaux switchs Nexus 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:cn5596-complete-migration.html["Terminez la migration"]
+[role="quick-margin-para"]
+Effectuez votre migration vers les nouveaux switchs Nexus 3232C.

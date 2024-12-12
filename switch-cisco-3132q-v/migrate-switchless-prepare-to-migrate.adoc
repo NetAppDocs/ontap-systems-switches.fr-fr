@@ -1,0 +1,103 @@
+---
+permalink: switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html 
+sidebar: sidebar 
+keywords: cisco 3132q-v, cluster switches 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+---
+= Préparation à la migration depuis des clusters sans commutateur vers des clusters avec commutateur
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+La procédure suivante permet de préparer votre cluster sans commutateur à une migration vers un cluster à 2 nœuds avec commutateur.
+
+.Étapes
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all - message MAINT=xh`
+
++
+_x_ représente la durée de la fenêtre de maintenance en heures.
+
++
+[NOTE]
+====
+Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+====
+. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
++
+.. Afficher les attributs des ports réseau :
++
+`network port show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network port show -role cluster
+  (network port show)
+Node: n1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e4a       Cluster      Cluster          up   9000 auto/40000  -        -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+
+Node: n2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e4a       Cluster      Cluster          up   9000 auto/40000  -        -
+e4e       Cluster      Cluster          up   9000 auto/40000  -        -
+4 entries were displayed.
+----
+====
+.. Afficher des informations sur les interfaces logiques :
++
+`network interface show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster::*> network interface show -role cluster
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+4 entries were displayed.
+----
+====
+
+
+. Vérifiez que les RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3132Q-V selon vos besoins, et apportez les personnalisations essentielles du site, telles que les utilisateurs et les mots de passe, les adresses réseau, etc.
++
+Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et le logiciel d'image, vous devez suivre les étapes suivantes :
+
++
+.. Accédez au link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] Sur le site de support NetApp.
+.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Téléchargez la version appropriée de RCF.
+.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
+.. Téléchargez la version appropriée du logiciel d'image.
+
+
+. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
+
+
+.Et la suite ?
+link:migrate-switchless-configure-ports.html["Configurez vos ports"].

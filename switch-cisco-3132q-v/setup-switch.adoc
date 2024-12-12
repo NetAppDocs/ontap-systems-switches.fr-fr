@@ -13,7 +13,7 @@ summary: Si vous ne possédez pas encore la documentation et les informations de
 [role="lead"]
 Suivez cette procédure pour configurer le commutateur Cisco Nexus 3132Q-V.
 
-.Ce dont vous avez besoin
+.Avant de commencer
 * Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
 * Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
 * Documentation requise sur les commutateurs réseau, la documentation du contrôleur et la documentation ONTAP. Pour plus d'informations, voir link:required-documentation-3132q.html["Documentation requise"].

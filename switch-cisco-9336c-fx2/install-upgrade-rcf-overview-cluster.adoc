@@ -1,10 +1,10 @@
 ---
-permalink: switch-cisco-9336c-fx2/install-nxos-rcf-9336c-cluster.html 
+permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html 
 sidebar: sidebar 
-keywords: install rcf, cisco switches 
-summary: Vous pouvez installer la FCR après la première configuration du commutateur Nexus 9336C-FX2.vous pouvez également utiliser cette procédure pour mettre à niveau votre version FCR. 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
+summary: 'SSH est une condition requise lors de l"utilisation des fonctions de surveillance de l"état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d"abord générer les clés SSH, puis activer SSH.' 
 ---
-= Installation ou mise à niveau du fichier RCF (Reference Configuration File)
+= Installez ou mettez à niveau la présentation du fichier de configuration de référence (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -85,13 +85,13 @@ Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibl
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
-* Les noms des deux commutateurs Cisco sont cs1 et cs2.
-* Les noms des nœuds sont cluster1-01, cluster1-02, cluster1-03 et cluster1-04.
-* Les noms des LIF de cluster sont cluster1-01_concluA1, cluster1-01_clus2, cluster1-02_cluA1, cluster1-02_clus2 , cluster1-03_cluA1, cluster1-03_clus2, cluster1-04_clua1 et cluster1-04_clus2.
+* Les noms des deux commutateurs Cisco sont *cs1* et *cs2*.
+* Les noms de noeud sont *cluster1-01*, *cluster1-02*, *cluster1-03* et *cluster1-04*.
+* Les noms de LIF du cluster sont *cluster1-01_clus1*, *cluster1-01 04_clus2*, *cluster1-02_clus1*, *cluster1-02_clus2*, *cluster1-03_clus1*, *cluster1-03_clus2*, *cluster1-04_clus1* et *cluster2*.
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 
 
-Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Reportez-vous au https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plates-formes.
+Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE *e0a* et *e0b*. Reportez-vous au https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plates-formes.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
@@ -101,36 +101,5 @@ Pour plus de détails sur les configurations de FCR disponibles, reportez-vous �
 .Commandes utilisées
 La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-
-
-== Option 1 : installez le fichier RCF sur un nouveau commutateur
-
-Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.
-
-Directive non résolue dans <stdin> - include:../_include/install-rcf-Software-9336c-cluster.adoc[]
-
-
-
-== Option 2 : mise à niveau des switchs existants avec une nouvelle version RCF
-
-Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur vos switchs opérationnels.
-
-.Avant de commencer
-Assurez-vous de disposer des éléments suivants :
-
-* Sauvegarde actuelle de la configuration du commutateur.
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Fichier RCF actuel.
-* Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration d'amorçage dans la mémoire RCF qui reflète les images d'amorçage souhaitées.
-+
-Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-
-
-
-
-NOTE: Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
-
-
-CAUTION: Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.
-
-Directive non résolue dans <stdin> - include:../_include/upgrade-rcf-Software-9336c-cluster.adoc[]
+.Et la suite ?
+link:install-rcf-software-9336c-cluster.html["Installer la FCR"] ou link:upgrade-rcf-software-9336c-cluster.html["Mettez à niveau votre FCR"].

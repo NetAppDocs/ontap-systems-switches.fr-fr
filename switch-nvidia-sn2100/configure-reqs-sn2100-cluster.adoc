@@ -29,14 +29,17 @@ Pour connaître les instructions de câblage, reportez-vous à la section link:c
 
 Le commutateur NVIDIA SN2100 est un commutateur 10/25/40 GbE exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :
 
-* ONTAP 9.10.1P3.
+* ONTAP 9.10.1P3 et versions ultérieures
 +
-Le commutateur SN2100 sert les applications de stockage et de cluster dans le ONTAP 9.10.1P3 sur différentes paires de commutateurs.
+Le commutateur SN2100 prend en charge les applications de cluster et de stockage dans ONTAP 9.10.1P3 et versions ultérieures sur différentes paires de commutateurs.
 
-* Version du système d'exploitation Cumulus Linux (CL).
+* Versions du système d'exploitation Cumulus Linux (CL)
 +
-Pour télécharger le logiciel SN2100 Cumulus de NVIDIA, vous devez disposer d'informations de connexion pour accéder au portail de support d'entreprise de NVIDIA. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Comment s'inscrire auprès de NVIDIA pour accéder au portail de support de l'entreprise"^].
-Pour plus d'informations sur la compatibilité actuelle, reportez-vous au https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Commutateurs Ethernet NVIDIA"^] page d'informations.
+** Les versions CL spécifiques sont qualifiées et prises en charge par NetApp. Pour plus d'informations sur la compatibilité, reportez-vous à la link:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informations sur les commutateurs Ethernet NVIDIA"^] page ou à la link:https://hwu.netapp.com["NetApp Hardware Universe"^].
+** Pour télécharger le logiciel SN2100 Cumulus de NVIDIA, vous devez disposer d'informations de connexion pour accéder au portail de support d'entreprise de NVIDIA. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Comment s'inscrire auprès de NVIDIA pour accéder au portail de support de l'entreprise"^] .
+
+
+
 
 * Vous pouvez installer Cumulus Linux lorsque le commutateur exécute Cumulus Linux ou ONIE.
 

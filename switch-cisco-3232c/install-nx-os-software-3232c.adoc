@@ -17,7 +17,7 @@ Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le sw
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.

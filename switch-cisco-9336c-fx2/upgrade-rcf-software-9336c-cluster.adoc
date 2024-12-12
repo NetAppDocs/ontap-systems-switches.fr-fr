@@ -1,10 +1,39 @@
-= Étape 1 : préparation de la mise à niveau
+---
+permalink: switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: Vous pouvez installer la FCR après la première configuration du commutateur Nexus 9336C-FX2.vous pouvez également utiliser cette procédure pour mettre à niveau votre version FCR. 
+---
+= Mettre à niveau le fichier RCF (Reference Configuration File)
 :allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur vos switchs opérationnels.
+
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
+* Sauvegarde actuelle de la configuration du commutateur.
+* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
+* La FCR actuelle.
+* Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration d'amorçage dans la mémoire RCF qui reflète les images d'amorçage souhaitées.
++
+Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
 
 
 
 
-=== Étape 1 : préparation de la mise à niveau
+NOTE: Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+
+
+CAUTION: Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.
+
+
+
+== Étape 1 : préparation de la mise à niveau
 
 . Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
 +
@@ -153,7 +182,7 @@ cluster1::*>
 
 
 
-=== Étape 2 : configurer les ports
+== Étape 2 : configurer les ports
 
 . Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
 +
@@ -509,7 +538,7 @@ cluster1::*>
 
 
 
-=== Étape 3 : vérifiez la configuration du réseau et l'état du cluster
+== Étape 3 : vérifiez la configuration du réseau et l'état du cluster
 
 . Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.
 +

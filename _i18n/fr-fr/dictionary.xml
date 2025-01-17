@@ -2631,7 +2631,6 @@
   <block id="feb8e402dbfa149a080f8f87ee22069f" category="list-text">Les noms des nœuds sont cluster1-01, cluster1-02, cluster1-03 et cluster1-04.</block>
   <block id="1a4c52cc090c463e0a3949fd93af9ca2" category="section-title">Installez le logiciel</block>
   <block id="ec8855627efbb26afaa912164ff82dbd" category="inline-link-macro">Installez le fichier de configuration RCF</block>
-  <block id="afe6bd84cf9f314186e891843eba49cc" category="paragraph"><block ref="41aae7f405e62aa01d791efeede3f9c2" category="inline-link-macro-rx"></block>.</block>
   <block id="2563a96fdb66dda5382058af89e8a58c" category="paragraph-title">Nomenclature des commutateurs et des nœuds</block>
   <block id="a2d07f4e7a36ed872e60c08cdcc73771" category="doc">Migrer vers un cluster à deux nœuds avec commutateur</block>
   <block id="5b1bedb3dd2208af0449bbbfcc022136" category="paragraph">Si vous disposez déjà d'un environnement en cluster à deux nœuds _sans commutateur_, vous pouvez migrer vers un environnement en cluster à deux nœuds _commuté_ à l'aide de commutateurs Cisco Nexus 9336C-FX2 qui vous permettent d'évoluer au-delà de deux nœuds du cluster.</block>
@@ -2818,7 +2817,6 @@
   <block id="c35204e874fcafc94c7c67e31162e966" category="paragraph">Assurez-vous que la fonction de restauration automatique est désactivée après avoir exécuté cette commande.</block>
   <block id="d08074ca4afc3cad1b1b41c1134b3f1e" category="section-title">Étape 2 : configurer et vérifier la configuration</block>
   <block id="b6ec5ccd50e4a92a636c1dc432c89581" category="admonition">Les nœuds de cluster peuvent prendre jusqu'à 5 minutes pour qu'ils fonctionnent correctement.</block>
-  <block id="442f3bc68fd4ab1c760b482d02f7ca71" category="list-text">Répétez les étapes 1 à 10 de l'interrupteur cs1.</block>
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
   <block id="a96967612c6864aa22be45f265f4c533" category="paragraph">Suivez cette procédure pour remplacer un commutateur Cisco Nexus 3132Q-V défectueux sur un réseau de clusters. La procédure de remplacement constitue une procédure sans interruption.</block>
   <block id="f3f6fdd1ea886344c6b4f8b4ee91d661" category="paragraph-title">De commutateurs</block>
@@ -5185,4 +5183,15 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Présentation de l'installation ou de la mise à niveau du RCF</block>
+  <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Répétez les étapes 1 à 11 sur le commutateur cs1.</block>
+  <block id="604f0b8e46b056f4f2f05bb3ea87a5a7" category="inline-link-macro">Installez RCF</block>
+  <block id="f398a91a8a2500b4ebd90095482c2638" category="paragraph"><block ref="032b77b792344ea711cbb6f8f0bfe3cc" category="inline-link-macro-rx"></block>.</block>
+  <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Vous pouvez installer le RCF après avoir configuré pour la première fois le switch de stockage Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
+  <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré pour la première fois le commutateur de stockage Nexus 9336C-FX2.</block>
+  <block id="0d54a8a99337a48199414ba38d122135" category="list-text">Le commutateur cs1 et le commutateur cs2 sont mis sous tension et la configuration initiale du commutateur est terminée (l'adresse IP de gestion et SSH sont configurés).</block>
+  <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">Cet exemple montre la FCR<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> installée sur le commutateur cs1 :</block>
+  <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">Examinez la sortie de la bannière à partir de la<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.</block>
+  <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Vérifiez que la FCR est la version la plus récente correcte :</block>
+  <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Après avoir vérifié que les versions des fichiers RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config :</block>
+  <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager simplifie et simplifie le processus d'installation et de configuration du cluster, notamment l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et le provisionnement du stockage initial.</block>
 </blocks>

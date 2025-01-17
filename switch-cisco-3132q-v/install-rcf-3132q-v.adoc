@@ -621,7 +621,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Répétez les étapes 1 à 10 de l'interrupteur cs1.
+. Répétez les étapes 1 à 11 sur le commutateur cs1.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
 .Montrer l'exemple

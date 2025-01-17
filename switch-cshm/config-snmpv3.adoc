@@ -330,19 +330,19 @@ Configurer un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA S
 +
 [source, cli]
 ----
-net add snmp-server username SNMPv3_USER auth-none
+nv set service snmp-server username SNMPv3_USER auth-none
 ----
 * Pour l'authentification *MD5/SHA* :
 +
 [source, cli]
 ----
-net add snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
+nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
 * Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
 +
 [source, cli]
 ----
-net add snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD [encrypt-aes|encrypt-des] PRIV-PASSWORD
+nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD [encrypt-aes|encrypt-des] PRIV-PASSWORD
 ----
 
 

@@ -1606,9 +1606,7 @@
   <block id="f3f7e5eecbbda44d56a585304c3a8d15" category="paragraph">Conforme à la norme FIPS</block>
   <block id="ba9e418ff064efca86945643e9b87680" category="list-text">Connectez le commutateur de cluster BES-53248 au réseau de gestion.</block>
   <block id="674d78e1dac3bea340dfeacf46be187b" category="list-text">Utilisez le<block ref="df911f0151f9ef021d410b4be5060972" prefix=" " category="inline-code"></block> Commande pour vérifier la connectivité au serveur hébergeant EFOS, les licences et le fichier RCF.</block>
-  <block id="c95aaaacb482fe42dce56ee7cd8615a6" category="list-text">Sauvegarder l'image active actuelle sur cs2 :</block>
   <block id="2ab6a6c6e3efa9ded96d007db3c8ddd6" category="paragraph"><block ref="d952dcd329fa507e9e731ce0c7d8dbc1" prefix="" category="inline-code"></block></block>
-  <block id="19cb75d1f662e01942f8d897534baeb7" category="list-text">Vérifiez la version en cours d'exécution du logiciel EFOS :</block>
   <block id="6c3f6a049adc76db29ca1df525b7c235" category="list-text">Téléchargez le fichier image sur le commutateur.</block>
   <block id="9f5a2906a0e63ca6b46604a272791779" category="paragraph">La copie du fichier image dans l'image active signifie que lors du redémarrage, cette image établit la version en cours d'exécution de EFOS. L'image précédente reste disponible comme sauvegarde.</block>
   <block id="f471b461fb47a6debd83122cd8a01983" category="list-text">Afficher les images de démarrage de la configuration active et de sauvegarde :</block>
@@ -2698,7 +2696,6 @@
   <block id="f8a26b1330fe6b7b741993630dd932e2" category="list-text">Vérifier que les LIFs du cluster sont rétablies sur leurs ports de base (cette opération peut prendre une minute) :</block>
   <block id="65201dcfc7c620613613b15eb161d307" category="paragraph">Si les LIF de cluster n'ont pas été rétablies sur leur port de départ, elles peuvent être revert manuellement :</block>
   <block id="88fb2189d22d2886ab33f16fdca0bb5b" category="paragraph"><block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix="" category="inline-code"></block></block>
-  <block id="ea4cd01e183524e8bbb487095fe3c5d9" category="list-text">Fichier RCF actuel.</block>
   <block id="03c93e08ed4f9a68f6b404202d454262" category="list-text">Une configuration de démarrage dans la FCR reflétant les images de démarrage souhaitées, requise si vous installez uniquement NX-OS et que vous conservant votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.</block>
   <block id="a0f6e8eb6b5f6a47b9079727da7ff23a" category="list-text">Connexion de la console au commutateur, requise lors de l'installation du FCR.</block>
   <block id="adbc02a7e46081db3727786cb62cdc0f" category="list-title">Documentation suggérée</block>
@@ -3200,7 +3197,6 @@
   <block id="5e13628627abec712f77b1d757bfe59f" category="list-text">Consultez les remarques suivantes concernant les versions de EFOS.</block>
   <block id="9b2d3fb1dc09edda79dfe09e637f9716" category="list-text">À partir de la version 3.7.x.x ou ultérieure de EFOS, une version non conforme à la norme FIPS et une version conforme à la norme FIPS sont disponibles. Différentes étapes sont appliquées lors du passage d'une version non conforme à la norme FIPS à une version conforme à la norme FIPS, et inversement. Le fait de remplacer EFOS d'une version non conforme à la norme FIPS par une version conforme à la norme FIPS ou vice versa réinitialise les paramètres par défaut du commutateur. Cette procédure nécessite un accès via le port série console.</block>
   <block id="7f824481c3b83fffcad8abfa0af8b312" category="inline-link">La mise à niveau sans interruption du commutateur de cluster BES-53248 a échoué à la mise à niveau vers EFOS 3.7.0.4 et versions ultérieures</block>
-  <block id="cec6ec2be042120b7ff4b5d0f1e40dee" category="admonition">Notez qu'après la mise à niveau des commutateurs de cluster BES-53248 de EFOS 3.3.x.x ou 3.4.x.x vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et le canal de port sont marqués dans l'état *down*. Consultez cet article de la base de connaissances :<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block> pour plus d'informations.</block>
   <block id="0fa8ca6cfd731f93388f2f318c1fb1d3" category="paragraph">Utilisez l'une des méthodes suivantes :</block>
   <block id="420b291d479da153c96fd1143e9d0e2f" category="list-text"><block ref="c306cecb30107650b346d91b7d7c74b6" category="inline-xref-macro-rx"></block>. Utilisez si une version de EFOS est conforme à la norme FIPS et que l'autre version de EFOS n'est pas conforme à la norme FIPS.</block>
   <block id="fa6c2d2a92519a714fe25ca830427ee1" category="section-title">Méthode 1 : installez EFOS</block>
@@ -3757,7 +3753,6 @@
   <block id="73cb4c03f2757beb35ad69fd322003be" category="list-text">[[step16]]convertir la paire haute disponibilité 1 d'un cluster sans commutateur en cluster commuté. Utiliser les affectations des ports du cluster définies par le FCR partagé. Voir <block ref="e0b55f136d815f7a36c41fd7fe28e0fd" category="inline-link-macro-rx"></block>pour plus d'informations.</block>
   <block id="12bc639206c2ca12e8a65041a697e4fc" category="paragraph">Accédez à<block ref="c686ee523547302c3fa5199eafd95753" category="inline-link-rx"></block>.</block>
   <block id="6446fc62a2115815d4bdbe55f18815c1" category="list-text"><block ref="47109c7943148b2a9617cfcb4b49a79f" category="inline-link-macro-rx"></block>.</block>
-  <block id="22eb01d1e7d6584a0da20f490dc5af77" category="paragraph"><block ref="22eb01d1e7d6584a0da20f490dc5af77" category="inline-link-macro-rx"></block></block>
   <block id="6f773061a9b11739f4b04a8b170f8f8e" category="paragraph">Selon votre configuration, vous pouvez <block ref="bd7e5f56c6474a1d0a59eeac0ce681d7" category="inline-link-macro-rx"></block>. Sinon, passez à <block ref="cd3d2c6d0c8a0c43f0a0e10375ad6bbc" category="inline-link-macro-rx"></block>.</block>
   <block id="7f81bc06b8e7a4bfd515767a4b4385fe" category="list-text">[[step6]]remplacer la FCR de stockage sur le commutateur a partagé par le fichier RCF partagé. Voir <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
   <block id="2b888f1fbb1010b5a426f7a2a88e0914" category="list-text">[[step12]]remplacer le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir <block ref="2f595b9f03c1eca7e988cc615d685264" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
@@ -4441,9 +4436,7 @@ Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]</block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Commandes utilisées</block>
-  <block id="1ad593dd61af4356ce9ba12d276c4336" category="section-title">Option 1 : installez le fichier RCF sur un nouveau commutateur</block>
   <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.</block>
-  <block id="121f18688d36f2438eb17eb52e61e7e8" category="section-title">Option 2 : mise à niveau des switchs existants avec une nouvelle version RCF</block>
   <block id="eba0713505eba2aab08d4d6fa9ca2cf7" category="paragraph">Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur vos switchs opérationnels.</block>
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">Assurez-vous de disposer des éléments suivants :</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration d'amorçage dans la mémoire RCF qui reflète les images d'amorçage souhaitées.</block>
@@ -4549,8 +4542,6 @@ Réinitialisez le commutateur sur les paramètres par défaut et appliquez le fi
   <block id="56e7024dc2e812be7449228dc66597d9" category="admonition">Mettez à niveau EFOS sur un commutateur à la fois pour assurer le fonctionnement continu du réseau de cluster.</block>
   <block id="c3e2e765c3744c1b19452b2f233fdd15" category="section-title">Méthode 1 : mise à niveau de EFOS</block>
   <block id="c117ec58c236a456904edaa76f1cc5a9" category="paragraph">Procédez comme suit pour mettre à niveau le logiciel EFOS.</block>
-  <block id="061be1b61be0d3e5b21e6a5912639344" category="admonition">Si vous avez installé des licences, vérifiez leur état.</block>
-  <block id="84d3d1386241334d40a809878bbb05d9" category="list-text">Répétez les étapes 5 à 10 sur le commutateur cs1.</block>
   <block id="83b8a0042e3650c5af884c9601f53043" category="inline-link-macro">Ne rétablit pas un LIF à son port de départ</block>
   <block id="870c6c263570c51afc056f510d552e1f" category="paragraph">Pour plus de détails, voir <block ref="b9ea844d3dd5520c7767de46f1c99a2b" category="inline-link-macro-rx"></block>.</block>
   <block id="d0dc5dfd4c3b3be079653b7f0ac8d844" category="paragraph">Vous pouvez effectuer les étapes suivantes si une version de EFOS est conforme à la norme FIPS et que l'autre version de EFOS n'est pas compatible FIPS. Ces étapes peuvent être utilisées pour mettre à niveau l'image EFOS 3.7.x.x non conforme FIPS ou FIPS à partir d'ONIE si le commutateur ne parvient pas à démarrer.</block>
@@ -4784,7 +4775,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="e4da4813fef5b96a216a043d594bf245" category="list-text">Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous <block ref="75ce5666fba6992a0719935651dd5b1b" category="inline-link-macro-rx"></block>à pour plus de détails sur les modifications supplémentaires requises.</block>
   <block id="bdbcf1c0d7f9cba19eb12819b953fbf1" category="inline-link">Le nœud n'a pas le quorum lors de la migration de la LIF du cluster pendant la mise à niveau du système d'exploitation du commutateur</block>
   <block id="e6ab3c0f7886a69b4cd4dc70d1d4afa9" category="admonition">Assurez-vous d'arrêter *tous* ports de cluster connectés pour éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances<block ref="c9b140831402716d03d51afcd09ff177" category="inline-link-rx"></block> pour plus de détails.</block>
-  <block id="263b9f10fe7e073e656b08a5b6da7e5a" category="paragraph">Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Reportez-vous au<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour vérifier les ports de cluster corrects sur vos plates-formes.</block>
   <block id="fc9b57bfb616bf5697d55f4dc656cead" category="inline-link-macro">Vérifier la configuration de SSH</block>
   <block id="1046b0a81eea5dae9091290036b99362" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block>.</block>
   <block id="95baf91c437105360687405b916b57fa" category="list-text">Chiffrez les clés SSH (pour *FIPS-mode uniquement*) :</block>
@@ -5142,7 +5132,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="5f9610f3409d9abe96cc344156486c5e" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block></block>
   <block id="e796841df950e342f76a5b538574f5f6" category="paragraph">Terminez votre migration vers un cluster à 2 nœuds avec commutateur.</block>
   <block id="e4ff582cba38e556dc88b3e74baf1ec1" category="paragraph">Directive non résolue dans &lt;stdin&gt; - include:../_include/install-rcf-Software-9336c-cluster.adoc[]</block>
-  <block id="688523fe289426758745102b5d3ea37f" category="paragraph">Directive non résolue dans &lt;stdin&gt; - include:../_include/upgrade-rcf-Software-9336c-cluster.adoc[]</block>
   <block id="1ececed2a569720ced41e9cd50d7b238" category="list-text">Le commutateur cs1 et le commutateur cs2 sont mis sous tension et la configuration initiale du commutateur est terminée (l'adresse IP de gestion et SSH sont configurés).</block>
   <block id="c3109b36f2c8edda93835ccefa0e4dc3" category="doc">Installez ou mettez à niveau la présentation du fichier de configuration de référence (RCF)</block>
   <block id="6d7b8066e6c7166408cb61e68a705e7f" category="list-text">Les noms des deux commutateurs Cisco sont *cs1* et *cs2*.</block>
@@ -5151,7 +5140,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="1c319a6cce094508e045c5bb62d6664e" category="paragraph">Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE *e0a* et *e0b*. Reportez-vous au<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour vérifier les ports de cluster corrects sur vos plates-formes.</block>
   <block id="88870df2dabeaf8bc50daf8d504498e0" category="inline-link-macro">Mettez à niveau votre FCR</block>
   <block id="d1d882c0929e664f5d3052ad227ecec9" category="paragraph"><block ref="51640e6af8359470cbd047034716b7ac" category="inline-link-macro-rx"></block> ou <block ref="d9cc2c4eec198e8f90466b5b89bfc33e" category="inline-link-macro-rx"></block>.</block>
-  <block id="fd7fe8bcb397a94d6c1c59e351072eac" category="doc">Mettre à niveau le fichier RCF (Reference Configuration File)</block>
   <block id="df73b0f89510f793b71a90bf50d82c10" category="list-text">La FCR actuelle.</block>
   <block id="85e086d364dc39fb9a01f1b57e7afc52" category="list-text">ONTAP 9.10.1P3 et versions ultérieures</block>
   <block id="e6645191453a89d37ca94dbd791a1499" category="paragraph">Le commutateur SN2100 prend en charge les applications de cluster et de stockage dans ONTAP 9.10.1P3 et versions ultérieures sur différentes paires de commutateurs.</block>
@@ -5194,4 +5182,15 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="b0d1465a243b273a8f71d6084fd2c12c" category="list-text">Vérifiez que la FCR est la version la plus récente correcte :</block>
   <block id="7fd5f97719ed93b62ce57a2401ebb179" category="list-text">Après avoir vérifié que les versions des fichiers RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config :</block>
   <block id="f7b017d791fb57f4bbb1b2ce01659ed8" category="paragraph">System Manager simplifie et simplifie le processus d'installation et de configuration du cluster, notamment l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et le provisionnement du stockage initial.</block>
+  <block id="7ff4d12d3e81fb159ea571275dbbb3fd" category="admonition">Notez qu'après la mise à niveau des commutateurs de cluster BES-53248 de EFOS 3.3.x.x ou 3.4.x.x vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et les canaux de port sont marqués dans l'état *down*. Il s'agit d'un comportement normal et la poursuite de la mise à niveau est sûre, sauf en cas de problème avec les LIF à rétablissement automatique. Pour plus d'informations, consultez l'article suivant de la base de connaissances :<block ref="eb6085a70a8e8bb2aba905d5e75797ab" category="inline-link-rx"></block>.</block>
+  <block id="4624388fca013386d1c7314566aa1510" category="list-text">Démarrez le système à partir de la configuration de sauvegarde :</block>
+  <block id="ae791522c9f7834f0edc56277ffe2340" category="paragraph"><block ref="f2210f21804aee53def01718125f3f18" prefix="" category="inline-code"></block></block>
+  <block id="892854a85c10d8b7b832a094d0b2b95e" category="list-text">Répétez les étapes 5 à 11 sur le commutateur cs1.</block>
+  <block id="b0411eb90c7d5ca211940fcb5d8f219a" category="doc">Mettez à niveau votre fichier de configuration de référence (RCF)</block>
+  <block id="657454366cb4a451c5905310b7f4d2cc" category="paragraph">Vous pouvez installer le fichier de configuration de référence (RCF) après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.</block>
+  <block id="34b61fdbe20d7b5fdf2f4d5655d2dc71" category="list-text">Les connexions ISL (Inter-Switch Link) entre les commutateurs sont connectées.</block>
+  <block id="5e9fc634461251750aac2012c638665a" category="doc">Mettez à niveau votre fichier de configuration de référence (RCF)</block>
+  <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.</block>
+  <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Pour NX-OS 10.2 et versions ultérieures, utilisez la<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> commande pour comparer avec le fichier RCF enregistré dans le bootflash. Sinon, utilisez un outil de comparaison ou de diff tiers.</block>
+  <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Vous devrez peut-être mettre à jour les entrées de fichier hôte liées aux clés SSH.</block>
 </blocks>

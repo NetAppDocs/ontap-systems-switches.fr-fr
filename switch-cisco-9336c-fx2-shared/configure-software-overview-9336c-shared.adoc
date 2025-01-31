@@ -16,5 +16,4 @@ Pour installer et configurer le logiciel d'un commutateur partagé Cisco Nexus 9
 . link:prepare-nxos-rcf-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"].
 . link:install-nxos-software-9336c-shared.html["Installez le logiciel NX-OS"].
 . link:install-nxos-rcf-9336c-shared.html["Installer la FCR"].
-. link:configure-ssh.html["Activez SSH"].
 

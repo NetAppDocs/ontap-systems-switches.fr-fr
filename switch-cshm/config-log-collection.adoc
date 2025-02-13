@@ -29,6 +29,7 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 
 * L'utilisateur doit avoir accès aux commandes du commutateur `show` . S'ils ne sont pas disponibles, créez un nouvel utilisateur et accordez les autorisations nécessaires à l'utilisateur.
 * La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
+* Pour la collecte de journaux avec les commutateurs Broadcom et Cisco, un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration avec la collecte de journaux activée. Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour le même utilisateur. Toute configuration de collecte de journaux supplémentaire effectuée remplace toute clé SSH préexistante pour l'utilisateur.
 * Pour la prise en charge de la collecte de journaux avec les commutateurs NVIDIA, _user_ pour la collecte de journaux doit être autorisé à exécuter la `cl-support` commande sans avoir à fournir de mot de passe. Pour autoriser cette utilisation, lancer la commande :
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`

@@ -4707,7 +4707,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="c76d1ab1bab3f2bc0c89856d8d6e3d40" category="paragraph">Suivez cette procédure pour configurer SNMPv3 pour votre commutateur spécifique, qui prend en charge CSHM.</block>
   <block id="5fb3828593766d454e79a0dcf52fed9d" category="paragraph">Les commandes suivantes sont utilisées pour configurer un nom d'utilisateur SNMPv3 sur les commutateurs *Broadcom*, *Cisco* et *NVIDIA* :</block>
   <block id="77f3beca20fcd78f77236507e8d9b4af" category="open-title">Commutateurs Broadcom</block>
-  <block id="89fe808c6ef5fe301085b5abe4406d35" category="paragraph">Configurez un nom d'utilisateur SNMPv3 OPÉRATEUR RÉSEAU sur les commutateurs Broadcom BES-53248.</block>
   <block id="c59df2c71925eefec8dc03aa685125c8" category="list-text">Pour *pas d'authentification* :</block>
   <block id="4c58055d9b16c25c354c591188cb27ae" category="list-text">Pour l'authentification *MD5/SHA* :</block>
   <block id="b00500f501ccb5c8ab2313d810b6ff29" category="list-text">Pour l'authentification *MD5/SHA avec cryptage AES/DES* :</block>
@@ -5193,4 +5192,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="9129459f5b5477d59e1fbb13abc9bbd4" category="admonition">Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.</block>
   <block id="4c4876d5d981da2e6943a052d93bb189" category="list-text">Pour NX-OS 10.2 et versions ultérieures, utilisez la<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> commande pour comparer avec le fichier RCF enregistré dans le bootflash. Sinon, utilisez un outil de comparaison ou de diff tiers.</block>
   <block id="0a306731a6993e7a08026ab2d7ca2d97" category="paragraph">Vous devrez peut-être mettre à jour les entrées de fichier hôte liées aux clés SSH.</block>
+  <block id="8b4a2ab0394283209f67c0b0e8ca9f94" category="list-text">Pour la collecte de journaux avec les commutateurs Broadcom et Cisco, un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration avec la collecte de journaux activée. Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour le même utilisateur. Toute configuration de collecte de journaux supplémentaire effectuée remplace toute clé SSH préexistante pour l'utilisateur.</block>
+  <block id="1d768064a88b1cd8a98efaa14d7f9949" category="paragraph">Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les switches Broadcom BES-53248.</block>
 </blocks>

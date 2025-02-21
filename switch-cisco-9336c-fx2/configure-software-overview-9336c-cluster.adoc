@@ -21,7 +21,7 @@ Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) doive
 +
 Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco Nexus 9336C-FX2.
 
-. link:install-nxos-rcf-9336c-cluster.html["Installez ou mettez à niveau le RCF"].
+. link:install-upgrade-rcf-overview-cluster.html["Installez ou mettez à niveau le RCF"].
 +
 Installez ou mettez à niveau le RCF après la première configuration du commutateur Cisco Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 

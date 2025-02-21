@@ -694,4 +694,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-link:install-nxos-rcf-9336c-cluster.html["Installation ou mise à niveau du fichier RCF (Reference Configuration File)"]
+link:install-upgrade-rcf-overview-cluster.html["Installation ou mise à niveau du fichier RCF (Reference Configuration File)"]

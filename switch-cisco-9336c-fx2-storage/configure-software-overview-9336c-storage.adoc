@@ -15,5 +15,5 @@ Pour installer et configurer le logiciel d'un commutateur de stockage Cisco Nexu
 
 . link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
 . link:install-nxos-software-9336c-storage.html["Installez le logiciel NX-OS"].
-. link:install-nxos-rcf-9336c-storage.html["Installez le fichier de configuration RCF"].
+. link:install-rcf-software-9336c-storage.html["Installez le fichier de configuration RCF"].
 

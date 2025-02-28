@@ -25,7 +25,7 @@ Suivez ces instructions pour configurer les commutateurs partagés Cisco Nexus 9
 .Étapes
 . Installez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224.
 +
-Voir la https://docs.netapp.com/platstor/topic/com.netapp.doc.hw-sw-9336c-install-cabinet/GUID-92287262-E7A6-4A62-B159-7F148097B33B.html["Instructions de rayonnage"] Pour apprendre à monter en rack le commutateur dans une armoire NetApp.
+Reportez-vous link:../switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html["Instructions de rayonnage"]au pour savoir comment insérer le commutateur dans une armoire NetApp.
 
 . Mettez les switchs, les contrôleurs et les tiroirs de stockage NVMe NS224 sous tension.
 

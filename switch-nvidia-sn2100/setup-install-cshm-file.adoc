@@ -45,14 +45,14 @@ Si votre modèle affiche toujours *OTHER* après avoir appliqué le fichier de c
 +
 `ls /etc/cshm_nod/nod_sign`
 
-.. Supprimez tous les fichiers NOD correspondant à vos modèles de commutateurs connectés.
+.. Supprimez tous les fichiers de configuration correspondant à vos modèles de commutateurs connectés.
 +
-Si vous n'êtes pas sûr, supprimez tous les fichiers NOD pour les modèles pris en charge répertoriés ci-dessus, puis téléchargez et installez les derniers fichiers NOD pour ces mêmes modèles.
+Si vous n'êtes pas sûr, supprimez tous les fichiers de configuration pour les modèles pris en charge répertoriés ci-dessus, puis téléchargez et installez les derniers fichiers de configuration pour ces mêmes modèles.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
 
-.. Vérifiez que les fichiers NOD supprimés ne se trouvent plus dans le répertoire :
+.. Vérifiez que les fichiers de configuration supprimés ne se trouvent plus dans le répertoire :
 +
 `ls /etc/cshm_nod/nod_sign`
 

@@ -18,3 +18,14 @@ Les commutateurs suivants ne sont plus disponibles à l'achat, mais sont toujour
 * link:./switch-cisco-92300/install-overview-cisco-92300.html["Cisco Nexus 92300YC"]
 * link:./switch-netapp-cn1610/install-overview-cn1610.html["NetApp CN1610"]
 
+
+
+
+== Annonces de fin de vente et de fin de vie
+
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Annonce de fin de vente et de fin de vie du Cisco Nexus 3232C"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html["Annonce de fin de vente et de fin de vie pour les commutateurs Cisco Nexus 31108PC-V, 31108TC-V et Nexus 3132Q-V."]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html["Annonce de fin de vente et de fin de vie pour le Cisco N9K-C93120TX, N9K-C92300YC"]
+* link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html["Annonce de fin de vente et de fin de vie des commutateurs Cisco Nexus 5500"]
+* link:https://mysupport.netapp.com/info/communications/ECMLP2859128.html["Fin de disponibilité : références de l'interconnexion de cluster NetApp CN1610"]
+

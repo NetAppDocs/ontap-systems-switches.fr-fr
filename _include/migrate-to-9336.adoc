@@ -15,7 +15,8 @@ Assurez-vous que :
 * La personnalisation initiale des commutateurs Cisco Nexus 9336C-FX2 est terminée :
 +
 ** Les commutateurs 9336C-FX2 exécutent la dernière version recommandée du logiciel.
-** Les fichiers de configuration de référence (RCFs) ont été appliqués aux commutateurs.
+** Vérifiez que les fichiers de configuration de référence (CFR) ont été entièrement appliqués aux nouveaux commutateurs avant de migrer les LIFs vers les nouveaux commutateurs.
+** Vérifiez les configurations en cours d'exécution et de démarrage sur les deux commutateurs avant de déplacer le trafic réseau.
 ** Toute personnalisation de site, telle que DNS, NTP, SMTP, SNMP, Et SSH, sont configurés sur les nouveaux commutateurs.
 
 

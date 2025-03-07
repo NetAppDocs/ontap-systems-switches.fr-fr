@@ -19,7 +19,7 @@ Le commutateur de cluster Cisco Nexus 9336C-FX2 fait partie de la plateforme Cis
 
 Pour configurer initialement un commutateur Cisco Nexus 9336C-FX2 sur les systèmes exécutant ONTAP, procédez comme suit :
 
-. link:setup-worksheet-9336c-cluster.html["Complétez la fiche technique de câblage Cisco Nexus 9336C-FX2"].
+. link:setup-worksheet-9336c-cluster.html["Remplissez les fiches de câblage Cisco Nexus 9336C-FX2 ou 9336C-FX2-T."].
 +
 L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 
@@ -43,7 +43,7 @@ Suivez les procédures préliminaires pour préparer l'installation du logiciel 
 +
 Installer ou mettre à niveau le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.
 
-. link:install-nxos-rcf-9336c-cluster.html["Installez ou mettez à niveau le RCF"].
+. link:install-upgrade-rcf-overview-cluster.html["Installez ou mettez à niveau le RCF"].
 +
 Installez ou mettez à niveau le RCF après la première configuration du switch Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 

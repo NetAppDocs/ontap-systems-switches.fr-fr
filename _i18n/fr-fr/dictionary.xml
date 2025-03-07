@@ -3635,7 +3635,6 @@
   <block id="ce140d6d1921435e3df40a72b6d032f4" category="sidebar">Migrer depuis les commutateurs CN1610</block>
   <block id="ac0586dfb2126d95d9be6378c5f70512" category="sidebar">Migrez d'un cluster sans commutateur vers un cluster commuté</block>
   <block id="703c0fedc12db69e340d7c2f3de0d764" category="sidebar">Remplacer les interrupteurs</block>
-  <block id="742d7720a6bdc19b4810641f0c74ddd3" category="sidebar">Mettre à niveau les commutateurs</block>
   <block id="5990fb757a59a934aeb2786bac162e97" category="sidebar">Installez le logiciel EFOS</block>
   <block id="e7d694813a2146a3ab31b4b907988620" category="sidebar">Activez SSH</block>
   <block id="037fd3285f5414c76c57c401fbc5603c" category="sidebar">Activer la collecte de journaux</block>
@@ -3901,7 +3900,6 @@
   <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.</block>
   <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.</block>
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :</block>
-  <block id="c77174e35b7f7fc235a87561809ad614" category="list-text">Examinez le résultat de la bannière du<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">Sur le switch, vérifiez que les ports sous licence supplémentaires s'affichent après l'application du RCF :</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New*</block>
   <block id="e07ca5d2322ee212c9dcb668e9db443a" category="image-alt">Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New</block>
@@ -4634,9 +4632,7 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="e1ef2bf589b36ef4fe890c1ce3f4414e" category="list-text"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block>.</block>
   <block id="629075dbdb9eff0fb95f99ab0fcd1967" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Installez ou mettez à niveau le RCF</block>
-  <block id="c04285e0007809b2644676a723882b00" category="list-text"><block ref="1fe309bd8e626375dc4971f4edf77d2d" category="inline-link-macro-rx"></block>.</block>
   <block id="01a618717f01c55d9b54bedd7307a43f" category="paragraph">Installez ou mettez à niveau le RCF après la première configuration du commutateur Cisco Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
-  <block id="b002a5cd7db32a3dea22b0992712b264" category="list-text"><block ref="56a03b023ba50fb49738eaf20203f57a" category="inline-link-macro-rx"></block>.</block>
   <block id="959598166d06ebc7f87da7525f293a91" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>.</block>
   <block id="df7bc1c04ccb094d3b474fc08a97d272" category="paragraph">Configurer le matériel du commutateur.</block>
   <block id="a7682f7ee72405f79f40850a1dea900c" category="list-text"><block ref="93d08ab8d6c80a25299648349a7a616c" category="inline-link-macro-rx"></block>.</block>
@@ -4779,7 +4775,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="2d7cd36455daea92f172ede16d765aae" category="list-text">[[step7]] Vérifiez que le cluster fonctionne correctement :</block>
   <block id="acdfe379cf0ed5868b119418e7d41b82" category="list-text">[[step11]] configurez la configuration sans commutateur pour les ports du groupe 2.</block>
   <block id="a2f7ec2dd8feebc2c1e30e5f859d4497" category="list-text">[[step6]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
-  <block id="2f3040f570b3d77425ad0bf50fc7985c" category="list-text">[[step6]]remplacez le niveau de privilège par admin :</block>
   <block id="4e4f70ba52e8cb595faa069991c5a9f4" category="list-text">[[step5]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
   <block id="c97fddef37af781b99f2bb564a90861d" category="list-text">[[step9]]remplacez le niveau de privilège par admin :</block>
   <block id="991d705309210a9623a3f1d994c15150" category="list-text">[[step10]]Arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :</block>
@@ -5139,7 +5134,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="f36aa89aee5a55633ce25b54c9a779d3" category="sidebar">Migrate_from_switchless_clusters</block>
   <block id="c32aa48aa3b92b64c3a5ea6a1b2e9a1f" category="sidebar">Migrez le flux de production à partir de clusters à 2 nœuds sans commutateur</block>
   <block id="df8a9198280d88db538535b2609f0f83" category="sidebar">Replace_switches_3232C</block>
-  <block id="6697bf1c75a0d4d8868afeab04858bc3" category="sidebar">Upgrade_switches_3232C</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Présentation de l'installation ou de la mise à niveau du RCF</block>
   <block id="b6503bc6a2e6ede86368a60473711626" category="list-text">Répétez les étapes 1 à 11 sur le commutateur cs1.</block>
@@ -5256,4 +5250,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="a9fc37ffea4ac5fbd75f369d96c903f6" category="sidebar">Commutateur de cluster - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.</block>
   <block id="ed3dd7f516f69cf573ae79a1781bbcbf" category="sidebar">Commutateur de cluster - commutateur de cluster NVIDIA SN2100</block>
   <block id="49e57b2c31c8feba776b7a2916673678" category="sidebar">Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.</block>
+  <block id="c66ea64be71d87967746ef74fac6ec75" category="list-text">[[step11]]Examinez la sortie de la bannière à partir de la<block ref="db837131dc56fab41bddc52d5aff8865" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.</block>
+  <block id="8b084baecf96a692280d1a024d86081d" category="list-text"><block ref="cf3a409f8782a7944244632e6a1adb8e" category="inline-link-macro-rx"></block>.</block>
 </blocks>

@@ -1,16 +1,7 @@
----
-permalink: switch-cshm/config-log-collection.html 
-sidebar: sidebar 
-keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La fonction de collecte des journaux du contrôleur d"état du commutateur Ethernet (CSHM) permet de collecter des journaux à partir des commutateurs du cluster ou du réseau de stockage dans ONTAP.' 
----
-= Configurer la collecte des journaux
+= Avant de commencer
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
 Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration de la collecte, de demande de journaux *support* détaillés et d'activation d'une collecte horaire de données *périodiques* collectées par AutoSupport.
 
 *REMARQUE :* si vous activez le mode FIPS, vous devez effectuer les opérations suivantes :
@@ -240,8 +231,3 @@ cluster1::*> *system switch ethernet log show -instance*
 
 --
 ====
-
-CAUTION: Si des États d'erreur sont signalés par la fonction de collecte de journaux (visible dans la sortie de `system switch ethernet log show`), voir link:log-collection-troubleshoot.html["Dépannage de la collecte des journaux"] pour plus de détails.
-
-.Et la suite ?
-link:config-snmpv3.html["Configurer SNMPv3 (facultatif)"].

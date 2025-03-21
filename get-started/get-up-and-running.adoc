@@ -15,37 +15,7 @@ Pour optimiser la mise en cluster, le stockage et les commutateurs partagés, vo
 
 Le déploiement du switch implique le workflow suivant.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez des contrôleurs AFF/FAS
-[role="quick-margin-para"]
-Installez les contrôleurs AFF/FAS sur le rack ou l'armoire. Accédez aux instructions d'installation et de configuration de votre modèle de plateforme AFF/FAS.
-
-[cols="4,9,9,9"]
-|===
-
-
- a| 
- a| 
-.Systèmes AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AVEC AFF A220"^]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
-
- a| 
-.Systèmes FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"^]
-
- a| 
-
-|===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Installez le matériel de fixation du commutateur
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez le matériel de fixation du commutateur
 [role="quick-margin-para"]
 Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions suivantes pour votre modèle de commutateur.
 
@@ -71,9 +41,28 @@ Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions 
 
 
 |===
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Installez le système de stockage et les tiroirs de stockage
+[role="quick-margin-para"]
+Installez le système de stockage et les tiroirs de stockage dans l'armoire ou le rack. Accédez aux instructions d'installation et de configuration de votre modèle de plate-forme.
+
+[cols="4,9,9,9"]
+|===
+
+
+ a| 
+ a| 
+* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Systèmes AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Systèmes ASA"^]
+* https://docs.netapp.com/us-en/asa-r2/index.html["Systèmes ASA r2"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Systèmes FAS"^]
+
+ a| 
+ a| 
+
+|===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Connectez les commutateurs aux contrôleurs
 [role="quick-margin-para"]
-Les instructions d'installation et de configuration du système AFF/FAS comprennent des instructions de câblage des ports de contrôleur au switch. Cependant, si vous avez besoin de listes de câbles et d'émetteurs-récepteurs pris en charge et d'informations détaillées sur les ports hôtes de votre commutateur, accédez aux instructions suivantes pour votre modèle de commutateur.
+Les instructions d'installation et de configuration des systèmes ONTAP comprennent des instructions pour le câblage des ports de contrôleur au commutateur. Cependant, si vous avez besoin de listes de câbles et d'émetteurs-récepteurs pris en charge et d'informations détaillées sur les ports hôtes de votre commutateur, accédez aux instructions suivantes pour votre modèle de commutateur.
 
 [cols="2,9,9,9"]
 |===
@@ -151,7 +140,7 @@ Pour installer et configurer le logiciel sur votre commutateur, suivez le workfl
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"] Terminez l'installation et la configuration du système
 [role="quick-margin-para"]
-Une fois les commutateurs configurés et le logiciel requis installé, accédez aux instructions d'installation et de configuration pour votre modèle de plateforme AFF/FAS afin de terminer la configuration du système.
+Une fois que vous avez configuré vos commutateurs et installé le logiciel requis, accédez aux instructions d'installation et de configuration de votre modèle de plateforme de systèmes ONTAP pour terminer la configuration du système.
 
 [cols="4,9,9,9"]
 |===
@@ -159,29 +148,18 @@ Une fois les commutateurs configurés et le logiciel requis installé, accédez 
 
  a| 
  a| 
-.Systèmes AFF
-* https://docs.netapp.com/us-en/ontap-systems/c190/install-setup.html["AFF C190"]
-* https://docs.netapp.com/us-en/ontap-systems/fas2700/install-setup.html["AVEC AFF A220"^]
-* https://docs.netapp.com/us-en/ontap-systems/a250/install-setup.html["AFF A250"^]
-* https://docs.netapp.com/us-en/ontap-systems/a400/install-setup.html["AFF A400"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["AFF A700"^]
-* https://docs.netapp.com/us-en/ontap-systems/a800/install-setup.html["AFF A800"^]
-* https://docs.netapp.com/us-en/ontap-systems/a900/install_detailed_guide.html["AFF A900"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Systèmes AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Systèmes ASA"^]
+* https://docs.netapp.com/us-en/asa-r2/index.html["Systèmes ASA r2"^]
+* https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Systèmes FAS"^]
 
  a| 
-.Systèmes FAS
-* https://docs.netapp.com/us-en/ontap-systems/fas500f/install-setup.html["FAS500f"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8300"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas8300/install-setup.html["FAS8700"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9000/install-setup.html["FAS9000"^]
-* https://docs.netapp.com/us-en/ontap-systems/fas9500/install_setup.html["FAS9500"]
-
  a| 
 
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"] Configuration ONTAP complète
 [role="quick-margin-para"]
-Une fois que vous avez installé et configuré vos contrôleurs et switchs AFF/FAS, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.
+Après avoir installé et configuré les contrôleurs et les commutateurs des systèmes ONTAP, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.
 
 [role="quick-margin-list"]
 * Pour les déploiements ONTAP, voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP"^].

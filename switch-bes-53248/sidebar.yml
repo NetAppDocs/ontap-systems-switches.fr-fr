@@ -20,6 +20,8 @@ entries:
     url: "/switch-bes-53248/install-hardware-bes53248.html"
   - title: Configurer le commutateur
     url: "/switch-bes-53248/configure-install-initial.html"
+  - title: Examiner le câblage et la configuration
+    url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
 - title: Configurez le logiciel
   pdf-filename: Configure_Software_bes53248
   entries:

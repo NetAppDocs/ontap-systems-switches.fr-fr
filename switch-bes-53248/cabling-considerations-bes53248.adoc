@@ -68,12 +68,11 @@ Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'in
 == Exigences FEC
 
 * Pour les ports 25G avec câbles en cuivre, voir le tableau suivant pour plus de détails.
-
-
++
 Si le côté contrôleur est `auto`, Le côté commutateur est réglé sur FEC 25G.
 
 +
-Image ::../media/FEC_copper_table.jpg[25G ports avec câbles en cuivre]
+image::../media/FEC_copper_table.jpg[Ports 25 G avec câbles en cuivre]
 
 * Pour les ports 25G avec câbles Fibre/optique, reportez-vous au tableau suivant pour plus de détails :
 +

@@ -105,12 +105,9 @@
   <block id="71a98c939bf9fe1ba2c2453cd7777824" category="list-text">Installez Cumulus Linux :</block>
   <block id="5bb8ca227d3f9b0b9fc45003bbe7d06c" category="list-text">Une fois l'installation terminée, connectez-vous au commutateur :</block>
   <block id="098d312f939d7511ad5f9bf80ccaea96" category="list-text">Vérifiez la version de Cumulus Linux :</block>
-  <block id="3722090c5c0b0496759b23b1db5566cd" category="doc">Installez le script RCF</block>
   <block id="90bd80eefde443be8809a3edf64f7ef2" category="list-text">Adresse IP, masque de sous-réseau et passerelle par défaut définis via DHCP ou configurés manuellement.</block>
   <block id="1d9152605063cf1b257a36675cece81c" category="inline-link-macro">Considérations relatives au câblage et à la configuration</block>
   <block id="526990b43ff7cafabc1a3c5dda4e8c9b" category="paragraph">Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.</block>
-  <block id="d43ffd29b9c1918eacb74ce61ab9c93d" category="list-text">Mise en cluster : *MSN2100-RCF-v1.8-Cluster*</block>
-  <block id="85948408e24eaebde36ef1a070afa259" category="list-text">Stockage : *MSN2100-RCF-v1.8-Storage*</block>
   <block id="47a90a8bc6531c96684b95f438b570ff" category="admonition">L'exemple de procédure suivant montre comment télécharger et appliquer le script RCF pour les commutateurs de cluster.</block>
   <block id="8e7538255f1b89e8cb901d939793795e" category="admonition">Exemple de sortie de commande utilise l'adresse IP de gestion de commutateur 10.233.204.71, le masque de réseau 255.255.254.0 et la passerelle par défaut 10.233.204.1.</block>
   <block id="cba289d19a283a01be4ec7d5598b25e8" category="list-text">Afficher les interfaces disponibles sur le commutateur SN2100 :</block>
@@ -2370,7 +2367,6 @@
   <block id="e0ab29823a477894018f5c53cfabeece" category="summary">Pour l'installation et la maintenance du commutateur NVIDIA SN2100, consultez la documentation recommandée.</block>
   <block id="7ec5693d2c180df872f5e23364ecd351" category="doc">Exigences en matière de documentation pour les switchs NVIDIA SN2100</block>
   <block id="5a5096484954db754c9fdc1d20f50720" category="summary">Suivez cette procédure pour installer le script RCF.</block>
-  <block id="2123b47f46a6b2a44de513e0c343098f" category="paragraph">Avant d'installer le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :</block>
   <block id="6b05439cc5176e82c5cfdc0d918624ea" category="paragraph"><block ref="e82a1249d31ab6e6d4064390013e6c55" prefix="" category="inline-code"></block></block>
   <block id="458ab89f862895d8f5ce855c654868d6" category="paragraph">Le script RCF effectue les étapes indiquées ci-dessus.</block>
   <block id="8d64daaea35553b232a39d8de9b07201" category="list-text">Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :</block>
@@ -5231,4 +5227,15 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="1422bf436bfd810c807aacf3aab99615" category="paragraph">Une fois que vous avez configuré vos commutateurs et installé le logiciel requis, accédez aux instructions d'installation et de configuration de votre modèle de plateforme de systèmes ONTAP pour terminer la configuration du système.</block>
   <block id="ce85a54726781b89fe08c28de38285c0" category="paragraph">Après avoir installé et configuré les contrôleurs et les commutateurs des systèmes ONTAP, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.</block>
   <block id="674426100287eb3a5e16cf5705c524ea" category="image-alt">Ports 25 G avec câbles en cuivre</block>
+  <block id="ec65012ad6ac37ed9d5b425acfa4cdea" category="doc">Installez ou mettez à niveau le script RCF (Reference Configuration File)</block>
+  <block id="60db3c5b6db09c40831f96fad7f5b5c4" category="paragraph">Suivez cette procédure pour installer ou mettre à niveau le script RCF.</block>
+  <block id="a26beebaedce14e4e55b90d7a8d895f4" category="paragraph">Avant d'installer ou de mettre à niveau le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :</block>
+  <block id="3a0aebe04bfa1f6aaf965b9c027512bc" category="open-title">Cumulus Linux 5.4.0</block>
+  <block id="9ec751f6f6fe23e217638410987b5aab" category="open-title">Cumulus Linux 5.11.0</block>
+  <block id="2340bc2649383727b40f4420d1b47844" category="doc">Mettez à niveau le script RCF (Reference Configuration File)</block>
+  <block id="8ab41648ed191efe1d9524e2535c7f4d" category="paragraph">Suivez cette procédure pour mettre à niveau le script RCF.</block>
+  <block id="b3be7362d2d8f250dc5fcbfaf784efd0" category="paragraph">Avant de mettre à niveau le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :</block>
+  <block id="997f5023d76908d72d993d6b09390a5e" category="doc">Installez ou mettez à niveau le script RCF</block>
+  <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Mise en grappe : *MSN2100-RCF-v1._x_-Cluster*</block>
+  <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Installez ou mettez à niveau le script RCF</block>
 </blocks>

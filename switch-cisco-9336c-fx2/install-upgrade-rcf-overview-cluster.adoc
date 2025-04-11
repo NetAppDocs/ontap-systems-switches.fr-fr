@@ -13,6 +13,8 @@ summary: 'SSH est une condition requise lors de l"utilisation des fonctions de s
 [role="lead"]
 Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur votre commutateur.
 
+Pour plus d'informations sur l'installation ou la mise à niveau de votre FCR, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^].
+
 .Configurations RCF disponibles
 Le tableau suivant décrit les CFR disponibles pour différentes configurations. Choisissez la FCR applicable à votre configuration.
 

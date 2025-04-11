@@ -13,6 +13,8 @@ summary: Vous pouvez installer le RCF après avoir configuré pour la première 
 [role="lead"]
 Vous installez le fichier de configuration de référence (RCF) après avoir configuré pour la première fois le commutateur de stockage Nexus 9336C-FX2.
 
+Pour plus d'informations sur l'installation de votre FCR, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^].
+
 .Avant de commencer
 Vérifiez les installations et les connexions suivantes :
 

@@ -13,6 +13,8 @@ summary: Vous pouvez installer la FCR après avoir configuré pour la première 
 [role="lead"]
 Vous pouvez installer la FCR après avoir configuré pour la première fois le commutateur Nexus 92300YC. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 
+Pour plus d'informations sur l'installation ou la mise à niveau de votre FCR, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^].
+
 .Description de la tâche
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 

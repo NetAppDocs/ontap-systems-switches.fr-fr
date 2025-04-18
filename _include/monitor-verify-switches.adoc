@@ -1,0 +1,47 @@
+= Confirmez la surveillance des commutateurs Ethernet connectés
+:allow-uri-read: 
+
+
+
+
+== Confirmez la surveillance des commutateurs Ethernet connectés
+
+Pour vérifier que les commutateurs Ethernet connectés sont surveillés, exécutez :
+
+[source, cli]
+----
+system switch ethernet show
+----
+Si la colonne affiche *OTHER* ou si `Model` le `IS Monitored` champ affiche *FALSE*, ONTAP ne peut pas surveiller le commutateur. Une valeur de *AUTRE* indique généralement que ONTAP ne prend pas en charge ce commutateur pour la surveillance de l'intégrité.
+
+Le `IS Monitored` champ est défini sur *FALSE* pour la raison spécifiée dans le `Reason` champ.
+
+[NOTE]
+====
+Si un commutateur n'est pas répertorié dans la sortie de la commande, ONTAP ne l'a probablement pas détecté. Vérifiez que le commutateur est correctement câblé. Si nécessaire, vous pouvez ajouter le commutateur manuellement. Voir link:manage-monitor.html["Gérer la surveillance des commutateurs Ethernet"] pour plus de détails.
+
+====
+
+
+== Vérifiez que les versions du firmware et des fichiers RCF sont à jour
+
+Assurez-vous que le commutateur exécute le micrologiciel le plus récent pris en charge et qu'un fichier RCF compatible a été appliqué. Plus d'informations sont disponibles sur le https://mysupport.netapp.com/site/downloads["Page des téléchargements du support NetApp"^].
+
+Par défaut, le moniteur d'intégrité utilise SNMPv2c avec la chaîne de communauté *cshm1!* pour la surveillance, mais SNMPv3 peut également être configuré.
+
+Si vous devez modifier la chaîne de communauté SNMPv2c par défaut, assurez-vous que la chaîne de communauté SNMPv2c souhaitée a été configurée sur le commutateur.
+
+[source, cli]
+----
+system switch ethernet modify -device SwitchA -snmp-version SNMPv2c -community-or-username newCommunity!
+----
+
+NOTE: Pour plus d'informations sur la configuration de SNMPv3 pour utilisation, reportez-vous à la sectionlink:config-snmpv3.html["Facultatif : configurer SNMPv3"].
+
+
+
+== Confirmez la connexion au réseau de gestion
+
+Vérifiez que le port de gestion du commutateur est connecté au réseau de gestion.
+
+Une connexion de port de gestion correcte est requise pour que ONTAP puisse effectuer des requêtes SNMP et collecter des journaux.

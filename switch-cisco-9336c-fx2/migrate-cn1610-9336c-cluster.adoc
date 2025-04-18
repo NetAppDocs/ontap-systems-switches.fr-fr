@@ -313,6 +313,10 @@ RPC status:
 ====
 . [[step5]] sur le commutateur C2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.
 +
+
+CAUTION: N'essayez pas de migrer manuellement les LIFs du cluster.
+
++
 [listing, subs="+quotes"]
 ----
 (C2)# *configure*

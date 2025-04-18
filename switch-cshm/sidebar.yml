@@ -19,6 +19,10 @@ entries:
   entries:
   - title: Présentation du bilan de santé
     url: "/switch-cshm/monitor-overview.html"
+  - title: Gérer la surveillance des commutateurs
+    url: "/switch-cshm/monitor-manage.html"
+  - title: Vérifier la surveillance du commutateur
+    url: "/switch-cshm/monitor-verify.html"
   - title: Résolution des alertes
     url: "/switch-cshm/monitor-troubleshoot.html"
 - title: Collecte de journaux

@@ -151,11 +151,11 @@ Les commandes suivantes désactivent les ports node-face sur les commutateurs sw
 ----
 cumulus@sw1:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw1:~$ *nv config apply*
-cumulus@sw1:~$ *nv save*
+cumulus@sw1:~$ *nv config save*
 
 cumulus@sw2:~$ *nv set interface swp1s0-3,swp2s0-3,swp3-14 link state down*
 cumulus@sw2:~$ *nv config apply*
-cumulus@sw2:~$ *nv save*
+cumulus@sw2:~$ *nv config save*
 ----
 . Vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs SN2100 sw1 et sw2 sont en service sur les ports swp15 et swp16 :
 +

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
 summary: 'Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l"exemple de fiche de câblage rempli comme guide.' 
 ---
-= Complétez la fiche technique de câblage Cisco Nexus 9336C-FX2
+= Remplissez les fiches de câblage Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,9 +15,15 @@ Pour documenter les plates-formes prises en charge, téléchargez le PDF de cett
 
 L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 
+* <<9336C-FX2 exemple de fiche technique sur le câblage>>
+* <<9336C-FX2 : fiche technique de câblage vierge>>
+* <<9336C-FX2-T exemple de fiche technique sur le câblage (12 ports)>>
+* <<Fiche technique sur le câblage vierge 9336C-FX2-T (12 ports)>>
 
 
-== Exemple de fiche de câblage
+
+
+== 9336C-FX2 exemple de fiche technique sur le câblage
 
 L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
 
@@ -437,7 +443,7 @@ Nœud 4 x 100 GbE 36
 |===
 
 
-== Feuille de câblage vierge
+== 9336C-FX2 : fiche technique de câblage vierge
 
 Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
 
@@ -769,3 +775,249 @@ Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes p
  a| 
 
 |===
+
+
+== 9336C-FX2-T exemple de fiche technique sur le câblage (12 ports)
+
+L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+
+[cols="1,3,1,3"]
+|===
+2+| Commutateur de cluster A 2+| Commutateur de cluster B 
+
+
+| Port du commutateur | Utilisation du nœud et du port | Port du commutateur | Utilisation du nœud et du port 
+
+
+ a| 
+1
+ a| 
+Nœud 4 x 100 GbE 1
+ a| 
+1
+ a| 
+Nœud 4 x 100 GbE 1
+
+
+
+ a| 
+2
+ a| 
+Nœud 4 x 100 GbE 2
+ a| 
+2
+ a| 
+Nœud 4 x 100 GbE 2
+
+
+
+ a| 
+3
+ a| 
+Nœud 4 x 100 GbE 3
+ a| 
+3
+ a| 
+Nœud 4 x 100 GbE 3
+
+
+
+ a| 
+4
+ a| 
+Nœud 4 x 100 GbE 4
+ a| 
+4
+ a| 
+Nœud 4 x 100 GbE 4
+
+
+
+ a| 
+5
+ a| 
+Nœud 4 x 100 GbE 5
+ a| 
+5
+ a| 
+Nœud 4 x 100 GbE 5
+
+
+
+ a| 
+6
+ a| 
+Nœud 4 x 100 GbE 6
+ a| 
+6
+ a| 
+Nœud 4 x 100 GbE 6
+
+
+
+ a| 
+7
+ a| 
+Nœud 4 x 100 GbE 7
+ a| 
+7
+ a| 
+Nœud 4 x 100 GbE 7
+
+
+
+ a| 
+8
+ a| 
+Nœud 4 x 100 GbE 8
+ a| 
+8
+ a| 
+Nœud 4 x 100 GbE 8
+
+
+
+ a| 
+9
+ a| 
+Nœud 4 x 100 GbE 9
+ a| 
+9
+ a| 
+Nœud 4 x 100 GbE 9
+
+
+
+ a| 
+10
+ a| 
+Nœud 4 x 100 GbE 10
+ a| 
+10
+ a| 
+Nœud 4 x 100 GbE 10
+
+
+
+ a| 
+11 à 36
+ a| 
+Requiert une licence
+ a| 
+11 à 36
+ a| 
+Requiert une licence
+
+|===
+
+
+== Fiche technique sur le câblage vierge 9336C-FX2-T (12 ports)
+
+Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.
+
+[cols="1, 1, 1, 1"]
+|===
+2+| Commutateur de cluster A 2+| Commutateur de cluster B 
+
+
+ a| 
+1
+ a| 
+ a| 
+1
+ a| 
+
+
+
+ a| 
+2
+ a| 
+ a| 
+2
+ a| 
+
+
+
+ a| 
+3
+ a| 
+ a| 
+3
+ a| 
+
+
+
+ a| 
+4
+ a| 
+ a| 
+4
+ a| 
+
+
+
+ a| 
+5
+ a| 
+ a| 
+5
+ a| 
+
+
+
+ a| 
+6
+ a| 
+ a| 
+6
+ a| 
+
+
+
+ a| 
+7
+ a| 
+ a| 
+7
+ a| 
+
+
+
+ a| 
+8
+ a| 
+ a| 
+8
+ a| 
+
+
+
+ a| 
+9
+ a| 
+ a| 
+9
+ a| 
+
+
+
+ a| 
+10
+ a| 
+ a| 
+10
+ a| 
+
+
+
+ a| 
+11 à 36
+ a| 
+Requiert une licence
+ a| 
+11 à 36
+ a| 
+Requiert une licence
+
+|===
+Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.

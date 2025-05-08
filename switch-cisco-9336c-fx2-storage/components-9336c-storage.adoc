@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-storage/components-9336c-storage.html
 keywords: shared storage cluster switch 
 summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé. 
 ---
-= Composants et références pour les commutateurs de stockage Cisco Nexus 9336C-FX2
+= Composants et références des switchs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,9 +14,9 @@ summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutate
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, veillez à consulter la liste des composants et références.
+Pour l'installation et la maintenance des commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T, veillez à consulter la liste des composants et références.
 
-Le tableau suivant répertorie le numéro de référence et la description du commutateur 9336C-FX2, des ventilateurs et des alimentations électriques :
+Le tableau suivant répertorie la référence et la description des commutateurs de stockage, ventilateurs et blocs d'alimentation 9336C-FX2-T et 9336C-FX2-T :
 
 [cols="1,2"]
 |===
@@ -26,28 +26,49 @@ Le tableau suivant répertorie le numéro de référence et la description du co
  a| 
 X190200-CS-PE
  a| 
-N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28
+Commutateur de tableau de bord, N9336C 36pt PTSX 10/25/40/100G
 
 
 
  a| 
 X190200-CS-PI
  a| 
-N9K-9336C-FX2, CS, PSIN, 36PT10/25/40/100GQSFP28
+Commutateur de groupe d'instruments, N9336C 36pt SIN 10/25/40/100G
+
+
+
+ a| 
+X190212-CS-PE
+ a| 
+Commutateur du bloc d'instruments, N9336C 12pt (9336C-FX2-T) PTSX 10/25/40/100G
+
+
+
+ a| 
+X190212-CS-PI
+ a| 
+Commutateur de groupe d'instruments, N9336C 12pt (9336C-FX2-T) SIN 10/25/40/100G
+
+
+
+ a| 
+SW-N9K-FX2-24P-UPG
+ a| 
+Licence POD 24 ports pour SW, Cisco 9336CFX2
 
 
 
  a| 
 X190210-FE-PE
  a| 
-N9K-9336C, FTE, PTSX, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28
 
 
 
  a| 
 X190210-FE-PI
  a| 
-N9K-9336C, FTE, PSIN, 36PT10/25/40/100GQSFP28
+N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28
 
 
 
@@ -85,3 +106,15 @@ X-NXA-FAN-65CFM-PI
 N9K-9336C 65CFM, débit d'air d'admission côté port
 
 |===
+
+
+== Licences intelligentes Cisco
+
+Pour activer plus de 12 ports sur votre switch de stockage Cisco Nexus 9336C-FX-T, vous devez acheter une licence intelligente Cisco. Les licences intelligentes Cisco sont gérées via les comptes intelligents Cisco.
+
+. Créez un nouveau compte Smart, si nécessaire. Voir https://id.cisco.com/signin/register["Créez un nouveau compte Smart"^] pour plus de détails.
+. Demandez l'accès à un compte Smart existant. Voir https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Demandez l'accès à un compte Smart existant"^] pour plus de détails.
+
+
+
+NOTE: Une fois que vous avez acheté votre licence Smart, installez le RCF approprié pour activer et configurer les 36 ports disponibles.

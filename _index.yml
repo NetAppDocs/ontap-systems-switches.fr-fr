@@ -21,7 +21,7 @@ indexpage:
       url: "/switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
     - title: Commutateur de cluster - commutateur de cluster NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
-    - title: 'Switch de stockage : Cisco Nexus 9336C-FX2'
+    - title: Commutateur de stockage - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
     - title: Commutateur de stockage - NVIDIA SN2100
       url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"

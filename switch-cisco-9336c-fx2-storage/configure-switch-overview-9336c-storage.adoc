@@ -20,12 +20,33 @@ Le commutateur Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 90
 Pour configurer initialement un commutateur Cisco Nexus 9336C-FX2 sur les systèmes exécutant ONTAP, procédez comme suit :
 
 . link:setup-worksheet-9336c-storage.html["Remplir la fiche de câblage"].
++
+L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+
 . link:install-9336c-storage.html["Poser le commutateur"].
++
+Configurer le matériel du commutateur.
+
 . link:setup-switch-9336c-storage.html["Configurer le commutateur"].
++
+Configurer le commutateur de stockage Cisco Nexus 9336C-FX2.
+
 . link:install-switch-and-passthrough-panel-9336c-storage.html["Installer le commutateur dans une armoire NetApp"].
-. link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
-. link:install-nxos-software-9336c-storage.html["Installez le logiciel NX-OS"].
-. link:install-rcf-software-9336c-storage.html["Installez le fichier de configuration RCF"].
++
+En fonction de votre configuration, vous pouvez installer le commutateur Cisco Nexus 9336C-FX2 et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.
+
+. link:install-nxos-overview-9336c-storage.html["Préparez l'installation ou la mise à niveau de NX-OS et RCF"].
++
+Suivez les procédures préliminaires pour préparer l'installation du logiciel Cisco NX-OS et des fichiers de configuration de référence (RCFs).
+
+. link:install-nxos-software-9336c-storage.html["Installez ou mettez à niveau le logiciel NX-OS"].
++
+Installer ou mettre à niveau le logiciel NX-OS sur le commutateur de stockage Nexus 9336C-FX2.
+
+. link:install-rcf-software-9336c-storage.html["Installez ou mettez à niveau le fichier de configuration RCF"].
++
+Installez ou mettez à niveau le RCF après la première configuration du switch Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+
 
 
 

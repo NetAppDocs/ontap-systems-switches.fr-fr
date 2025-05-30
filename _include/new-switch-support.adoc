@@ -8,6 +8,15 @@
 
 
  a| 
+Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T 12 ports 10/25/40/100 GbE (X190212-CS-PE et X190212-CS-PI)
+ a| 
+Prend en charge les configurations de cluster 10/25/40/100 GbE et les configurations de stockage 100 GbE (stockage connecté au commutateur).
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
 Commutateur NVIDIA 100 GbE à 16 ports (X190006-PE et X190006-PI)
  a| 
 Prise en charge du commutateur d'interconnexion de cluster NVIDIA SN2100 et du commutateur de stockage, y compris la prise en charge des configurations MetroCluster IP.

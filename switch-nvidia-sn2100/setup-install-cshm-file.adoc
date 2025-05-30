@@ -11,26 +11,21 @@ summary: 'Vous pouvez utiliser cette procédure pour installer le fichier de con
 
 
 [role="lead"]
-Suivez cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état du commutateur Ethernet des commutateurs de cluster NVIDIA.
+Pour configurer la surveillance de l’état du commutateur Ethernet sur les commutateurs Ethernet NVIDIA, suivez cette procédure.
 
-Modèles pris en charge :
+Ces instructions s'appliquent si les commutateurs NVIDIA X190006-PE et X190006-PI ne sont pas détectés correctement, ce qui peut être confirmé en exécutant  `system switch ethernet show` et vérifiez si *AUTRE* est affiché pour votre modèle. Pour identifier votre modèle de commutateur NVIDIA, recherchez sa référence à l'aide de la commande  `nv show platform hardware` pour NVIDIA CL 5.8 et versions antérieures ou  `nv show platform` pour les versions ultérieures.
 
-* MSN2100-CB2FC
-* MSN2100-CB2RC
-* X190006-PE
-* X190006-PI
+[NOTE]
+====
+Ces étapes sont également recommandées si vous souhaitez que la surveillance de l'intégrité et la collecte des journaux fonctionnent correctement lors de l'utilisation de NVIDIA CL 5.11.x avec les versions ONTAP suivantes. Bien que la surveillance de l'intégrité et la collecte des journaux puissent fonctionner sans ces étapes, leur respect garantit le bon fonctionnement de l'ensemble.
+
+* 9.10.1P20, 9.11.1P18, 9.12.1P16, 9.13.1P8, 9.14.1, 9.15.1 et versions ultérieures des correctifs
 
 
-
-NOTE: Cette procédure d'installation s'applique à ONTAP 9.10.1 et versions ultérieures.
-
+====
 .Avant de commencer
-* Vérifiez que vous devez télécharger le fichier de configuration en exécutant et en `system switch ethernet show` vérifiant si *OTHER* est affiché pour votre modèle.
-+
-Si votre modèle affiche toujours *OTHER* après avoir appliqué le fichier de configuration, contactez le support NetApp.
-
 * Assurez-vous que le cluster ONTAP est opérationnel.
-* Activez SSH pour utiliser toutes les fonctionnalités disponibles dans CSHM.
+* Activez SSH sur le commutateur pour utiliser toutes les fonctionnalités disponibles dans CSHM.
 * Effacez le `/mroot/etc/cshm_nod/nod_sign/` répertoire sur tous les nœuds :
 +
 .. Entrez le nodeshell :
@@ -101,7 +96,7 @@ Si vous n'êtes pas sûr, supprimez tous les fichiers de configuration pour les 
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system cluster-switch configure-health-monitor -node * -package-url http://192.168.2.20/usr/download/_[filename.zip]_*
+cluster1::> *system switch ethernet*
 ----
 . Vérifiez que le résultat de la commande se termine par le texte suivant pour votre version de ONTAP :
 
@@ -134,6 +129,9 @@ En cas d'erreur, contactez le support NetApp.
 cluster1::> *system switch ethernet show*
 ----
 
+
+
+NOTE: Si votre modèle affiche toujours *OTHER* après avoir appliqué le fichier de configuration, contactez le support NetApp.
 
 .Et la suite ?
 link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

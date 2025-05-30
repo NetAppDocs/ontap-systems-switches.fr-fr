@@ -83,7 +83,7 @@ Fournit des informations réglementaires, de sécurité et de conformité aux or
 
 == Documentation sur les systèmes ONTAP
 
-Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation à partir du https://docs.netapp.com/ontap-9/index.jsp["Centre de documentation ONTAP 9"^].
+Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation de  https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
 
 [cols="1,2"]
 |===

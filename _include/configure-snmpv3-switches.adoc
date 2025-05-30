@@ -2,13 +2,18 @@
 :allow-uri-read: 
 
 
-SNMPv3 est plus sécurisé que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le cryptage et l'intégrité des messages, qui protègent contre les accès non autorisés et assurent la confidentialité et l'intégrité des données pendant la transmission.
+[NOTE]
+====
+* SNMPv3 n'est pris en charge que sur ONTAP 9.12.1 et versions ultérieures.
+* ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 et les versions ultérieures corrigent ces deux problèmes :
++
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Pour la surveillance de l'état ONTAP des commutateurs Cisco, le trafic SNMPv2 peut toujours être visible après le passage à SNMPv3 pour la surveillance"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["Alertes de ventilateur et d'alimentation de commutateur faussement positives en cas de pannes SNMP"^]
 
 
-NOTE: SNMPv3 n'est pris en charge que sur ONTAP 9.12.1 et versions ultérieures.
 
-Suivez cette procédure pour configurer SNMPv3 pour votre commutateur spécifique, qui prend en charge CSHM.
 
+====
 .Description de la tâche
 Les commandes suivantes sont utilisées pour configurer un nom d'utilisateur SNMPv3 sur les commutateurs *Broadcom*, *Cisco* et *NVIDIA* :
 
@@ -123,7 +128,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 ----
-. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui décrit à l'étape précédente après la fin de la période d'interrogation CSHM.
+. Après avoir attendu la période d’interrogation CSHM, vérifiez que le numéro de série est renseigné pour le commutateur Ethernet.
 +
 [source, cli]
 ----
@@ -311,9 +316,9 @@ cluster1::*>
 
 
 --
-.NVIDIA : CLI 5.4
+.NVIDIA - CL 5.4.0
 --
-Configurer un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant CLI 5.4 :
+Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant CLI 5.4.0 :
 
 * Pour *pas d'authentification* :
 +
@@ -507,9 +512,9 @@ DEPRECATED-Community String or SNMPv3 Username: -
 
 
 --
-.NVIDIA : CLI 5.11
+.NVIDIA - CL 5.11.0
 --
-Configurer un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant CLI 5.11 :
+Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant CLI 5.11.0 :
 
 * Pour *pas d'authentification* :
 +

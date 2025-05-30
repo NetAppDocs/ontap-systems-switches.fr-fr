@@ -11,6 +11,24 @@ summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référenc
 [role="lead"]
 Avant d'installer le logiciel NX-OS et le fichier RCF (Reference Configuration File), suivez cette procédure.
 
+.Documentation suggérée
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]
++
+Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guides de mise à niveau et de mise à niveau des logiciels"^]
++
+Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Mise à niveau Cisco Nexus 9000 et 3000 et matrice ISSU"^]
++
+Fournit des informations sur la mise à niveau/rétrogradation perturbatrice du logiciel Cisco NX-OS sur les commutateurs Nexus série 9000 en fonction de vos versions actuelles et cibles.
+
++
+Sur la page, sélectionnez *upgrade perturbateur* et sélectionnez votre version actuelle et votre version cible dans la liste déroulante.
+
+
+
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
@@ -211,7 +229,7 @@ cluster1::*> *network interface show -vserver Cluster -fields auto-revert*
 
           Logical
 Vserver   Interface           Auto-revert
---------- ––––––-------------- ------------
+--------- ------------------- ------------
 Cluster
           cluster1-01_clus1   true
           cluster1-01_clus2   true

@@ -66,25 +66,40 @@ Password:
 (Routing)# *hostname cs2*
 (cs2)#
 ----
-. Pour définir une adresse IP statique, utilisez le `serviceport protocol`, `network protocol`, et `serviceport ip` commandes comme indiqué dans l'exemple.
-+
+. Pour définir une adresse de gestion IPv4 ou IPv6 statique pour le port de service du commutateur :
+
+
+[role="tabbed-block"]
+====
+.IPv4
+--
 Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
 
-+
 [listing, subs="+quotes"]
 ----
 (cs2)# *serviceport protocol none*
 (cs2)# *network protocol none*
-(cs2)# *serviceport ip ipaddr netmask gateway*
+(cs2)# *serviceport ip <ip-address> <netmask> <gateway>*
 ----
-. Vérifiez les résultats à l'aide de la commande :
+--
+.IPv6
+--
+Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
+
+[listing, subs="+quotes"]
+----
+(cs2)# *serviceport protocol none*
+(cs2)# *network protocol none*
+(cs2)# *serviceport ipv6 <address>*
+(cs2)# *serviceport ipv6 <gateway>*
+----
+--
+====
+. [[step7]]Vérifiez les résultats à l'aide de la commande :
 +
 `show serviceport`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 (cs2)# *show serviceport*
@@ -100,7 +115,6 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-====
 . Configurez le domaine et le serveur de noms :
 +
 [source, cli]

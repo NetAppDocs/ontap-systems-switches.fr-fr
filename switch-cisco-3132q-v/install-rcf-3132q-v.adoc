@@ -206,9 +206,17 @@ Assurez-vous que la fonction de restauration automatique est désactivée après
 +
 [listing, subs="+quotes"]
 ----
+cs2> *enable*
+cs2# *configure*
 cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
 ----
++
+
+NOTE: Le nombre de ports affichés varie en fonction du nombre de nœuds du cluster.
+
 . Vérifiez que les ports de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
 +
 `network interface show -vserver Cluster`
@@ -570,10 +578,18 @@ NOTE: Les nœuds de cluster peuvent prendre jusqu'à 5 minutes pour qu'ils fonct
 ====
 [listing, subs="+quotes"]
 ----
+cs1> *enable*
+cs1# *configure*
 cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1# *exit*
 ----
 ====
++
+
+NOTE: Le nombre de ports affichés varie en fonction du nombre de nœuds du cluster.
+
 . Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.
 +
 `network interface show -vserver Cluster`

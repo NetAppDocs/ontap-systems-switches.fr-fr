@@ -11,6 +11,19 @@ summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté ve
 
 
 [role="lead"]
+Dans ONTAP 9.3 et versions ultérieures, vous pouvez migrer d'un cluster avec un réseau de cluster commuté vers un cluster où deux nœuds sont directement connectés.
+
+[NOTE]
+====
+NetApp vous recommande de mettre à jour votre version ONTAP avant de procéder à l'opération de basculement vers un cluster sans commutateur pour les commutateurs Cisco Nexus 3132Q-V.
+
+Pour plus d'informations, consultez les documents suivants :
+
+* link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU540["SU540 : Les erreurs de la carte réseau Chelsio T6 provoquent l'arrêt du système lors de la mise à niveau des commutateurs réseau 40G vers 100G"^]
+* link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_panic_after_migration_from_switched_to_switchless_cluster["Panique du nœud après la migration d'un cluster commuté vers un cluster sans commutateur"^]
+
+
+====
 Vous pouvez migrer d'un cluster avec un réseau de cluster commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.
 
 

@@ -606,13 +606,6 @@ cluster1::*>
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Redémarrer le commutateur cs1. Vous pouvez ainsi déclencher des LIF de cluster afin de rétablir leur port de départ. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.
-+
-[listing, subs="+quotes"]
-----
-cs1# *reload*
-This command will reboot the system. (y/n)?  [n] *y*
-----
 . Vérifier que les ports de commutateurs connectés aux ports du cluster sont bien connectés.
 +
 .Montrer l'exemple

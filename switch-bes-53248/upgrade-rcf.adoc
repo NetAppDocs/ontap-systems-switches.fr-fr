@@ -409,7 +409,7 @@ vlan database
 no vlan 17
 no vlan 18
 exit
-show-running-config
+show running-config
 ----
 .. Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
 +
@@ -657,7 +657,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 +
 [source, cli]
 ----
-show running config
+show running-config
 ----
 . Enregistrez la configuration en cours d'exécution afin qu'elle devienne la configuration de démarrage lorsque vous redémarrez le commutateur :
 +

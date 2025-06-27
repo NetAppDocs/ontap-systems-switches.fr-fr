@@ -40,6 +40,23 @@ SSH Public Key Authentication Mode: ........... Disabled
 SCP server Administrative Mode: ............... Disabled
 ----
 ====
++
+Si SSH n’est pas désactivé, désactivez-le comme suit :
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(switch)# *ip ssh server disable*
+(switch)# *ip scp server disable*
+----
+====
++
+
+WARNING: Assurez-vous de désactiver SSH avant de modifier les clés, sinon, un avertissement est signalé sur le commutateur.
+
 . Générez les clés SSH :
 +
 `crypto key generate`
@@ -82,10 +99,6 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-+
-
-WARNING: Assurez-vous que SSH est désactivé avant de modifier les clés, sinon un avertissement est signalé sur le commutateur.
-
 . Chiffrez les clés SSH (pour *FIPS-mode uniquement*) :
 +
 
@@ -167,4 +180,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"]

@@ -4149,7 +4149,6 @@
   <block id="88948f2b657a3c9e5eec3736dcca6cdf" category="paragraph">ISL 100 GbE vers le port 35 du commutateur A</block>
   <block id="56299051abd1af0cbe5dbee773fed3d5" category="paragraph">ISL 100 GbE vers le port 36 du commutateur B</block>
   <block id="5e596a6e5f0ffe0604d651cde90e34f0" category="paragraph">ISL 100 GbE vers le port 36 du commutateur A</block>
-  <block id="b6deba442a3eaadb05f02285eb6e8113" category="admonition">Assurez-vous que SSH est désactivé avant de modifier les clés, sinon un avertissement est signalé sur le commutateur.</block>
   <block id="19d577c8c5ac871bd4528e45b94e3215" category="paragraph">Nœud 40 GbE 7</block>
   <block id="6eabf22260c7ae80ec5e2274e9c4f09e" category="paragraph">Nœud 40 GbE 8</block>
   <block id="bea5a6b9eaf26fd0f9b528724d800b60" category="paragraph">Nœud 40 GbE 9</block>
@@ -5327,4 +5326,8 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="de7ffa00f75520afd4312c03db0da03c" category="list-text"><block ref="de7ffa00f75520afd4312c03db0da03c" category="inline-link-macro-rx"></block></block>
   <block id="c409f8a3c1a31991297c71a6ef92dff2" category="inline-link-macro">Panique du nœud après la migration d'un cluster commuté vers un cluster sans commutateur</block>
   <block id="55f49c71e99a86d3514c015252eee468" category="list-text"><block ref="55f49c71e99a86d3514c015252eee468" category="inline-link-macro-rx"></block></block>
+  <block id="a9a5bde505ea573688279b9aed85b83d" category="paragraph">Si SSH n’est pas désactivé, désactivez-le comme suit :</block>
+  <block id="1991f73b95765ab4d1861d2717ed45f2" category="admonition">Assurez-vous de désactiver SSH avant de modifier les clés, sinon, un avertissement est signalé sur le commutateur.</block>
+  <block id="5046b85a70c9d571be19e2a0283d236b" category="admonition">À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande <block ref="633fe61df4a2e20028fd063d6108557f" prefix=" " category="inline-code"></block> est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.</block>
+  <block id="1767f5d7b100e3d4d6c5fea66216a39c" category="admonition">À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue.net est exécutée. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.</block>
 </blocks>

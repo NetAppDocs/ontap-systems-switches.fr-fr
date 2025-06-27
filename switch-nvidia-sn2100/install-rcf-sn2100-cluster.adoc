@@ -407,7 +407,7 @@ Le script RCF exécute les étapes indiquées dans l'exemple ci-dessus.
 
 +
 
-NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue` est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
+NOTE: À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande  `cat /etc/issue.net` est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
 
 +
 Par exemple :
@@ -415,7 +415,7 @@ Par exemple :
 +
 [listing]
 ----
-admin@sw1:mgmt:~$ cat /etc/issue
+admin@sw1:mgmt:~$ cat /etc/issue.net
 ******************************************************************************
 *
 * NetApp Reference Configuration File (RCF)
@@ -773,7 +773,7 @@ Le script RCF exécute les étapes indiquées dans l'exemple ci-dessus.
 
 +
 
-NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue` est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
+NOTE: À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue.net est exécutée. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
 
 +
 Par exemple :
@@ -781,7 +781,7 @@ Par exemple :
 +
 [listing]
 ----
-admin@sw1:mgmt:~$ cat /etc/issue
+admin@sw1:mgmt:~$ cat /etc/issue.net
 ******************************************************************************
 *
 * NetApp Reference Configuration File (RCF)

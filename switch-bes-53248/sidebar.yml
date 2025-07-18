@@ -38,6 +38,8 @@ entries:
     url: "/switch-bes-53248/configure-install-rcf.html"
   - title: Activez SSH pour la collecte des journaux
     url: "/switch-bes-53248/configure-ssh.html"
+  - title: Réinitialiser le commutateur aux paramètres d'usine
+    url: "/switch-bes-53248/reset-switch-bes-53248.html"
 - title: Commutateur de mise à niveau
   pdf-filename: Upgrade_switches_bes53248
   entries:

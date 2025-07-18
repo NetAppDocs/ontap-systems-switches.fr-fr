@@ -31,7 +31,7 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 * La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
 * Pour la collecte de journaux avec les commutateurs Broadcom et Cisco :
 +
-** Les utilisateurs doivent disposer d'un Privileges d'administration réseau.
+** L'utilisateur local doit disposer de privilèges d'administrateur réseau.
 ** Un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration de cluster avec la collecte des journaux activée. Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour le même utilisateur. Toute configuration de collecte de journaux supplémentaire effectuée remplace toute clé SSH préexistante pour l'utilisateur.
 
 

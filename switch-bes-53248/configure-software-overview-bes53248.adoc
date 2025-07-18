@@ -11,7 +11,7 @@ summary: Passez en revue la présentation du logiciel.
 
 
 [role="lead"]
-Pour installer et configurer initialement le logiciel pour un commutateur de cluster BES-53248, procédez comme suit :
+Pour installer et configurer le logiciel d'un commutateur de cluster BES-53248, procédez comme suit :
 
 . link:configure-efos-software.html["Installez le logiciel EFOS"].
 +
@@ -28,5 +28,9 @@ Installez ou mettez à niveau le RCF sur le commutateur de cluster BES-53248, pu
 . link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"].
 +
 Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, activez SSH sur les commutateurs.
+
+. link:reset-switch-bes-53248.html["Réinitialiser le commutateur aux paramètres d'usine"].
++
+Effacez les paramètres du commutateur de cluster BES-53248.
 
 

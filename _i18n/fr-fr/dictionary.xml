@@ -3110,7 +3110,6 @@
   <block id="ce4c0c35cac0cafac061a49da52f93cd" category="paragraph"><block ref="74dd19c11d43cfa2dd387ecf7d984746" category="inline-link-macro-rx"></block>.</block>
   <block id="d007743863da413e0445811c05d574db" category="summary">Passez en revue la présentation du logiciel.</block>
   <block id="93d9f7b647768c2633a5b9f8a68e2b52" category="doc">Workflow d'installation du logiciel pour les commutateurs BES-53248</block>
-  <block id="6dd4b5e58bd32b079e19b1dda5c2f1bc" category="paragraph">Pour installer et configurer initialement le logiciel pour un commutateur de cluster BES-53248, procédez comme suit :</block>
   <block id="9302ce88c481ebfe72d64373c7b0d0e5" category="doc">Mettez à niveau le commutateur de cluster BES-53248</block>
   <block id="db3a43c92e9a5ccc39b5fabb1bd97719" category="paragraph">Procédez comme suit pour mettre à niveau le commutateur de cluster BES-53248.</block>
   <block id="8ac36f1d8b0fc917225a100d2cd4a4c3" category="paragraph">Avant d'installer le logiciel EFOS, les licences et le fichier RCF sur un commutateur de cluster NetApp BES-53248 existant, vérifiez que :</block>
@@ -5207,7 +5206,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="7baa7758ed49797651dc1e276762ae15" category="list-text">Mise en grappe : *MSN2100-RCF-v1._x_-Cluster*</block>
   <block id="dd584ffba0b7534139645967bf24df84" category="sidebar">Installez ou mettez à niveau le script RCF</block>
   <block id="40b03f9635c63b20aade0ff8145eafb8" category="list-text">Pour la collecte de journaux avec les commutateurs Broadcom et Cisco :</block>
-  <block id="89f1dd995a5c07ea1e13abc5993d9d59" category="list-text">Les utilisateurs doivent disposer d'un Privileges d'administration réseau.</block>
   <block id="60f743043272b873831b17c5e7290445" category="list-text">Un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration de cluster avec la collecte des journaux activée. Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour le même utilisateur. Toute configuration de collecte de journaux supplémentaire effectuée remplace toute clé SSH préexistante pour l'utilisateur.</block>
   <block id="63229fc9218a5e1a57243ce033e91a3b" category="paragraph">Pour plus d'informations sur l'installation ou la mise à niveau de votre FCR, reportez-vous à l'article de la base de connaissances<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>.</block>
   <block id="26552c2532e5b34c96d8cef5f736c6ff" category="paragraph">Pour plus d'informations sur l'installation de votre FCR, reportez-vous à l'article de la base de connaissances<block ref="862bab57a4acfb616afcae48c16f2cfe" category="inline-link-macro-rx"></block>.</block>
@@ -5339,4 +5337,19 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="255946ce0bdffe025ba4bdaa710146e6" category="list-text">Vérifiez que le fichier write_erase.cfg est rempli comme prévu :</block>
   <block id="c8608e8042094ff03aff5d73acbce651" category="paragraph"><block ref="aa69f627a489063557f4707be7ba43f0" prefix="" category="inline-code"></block></block>
   <block id="90b56b330f7736518fea2723b6853482" category="list-text">Répétez les étapes 1 à 20 sur le commutateur cs2.</block>
+  <block id="fb945b959f6754639fad6c6e9e9469b9" category="list-text">L'utilisateur local doit disposer de privilèges d'administrateur réseau.</block>
+  <block id="47547bd96a2d76e2174e671baccc263a" category="paragraph">Pour installer et configurer le logiciel d'un commutateur de cluster BES-53248, procédez comme suit :</block>
+  <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">Réinitialiser le commutateur aux paramètres d'usine</block>
+  <block id="842f57c662529f95b306feb653984af0" category="list-text"><block ref="6356dc79de453379cf58db845e7c3b08" category="inline-link-macro-rx"></block>.</block>
+  <block id="585a6fd0f28eaade2a16ccaba1bb9b0d" category="paragraph">Effacez les paramètres du commutateur de cluster BES-53248.</block>
+  <block id="b879f523acbbe3c8d6ea83060443367e" category="doc">Réinitialiser le commutateur de cluster BES-53248 aux paramètres d'usine par défaut</block>
+  <block id="7515349dce34258a6f65c5f9b6b0bc58" category="paragraph">Pour réinitialiser le commutateur de cluster BES-53248 aux paramètres d'usine, vous devez effacer les paramètres du commutateur BES-53248.</block>
+  <block id="cf8c4cbc63a2e42b70c4b4beddd2e366" category="list-text">Vous devez être connecté au commutateur à l'aide de la console série.</block>
+  <block id="55b0c310e4703cc82f05f8c44c9d0d39" category="list-text">Cette tâche réinitialise la configuration du réseau de gestion.</block>
+  <block id="eceb40fbe3a93ae0c766b186cce3cba4" category="list-text">Passez à l’invite de commande élevée.</block>
+  <block id="8045e733034738065ca77d531de9666f" category="list-text">Effacer la configuration de démarrage.</block>
+  <block id="91f81f9cd1a23a248e317b6b22a84ce3" category="paragraph"><block ref="1fb554759d9d32d450daa4da09330114" prefix="" category="inline-code"></block></block>
+  <block id="671537f32d06de75a977dc3008daeff5" category="admonition">Si le système vous demande si vous souhaitez enregistrer la configuration non enregistrée ou modifiée avant de recharger le commutateur, sélectionnez *non*.</block>
+  <block id="01abea5f71122f7491f5d67a54692187" category="list-text">[[step4]] Attendez que le commutateur se recharge, puis connectez-vous au commutateur.</block>
+  <block id="3298c6d813bb0262584ca3882273ff2a" category="paragraph">L'utilisateur par défaut est « admin » et aucun mot de passe n'est défini. Une invite similaire à la commande suivante s'affiche :</block>
 </blocks>

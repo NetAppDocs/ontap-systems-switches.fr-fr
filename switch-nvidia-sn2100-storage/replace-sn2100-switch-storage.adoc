@@ -13,7 +13,7 @@ summary: 'Remplacement d"un commutateur de stockage NVIDIA SN2100 défectueux en
 [role="lead"]
 Vous pouvez remplacer un commutateur de stockage NVIDIA SN2100 défectueux. Cette procédure ne fonctionne pas sans interruption.
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant d'installer le logiciel Cumulus et les RCFs sur un commutateur de stockage NVIDIA SN2100, vérifiez que :
 
 * Votre système peut prendre en charge les switchs de stockage NVIDIA SN2100.

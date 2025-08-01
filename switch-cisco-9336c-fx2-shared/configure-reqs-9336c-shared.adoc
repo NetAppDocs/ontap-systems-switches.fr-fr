@@ -45,3 +45,6 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 
 
 Pour plus d'informations sur la configuration initiale de votre commutateur, reportez-vous au guide suivant : https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation et de mise à jour Cisco Nexus 9336C-FX2"].
+
+.Quelle est la prochaine étape
+link:components-9336c-shared.html["Composants et références"] .

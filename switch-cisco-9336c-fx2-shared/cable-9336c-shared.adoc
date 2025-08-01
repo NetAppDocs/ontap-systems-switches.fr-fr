@@ -69,3 +69,6 @@ Où ?
 * 100G ISL vers le port 35 du commutateur B.
 * 100G ISL vers le port 36 du commutateur B.
 
+
+.Quelle est la prochaine étape
+link:install-9336c-shared.html["Poser le commutateur"].

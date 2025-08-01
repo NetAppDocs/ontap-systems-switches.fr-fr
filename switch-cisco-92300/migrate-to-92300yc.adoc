@@ -20,7 +20,9 @@ NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichi
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Un cluster existant entièrement fonctionnel.
 * Connectivité 10 GbE et 40 GbE des nœuds aux commutateurs de cluster Nexus 92300YC.
 * Tous les ports du cluster sont à l'état up pour assurer la continuité de l'activité.

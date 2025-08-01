@@ -80,3 +80,6 @@ Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'inf
 * Si vous achetez des licences supplémentaires, reportez-vous à la section link:configure-licenses.html["Activez les ports de nouvelles licences"] pour plus de détails sur la façon de les activer.
 * Si SSH est actif, vous devez le réactiver manuellement après avoir exécuté la commande `erase startup-config` et redémarrage du commutateur.
 
+
+.Quelle est la prochaine étape
+link:components-bes53248.html["Composants et références"] .

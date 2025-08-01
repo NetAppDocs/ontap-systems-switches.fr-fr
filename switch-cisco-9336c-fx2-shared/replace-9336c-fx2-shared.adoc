@@ -16,7 +16,7 @@ summary:
 [role="lead"]
 Vous pouvez remplacer un commutateur partagé Nexus 9336C-FX2 défectueux. Il s'agit d'une procédure sans interruption.
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant d'effectuer le remplacement du commutateur, assurez-vous que :
 
 * Dans l'infrastructure réseau et en cluster existante :

@@ -5,7 +5,7 @@ entries:
 - title: Présentation
   pdf-filename: Présentation_bes53248
   entries:
-  - title: Présentation de la configuration
+  - title: Démarrage rapide
     url: "/switch-bes-53248/configure-new-switch-overview.html"
   - title: Configuration requise
     url: "/switch-bes-53248/configure-reqs-bes53248.html"
@@ -16,17 +16,19 @@ entries:
 - title: Installer le matériel de fixation
   pdf-filename: Install_Hardware_bes53248
   entries:
+  - title: Flux de travail d'installation du matériel
+    url: "/switch-bes-53248/install-hardware-workflow.html"
   - title: Poser le commutateur
     url: "/switch-bes-53248/install-hardware-bes53248.html"
-  - title: Configurer le commutateur
-    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Examiner le câblage et la configuration
     url: "/switch-bes-53248/cabling-considerations-bes-53248.html"
-- title: Configurez le logiciel
+- title: Configurer le logiciel
   pdf-filename: Configure_Software_bes53248
   entries:
   - title: Workflow d'installation du logiciel
     url: "/switch-bes-53248/configure-software-overview-bes53248.html"
+  - title: Configurer le commutateur
+    url: "/switch-bes-53248/configure-install-initial.html"
   - title: Installez le logiciel EFOS
     url: "/switch-bes-53248/configure-efos-software.html"
   - title: Installez le fichier RCF et le fichier de licence pour EFOS 3.12 et versions
@@ -40,10 +42,10 @@ entries:
     url: "/switch-bes-53248/configure-ssh.html"
   - title: Réinitialiser le commutateur aux paramètres d'usine
     url: "/switch-bes-53248/reset-switch-bes-53248.html"
-- title: Commutateur de mise à niveau
+- title: Mettre à niveau le commutateur
   pdf-filename: Upgrade_switches_bes53248
   entries:
-  - title: Présentation de la mise à niveau
+  - title: Flux de travail de mise à niveau
     url: "/switch-bes-53248/upgrade-switch-overview.html"
   - title: Mise à niveau de la version EFOS
     url: "/switch-bes-53248/upgrade-efos-software.html"
@@ -51,7 +53,7 @@ entries:
     url: "/switch-bes-53248/upgrade-rcf.html"
   - title: Vérifiez le cluster après la mise à niveau
     url: "/switch-bes-53248/replace-verify.html"
-- title: Migration des commutateurs
+- title: Migrer les commutateurs
   pdf-filename: Migrate_switches_bes53248
   entries:
   - title: Migrer depuis les commutateurs CN1610

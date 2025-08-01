@@ -589,3 +589,5 @@ ISL 100 GbE vers le port 32 du commutateur B
 ISL 100 GbE vers le port 32 du commutateur A
 
 |===
+.Quelle est la prochaine étape
+link:install-switch-3232c.html["Poser le commutateur"] .

@@ -19,7 +19,9 @@ Avant de commencer, complétez la procédure dans link:install-nxos-overview-933
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 
@@ -694,4 +696,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-link:install-upgrade-rcf-overview-cluster.html["Installation ou mise à niveau du fichier RCF (Reference Configuration File)"]
+link:install-upgrade-rcf-overview-cluster.html["Installation ou mise à niveau du fichier RCF (Reference Configuration File)"] .

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: 'Présentation de l"installation et de la configuration des commutateurs partagés Cisco Nexus 9336C-FX2' 
 ---
-= Présentation de l'installation et de la configuration des commutateurs partagés Cisco Nexus 9336C-FX2
+= Flux de travail d'installation et de configuration pour les commutateurs partagés Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,29 +13,16 @@ summary: 'Présentation de l"installation et de la configuration des commutateur
 [role="lead"]
 Le commutateur partagé Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagée, en prenant en charge l'utilisation de fichiers partagés de configuration de référence de cluster et de stockage.
 
+Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-9336c-shared.html["Examiner les exigences de configuration"]
+[role="quick-margin-para"]
+Passez en revue les exigences de configuration pour le commutateur partagé 9336C-FX2.
 
-== Présentation de la configuration initiale
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:components-9336c-shared.html["Examiner les composants et les numéros de pièces"]
+[role="quick-margin-para"]
+Passez en revue les composants et les numéros de pièces du commutateur partagé 9336C-FX2.
 
-Pour configurer initialement un commutateur Cisco Nexus 9336C-FX2 sur les systèmes exécutant ONTAP, procédez comme suit :
-
-. link:cable-9336c-shared.html["Remplir la fiche de câblage"].
-. link:install-9336c-shared.html["Poser le commutateur"].
-. link:setup-and-configure-9336c-shared.html["Configurer le commutateur"].
-. link:install-switch-and-passthrough-panel-9336c-shared.html["Installer le commutateur dans une armoire NetApp"].
-. link:prepare-nxos-rcf-9336c-shared.html["Préparez l'installation du NX-OS et du RCF"].
-. link:install-nxos-software-9336c-shared.html["Installez le logiciel NX-OS"].
-. link:install-nxos-rcf-9336c-shared.html["Installez le fichier de configuration RCF"].
-. link:configure-ssh.html["Activez SSH"].
-
-
-
-
-== Informations supplémentaires
-
-Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
-
-* link:configure-reqs-9336c-shared.html["Configuration requise"]
-* link:components-9336c-shared.html["Composants et références"]
-* link:required-documentation-9336c-shared.html["Documentation requise"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:required-documentation-9336c-shared.html["Examiner la documentation requise"]
+[role="quick-margin-para"]
+Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 9336C-FX2 et le cluster ONTAP .

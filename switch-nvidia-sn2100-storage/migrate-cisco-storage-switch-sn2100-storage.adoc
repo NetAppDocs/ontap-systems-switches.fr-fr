@@ -24,8 +24,8 @@ Les commutateurs de stockage suivants sont pris en charge :
 * Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
 
 
-.Ce dont vous avez besoin
-Assurez-vous que :
+.Avant de commencer
+Assurez-vous d'avoir les éléments suivants :
 
 * Le cluster existant est correctement configuré et opérationnel.
 * Tous les ports de stockage sont dans l'état up pour assurer la continuité de l'activité.

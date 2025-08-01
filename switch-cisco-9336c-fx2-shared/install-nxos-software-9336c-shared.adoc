@@ -19,7 +19,9 @@ Avant de commencer, complétez la procédure dans link:prepare-nxos-rcf-9336c-sh
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 

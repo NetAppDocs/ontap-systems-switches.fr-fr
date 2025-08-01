@@ -42,3 +42,5 @@ Le tableau suivant répertorie le numéro de référence et la description du co
 
 | X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, débit d'air d'admission côté port 
 |===
+.Quelle est la prochaine étape
+link:required-documentation-9336c-shared.html["Documentation requise"] .

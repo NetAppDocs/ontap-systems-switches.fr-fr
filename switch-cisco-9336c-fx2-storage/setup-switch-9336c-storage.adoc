@@ -13,7 +13,9 @@ summary: Si vous ne possédez pas encore la documentation et les informations de
 [role="lead"]
 Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2.
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
 * Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
@@ -190,4 +192,4 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 
 .Et la suite ?
-Si vous le souhaitez, vous pouvez link:install-switch-and-passthrough-panel-9336c-storage.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"]. Sinon, passez à link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"].
+link:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"] .

@@ -19,4 +19,4 @@ Pour installer le matériel SN2100, reportez-vous à la documentation de NVIDIA.
 
 
 .Et la suite ?
-link:configure-sn2100-storage.html["Configurer le commutateur"].
+link:cabling-considerations-sn2100-storage.html["Examiner le câblage et la configuration"] .

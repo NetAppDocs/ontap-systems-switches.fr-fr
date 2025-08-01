@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-3232c/configure-software-overview-3232c-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9336c-fx2 switch 
+summary: Présentation de la configuration logicielle des commutateurs de cluster Cisco Nexus 3232C 
+---
+= Flux de travail d'installation du logiciel pour les commutateurs de cluster Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour installer et configurer le logiciel d'un commutateur Cisco Nexus 3232C et installer ou mettre à niveau le fichier de configuration de référence (RCF), procédez comme suit :
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:setup-switch.html["Configurer le commutateur"]
+[role="quick-margin-para"]
+Configurez le commutateur de cluster 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:prepare-install-cisco-nexus-3232c.html["Préparez l'installation du logiciel NX-OS et du RCF"]
+[role="quick-margin-para"]
+Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-nx-os-software-3232c.html["Installez ou mettez à niveau le logiciel NX-OS"]
+[role="quick-margin-para"]
+Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco 3232C.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-rcf-3232c.html["Installer la FCR"]
+[role="quick-margin-para"]
+Installez le RCF après avoir configuré le commutateur Cisco 3232C pour la première fois.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifier la configuration de SSH"]
+[role="quick-margin-para"]
+Vérifiez que SSH est activé sur les commutateurs pour utiliser les fonctionnalités de surveillance de l’état du commutateur Ethernet (CSHM) et de collecte de journaux.

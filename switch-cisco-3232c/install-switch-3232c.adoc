@@ -1,0 +1,53 @@
+---
+permalink: switch-cisco-3232c/install-switch-3232c.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3232c 
+summary: Suivez cette procédure pour installer le commutateur Cisco Nexus 3232C. 
+---
+= Installer le commutateur de cluster 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez cette procédure pour configurer et configurer le switch Cisco Nexus 3232C.
+
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
+* Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
+* Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
+* Licences applicables, informations sur le réseau et la configuration, et câbles.
+* Complétélink:setup-worksheet-3232c.html["fiches de câblage"] .
+* Réseau de gestion et de réseau en cluster NetApp(R) en vigueur téléchargeable depuis le site de support NetApp, à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
+* link:required-documentation-3232c.html["Documentation relative aux commutateurs et à ONTAP requise"] .
+
+
+.Étapes
+. Installez les commutateurs et les contrôleurs du réseau de gestion et de réseau de cluster.
++
+[cols="1,2"]
+|===
+| Si vous installez... | Alors... 
+
+
+ a| 
+Cisco Nexus 3232C dans une armoire système NetApp
+ a| 
+Reportez-vous au _installation d'un commutateur de cluster Cisco Nexus 3232C et d'un panneau de pass-through dans un guide d'armoire NetApp pour obtenir des instructions concernant l'installation du switch dans une armoire NetApp.
+
+
+
+ a| 
+Équipement dans un rack Telco
+ a| 
+Consultez les procédures fournies dans les guides d'installation du matériel du commutateur et les instructions d'installation et de configuration de NetApp.
+
+|===
+. Reliez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs à l'aide des fiches de câblage complétées.
+. Mettez le réseau de cluster sous tension, ainsi que les commutateurs et les contrôleurs du réseau de gestion.
+
+
+.Et la suite ?
+En option, vous pouvezlink:install-cisco-nexus-3232c.html["installer un commutateur Cisco Nexus 3223C dans une armoire NetApp"] .  Sinon, allez àlink:cabling-considerations-3232c.html["Examiner le câblage et la configuration"] .

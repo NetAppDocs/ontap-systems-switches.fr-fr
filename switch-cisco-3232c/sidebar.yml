@@ -5,7 +5,7 @@ entries:
 - title: Présentation
   pdf-filename: Overview_3232C
   entries:
-  - title: Présentation de la configuration
+  - title: Démarrage rapide
     url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
   - title: Configuration requise
     url: "/switch-cisco-3232c/configure-reqs-3232c.html"
@@ -16,10 +16,12 @@ entries:
 - title: Installer le matériel de fixation
   pdf-filename: Install_hardware_3232C
   entries:
+  - title: Flux de travail d'installation du matériel
+    url: "/switch-cisco-3232c/install-hardware-workflow.html"
   - title: Remplir la fiche de câblage
     url: "/switch-cisco-3232c/setup_worksheet_3232c.html"
-  - title: Configurer le commutateur
-    url: "/switch-cisco-3232c/setup-switch.html"
+  - title: Poser le commutateur
+    url: "/switch-cisco-3232c/install-switch-3232c.html"
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-3232c/install-cisco-nexus-3232c.html"
   - title: Examiner le câblage et la configuration
@@ -27,6 +29,10 @@ entries:
 - title: Configurez le logiciel
   pdf-filename: Configure_software_3232C
   entries:
+  - title: Workflow d'installation du logiciel
+    url: "/switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
+  - title: Configurer le commutateur
+    url: "/switch-cisco-3232c/setup-switch.html"
   - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: Installez le logiciel NX-OS

@@ -6,7 +6,9 @@
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Pour la configuration sans commutateur à 2 nœuds :
 +
 ** La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.

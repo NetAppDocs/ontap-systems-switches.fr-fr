@@ -17,7 +17,9 @@ Si vous possédez des systèmes FAS22xx dans un cluster existant sans commutateu
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Deux connexions de cluster pour la migration d'une configuration sans commutateur vers une configuration avec commutateur.
 * Le cluster est en bon état et se compose de deux nœuds connectés avec une connectivité dos à dos.
 * Les nœuds exécutent ONTAP 8.2 ou une version ultérieure.

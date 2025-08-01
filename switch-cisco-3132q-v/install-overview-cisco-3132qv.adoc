@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, Cisco Nexus 3132Q-V 
 summary: Avant de configurer des commutateurs Cisco Nexus 3132Q-V, consultez une présentation du processus et de la nomenclature. 
 ---
-= Présentation de l'installation et de la configuration des commutateurs Cisco Nexus 3132Q-V.
+= Flux de travail d'installation et de configuration pour les commutateurs Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,27 +13,24 @@ summary: Avant de configurer des commutateurs Cisco Nexus 3132Q-V, consultez une
 [role="lead"]
 Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.
 
+Suivez ces étapes de flux de travail pour installer et configurer votre commutateur Cisco Nexus 3132Q-V.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-3132q.html["Configuration requise"]
+[role="quick-margin-para"]
+Passez en revue les exigences de configuration du commutateur de cluster 3132Q-V.
 
-== Présentation de la configuration initiale
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:required-documentation-3132q.html["Documentation requise"]
+[role="quick-margin-para"]
+Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 3132Q-V et le cluster ONTAP .
 
-Pour configurer initialement un commutateur Cisco Nexus 3132Q-V sur les systèmes exécutant ONTAP, effectuez la procédure suivante :
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:smart-call-home-3132q.html["Configuration requise pour le service d'appel intelligent"]
+[role="quick-margin-para"]
+Passez en revue les exigences de la fonctionnalité Cisco Smart Call Home, utilisée pour surveiller les composants matériels et logiciels de votre réseau.
 
-. link:setup_worksheet_3132q.html["Fiche technique de câblage Cisco Nexus 3132Q-V."]. L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
-. link:install-cisco-nexus-3132qv.html["Installez un commutateur de cluster Cisco Nexus 3132Q-V dans une armoire NetApp"]. Installez le commutateur Cisco Nexus 3132Q-V et le panneau d'intercommunication dans une armoire NetApp avec les supports standard inclus avec le commutateur.
-. link:setup-switch.html["Configurez le commutateur Cisco Nexus 3132Q-V"]. Installer et configurer le commutateur Cisco Nexus 3132Q-V
-. link:prepare-install-cisco-nexus-3132q.html["Préparez l'installation du logiciel NX-OS et du fichier de configuration de référence"]. Préparez-vous à installer le logiciel NX-OS et le fichier RCF (Reference Configuration File).
-. link:install-nx-os-software-3132q-v.html["Installez le logiciel NX-OS"]. Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3132Q-V.
-. link:install-rcf-3132q-v.html["Installer le fichier RCF (Reference Configuration File)"]. Suivre cette procédure pour installer la FCR après avoir configuré pour la première fois le commutateur Nexus 3132Q-V. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installer le matériel de fixation"]
+[role="quick-margin-para"]
+Installez le matériel du commutateur.
 
-
-
-
-== Informations supplémentaires
-
-Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
-
-* link:configure-reqs-3132q.html["Configuration requise"]
-* link:required-documentation-3132q.html["Documentation requise"]
-* link:smart-call-home-3132q.html["Configuration requise pour le service d'appel intelligent"]
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-software-overview-3132q-v-cluster.html["Configurer le logiciel"]
+[role="quick-margin-para"]
+Configurer le logiciel du commutateur.

@@ -17,7 +17,9 @@ Si vous disposez d'un environnement en cluster sans commutateur à deux nœuds, 
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 Dans le cas d'une configuration sans commutateur à 2 nœuds, vérifiez les points suivants :
 
 * La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.

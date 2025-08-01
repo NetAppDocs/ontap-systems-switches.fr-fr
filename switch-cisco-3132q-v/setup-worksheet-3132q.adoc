@@ -589,3 +589,5 @@ ISL 40G vers le port B du commutateur 32
 ISL 40G pour commuter Le port A 32
 
 |===
+.Quelle est la prochaine étape
+link:install-switch-3132qv.html["Poser le commutateur"] .

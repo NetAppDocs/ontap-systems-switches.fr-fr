@@ -5,7 +5,7 @@ entries:
 - title: Présentation
   pdf-filename: Présentation_3132q-v
   entries:
-  - title: Présentation de la configuration
+  - title: Démarrage rapide
     url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
   - title: Configuration requise
     url: "/switch-cisco-3132q-v/configure-reqs-3132q.html"
@@ -16,10 +16,12 @@ entries:
 - title: Installer le matériel de fixation
   pdf-filename: Install_Hardware_3132q-v
   entries:
+  - title: Flux de travail d'installation du matériel
+    url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
   - title: Remplir la fiche de câblage
     url: "/switch-cisco-3132q-v/setup_worksheet_3132q.html"
-  - title: Configurer le commutateur
-    url: "/switch-cisco-3132q-v/setup-switch.html"
+  - title: Poser le commutateur
+    url: "/switch-cisco-3132q-v/install-switch-3132qv.html"
   - title: Installez le commutateur dans l'armoire NetApp
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
   - title: Examiner le câblage et la configuration
@@ -27,6 +29,10 @@ entries:
 - title: Configurez le logiciel
   pdf-filename: Configure_Software_3132q-v
   entries:
+  - title: Workflow d'installation du logiciel
+    url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
+  - title: Configurer le commutateur
+    url: "/switch-cisco-3132q-v/setup-switch.html"
   - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: Installez le logiciel NX-OS

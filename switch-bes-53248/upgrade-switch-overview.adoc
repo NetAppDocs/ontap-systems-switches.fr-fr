@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
 summary: Avant de configurer les commutateurs de cluster BES-53248, consultez un aperçu du processus et de la nomenclature. 
 ---
-= Présentation du processus de mise à niveau des commutateurs de cluster BES-53248
+= Flux de travail de mise à niveau pour les commutateurs de cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,16 +13,14 @@ summary: Avant de configurer les commutateurs de cluster BES-53248, consultez un
 [role="lead"]
 Procédez comme suit pour mettre à niveau le logiciel EFOS et les fichiers de configuration de référence (RCF) sur les commutateurs de cluster Broadcom BES-54328, le cas échéant.
 
-. link:upgrade-efos-software.html["Mettez à niveau votre version EFOS"]
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:upgrade-efos-software.html["Mettez à niveau votre version EFOS"]
+[role="quick-margin-para"]
 Téléchargez et installez le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.
 
-. link:upgrade-rcf.html["Mettez à niveau votre version RCF"]
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:upgrade-rcf.html["Mettez à niveau votre version RCF"]
+[role="quick-margin-para"]
 Mettez à niveau le FCR sur le commutateur de cluster BES-53248, puis vérifiez les ports pour obtenir une licence supplémentaire après l'application du FCR.
 
-. link:replace-verify.html["Vérifiez le réseau de clusters ONTAP après la mise à niveau"]
-+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:replace-verify.html["Vérifiez le réseau de clusters ONTAP après la mise à niveau"]
+[role="quick-margin-para"]
 Vérifiez l'état de santé du réseau de clusters ONTAP après une mise à niveau du logiciel EFOS ou du fichier RCF des commutateurs de cluster BES-53248.
-
-

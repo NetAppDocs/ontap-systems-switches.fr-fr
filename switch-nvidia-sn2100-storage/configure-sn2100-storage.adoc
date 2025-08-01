@@ -19,4 +19,4 @@ Pour configurer le commutateur SN2100, reportez-vous à la documentation de NVID
 
 
 .Et la suite ?
-link:cabling-considerations-sn2100-storage.html["Examinez les considérations relatives au câblage et à la configuration"].
+link:install-cumulus-mode-sn2100-storage.html["Installez Cumulus Linux en mode Cumulus"]oulink:install-onie-mode-sn2100-storage.html["Installez Cumulus Linux en mode ONIE"] .

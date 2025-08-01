@@ -43,3 +43,6 @@ Le commutateur SN2100 prend en charge les applications de cluster et de stockage
 
 * Vous pouvez installer Cumulus Linux lorsque le commutateur exécute Cumulus Linux ou ONIE.
 
+
+.Et la suite ?
+link:components-sn2100-cluster.html["Composants et références"] .

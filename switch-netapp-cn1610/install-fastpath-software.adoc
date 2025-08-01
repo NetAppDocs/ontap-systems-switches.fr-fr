@@ -17,7 +17,9 @@ Lorsque vous installez le logiciel FASTPATH sur les commutateurs NetApp, vous de
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Sauvegarde actuelle de la configuration du commutateur.
 * Un cluster totalement opérationnel (aucune erreur dans les journaux, ni carte réseau de cluster défectueuse, ni aucun problème similaire).
 * Connexions de port entièrement opérationnelles sur le commutateur du cluster.

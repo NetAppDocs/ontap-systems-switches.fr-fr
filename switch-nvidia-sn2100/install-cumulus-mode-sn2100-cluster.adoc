@@ -16,7 +16,9 @@ Suivre cette procédure pour installer le système d'exploitation Cumulus Linux 
 
 NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE (voir link:install-onie-mode-sn2100-cluster.html["Installez en mode ONIE"]).
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Connaissance Linux de niveau intermédiaire.
 * Connaissance de l'édition de texte de base, des autorisations de fichier UNIX et de la surveillance des processus. Plusieurs éditeurs de texte sont pré-installés, y compris `vi` et `nano`.
 * Accès à un shell Linux ou UNIX. Si vous utilisez Windows, utilisez un environnement Linux comme outil de ligne de commande pour interagir avec Cumulus Linux.

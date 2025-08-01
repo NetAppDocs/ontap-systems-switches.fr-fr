@@ -13,7 +13,9 @@ summary: 'Vous pouvez installer le commutateur et le panneau d"intercommunicatio
 [role="lead"]
 Selon votre configuration, vous devrez peut-être installer le commutateur Cisco Nexus 9336C-FX2 et le panneau de passerelle dans une armoire NetApp. Des supports standard sont fournis avec le commutateur.
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Le kit de panneau d'accès, disponible auprès de NetApp (référence X8784-R6).
 +
 Le kit de panneau d'intercommunication NetApp contient les composants suivants :

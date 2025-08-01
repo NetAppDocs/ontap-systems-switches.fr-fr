@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
 summary: Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 GbE exécutant Cumulus Linux. Le commutateur SN2100 sert les applications de stockage et de cluster dans ONTAP 9.10.1 sur différentes paires de switchs. 
 ---
-= Présentation de l'installation et de la configuration des switchs NVIDIA SN2100
+= Flux de travail d'installation et de configuration pour les commutateurs NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,50 +13,24 @@ summary: Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 G
 [role="lead"]
 La carte NVIDIA SN2100 est un commutateur de cluster qui permet de créer des clusters ONTAP avec plus de deux nœuds.
 
+Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs NVIDIA SN2100.
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-sn2100-cluster.html["Examiner les exigences de configuration"]
+[role="quick-margin-para"]
+Passez en revue les exigences de configuration du commutateur de cluster SN2100.
 
-== Présentation de la configuration initiale
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:components-sn2100-cluster.html["Examiner les composants et les numéros de pièces"]
+[role="quick-margin-para"]
+Passez en revue les composants et les numéros de pièces du commutateur de cluster SN2100.
 
-Pour configurer un switch NVIDIA SN2100 sur les systèmes exécutant ONTAP, procédez comme suit :
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:required-documentation-sn2100-cluster.html["Examiner la documentation requise"]
+[role="quick-margin-para"]
+Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs SN2100 et le cluster ONTAP .
 
-. link:install-hardware-sn2100-cluster.html["Installez le matériel du commutateur NVIDIA SN2100"].
-+
-Les instructions sont disponibles dans le _NVIDIA Switch installation Guide_.
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installer le matériel de fixation"]
+[role="quick-margin-para"]
+Installez le matériel du commutateur.
 
-. link:configure-sn2100-cluster.html["Configurer le commutateur"].
-+
-Des instructions sont disponibles dans la documentation de NVIDIA.
-
-. link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"].
-+
-Consultez les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.
-
-. link:install-cable-shelves-sn2100-cluster.html["Reliez les étagères NS224 à un stockage relié à un commutateur"].
-+
-Suivez les procédures de câblage si vous disposez d'un système dans lequel les tiroirs disques du NS224 doivent être câblés en tant que stockage connecté au commutateur (pas de stockage à connexion directe).
-
-. link:install-cumulus-mode-sn2100-cluster.html["Installez Cumulus Linux en mode Cumulus"] ou link:install-onie-mode-sn2100-cluster.html["Installez Cumulus Linux en mode ONIE"].
-+
-Vous pouvez installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur exécute Cumulus Linux ou ONIE.
-
-. link:install-rcf-sn2100-cluster.html["Installez le script RCF (Reference Configuration File)"].
-+
-Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
-
-. link:setup-install-cshm-file.html["Installez le fichier CSHM"].
-+
-Vous pouvez installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA.
-
-
-
-
-
-== Informations supplémentaires
-
-Avant de commencer l'installation ou la maintenance, vérifiez les points suivants :
-
-* link:configure-reqs-sn2100-cluster.html["Configuration requise"]
-* link:components-sn2100-cluster.html["Composants et références"]
-* link:required-documentation-sn2100-cluster.html["Documentation requise"]
-* https://hwu.netapp.com["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
-
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-software-overview-sn2100-cluster.html["Configurer le logiciel"]
+[role="quick-margin-para"]
+Configurer le logiciel du commutateur.

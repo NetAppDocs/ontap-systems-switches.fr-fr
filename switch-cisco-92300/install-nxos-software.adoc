@@ -24,7 +24,9 @@ NX-OS est un système d'exploitation réseau destiné à la gamme Nexus de commu
 * Les connexions de nœud prises en charge pour les commutateurs Nexus 92300YC sont les ports 1/1 à 1/66.
 
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * En savoir plus sur le logiciel NetApp Cisco NX-OS pour les commutateurs disponibles sur le site de support NetApp http://mysupport.netapp.com/["mysupport.netapp.com"]
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.

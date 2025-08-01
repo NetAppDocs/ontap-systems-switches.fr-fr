@@ -1,0 +1,53 @@
+---
+permalink: switch-cisco-92300/install-switch-92300yc.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 92300YC 
+summary: Suivez cette procédure pour installer le commutateur Cisco Nexus 92300YC. 
+---
+= Installer le commutateur de cluster 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez cette procédure pour configurer le commutateur Cisco Nexus 92300YC.
+
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
+* Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
+* Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
+* Licences applicables, informations sur le réseau et la configuration, et câbles.
+* Complétélink:setup-worksheet-92300yc.html["fiches de câblage"] .
+* Réseau de gestion et de réseau en cluster NetApp(R) en vigueur téléchargeable depuis le site de support NetApp, à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
+* link:required-documentation-92300.html["Documentation relative aux commutateurs et à ONTAP requise"] .
+
+
+.Étapes
+. Installez les commutateurs et les contrôleurs du réseau de gestion et de réseau de cluster.
++
+[cols="1,2"]
+|===
+| Si vous installez... | Alors... 
+
+
+ a| 
+Cisco Nexus 92300YC dans une armoire système NetApp
+ a| 
+Consultez le guide _Installation d'un commutateur de cluster Cisco Nexus 92300YC et d'un panneau de transfert dans une armoire NetApp pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp .
+
+
+
+ a| 
+Équipement dans un rack Telco
+ a| 
+Consultez les procédures fournies dans les guides d'installation du matériel du commutateur et les instructions d'installation et de configuration de NetApp.
+
+|===
+. Reliez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs à l'aide des fiches de câblage complétées.
+. Mettez le réseau de cluster sous tension, ainsi que les commutateurs et les contrôleurs du réseau de gestion.
+
+
+.Et la suite ?
+En option, vous pouvezlink:install-switch-netapp-cabinet-92300yc.html["installer un commutateur Cisco Nexus 3223C dans une armoire NetApp"] .  Sinon, allez àlink:cabling-considerations-92300.html["Examiner le câblage et la configuration"] .

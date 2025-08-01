@@ -28,7 +28,7 @@ Les commutateurs de cluster suivants sont pris en charge :
 
 Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au https://hwu.netapp.com/["Hardware Universe"^].
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Vérifiez que vous répondez aux exigences suivantes pour votre configuration :
 
 * Le cluster existant est correctement configuré et fonctionne.

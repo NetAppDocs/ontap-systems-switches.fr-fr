@@ -13,7 +13,7 @@ summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux sur un r�
 [role="lead"]
 Vous pouvez remplacer un commutateur Nexus 9336C-FX2 défectueux dans un réseau de clusters. Cette procédure ne fonctionne pas sans interruption.
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant d'installer le logiciel NX-OS et les RCFC sur un commutateur de stockage Cisco Nexus 9336C-FX2, vérifiez que :
 
 * Votre système peut prendre en charge les commutateurs de stockage Cisco Nexus 9336C-FX2.

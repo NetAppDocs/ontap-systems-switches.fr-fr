@@ -19,7 +19,9 @@ Avant d'installer une FCR, vous devez d'abord migrer les LIF de cluster en les �
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Sauvegarde actuelle de la configuration du commutateur.
 * Un cluster totalement opérationnel (aucune erreur dans les journaux, ni carte réseau de cluster défectueuse, ni aucun problème similaire).
 * Connexions de port entièrement opérationnelles sur le commutateur du cluster.

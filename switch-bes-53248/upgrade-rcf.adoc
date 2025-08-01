@@ -13,7 +13,9 @@ summary: Vous pouvez mettre à niveau le fichier RCF après avoir configuré le 
 [role="lead"]
 Vous pouvez mettre à niveau le fichier RCF (Reference Configuration File) après la mise à niveau du commutateur de cluster BES-53248 EFOS et après l'application de nouvelles licences.
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Sauvegarde actuelle de la configuration du commutateur.
 * Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
 * Le fichier RCF actuel, disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.

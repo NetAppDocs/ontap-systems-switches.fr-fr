@@ -424,3 +424,6 @@ Le commutateur redémarre sans aucune configuration appliquée et revient aux pa
 
 . Répétez les étapes 1 à 8 sur le commutateur partenaire.
 
+
+.Quelle est la prochaine étape
+link:configure-licenses.html["Installez les licences"] .

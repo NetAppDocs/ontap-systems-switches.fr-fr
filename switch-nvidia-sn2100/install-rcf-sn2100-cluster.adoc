@@ -13,7 +13,7 @@ summary: 'Assurez-vous que les éléments suivants sont disponibles sur le commu
 [role="lead"]
 Suivez cette procédure pour installer ou mettre à niveau le script RCF.
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant d'installer ou de mettre à niveau le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
 
 * Cumulus Linux est installé. Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour les versions prises en charge.

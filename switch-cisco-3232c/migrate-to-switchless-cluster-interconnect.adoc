@@ -25,7 +25,9 @@ Consultez les directives suivantes :
 * Si vous disposez déjà d'un cluster à deux nœuds avec des commutateurs d'interconnexion de cluster et qu'il exécute ONTAP 9.3 ou une version ultérieure, vous pouvez remplacer les commutateurs par des connexions directes et retour entre les nœuds.
 
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 * Cluster sain qui se compose de deux nœuds connectés par des commutateurs de cluster. Les nœuds doivent exécuter la même version de ONTAP.
 * Chaque nœud inclut le nombre requis de ports de cluster dédiés qui offrent des connexions d'interconnexion de cluster redondantes pour prendre en charge votre configuration système. Par exemple, un système dispose de deux ports redondants avec deux ports dédiés d'interconnexion de cluster sur chaque nœud.
 

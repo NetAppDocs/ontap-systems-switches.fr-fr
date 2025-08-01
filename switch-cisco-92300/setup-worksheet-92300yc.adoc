@@ -1365,3 +1365,5 @@ ISL vers le port B du commutateur 66
 ISL pour basculer sur le port A 66
 
 |===
+.Quelle est la prochaine étape
+link:install-switch-92300yc.html["Poser le commutateur"] .

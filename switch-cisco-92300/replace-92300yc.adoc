@@ -17,7 +17,7 @@ Le remplacement d'un commutateur Nexus 92300YC défectueux sur un réseau en clu
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant d'effectuer le remplacement du commutateur, assurez-vous que :
 
 * Dans l'infrastructure réseau et en cluster existante :

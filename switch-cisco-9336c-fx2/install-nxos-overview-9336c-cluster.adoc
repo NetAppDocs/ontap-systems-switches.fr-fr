@@ -241,4 +241,4 @@ Cluster
 
 
 .Et la suite ?
-link:install-nxos-software-9336c-cluster.html["Installez ou mettez à niveau le logiciel NX-OS"]
+link:install-nxos-software-9336c-cluster.html["Installez ou mettez à niveau le logiciel NX-OS"].

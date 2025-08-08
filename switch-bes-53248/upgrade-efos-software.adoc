@@ -196,7 +196,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ====
 . Téléchargez le fichier image sur le commutateur.
 +
-La copie du fichier image dans l'image active signifie que lors du redémarrage, cette image établit la version en cours d'exécution de EFOS. L'image précédente reste disponible comme sauvegarde.
+La copie du fichier image vers l'image de sauvegarde signifie que lorsque vous redémarrez, cette image établit la version EFOS en cours d'exécution, complétant ainsi la mise à jour.
 
 +
 [listing, subs="+quotes"]
@@ -273,7 +273,7 @@ Image Descriptions
 ------------------------------------------------------------------
  unit      active      backup      current-active    next-active
 ------------------------------------------------------------------
-    1    3.10.0.3    3.10.0.3            3.10.0.3       3.11.0.2
+    1    3.10.0.3    3.10.0.3            3.10.0.3       3.10.0.3
 ----
 ====
 . Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :

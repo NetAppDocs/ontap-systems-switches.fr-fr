@@ -23,6 +23,22 @@ Avant d'installer ou de mettre à niveau le script RCF, assurez-vous que les él
 
 NOTE: Vous devez spécifier un utilisateur dans le fichier RCF (en plus de l'utilisateur admin) à utiliser spécifiquement pour la collecte des journaux.
 
+.Configurations client
+Les catégories de configuration de référence suivantes sont disponibles :
+
+[cols="1,2"]
+|===
+
+
+| Cluster | Sur les ports configurés pour une dérivation 4x10GbE, un port est configuré pour une dérivation 4x25GbE et les autres ports sont configurés pour 40/100GbE.  Prend en charge le trafic de cluster/HA partagé sur les ports pour les nœuds qui utilisent des ports de cluster/HA partagés.  Voir le tableau des plateformes dans l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quelles plates-formes AFF, ASA et FAS utilisent des ports Ethernet Cluster et HA partagés ?"^] .  Tous les ports peuvent également être utilisés comme ports de cluster dédiés. 
+
+
+ a| 
+Stockage
+ a| 
+Tous les ports configurés pour les connexions de stockage NVMe 100 GbE.
+
+|===
 .Versions actuelles du script RCF
 Deux scripts RCF sont disponibles pour les applications de cluster et de stockage. Télécharger les fichiers RCF à partir de la https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Téléchargement du logiciel NVIDIA SN2100"^] page. La procédure pour chaque est la même.
 

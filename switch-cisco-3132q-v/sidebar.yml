@@ -41,6 +41,8 @@ entries:
     url: "/switch-cisco-3132q-v/install-rcf-3132q-v.html"
   - title: Vérifier la configuration de SSH
     url: "/switch-cisco-3132q-v/configure-ssh-keys.html"
+  - title: Réinitialiser le commutateur aux paramètres d'usine
+    url: "/switch-cisco-3132q-v/reset-switch-3132q-v.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_3132q-v
   entries:

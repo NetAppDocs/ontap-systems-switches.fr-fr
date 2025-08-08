@@ -32,3 +32,7 @@ Installez le RCF après avoir configuré le commutateur partagé Cisco 9336C-FX2
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:upgrade-rcf-software-9336c-shared.html["Mettez à niveau votre FCR"]
 [role="quick-margin-para"]
 Mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur vos commutateurs opérationnels.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:reset-switch-9336c-shared.html["Réinitialiser le commutateur aux paramètres d'usine"]
+[role="quick-margin-para"]
+Effacez les paramètres du commutateur partagé 9336C-FX2.

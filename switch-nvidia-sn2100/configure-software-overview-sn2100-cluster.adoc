@@ -36,3 +36,7 @@ Deux scripts RCF sont disponibles pour les applications de stockage et de mise e
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:setup-install-cshm-file.html["Installez le fichier CSHM"]
 [role="quick-margin-para"]
 Vous pouvez installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"]link:reset-switch-sn2100.html["Réinitialiser le commutateur aux paramètres d'usine"]
+[role="quick-margin-para"]
+Effacez les paramètres du commutateur de cluster SN2100.

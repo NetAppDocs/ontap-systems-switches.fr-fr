@@ -32,3 +32,7 @@ Installez le RCF après avoir configuré le commutateur Cisco 3232C pour la prem
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifier la configuration de SSH"]
 [role="quick-margin-para"]
 Vérifiez que SSH est activé sur les commutateurs pour utiliser les fonctionnalités de surveillance de l’état du commutateur Ethernet (CSHM) et de collecte de journaux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:reset-switch-3232c.html["Réinitialiser le commutateur aux paramètres d'usine"]
+[role="quick-margin-para"]
+Effacez les paramètres du commutateur de cluster 3232C.

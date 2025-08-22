@@ -133,5 +133,7 @@ cluster1::> *system switch ethernet show*
 
 NOTE: Si votre modèle affiche toujours *OTHER* après avoir appliqué le fichier de configuration, contactez le support NetApp.
 
+Voir le https://docs.netapp.com/us-en/ontap-cli/system-switch-ethernet-configure-health-monitor.html["configuration-santé-surveillance du commutateur Ethernet du système"^] commande pour plus de détails.
+
 .Et la suite ?
 link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

@@ -254,37 +254,54 @@ cluster1::*>
 
 . Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
 +
-`switch# show run | i "username admin password" > bootflash:write_erase.cfg`
+`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
 +
-`switch# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
 +
-`switch# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
 +
-`switch# show run | section "switchname" >> bootflash:write_erase.cfg`
+`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+
+. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
++
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
+
++
+Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+
+. Vérifiez que le fichier write_erase.cfg est rempli comme prévu :
++
+`show file bootflash:write_erase.cfg`
 
 . Exécutez la commande write erase pour effacer la configuration actuellement enregistrée :
 +
-`switch# write erase`
+`cs1# *write erase*`
 
 +
 `Warning: This command will erase the startup-configuration.`
 
 +
-`Do you wish to proceed anyway? (y/n)  [n] y`
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
 
 . Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
 +
-`switch# copy write_erase.cfg startup-config`
+`cs1# copy bootflash:write_erase.cfg startup-config`
 
 . Redémarrer le commutateur :
 +
-`switch# reload`
+`switch# *reload*`
 
 +
-`This command will reboot the system. (y/n)?  [n] y`
+`This command will reboot the system. (y/n)?  [n] *y*`
 
 . Une fois que l'adresse IP de gestion est à nouveau accessible, connectez-vous au commutateur via SSH.
 +
@@ -529,7 +546,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Répétez les étapes 1 à 18 sur le commutateur cs2.
+. Répétez les étapes 1 à 20 sur le commutateur cs2.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
 `cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, rcf 
 summary: Vous pouvez installer la FCR après la première configuration du switch Nexus 3232C.vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. 
 ---
-= Installer le fichier RCF (Reference Configuration File)
+= Installation ou mise à niveau du fichier RCF (Reference Configuration File)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -262,42 +262,62 @@ cluster1::*>
 +
 `show running-config`
 
-. Nettoyez la configuration du commutateur cs2 et redémarrez le commutateur.
+. Enregistrez tous les ajouts personnalisés entre la configuration en cours d'exécution et le fichier RCF en cours d'utilisation.
+. Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
 +
 
-CAUTION: Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au port série console du commutateur pour pouvoir le configurer à nouveau.
+NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer la configuration de base.  Vous devez être connecté au port de console série du commutateur pour configurer à nouveau le commutateur.
 
 +
-.. Nettoyez la configuration :
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *write erase*
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
 
-Warning: This command will erase the startup-configuration.
-
-Do you wish to proceed anyway? (y/n)  [n]  *y*
-----
-====
-.. Redémarrez le commutateur :
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing, subs="+quotes"]
-----
-(cs2)# *reload*
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
 
-Are you sure you would like to reset the system? (y/n) *y*
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
-----
-====
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
+. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
++
+`cs2# echo "hardware access-list tcam region racl-lite 512" > bootflash:write_erase.cfg`
 
-. Effectuer une configuration de base du contacteur. Voir link:setup-switch.html["Configuration du switch de cluster 3232C"] pour plus d'informations.
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+
+. Vérifiez que le fichier write_erase.cfg est rempli comme prévu :
++
+`show file bootflash:write_erase.cfg`
+
+. Émettre le `write erase` commande pour effacer la configuration enregistrée actuelle :
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
++
+`cs2# *copy write_erase.cfg startup-config*`
+
+. Redémarrer le commutateur :
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
 . Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 +
 .Montrer l'exemple
@@ -599,7 +619,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Répétez les étapes 7 à 17 sur le commutateur cs1.
+. Répétez les étapes 7 à 20 sur le commutateur cs1.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
 [listing, subs="+quotes"]

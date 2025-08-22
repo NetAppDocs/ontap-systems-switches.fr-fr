@@ -122,21 +122,49 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 . Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-9336c-fx2.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
+. Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
 +
-`copy running-config startup-config`
+`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
 +
-.Montrer l'exemple
-[%collapsible]
-====
-[listing]
-----
-cs1# copy running-config startup-config [########################################] 100% Copy complete
-----
-====
+`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^].
+`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+
+. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
++
+`cs1# echo "hardware access-list tcam region ing-racl 1024" > bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
+
++
+`cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
+
++
+Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+
+. Vérifiez que le fichier write_erase.cfg est rempli comme prévu :
++
+`show file bootflash:write_erase.cfg`
+
+. Émettre le `write erase` commande pour effacer la configuration enregistrée actuelle :
++
+`cs1# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*.`
 
 . Redémarrez le commutateur cs1.
 +
@@ -145,7 +173,7 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous au guide appropr
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Répéter les étapes 1 à 7 sur le commutateur cs2.
+. Répétez les étapes 1 à 12 sur le commutateur cs2.
 . Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
 
 

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
 summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux sur un réseau en cluster est une procédure \(NDU\) sans interruption.' 
 ---
-= Remplacer un commutateur de bloc de commutateurs Cisco Nexus 9336C-FX2
+= Remplacer les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour remplacer un commutateur Nexus 9336C-FX2 défectueux dans un réseau de clusters. Il s'agit d'une procédure sans interruption.
+Suivez ces étapes pour remplacer les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice (NDU).
 
 
 
@@ -618,4 +618,4 @@ Total entries displayed: 4
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Après avoir remplacé vos commutateurs, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: install, cisco, nexus, switch, pass-through, panel, netapp, cabinet, bracket, switch, install a cisco nexus 9336c-fx2 switch and pass-through panel in a netapp cabinet - cisco nexus 9336c-fx2 
 summary: 'Vous pouvez installer le commutateur et le panneau d"intercommunication Cisco Nexus 9336C-FX2 dans une armoire NetApp avec les supports standard inclus avec le commutateur.' 
 ---
-= Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp
+= Installer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T dans une armoire NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Selon votre configuration, vous devrez peut-être installer le commutateur Cisco Nexus 9336C-FX2 et le panneau de passerelle dans une armoire NetApp. Des supports standard sont fournis avec le commutateur.
+Selon votre configuration, vous devrez peut-être installer le commutateur Cisco Nexus 9336C-FX2 et 9336C-FX2-T et le panneau de transfert dans une armoire NetApp . Des supports standard sont inclus avec le commutateur.
 
 .Avant de commencer
 Assurez-vous de disposer des éléments suivants :
@@ -70,7 +70,7 @@ image::../media/3132q_front_bracket.gif[support avant]
 image::../media/ru_locations_for_3132q_v.gif[emplacements ru pour 3132q v]
 
 +
-Les deux commutateurs 9336C-FX2 sont toujours montés dans le 2U supérieur de l'armoire RU41 et 42.
+Les deux commutateurs 9336C-FX2 et 9336C-FX2-T sont toujours montés dans les 2U supérieurs des armoires RU41 et 42.
 
 . Installez les rails coulissants dans l'armoire.
 +
@@ -125,11 +125,11 @@ NOTE: En utilisant le commutateur entièrement installé comme support, il n'est
 
 NOTE: Pour maintenir la redondance, les deux cordons doivent être connectés à différentes PDU.
 
-. Connectez le port de gestion de chaque commutateur 9336C-FX2 à l'un des commutateurs de gestion (si commandé) ou connectez-le directement à votre réseau de gestion.
+. Connectez le port de gestion de chaque commutateur 9336C-FX2 et 9336C-FX2-T à l'un des commutateurs de gestion (si commandés) ou connectez-les directement à votre réseau de gestion.
 +
 Le port de gestion est le port supérieur droit situé sur le côté PSU du commutateur. Le câble CAT6 de chaque commutateur doit être acheminé via le panneau de passage après l'installation des commutateurs pour se connecter aux commutateurs de gestion ou au réseau de gestion.
 
 
 
 .Et la suite ?
-link:setup-switch-9336c-cluster.html["Configurez le commutateur Cisco Nexus 9336C-FX2"].
+Après avoir installé les commutateurs dans l'armoire NetApp , vouslink:setup-switch-9336c-cluster.html["configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T"] .

@@ -296,7 +296,7 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 
 . Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
 +
-`cs2# echo "hardware access-list tcam region vpc-convergence 256" > bootflash:write_erase.cfg`
+`cs2# echo "hardware access-list tcam region vpc-convergence 256" >> bootflash:write_erase.cfg`
 
 +
 `cs2# echo "hardware access-list tcam region racl 256" >> bootflash:write_erase.cfg`

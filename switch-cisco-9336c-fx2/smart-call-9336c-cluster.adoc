@@ -11,11 +11,11 @@ summary: 'Smart Call Home surveille le matériel et les composants logiciels de 
 
 
 [role="lead"]
-Pour utiliser la fonction d'appel intelligent, consultez les directives suivantes.
+Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.
 
-Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par e-mail et génère une alerte à tous les destinataires configurés dans votre profil de destination. Pour utiliser l'appel à distance intelligent, vous devez configurer un commutateur de réseau de cluster pour communiquer par courrier électronique avec le système d'appel à distance intelligent. De plus, vous pouvez configurer votre commutateur de réseau de cluster pour tirer parti de la fonction de prise en charge intégrée de Smart Call Home de Cisco.
+Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par courrier électronique et envoie une alerte à tous les destinataires configurés dans votre profil de destination.
 
-Avant de pouvoir utiliser le système d'appel intelligent, prenez en compte les considérations suivantes :
+Avant d'utiliser Smart Call Home, tenez compte des exigences suivantes :
 
 * Un serveur de messagerie doit être en place.
 * Le commutateur doit disposer d'une connexion IP au serveur de messagerie.

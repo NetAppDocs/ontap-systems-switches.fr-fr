@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords: 9336C-FX2 reset switch to factory defaults, 9336C-FX2 switches configuration, efos 
 summary: Avant de configurer votre commutateur Cisco Nexus 9336C-FX2, consultez les informations suivantes. 
 ---
-= Réinitialiser le commutateur de stockage 9336C-FX2 aux paramètres d'usine
+= Réinitialiser les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T aux paramètres d'usine
 :allow-uri-read: 
 
 
 [role="lead"]
-Pour réinitialiser le commutateur de stockage 9336C-FX2 aux paramètres d'usine, vous devez effacer les paramètres du commutateur 9336C-FX2.
+Pour réinitialiser les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T aux paramètres d'usine, vous devez effacer les paramètres des commutateurs 9336C-FX2 et 9336C-FX2-T.
 
 .Description de la tâche
 * Vous devez être connecté au commutateur à l'aide de la console série.

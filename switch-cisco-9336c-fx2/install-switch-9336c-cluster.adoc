@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
 summary: Suivre cette procédure pour installer le commutateur Cisco Nexus 9336C-FX2. 
 ---
-= Installer le commutateur du bloc d'instruments 9336C-FX2
+= Installer les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2.
+Suivez cette procédure pour installer et configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 
 .Avant de commencer
 Assurez-vous de disposer des éléments suivants :
@@ -50,4 +50,4 @@ Consultez les procédures fournies dans les guides d'installation du matériel d
 
 
 .Et la suite ?
-En option, vous pouvezlink:install-switch-and-passthrough-panel-9336c-cluster.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"] .  Sinon, allez àlink:cabling-considerations-9336c-fx2.html["Examiner le câblage et la configuration"] .
+En option, vous pouvezlink:install-switch-and-passthrough-panel-9336c-cluster.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"] . Sinon, allez àlink:cabling-considerations-9336c-fx2.html["revoir le câblage et la configuration"] .

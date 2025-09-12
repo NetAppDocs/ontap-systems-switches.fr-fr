@@ -811,7 +811,6 @@
   <block id="80350580ff4d804a337c180333b8e2b3" category="list-text">Configuration des services SSH et des clés SSH :</block>
   <block id="fc8000433fb91bb2ac18805337e9f44f" category="list-text">Configurer d'autres paramètres :</block>
   <block id="9cce6cea5fdcbb4782ca8d3b2c134882" category="list-text">Confirmez les informations du commutateur et enregistrez la configuration :</block>
-  <block id="f9c5b146fb6da165b4c98f09374af2ac" category="doc">Migrer d'un ancien commutateur Cisco vers un commutateur de cluster Cisco Nexus 9336C-FX2</block>
   <block id="44bbc7313b726fa9ff83dced227fe211" category="list-text">Les commutateurs de cluster suivants sont pris en charge :</block>
   <block id="e8557f973b099c826710d355316b675c" category="list-text">Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le<block ref="91aaf2f14ce017094691ed108f35b756" category="inline-link-rx"></block> page.</block>
   <block id="21ee2e5e51f0485744f531669814fed3" category="summary">Vous pouvez utiliser ces liens pour d'autres modèles de commutateur.</block>
@@ -2543,7 +2542,6 @@
   <block id="ccdb01c4cd8e253f3a70d7d150d9bc95" category="paragraph">Avant d'installer le logiciel NX-OS et le fichier RCF (Reference Configuration File), suivez cette procédure.</block>
   <block id="40c8bcb7b41278de1855e3b933f3d74e" category="list-text">Pour ONTAP 9.8 et versions ultérieures, activez la fonction de collecte des journaux du moniteur d'intégrité des commutateurs Ethernet pour collecter les fichiers journaux relatifs aux commutateurs, à l'aide des commandes :</block>
   <block id="2a2f2abd2aac82163594256c2482aac7" category="list-text">Pour ONTAP les versions 9.5P16, 9.6P12 et 9.7P10 et versions ultérieures des correctifs, activez la fonction de collecte des journaux du moniteur d'intégrité des commutateurs Ethernet pour collecter les fichiers journaux liés aux commutateurs à l'aide des commandes suivantes :</block>
-  <block id="67d5e20869589f0918ed05c9043d464e" category="doc">Configuration requise pour les commutateurs de stockage Cisco Nexus 9336C-FX2</block>
   <block id="9169fd5f36fd2f29cda68bb4808432c7" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, vérifiez la configuration et les exigences réseau.</block>
   <block id="013647ab1eb017c353f89f46ca2c0d85" category="section-title">Prise en charge de ONTAP</block>
   <block id="d0e8490a72bf0600b498f4df7a26d3f6" category="paragraph">À partir de ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.</block>
@@ -2562,7 +2560,6 @@
   <block id="bca1ec7e101b6f013bc7eecb3a4e9ceb" category="paragraph">_(2) faites glisser doucement le commutateur jusqu'à ce que les supports de montage avant du rack soient alignés avec les montants avant._</block>
   <block id="9d65a726db9bdd22eaad7c26b40123f7" category="paragraph">_(1) avec une personne tenant l'avant du châssis, l'autre personne doit serrer complètement les quatre vis arrière sur les montants de l'armoire._</block>
   <block id="9f2aa940136014ffbeeeab81a6dfdd2e" category="summary">Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, veillez à consulter la documentation spécifique sur le commutateur et le contrôleur afin de configurer les commutateurs Cisco 9336-FX2 et le cluster ONTAP.</block>
-  <block id="f7e805a3990d48e19a46ec4fde6da923" category="doc">Exigences en matière de documentation pour les commutateurs de stockage Cisco Nexus 9336C-FX2</block>
   <block id="11b5963f8c4ca653ab5f43bc4b9828df" category="section-title">Documentation du commutateur</block>
   <block id="db75850a06b1d065268461f70235d0f6" category="paragraph">Pour configurer les commutateurs Cisco Nexus 9336C-FX2, vous devez disposer de la documentation suivante à partir du<block ref="f4fbe3bed062fba5aa150f0db2ededbd" category="inline-link-rx"></block> page :</block>
   <block id="aaf23d643347b5921ba9716fa4c13f83" category="section-title">Documentation sur les systèmes ONTAP</block>
@@ -2570,7 +2567,6 @@
   <block id="1904af1254d3c6f01a28f19dc9eef1e2" category="inline-link-macro">Installez un commutateur Cisco 9336-FX2 dans une armoire NetApp</block>
   <block id="e2ddd363542b38c0aea13e72b5ddee3b" category="paragraph"><block ref="e2ddd363542b38c0aea13e72b5ddee3b" category="inline-link-macro-rx"></block></block>
   <block id="4af0a52c39ea2b37fd1e2e6cdc0d7b64" category="paragraph">Décrit l'installation d'un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp à quatre montants.</block>
-  <block id="95eabbd5952ae314a23d3393bf46b6da" category="paragraph">Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.</block>
   <block id="61c7408c0e623b660a741b6b2c143251" category="paragraph">Avant de commencer, complétez la procédure dans <block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block>.</block>
   <block id="7b93b1b58c897d187f4ffbd20253248f" category="list-text">Sauvegarde actuelle de la configuration du commutateur.</block>
   <block id="3f13e146c0acc26cac7163c687a6dcb7" category="list-text">Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).</block>
@@ -2595,8 +2591,6 @@
   <block id="12f59936c9a954bfa8afc4adb08f7e8d" category="paragraph">Ne désactivez pas les ports ISL.</block>
   <block id="80818271e6ed0bd7ed40cc7ea7e829a7" category="list-text">Vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs 9336C-FX2 cs1 et cs2 sont en service sur les ports 1/35 et 1/36 :</block>
   <block id="4fabd71a7096b814e85ea995d8d8b56b" category="paragraph">Chaque LIF de cluster doit afficher<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> et avoir un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de haut/haut</block>
-  <block id="5847c0d3314204843b079da93ef9ce69" category="paragraph">Vous pouvez remplacer un commutateur Nexus 9336C-FX2 défectueux dans un réseau de clusters. Cette procédure ne fonctionne pas sans interruption.</block>
-  <block id="09b135a429627a1342d1baae7e2a545c" category="paragraph">Avant d'installer le logiciel NX-OS et les RCFC sur un commutateur de stockage Cisco Nexus 9336C-FX2, vérifiez que :</block>
   <block id="52254d9e98d791278e52f39723dbdb4a" category="list-text">Vous avez consulté le tableau de compatibilité des commutateurs sur la page des commutateurs Ethernet Cisco pour les versions ONTAP, NX-OS et RCF prises en charge.</block>
   <block id="1a2ce2f05b3c6e18de8cabbd6c01b74d" category="list-text">Vous avez fait référence aux logiciels et aux guides de mise à niveau appropriés disponibles sur le site Web de Cisco.</block>
   <block id="169e19c741cd11f6b6e85a04404e32fd" category="paragraph">Commutateurs Cisco Nexus 3000 Series :</block>
@@ -2611,9 +2605,6 @@
   <block id="bcf93571b0df2f1f1468d2c299ca7f8d" category="paragraph"><block ref="00170636f591c87f901a7dd6f1a76f0a" prefix="" category="inline-code"></block></block>
   <block id="b8ab63249f7a1fc61438aae7a64f12e3" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, veillez à consulter la liste des composants et références.</block>
   <block id="28bf994f815d27dac3c1004bf80f120f" category="summary">Présentation de la configuration logicielle des commutateurs de stockage Cisco Nexus 9336C-FX2</block>
-  <block id="f9e6915ed9211156a642e6217fe3d08c" category="doc">Workflow d'installation du logiciel pour les commutateurs de stockage Cisco Nexus 9336C-FX2</block>
-  <block id="d7d7b6e95f5eaa4aa737a8655d363044" category="doc">Installer le commutateur de stockage 9336C-FX2</block>
-  <block id="bdf48d2f813a309e3cc3ed06809298fd" category="paragraph">Suivre cette procédure pour installer le commutateur de stockage Cisco Nexus 9336C-FX2.</block>
   <block id="3a3a34f137c34026136751c70f3e456e" category="list-text">Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.</block>
   <block id="7beda05a5d31c95bf49bc2ea6e179eb5" category="list-text">Licences applicables, informations sur le réseau et la configuration, et câbles.</block>
   <block id="a8050ef5295cbbfb4ccf739e2973e8ac" category="inline-link-macro">fiches de câblage</block>
@@ -2621,7 +2612,6 @@
   <block id="00e409477db1ee56d9fea495b752156f" category="list-text">Réseau de gestion et de réseau en cluster NetApp(R) en vigueur téléchargeable depuis le site de support NetApp, à l'adresse<block ref="28649c93049a329043d206ec7fa0c6f8" category="inline-link-rx"></block>. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.</block>
   <block id="bc6d2bd4e8f6199ec8866997a5f53523" category="list-text">Documentation requise sur les commutateurs. Voir <block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block> pour en savoir plus.</block>
   <block id="ce95af11062cb078ba299f574f2eb115" category="paragraph">Voir <block ref="e635379a5d7f0e2ce1a042bff79838b6" category="inline-link-macro-rx"></block> Pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp.</block>
-  <block id="5d9de0e2f02eef0f18faf016853f64f1" category="paragraph">Vous pouvez migrer d'anciens commutateurs de cluster Cisco pour un cluster ONTAP vers des commutateurs de réseau de stockage Cisco Nexus 9336C-FX2. Cette procédure ne perturbe pas les opérations.</block>
   <block id="168e6c74ccda1fafcc71e6c7735ab151" category="list-text">Le cluster fonctionne entièrement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).</block>
   <block id="9a09d8e2d5f6e06a696dfad8eb5b3787" category="list-text">La personnalisation initiale des commutateurs Cisco Nexus 9336C-FX2 est terminée :</block>
   <block id="df5367038bd60876796bcfd577caafc0" category="list-text">Les commutateurs 9336C-FX2 exécutent la dernière version recommandée du logiciel.</block>
@@ -2654,12 +2644,8 @@
   <block id="ef1ee64e66c476fc0def572853f98a6d" category="paragraph">L'exemple suivant utilise la sortie d'interface :</block>
   <block id="28f363620ef0b78f100aebcc28cca7da" category="list-text">Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.</block>
   <block id="5a60cb8f615fe52bbea3a0ce20d7cbf3" category="paragraph">Pour utiliser la fonction d'appel intelligent, consultez les directives suivantes.</block>
-  <block id="196735c2e16dea95e9e52940e995e4d3" category="paragraph">Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par e-mail et génère une alerte à tous les destinataires configurés dans votre profil de destination. Pour utiliser l'appel à distance intelligent, vous devez configurer un commutateur de réseau de cluster pour communiquer par courrier électronique avec le système d'appel à distance intelligent. De plus, vous pouvez configurer votre commutateur de réseau de cluster pour tirer parti de la fonction de prise en charge intégrée de Smart Call Home de Cisco.</block>
-  <block id="eb7c35627e105401d90a20af82ccd688" category="paragraph">Avant de pouvoir utiliser le système d'appel intelligent, prenez en compte les considérations suivantes :</block>
   <block id="d156a234c8e2df537427451e3c85a588" category="list-text">Le nom du contact (contact du serveur SNMP), le numéro de téléphone et l'adresse postale doivent être configurés. Ceci est nécessaire pour déterminer l'origine des messages reçus.</block>
   <block id="1336e7d7d4f415b73c561b61d5118eff" category="paragraph">Le<block ref="3239564856077c52366228a32cb0971f" category="inline-link-rx"></block> Contient des informations sur les commandes permettant de configurer l'appel intelligent.</block>
-  <block id="a8619fc94e4c2f63e5e439fa6be6c256" category="doc">Configurez le commutateur de stockage 9336C-FX2</block>
-  <block id="6a346fdf9fd5bd6460d9128b295aa82a" category="paragraph">Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2.</block>
   <block id="f6c4bc1f211018516985b5814aca3e49" category="list-text">Effectuer une configuration initiale des commutateurs du réseau de cluster.</block>
   <block id="7826516f5bfa50d0c2d2ea6ba74303f9" category="paragraph">Lors du premier démarrage du commutateur, répondez aux questions de configuration initiale suivantes. La politique de sécurité de votre site définit les réponses et les services à activer.</block>
   <block id="45d74bdb9de5d4f07a7b7eefac42610a" category="cell">À l'invite</block>
@@ -2920,16 +2906,11 @@
   <block id="1b01ab832fc13ad817bc43472fbf49f8" category="list-text">Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité indiquées dans le <block ref="68653a00888238590f65028b21764ae9" category="inline-link-macro-rx"></block>.</block>
   <block id="72f88d930a53e783f0262d218e3c5d3c" category="list-text">Pour chaque commutateur, les huit vis 10-32 ou 12-24 et écrous à clip pour monter les supports et les rails coulissants sur les montants avant et arrière de l'armoire.</block>
   <block id="b080eb90c96a63567b287c84e459d4bf" category="paragraph">_(1) lorsque vous faites glisser doucement le rail coulissant, alignez-le sur les trous de vis du rack._ + _(2) serrez les vis des rails coulissants sur les montants de l'armoire._</block>
-  <block id="a9276b969735fd7cf5f0f1d721f02eb3" category="paragraph">Si vous disposez déjà d'un environnement en cluster à deux nœuds _sans commutateur_, vous pouvez migrer vers un environnement en cluster à deux nœuds _commuté_ à l'aide de commutateurs Cisco Nexus 9336C-FX2.</block>
   <block id="236c7e852889b030e9ecc664d388df22" category="paragraph">Voir<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> pour plus d'informations sur le câblage.</block>
   <block id="ebcf71eb39f7510f62abf6ea769fb245" category="paragraph">Chaque LIF de cluster doit afficher<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> et avoir un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de haut/haut.</block>
   <block id="242de61cd0710bcf5f8d68190d392f95" category="paragraph">Avant de commencer, complétez la procédure dans <block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block>.</block>
-  <block id="1dcfb07dc80ddc7f9df74317a5f57319" category="doc">Documentation requise pour les commutateurs Cisco Nexus 9336C-FX2</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Présentation de l'installation et de la configuration des commutateurs de cluster Cisco Nexus 9336C-FX2</block>
-  <block id="a48d2f73b54f1c12d4039724748b5d7a" category="paragraph">Le commutateur de cluster Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.</block>
   <block id="cde616a63686a24e0a12d2bf772daea1" category="inline-link-macro">Configurez le commutateur du bloc d'instruments 9336C-FX2</block>
-  <block id="696ff70e4b2816b3772c8643552d89de" category="paragraph">Pour utiliser la fonction d'appel intelligent, consultez les directives suivantes.</block>
-  <block id="fc8b273ce2a3b27b90b600bb90d3f6a1" category="paragraph">Procédez comme suit pour remplacer un commutateur Nexus 9336C-FX2 défectueux dans un réseau de clusters. Il s'agit d'une procédure sans interruption.</block>
   <block id="e1d51624c9462dce3c8cb21ee2541c35" category="paragraph">Avant d'effectuer le remplacement du commutateur, assurez-vous que :</block>
   <block id="e27994329a256d12f62765df177ff9a8" category="list-text">Sur l'infrastructure réseau et en cluster existante :</block>
   <block id="7f569d8355ef57a825561b6ed9aa98d8" category="list-text">Le cluster existant est vérifié entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.</block>
@@ -2942,32 +2923,25 @@
   <block id="0cc9703ff24ec51caaff112e3c07beb6" category="paragraph">Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, est copiée sur le nouveau commutateur.</block>
   <block id="152180be2296b28bf2404f4f7412907f" category="list-text">Vous avez exécuté la commande pour la migration d'une LIF de cluster à partir du nœud sur lequel la LIF de cluster est hébergée.</block>
   <block id="2873d5d671fe00dc2d1080597896cd04" category="list-text">Arrêtez les ports ISL 1/35 et 1/36 du commutateur Nexus 9336C-FX2 cs1.</block>
-  <block id="ca696aee6d6cec081778b68bacbd9abc" category="doc">Configuration requise pour les commutateurs de cluster Cisco Nexus 9336C-FX2</block>
   <block id="9656b5c122337f9fc73cb071b360a0e6" category="paragraph">Assurez-vous que :</block>
   <block id="1494bf11d6b40d5359db0275de9e3954" category="list-text">Vous disposez du nombre et du type appropriés de câbles et de connecteurs pour vos commutateurs. Voir la<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block>.</block>
   <block id="922e0472f9731d915fa1e9d3a596e9cf" category="list-text">Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console du switch à l'aide du câble console inclus.</block>
   <block id="541fb7ba8b8b8df9c175d1695f706597" category="list-text">Reportez-vous à la<block ref="16a6d09025d51cb8dd3516798b3fee8a" category="inline-link-rx"></block> pour obtenir les informations les plus récentes.</block>
   <block id="27261319977efbc3c013b30ed0fd35b8" category="paragraph">Pour plus d'informations sur la configuration initiale de votre commutateur, reportez-vous au guide suivant :<block ref="79f039529d1e022f29fed5c2eaec0b69" category="inline-link-rx"></block>.</block>
   <block id="515ffb6be2470ab747f049a501eb9867" category="summary">Présentation de la configuration logicielle des commutateurs de cluster Cisco Nexus 9336C-FX2</block>
-  <block id="516362c97fc00136adc7a7ad2b7ad6da" category="doc">Workflow d'installation du logiciel pour les commutateurs de cluster Cisco Nexus 9336C-FX2</block>
   <block id="7abb8bc9df6ce2c7758d9b3973b94f9a" category="summary">Suivre cette procédure pour installer le commutateur Cisco Nexus 9336C-FX2.</block>
-  <block id="c213d054028b0669b85c103892e81993" category="doc">Installer le commutateur du bloc d'instruments 9336C-FX2</block>
   <block id="fb7e85c23a22dc9f90f04d9cf46a95e6" category="paragraph">Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2.</block>
   <block id="93f8007261c4e4de92ccc02681671487" category="list-text">Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.</block>
   <block id="eb4e47bc0d1ca6e6a8ef8aae5a4a9319" category="list-text">Terminé <block ref="64773bf0b378e81522258098a8fd4aa4" category="inline-link-macro-rx"></block>.</block>
   <block id="79bf9f6695e1ddceb515be547b41eb66" category="inline-link-macro">Documentation relative aux commutateurs et à ONTAP requise</block>
   <block id="d6cac7bfdbc134d71eb6bb1bcf21401e" category="list-text"><block ref="6cd5f48152f1b7d1d000447807211e56" category="inline-link-macro-rx"></block>.</block>
   <block id="bf4aef298c742af331d17ef105c45f0c" category="cell">Si vous installez...</block>
-  <block id="88d4e4922c29eff797c809112d3dce0e" category="inline-link-macro">Configurez le commutateur Cisco Nexus 9336C-FX2</block>
-  <block id="aad9591a84e2ca7153e50ff2fc45bc5c" category="paragraph">Vous pouvez effectuer une migration sans interruption depuis un ancien commutateur de cluster Cisco vers un commutateur réseau de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="7a298dae32d29d6d4880c0d03618ae87" category="list-text">Le kit de panneau d'accès, disponible auprès de NetApp (référence X8784-R6).</block>
   <block id="828eeccf398aa5a5516c86cf77b98e41" category="list-text">Pour chaque commutateur, huit vis 10-32 ou 12-24 et écrous à clip pour monter les supports et les rails coulissants sur les montants avant et arrière de l'armoire.</block>
   <block id="19a356d6227c782e9f5da9f11a646795" category="list-text">Kit de rails standard Cisco pour installer le commutateur dans une armoire NetApp.</block>
   <block id="e3101591ca026d016bd42eff8e550754" category="list-text">Pour les exigences de préparation initiale, le contenu du kit et les précautions de sécurité, voir<block ref="49a9b7c5f9a7c0a710f6a2b4ba7339c5" category="inline-link-rx"></block>.</block>
   <block id="272ea0fb422a2e0e195576a0b2eee8b5" category="paragraph">Dans cette procédure, l'obturateur est installé dans U40.</block>
-  <block id="8ac65560d0d8d2e8f4633469b0561d37" category="paragraph">Les deux commutateurs 9336C-FX2 sont toujours montés dans le 2U supérieur de l'armoire RU41 et 42.</block>
   <block id="d372b5993852e5fcd13774ff6d442ef6" category="list-text">Répéter l'étape <block ref="aa6048c113ff8f7e2716bc5a5cbbd5d4" category="inline-xref-macro-rx"></block> pour le montant arrière droit.</block>
-  <block id="64e83e4557dbf8dfd8cb98fc07acc1b4" category="paragraph"><block ref="ab999189278342fe22cdb57d13e768ab" category="inline-link-macro-rx"></block>.</block>
   <block id="71f5a93eca776f3223a87d3523ce52d8" category="paragraph">Saisissez le nom du commutateur, qui est limité à 63 caractères alphanumériques.</block>
   <block id="95f749c32572d23c36c0f33b9f48fa88" category="inline-link-macro">Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp</block>
   <block id="e87b8cb8ca5f95ffd4513eaaf405e559" category="list-text">Vous devez vous être référé aux logiciels et aux guides de mise à niveau appropriés disponibles sur le site Web de Cisco. Commutateurs Cisco Nexus 3000 Series</block>
@@ -3539,7 +3513,6 @@
   <block id="04677d95852adc11088eca251913d172" category="list-text">Copiez l'image NX-OS sur le commutateur S2.</block>
   <block id="b5cafb18c89d57d8df7255c9f420d2ca" category="paragraph">Consultez les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.</block>
   <block id="b8cd88654eafece50754fca964cba8a1" category="paragraph">Suivez les procédures de câblage si vous disposez d'un système dans lequel les tiroirs disques du NS224 doivent être câblés en tant que stockage connecté au commutateur (pas de stockage à connexion directe).</block>
-  <block id="be822dc3c2f09a2076f72c87018d7d7b" category="list-text"><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block>.</block>
   <block id="fd280d62f276e98d2c1156b6a7cd8932" category="paragraph">Téléchargez et installez le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.</block>
   <block id="e5e0ceddda654af2c9e3c1386537e4f7" category="paragraph">Vous pouvez également ajouter de nouveaux ports en achetant et en installant des licences supplémentaires. Le modèle de base de switchs est conçu pour 16 ports 10 GbE ou 25 GbE et 2 ports 100 GbE.</block>
   <block id="b983f14988f359bc65d91f081089597f" category="list-text"><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block>.</block>
@@ -3569,7 +3542,6 @@
   <block id="a1e3722d1b72e15c4741491bfdfdb45c" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 3132Q-V par des connexions sans commutateur</block>
   <block id="6772e4d59dd062c5a9260242b751786f" category="doc">Remplacez les switchs de cluster Cisco Nexus 3232C par des connexions sans switch</block>
   <block id="6dd41d8a8ed57c2ab7e587572c2bf8c5" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 92300YC par des connexions sans commutateur</block>
-  <block id="5e1805c74a69eb3dca33ebb7e0f38ef6" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 9336C-FX2 par des connexions sans commutateur</block>
   <block id="0cb146d69d0fe75b8dbae294e40edac5" category="sidebar">Remplacez les switchs de cluster par des connexions sans commutateur</block>
   <block id="c0a5b1a3d1bb172f76bd6c3a49e192b0" category="paragraph"><block ref="c0a5b1a3d1bb172f76bd6c3a49e192b0" category="inline-link-rx"></block></block>
   <block id="c0465e16a8eab6f05c1f0b75df3a60ef" category="paragraph"><block ref="c0465e16a8eab6f05c1f0b75df3a60ef" category="inline-link-rx"></block></block>
@@ -3841,21 +3813,14 @@
   <block id="13ee56de24afc64015b6d9b81206a3a8" category="paragraph"><block ref="dbda9fa81591dd4f13b3b1e98408c845" prefix="" category="inline-code"></block></block>
   <block id="db038ea8b37b62294a9f3eebe698b28a" category="paragraph">Chaque port doit s'afficher<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> pour<block ref="97e7c9a7d06eac006a28bf05467fcc8b" prefix=" " category="inline-code"></block> et<block ref="741839f346d6e8126ae38ee76a96fd12" prefix=" " category="inline-code"></block> pour<block ref="fbcf0d1f787c74663ca9dc925ebf5f0c" prefix=" " category="inline-code"></block>.</block>
   <block id="0f2a4526602865cc9158a56028bf97de" category="summary">Vous pouvez migrer sans interruption des commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de réseau de cluster Cisco Nexus 9336C-FX2.</block>
-  <block id="4732368f30b7afd2065dc4cc0c57584f" category="doc">Migration d'un commutateur de cluster NetApp CN1610 vers un commutateur de cluster Cisco 9336C-FX2</block>
-  <block id="c8fc8239bd9ec37b7c36847589d5c8a0" category="paragraph">Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers des commutateurs de cluster Cisco 9336C-FX2. Cette procédure ne fonctionne pas sans interruption.</block>
   <block id="059d31543d448499bd1a9c454a8d1ebb" category="list-text">Cisco 9336C-FX2</block>
   <block id="3cb2d5707cdf5f5290ac6608ce8b5278" category="paragraph">Vérifiez que votre configuration répond aux exigences suivantes :</block>
-  <block id="6195676dbe2277e0d3edb2d8c3a50b2e" category="list-text">Les commutateurs de cluster Cisco 9336C-FX2 sont configurés et fonctionnent sous la version NX-OS installée, avec le fichier de configuration de référence (RCF) appliqué.</block>
   <block id="f782426a4cdf95a0b55da18e28ebf175" category="list-text">Cluster NetApp redondant et entièrement fonctionnel utilisant des commutateurs NetApp CN1610.</block>
   <block id="b5151f51cad20da0989e60f2f67b1b88" category="list-text">Connectivité de gestion et accès à la console des commutateurs NetApp CN1610 et des nouveaux commutateurs.</block>
-  <block id="ef76bcea64dcb3d0ca7a96e4f9da6812" category="list-text">Certains ports sont configurés sur les switchs Cisco 9336C-FX2 pour une exécution à 40 GbE ou 100 GbE.</block>
-  <block id="d3be97c754d4396e13d0406452fc2fb0" category="list-text">Vous avez planifié, migré et documenté la connectivité 40 GbE et 100 GbE depuis des nœuds vers des commutateurs de cluster Cisco 9336C-FX2.</block>
   <block id="9d9d3ff89e1f212fa1f66986336ed0c1" category="list-text">Les commutateurs de cluster CN1610 existants sont _C1_ et _C2_.</block>
   <block id="584cd7559b010eb68304bdb5ed2c60d2" category="list-text">Les nouveaux commutateurs de cluster 9336C-FX2 sont _cs1_ et _cs2_.</block>
   <block id="ba8f22a022d24c1e6a519a5e6a867762" category="list-text">Le câblage entre les nœuds et C1 est ensuite déconnecté de C1 et reconnecté à cs1.</block>
-  <block id="d14fe42ffba032ed843b9363b0fb3908" category="list-text">Déplacez les ports de cluster de nœuds de l'ancien commutateur C2 vers le nouveau commutateur cs2, à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.</block>
   <block id="56c5592f9041f8677e5bee9e1ae96f0a" category="list-text">Sur le commutateur cs2, vérifiez que tous les ports du cluster de nœuds sont activés :</block>
-  <block id="cc0c96fa4e2abab8a22a057701a64895" category="list-text">Déplacez les ports de cluster de nœuds de l'ancien commutateur C1 vers le nouveau commutateur cs1 à l'aide du câblage approprié pris en charge par le Cisco 9336C-FX2.</block>
   <block id="ba04a36ca69927056bab3bba36362e9b" category="list-text">Sur les commutateurs cs1 et cs2, vérifiez que tous les ports de cluster de nœuds sont activés :</block>
   <block id="d9dbaab2b13b33007de8325a401de04b" category="sidebar">Migration à partir des commutateurs de cluster CN1610</block>
   <block id="55c09ca9257750665c75e5b587165519" category="paragraph"><block ref="e802bd77f148cffa22d9aa9e7d79d65d" prefix="" category="inline-code"></block></block>
@@ -4134,13 +4099,10 @@
   <block id="e7d18f4dea6cb0b4877fd6a9e25a2411" category="paragraph"><block ref="e3949fbf38af37f5381ecfa4e157ffa8" prefix="" category="inline-code"></block></block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="paragraph-title">Résoudre les problèmes</block>
   <block id="3e7c0049318f1d54d121bd59293ae3f8" category="summary">Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les informations suivantes.</block>
-  <block id="6f46a467644090d99e7affb0172248d7" category="paragraph">Avant de configurer votre commutateur Cisco 9336C-FX2, prenez en compte les points suivants.</block>
   <block id="4c53e24e451af6129456f6303c30d40c" category="section-title">Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7</block>
   <block id="9631cf0fb6580db66010faf0ddf48e5a" category="paragraph">Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports de carte réseau NVIDIA ConnectX-6 (CX6), ConnectX-6 DX (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.</block>
   <block id="814d720814ffd5b1d8710ed1cff64233" category="section-title">Exigences FEC 25 GbE</block>
   <block id="5179acf3e9761e0b0a93230fb2e3563e" category="section-title">Ports FAS2820 e0a/e0b</block>
-  <block id="16492a28b092a6c397b2ace11004d3ae" category="paragraph">Les ports FAS2820 e0a et e0b nécessitent des modifications de configuration FEC pour la liaison avec des ports commutateurs 9336C-FX2.
-Pour les ports switchs e0a et e0b, le paramètre fec est défini sur<block ref="49bb002a2d60e4cc69c3dc5b31861c1e" prefix=" " category="inline-code"></block>.</block>
   <block id="4f87522819ea00e934b0a0922889948b" category="list-title">Contraintes de vitesse du groupe de ports</block>
   <block id="ffb3876ecec1241eb99eed3e2c199c30" category="list-text">Les ports 48 10 GbE (SFP28/SFP+) sont combinés en 12 groupes de 4 ports comme suit : ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.</block>
   <block id="3262b02fba07b6c88ff94cf729a2d880" category="list-text">Si les vitesses d'un groupe de 4 ports sont différentes, les ports de commutateur ne fonctionneront pas correctement.</block>
@@ -4226,18 +4188,15 @@ Pour les ports switchs e0a et e0b, le paramètre fec est défini sur<block ref="
   <block id="bf7f666145d20a64bc0df89aff1412b4" category="paragraph">Si une LIF de cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :</block>
   <block id="0ce224cf5d247a74b5df5578645cdfb1" category="paragraph"><block ref="33701a452aed8ed903e7f7050b36c9ad" prefix="" category="inline-code"></block></block>
   <block id="8413afd23c9d43c590d477ddf9c3812c" category="doc">Installation ou mise à niveau du fichier RCF (Reference Configuration File)</block>
-  <block id="00e3af2dfc61e6af58ff8e0002338734" category="paragraph">Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2. Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur votre commutateur.</block>
   <block id="6d641e461440ab5c02bc387dd8f88790" category="inline-link-macro">Commutateurs Ethernet Cisco (NSS)</block>
   <block id="7e857aa8a0b068cc27d4b48a1e11e878" category="list-text"><block ref="7e857aa8a0b068cc27d4b48a1e11e878" category="inline-link-macro-rx"></block></block>
   <block id="32559ee483b61b36141f9b9e0f4bbfff" category="paragraph">Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.</block>
   <block id="ad0d19783ccfa19f931108b838e4b7e4" category="list-text"><block ref="ad0d19783ccfa19f931108b838e4b7e4" category="inline-link-macro-rx"></block></block>
   <block id="79509ba15c2970f327dd8610e3b4628c" category="paragraph-title">Commandes utilisées</block>
-  <block id="d061b4842fee7f503446ba29253d182f" category="paragraph">Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.</block>
   <block id="eba0713505eba2aab08d4d6fa9ca2cf7" category="paragraph">Vous mettez à niveau votre version RCF si une version existante du fichier RCF est installée sur vos switchs opérationnels.</block>
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">Assurez-vous de disposer des éléments suivants :</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration d'amorçage dans la mémoire RCF qui reflète les images d'amorçage souhaitées.</block>
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.</block>
-  <block id="1b49e113d2db8aa6503efc6ca4257925" category="paragraph">Pour installer et configurer le logiciel d'un commutateur Cisco Nexus 9336C-FX2 et pour installer ou mettre à niveau le fichier RCF (Reference Configuration File), procédez comme suit :</block>
   <block id="2d667925d48008850336e0d43e4d4306" category="sidebar">Commutateur de cluster - Broadcom BES-53248</block>
   <block id="caf5170cbc1f4850f6d380c982fa61f9" category="sidebar">Commutateur de stockage - NVIDIA SN2100</block>
   <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">Commutateur partagé : Cisco Nexus 9336C-FX2</block>
@@ -4364,7 +4323,6 @@ Réinitialisez le commutateur sur les paramètres par défaut et appliquez le fi
   <block id="24778145f75ec14966b06f3682e616c4" category="sidebar">Vérifiez le cluster après la mise à niveau</block>
   <block id="77486b34dc8c8bacbe90fd1ff1bd8f61" category="inline-link-macro">Installez ou mettez à niveau le logiciel NX-OS</block>
   <block id="6b10db39cfed2551fdc8db011f0b1110" category="paragraph">Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.</block>
-  <block id="893355f35b6d198e6a02f43764951a73" category="paragraph">Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.</block>
   <block id="f29158c7335be7b7fe0a46dd82de6ed4" category="list-text"><block ref="f29158c7335be7b7fe0a46dd82de6ed4" category="inline-link-macro-rx"></block></block>
   <block id="72372752f11bdb84bf66a4ce05081de7" category="paragraph">Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.</block>
   <block id="948f862fde95b79124df1918e756eb9e" category="inline-link-macro">Guides de mise à niveau et de mise à niveau des logiciels</block>
@@ -4379,7 +4337,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="febb316f33bb4f57154038c792c90fc0" category="list-text">Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.</block>
   <block id="888174b5389281588448ee75f7ac8835" category="sidebar">Installer ou mettre à niveau le logiciel NX-OS</block>
   <block id="a8294f2ff72d57253432505426ab555f" category="list-text">Vous avez vérifié le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.</block>
-  <block id="f4212fffa5e0c42b93f12013fbeaaa93" category="paragraph">Vous devez connaître certaines informations de configuration, de connexion des ports et de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2. Vérifiez également le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.</block>
   <block id="87a5e94476d6bdcbe9c972165d34090a" category="list-text">Vous avez vérifié le numéro de série du commutateur pour vous assurer que le commutateur correct est remplacé.</block>
   <block id="2d6eb81058fa2415eb5247e2c14c5452" category="inline-link">Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance</block>
   <block id="9fa76c217cee95f26808d0c64f43dcda" category="list-text">Une connexion console au commutateur est nécessaire lors de l'installation du RCF. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances<block ref="3e8c2406d6e0211f305d1081c755846f" category="inline-link-rx"></block> pour effacer la configuration au préalable.</block>
@@ -4391,7 +4348,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="fb42fce84a1f5a648367e2e027a6c941" category="inline-link">Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP</block>
   <block id="1d01c6e5d28fb955441f4f9d1b4678b7" category="list-text">Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances<block ref="969f6e4e41456399a13556dea44fc607" category="inline-link-rx"></block>.</block>
   <block id="05e512c6037fe1bb54e099238cc8ce62" category="section-title">Les ports ne sont pas liés en raison des ressources TCAM</block>
-  <block id="f45e0e2e020e174164fe5413760ef4e4" category="paragraph">Sur le commutateur 9336C-FX2, les ressources TCAM (mémoire adressable de contenu ternaire) configurées dans la configuration utilisée par le commutateur sont épuisées.</block>
   <block id="50c3c6ae36d53e402b88d9a6222029a0" category="inline-link">Les ports ne sont pas liés sur Cisco Nexus 9336C-FX2 en raison des ressources TCAM</block>
   <block id="293da448e2520766812e980a00821699" category="paragraph">Consultez l'article de la base de connaissances<block ref="882efca0483fcef9d53236590b1d74e9" category="inline-link-rx"></block> pour plus d'informations sur la résolution de ce problème.</block>
   <block id="73f7e96895a0ddf72a3e199ac5ae2247" category="sidebar">Remplacer les commutateurs 3132Q-V.</block>
@@ -4435,16 +4391,13 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="bc0d8d4243074a46cad51594b5a0fd0f" category="admonition">SSH est recommandé lors de l'utilisation du moniteur d'état du commutateur Ethernet (CSHM) pour ses fonctions de collecte de journaux. SSHv2 est également recommandé pour une sécurité améliorée.</block>
   <block id="63a3f29d798fa577b051e98c5ffbca0c" category="admonition">Le moniteur d'état du commutateur Ethernet ne prend pas en charge ONTAP 9.13.1P8 et versions antérieures et 9.14.1P3 ou NX-OS version 10.3(4a)(M).</block>
   <block id="10bd81ac212ccc1de8787d82e4582e46" category="inline-link-macro">Préparez l'installation du logiciel NX-OS et du RCF</block>
-  <block id="e1ef2bf589b36ef4fe890c1ce3f4414e" category="list-text"><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block>.</block>
   <block id="11106314fe1d4dd5bee639afb348b915" category="inline-link-macro">Installez ou mettez à niveau le RCF</block>
-  <block id="959598166d06ebc7f87da7525f293a91" category="list-text"><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block>.</block>
   <block id="5f7b61b5cf8ee335e4fdf4eb2e2191b2" category="paragraph">Les ports sont configurés pour le 40 GbE pour Cluster+HA, le 4 x 10 GbE Breakout pour Cluster et le 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.</block>
   <block id="d30ea82d7096609f0aea87ef848f7ebd" category="paragraph">Pour installer et configurer le logiciel d'un commutateur partagé Cisco Nexus 9336C-FX2, effectuez la procédure suivante :</block>
   <block id="e495f3ec8dabfce7925d7c5053f55cbb" category="inline-link-macro">Installer le commutateur dans une armoire NetApp</block>
   <block id="f7e7d6376d3c621fe55f8db68a669d03" category="list-text">[[step15]]déplacez les ports de stockage de l'ancien commutateur sh2 vers le nouveau commutateur newsh2.</block>
   <block id="bc2fac09fdd528e5067568b7be4074db" category="list-text">[[step18]]vérifier que les tiroirs sont correctement câblés :</block>
   <block id="783733d2f76fb1513a44bb7144679e76" category="list-text">[[step19]]retirez l'ancien commutateur sh2.</block>
-  <block id="3e6dc141a56ffa03ce5afc78a5bbbef1" category="paragraph">Pour installer et configurer le logiciel d'un commutateur de stockage Cisco Nexus 9336C-FX2, effectuez la procédure suivante :</block>
   <block id="cb037476ec4486d51b86d5dbeede8008" category="doc">Configurer la collecte des journaux</block>
   <block id="8ac20e3719b6b58e94e5a4385e87b52e" category="paragraph">Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration de la collecte, de demande de journaux *support* détaillés et d'activation d'une collecte horaire de données *périodiques* collectées par AutoSupport.</block>
   <block id="2ded3ff3862adfc6f54d2a2f3ebf1147" category="paragraph">*REMARQUE :* si vous activez le mode FIPS, vous devez effectuer les opérations suivantes :</block>
@@ -4539,7 +4492,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="3a88a5741f799dc33a61b15c6f06ef77" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
   <block id="1ea468ba4330d1b99a20149c0e78b4ed" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 92300YC, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
   <block id="2e3301a364286013b9b29237fa347bb1" category="summary">SSH est une condition requise lors de l'utilisation des fonctions de surveillance de l'état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
-  <block id="243847a87ff7e0cb67ee578c74d8ad1c" category="paragraph">Le commutateur Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Le Nexus 9336C-FX2 est un commutateur Ethernet qui permet de basculer les données entre les contrôleurs et les tiroirs disques.</block>
   <block id="81f0d5b127adfd87f50ce10bc85e1e65" category="list-text">Régénérer les clés SSH sur le commutateur en suivant les instructions du fournisseur.</block>
   <block id="a60a00967db7342947b326a8f7618f52" category="list-text">Régénérer les clés SSH dans ONTAP à l'aide de<block ref="c079360670e0f4f9441a54ac1d262788" prefix=" " category="inline-code"></block></block>
   <block id="fe85427bc017f31f0f2b913e65e8d888" category="list-text">Réexécutez la routine de configuration de la collecte des journaux à l'aide de la<block ref="36ac3c1f3bae8142b5d110fb906ba03e" prefix=" " category="inline-code"></block> commande</block>
@@ -4584,7 +4536,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="22265ef643cb758bbeafeae6b9005960" category="list-text">[[step3]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :</block>
   <block id="f7e86b0278da2d0f23dfd04e64f68478" category="list-text">[[step2]] Confirmez la configuration de réseau de cluster suivante :</block>
   <block id="51ad33f87e9af3baac880cb70771fe46" category="list-text">[[step5]] sur le commutateur C2, arrêter les ports connectés aux ports de cluster des nœuds afin de basculer les LIFs du cluster.</block>
-  <block id="09b863ebe2485d0260db2694f545c132" category="doc">Migrer d'un ancien switch Cisco vers un switch Cisco Nexus 9336C-FX2</block>
   <block id="52f52fe5595841a94d975238199fecfa" category="list-text">[[step25]] redéfinissez le niveau de privilège sur admin :</block>
   <block id="0804eaf4e04da57f4e0f01d9ed605047" category="list-text">[[step5]] Vérifiez la connectivité des interfaces de cluster distantes :</block>
   <block id="1113f8069f1bf162e58048e7da3b5e76" category="list-text">[[step13]] Vérifiez la connectivité des interfaces de cluster distantes :</block>
@@ -4883,7 +4834,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="9f3a533b3bf9826183d3861e0ce1859c" category="list-text">Les noms de LIF du cluster sont *cluster1-01_clus1*, *cluster1-01 04_clus2*, *cluster1-02_clus1*, *cluster1-02_clus2*, *cluster1-03_clus1*, *cluster1-03_clus2*, *cluster1-04_clus1* et *cluster2*.</block>
   <block id="1c319a6cce094508e045c5bb62d6664e" category="paragraph">Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE *e0a* et *e0b*. Reportez-vous au<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour vérifier les ports de cluster corrects sur vos plates-formes.</block>
   <block id="88870df2dabeaf8bc50daf8d504498e0" category="inline-link-macro">Mettez à niveau votre FCR</block>
-  <block id="d1d882c0929e664f5d3052ad227ecec9" category="paragraph"><block ref="51640e6af8359470cbd047034716b7ac" category="inline-link-macro-rx"></block> ou <block ref="d9cc2c4eec198e8f90466b5b89bfc33e" category="inline-link-macro-rx"></block>.</block>
   <block id="df73b0f89510f793b71a90bf50d82c10" category="list-text">La FCR actuelle.</block>
   <block id="85e086d364dc39fb9a01f1b57e7afc52" category="list-text">ONTAP 9.10.1P3 et versions ultérieures</block>
   <block id="e6645191453a89d37ca94dbd791a1499" category="paragraph">Le commutateur SN2100 prend en charge les applications de cluster et de stockage dans ONTAP 9.10.1P3 et versions ultérieures sur différentes paires de commutateurs.</block>
@@ -4915,7 +4865,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="253d101ba7a8a0f1e24c1a3b13a1b5b5" category="sidebar">Install_upgrade_rcf</block>
   <block id="2b8efdb0e77054ffe22b4bfb75564155" category="sidebar">Présentation de l'installation ou de la mise à niveau du RCF</block>
   <block id="ea6719e8ba4a5a7aea0b4185afc5408b" category="summary">Vous pouvez installer le RCF après avoir configuré pour la première fois le switch de stockage Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
-  <block id="fc3ebe0c41be566a2062e99eee81c6ba" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré pour la première fois le commutateur de stockage Nexus 9336C-FX2.</block>
   <block id="0d54a8a99337a48199414ba38d122135" category="list-text">Le commutateur cs1 et le commutateur cs2 sont mis sous tension et la configuration initiale du commutateur est terminée (l'adresse IP de gestion et SSH sont configurés).</block>
   <block id="f1de50ac922202c9581e806906499ae8" category="paragraph">Cet exemple montre la FCR<block ref="fcd688c0fb8c0256c7fc0b5ca2fd673d" prefix=" " category="inline-code"></block> installée sur le commutateur cs1 :</block>
   <block id="a697c9a980376d3a62210b2b53d5b0b8" category="list-text">Examinez la sortie de la bannière à partir de la<block ref="6d53824b9996e36fd31937e922967215" prefix=" " category="inline-code"></block> commande. Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.</block>
@@ -4991,7 +4940,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="66d6f96d0da80f49ed578ebd202f51eb" category="paragraph">Licence POD 24 ports pour SW, Cisco 9336CFX2</block>
   <block id="9bbde79a2adc27dd0834674a54511852" category="paragraph">N9K-9336C, FTE, PTSX, 36PT 10/25/40/100GQSFP28</block>
   <block id="237dcc725007511d9264805769526146" category="paragraph">N9K-9336C, FTE, PSIN, 36PT 10/25/40/100GQSFP28</block>
-  <block id="583b0c4bec1745b4b73603decad8c614" category="section-title">Licences intelligentes Cisco</block>
   <block id="fe08e509b48ab8777447aae93b7c5a8f" category="paragraph">Pour activer plus de 12 ports sur votre commutateur de cluster Cisco Nexus 9336C-FX-T, vous devez acheter une licence intelligente Cisco. Les licences intelligentes Cisco sont gérées via les comptes intelligents Cisco.</block>
   <block id="7fe41b91378917f0081357562fc713a8" category="inline-link">Créez un nouveau compte Smart</block>
   <block id="3cc71bb7c9c2b539e2bc7922ec688b44" category="list-text">Créez un nouveau compte Smart, si nécessaire. Voir<block ref="c236b6c467e9323cbdd95c549d9def1f" category="inline-link-rx"></block> pour plus de détails.</block>
@@ -5090,10 +5038,8 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="666618fc10fce8f3b4f820a79b261925" category="paragraph">Pour l'installation et la maintenance des commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T, veillez à consulter la liste des composants et références.</block>
   <block id="bcf1c9a6a953488392920f911a4c6e27" category="paragraph">Le tableau suivant répertorie la référence et la description des commutateurs de stockage, ventilateurs et blocs d'alimentation 9336C-FX2-T et 9336C-FX2-T :</block>
   <block id="6aea76bb63b89b76edb29df0b9ec6a5c" category="paragraph">Pour activer plus de 12 ports sur votre switch de stockage Cisco Nexus 9336C-FX-T, vous devez acheter une licence intelligente Cisco. Les licences intelligentes Cisco sont gérées via les comptes intelligents Cisco.</block>
-  <block id="a6a461c906e8688722889f2c90a05dc6" category="list-text"><block ref="6dc839faa17719bf6b40745660551f1b" category="inline-link-macro-rx"></block>.</block>
   <block id="0da3cc28f42ccf09143f2cd285547a2a" category="doc">Préparez l'installation ou la mise à niveau du logiciel NX-OS et du RCF</block>
   <block id="7246a16d8a655c05a2c1f478efbf9e66" category="inline-link-macro">Installation ou mise à niveau du RCF</block>
-  <block id="223e0b1e9b4b36b5a5ac5856c9d2b263" category="paragraph"><block ref="54d6784a897a7a3dfd3c9197dcd4475c" category="inline-link-macro-rx"></block>.</block>
   <block id="c41f329c2fc325ce101685a7ff1c2b6c" category="doc">Installez ou mettez à niveau le fichier de configuration de référence</block>
   <block id="78fdfe1b105d9f6ad1f515d29394fcd3" category="paragraph">11 à 36</block>
   <block id="20eed5f0dc87e5058308718e45381220" category="paragraph">11 à 36</block>
@@ -5337,22 +5283,13 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="5a51de7a8bd29e14350d005020bdb5de" category="image-alt">Positionnement 92300YC à U39-40</block>
   <block id="8d44600231ff60a86380b8c1228e5f6c" category="list-text">Connectez le port de gestion de chaque commutateur 92300YC à l'un des commutateurs de gestion (si commandés) ou connectez-les directement à votre réseau de gestion.</block>
   <block id="57b82df28fc00080790149c86d895c6b" category="paragraph"><block ref="4a918828ff9ec1128ca567fb62079d76" category="inline-link-macro-rx"></block> .</block>
-  <block id="140be3eb4b08ba5b7033057d8fddcd9a" category="paragraph"><block ref="19183173bd336c4a7349920f4bc23f03" category="inline-link-macro-rx"></block> .</block>
-  <block id="15a40d3f35d3512d3c97521e2c1f5b0b" category="paragraph"><block ref="169e5eca6121ce7f69a705f99619e75c" category="inline-link-macro-rx"></block> .</block>
   <block id="65e3a9c19dd89d3a7115a3ba02c522b3" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="72451cd49e503d9ae924f8d1ab1ef595" category="inline-link-macro-rx"></block></block>
-  <block id="714034d2b8f5ebe644155de85884bbca" category="paragraph">Configurez le commutateur de cluster 9336C-FX2.</block>
   <block id="b5fe56b5ff32cd8130c6ef4f84c1e62d" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="0f24d169a2f575f17ba79644c46d3a03" category="inline-link-macro-rx"></block></block>
-  <block id="83aa01662b8f0e70e050f34d0a2b112e" category="paragraph">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco 9336C-FX2.</block>
   <block id="14b3b17f755689e5a5fab89b6ae63211" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
-  <block id="d35302c6c324ed27400a5e058dffad94" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco 9336C-FX2.</block>
   <block id="422c274743fd52a13b84466925d9ae14" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="e1c53d78ceb09f1d765f98cd902707bb" category="inline-link-macro-rx"></block></block>
-  <block id="2bf3a21c18727d14d13236cbe24f6d43" category="paragraph">Installez ou mettez à niveau le RCF après avoir configuré le commutateur Cisco 9336C-FX2 pour la première fois.  Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
-  <block id="002bff3b4f7078117e350533031df203" category="doc">Flux de travail d'installation et de configuration pour les commutateurs de cluster Cisco Nexus 9336C-FX2</block>
   <block id="bbdce1985f06c788c19e6e5d3566bb0f" category="paragraph">Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2.</block>
   <block id="5e614d5b678df1fbbb94c348b708979f" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="2fca12e846c6ba3593809ac51401fa0b" category="inline-link-macro-rx"></block></block>
-  <block id="2e6a7a855e2ff2a1220730eae748ad87" category="paragraph">Passez en revue les exigences de configuration du commutateur de cluster 9336C-FX2.</block>
   <block id="be6f9e475f9adc72ec6526d5adc70b26" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="a722a5598ccd16c1bff100542b2e44aa" category="inline-link-macro-rx"></block></block>
-  <block id="cfa7ea6652b44d2de47b01b454c44812" category="paragraph">Passez en revue les composants et les numéros de pièces du commutateur de cluster 9336C-FX2.</block>
   <block id="c89d2b1be1c059d7732385c7f48d8f19" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="5fc1ad7e6f051f8474e7a142c51a615c" category="inline-link-macro-rx"></block></block>
   <block id="08150807a0da3147bf1651a1c37ec583" category="paragraph">Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 9336C-FX2 et le cluster ONTAP .</block>
   <block id="d30328a6d5e1df1f7adce35c405878cc" category="inline-link-macro">Consultez les exigences de Smart Call Home</block>
@@ -5360,17 +5297,12 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="a97ad1ae552ab2e354f5e67d916ccaf2" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="76d32253af9ac9d977c88af48dee7d29" category="inline-link-macro-rx"></block></block>
   <block id="a7bb68ddac6d399034ea468debf7fab7" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="38c1f149ff23c79ed448add9563e5d5b" category="inline-link-macro-rx"></block></block>
   <block id="f9509470d72439cbfa8243fa94c09f2f" category="summary">Avant de configurer les commutateurs de cluster Cisco Nexus 9336C-FX2, consultez la présentation de la configuration.</block>
-  <block id="6a8d17d47732d0a86c81e84f3572622d" category="doc">Flux de travail d'installation matérielle pour les commutateurs Cisco Nexus 9336C-FX2</block>
-  <block id="ded6c98ad9f7b4bfae9804f20f7e2767" category="paragraph">Pour installer et configurer le matériel d'un commutateur de cluster 9336C-FX2, procédez comme suit :</block>
   <block id="8f94ffb31a7b1c0eb7ef89c26c20fdbc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="995440708d7ef2f5dc1b0fa1faef9d09" category="inline-link-macro-rx"></block></block>
   <block id="3aa51d17c39fbe6617a960cd893c9147" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="0bc8e83d3cd2eebf0c2c5d2a7b54cc6c" category="inline-link-macro-rx"></block></block>
   <block id="ab3371c33572fbb955f1dd5b9b37cf9b" category="paragraph">Installez le commutateur 9336C-FX2.</block>
   <block id="5420b49f6bb2b4c6cd29f1d04f886142" category="paragraph">Installez le commutateur 9336C-FX2 et le panneau de passage dans une armoire NetApp selon les besoins.</block>
   <block id="1a93d578061f1724e84a74106f164f03" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="f31e2218f7cf08b190abb8563911bffd" category="inline-link-macro-rx"></block></block>
   <block id="8608163382dad3a40accd48496936aa9" category="paragraph">Consultez la prise en charge des ports Ethernet NVIDIA , les exigences FEC 25 GbE et les informations sur les ressources TCAM.</block>
-  <block id="710e5bf52faa736ff3e38fd233e59618" category="paragraph"><block ref="dbe9b3c650ae4dca2117921c884a54d2" category="inline-link-macro-rx"></block> .</block>
-  <block id="f9c15e83a38fe90272c22c0bd257b581" category="paragraph">En option, vous pouvez<block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block> .  Sinon, allez à<block ref="756775b1ef62b4e4ac6c4df72f0cf918" category="inline-link-macro-rx"></block> .</block>
-  <block id="7be1885a02922674638042ed6280ba6b" category="paragraph"><block ref="7be1885a02922674638042ed6280ba6b" category="inline-link-macro-rx"></block></block>
   <block id="be706a7a12c76624a9ad7568f3b79f1f" category="paragraph"><block ref="c05d7708e583b7d4b251d68f1130d2c6" category="inline-link-macro-rx"></block> .</block>
   <block id="d91ea354659a63a988e9a43bfe660ac0" category="paragraph"><block ref="ce2926213e4f5e76e8b29ae87f344220" category="inline-link-macro-rx"></block> .</block>
   <block id="e2715c3387d9508dc033488d6e43c425" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="068ae9dc6825f9dcbe393c782d23d120" category="inline-link-macro-rx"></block></block>
@@ -5396,33 +5328,19 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="86584e4af92c1ecd7bcb5c967ce4d039" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="b1dd11b8c652a20dabb45a8711624a03" category="inline-link-macro-rx"></block></block>
   <block id="03721c018f3b57daf8190e64a5816d8c" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="2d5ab056fce0957a1995d7dbefe2460c" category="inline-link-macro-rx"></block></block>
   <block id="b1b40e86080e8933ddf9741d5a54d4c1" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="cad0a32a1376b86b466dd6cf29c7e620" category="inline-link-macro-rx"></block></block>
-  <block id="65f37da1c9f83bc599bdd37869996437" category="paragraph"><block ref="08712014b627ff0e1c01c2b7e6c49149" category="inline-link-macro-rx"></block> .</block>
-  <block id="e5e4c33167ef65ecfcf3ddcdc83d7f53" category="paragraph"><block ref="88abf51732f30f17b65def4d1747e28f" category="inline-link-macro-rx"></block> .</block>
   <block id="1130d64161a0e7dd5dc134ca8eeed3bc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block></block>
-  <block id="409451caa6f3704a685f20d68c99aca5" category="paragraph">Configurez le commutateur de stockage 9336C-FX2.</block>
   <block id="2cb440b90b3a2604826ca6513ffc0e42" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="cc92556d54e7bbc14c83aad61946e82d" category="inline-link-macro-rx"></block></block>
-  <block id="cb3b28101a5ee802ee9339ebb8595afa" category="paragraph">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de stockage Cisco 9336C-FX2.</block>
   <block id="96c0f9b9f35ec112769fb42b69304b92" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="6dc839faa17719bf6b40745660551f1b" category="inline-link-macro-rx"></block></block>
-  <block id="2c56d0852bbb1c59cd064306c261c65c" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de stockage Cisco 9336C-FX2.</block>
   <block id="102c54c666c08f4173fa519e6ff129bc" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="7c940c5373653de732f444e5b7d2c3dd" category="inline-link-macro-rx"></block></block>
-  <block id="f49fe2ad250c9850f946f4a76e70f6ee" category="doc">Flux de travail d'installation et de configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2</block>
   <block id="1b3b19f43be6e28ee8c396fbe7b03fbc" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="aaff47cc4c157f05f1c45463332a8bad" category="inline-link-macro-rx"></block></block>
-  <block id="1ff3ca27c084b3d98dd546bd6424b82f" category="paragraph">Passez en revue les exigences de configuration du commutateur de stockage 9336C-FX2.</block>
   <block id="afa756f05eda52021550fbc6716553fa" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="77ca0bf349d1638c9c1dd8a9b3a241bc" category="inline-link-macro-rx"></block></block>
-  <block id="6271aa8c6c06ded4463e51995158862e" category="paragraph">Passez en revue les composants et les numéros de pièces du commutateur de stockage 9336C-FX2.</block>
   <block id="d815e2d84c80deace1c71e359ea4539c" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="892235a4ff1b7daae2f665bdf48836dc" category="inline-link-macro-rx"></block></block>
   <block id="2fd9e620c63ad097fef0f86dc0431f01" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="a370603fc77b0cda75c52a1c0cd9ca04" category="inline-link-macro-rx"></block></block>
   <block id="e93d94e53563c8aa9753cd21058b0e16" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="17b105a40f24618917c9d67c7deca182" category="inline-link-macro-rx"></block></block>
   <block id="c4334426d3952d12cd31cf51ea4bc4e9" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="6513be43714f8e4178a60e8447e307b1" category="inline-link-macro-rx"></block></block>
-  <block id="2506c3178340c6f497905a5c7374857c" category="paragraph">En option, vous pouvez<block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block> .  Sinon, allez à<block ref="c49772a60328b39d671da109a076acd4" category="inline-link-macro-rx"></block> .</block>
-  <block id="b5df828135197ab853d0a801d8eb009b" category="doc">Flux de travail d'installation matérielle pour les commutateurs de stockage Cisco Nexus 9336C-FX2</block>
-  <block id="14babb76f4d9c746d4dfc66f424b6b9a" category="paragraph">Pour installer et configurer le matériel d'un commutateur de stockage 9336C-FX2, procédez comme suit :</block>
   <block id="e89feb45a019aae43e7072a7606f97d8" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="35e16e47f4129ca15f5a4cfe7b290909" category="inline-link-macro-rx"></block></block>
   <block id="0f2fc5abf269bcd430c8f35e0203b2bd" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="8e341dc1e80127ca0dc2c12db6d0237a" category="inline-link-macro-rx"></block></block>
-  <block id="6d5d1abae5e843681d56ffe17b1d5796" category="paragraph">Installez le commutateur de stockage 9336C-FX2.</block>
   <block id="986b831325814d3f0225e51df098b72b" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="d43bf43861b014b2f70de1c12cff1c76" category="inline-link-macro-rx"></block></block>
-  <block id="4767a0bcf3ab94aeda87c79dd4096ef4" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block></block>
-  <block id="04d079026b4a7b63a084b7ab24426723" category="paragraph"><block ref="16a9a5fa8979bab3106e7aad0dfd20d9" category="inline-link-macro-rx"></block> .</block>
   <block id="a7ba132631b64c7d74d24b772aacd919" category="paragraph"><block ref="fc89f8ef8daa08e9ffc121c5d5609d54" category="inline-link-macro-rx"></block> .</block>
   <block id="4e66bc15577ca34b137ec086186da6aa" category="doc">Flux de travail d'installation et de configuration pour les commutateurs NVIDIA SN2100</block>
   <block id="84a9509b45afdd4f172c9e97fb33aeae" category="paragraph">Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs NVIDIA SN2100.</block>
@@ -5501,18 +5419,12 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="0b0af207ec2c8f6abb54dbb6d25d1e08" category="doc">Réinitialiser le commutateur de cluster 3232C aux paramètres d'usine par défaut</block>
   <block id="c46b238bb6344a302fea52020396d5fd" category="paragraph">Pour réinitialiser le commutateur de cluster 3232C aux paramètres d'usine par défaut, vous devez effacer les paramètres du commutateur 3232C.</block>
   <block id="9a8cb8528dcf1f4cef02d9d651c97762" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="80f53a242ec42c69f56bef6ea5280d79" category="inline-link-macro-rx"></block></block>
-  <block id="3836409394069aad1c0d177508a0b8fa" category="paragraph">Effacez les paramètres du commutateur de cluster 9336C-FX2.</block>
   <block id="3dd12c3aa965e3c3f02c45cf194e70e1" category="summary">Avant de configurer votre commutateur Cisco Nexus 9336C-FX2, consultez les informations suivantes.</block>
-  <block id="1879b1806f544489aa735d6c96451c26" category="doc">Réinitialiser le commutateur de cluster 9336C-FX2 aux paramètres d'usine par défaut</block>
-  <block id="86febed737991dc630c80bed09f6522a" category="paragraph">Pour réinitialiser le commutateur de cluster 9336C-FX2 aux paramètres d'usine par défaut, vous devez effacer les paramètres du commutateur 9336C-FX2.</block>
   <block id="b61314793698be7c8efe61054a047971" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="f2f3ab011041e0ba671f012e12a109d6" category="inline-link-macro-rx"></block></block>
   <block id="be18d3d03cb823f2241c70c8d8f962f1" category="paragraph">Effacez les paramètres du commutateur partagé 9336C-FX2.</block>
   <block id="7cf9e584319467844132fe2ec5366e46" category="doc">Réinitialiser le commutateur partagé 9336C-FX2 aux paramètres d'usine</block>
   <block id="f15f694cd959fee42f68622ed93703ec" category="paragraph">Pour réinitialiser le commutateur partagé 9336C-FX2 aux paramètres d'usine par défaut, vous devez effacer les paramètres du commutateur 9336C-FX2.</block>
   <block id="6d7847194618d7f43d5ef4802d5b7bf5" category="paragraph-title"><block ref="ef78558f80439832e0f51cc22cee8b8c" category="inline-image-macro-rx" type="image"></block><block ref="6490da53052fc089e10d4c5945e4165d" category="inline-link-macro-rx"></block></block>
-  <block id="327d54052f8df54815eb6a91b7d0408d" category="paragraph">Effacez les paramètres du commutateur de stockage 9336C-FX2.</block>
-  <block id="25620b70ab19361e1b5271b949eadacd" category="doc">Réinitialiser le commutateur de stockage 9336C-FX2 aux paramètres d'usine</block>
-  <block id="dc0d7be930f1390289c8d4fff1abdca8" category="paragraph">Pour réinitialiser le commutateur de stockage 9336C-FX2 aux paramètres d'usine, vous devez effacer les paramètres du commutateur 9336C-FX2.</block>
   <block id="e1fbd6e94e8ae2122c5dff5616d455bd" category="paragraph-title"><block ref="36915574c413876eaa75cbd48f69fd00" category="inline-image-macro-rx" type="image"></block><block ref="2e7babb183a220127f4abd1b2ba289d4" category="inline-link-macro-rx"></block></block>
   <block id="c759c9ef805c613327b992d273776e80" category="paragraph">Effacez les paramètres du commutateur de cluster SN2100.</block>
   <block id="f6d2183127ed7dc4775726598f011d45" category="paragraph-title">Configurations client</block>
@@ -5551,7 +5463,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="023d3cea21f793fbb3e2e5d28e57a72b" category="paragraph"><block ref="9ce063e5d5eba89cfe73c4a7aa644c03" prefix="" category="inline-code"></block></block>
   <block id="028ec7d09f77a158fe61f03d83610921" category="paragraph"><block ref="cb92f45d862d75a23e3fac8a5fd092f8" prefix="" category="inline-code"></block></block>
   <block id="717d34c223b104b615a461bc9992fec2" category="paragraph"><block ref="7a6b9b4916c4b73908fdd869ba141f50" prefix="" category="inline-code"></block></block>
-  <block id="5874439536649fa36cb953afac4bdfc9" category="paragraph"><block ref="515277b58830c3c4e31f38d9f9963be8" prefix="" category="inline-code"></block></block>
   <block id="f44d2548870db270213e5ffe209b4689" category="paragraph"><block ref="6a2fde838f43d6496891962036acd77d" prefix="" category="inline-code"></block></block>
   <block id="19bc101773ab2f0483029be1ff96054c" category="paragraph"><block ref="0ea7b23ad779f4f48bd0160828e3c364" prefix="" category="inline-code"></block></block>
   <block id="ef7b355e739842b9c934aa44f9d23a94" category="paragraph"><block ref="b919614541ccef30710bff6c217f0c43" prefix="" category="inline-code"></block></block>
@@ -5562,13 +5473,11 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="fed74a4623bde0237a1b3be8e8042cbc" category="paragraph"><block ref="5df914552885278ba9e8a73fcaf7994a" prefix="" category="inline-code"></block></block>
   <block id="ec29d2d5a1b4f802e07ac896a15e5624" category="paragraph"><block ref="02c29bd72975e1a289eaf536ccb4ac05" prefix="" category="inline-code"></block></block>
   <block id="684a4c2862f5fef1f6d28303a5df57cb" category="list-text">Répétez les étapes 1 à 19 sur le commutateur cs1.</block>
-  <block id="770d2d8ee323646f71bd836e04b6bcf1" category="paragraph"><block ref="c76e6e9e0613f45a95bce39f19a419a9" prefix="" category="inline-code"></block></block>
   <block id="3a950462bc76b1e9a5ad74b10ff9376a" category="list-text">Répétez les étapes 7 à 20 sur le commutateur cs1.</block>
   <block id="0cf70822d9949e4c6758e918643273c8" category="paragraph"><block ref="a11ecf52d39ead0e156683247ccf2127" prefix="" category="inline-code"></block></block>
   <block id="509c8307041a8ec518033cbc63e3c50b" category="paragraph"><block ref="8c3437ea3e27545ca4b0d2b43011cd70" prefix="" category="inline-code"></block></block>
   <block id="f754809a548cd76d671cc491b7eec29b" category="paragraph"><block ref="6bcd94cf62d325392b1785ec7c4d0b4f" prefix="" category="inline-code"></block></block>
   <block id="ebe26990aabba87fe33eb909a21ad9b9" category="paragraph"><block ref="a4807a2f59573034bf9e433b7f092ac2" prefix="" category="inline-code"></block></block>
-  <block id="620dbb76acb886552dbf90beae61a089" category="paragraph"><block ref="c7bad43350d7f24c8f6009f19bfb7ac2" prefix="" category="inline-code"></block></block>
   <block id="a8a84368cc5da872ee27b5aa916012bf" category="paragraph"><block ref="c504e3bbf97ff14f7b88da0a3b4bed45" prefix="" category="inline-code"></block></block>
   <block id="92a263f83655527a8570ddfd3130dcf6" category="paragraph"><block ref="141e63272914863fc9c959b427fdacd7" prefix="" category="inline-code"></block></block>
   <block id="002be8e67a0ddc666dd0ab6ed8d9b723" category="paragraph"><block ref="8c066b528dcbc1486476e4154920e286" prefix="" category="inline-code"></block></block>
@@ -5586,4 +5495,142 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="7411e9f163d9baab36b5ebc3f80bda73" category="admonition">Alors que<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers, par exemple SFTP, HTTPS ou FTP.</block>
   <block id="5b9b8dea15de063806f0306fe78872c8" category="admonition">Bien que<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers, par exemple SFTP, HTTPS ou FTP.</block>
   <block id="bea4eb9c3f61f6fc9076a215ac1173fe" category="paragraph"><block ref="c1b3921cc8c2b4b51a888d2dc803623c" category="inline-link-macro-rx"></block> .</block>
+  <block id="00a850fef80958a3c902c0d0b0fc20c4" category="inline-link-macro">configurer la surveillance de l'état du commutateur</block>
+  <block id="07c675c656e29cd460e1d99b7aa706f4" category="paragraph">Après avoir migré les commutateurs, vous<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="549a122380830b4e1927b9e610dcece8" category="paragraph">Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par courrier électronique et envoie une alerte à tous les destinataires configurés dans votre profil de destination.</block>
+  <block id="dbf3a0118d5874b90ce8771b5cedc0db" category="paragraph">Avant d'utiliser Smart Call Home, tenez compte des exigences suivantes :</block>
+  <block id="28fb65da5b2eab881647ad7ac77194d0" category="paragraph"><block ref="a037a4ee5864384f65ede6ae904e9f62" prefix="" category="inline-code"></block></block>
+  <block id="28e93aa1782799e707ae36e6a9e56495" category="paragraph"><block ref="55f80a7437b0e7a7a6b41469ac913031" prefix="" category="inline-code"></block></block>
+  <block id="e52cb5ef54c03fca3363f3b273365d11" category="list-text">Pour EFOS 3.12 et versions ultérieures, l'accès à la console est requis car les sessions SSH actives sont perdues lorsque SSH est désactivé.</block>
+  <block id="9647aaf1d611960859c4ee8ced3595ff" category="list-text">Pour EFOS 3.11 et les versions antérieures, les sessions SSH actuelles restent ouvertes après la désactivation du serveur SSH.</block>
+  <block id="b44445cb7a4ea49bccbf85eb316d4da5" category="paragraph"><block ref="7362cedbff16306bb404f17dd3c001a8" prefix="" category="inline-code"></block></block>
+  <block id="531987ca227c0cf605cab78495d10ae6" category="paragraph">Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.</block>
+  <block id="46a5339d269acbc783b2d94a31f36031" category="paragraph"><block ref="7b6368d40c8921ab7f0d70098b7204ce" prefix="" category="inline-code"></block></block>
+  <block id="3adc3e01c28041540261067a8c5f42c4" category="paragraph">Avant de configurer vos commutateurs 9336C-FX2 et 9336C-FX2-T, passez en revue les considérations suivantes.</block>
+  <block id="6ea68979b999461809b876a21703f18d" category="paragraph">Les ports FAS2820 e0a et e0b nécessitent des modifications de configuration FEC pour se connecter aux ports de commutation 9336C-FX2 et 9336C-FX2-T. Pour les ports de commutation e0a et e0b, le paramètre fec est défini sur<block ref="49bb002a2d60e4cc69c3dc5b31861c1e" prefix=" " category="inline-code"></block> .</block>
+  <block id="130f8f76dcd11a71af2a6e35ecfdb42f" category="paragraph">Sur les commutateurs 9336C-FX2 et 9336C-FX2-T, les ressources de mémoire adressable de contenu ternaire (TCAM) configurées dans la configuration utilisée par le commutateur sont épuisées.</block>
+  <block id="910722336d2dd2b53c967a5f53c7de18" category="section-title">Licences Cisco Smart pour les ports 9336C-FX2-T uniquement</block>
+  <block id="b50aca116f0bd723f5c38d48f51c2ab0" category="inline-link-macro">documentation requise</block>
+  <block id="e5cb7ccaa2366df9a6c6ca888569dc95" category="paragraph">Après avoir confirmé vos composants et vos numéros de pièces, vous examinez les<block ref="59e15a623229fb37fc5dda6561b10061" category="inline-link-macro-rx"></block> .</block>
+  <block id="85fda41aaa9ea1a4147e242ab3ed56a9" category="doc">Exigences de configuration pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="e80c428a7eea6075f03255c9ec326bc8" category="paragraph">Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de vérifier la configuration et les exigences réseau.</block>
+  <block id="da0a7deaa793fc61622c871d3afe9a2d" category="open-title">ONTAP 9.10.1 et versions ultérieures</block>
+  <block id="d6ee40fa31120c165b45a980a11c4d74" category="paragraph">De plus, à partir d' ONTAP 9.10.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2-T pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.</block>
+  <block id="a33d385d3b88ed3ab4c8ccbed1bcdec4" category="inline-link-macro">composants et numéros de pièces</block>
+  <block id="7290089ee7dbcd85985b46291bc573c5" category="paragraph">Après avoir examiné les exigences de configuration, vous pouvez confirmer votre<block ref="3b90816dda3a89ef42c04803a42814e3" category="inline-link-macro-rx"></block> .</block>
+  <block id="ca30d178d65613a3980aa1e5c24cae86" category="doc">Flux de travail d'installation du logiciel pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="44a0d0c6cfa7412c326504381aa4ceef" category="paragraph">Pour installer et configurer le logiciel des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T et pour installer ou mettre à niveau le fichier de configuration de référence (RCF), procédez comme suit :</block>
+  <block id="39ecf5a8c4cecfb60f1c77352743d91a" category="paragraph">Configurez les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="6edb2db16a63e77c504f0ec4ca324f75" category="paragraph">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="3031e4abbdfc224eed6c14d57d3dbb3d" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="a47f262edd3b5d4e8f52d95741233056" category="paragraph">Installez ou mettez à niveau le RCF après avoir configuré les commutateurs Cisco 9336C-FX2 et 9336C-FX2-T pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
+  <block id="d68c8b9717e1c52caab87a6178e6faee" category="paragraph">Effacez les paramètres des commutateurs de cluster 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="e506561a53b08f68da8ca7dacc0617c7" category="paragraph">Après avoir vérifié votre configuration SSH, vous<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="42bdad1ced4815a43686beb3b9df6dcf" category="doc">Flux de travail d'installation et de configuration pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="c7ac353ab2ef0a25fb4b857331c7d67a" category="paragraph">Les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T font partie de la plate-forme Cisco Nexus 9000 et peuvent être installés dans une armoire système NetApp . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.</block>
+  <block id="b1469aa7173cabe036ac95f704582273" category="paragraph">Cisco Nexus 9336C-FX2 (36 ports) est un commutateur de cluster/stockage/données à haute densité de ports. Cisco Nexus 9336C-FX2-T (12 ports) est un commutateur hautes performances à faible densité de ports qui prend en charge les configurations de cluster 10/25/40/100GbE.</block>
+  <block id="820b8f8b6eb41f68297ab6800b27c033" category="paragraph">Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="049ba69c4313b722554b9ad73d0e8543" category="paragraph">Passez en revue les exigences de configuration pour les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="7227233c13e3492666047792861d46e6" category="paragraph">Passez en revue les composants et les numéros de pièces des commutateurs de cluster 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="5665f91ed6ef96bbcde991189385ae27" category="paragraph">Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 9336C-FX2 et 9336C-FX2-T et le cluster ONTAP .</block>
+  <block id="5b6643088e117e18482d7766f9bec70b" category="doc">Flux de travail d'installation matérielle pour les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="d8393e57f0dc77b307ac8a6a330c6c03" category="paragraph">Pour installer et configurer le matériel des commutateurs de cluster 9336C-FX2 et 9336C-FX2-T, procédez comme suit :</block>
+  <block id="1b2cbf1d5cdfcc9cbb6b5b9f86d59665" category="paragraph">Installez les commutateurs 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="5c45a309af117bf72296ab3073d25c28" category="paragraph">Installez les commutateurs 9336C-FX2 et 9336C-FX2-T et le panneau de passage dans une armoire NetApp selon les besoins.</block>
+  <block id="51a2ed9bde6e6aaf9d7c536fcfb97d05" category="inline-link-macro">installer ou mettre à niveau le logiciel NX-OS</block>
+  <block id="9a902e7f4742e91939e7f89660ba44b7" category="paragraph">Après avoir préparé l'installation du logiciel NX-OS et RCF, vous<block ref="af60ba4b6c39eb7f1655b798abad8e11" category="inline-link-macro-rx"></block> .</block>
+  <block id="9eb0d2dee744ca5726b57d78636445af" category="paragraph">Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur les commutateurs de cluster Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="4d5cc1717a6d575674caf1667d7cd847" category="inline-link-macro">installer ou mettre à niveau le fichier de configuration de référence (RCF)</block>
+  <block id="ad599980e8b337c42970271e9b84f0ee" category="paragraph">Après avoir installé ou mis à niveau le logiciel NX-OS, vous<block ref="d510068a163bd661380221025541f5da" category="inline-link-macro-rx"></block> .</block>
+  <block id="5dbda9223b42a1433b17c045beba0f1b" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois.</block>
+  <block id="ef026123cf82c39cbefddaf57368f9bf" category="inline-link-macro">vérifier la configuration SSH</block>
+  <block id="3798b057b729c5f530d3237427c718ea" category="paragraph">Après avoir installé le RCF, vous<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block> .</block>
+  <block id="53ed59a2b084d14def6a7fb55cc8229d" category="doc">Installer les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="34b3dac12b8f309a5cba136b3536b354" category="paragraph">Suivez cette procédure pour installer et configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="76054af3259d19e7217540c4370cde8e" category="inline-link-macro">revoir le câblage et la configuration</block>
+  <block id="2dd0f899e01af1041775f1375300d0b0" category="paragraph">En option, vous pouvez<block ref="a8c82b142f94f7d62d6e984faba746ca" category="inline-link-macro-rx"></block> . Sinon, allez à<block ref="064faea1a1d913acd1db9826626ea0d5" category="inline-link-macro-rx"></block> .</block>
+  <block id="723f025d1bdeaaf2ab1572b9fdbbce75" category="doc">Installer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T dans une armoire NetApp</block>
+  <block id="8fd02c5a30d7bf752ecc1be44a9daf6a" category="paragraph">Selon votre configuration, vous devrez peut-être installer le commutateur Cisco Nexus 9336C-FX2 et 9336C-FX2-T et le panneau de transfert dans une armoire NetApp . Des supports standard sont inclus avec le commutateur.</block>
+  <block id="86e063f9cb7c5f3f2a96d0eadcc62744" category="paragraph">Les deux commutateurs 9336C-FX2 et 9336C-FX2-T sont toujours montés dans les 2U supérieurs des armoires RU41 et 42.</block>
+  <block id="7e2d17623d3c5b661d8a503fb0b8140e" category="list-text">Connectez le port de gestion de chaque commutateur 9336C-FX2 et 9336C-FX2-T à l'un des commutateurs de gestion (si commandés) ou connectez-les directement à votre réseau de gestion.</block>
+  <block id="11e38055fe460ee1b1086763cf1cd15b" category="inline-link-macro">configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="875716c453b187736ba6daf886734549" category="paragraph">Après avoir installé les commutateurs dans l'armoire NetApp , vous<block ref="04831059e32b83b4a29d50c410dcfb7a" category="inline-link-macro-rx"></block> .</block>
+  <block id="3770b71681be5f01527157fd0dc50b61" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.</block>
+  <block id="eebaf4fed546b3a0992a87fde29aa8eb" category="inline-link-macro">installer le RCF</block>
+  <block id="a5f34389dd818124e9902ca190b9a24e" category="inline-link-macro">améliorez votre RCF</block>
+  <block id="4463dfd36adae473f01c4ccdf8c64bf3" category="paragraph">Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous<block ref="657b0126c63dca332f6eb2a1abd407b9" category="inline-link-macro-rx"></block> ou<block ref="a2077d156a5f79cc9b42ae5ebd286488" category="inline-link-macro-rx"></block> selon les besoins.</block>
+  <block id="3a6d24a4a4d0d823eee73a6ee98e03ec" category="doc">Migrer des commutateurs de cluster NetApp CN1610 vers les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="8f14575a7f194822de8634bcb415b980" category="paragraph">Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONTAP vers les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T. Il s’agit d’une procédure non perturbatrice.</block>
+  <block id="274eb7afa7e488f3bc565f66031b6e27" category="paragraph">Vous devez connaître certaines informations de configuration, connexions de port et exigences de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T. Vous devez également vérifier le numéro de série du commutateur pour vous assurer que le commutateur correct est migré.</block>
+  <block id="53f9f21759fc0b11c4e3780443d6fad9" category="list-text">Cisco 9336C-FX2-T</block>
+  <block id="6e7ad74b7290b3eb4a22d373c927b2dc" category="list-text">Les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T sont configurés et fonctionnent sous la version correcte de NX-OS installée avec le fichier de configuration de référence (RCF) appliqué.</block>
+  <block id="a8d9e9a42837a8ff74b07ad26f2f3209" category="list-text">Certains ports sont configurés sur les commutateurs Cisco 9336C-FX2 et 9336C-FX2-T pour fonctionner à 40 GbE ou 100 GbE.</block>
+  <block id="536dc42692ad46fdf34e9088089ba498" category="list-text">Vous avez planifié, migré et documenté la connectivité 40 GbE et 100 GbE des nœuds vers les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="30f44adb252ce4b9244da29072afe599" category="list-text">Déplacez les ports du cluster de nœuds de l'ancien commutateur C2 vers le nouveau commutateur cs2, à l'aide d'un câblage approprié pris en charge par Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="3d689abfa62a3dafb7db6a7d255491eb" category="list-text">Déplacez les ports du cluster de nœuds de l'ancien commutateur C1 vers le nouveau commutateur cs1, à l'aide d'un câblage approprié pris en charge par Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="5607369fa249db572762bd8da8119d88" category="paragraph">Après avoir migré vos commutateurs, vous<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="44062246be6e5585fa8092a371375894" category="paragraph">Si vous disposez d'un environnement de cluster _sans commutateur_ à deux nœuds existant, vous pouvez migrer vers un environnement de cluster _commuté_ à deux nœuds à l'aide des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="e275ddb46a068c9b5b18e40afa41bb49" category="doc">Migrer des anciens commutateurs Cisco vers les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="8dd5a454f9a20a1b095f4f408856ede3" category="paragraph">Vous pouvez effectuer une migration sans interruption des anciens commutateurs de cluster Cisco vers les commutateurs réseau de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="3720fe8aea9ff8d0c50d321ce564038a" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T par des connexions sans commutateur</block>
+  <block id="c2007b9efe240a102c3e44d5a46e3f1b" category="doc">Remplacer les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="503615f764941a8269f9db632cf11546" category="paragraph">Suivez ces étapes pour remplacer les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice (NDU).</block>
+  <block id="18ffde5dcfca22931138bc9083373c03" category="paragraph">Après avoir remplacé vos commutateurs, vous<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="9d1bafbe8702aa9d547ff0530dc979b2" category="doc">Exigences de documentation pour les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="4704599dca0b6354263b73eb7547eeeb" category="paragraph">Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9336-FX2 et votre cluster ONTAP .</block>
+  <block id="853993476f29f43a3564f3fb6fcb79d8" category="paragraph">Pour configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, vous avez besoin de la documentation suivante du<block ref="f4fbe3bed062fba5aa150f0db2ededbd" category="inline-link-rx"></block> page:</block>
+  <block id="13d5bb4626e1cbbb4775bcb64b6056e8" category="paragraph">Décrit comment installer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T dans une armoire NetApp à quatre montants.</block>
+  <block id="2ac598039a79b6ad5e620f9a78f277d9" category="doc">Réinitialiser les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T aux paramètres d'usine par défaut</block>
+  <block id="627a1a5ca5182fc1268e10944b0d11de" category="paragraph">Pour réinitialiser les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T aux paramètres d'usine par défaut, vous devez effacer les paramètres des commutateurs 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="dae8311507e70973aef15b74d2c49647" category="doc">Configurer les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="3f5be581cc9dcc706d1626ae6d69f859" category="paragraph">Suivez cette procédure pour configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="fa115eaa6bb67b1f30145b50e2909494" category="inline-link-macro">préparez-vous à installer le logiciel NX-OS et RCF</block>
+  <block id="56de77ab5cc67b75b4ee729281c45085" category="paragraph">Après avoir configuré vos commutateurs, vous<block ref="fc9a049c460091b99cacecbc6842e0d4" category="inline-link-macro-rx"></block> .</block>
+  <block id="659074b8bec9aa34a34060887c630758" category="inline-link-macro">installer le commutateur</block>
+  <block id="9ef15c24896a81d852e0ec927d07b576" category="paragraph">Une fois que vous avez terminé vos feuilles de travail de câblage, vous<block ref="a4d08a22d117d50c4f6f41bb907b902c" category="inline-link-macro-rx"></block> .</block>
+  <block id="7c5d661f478455e8b4969c0db6fe980b" category="paragraph">Après avoir mis à niveau votre RCF, vous<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block> .</block>
+  <block id="b5091eb9e945ba6ef5067dde084633c9" category="paragraph">Après avoir confirmé vos composants et vos numéros de pièces, examinez les<block ref="c9c7b33eb7ecfb82310ed8ccd1b741e8" category="inline-link-macro-rx"></block> .</block>
+  <block id="f7b54db8bb1edb66d9e7729b369d5cba" category="doc">Exigences de configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="802eabd8abd0754593f6d0b63c7c7415" category="paragraph">Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de vérifier la configuration et les exigences réseau.</block>
+  <block id="b7abf5be3f262d14e6b24c3da10f12bf" category="paragraph">Après avoir examiné les exigences de configuration, vous pouvez confirmer votre<block ref="956f80516b807d0f1eb3f339d37ac1f0" category="inline-link-macro-rx"></block> .</block>
+  <block id="679a238ad4220047c2dbff8f74c72528" category="doc">Flux de travail d'installation du logiciel pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="f5104bce37bcdaa2f1c63b3ac65c3b79" category="paragraph">Pour installer et configurer le logiciel des commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T, procédez comme suit :</block>
+  <block id="c1153a79657b7de8ad26c1b4bae2e245" category="paragraph">Configurez les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="9418a59943ac2aed445a8e6f7a32f9b2" category="paragraph">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de stockage Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="2953cffbac344fff2421dadad04c271f" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="8f80a77a0ded9f9cecc823645e77aa66" category="paragraph">Effacez les paramètres des commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="890132d2ea58089b7772d3a69da1fae8" category="paragraph">Après avoir vérifié votre configuration SSH, vous<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="6b56f0f8022eff03ed2fc2cafba64d3c" category="doc">Flux de travail d'installation et de configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2 9336C-FX2-T</block>
+  <block id="5a1d339b41e4478ae500b9eebf0cbe48" category="paragraph">Les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T font partie de la plate-forme Cisco Nexus 9000 et peuvent être installés dans une armoire système NetApp .</block>
+  <block id="750c0e6030c7a8d3dbff76c9d7569144" category="paragraph">Cisco Nexus 9336C-FX2 (36 ports) est un commutateur de cluster/stockage/données à haute densité de ports. Cisco Nexus 9336C-FX2-T (12 ports) est un commutateur hautes performances à faible densité de ports qui prend en charge les configurations 10/25/40/100GbE.</block>
+  <block id="cc94bed94369a8e8c5c1e00e6793fa86" category="paragraph">Passez en revue les exigences de configuration pour les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="dd64683de652e85f5b868c1f2eae9cde" category="paragraph">Passez en revue les composants et les numéros de pièces des commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="4acbdd283806cc2f91f51ba69dc719fa" category="doc">Installer les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="30f0f4e282c923bd1b6eb3430368c95b" category="paragraph">Suivez cette procédure pour installer les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="e29c3c672f955bc11999298afef2ee4a" category="inline-link-macro">configurer le commutateur</block>
+  <block id="d239745aeb014f2a1f8c5d19c392bff4" category="paragraph">En option, vous pouvez<block ref="2243efeaee625d6b6076bcdcbd40e014" category="inline-link-macro-rx"></block> . Sinon, allez à<block ref="c0adb5d4b90ebe88b470bf2d2b0abeb1" category="inline-link-macro-rx"></block> .</block>
+  <block id="fc1f3345ed70ee803b05edd8389076d8" category="doc">Flux de travail d'installation matérielle pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="3c0c80bf32bba937eaca13c19214d19e" category="paragraph">Pour installer et configurer le matériel des commutateurs de stockage 9336C-FX2 et 9336C-FX2-T, procédez comme suit :</block>
+  <block id="5f1b2b82356028cd84a1fef439b79336" category="paragraph">Installez les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="0aece77864e401ea696f4af5f4c2400c" category="paragraph">Installez les commutateurs 9336C-FX2 et 9336C-FX2-T et le panneau de passage dans une armoire NetApp selon les besoins.</block>
+  <block id="cb080d5089a28a8e356d2f35d216d871" category="paragraph">Après avoir préparé l'installation du logiciel NX-OS et RCF, vous<block ref="3344c060e83f2395d70c5fc1776e5497" category="inline-link-macro-rx"></block> .</block>
+  <block id="0399e2e67ad24e3896fc54df77685320" category="paragraph">Suivez cette procédure pour installer le logiciel NX-OS sur les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="f0cf67e2ac311b9ab91b420f0644cb83" category="inline-link-macro">installer ou mettre à niveau le RCF</block>
+  <block id="2f4c165bed0d1ff46749148ff938a80b" category="paragraph">Après avoir installé ou mis à niveau le logiciel NX-OS, vous<block ref="7ffcba0482753b1f6ae93308b4e57219" category="inline-link-macro-rx"></block> .</block>
+  <block id="a4af8e244603f507e79d0e5e42756fd0" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs de stockage Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois.</block>
+  <block id="96299a3365c60d52212f4e4279da5d71" category="paragraph">Après avoir installé ou mis à niveau votre RCF, vous<block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block></block>
+  <block id="4bdf8c06f6f7a17fdeee480cd24906a4" category="paragraph">Selon votre configuration, vous devrez peut-être installer les commutateurs Cisco Nexus 9336C-FX2 9336C-FX2-T et le panneau de transfert dans une armoire NetApp . Des supports standard sont inclus avec le commutateur.</block>
+  <block id="7ebdc9bd3d41414c92b63bf64adce4d5" category="paragraph">Après avoir installé les commutateurs dans l'armoire NetApp , vous<block ref="cd8ba9a916eba0640468a7d563330303" category="inline-link-macro-rx"></block> .</block>
+  <block id="daba0abed2f861ff72b586dd0bd226bf" category="paragraph">Vous pouvez migrer des commutateurs Cisco plus anciens pour un cluster ONTAP vers des commutateurs de réseau de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T. Il s’agit d’une procédure non perturbatrice.</block>
+  <block id="2f5712748f2dc83192b39344c5cb8cfb" category="doc">Remplacer les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="c07faefbb9a5cb11d7945e0d6dfc660a" category="paragraph">Vous pouvez remplacer les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice.</block>
+  <block id="8a2e460965af5647361628ad7c7c2a45" category="paragraph">Avant d'installer le logiciel NX-OS et les RCF sur les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous que :</block>
+  <block id="24785d31e32b1e803a8b6a5d4d156e04" category="list-text">Votre système peut prendre en charge les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="e97cb4c2821391e2b44b00b15712d932" category="doc">Exigences de documentation pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="0179cd2b4af562415dcfecf21fede120" category="paragraph">Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9336-FX2 et votre cluster ONTAP .</block>
+  <block id="f29eb20a17171f9da2762c9003af3a0c" category="doc">Réinitialiser les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T aux paramètres d'usine</block>
+  <block id="37ad66f3b8723f9e7bd118d6a030dfbd" category="paragraph">Pour réinitialiser les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T aux paramètres d'usine, vous devez effacer les paramètres des commutateurs 9336C-FX2 et 9336C-FX2-T.</block>
+  <block id="6a5127ae1421c6eadaa6d46f2df70ef6" category="doc">Configurer les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T</block>
+  <block id="bb1f78fc1f8bcd4ab502b4f5c6fcdea1" category="paragraph">Après avoir configuré vos commutateurs, vous<block ref="48457dceaecddf3406f5c3a0ab2cf67e" category="inline-link-macro-rx"></block> .</block>
+  <block id="8874a79dc54d118d630ce595ac682392" category="paragraph">Une fois que vous avez terminé vos feuilles de travail de câblage, vous<block ref="d9d3d8dae0a36eea938e144b4f81717e" category="inline-link-macro-rx"></block> .</block>
 </blocks>

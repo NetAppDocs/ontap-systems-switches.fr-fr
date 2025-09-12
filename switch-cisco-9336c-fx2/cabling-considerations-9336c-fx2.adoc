@@ -11,7 +11,7 @@ summary: Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les in
 
 
 [role="lead"]
-Avant de configurer votre commutateur Cisco 9336C-FX2, prenez en compte les points suivants.
+Avant de configurer vos commutateurs 9336C-FX2 et 9336C-FX2-T, passez en revue les considérations suivantes.
 
 
 
@@ -42,8 +42,7 @@ Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'in
 
 === Ports FAS2820 e0a/e0b
 
-Les ports FAS2820 e0a et e0b nécessitent des modifications de configuration FEC pour la liaison avec des ports commutateurs 9336C-FX2.
-Pour les ports switchs e0a et e0b, le paramètre fec est défini sur `rs-cons16`.
+Les ports FAS2820 e0a et e0b nécessitent des modifications de configuration FEC pour se connecter aux ports de commutation 9336C-FX2 et 9336C-FX2-T. Pour les ports de commutation e0a et e0b, le paramètre fec est défini sur `rs-cons16` .
 
 [listing, subs="+quotes"]
 ----
@@ -58,6 +57,6 @@ Pour les ports switchs e0a et e0b, le paramètre fec est défini sur `rs-cons16`
 
 == Les ports ne sont pas liés en raison des ressources TCAM
 
-Sur le commutateur 9336C-FX2, les ressources TCAM (mémoire adressable de contenu ternaire) configurées dans la configuration utilisée par le commutateur sont épuisées.
+Sur les commutateurs 9336C-FX2 et 9336C-FX2-T, les ressources de mémoire adressable de contenu ternaire (TCAM) configurées dans la configuration utilisée par le commutateur sont épuisées.
 
 Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Les ports ne sont pas liés sur Cisco Nexus 9336C-FX2 en raison des ressources TCAM"^] pour plus d'informations sur la résolution de ce problème.

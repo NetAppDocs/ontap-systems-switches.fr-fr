@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
 summary: Si vous ne possédez pas encore la documentation et les informations de configuration requises, vous devez les collecter avant de configurer votre cluster et vos commutateurs de réseau de gestion. 
 ---
-= Installer le commutateur de stockage 9336C-FX2
+= Installer les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivre cette procédure pour installer le commutateur de stockage Cisco Nexus 9336C-FX2.
+Suivez cette procédure pour installer les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 
 .Avant de commencer
 Assurez-vous de disposer des éléments suivants :
@@ -50,4 +50,4 @@ Consultez les procédures fournies dans les guides d'installation du matériel d
 
 
 .Et la suite ?
-En option, vous pouvezlink:install-switch-and-passthrough-panel-9336c-storage.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"] .  Sinon, allez àlink:setup-switch-9336c-storage.html["Configurer le commutateur"] .
+En option, vous pouvezlink:install-switch-and-passthrough-panel-9336c-storage.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"] . Sinon, allez àlink:setup-switch-9336c-storage.html["configurer le commutateur"] .

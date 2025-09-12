@@ -11,7 +11,7 @@ summary: Vous pouvez installer la FCR après la première configuration du commu
 
 
 [role="lead"]
-Vous installez le fichier RCF après avoir configuré pour la première fois le commutateur Nexus 9336C-FX2.
+Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois.
 
 .Avant de commencer
 Vérifiez les installations et les connexions suivantes :
@@ -137,7 +137,7 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 . Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
 +
-`cs1# echo "hardware access-list tcam region ing-racl 1024" > bootflash:write_erase.cfg`
+`cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
 +
 `cs1# echo "hardware access-list tcam region egr-racl 1024" >> bootflash:write_erase.cfg`
@@ -398,4 +398,4 @@ System Manager simplifie et simplifie l'installation et la configuration du clus
 Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
 
 .Et la suite ?
-link:configure-ssh-keys.html["Vérifier la configuration de SSH"].
+Après avoir installé le RCF, vouslink:configure-ssh-keys.html["vérifier la configuration SSH"] .

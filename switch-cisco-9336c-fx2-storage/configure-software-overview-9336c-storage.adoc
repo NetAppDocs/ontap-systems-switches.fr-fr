@@ -4,30 +4,30 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: Présentation de la configuration logicielle des commutateurs de stockage Cisco Nexus 9336C-FX2 
 ---
-= Workflow d'installation du logiciel pour les commutateurs de stockage Cisco Nexus 9336C-FX2
+= Flux de travail d'installation du logiciel pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour installer et configurer le logiciel d'un commutateur de stockage Cisco Nexus 9336C-FX2, effectuez la procédure suivante :
+Pour installer et configurer le logiciel des commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T, procédez comme suit :
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:setup-switch-9336c-storage.html["Configurer le commutateur"]
 [role="quick-margin-para"]
-Configurez le commutateur de stockage 9336C-FX2.
+Configurez les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-nxos-overview-9336c-storage.html["Préparez l'installation du logiciel NX-OS et du RCF"]
 [role="quick-margin-para"]
-Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de stockage Cisco 9336C-FX2.
+Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de stockage Cisco 9336C-FX2 et 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-nxos-software-9336c-storage.html["Installez ou mettez à niveau le logiciel NX-OS"]
 [role="quick-margin-para"]
-Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de stockage Cisco 9336C-FX2.
+Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco 9336C-FX2 et 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-rcf-software-9336c-storage.html["Installez ou mettez à niveau le RCF"]
 [role="quick-margin-para"]
-Installez ou mettez à niveau le RCF après avoir configuré le commutateur Cisco 9336C-FX2 pour la première fois.  Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+Installez ou mettez à niveau le RCF après avoir configuré les commutateurs Cisco 9336C-FX2 et 9336C-FX2-T pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifier la configuration de SSH"]
 [role="quick-margin-para"]
@@ -35,4 +35,4 @@ Vérifiez que SSH est activé sur les commutateurs pour utiliser les fonctionnal
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:reset-switch-9336c-storage.html["Réinitialiser le commutateur aux paramètres d'usine"]
 [role="quick-margin-para"]
-Effacez les paramètres du commutateur de stockage 9336C-FX2.
+Effacez les paramètres des commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.

@@ -4,7 +4,7 @@ permalink: /switch-cisco-9336c-fx2/configure-reqs-9336c-cluster.html
 keywords: shared storage cluster switch 
 summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé. 
 ---
-= Configuration requise pour les commutateurs de cluster Cisco Nexus 9336C-FX2
+= Exigences de configuration pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,12 +14,16 @@ summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutate
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, vérifiez la configuration et les exigences réseau.
+Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de vérifier la configuration et les exigences réseau.
 
 
 
 == Prise en charge de ONTAP
 
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 et versions ultérieures
+--
 À partir de ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
 
 Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, deux commutateurs réseau sont nécessaires.
@@ -27,6 +31,15 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, deux commu
 
 NOTE: Le moniteur d'état du commutateur Ethernet ne prend pas en charge ONTAP 9.13.1P8 et versions antérieures et 9.14.1P3 ou NX-OS version 10.3(4a)(M).
 
+--
+.ONTAP 9.10.1 et versions ultérieures
+--
+De plus, à partir d' ONTAP 9.10.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2-T pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
+
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, deux commutateurs réseau sont nécessaires.
+
+--
+====
 
 
 == Configuration requise
@@ -52,4 +65,4 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 Pour plus d'informations sur la configuration initiale de votre commutateur, reportez-vous au guide suivant : https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation et de mise à jour Cisco Nexus 9336C-FX2"^].
 
 .Quelle est la prochaine étape
-link:components-9336c-cluster.html["Composants et références"] .
+Après avoir examiné les exigences de configuration, vous pouvez confirmer votrelink:components-9336c-cluster.html["composants et numéros de pièces"] .

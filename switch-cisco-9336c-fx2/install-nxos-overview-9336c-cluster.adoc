@@ -241,4 +241,4 @@ Cluster
 
 
 .Et la suite ?
-link:install-nxos-software-9336c-cluster.html["Installez ou mettez à niveau le logiciel NX-OS"].
+Après avoir préparé l'installation du logiciel NX-OS et RCF, vouslink:install-nxos-software-9336c-cluster.html["installer ou mettre à niveau le logiciel NX-OS"] .

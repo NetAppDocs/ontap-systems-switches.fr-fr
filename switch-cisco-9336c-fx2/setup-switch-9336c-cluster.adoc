@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
 summary: Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2. 
 ---
-= Configurez le commutateur du bloc d'instruments 9336C-FX2
+= Configurer les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour configurer le commutateur Cisco Nexus 9336C-FX2.
+Suivez cette procédure pour configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 
 .Avant de commencer
 Assurez-vous de disposer des éléments suivants :
@@ -192,4 +192,4 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 
 .Et la suite ?
-link:install-nxos-overview-9336c-cluster.html["Préparez-vous à installer NX-OS et RCF"]
+Après avoir configuré vos commutateurs, vouslink:install-nxos-overview-9336c-cluster.html["préparez-vous à installer le logiciel NX-OS et RCF"] .

@@ -4,28 +4,30 @@ sidebar: sidebar
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
 summary: 'Présentation de l"installation et de la configuration des commutateurs de stockage Cisco Nexus 9336C-FX2' 
 ---
-= Flux de travail d'installation et de configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2
+= Flux de travail d'installation et de configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le commutateur Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp. Le Nexus 9336C-FX2 est un commutateur Ethernet qui permet de basculer les données entre les contrôleurs et les tiroirs disques.
+Les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T font partie de la plate-forme Cisco Nexus 9000 et peuvent être installés dans une armoire système NetApp .
 
-Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2.
+Cisco Nexus 9336C-FX2 (36 ports) est un commutateur de cluster/stockage/données à haute densité de ports. Cisco Nexus 9336C-FX2-T (12 ports) est un commutateur hautes performances à faible densité de ports qui prend en charge les configurations 10/25/40/100GbE.
+
+Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2 et 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-9336c-storage.html["Examiner les exigences de configuration"]
 [role="quick-margin-para"]
-Passez en revue les exigences de configuration du commutateur de stockage 9336C-FX2.
+Passez en revue les exigences de configuration pour les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:components-9336c-storage.html["Examiner les composants et les numéros de pièces"]
 [role="quick-margin-para"]
-Passez en revue les composants et les numéros de pièces du commutateur de stockage 9336C-FX2.
+Passez en revue les composants et les numéros de pièces des commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:required-documentation-9336c-storage.html["Examiner la documentation requise"]
 [role="quick-margin-para"]
-Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 9336C-FX2 et le cluster ONTAP .
+Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 9336C-FX2 et 9336C-FX2-T et le cluster ONTAP .
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:smart-call-9336c-storage.html["Consultez les exigences de Smart Call Home"]
 [role="quick-margin-para"]

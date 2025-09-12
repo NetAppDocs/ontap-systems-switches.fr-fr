@@ -11,7 +11,7 @@ summary: 'Si vous disposez déjà d"un environnement en cluster sans commutateur
 
 
 [role="lead"]
-Si vous disposez déjà d'un environnement en cluster à deux nœuds _sans commutateur_, vous pouvez migrer vers un environnement en cluster à deux nœuds _commuté_ à l'aide de commutateurs Cisco Nexus 9336C-FX2.
+Si vous disposez d'un environnement de cluster _sans commutateur_ à deux nœuds existant, vous pouvez migrer vers un environnement de cluster _commuté_ à deux nœuds à l'aide des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 
 Le processus de migration fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 Gb BASE-T intégrés pour les ports de réseau de clusters.
 
@@ -629,4 +629,4 @@ RPC status:
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Après avoir migré vos commutateurs, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

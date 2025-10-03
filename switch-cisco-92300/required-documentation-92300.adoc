@@ -17,7 +17,7 @@ Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, consul
 
 == Documentation du commutateur
 
-Pour configurer les commutateurs Cisco Nexus 92300YC, vous avez besoin de la documentation suivante du https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page :
+Pour configurer les commutateurs Cisco Nexus 92300YC, vous avez besoin de la documentation suivante du https://www.cisco.com/site/us/en/products/networking/cloud-networking-switches/nexus-9200-series-switches/index.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page:
 
 [cols="1,2"]
 |===
@@ -129,7 +129,7 @@ Le décrit les unités remplaçables sur site associées à l'armoire système 4
 
 
  a| 
-link:install-cisco-nexus-3132qv.html["[Installez un commutateur Cisco Nexus 92300YC dans une armoire NetApp"]
+link:install-switch-netapp-cabinet-92300yc.html["Installer un commutateur Cisco Nexus 92300YC dans une armoire NetApp"]
  a| 
 Décrit l'installation d'un commutateur Cisco Nexus 92300YC dans une armoire NetApp à quatre montants.
 

@@ -47,7 +47,7 @@ Dans cette procédure, l'obturateur sera installé dans U40.
 ... Centrez le panneau verticalement pour éviter toute intrusion dans l'espace adjacent du rack, puis serrez les vis.
 ... Insérez les connecteurs femelles des deux cordons de pontage de 48 pouces à l'arrière du panneau et à travers l'ensemble de balais.
 +
-image::../media/cisco_9148_jumper_cords.gif[cordons de pontage cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 +
 _(1) connecteur femelle du cavalier._
@@ -62,14 +62,14 @@ _(1) connecteur femelle du cavalier._
 +
 image::../media/3132q_front_bracket.gif[support avant]
 
-.. Répéter l'étape <<SUBSTEP_9F2E2DDAEE084FE5853D1A6C6D945941,2a>> avec l'autre support de montage en rack avant de l'autre côté du commutateur.
+.. Répétez l'étape 2a avec l'autre support de montage en rack avant de l'autre côté du commutateur.
 .. Installez le support de montage arrière en rack sur le châssis du commutateur.
-.. Répéter l'étape <<SUBSTEP_53A502380D6D4F058F62ED5ED5FC2000,2c>> avec l'autre support de montage arrière en rack de l'autre côté du commutateur.
+.. Répétez l'étape 2c avec l'autre support de montage arrière sur rack de l'autre côté du commutateur.
 
 
 . Poser les écrous à collier aux emplacements des trous carrés des quatre montants IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[emplacements ru pour 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 Les deux commutateurs 9336C-FX2 seront toujours montés dans le 2U supérieur de l'armoire RU41 et 42.
@@ -78,7 +78,7 @@ Les deux commutateurs 9336C-FX2 seront toujours montés dans le 2U supérieur de
 +
 .. Positionnez le premier rail coulissant au niveau du repère RU42 à l'arrière du montant arrière gauche, insérez les vis avec le type de filetage correspondant, puis serrez les vis avec les doigts.
 +
-image::../media/3132q_v_slider_rails.gif[rails coulissants 3132q v]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) lorsque vous faites glisser doucement le rail coulissant, alignez-le sur les trous de vis du rack._
@@ -86,8 +86,8 @@ _(1) lorsque vous faites glisser doucement le rail coulissant, alignez-le sur le
 +
 _(2) serrer les vis des rails coulissants sur les montants de l'armoire._
 
-.. Répéter l'étape <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4 a.>> pour le montant arrière droit.
-.. Répéter les étapes <<SUBSTEP_81651316D3F84964A76BC80A9DE48C0E,4 a.>> et <<SUBSTEP_593967A423024594B9A41A04703DC458,4b>> Aux emplacements RU41 sur l'armoire.
+.. Répéter l'étape 4a pour le montant arrière droit.
+.. Répétez les étapes 4a et 4b aux emplacements du RU41 sur l'armoire.
 
 
 . Installez le commutateur dans l'armoire.
@@ -108,13 +108,13 @@ _(2) faites glisser doucement le commutateur jusqu'à ce que les supports de mon
 
 .. Fixez le commutateur à l'armoire.
 +
-image::../media/3132q_attaching.gif[fixation de 332q]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) avec une personne tenant l'avant du châssis, l'autre personne doit serrer complètement les quatre vis arrière sur les montants de l'armoire._
 
 .. Le châssis étant désormais pris en charge sans assistance, serrez à fond les vis avant aux montants.
-.. Répéter les étapes <<SUBSTEP_4F538C8C55E34C5FB5D348391088A0FE,5 a.>> à <<SUBSTEP_EB8FE2FED2CA4120B709CC753C0F50FC,5c>> Pour le second contacteur à l'emplacement RU42.
+.. Répéter les étapes 5a à 5c pour le second contacteur à l'emplacement RU42.
 +
 
 NOTE: En utilisant le commutateur entièrement installé comme support, il n'est pas nécessaire de maintenir l'avant du deuxième commutateur pendant le processus d'installation.

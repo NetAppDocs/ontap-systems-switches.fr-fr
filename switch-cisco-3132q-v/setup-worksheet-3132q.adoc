@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-3132q-v/setup_worksheet_3132q.html 
+permalink: switch-cisco-3132q-v/setup-worksheet-3132q.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3132Q-V 
 summary: 'Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l"exemple de fiche de câblage rempli comme guide. Chaque commutateur peut être configuré en tant que seul port 40 GbE ou 4 ports 10 GbE.' 

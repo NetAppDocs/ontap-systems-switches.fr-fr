@@ -159,11 +159,11 @@ CL2                           cluster-network  10.10.1.102   CN1610
 Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer la procédure suivante :
 
 +
-.. Voir la link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Commutateur Ethernet Cisco"^] Sur le site de support NetApp.
+.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de la FCR.
 .. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-.. Téléchargez la version appropriée du logiciel d'image à l'adresse link:http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.html["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^].
+.. Téléchargez la version appropriée du logiciel d'image surlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^] .
 
 
 . Migrer les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :

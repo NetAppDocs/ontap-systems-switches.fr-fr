@@ -7,7 +7,7 @@ summary: Commutateurs ou de plus pour les systèmes FAS et AFF.
 = Fin de disponibilité
 :allow-uri-read: 
 :icons: font
-:imagesdir: ../media/
+:imagesdir: ./media/
 
 
 [role="lead"]

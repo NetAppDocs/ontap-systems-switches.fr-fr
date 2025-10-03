@@ -248,11 +248,11 @@ cluster1::*>
 `show running-config`
 
 +
-.. Enregistrez tous les ajouts personnalisés entre le fichier running-config actuel et le fichier RCF utilisé (par exemple, une configuration SNMP pour votre organisation).
-.. Pour NX-OS 10.2 et versions ultérieures, utilisez le `show diff running-config` Commande permettant de comparer avec le fichier RCF enregistré dans le bootflash.  Sinon, utilisez un outil de comparaison/différence de troisième partie.
+.. Enregistrez tous les ajouts personnalisés entre le courant `running-config` et le fichier RCF utilisé (comme une configuration SNMP pour votre organisation).
+.. À partir de NX-OS 10.2, utilisez le `show diff running-config` commande à comparer avec le fichier RCF enregistré dans le bootflash.  Sinon, utilisez un outil de comparaison/différence tiers.
 
 
-. Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur le bootflash.
 +
 `cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
@@ -276,9 +276,9 @@ cluster1::*>
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Voir l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
-. Vérifiez que le fichier write_erase.cfg est rempli comme prévu :
+. Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
 +
 `show file bootflash:write_erase.cfg`
 
@@ -309,7 +309,7 @@ Vous devrez peut-être mettre à jour les entrées de fichier hôte liées aux c
 
 . Copiez la FCR dans le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple

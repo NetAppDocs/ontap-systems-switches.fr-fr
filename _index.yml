@@ -1,5 +1,10 @@
 ---
 indexpage:
+  title: Commutateurs pour systèmes ONTAP
+  summary: Utilisez les documents fournis sur ce site pour installer, mettre à niveau
+    et gérer votre cluster, votre système de stockage partagé et vos commutateurs
+    MetroCluster.
+  keywords: switches
   lead: NetApp propose un cluster, un système de stockage et des commutateurs partagés
     pour assurer la connectivité entre le stockage hôte et au moins deux contrôleurs
     NetApp. Vous pouvez ainsi déplacer les données et les interfaces réseau sans interruption
@@ -24,7 +29,7 @@ indexpage:
     - title: Commutateur de stockage - Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
       url: "/switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
     - title: Commutateur de stockage - NVIDIA SN2100
-      url: "/switch-nvidia-sn2100/configure-overview-sn2100-storage.html"
+      url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
     - title: 'Commutateur partagé : Cisco Nexus 9336C-FX2'
       url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
   - title: Commutateurs de fin de disponibilité

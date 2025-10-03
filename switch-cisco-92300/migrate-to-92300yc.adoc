@@ -14,7 +14,7 @@ summary: 'Vous pouvez migrer d"anciens commutateurs de cluster Cisco sans interr
 Vous pouvez migrer d'anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs de réseau de cluster Cisco Nexus 92300YC.
 
 
-NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voirlink:setup-install-cshm-file.html["Installer le moniteur d'intégrité du commutateur de cluster (CSHM)"].
+NOTE: Une fois votre migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voir link:../switch-cshm/cshm-overview.html["Surveillance de l'état du commutateur (CSHM)"] .
 
 
 

@@ -45,7 +45,7 @@ Dans cette procédure, l'obturateur sera installé dans U40.
 ... Centrez le panneau verticalement pour éviter toute intrusion dans l'espace adjacent du rack, puis serrez les vis.
 ... Insérez les connecteurs femelles des deux cordons de pontage de 48 pouces à l'arrière du panneau et à travers l'ensemble de balais.
 +
-image::../media/cisco_9148_jumper_cords.gif[cordons de pontage cisco 9148]
+image::../media/cisco_9148_jumper_cords.gif[]
 
 
 
@@ -68,7 +68,7 @@ image::../media/3132q_front_bracket.gif[support avant]
 
 . Poser les écrous à collier aux emplacements des trous carrés des quatre montants IEA.
 +
-image::../media/ru_locations_for_3132q_v.gif[emplacements ru pour 3132q v]
+image::../media/ru_locations_for_3132q_v.gif[]
 
 +
 Les deux switchs 3232C seront toujours montés dans le haut 2U de l'armoire RU41 et 42.
@@ -77,7 +77,7 @@ Les deux switchs 3232C seront toujours montés dans le haut 2U de l'armoire RU41
 +
 .. Positionnez le premier rail coulissant au niveau du repère RU42 à l'arrière du montant arrière gauche, insérez les vis avec le type de filetage correspondant, puis serrez les vis avec les doigts.
 +
-image::../media/3132q_v_slider_rails.gif[rails coulissants 3132q v]
+image::../media/3132q_v_slider_rails.gif[]
 
 +
 _(1) lorsque vous faites glisser doucement le rail coulissant, alignez-le sur les trous de vis du rack._ + _(2) serrez les vis des rails coulissants sur les montants de l'armoire._
@@ -106,7 +106,7 @@ _(2) faites glisser doucement le commutateur jusqu'à ce que les supports de mon
 
 .. Fixez le commutateur à l'armoire.
 +
-image::../media/3132q_attaching.gif[fixation de 332q]
+image::../media/3132q_attaching.gif[]
 
 +
 _(1) avec une personne tenant l'avant du châssis, l'autre personne doit serrer complètement les quatre vis arrière sur les montants de l'armoire._

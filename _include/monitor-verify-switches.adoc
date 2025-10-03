@@ -18,7 +18,7 @@ Le `IS Monitored` champ est défini sur *FALSE* pour la raison spécifiée dans 
 
 [NOTE]
 ====
-Si un commutateur n'est pas répertorié dans la sortie de la commande, ONTAP ne l'a probablement pas détecté. Vérifiez que le commutateur est correctement câblé. Si nécessaire, vous pouvez ajouter le commutateur manuellement. Voir link:manage-monitor.html["Gérer la surveillance des commutateurs Ethernet"] pour plus de détails.
+Si un commutateur n’est pas répertorié dans la sortie de commande, ONTAP ne l’a probablement pas découvert.  Vérifiez que le commutateur est correctement câblé.  Si nécessaire, vous pouvez ajouter le commutateur manuellement. Voir link:monitor-manage.html["Gérer la surveillance des commutateurs Ethernet"] pour plus de détails.
 
 ====
 

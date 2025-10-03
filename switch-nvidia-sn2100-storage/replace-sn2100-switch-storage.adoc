@@ -24,8 +24,8 @@ Le http://hwu.netapp.com["Hardware Universe"^] fournit des détails complets sur
 
 La configuration réseau existante doit présenter les caractéristiques suivantes :
 
-* Assurez-vous que toutes les étapes de dépannage ont été effectuées pour vérifier que votre commutateur doit être remplacé.
-* La connectivité de gestion doit exister sur les deux commutateurs.
+* Effectuez toutes les étapes de dépannage pour confirmer que vous devez remplacer votre commutateur.
+* Assurez-vous que la connectivité de gestion existe sur les deux commutateurs.
 +
 
 NOTE: Assurez-vous que toutes les étapes de dépannage ont été effectuées pour vérifier que votre commutateur doit être remplacé.
@@ -35,7 +35,7 @@ NOTE: Assurez-vous que toutes les étapes de dépannage ont été effectuées po
 Les caractéristiques du commutateur NVIDIA SN2100 de remplacement doivent être les suivantes :
 
 * La connectivité du réseau de gestion est fonctionnelle.
-* L'accès à la console au commutateur de remplacement est en place.
+* Vous pouvez accéder au commutateur de remplacement à l'aide de la console.
 * L'image appropriée du système d'exploitation FCR et Cumulus est chargée sur le commutateur.
 * La personnalisation initiale du commutateur est terminée.
 
@@ -63,7 +63,7 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 `set -privilege advanced`
 
-. Vérifier l'état de santé des ports du nœud de stockage pour s'assurer qu'il existe une connexion au commutateur de stockage S1 :
+. Vérifiez l’état de santé des ports du nœud de stockage pour confirmer la connexion au commutateur de stockage S1 :
 +
 `storage port show -port-type ENET`
 

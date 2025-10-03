@@ -18,13 +18,15 @@ La procédure que vous utilisez dépend de votre présence de deux ports cluster
 La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur.
 
 
-NOTE: Une fois la migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voirlink:setup-install-cshm-file.html["Installer le moniteur d'intégrité du commutateur de cluster (CSHM)"].
+NOTE: Une fois votre migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le Cluster Switch Health Monitor (CSHM) pour les commutateurs de cluster 92300YC. Voir link:../switch-cshm/cshm-overview.html["Surveillance de l'état du commutateur (CSHM)"] .
 
 
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
+Assurez-vous de disposer des éléments suivants :
+
 Dans le cas d'une configuration sans commutateur à 2 nœuds, vérifiez les points suivants :
 
 * La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.

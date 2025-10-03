@@ -179,13 +179,13 @@ cluster::*> network interface modify -vserver node2 -lif clus4 -auto-revert fals
 Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et l'image, procédez comme suit :
 
 +
-.. Voir la link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] Page sur le site de support NetApp.
+.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de la FCR.
 .. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
 .. Téléchargez la version appropriée du logiciel d'image.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
+https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
 
 
 
@@ -318,8 +318,7 @@ Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

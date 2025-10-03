@@ -25,7 +25,7 @@ Vérifiez le link:switch-requirements.html["Conditions requises pour remplacer l
 +
 ** L'infrastructure de cluster Nexus 3132Q-V est redondante et entièrement fonctionnelle sur les deux commutateurs.
 +
-Le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateur Ethernet Cisco"^] Page propose les dernières versions de RCF et de NX-OS sur vos commutateurs.
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Commutateur Ethernet Cisco"^]dispose des dernières versions RCF et NX-OS pour vos commutateurs.
 
 ** Tous les ports de cluster sont dans le `up` état.
 ** La connectivité de gestion existe sur les deux commutateurs.
@@ -40,7 +40,7 @@ Le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateu
 ** La personnalisation initiale du commutateur est terminée.
 
 
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -50,8 +50,8 @@ Le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateu
 NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :
 
 * Laissez AutoSupport activé pendant la maintenance.
-* Déclencher une AutoSupport de maintenance avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance. Consultez cet article de la base de connaissance https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus d'informations.
-* Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+* Déclenchez une maintenance AutoSupport avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance.  Voir cet article de la base de connaissanceslink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus de détails.
+* Activer la journalisation de session pour toutes les sessions CLI.  Pour obtenir des instructions sur la façon d'activer la journalisation de session, consultez la section « Journalisation de la sortie de session » dans cet article de la base de connaissances.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
 
 
 
@@ -67,7 +67,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * n1_CL2 est la première LIF de cluster connectée au commutateur de cluster CL2 ou C2, pour le nœud n1.
 * n1_conclue3 est la deuxième LIF connectée au commutateur de cluster C2, pour le nœud n1.
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster CL1, pour le nœud n1.
-* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (CFR) disponibles sur la link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 * Les nœuds sont n1, n2, n3 et n4. - Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com/["Hardware Universe"^] pour les ports réels de cluster sur vos plates-formes.
 
 
@@ -261,7 +261,7 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 Vous devez préparer le commutateur de remplacement à ce stade. Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer la procédure suivante :
 
 +
-.. Sur le site de support NetApp, accédez à la link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateur Ethernet Cisco"^] page.
+.. Sur le site de support NetApp , voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Commutateurs Ethernet Cisco"^] .
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de la FCR.
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
@@ -577,8 +577,8 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n1_clus3
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
-Cluster::*> network interface revert –vserver Cluster –lif n3_clus2
-Cluster::*> network interface revert –vserver Cluster –lif n4_clus2
+cluster::*> network interface revert -vserver Cluster -lif n3_clus2
+cluster::*> network interface revert -vserver Cluster -lif n4_clus2
 ----
 ====
 . Vérifiez que les ports d'interconnexion de cluster sont rétablis dans leur état de résidence :
@@ -624,7 +624,7 @@ Cluster
 ====
 [listing]
 ----
-cluster::*> network port show –role cluster
+cluster::*> network port show -role cluster
   (network port show)
 Node: n1
                                                                        Ignore

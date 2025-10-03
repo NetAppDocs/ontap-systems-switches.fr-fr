@@ -40,8 +40,8 @@ Les caractéristiques du switch Cisco Nexus 3232C de remplacement sont les suiva
 .Pour en savoir plus
 Voir les éléments suivants :
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -51,8 +51,8 @@ Voir les éléments suivants :
 NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :
 
 * Laissez AutoSupport activé pendant la maintenance.
-* Déclencher une AutoSupport de maintenance avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance. Consultez cet article de la base de connaissance https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus d'informations.
-* Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+* Déclenchez une maintenance AutoSupport avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance.  Voir cet article de la base de connaissanceslink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus de détails.
+* Activer la journalisation de session pour toutes les sessions CLI.  Pour obtenir des instructions sur la façon d'activer la journalisation de session, consultez la section « Journalisation de la sortie de session » dans cet article de la base de connaissances.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
 
 
 
@@ -84,7 +84,7 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster CL1, pour le nœud n1.
 
 
-Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 
 Les exemples de cette procédure de remplacement utilisent quatre nœuds. Deux des nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com["Hardware Universe"^] pour vérifier les ports de cluster appropriés pour votre plate-forme.
 
@@ -260,13 +260,13 @@ http://mysupport.netapp.com/["mysupport.netapp.com"^]
 
 .. Accédez à la page *commutateurs Ethernet Cisco* et notez les versions logicielles requises dans le tableau.
 +
-https://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^]
+https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 
 .. Téléchargez la version appropriée de la FCR.
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis accédez à la page *Télécharger*.
 .. Téléchargez la version correcte du logiciel d'image à partir de la page de téléchargement* du fichier de référence du commutateur de réseau de gestion et de cluster Cisco®.
 +
-http://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^]
 
 
 

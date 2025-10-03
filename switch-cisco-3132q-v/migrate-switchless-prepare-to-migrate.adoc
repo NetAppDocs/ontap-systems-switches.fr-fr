@@ -89,7 +89,7 @@ Cluster
 Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et le logiciel d'image, vous devez suivre les étapes suivantes :
 
 +
-.. Accédez au link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] Sur le site de support NetApp.
+.. Aller àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de RCF.
 .. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.

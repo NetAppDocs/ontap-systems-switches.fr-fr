@@ -21,7 +21,7 @@ Pour réinitialiser le commutateur de stockage SN2100 aux paramètres d'usine :
 
 
 
-NOTE: Pour plus d'informations sur l'installation de Cumulus Linux, consultezlink:configure-software-overview-sn2100-cluster.html["Workflow d'installation logicielle pour les switchs NVIDIA SN2100"] .
+NOTE: Pour plus d'informations sur l'installation de Cumulus Linux, consultezlink:configure-software-sn2100-storage.html["Workflow d'installation logicielle pour les switchs NVIDIA SN2100"] .
 
 .Étapes
 [role="tabbed-block"]

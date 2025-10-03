@@ -10,7 +10,7 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]
@@ -34,7 +34,7 @@ Pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2, reportez-vous 
 | link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Index des références des commandes Cisco Nexus série 9000 NX-OS"] | Fournit des liens vers les différentes références de commande fournies par Cisco. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/quickreference/b_Cisco_Nexus_7000_Series_and_9000_Series_NX-OS_MIB_Quick_Reference.html["Référence MIB Cisco Nexus 9000"] | Décrit les fichiers MIB (Management information base) des commutateurs Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Référence MIB Cisco Nexus 9000"] | Décrit les fichiers MIB (Management information base) des commutateurs Nexus 9000. 
 
 
 | link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Référence des messages du système Nexus série 9000 NX-OS"] | Décrit les messages système relatifs aux commutateurs Cisco Nexus série 9000, à ceux qui sont à titre d'information et autres susceptibles d'aider à diagnostiquer les problèmes de liens, de matériel interne ou de logiciel du système. 

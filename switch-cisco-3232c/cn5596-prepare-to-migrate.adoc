@@ -172,7 +172,7 @@ Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer les opér
 +
 .. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de la FCR.

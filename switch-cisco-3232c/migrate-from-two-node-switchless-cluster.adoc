@@ -60,7 +60,7 @@ Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux po
 * n1_clus2 est la première LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud n1.
 * n2_concluA1 est la première LIF de cluster à être connectée au commutateur de cluster C1 pour le nœud n2.
 * n2_clus2 est la deuxième LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud n2.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 
 
 [NOTE]
@@ -165,14 +165,14 @@ Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre 
 +
 .. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de RCF.
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
 .. Téléchargez la version appropriée du logiciel d'image.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Page de téléchargement du fichier de configuration de référence du commutateur réseau Cisco Cluster and Management"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau de cluster et de gestion Cisco"^] .
 
 
 

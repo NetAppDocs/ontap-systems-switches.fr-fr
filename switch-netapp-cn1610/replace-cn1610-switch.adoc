@@ -17,7 +17,7 @@ La procédure suivante permet de remplacer un commutateur NetApp CN1610 défectu
 
 == Examen des conditions requises
 
-.Ce dont vous avez besoin
+.Avant de commencer
 Avant d'effectuer le remplacement d'un commutateur, les conditions suivantes doivent être réunies avant d'effectuer le remplacement d'un commutateur dans l'environnement actuel et sur le commutateur de remplacement d'un cluster et d'une infrastructure réseau existants :
 
 * Le cluster existant doit être vérifié comme entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.

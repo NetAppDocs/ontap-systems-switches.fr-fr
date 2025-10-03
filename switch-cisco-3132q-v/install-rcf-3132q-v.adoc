@@ -274,7 +274,7 @@ cluster1::*>
 `show running-config`
 
 . Enregistrez tous les ajouts personnalisés entre la configuration en cours d'exécution et le fichier RCF en cours d'utilisation.
-. Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur le bootflash.
 +
 
 NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer la configuration de base.  Vous devez être connecté au port de console série du commutateur pour configurer à nouveau le commutateur.
@@ -308,9 +308,9 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Voir l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
-. Vérifiez que le fichier write_erase.cfg est rempli comme prévu :
+. Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
 +
 `show file bootflash:write_erase.cfg`
 
@@ -326,7 +326,7 @@ Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switche
 
 . Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
 +
-`cs2# *copy write_erase.cfg startup-config*`
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
 
 . Redémarrer le commutateur :
 +
@@ -335,7 +335,7 @@ Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switche
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 +
 .Montrer l'exemple
 [%collapsible]
@@ -352,7 +352,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF préalablement téléchargé sur le bootflash.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple
@@ -664,7 +664,7 @@ cluster1-04          true     true          false
 cluster1::*>
 ----
 ====
-. Répétez les étapes 1 à 19 sur le commutateur cs1.
+. Répétez les étapes 1 à 17 sur le commutateur cs1.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
 .Montrer l'exemple
@@ -832,8 +832,7 @@ Cluster cluster1-02_clus2 169.254.19.183 cluster1-02     e0b
 Local = 169.254.47.194 169.254.19.183
 Remote = 169.254.209.69 169.254.49.125
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 4 path(s)
 Basic connectivity fails on 0 path(s)
 ................

@@ -1,10 +1,8 @@
 ---
 section: switch-nvidia-sn2100-storage
 title: NVIDIA SN2100
-pdf-filename: switch-nvidia-sn2100-storage
 entries:
 - title: Commencez
-  pdf-filename: Overview_sn2100-Storage
   entries:
   - title: Démarrage rapide
     url: "/switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"

@@ -10,7 +10,7 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

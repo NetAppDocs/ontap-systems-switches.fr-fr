@@ -10,7 +10,7 @@ summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutate
 :nofooter: 
 :icons: font
 :linkattrs: 
-:imagesdir: ./media/
+:imagesdir: ../media/
 
 
 [role="lead"]

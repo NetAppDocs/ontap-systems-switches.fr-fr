@@ -107,14 +107,14 @@ Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre 
 +
 .. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Commutateurs Ethernet Cisco"^]
 
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de RCF.
 .. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
 .. Téléchargez la version appropriée du logiciel d'image.
 +
-https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Page de téléchargement du fichier de configuration de référence du commutateur réseau Cisco Cluster and Management"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau de cluster et de gestion Cisco"^]
 
 
 

@@ -35,13 +35,6 @@ Décrit comment migrer d'environnements qui utilisent des switchs de cluster Cis
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-storage.html["_Migrer d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA_"^]
- a| 
-Décrit comment migrer d'environnements qui utilisent des switchs de stockage Cisco vers des environnements utilisant des switchs de stockage NVIDIA SN2100.
-
-
-
- a| 
 https://docs.netapp.com/us-en/ontap-systems-switches/switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html["_Migrer vers un cluster à deux nœuds avec commutateurs de cluster NVIDIA SN2100_"^]
  a| 
 Décrit la migration vers un environnement commuté de deux nœuds à l'aide de switchs de cluster NVIDIA SN2100.

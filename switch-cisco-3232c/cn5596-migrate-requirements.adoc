@@ -19,8 +19,8 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs C
 ====
 Pour plus d'informations, voir :
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -81,7 +81,7 @@ Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le 
 
 ====
 * Vous avez terminé la planification, la migration et lu la documentation sur la connectivité 10 GbE et 40/100 GbE des nœuds vers les switchs de cluster Nexus 3232C.
-* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le link:http://support.netapp.com/NOW/download/software/cm_switches/.html["Page commutateurs Ethernet Cisco"^].
+* Les versions ONTAP et NX-OS prises en charge dans cette procédure sont àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
 
 
 .A propos des exemples utilisés
@@ -96,7 +96,7 @@ La procédure utilise également la nomenclature de commutateur et de nœud suiv
 * *N1_clus2* est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
 * *N1_clus3* est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
 * *N1_clus4* est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles sur lelink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 * Les noeuds sont *n1*, *n2*, *n3* et *n4*.
 
 

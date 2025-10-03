@@ -26,8 +26,8 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs C
 ====
 Pour plus d'informations, voir :
 
-* http://support.netapp.com/NOW/download/software/cm_switches/["Description du commutateur Ethernet Cisco"^]
-* http://hwu.netapp.com["Hardware Universe"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
+* link:http://hwu.netapp.com["Hardware Universe"^]
 
 
 
@@ -46,7 +46,7 @@ La procédure utilise également la nomenclature de commutateur et de nœud suiv
 * n1_clus2 est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
 * n1_clus3 est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
 * n1_CL4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.-
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 * Les nœuds sont n1, n2, n3 et n4.
 
 
@@ -241,7 +241,7 @@ Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer les opér
 +
 .. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
 +
-http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^]
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de la FCR.
@@ -383,8 +383,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -670,8 +670,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................
@@ -1030,8 +1030,8 @@ Cluster n2_clus3 n2       e0c    10.10.0.7
 Cluster n2_clus4 n2       e0d    10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
-Cluster Vserver Id = 4294967293 Ping status:
-....
+Cluster Vserver Id = 4294967293
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

@@ -46,6 +46,6 @@ Le https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur
 
 Cette procédure comporte deux parties :
 
-* link:task-install-fastpath-software.html["Installez le logiciel FASTPATH"] Décrit l'installation du logiciel FASTPATH.
-* link:task-install-an-rcf-on-a-cn1610-switch.html["Installez une FCR sur un commutateur CN1610"] Décrit l'installation des RCFC.
+* link:install-fastpath-software.html["Installez le logiciel FASTPATH"]décrit comment installer le logiciel FASTPATH.
+* link:install-rcf-file.html["Installez une FCR sur un commutateur CN1610"]décrit comment installer les RCF.
 

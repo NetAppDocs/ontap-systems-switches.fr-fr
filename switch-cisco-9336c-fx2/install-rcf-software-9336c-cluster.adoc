@@ -30,7 +30,7 @@ Vérifiez les installations et les connexions suivantes :
 . Connectez-vous au commutateur cs1 à l'aide de SSH ou d'une console série.
 . Copiez la FCR dans le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple
@@ -50,7 +50,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF préalablement téléchargé sur le bootflash.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Référence des commandes Cisco Nexus série 9000 NX-OS"^] guides.
 
 +
 .Montrer l'exemple
@@ -121,8 +121,14 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 
 
 
-. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-9336c-fx2.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Enregistrez les détails de la configuration de base dans le fichier write_erase.cfg du bootflash.
+. Enregistrez tous les ajouts personnalisés entre le courant `running-config` fichier et le fichier RCF en cours d'utilisation.
+. Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le `running-config` fichier à la `startup-config` déposer.
++
+[listing]
+----
+cs1# copy running-config startup-config [########################################] 100% Copy complete
+----
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur le bootflash.
 +
 `cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
 
@@ -146,9 +152,9 @@ Le résultat varie en fonction de la configuration de votre site. Vérifiez les 
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Voir l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
-. Vérifiez que le fichier write_erase.cfg est rempli comme prévu :
+. Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
 +
 `show file bootflash:write_erase.cfg`
 
@@ -173,7 +179,7 @@ Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switche
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Répétez les étapes 1 à 12 sur le commutateur cs2.
+. Répétez les étapes 1 à 13 sur le commutateur cs2.
 . Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
 
 

@@ -18,7 +18,7 @@ Veillez à bien comprendre les exigences de configuration, de connexion des port
 == Exigences de Cisco Nexus 3132Q-V
 
 * Le commutateur de cluster Cisco Nexus 3132Q-V est pris en charge.
-* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (CFR) disponibles sur la link:https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 * Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) e1/31-32.
 * Le link:https://hwu.netapp.com["Hardware Universe"^] Contient des informations sur le câblage pris en charge vers les commutateurs Nexus 3132Q-V :
 +
@@ -44,7 +44,7 @@ Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le 
 
 * Vous devez avoir effectué la planification, la migration et lu la documentation requise sur la connectivité 10 GbE et 40 GbE des nœuds aux commutateurs de cluster Nexus 3132Q-V.
 +
-Le link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] Cette procédure contient des informations sur les versions ONTAP et NX-OS prises en charge.
+link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]contient des informations sur les versions ONTAP et NX-OS prises en charge dans cette procédure.
 
 
 
@@ -58,7 +58,7 @@ Le link:http://mysupport.netapp.com/NOW/download/software/cm_switches/["Commutat
 ** Nexus 3132Q-V
 
 
-* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (CFR) disponibles sur la https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
 * Les commutateurs de cluster utilisent les ports suivants pour les connexions aux nœuds :
 +
 ** Ports e1/1-40 (10 GbE) : Nexus 5596
@@ -114,7 +114,7 @@ NOTE: Vous pouvez activer 4 ports SFP+ au lieu d'un port QSFP pour les commutate
 NOTE: Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du `no interface breakout module 1 port 1-6 map 10g-4x` commande.
 
 * Vous avez effectué la planification, la migration et lu la documentation requise sur la connectivité 10 GbE et 40 GbE depuis les nœuds vers les commutateurs de cluster Nexus 3132Q-V.
-* Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] page.
+* Les versions ONTAP et NX-OS prises en charge dans cette procédure sont àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
 
 
 
@@ -176,6 +176,6 @@ NOTE: Lorsque vous utilisez les quatre premiers ports SFP+, il désactive le pre
 Vous pouvez diviser les six premiers ports en mode 4x10 GbE en utilisant la `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ à partir de la configuration _breakout_ à l'aide de `no interface breakout module 1 port 1-6 map 10g-4x` la commande.
 
 * Vous devez avoir effectué la planification, la migration et lu la documentation requise sur la connectivité 10 GbE et 40 GbE des nœuds aux commutateurs de cluster Nexus 3132Q-V.
-* Les versions ONTAP et NX-OS prises en charge dans cette procédure sont répertoriées sur le link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] page.
-* Les versions ONTAP et FASTPATH prises en charge lors de cette procédure sont répertoriées sur le link:http://support.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] page.
+* Les versions ONTAP et NX-OS prises en charge dans cette procédure sont répertoriées surlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
+* Les versions ONTAP et FASTPATH ​​prises en charge dans cette procédure sont répertoriées surlink:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Commutateurs NetApp CN1601 et CN1610"^] .
 

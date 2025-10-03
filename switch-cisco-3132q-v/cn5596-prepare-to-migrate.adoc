@@ -171,7 +171,7 @@ cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert fals
 Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et l'image, procédez comme suit :
 
 +
-.. Accédez au link:http://support.netapp.com/NOW/download/software/cm_switches/["Commutateurs Ethernet Cisco"^] Sur le site de support NetApp.
+.. Aller àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
 .. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de la FCR.
 .. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
@@ -196,13 +196,13 @@ L'exemple suivant montre n1 et n2, mais la migration LIF doit se faire sur tous 
 
 [listing]
 ----
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 –
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus2 -source-node n1 -
 destination-node n1 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 –
+cluster::*> network interface migrate -vserver Cluster -lif n1_clus3 -source-node n1 -
 destination-node n1 -destination-port e0d
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 –
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-node n2 -
 destination-node n2 -destination-port e0a
-cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 –
+cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-node n2 -
 destination-node n2 -destination-port e0d
 ----
 ====
@@ -308,8 +308,7 @@ Cluster n2_clus4 n2		e0d	10.10.0.8
 Local = 10.10.0.1 10.10.0.2 10.10.0.3 10.10.0.4
 Remote = 10.10.0.5 10.10.0.6 10.10.0.7 10.10.0.8
 Cluster Vserver Id = 4294967293
-Ping status:
-....
+Ping status:....
 Basic connectivity succeeds on 16 path(s)
 Basic connectivity fails on 0 path(s)
 ................

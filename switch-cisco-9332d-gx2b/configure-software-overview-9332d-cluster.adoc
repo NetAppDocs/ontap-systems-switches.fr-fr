@@ -1,0 +1,40 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
+summary: Présentation de la configuration logicielle des commutateurs Cisco 9332D-GX2B 
+---
+= Configurer le flux de travail logiciel pour les commutateurs Cisco 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour installer et configurer le logiciel d'un commutateur Cisco 9332D-GX2B et pour installer ou mettre à niveau le fichier de configuration de référence (RCF), procédez comme suit :
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:setup-switch-9332d-cluster.html["Configurer le commutateur 9332D-GX2B"]
+[role="quick-margin-para"]
+Configurez le commutateur Cisco 9332D-GX2B.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-nxos-overview-9332d-cluster.html["Préparez l'installation du logiciel NX-OS et du RCF"]
+[role="quick-margin-para"]
+Installez le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) sur les commutateurs Cisco 9332D-GX2B.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-nxos-software-9332d-cluster.html["Installez ou mettez à niveau le logiciel NX-OS"]
+[role="quick-margin-para"]
+Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur Cisco 9332D-GX2B.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-upgrade-rcf-overview-cluster.html["Installez ou mettez à niveau le RCF"]
+[role="quick-margin-para"]
+Installez ou mettez à niveau le RCF après avoir configuré le commutateur Cisco 9332D-GX2B pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifiez que SSH est activé sur les commutateurs Cisco 9332D-GX2B"]
+[role="quick-margin-para"]
+Vérifiez que SSH est activé sur le commutateur Cisco 9332D-GX2B pour une utilisation avec les fonctionnalités Ethernet Switch Health Monitor (CSHM) et de collecte de journaux.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:reset-switch-9332d.html["Réinitialiser le commutateur aux paramètres d'usine"]
+[role="quick-margin-para"]
+Effacez les paramètres du commutateur Cisco 9332D-GX2B.
+
+Une fois que vous avez terminé de configurer vos commutateurs, accédez àlink:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Allumez votre système de stockage AFX 1K"^] .

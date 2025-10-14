@@ -1,0 +1,46 @@
+---
+indexpage:
+  title: Commutateurs de stockage
+  summary: Utilisez la documentation de ce site pour installer, configurer et maintenir
+    vos commutateurs de stockage pour les déploiements de cluster ONTAP .
+  keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Les commutateurs de stockage vous permettent de créer des clusters ONTAP avec
+    plus de deux nœuds.  Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
+    la base de solutions d'interconnexion de cluster évolutives dans les environnements
+    NetApp ONTAP .
+  tiles:
+  - title: Commencez
+    links:
+    - title: Cisco Nexus 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
+    - title: NVIDIA SN2100
+      url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
+  - title: Installer et configurer des commutateurs de stockage
+    links:
+    - title: Installer le matériel de commutation 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2-storage/install-hardware-workflow.html"
+    - title: Installer le matériel du commutateur NVIDIA SN2100
+      url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
+    - title: Configurer le logiciel des commutateurs 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html"
+    - title: Configurer le logiciel du commutateur NVIDIA SN2100
+      url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+  - title: Entretenir les commutateurs de stockage
+    links:
+    - title: Remplacer les commutateurs 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html"
+    - title: Remplacer le commutateur NVIDIA SN2100
+      url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
+    - title: Réinitialiser les commutateurs 9336C-FX2 et 9336C-FX2-T aux paramètres
+        d'usine
+      url: "../switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html"
+    - title: Réinitialiser le commutateur NVIDIA SN2100 aux paramètres d'usine
+      url: "../switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
+  - title: Documentation connexe
+    links:
+    - title: Systèmes matériels ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentation sur les commutateurs de cluster
+      url: "../index.html"
+    - title: Surveillance de l'état du commutateur
+      url: "../switch-cshm/config-overview.html"

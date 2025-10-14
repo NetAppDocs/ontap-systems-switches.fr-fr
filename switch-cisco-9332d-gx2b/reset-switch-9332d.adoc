@@ -1,0 +1,51 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/reset-switch-9332d.html 
+keywords: reset switch factory defaults 
+summary: Réinitialisez le commutateur 9332D-GX2B à ses paramètres d’usine. 
+---
+= Réinitialiser le commutateur 9332D-GX2B aux paramètres d'usine
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour réinitialiser le commutateur 9332D-GX2B aux paramètres d'usine, vous devez effacer les paramètres du commutateur 9332D-GX2B.
+
+.Description de la tâche
+* Vous devez être connecté au commutateur à l'aide de la console série.
+* Cette tâche réinitialise la configuration du réseau de gestion.
+
+
+.Étapes
+. Effacer la configuration existante :
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Recharger le logiciel du commutateur :
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Le système redémarre et entre dans l'assistant de configuration.  Pendant le démarrage, si vous recevez l'invite « Annuler le provisionnement automatique et continuer avec la configuration normale ?  (oui/non)[n]”, vous devez répondre *oui* pour continuer.
+
+

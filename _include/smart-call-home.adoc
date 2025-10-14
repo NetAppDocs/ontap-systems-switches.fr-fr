@@ -4,7 +4,9 @@
 
 Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par courrier électronique et envoie une alerte à tous les destinataires configurés dans votre profil de destination.
 
-Avant d'utiliser Smart Call Home, tenez compte des exigences suivantes :
+Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par courrier électronique et envoie une alerte à tous les destinataires configurés dans votre profil de destination.
+
+Avant de pouvoir utiliser Smart Call Home, tenez compte des exigences suivantes :
 
 * Un serveur de messagerie doit être en place.
 * Le commutateur doit disposer d'une connexion IP au serveur de messagerie.

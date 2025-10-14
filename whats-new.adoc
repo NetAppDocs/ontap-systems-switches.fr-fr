@@ -23,6 +23,33 @@ En savoir plus sur les nouveaux switchs pour les systèmes FAS et AFF. Pour plus
 
 
  a| 
+Commutateur Cisco 32 ports 400 GbE (X190300-CS-PI et X190300-PE)
+ a| 
+Prise en charge du commutateur intra-cluster/HA/stockage Cisco 9332D-GX2B.
+ a| 
+ONTAP 9.17.1
+
+
+
+ a| 
+Commutateur Cisco 64 ports 400 GbE (X190310-CS-PI)
+ a| 
+Prise en charge du commutateur intra-cluster/HA/stockage Cisco 9364D-GX2A.
+ a| 
+ONTAP 9.17.1
+
+
+
+ a| 
+Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T 12 ports 10/25/40/100 GbE (X190212-CS-PE et X190212-CS-PI)
+ a| 
+Prend en charge les configurations de cluster 10/25/40/100 GbE et les configurations de stockage 100 GbE (stockage connecté au commutateur).
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
 Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T 12 ports 10/25/40/100 GbE (X190212-CS-PE et X190212-CS-PI)
  a| 
 Prend en charge les configurations de cluster 10/25/40/100 GbE et les configurations de stockage 100 GbE (stockage connecté au commutateur).

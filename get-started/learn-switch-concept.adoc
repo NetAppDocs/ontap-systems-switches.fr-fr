@@ -4,19 +4,29 @@ sidebar: sidebar
 keywords:  
 summary: Découvrez la mise en cluster, le stockage et les commutateurs partagés. 
 ---
-= En savoir plus sur Cluster, Storage et Shared switches
+= En savoir plus sur les systèmes AFX, les clusters, le stockage et les commutateurs partagés
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-NetApp propose des clusters, des systèmes de stockage et des commutateurs partagés qui offrent des communications internes avec la possibilité de déplacer des données et des interfaces réseau sans interruption dans le cluster.
+NetApp propose des systèmes AFX, des clusters, du stockage et des commutateurs partagés qui offrent des communications internes avec la possibilité de déplacer sans interruption les données et les interfaces réseau à travers le cluster.
 
 Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tandis que les commutateurs de cluster « back-end » assurent des connexions entre deux ou plusieurs contrôleurs NetApp.
 
 
 NOTE: Seuls les switchs back-end validés par NetApp (commandés auprès de NetApp) sont pris en charge.
+
+
+
+== Commutateurs de systèmes AFX
+
+Les commutateurs des systèmes AFX vous permettent de créer des commutateurs réseau rapides, économes en énergie et peu encombrants.  Leur petite taille et leur densité de ports élevée les rendent idéaux pour la gestion de grands réseaux.  Les ports prennent en charge différentes vitesses et peuvent être divisés en plusieurs connexions.  Les commutateurs de systèmes AFX pris en charge par NetApp incluent :
+
+* Cisco Nexus 9332D-GX2B
+* Cisco Nexus 9364D-GX2A
+
 
 
 

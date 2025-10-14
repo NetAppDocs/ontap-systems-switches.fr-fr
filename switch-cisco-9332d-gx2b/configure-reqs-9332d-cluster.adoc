@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9332d-gx2b/configure-reqs-9332d-cluster.html 
+keywords: shared storage cluster switch 
+summary: 'À partir d" ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9332D-GX2B pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé.' 
+---
+= Configuration réseau requise pour les commutateurs Cisco Nexus 9332D-GX2B
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur Cisco Nexus 9332D-GX2B, assurez-vous de vérifier les exigences de câblage et de réseau.
+
+
+
+== Exigences liées au réseau
+
+Vous avez besoin des informations réseau suivantes pour toutes les configurations de switchs.
+
+* Sous-réseau IP pour le trafic du réseau de gestion
+* Noms d'hôte et adresses IP pour chaque contrôleur du système de stockage et tous les commutateurs applicables
+* La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé).
+* Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
+
+
+
+
+== Exigences de câblage
+
+* Vous disposez du nombre et du type appropriés de câbles et de connecteurs pour vos commutateurs. Voir la https://hwu.netapp.com["Hardware Universe"^].
+* Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console du switch à l'aide du câble console inclus.
+

@@ -1,0 +1,632 @@
+---
+permalink: switch-cisco-9364d-gx2a/migrate-to-2n-switched-9364d-cluster.html 
+sidebar: sidebar 
+keywords: two-node switchless cluster environments,migrating to a two-node switched 9364d-gx2a cluster environment,switchless cluster environments,9364d-gx2a switches 
+summary: 'Si vous disposez déjà d"un environnement de cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds à l"aide de commutateurs Cisco Nexus 9364d-gx2a pour vous permettre d"évoluer au-delà de deux nœuds dans le cluster.' 
+---
+= Migrer vers un cluster à deux nœuds avec commutateur
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous disposez déjà d'un environnement de cluster _sans commutateur_ à deux nœuds, vous pouvez migrer vers un environnement de cluster _commuté_ à deux nœuds à l'aide de commutateurs Cisco Nexus 9364D-GX2A.
+
+Le processus de migration fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 Gb BASE-T intégrés pour les ports de réseau de clusters.
+
+
+
+== Examen des conditions requises
+
+.Ce dont vous avez besoin
+* Pour la configuration sans commutateur à 2 nœuds :
++
+** La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.
+** Tous les ports de cluster sont à l'état *up*.
+** Toutes les interfaces logiques (LIF) de cluster sont à l'état *up* et sur leurs ports de base.
+** Voir https://hwu.netapp.com["Hardware Universe"^] Pour toutes les versions de ONTAP prises en charge.
+
+
+* Pour la configuration du commutateur Cisco Nexus 9332D-GX2B :
++
+** Les deux commutateurs disposent d'une connectivité réseau de gestion.
+** Il y a un accès à la console aux commutateurs du cluster.
+** Les connexions de commutateur à commutateur et de commutateur à nœud Nexus 9332D-GX2B utilisent des câbles Twinax ou à fibre optique.
++
+Voir https://hwu.netapp.com["Hardware Universe"^] pour plus d'informations sur le câblage.
+
+
+
+* Les câbles Inter-Switch Link (ISL) sont connectés aux ports 1/35 et 1/36 sur les deux commutateurs 9332D-GX2B.
+* La personnalisation initiale des deux commutateurs 9332D-GX2B est terminée, de sorte que :
++
+** Les commutateurs 9332D-GX2B exécutent la dernière version du logiciel.
+** Les fichiers de configuration de référence (RCFs) sont appliqués aux commutateurs. Toute personnalisation de site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
+
+
+
+
+.À propos des exemples
+Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
+
+* Les noms des commutateurs 9332D-GX2B2 sont cs1 et cs2.
+* Les noms des SVM du cluster sont les nœuds 1 et nœud2.
+* Les noms des LIFs sont respectivement node1_clude1 et node1_clus2 sur le nœud 1, et node2_clude1 et node2_clus2 sur le nœud 2.
+* Le `cluster1::*>` l'invite indique le nom du cluster.
+* les ports de cluster utilisés dans cette procédure sont e0a et e0b.
+
+
+Voir https://hwu.netapp.com["Hardware Universe"^] pour plus d'informations sur les ports de cluster de vos plates-formes.
+
+
+
+== Migrer les commutateurs
+
+
+
+=== Étape 1 : préparer la migration
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+où x représente la durée de la fenêtre de maintenance en heures.
+
++
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+. Modifiez le niveau de privilège en avancé, en saisissant `y` lorsque vous êtes invité à continuer :
++
+`set -privilege advanced`
+
++
+L'invite avancée (`*>`) s'affiche.
+
+
+
+
+
+=== Étape 2 : configurer les ports et le câblage
+
+. Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les nouveaux commutateurs de cluster cs1 et cs2.
++
+Ne désactivez pas les ports ISL.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports 1 à 34 orientés nœud sont désactivés sur le commutateur cs1 :
+
+[listing]
+----
+cs1# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-4, e1/7-34
+cs1(config-if-range)# shutdown
+----
+====
+. Vérifiez que l'ISL et les ports physiques sur l'ISL entre les deux commutateurs 9332D-GX2B cs1 et cs2 sont actifs sur les ports 1/35 et 1/36 :
++
+`show port-channel summary`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports ISL sont active sur le commutateur cs1 :
+
+[listing]
+----
+cs1# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+L'exemple suivant montre que les ports ISL sont active sur le commutateur cs2 :
+
+[listing]
+----
+(cs2)# show port-channel summary
+
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
+----
+====
+. Afficher la liste des périphériques voisins :
++
+`show cdp neighbors`
+
++
+Cette commande fournit des informations sur les périphériques connectés au système.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
+
+[listing]
+----
+cs1# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2
+----
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs2 :
+
+[listing]
+----
+cs2# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1                Eth1/35        177    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        177    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 2
+----
+====
+. Vérifier que tous les ports du cluster sont bien :
++
+`network port show -ipspace Cluster`
+
++
+Chaque port doit s'afficher pendant `Link` et en bonne santé pour `Health Status`.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+Node: node2
+
+                                                  Speed(Mbps) Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status
+--------- ------------ ---------------- ---- ---- ----------- --------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy
+
+4 entries were displayed.
+----
+====
+. Vérifier que toutes les LIFs de cluster sont opérationnelles :
++
+`network interface show -vserver Cluster`
+
++
+Chaque LIF de cluster doit afficher `true` pour `Is Home` et avoir un `Status Admin/Oper` de haut/haut.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- -----
+Cluster
+            node1_clus1  up/up    169.254.209.69/16  node1         e0a     true
+            node1_clus2  up/up    169.254.49.125/16  node1         e0b     true
+            node2_clus1  up/up    169.254.47.194/16  node2         e0a     true
+            node2_clus2  up/up    169.254.19.183/16  node2         e0b     true
+4 entries were displayed.
+----
+====
+. Vérifiez que la fonction de restauration automatique est activée sur l'ensemble des LIFs du cluster :
++
+`network interface show -vserver Cluster -fields auto-revert`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster -fields auto-revert
+
+          Logical
+Vserver   Interface     Auto-revert
+--------- ------------- ------------
+Cluster
+          node1_clus1   true
+          node1_clus2   true
+          node2_clus1   true
+          node2_clus2   true
+
+4 entries were displayed.
+----
+====
+. Déconnectez le câble du port de cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 9332D-GX2B.
++
+Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+
++
+https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^]
+
+. Déconnectez le câble du port de cluster e0a sur le nœud 2, puis connectez e0a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 9332D-GX2B.
+. Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs1 :
+
+[listing]
+----
+cs1# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-4, e1/7-34
+cs1(config-if-range)# no shutdown
+----
+====
+. Vérifier que toutes les LIFs du cluster sont bien opérationnelles et affichées en tant que `true` pour `Is Home`:
++
+`network interface show -vserver Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et le nœud2, ainsi `Is Home` les résultats sont vrais :
+
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+         Logical      Status     Network            Current     Current Is
+Vserver  Interface    Admin/Oper Address/Mask       Node        Port    Home
+-------- ------------ ---------- ------------------ ----------- ------- ----
+Cluster
+         node1_clus1  up/up      169.254.209.69/16  node1       e0a     true
+         node1_clus2  up/up      169.254.49.125/16  node1       e0b     true
+         node2_clus1  up/up      169.254.47.194/16  node2       e0a     true
+         node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
+
+4 entries were displayed.
+----
+====
+. Afficher des informations relatives à l'état des nœuds du cluster :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+
+[listing]
+----
+cluster1::*> cluster show
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1                true    true          false
+node2                true    true          false
+
+2 entries were displayed.
+----
+====
+. Déconnectez le câble du port de cluster e0b sur le nœud 1, puis connectez e0b au port 1 sur le commutateur de cluster cs2, à l'aide du câblage approprié pris en charge par les commutateurs 9332D-GX2B.
+. Déconnectez le câble du port de cluster e0b sur node2, puis connectez e0b au port 2 sur le commutateur de cluster cs2, à l'aide du câblage approprié pris en charge par les commutateurs 9332D-GX2B.
+. Activer tous les ports orientés nœud sur le commutateur de cluster cs2.
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs2 :
+
+[listing]
+----
+cs2# config
+Enter configuration commands, one per line. End with CNTL/Z.
+cs2(config)# interface e1/1/1-4, e1/2/1-4, e1/3/1-4, e1/4/1-4, e1/5/1-4, e1/6/1-4, e1/7-34
+cs2(config-if-range)# no shutdown
+----
+====
+. Vérifier que tous les ports du cluster sont bien :
++
+`network port show -ipspace Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que tous les ports du cluster apparaissent sur les nœuds 1 et sur le nœud 2 :
+
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node2
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+4 entries were displayed.
+----
+====
+
+
+
+
+=== Étape 3 : vérifier la configuration
+
+. Vérifiez que toutes les interfaces affichent la valeur true pour `Is Home`:
++
+`network interface show -vserver Cluster`
+
++
+
+NOTE: Cette opération peut prendre plusieurs minutes.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et celui du nœud2, ainsi que celui-ci `Is Home` les résultats sont vrais :
+
+[listing]
+----
+cluster1::*> network interface show -vserver Cluster
+
+          Logical      Status     Network            Current    Current Is
+Vserver   Interface    Admin/Oper Address/Mask       Node       Port    Home
+--------- ------------ ---------- ------------------ ---------- ------- ----
+Cluster
+          node1_clus1  up/up      169.254.209.69/16  node1      e0a     true
+          node1_clus2  up/up      169.254.49.125/16  node1      e0b     true
+          node2_clus1  up/up      169.254.47.194/16  node2      e0a     true
+          node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
+
+4 entries were displayed.
+----
+====
+. Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur :
++
+`show cdp neighbors`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+
+[listing]
+----
+(cs1)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           FAS2980       e0a
+node2              Eth1/2         133    H           FAS2980       e0a
+cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4
+
+(cs2)# show cdp neighbors
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+node1              Eth1/1         133    H           FAS2980       e0b
+node2              Eth1/2         133    H           FAS2980       e0b
+cs1                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
+cs1                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
+
+Total entries displayed: 4
+----
+====
+. Affiche des informations sur les périphériques réseau détectés dans votre cluster :
++
+`network device-discovery show -protocol cdp`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+cluster1::*> network device-discovery show -protocol cdp
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node2      /cdp
+            e0a    cs1                       0/2               N9K-C9336C
+            e0b    cs2                       0/2               N9K-C9336C
+node1      /cdp
+            e0a    cs1                       0/1               N9K-C9336C
+            e0b    cs2                       0/1               N9K-C9336C
+
+4 entries were displayed.
+----
+====
+. Vérifiez que les paramètres sont désactivés :
++
+`network options switchless-cluster show`
+
++
+
+NOTE: La commande peut prendre plusieurs minutes. Attendez que l'annonce « 3 minutes d'expiration de la durée de vie » soit annoncée.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+La sortie FALSE dans l'exemple suivant montre que les paramètres de configuration sont désactivés :
+
+[listing]
+----
+cluster1::*> network options switchless-cluster show
+Enable Switchless Cluster: false
+----
+====
+. Vérifiez l'état des membres du nœud sur le cluster :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+
+[listing]
+----
+cluster1::*> cluster show
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  --------
+node1                true    true          false
+node2                true    true          false
+----
+====
+. Vérifiez la connectivité des interfaces de cluster distantes :
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+
+`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+node1
+       3/5/2022 19:21:18 -06:00   node1_clus2      node2-clus1      none
+       3/5/2022 19:21:20 -06:00   node1_clus2      node2_clus2      none
+node2
+       3/5/2022 19:21:18 -06:00   node2_clus2      node1_clus1      none
+       3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
+----
+--
+.Toutes les versions de ONTAP
+--
+Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+--
+====
+. [[step7]] redéfinissez le niveau de privilège sur admin :
++
+`set -privilege admin`
+
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.Et la suite ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].

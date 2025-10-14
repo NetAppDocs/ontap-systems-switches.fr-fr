@@ -1,0 +1,56 @@
+---
+indexpage:
+  title: Commutateurs de cluster
+  summary: Utilisez la documentation de ce site pour installer, configurer et maintenir
+    vos commutateurs de cluster pour les déploiements de cluster ONTAP .
+  keywords: cluster switches, cisco nexus switches, ontap clusters
+  lead: Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec
+    plus de deux nœuds.  Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
+    la base de solutions d'interconnexion de cluster évolutives dans les environnements
+    NetApp ONTAP .
+  tiles:
+  - title: Commencez
+    links:
+    - title: Broadcom BES-53248
+      url: "../switch-bes-53248/configure-new-switch-overview.html"
+    - title: Cisco Nexus 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/configure-switch-overview-9336c-cluster.html"
+    - title: NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+  - title: Installer et configurer des commutateurs de cluster
+    links:
+    - title: Installer le matériel du commutateur Broadcom BES-53248
+      url: "../switch-bes-53248/install-hardware-workflow.html"
+    - title: Installer le matériel de commutation 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/install-hardware-workflow.html"
+    - title: Installer le matériel du commutateur NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/install-hardware-workflow.html"
+    - title: Configurer le logiciel du commutateur Broadcom BES-53248
+      url: "../switch-bes-53248/configure-software-overview-bes53248.html"
+    - title: Configurer le logiciel des commutateurs 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html"
+    - title: Configurer le logiciel du commutateur NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+  - title: Maintenir les commutateurs du cluster
+    links:
+    - title: Remplacer le commutateur Broadcom BES-53248
+      url: "../switch-bes-53248/replace-switch.html"
+    - title: Remplacer les commutateurs 9336C-FX2 et 9336C-FX2-T
+      url: "../switch-cisco-9336c-fx2/replace-9336c-cluster.html"
+    - title: Remplacer le commutateur NVIDIA SN2100
+      url: "../switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
+    - title: Réinitialiser le commutateur Broadcom BES-53248 aux paramètres d'usine
+      url: "../switch-bes-53248/reset-switch-bes-53248.html"
+    - title: Réinitialiser les commutateurs 9336C-FX2 et 9336C-FX2-T aux paramètres
+        d'usine
+      url: "../switch-cisco-9336c-fx2/reset-switch-9336c.html"
+    - title: Réinitialiser le commutateur NVIDIA SN2100 aux paramètres d'usine
+      url: "../switch-nvidia-sn2100/reset-switch-sn2100.html"
+  - title: Documentation connexe
+    links:
+    - title: Systèmes matériels ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentation sur les commutateurs de cluster
+      url: "../index.html"
+    - title: Surveillance de l'état du commutateur
+      url: "../switch-cshm/config-overview.html"

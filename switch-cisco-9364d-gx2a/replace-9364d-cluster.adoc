@@ -1,0 +1,990 @@
+---
+permalink: switch-cisco-9364d-gx2a/replace-9364d-cluster.html 
+sidebar: sidebar 
+keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9364d-gx2a cluster switch - cisco nexus 9364d-gx2a 
+summary: 'Le remplacement d"un commutateur Nexus 9364d-gx2a défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).' 
+---
+= Remplacer un commutateur Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez ces étapes pour remplacer un commutateur Nexus 9364D-GX2A défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice (NDU).
+
+
+
+== Examen des conditions requises
+
+Avant d'effectuer le remplacement du commutateur, assurez-vous que :
+
+* Vous avez vérifié le numéro de série du commutateur pour vous assurer que le commutateur correct est remplacé.
+* Sur l'infrastructure réseau et en cluster existante :
++
+** Le cluster existant est vérifié entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.
+** Tous les ports de cluster fonctionnent.
+** Toutes les interfaces logiques (LIF) de cluster sont active et sur leurs ports de maison.
+** L' ONTAP `cluster ping-cluster -node <node-name>` la commande doit indiquer que la connectivité de base et la communication supérieure à PMTU réussissent sur tous les chemins.
+
+
+* Sur le commutateur de remplacement Nexus 9364D-GX2A :
++
+** La connectivité réseau de gestion sur le commutateur de remplacement est fonctionnelle.
+** L'accès à la console au commutateur de remplacement est en place.
+** Les connexions de nœuds sont les ports 1/1 à 1/62.
+** Tous les ports Inter-Switch Link (ISL) sont désactivés sur les ports 1/63 et 1/64.
+** Le fichier RCF souhaité et le commutateur d'image du système d'exploitation NX-OS sont chargés sur ce commutateur.
+** La personnalisation initiale du commutateur est terminée, comme détaillé danslink:setup-switch-9364d-cluster.html["Configurer le commutateur de cluster 9364D-GX2A"] .
++
+Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, est copiée sur le nouveau commutateur.
+
+
+
+* Vous avez exécuté la commande pour la migration d'une LIF de cluster à partir du nœud sur lequel la LIF de cluster est hébergée.
+
+
+
+
+== Activer la journalisation de la console
+
+NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :
+
+* Laissez AutoSupport activé pendant la maintenance.
+* Déclencher une AutoSupport de maintenance avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance. Consultez cet article de la base de connaissance https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus d'informations.
+* Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+
+
+
+
+== Remplacer le contacteur
+
+.À propos des exemples
+Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+
+* Les noms des commutateurs Nexus 9364D-GX2A existants sont cs1 et cs2.
+* Le nom du nouveau commutateur Nexus 9364D-GX2A est newcs2.
+* Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
+* Les noms LIF du cluster sont node1-01_clus1 et node1-01_clus2 pour node1-01, node1-02_clus1 et node1-02_clus2 pour node1-02, node1-03_clus1 et node1-03_clus2 pour node1-03, et node1-04_clus1 et node1-04_clus2 pour node1-04.
+* Le système invite pour les modifications à tous les nœuds du cluster est cluster1 :*>
+
+
+.Description de la tâche
+La procédure suivante est basée sur la topologie réseau de cluster suivante :
+
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+
+cluster1::*> *network interface show -vserver Cluster*
+            Logical         Status     Network            Current       Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node          Port    Home
+----------- --------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.209.69/16  node1-01      e7a     true
+            node1-01_clus2  up/up      169.254.49.125/16  node1-01      e7b     true
+            node1-02_clus1  up/up      169.254.47.194/16  node1-02      e7a     true
+            node1-02_clus2  up/up      169.254.19.183/16  node1-02      e7b     true
+.
+.
+.
+
+cluster1::*> *network device-discovery show -protocol cdp*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FLMXXXXXXXX)          Ethernet1/16/3    N9K-C9364D-GX2A
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/16/3    N9K-C9364D-GX2A
+            e11a   cs1(FLMXXXXXXXX)          Ethernet1/16/4    N9K-C9364D-GX2A
+            e11b   cs2(FDOXXXXXXXX)          Ethernet1/16/4    N9K-C9364D-GX2A
+            e1a    cs1(FLMXXXXXXXX)          Ethernet1/16/1    N9K-C9364D-GX2A
+            e1b    cs2(FDOXXXXXXXX)          Ethernet1/16/1    N9K-C9364D-GX2A
+            .
+            .
+            .
+            e7a    cs1(FLMXXXXXXXX)          Ethernet1/16/2    N9K-C9364D-GX2A
+            e7b    cs2(FDOXXXXXXXX)          Ethernet1/16/2    N9K-C9364D-GX2A
+.
+.
+.
+
+cs1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+Device-ID             Local Intrfce  Hldtme Capability  Platform          Port ID
+newcs2(FDOXXXXXXXX)   Eth1/63        179    R S I s     N9K-C9332D-GX2B   Eth1/31
+newcs2(FDOXXXXXXXX)   Eth1/64        179    R S I s     N9K-C9332D-GX2B   Eth1/32
+node1-01              Eth1/4/1       123    H           AFX-1K            e1a
+node1-01              Eth1/4/2       123    H           AFX-1K            e7a
+node1-01              Eth1/4/3       123    H           AFX-1K            e10a
+node1-01              Eth1/4/4       123    H           AFX-1K            e11a
+node1-02              Eth1/9/1       138    H           AFX-1K            e1a
+node1-02              Eth1/9/2       138    H           AFX-1K            e7a
+node1-02              Eth1/9/3       138    H           AFX-1K            e10a
+node1-02              Eth1/9/4       138    H           AFX-1K            e11a
+node1-03              Eth1/15/1      138    H           AFX-1K            e1a
+node1-03              Eth1/15/2      138    H           AFX-1K            e7a
+node1-03              Eth1/15/3      138    H           AFX-1K            e10a
+node1-03              Eth1/15/4      138    H           AFX-1K            e11a
+node1-04              Eth1/16/1      173    H           AFX-1K            e1a
+node1-04              Eth1/16/2      173    H           AFX-1K            e7a
+node1-04              Eth1/16/3      173    H           AFX-1K            e10a
+node1-04              Eth1/16/4      173    H           AFX-1K            e11a
+
+Total entries displayed: 18
+
+
+newcs2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform          Port ID
+cs1(FDOXXXXXXXX)   Eth1/63        179    R S I s     N9K-C9332D-GX2B   Eth1/31
+cs1(FDOXXXXXXXX)   Eth1/64        179    R S I s     N9K-C9332D-GX2B   Eth1/32
+node1-01           Eth1/4/1       123    H           AFX-1K            e1a
+node1-01           Eth1/4/2       123    H           AFX-1K            e7a
+node1-01           Eth1/4/3       123    H           AFX-1K            e10a
+node1-01           Eth1/4/4       123    H           AFX-1K            e11a
+node1-02           Eth1/9/1       138    H           AFX-1K            e1a
+node1-02           Eth1/9/2       138    H           AFX-1K            e7a
+node1-02           Eth1/9/3       138    H           AFX-1K            e10a
+node1-02           Eth1/9/4       138    H           AFX-1K            e11a
+node1-03           Eth1/15/1      138    H           AFX-1K            e1a
+node1-03           Eth1/15/2      138    H           AFX-1K            e7a
+node1-03           Eth1/15/3      138    H           AFX-1K            e10a
+node1-03           Eth1/15/4      138    H           AFX-1K            e11a
+node1-04           Eth1/16/1      173    H           AFX-1K            e1a
+node1-04           Eth1/16/2      173    H           AFX-1K            e7a
+node1-04           Eth1/16/3      173    H           AFX-1K            e10a
+node1-04           Eth1/16/4      173    H           AFX-1K            e11a
+
+Total entries displayed: 18
+----
+====
+
+
+=== Étape 1 : préparer le remplacement
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+où x représente la durée de la fenêtre de maintenance en heures.
+
++
+
+NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+
+. Installez la FCR et l'image appropriées sur le commutateur, newcs2, et effectuez les préparations nécessaires du site.
++
+Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et NX-OS pour le nouveau commutateur. Si vous avez vérifié que le nouveau commutateur est correctement configuré et qu'il n'a pas besoin de mises à jour des logiciels RCF et NX-OS, passez à l'étape 2.
+
++
+.. Accédez à la page de description du fichier de configuration de référence des commutateurs de réseau de gestion et de cluster NetApp sur le site de support NetApp.
+.. Cliquez sur le lien de la matrice de compatibilité du réseau de clusters et de gestion_, puis notez la version du logiciel de commutation requise.
+.. Cliquez sur la flèche vers l'arrière de votre navigateur pour revenir à la page Description, cliquez sur *CONTINUER*, acceptez le contrat de licence, puis accédez à la page Téléchargement.
+.. Suivez les étapes de la page de téléchargement pour télécharger les fichiers RCF et NX-OS appropriés correspondant à la version du logiciel ONTAP que vous installez.
+
+
+. Sur le nouveau switch, connectez-vous en tant qu'admin et arrêtez tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1/1 à 1/64).
++
+Si le commutateur que vous remplacez ne fonctionne pas et est hors tension, passer à l'étape 4. Les LIFs des nœuds du cluster doivent déjà avoir basculer sur l'autre port du cluster pour chaque nœud.
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+newcs2# *config*
+newcs2(config)# *interface e1/1/1-4,e1/2/1-4,e1/3/1-4,e1/4/1-4,e1/5/1-4,e1/6/1-4,e1/7/1-4,e1/8/1-4*
+newcs2(config-if-range)# *shutdown*
+newcs2(config)# *interface e1/9/1-4,e1/10/1-4,e1/11/1-4,e1/12/1-4,e1/13/1-4,e1/14/1-4,e1/15/1-4,e1/16/1-4*
+newcs2(config-if-range)# *shutdown*
+newcs2(config)# *interface e1/17/1-4,e1/18/1-4,e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4,e1/24/1-4*
+csnewcs21(config-if-range)# *shutdown*
+newcs2(config)# *interface e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4,e1/31/1-4,e1/32/1-4*
+newcs2(config-if-range)# *shutdown*
+newcs2(config)# *interface e1/33/1-4,e1/34/1-4,e1/35/1-4,e1/36/1-4,e1/37/1-4,e1/38/1-4,e1/39/1-4,e1/40/1-4*
+newcs2(config-if-range)# *shutdown*
+newcs2(config)# *interface e1/41/1-4,e1/42/1-4,e1/43/1-4,e1/44/1-4,e1/35/1-4,e1/46/1-4,e1/47/1-4,e1/48/1-4*
+newcs2(config-if-range)# *shutdown*
+newcs2(config)# *interface e1/49/1-4,e1/50/1-4,e1/51/1-4,e1/52/1-4,e1/53/1-4,e1/54/1-4,e1/55/1-4,e1/56/1-4*
+newcs2(config-if-range)# *shutdown*\
+newcs2(config)# *interface e1/57/1-4,e1/58/1-4,e1/59/1-4,e1/60/1-4,e1/61/1-4,e1/62/1-4*
+newcs2(config-if-range)# *shutdown*
+newcs2(config-if-range)# exit
+newcs2(config)# exit
+----
+====
+. Vérifier que toutes les LIFs de cluster ont activé la fonction de restauration automatique :
++
+[source, cli]
+----
+network interface show -vserver Cluster -fields auto-revert
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::> *network interface show -vserver Cluster -fields auto-revert*
+
+             Logical
+Vserver      Interface        Auto-revert
+------------ ---------------- -------------
+Cluster      node1-01_clus1   true
+Cluster      node1-01_clus2   true
+Cluster      node1-02_clus1   true
+Cluster      node1-02_clus2   true
+Cluster      node1-03_clus1   true
+Cluster      node1-03_clus2   true
+Cluster      node1-04_clus1   true
+Cluster      node1-04_clus2   true
+
+8 entries were displayed.
+----
+====
+. Vérifiez la connectivité des interfaces de cluster distantes :
++
+.. Vous pouvez utiliser le `network interface check cluster-connectivity show` commande pour afficher les détails d'une vérification d'accessibilité pour la connectivité du cluster :
++
+[source, cli]
+----
+network interface check cluster-connectivity show
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                     Source          Destination     Packet
+Node      Date                       LIF             LIF             Loss
+--------- -------------------------- --------------- --------------- -----------
+node1-01
+          6/4/2025 03:13:33 -04:00   node1-01_clus2  node1-02_clus1  none
+          6/4/2025 03:13:34 -04:00   node1-01_clus2  node1-02_clus2  none
+node1-02
+          6/4/2025 03:13:33 -04:00   node1-02_clus2  node1-01_clus1  none
+          6/4/2025 03:13:34 -04:00   node1-02_clus2  node1-01_clus2  none
+.
+.
+.
+----
+====
+.. Alternativement, vous pouvez également utiliser le `cluster ping-cluster -node <node-name>` commande pour vérifier la connectivité :
++
+`cluster ping-cluster -node <node-name>`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+
+
+
+
+
+
+=== Étape 2 : configurer les câbles et les ports
+
+. Fermez les ports ISL 1/63 et 1/64 sur le commutateur Nexus 9364D-GX2A cs1.
++
+[listing, subs="+quotes"]
+----
+cs1# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e1/63-64*
+cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# exit
+cs1(config)# exit
+----
+. Retirez tous les câbles du commutateur Nexus 9364D-GX2B cs2, puis connectez-les aux mêmes ports sur le commutateur Nexus 9364D-GX2A newcs2.
+. Activez les ports ISL 1/63 et 1/64 entre les commutateurs cs1 et newcs2, puis vérifiez l'état de fonctionnement du canal de port.
++
+Port-Channel doit indiquer Po1(SU) et les ports membres doivent indiquer Eth1/63(P) et Eth1/64(P).
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple active les ports ISL 1/63 et 1/64 et affiche le résumé du canal de port sur le commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *config*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e1/63-64*
+cs1(config-if-range)# *no shutdown*
+cs1(config-if-range)# *exit*
+cs1(config)# *exit*
+cs1#
+cs1(config-if-range)# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-        Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+11     Po1(SU)     Eth      LACP      Eth1/63(P)   Eth1/64(P)
+999    Po999(SD)   Eth      NONE      --
+----
+====
+. Vérifiez que le port e7b est actif sur tous les nœuds :
++
+[source, cli]
+----
+network port show ipspace Cluster
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+La sortie doit être similaire à ce qui suit :
+
+[listing]
+----
+cluster1::*> network port show -ipspace Cluster
+
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+8 entries were displayed.
+----
+====
+. Sur le même nœud que celui utilisé dans l'étape précédente, ne restaurez pas la LIF de cluster associée au port à l'étape précédente en utilisant la commande network interface revert.
++
+.Montrer l'exemple
+[%collapsible]
+====
+Dans cet exemple, le nœud LIF node1-01_clus2 sur le nœud node1-01 est rétabli avec succès si la valeur Home est vraie et que le port est e7b.
+
+Les commandes suivantes renvoient LIF `node1-01_clus2` sur `node1-01` au port d'attache `e7a` et affiche des informations sur les LIF sur les deux nœuds.  L'activation du premier nœud est réussie si la colonne Is Home est vraie pour les deux interfaces du cluster et qu'elles affichent les affectations de port correctes, dans cet exemple `e7a` et `e7b` sur le nœud 1-01.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+
+            Logical         Status     Network            Current    Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node       Port    Home
+----------- --------------- ---------- ------------------ ---------- ------- -----
+Cluster
+            node1-01_clus1  up/up      169.254.209.69/16  node1-01   e7a     true
+            node1-01_clus2  up/up      169.254.49.125/16  node1-01   e7b     true
+            node1-02_clus1  up/up      169.254.47.194/16  node1-02   e7b     true
+            node1-02_clus2  up/up      169.254.19.183/16  node1-02   e7a     false
+            .
+            .
+            .
+----
+====
+. Affichage des informations relatives aux nœuds dans un cluster :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple indique que le nœud Health pour les nœuds 1 et 2 de ce cluster est vrai :
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+Node          Health  Eligibility
+------------- ------- ------------
+node1-01      false   true
+node1-02      true    true
+node1-03      true    true
+node1-04      true    true
+----
+====
+. Vérifier que tous les ports de cluster physiques sont en service :
++
+[source, cli]
+----
+network port show ipspace Cluster
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+.
+.
+.
+----
+====
+. Vérifiez la connectivité des interfaces de cluster distantes :
++
+.. Vous pouvez utiliser le `network interface check cluster-connectivity show` commande pour afficher les détails d'une vérification d'accessibilité pour la connectivité du cluster :
++
+[source, cli]
+----
+network interface check cluster-connectivity show
+----
+
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                     Source          Destination     Packet
+Node      Date                       LIF             LIF             Loss
+--------- -------------------------- --------------- --------------- -----------
+node1-01
+          6/4/2025 03:13:33 -04:00   node1-01_clus2  node1-02_clus1  none
+          6/4/2025 03:13:34 -04:00   node1-01_clus2  node1-02_clus2  none
+node1-02
+          6/4/2025 03:13:33 -04:00   node1-02_clus2  node1-01_clus1  none
+          6/4/2025 03:13:34 -04:00   node1-02_clus2  node1-01_clus2  none
+.
+.
+.
+----
+====
++
+.. Alternativement, vous pouvez également utiliser le `cluster ping-cluster -node <node-name>` commande pour vérifier la connectivité :
++
+`cluster ping-cluster -node <node-name>`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node2
+Getting addresses from network interface table...
+Cluster node1_clus1 169.254.209.69 node1 e0a
+Cluster node1_clus2 169.254.49.125 node1 e0b
+Cluster node2_clus1 169.254.47.194 node2 e0a
+Cluster node2_clus2 169.254.19.183 node2 e0b
+Local = 169.254.47.194 169.254.19.183
+Remote = 169.254.209.69 169.254.49.125
+Cluster Vserver Id = 4294967293
+Ping status:
+....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s)
+................
+Detected 9000 byte MTU on 4 path(s):
+Local 169.254.47.194 to Remote 169.254.209.69
+Local 169.254.47.194 to Remote 169.254.49.125
+Local 169.254.19.183 to Remote 169.254.209.69
+Local 169.254.19.183 to Remote 169.254.49.125
+Larger than PMTU communication succeeds on 4 path(s)
+RPC status:
+2 paths up, 0 paths down (tcp check)
+2 paths up, 0 paths down (udp check)
+----
+====
+
+
+
+
+
+
+=== Étape 3 : vérifier la configuration
+
+. Vérifiez l’état de tous les ports du cluster.
++
+.. *Ports de cluster*
++
+... Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
++
+[source, cli]
+----
+network port show ipspace Cluster
+----
++
+[source, cli]
+----
+network interface show -vserver cluster
+----
++
+[source, cli]
+----
+network device-discovery show -protocol cdp
+----
++
+[source, cli]
+----
+show cdp neighbors
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+
+cluster1::*> *network interface show -vserver cluster*
+
+          Logical         Status     Network            Current       Current Is
+Vserver   Interface       Admin/Oper Address/Mask       Node          Port    Home
+--------- --------------- ---------- ------------------ ------------- ------- ----
+Cluster
+          node1-01_clus1  up/up      169.254.209.69/16  node1-01      e7a     true
+          node1-01_clus2  up/up      169.254.49.125/16  node1-01      e7b     true
+          node1-02_clus1  up/up      169.254.47.194/16  node1-02      e7b     true
+          node1-02_clus2  up/up      169.254.19.183/16  node1-02      e7a     false
+          .
+          .
+          .
+
+cluster1::> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FLMXXXXXXXX)          Ethernet1/16/3    N9K-C9364D-GX2A
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/16/3    N9K-C9364D-GX2A
+            e11a   cs1(FLMXXXXXXXX)          Ethernet1/16/4    N9K-C9364D-GX2A
+            e11b   cs2(FDOXXXXXXXX)          Ethernet1/16/4    N9K-C9364D-GX2A
+            e1a    cs1(FLMXXXXXXXX)          Ethernet1/16/1    N9K-C9364D-GX2A
+            e1b    cs2(FDOXXXXXXXX)          Ethernet1/16/1    N9K-C9364D-GX2A
+            .
+            .
+            .
+            e7a    cs1(FLMXXXXXXXX)          Ethernet1/16/2    N9K-C9364D-GX2A
+            e7b    cs2(FDOXXXXXXXX)          Ethernet1/16/2    N9K-C9364D-GX2A
+.
+.
+.
+
+cs1# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID            Local Intrfce  Hldtme Capability  Platform      Port ID
+newcs2(FDOXXXXXXXX)   Eth1/63        179    R S I s     N9K-C9332D-GX2B   Eth1/31
+newcs2(FDOXXXXXXXX)   Eth1/64        179    R S I s     N9K-C9332D-GX2B   Eth1/32
+node1-01              Eth1/4/1       123    H           AFX-1K            e1a
+node1-01              Eth1/4/2       123    H           AFX-1K            e7a
+node1-01              Eth1/4/3       123    H           AFX-1K            e10a
+node1-01              Eth1/4/4       123    H           AFX-1K            e11a
+node1-02              Eth1/9/1       138    H           AFX-1K            e1a
+node1-02              Eth1/9/2       138    H           AFX-1K            e7a
+node1-02              Eth1/9/3       138    H           AFX-1K            e10a
+node1-02              Eth1/9/4       138    H           AFX-1K            e11a
+node1-03              Eth1/15/1      138    H           AFX-1K            e1a
+node1-03              Eth1/15/2      138    H           AFX-1K            e7a
+node1-03              Eth1/15/3      138    H           AFX-1K            e10a
+node1-03              Eth1/15/4      138    H           AFX-1K            e11a
+node1-04              Eth1/16/1      173    H           AFX-1K            e1a
+node1-04              Eth1/16/2      173    H           AFX-1K            e7a
+node1-04              Eth1/16/3      173    H           AFX-1K            e10a
+node1-04              Eth1/16/4      173    H           AFX-1K            e11a
+
+Total entries displayed: 18
+
+
+newcs2# *show cdp neighbors*
+
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1(FDOXXXXXXXX)   Eth1/63        179    R S I s     N9K-C9332D-GX2B   Eth1/31
+cs1(FDOXXXXXXXX)   Eth1/64        179    R S I s     N9K-C9332D-GX2B   Eth1/32
+node1-01           Eth1/4/1       123    H           AFX-1K            e1a
+node1-01           Eth1/4/2       123    H           AFX-1K            e7a
+node1-01           Eth1/4/3       123    H           AFX-1K            e10a
+node1-01           Eth1/4/4       123    H           AFX-1K            e11a
+node1-02           Eth1/9/1       138    H           AFX-1K            e1a
+node1-02           Eth1/9/2       138    H           AFX-1K            e7a
+node1-02           Eth1/9/3       138    H           AFX-1K            e10a
+node1-02           Eth1/9/4       138    H           AFX-1K            e11a
+node1-03           Eth1/15/1      138    H           AFX-1K            e1a
+node1-03           Eth1/15/2      138    H           AFX-1K            e7a
+node1-03           Eth1/15/3      138    H           AFX-1K            e10a
+node1-03           Eth1/15/4      138    H           AFX-1K            e11a
+node1-04           Eth1/16/1      173    H           AFX-1K            e1a
+node1-04           Eth1/16/2      173    H           AFX-1K            e7a
+node1-04           Eth1/16/3      173    H           AFX-1K            e10a
+node1-04           Eth1/16/4      173    H           AFX-1K            e11a
+
+Total entries displayed: 18
+----
+====
+
+
+.. *Ports HA*
++
+... Vérifiez que tous les ports HA sont opérationnels et en bon état :
++
+`ha interconnect status show -node <node-name>`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+
+
+.. *Ports de stockage*
++
+... Vérifiez que tous les ports de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-02
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-03
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+node1-04
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+16 entries were displayed.
+----
+====
+
+
+.. *Ports d'étagères de stockage*
++
+... Vérifiez que tous les ports de l'étagère de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+
+16 entries were displayed.
+----
+====
+... Vérifiez l’état de connexion de tous les ports de l’étagère de stockage :
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 CX9332D-cs1
+1.1   1  connected       Ethernet1/15/1 CX9364D-cs1
+1.1   2  connected       Ethernet1/17/2 CX9332D-cs1
+1.1   3  connected       Ethernet1/15/2 CX9364D-cs1
+1.1   4  connected       Ethernet1/17/3 CX9332D-cs1
+1.1   5  connected       Ethernet1/15/3 CX9364D-cs1
+1.1   6  connected       Ethernet1/17/4 CX9332D-cs1
+1.1   7  connected       Ethernet1/15/4 CX9364D-cs1
+1.1   8  connected       Ethernet1/19/1 CX9332D-cs1
+1.1   9  connected       Ethernet1/17/1 CX9364D-cs1
+1.1   10 connected       Ethernet1/19/2 CX9332D-cs1
+1.1   11 connected       Ethernet1/17/2 CX9364D-cs1
+1.1   12 connected       Ethernet1/19/3 CX9332D-cs1
+1.1   13 connected       Ethernet1/17/3 CX9364D-cs1
+1.1   14 connected       Ethernet1/19/4 CX9332D-cs1
+1.1   15 connected       Ethernet1/17/4 CX9364D-cs1
+
+16 entries were displayed.
+----
+====
+
+
+
+
+. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.Et la suite ?
+Après avoir remplacé vos commutateurs, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

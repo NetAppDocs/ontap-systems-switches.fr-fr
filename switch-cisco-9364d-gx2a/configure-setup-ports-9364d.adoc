@@ -1,0 +1,36 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-setup-ports-9364d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, ports, configure switch-cisco-9364d-gx2a switch 
+summary: Détails du port pour les commutateurs Cisco Nexus 9364D-GX2A. 
+---
+= Détails du port pour les commutateurs Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+
+
+[role="lead"]
+Le commutateur Cisco Nexus 9364D-GX2A fait partie de la plate-forme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp .  Les commutateurs 9364D-GX2A vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
+
+
+
+== Détails du port Cisco Nexus 9364D-GX2A
+
+[cols="1,2"]
+|===
+| Ports | Description 
+
+
+ a| 
+Ethernet1/1/1-4 vers Ethernet1/62/1-4
+ a| 
+Mode 4x100GbE pour les connexions cluster, HA et stockage AMD
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+ISL 400GbE
+
+|===
+Voir le https://hwu.netapp.com["Hardware Universe"^] pour plus de détails sur les ports utilisés par la plateforme.

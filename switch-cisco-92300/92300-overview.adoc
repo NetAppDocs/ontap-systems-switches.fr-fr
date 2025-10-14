@@ -100,7 +100,7 @@ Décrit comment migrer des environnements utilisant des commutateurs Cisco plus 
 
 
  a| 
-https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc-overview.html["_Migrer d'un ancien commutateur Cisco vers un commutateur Cisco Nexus 92300YC_"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html["_Migrer d'un ancien commutateur Cisco vers un commutateur Cisco Nexus 92300YC_"^]
  a| 
 Décrit la procédure à suivre pour remplacer un ancien commutateur Cisco par un commutateur de cluster Cisco Nexus 92300YC.
 

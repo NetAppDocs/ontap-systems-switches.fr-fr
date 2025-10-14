@@ -1,0 +1,34 @@
+---
+permalink: switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure 9364d-gx2ab switch 
+summary: 'Présentation de l"installation et de la configuration des commutateurs de cluster Cisco Nexus 9364d-gx2a' 
+---
+= Flux de travail d'installation et de configuration pour les commutateurs Cisco 9364D-GX2A
+:allow-uri-read: 
+
+
+[role="lead"]
+Le commutateur Cisco 9364D-GX2A fait partie de la plate-forme Cisco Nexus 9000.  Les commutateurs des systèmes AFX vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
+
+Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-setup-ports-9364d.html["Vérifiez les détails du port du commutateur"]
+[role="quick-margin-para"]
+Consultez les détails du port pour le commutateur Cisco 9364D-GX2A.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:required-documentation-9364d-cluster.html["Examiner la documentation requise"]
+[role="quick-margin-para"]
+Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 9364D-GX2A et le cluster ONTAP .
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:smart-call-9364d-cluster.html["Consultez les exigences de Smart Call Home"]
+[role="quick-margin-para"]
+Passez en revue les exigences de la fonctionnalité Cisco Smart Call Home, utilisée pour surveiller les composants matériels et logiciels de votre réseau.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware.html["Installer le matériel de fixation"]
+[role="quick-margin-para"]
+Installez le matériel du commutateur.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-software-overview-9364d-cluster.html["Configurer le logiciel"]
+[role="quick-margin-para"]
+Configurer le logiciel du commutateur.

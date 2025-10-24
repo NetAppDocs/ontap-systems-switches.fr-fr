@@ -449,7 +449,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS version 3.12.x et ultérieure
 --
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
+. Copiez le RCF dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, TFTP, SFTP ou SCP.
 +
 Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
 
@@ -508,7 +508,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .Toutes les autres versions de EFOS
 --
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
+. Copiez le RCF dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, TFTP, SFTP ou SCP.
 +
 Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
 

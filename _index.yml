@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: Commutateurs pour systèmes ONTAP
+  title: Documentation des commutateurs pour les systèmes matériels ONTAP
   summary: Utilisez les documents fournis sur ce site pour installer, mettre à niveau
     et gérer votre cluster, votre système de stockage partagé et vos commutateurs
     MetroCluster.
@@ -26,8 +26,8 @@ indexpage:
       url: "/cluster/index.html"
     - title: Commutateurs de stockage
       url: "/storage/index.html"
-    - title: 'Commutateur partagé : Cisco Nexus 9336C-FX2'
-      url: "/switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
+    - title: Commutateurs partagés
+      url: "/shared/index.html"
   - title: Commutateurs de fin de disponibilité
     links:
     - title: Commutateur de cluster - Cisco Nexus 3232c

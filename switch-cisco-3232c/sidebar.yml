@@ -33,13 +33,18 @@ entries:
     url: "/switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
   - title: Configurer le commutateur
     url: "/switch-cisco-3232c/setup-switch.html"
-  - title: Préparez-vous à installer NX-OS et RCF
-    url: "/switch-cisco-3232c/prepare-install-cisco-nexus-3232c.html"
   - title: Installez le logiciel NX-OS
     url: "/switch-cisco-3232c/install-nx-os-software-3232c.html"
-  - title: Installation ou mise à niveau du RCF
-    url: "/switch-cisco-3232c/install-rcf-3232c.html"
-  - title: Vérifier la configuration de SSH
+  - title: Installez ou mettez à niveau le RCF
+    pdf-filename: install_upgrade_rcf
+    entries:
+    - title: Présentation de l'installation ou de la mise à niveau du RCF
+      url: "/switch-cisco-3232c/install-upgrade-rcf-overview-3232c.html"
+    - title: Installer la FCR
+      url: "/switch-cisco-3232c/install-rcf-software-3232c.html"
+    - title: Mettez à niveau votre version RCF
+      url: "/switch-cisco-3232c/upgrade-rcf-software-3232c.html"
+  - title: Vérifier la configuration SSH
     url: "/switch-cisco-3232c/configure-ssh-keys.html"
   - title: Réinitialiser le commutateur aux paramètres d'usine
     url: "/switch-cisco-3232c/reset-switch-3232c.html"

@@ -1,0 +1,427 @@
+---
+permalink: switch-cisco-3132q-v/install-rcf-software-3132q-v.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
+summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous générez d’abord les clés SSH, puis vous activez SSH.' 
+---
+= Installer le fichier RCF (Reference Configuration File)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3132Q-V pour la première fois.
+
+.Avant de commencer
+Vérifiez les installations et les connexions suivantes :
+
+* Sauvegarde actuelle de la configuration du commutateur.
+* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
+* La FCR actuelle.
+* Connexion de la console au commutateur, requise lors de l'installation du FCR.
+
+
+.Description de la tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+
+Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure.  Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL.  Pour permettre des opérations de cluster sans interruption, la procédure suivante migre tous les LIF de cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
+
+
+
+== Étape 1 : installez le RCF sur les switchs
+
+. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
++
+`network device-discovery show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ------------
+cluster1-01/cdp
+            e0a    cs1                       Ethernet1/7       N3K-C3132Q-V
+            e0d    cs2                       Ethernet1/7       N3K-C3132Q-V
+cluster1-02/cdp
+            e0a    cs1                       Ethernet1/8       N3K-C3132Q-V
+            e0d    cs2                       Ethernet1/8       N3K-C3132Q-V
+cluster1-03/cdp
+            e0a    cs1                       Ethernet1/1/1     N3K-C3132Q-V
+            e0b    cs2                       Ethernet1/1/1     N3K-C3132Q-V
+cluster1-04/cdp
+            e0a    cs1                       Ethernet1/1/2     N3K-C3132Q-V
+            e0b    cs2                       Ethernet1/1/2     N3K-C3132Q-V
+cluster1::*>
+----
+====
+. Vérifiez le statut administratif et opérationnel de chaque port du cluster.
++
+.. Vérifier que tous les ports du cluster sont défectueux :
++
+`network port show -ipspace Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+Node: cluster1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+Node: cluster1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
+8 entries were displayed.
+Node: cluster1-03
+   Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+Node: cluster1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+cluster1::*>
+----
+====
+.. Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
++
+`network interface show -vserver Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            cluster1-01_clus1  up/up     169.254.3.4/23     cluster1-01  e0a     true
+            cluster1-01_clus2  up/up     169.254.3.5/23     cluster1-01  e0d     true
+            cluster1-02_clus1  up/up     169.254.3.8/23     cluster1-02  e0a     true
+            cluster1-02_clus2  up/up     169.254.3.9/23     cluster1-02  e0d     true
+            cluster1-03_clus1  up/up     169.254.1.3/23     cluster1-03  e0a     true
+            cluster1-03_clus2  up/up     169.254.1.1/23     cluster1-03  e0b     true
+            cluster1-04_clus1  up/up     169.254.1.6/23     cluster1-04  e0a     true
+            cluster1-04_clus2  up/up     169.254.1.7/23     cluster1-04  e0b     true
+cluster1::*>
+----
+====
+.. Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
++
+`system cluster-switch show -is-monitoring-enabled-operational true`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1                         cluster-network    10.0.0.1         NX3132QV
+     Serial Number: FOXXXXXXXGS
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+cs2                         cluster-network    10.0.0.2         NX3132QV
+     Serial Number: FOXXXXXXXGD
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    9.3(4)
+    Version Source: CDP
+2 entries were displayed.
+----
+====
+
+
++
+
+NOTE: Pour ONTAP 9.8 et versions ultérieures, utilisez la commande `system switch ethernet show -is-monitoring-enabled-operational true`.
+
+. Désactivez la fonction de restauration automatique sur les LIF du cluster.
++
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
+----
++
+Assurez-vous que la fonction de restauration automatique est désactivée après avoir exécuté cette commande.
+
+. Sur le commutateur de cluster cs2, arrêtez les ports connectés aux ports de cluster des nœuds.
++
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface eth1/1/1-2,eth1/7-8*
+cs2(config-if-range)# *shutdown*
+cs2(config-if-range)# *exit*
+cs2# *exit*
+----
++
+
+NOTE: Le nombre de ports affichés varie en fonction du nombre de nœuds du cluster.
+
+. Vérifiez que les ports du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
++
+`network interface show -vserver Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical           Status     Network            Current       Current Is
+Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
+----------- ----------------- ---------- ------------------ ------------- ------- ----
+Cluster
+            cluster1-01_clus1 up/up      169.254.3.4/23     cluster1-01   e0a     true
+            cluster1-01_clus2 up/up      169.254.3.5/23     cluster1-01   e0a     false
+            cluster1-02_clus1 up/up      169.254.3.8/23     cluster1-02   e0a     true
+            cluster1-02_clus2 up/up      169.254.3.9/23     cluster1-02   e0a     false
+            cluster1-03_clus1 up/up      169.254.1.3/23     cluster1-03   e0a     true
+            cluster1-03_clus2 up/up      169.254.1.1/23     cluster1-03   e0a     false
+            cluster1-04_clus1 up/up      169.254.1.6/23     cluster1-04   e0a     true
+            cluster1-04_clus2 up/up      169.254.1.7/23     cluster1-04   e0a     false
+cluster1::*>
+----
+====
+. Vérifiez que le cluster fonctionne correctement :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+cluster1::*>
+----
+====
+. Si ce n'est pas déjà fait, enregistrez une copie de la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier texte :
++
+`show running-config`
+
+. Enregistrez tous les ajouts personnalisés entre la configuration en cours d'exécution et le fichier RCF en cours d'utilisation.
++
+[NOTE]
+====
+Assurez-vous de configurer les éléments suivants : * Nom d'utilisateur et mot de passe * Adresse IP de gestion * Passerelle par défaut * Nom du commutateur
+
+====
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur le bootflash.
++
+
+NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer la configuration de base.  Vous devez être connecté au port de console série du commutateur pour configurer à nouveau le commutateur.
+
++
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
+. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
++
+`cs2# echo "hardware access-list tcam region vpc-convergence 256" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region racl 256" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region e-racl 256" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+
+. Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
++
+`*show file bootflash:write_erase.cfg*`
+
+. Émettre le `write erase` commande pour effacer la configuration enregistrée actuelle :
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
++
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
+
+. Redémarrez le commutateur :
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Répétez les étapes 7 à 14 sur le commutateur cs1.
+. Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
+
+
+
+
+== Étape 2 : vérifier les connexions du commutateur
+
+. Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.
++
+`show interface brief | grep up`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/1/1      1       eth  access up      none                    10G(D) --
+Eth1/1/2      1       eth  access up      none                    10G(D) --
+Eth1/7        1       eth  trunk  up      none                   100G(D) --
+Eth1/8        1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+====
+. Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :
++
+`show port-channel summary`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
+cs1#
+----
+====
+. Vérifier que les LIFs du cluster ont rétabli leur port de base :
++
+`network interface show -vserver Cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -vserver Cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+cluster1::*>
+----
+====
+. Vérifiez que le cluster fonctionne correctement :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------- -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+cluster1::*>
+----
+====
+
+
+
+
+== Étape 3 : Configurez votre cluster ONTAP
+
+NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters.
+
+System Manager fournit un flux de travail simple et facile pour la configuration et l'installation du cluster, y compris l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et l'approvisionnement du stockage initial.
+
+Se référer àlink:https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour les instructions d'installation.
+
+.Et la suite ?
+Après avoir installé le RCF, vouslink:configure-ssh-keys.html["vérifier la configuration SSH"] .

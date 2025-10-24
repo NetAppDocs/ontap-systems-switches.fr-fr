@@ -951,7 +951,7 @@ node1-04          true     true          false
 4 entries were displayed.
 ----
 ====
-. Répétez les étapes 4 à 17 sur le commutateur cs2.
+. Répétez les étapes 4 à 18 sur le commutateur cs2.
 . Activez la fonction de revert automatique sur les LIFs du cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`

@@ -1,0 +1,35 @@
+---
+indexpage:
+  title: Commutateurs partagés
+  summary: Utilisez la documentation de ce site pour installer, configurer et maintenir
+    vos commutateurs partagés pour les déploiements de cluster ONTAP .
+  keywords: shared switches, cisco nexus switches, cluster switches, ontap clusters
+  lead: Les commutateurs partagés vous permettent de créer des clusters ONTAP avec
+    plus de deux nœuds. Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
+    la base de solutions d'interconnexion de cluster évolutives dans les environnements
+    NetApp ONTAP .
+  tiles:
+  - title: Commencez
+    links:
+    - title: Cisco Nexus 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html"
+  - title: Installer et configurer des commutateurs partagés
+    links:
+    - title: Installer le matériel du commutateur 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/install-hardware-workflow.html"
+    - title: Configurer le logiciel du commutateur 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html"
+  - title: Maintenir les commutateurs partagés
+    links:
+    - title: Remplacer le commutateur 9336C-FX2
+      url: "../switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html"
+    - title: Réinitialiser le commutateur 9336C-FX2 aux paramètres d'usine
+      url: "../switch-cisco-9336c-fx2-shared/reset-switch-9336c-shared.html"
+  - title: Documentation connexe
+    links:
+    - title: Systèmes matériels ONTAP
+      url: https://docs.netapp.com/us-en/ontap-systems/index.html
+    - title: Documentation sur les commutateurs de cluster
+      url: "../index.html"
+    - title: Surveillance de l'état du commutateur
+      url: "../switch-cshm/config-overview.html"

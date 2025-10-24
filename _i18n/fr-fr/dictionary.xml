@@ -524,11 +524,6 @@
   <block id="21a670863d46552ac67aada9cba01bdc" category="list-text">Mettez le réseau de cluster sous tension, ainsi que les commutateurs et les contrôleurs du réseau de gestion.</block>
   <block id="d51ed7f10b5732d6e9ec975c89648212" category="list-text">Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.</block>
   <block id="70399670eb37f7ebf7bbd91e15766e17" category="inline-link">Commutateurs Ethernet Cisco</block>
-  <block id="f4041989c699a535116c689437df5c7f" category="inline-link">Téléchargement de logiciels NetApp</block>
-  <block id="87a71c7310f603842228cb9ab1b19ec2" category="list-text">Sur la page de téléchargement du logiciel, sélectionnez *changer les fichiers de configuration du moniteur d'intégrité*</block>
-  <block id="3a1759e54cb06a13c2c5b9b85a4c5282" category="list-text">Chargez le fichier zip applicable sur votre serveur Web interne où l'adresse IP est X.X.X.X.</block>
-  <block id="903944fca05d1da45a504e69ed5609fb" category="paragraph">Pour une adresse IP de serveur Web interne de 192.168.2.20 et en supposant qu'il existe un répertoire /usr/download, vous pouvez télécharger votre fichier zip sur votre serveur Web à l'aide de scp:</block>
-  <block id="f4ab3be3915b88f9d23c5faf297e78ff" category="list-text">Vérifiez que la sortie de la commande contient la chaîne de texte « le pack téléchargé a été correctement traité ». En cas d'erreur, contactez le support NetApp.</block>
   <block id="a4998c66149f8a98001c236183094243" category="summary">Pour configurer votre cluster, vous devez disposer du nombre et du type appropriés de câbles et de connecteurs de câbles pour les commutateurs. Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console des commutateurs avec le câble console inclus ; vous devez également fournir des informations réseau spécifiques.</block>
   <block id="601b1c0673eb2ee2db12a0f15d9e12c3" category="paragraph">Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :</block>
   <block id="31ecd7552867bf00e0a88fbcbfd147a0" category="list-text">Sous-réseau IP pour le trafic du réseau de gestion</block>
@@ -3427,7 +3422,6 @@
   <block id="3dcdf9c7761ce642c5fe2fe73d425b75" category="list-text">Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :</block>
   <block id="b48ffac2fb8952951818ab2ce539c1d3" category="list-text">Redémarrer le commutateur :</block>
   <block id="d03fee12ab01ee4f556908abcba26347" category="list-text">Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.</block>
-  <block id="63f7338fc9ee539e34242e8d03110038" category="list-text">Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.</block>
   <block id="b211f67e6e9195c32683368a53542802" category="paragraph">Cet exemple montre que SFTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :</block>
   <block id="420b545896cb1c9b03dbccd44bf33f86" category="list-text">Sur le switch, vérifiez que les ports sous licence supplémentaires s'affichent après l'application du RCF :</block>
   <block id="f8e1e48a80ce2fac4d53a95f1f1ffd18" category="paragraph">*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New*</block>
@@ -3628,22 +3622,6 @@
   <block id="d71c484dda1d9ad3392c9e1a47d3f9d8" category="paragraph">Les ports eth1/31 et eth1/32 doivent indiquer (P), ce qui signifie que les deux ports ISL sont présents dans le port-Channel.</block>
   <block id="e2163aa514dd6f969019af7f51eb5403" category="paragraph"><block ref="ba8401ca8d9063944fa4c23801539873" prefix="" category="inline-code"></block></block>
   <block id="2bc32577d8d84ba98d84472c4916dd0f" category="admonition">Seuls les switchs back-end validés par NetApp (commandés auprès de NetApp) sont pris en charge.</block>
-  <block id="a8d8d025a84c64f53b535b4e606fd65a" category="summary">Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs du cluster Nexus 92300YC.</block>
-  <block id="0bf9f283c6d4cf639f7438f8d69e8f4f" category="doc">Installez le fichier de configuration SHM (Cluster Switch Health Monitor)</block>
-  <block id="5a70ef3971f7a5956d9f9f829efc730c" category="paragraph">Suivez cette procédure pour installer le fichier de configuration applicable pour la surveillance SHM (Cluster Switch Health Monitoring) des commutateurs de cluster Nexus 9336C-FX2.</block>
-  <block id="f57e4aaddd9c8384a74d025e1d9d52e6" category="paragraph">Avant de configurer le SHM pour les commutateurs de cluster 9336C-FX2, assurez-vous que le cluster ONTAP est opérationnel.</block>
-  <block id="cd4d857d877848b2146cf2f93a12041d" category="admonition">Vous devez également activer SSH pour utiliser toutes les fonctionnalités disponibles dans SHM.</block>
-  <block id="a9d9ad7431acc9b1210326b704dc7fb3" category="list-text">Téléchargez le fichier zip de configuration SHM du cluster en fonction de la version ONTAP correspondante. Ce fichier est disponible à partir du<block ref="cb382f539d8e67a00135c8306b3d74b6" category="inline-link-rx"></block> page.</block>
-  <block id="470c3e165e39b12d964347208e2a16a1" category="list-text">Sélectionnez plate-forme = *ONTAP* et sélectionnez *Go!*</block>
-  <block id="037e852f07c16de5553f7bccdaa3a63c" category="list-text">Sur la page Switch Health Monitor Configuration Files for ONTAP, sélectionnez *View &amp; Download*</block>
-  <block id="5a5fb2da99c4622e3d8789a3ac1306ad" category="list-text">Sur la page ONTAP &gt; Description des fichiers de configuration du moniteur d'intégrité du commutateur, sélectionnez *Download* pour le modèle de commutateur de cluster applicable, par exemple : *Cisco Nexus 9336C-FX2*</block>
-  <block id="561743fab903fb6e0d1c67b5908f3af6" category="list-text">Sur la page Contrat de licence utilisateur final, sélectionnez *accepter*</block>
-  <block id="b90cace861b20bc63e4a912115ded04e" category="list-text">Sur la page ONTAP &gt; Télécharger des fichiers de configuration du moniteur d'intégrité du commutateur, sélectionnez le fichier de configuration applicable, par exemple *Cisco_Nexus_9336C-FX2.zip*</block>
-  <block id="4f278cd45a027c9d4afd47d2010265aa" category="list-text">Accéder au paramètre Advanced mode à partir d'un des systèmes ONTAP du cluster :</block>
-  <block id="02e9ffa5a65e7f62f638cd4e28c1dc9f" category="paragraph"><block ref="6b8bc155cdb61a87cc039bea00534962" prefix="" category="inline-code"></block></block>
-  <block id="242513ff76ac739e35a8e7e168d947bd" category="list-text">Lancer la commande Switch Health Monitor configure<block ref="0477ef599648fe2dbbf01945805f0e88" prefix=" " category="inline-code"></block>:</block>
-  <block id="174ee6e9c9130ef3e6ceab7f0ab7356c" category="list-text">Lancer la commande<block ref="694b56ad85eb627acc97ea9295f39018" prefix=" " category="inline-code"></block> Sur le système ONTAP, assurez-vous que les commutateurs de cluster sont détectés avec le champ surveillé défini sur « vrai ».</block>
-  <block id="c94eee10204c293e476c9b772d10ddfe" category="admonition">Si vous revenez à une version antérieure de ONTAP, vous devrez réinstaller le fichier de configuration SHM pour activer SHM des commutateurs de cluster 9336C-FX2.</block>
   <block id="680284a2e0d6a86aafc85099ca58d7af" category="list-text">Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :</block>
   <block id="3fc74bed2ec666d227e966120d5c4160" category="inline-link">Bogue n° 1570339</block>
   <block id="a9881d2bc89c135aee3c1490acc55259" category="inline-link">Erreurs CRC sur les ports T6 après la conversion de 40 GbE à 100 GbE</block>
@@ -3821,7 +3799,6 @@
   <block id="72477c9fa5c7321db80c98ce8db97acf" category="list-text">Après un redémarrage,<block ref="e0a64c365feb7b2f913e6a4048472af6" prefix=" " category="inline-code"></block> le réglage reste en place pour que le code du pilote puisse être utilisé.</block>
   <block id="25cb4346e07d274b036816fdb6e793af" category="sidebar">NetApp propose un cluster, un système de stockage et des commutateurs partagés pour assurer la connectivité entre le stockage hôte et au moins deux contrôleurs NetApp. Vous pouvez ainsi déplacer les données et les interfaces réseau sans interruption au sein de votre infrastructure de stockage.</block>
   <block id="e039aa1be61543fd84f1c4eb5d3e9f6b" category="sidebar">Systèmes matériels ONTAP</block>
-  <block id="9d07d8327ebc12554e974699f677fdb7" category="sidebar">Documents de commutation pour le matériel ONTAP</block>
   <block id="1be807f8d70b208f4d04b385b1c81765" category="sidebar">Migration vers un switch à deux nœuds</block>
   <block id="baeb2b9edd2060971ec4838ea0641d18" category="paragraph">Si une LIF DE cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :</block>
   <block id="b6dd8221599de3110a6be11272b8d643" category="summary">Avant de configurer votre switch Cisco 3232C, vérifiez les informations suivantes.</block>
@@ -3886,7 +3863,6 @@
   <block id="ddd0020a0684c14dbd50622f84d8917a" category="paragraph">Assurez-vous de disposer des éléments suivants :</block>
   <block id="28dbd722b252673fdce3f809670e34b8" category="list-text">Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration d'amorçage dans la mémoire RCF qui reflète les images d'amorçage souhaitées.</block>
   <block id="5640915560bc663196a684ebfc6fa2ec" category="admonition">Avant d'installer une nouvelle version du logiciel de commutateur et des RCFs, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série ou avoir conservé les informations de configuration de base avant d'effacer les paramètres du commutateur.</block>
-  <block id="6f738209e5071a9c22c8d336c6dec7a1" category="sidebar">Commutateur partagé : Cisco Nexus 9336C-FX2</block>
   <block id="a306bc0f90914bd9715854d664b6505a" category="sidebar">Commutateur de cluster - Cisco Nexus 3232c</block>
   <block id="2dc82baa4aac6df7519361c705672faa" category="sidebar">Commutateur de cluster - Cisco Nexus 3132Q-V.</block>
   <block id="43822bbc5cba6f539b9e148db3e66253" category="list-text">Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP version 9.10.1P15, 9.11.1P12, ou 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.</block>
@@ -5336,12 +5312,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="8741c9a7235936d7adbe4b11e84059a0" category="list-text">Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
   <block id="c0ddaa892e58fbb2392ff94b96d1be20" category="list-text">Téléchargez la version appropriée du logiciel d'image sur<block ref="63d583816b323795a688346cd7512345" category="inline-link-macro-rx"></block> .</block>
   <block id="30197795f50e0c0bd227d8e9fad9f92a" category="list-text">Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles sur le<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
-  <block id="54f425ce8d89f4ed6b8a546561af5d60" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6fb43cd5c831afd08ed62ea7c301589a" category="paragraph"><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
-  <block id="05b2444faffd66d76e88602ea7dd353f" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c8a7fd6048c409f4bb8f849cc3de1f18" category="paragraph"><block ref="c8a7fd6048c409f4bb8f849cc3de1f18" category="inline-link-macro-rx"></block></block>
-  <block id="beadfa85a2fdca06b91edc1131c603e6" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="76b532b4ae4cf629b8e1a3ede08fd7ff" category="paragraph"><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
   <block id="9fbc1f2b0342da208a4f6f75ac79debf" category="list-text">Enregistrez tous les ajouts personnalisés entre le courant<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> et le fichier RCF en cours d'utilisation.</block>
   <block id="1399d69a0008babf2e123d92108c9240" category="list-text">Répétez les étapes 7 à 23 sur le commutateur cs1.</block>
   <block id="0befd81589201067221e5dedef199de2" category="list-text">Complété<block ref="e75e7c0418fc871b5a3b592fa97dc163" category="inline-link-macro-rx"></block> .</block>
@@ -5382,7 +5352,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="a1a8993ffd320908d06ade7e913bcf50" category="list-text">Vous pouvez accéder au commutateur de remplacement à l'aide de la console.</block>
   <block id="f83f7aba00816a09361edd4eb88615c6" category="list-text">Vérifiez l’état de santé des ports du nœud de stockage pour confirmer la connexion au commutateur de stockage S1 :</block>
   <block id="3f3ce4386bf6fdd6162760e69ae218fe" category="admonition">Pour plus d'informations sur l'installation de Cumulus Linux, consultez<block ref="af71380c0413e75eac6b68cce7246d02" category="inline-link-macro-rx"></block> .</block>
-  <block id="cee5d5761c41be926d640491ba26a759" category="sidebar">Commutateurs pour systèmes ONTAP</block>
   <block id="b5c21eb86a919fae7fbd813fa824c997" category="paragraph">Commutateur Cisco 32 ports 400 GbE (X190300-CS-PI et X190300-PE)</block>
   <block id="927253d00033b562398e359530b8c650" category="paragraph">Prise en charge du commutateur intra-cluster/HA/stockage Cisco 9332D-GX2B.</block>
   <block id="ea1ad38d91c2e87ef2e9571bd55654fd" category="paragraph">ONTAP 9.17.1</block>
@@ -5620,7 +5589,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="c381feb9e35ad6357b56aa385cbf8df4" category="paragraph">Assurez-vous de lire attentivement les sections *Notes d'installation*, *Remarques importantes* et *bannière* de votre RCF.  Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.</block>
   <block id="f2b841e904646043e10710dfe9d1e37a" category="list-text">Après avoir vérifié que les versions RCF, les ajouts personnalisés et les paramètres de commutateur sont corrects, copiez le<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> fichier à la<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> déposer.</block>
   <block id="4344efedc73e6df8e9abcaf5b0aee7eb" category="paragraph"><block ref="d0eae35adde61cce792eadfd9a3848b5" prefix="" category="inline-code"></block></block>
-  <block id="12e872eea692f68038e507bf2825a27c" category="list-text">Répétez les étapes 4 à 17 sur le commutateur cs2.</block>
   <block id="919c92b88565abe73b79f95942fbce89" category="paragraph"><block ref="e002d8fd0e250f5b26dcc64d23922af9" prefix="" category="inline-code"></block></block>
   <block id="9c6c3f61af7dff11347a9a97366c4acb" category="summary">Avant de configurer votre commutateur Cisco 9364d-gx2a, consultez les informations suivantes.</block>
   <block id="b771416dbd66215d66c0fd3bf739e5a2" category="paragraph">Avant de configurer votre commutateur Cisco 9364D-GX2A, passez en revue les considérations suivantes.</block>
@@ -5721,7 +5689,6 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="085ebea59269f171d2893f7c9fd27a56" category="list-text">Pour NX-OS 10.2 et versions ultérieures, utilisez le<block ref="9c370f72db0e0d920841657ac5268365" prefix=" " category="inline-code"></block> commande à comparer avec le fichier RCF enregistré dans le bootflash.  Sinon, utilisez un outil de comparaison/différence tiers.</block>
   <block id="f3e103ce1d9f1725786017bc3ce6fb97" category="admonition">Assurez-vous de lire attentivement les sections *Notes d'installation*, *Notes importantes* et *bannière* de votre RCF.  Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.</block>
   <block id="1d83453cdc3e9845f2dd373ab3a4eb9a" category="list-text">Vérifiez l’état des ports du cluster.</block>
-  <block id="9caef6b72d42d5b9b488c14628ec50f1" category="list-text">Répétez les étapes 4 à 16 sur le commutateur cs2.</block>
   <block id="dc6df28d41590823cd1a46d26721aa90" category="paragraph"><block ref="7a3ac7d679afae00f79673d5cee23dbd" prefix="" category="inline-code"></block></block>
   <block id="e8030276d8c658d9eaec982502889193" category="paragraph"><block ref="e8030276d8c658d9eaec982502889193" category="inline-link-macro-rx"></block></block>
   <block id="0c456a63d50970f4ea4aa716b1c085bb" category="inline-link-macro">_Migrer d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA SN2100_</block>
@@ -5776,4 +5743,61 @@ en fonction de vos versions actuelles et cibles.</block>
   <block id="e794d3cef6a4e7ec0816d2e0b3d15391" category="sidebar">Installer_matériel_9364d-gx2a</block>
   <block id="21843f0ca65aacac87cb9a404d7ec8c2" category="sidebar">Configurer_logiciel_9364d-gx2a</block>
   <block id="6daec6c2b8fbb1afe63ebf51e3d00096" category="sidebar">Remplacer_commutateurs_9364d-gx2a</block>
+  <block id="39f4b0e38301a0ba8f2a052d53cce479" category="list-text">Copiez le RCF dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, TFTP, SFTP ou SCP.</block>
+  <block id="988b3c94f8e38d6de10d5305c4dd7696" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
+  <block id="cb3f16de867ce1284b9d6fd6671e24e8" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3132Q-V pour la première fois.</block>
+  <block id="dd1dcdff568232584ad0d54ba8eabf6f" category="paragraph">Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure.  Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL.  Pour permettre des opérations de cluster sans interruption, la procédure suivante migre tous les LIF de cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.</block>
+  <block id="a27da7c112086ff6f74e71e94765bdf8" category="list-text">Vérifiez que les ports du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.</block>
+  <block id="c0f1b2428ed898fe18279f19d05686a8" category="paragraph">Assurez-vous de configurer les éléments suivants : * Nom d'utilisateur et mot de passe * Adresse IP de gestion * Passerelle par défaut * Nom du commutateur</block>
+  <block id="33177e7ea9d802a2459c4c696ca9fc50" category="section-title">Étape 3 : Configurez votre cluster ONTAP</block>
+  <block id="967158937f5ed9889c944a8bdc4c5f3c" category="paragraph">System Manager fournit un flux de travail simple et facile pour la configuration et l'installation du cluster, y compris l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et l'approvisionnement du stockage initial.</block>
+  <block id="5543c3a2f910404565380899dc9aea75" category="paragraph">Se référer à<block ref="5eda5047b59c9b5f59b3190e510f9d84" category="inline-link-macro-rx"></block> pour les instructions d'installation.</block>
+  <block id="ea5eb4efceeb5282f0b40d0425e8b38f" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3132Q-V pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.</block>
+  <block id="2a917a0a7302e1f65c83202bf07f91ef" category="paragraph">Pour plus de détails sur les configurations RCF disponibles, voir<block ref="11bb90bc5f1c47010095143f71af2df0" category="inline-link-macro-rx"></block> .</block>
+  <block id="195c3c96b4091f1b3af3f3de28e1b6c1" category="paragraph">Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous<block ref="843984edd190fa3e3f76595f442f3c54" category="inline-link-macro-rx"></block> ou<block ref="07fd345659bc842d65f80bec478d43cc" category="inline-link-macro-rx"></block> selon les besoins.</block>
+  <block id="1baf58b9cdbc82bab1fbe9e031b1814f" category="admonition">Pour connaître les étapes à suivre pour mettre vos ports 10 GbE en ligne après une mise à niveau du RCF, consultez l'article de la base de connaissances<block ref="8af1e03135c7f23e3be69339a3c199e2" category="inline-link-macro-rx"></block> .</block>
+  <block id="da99213210f61725fb1f59afca9c4c0a" category="list-text">Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le<block ref="092a495b03acdb0bf155d8ff2997a8d6" prefix=" " category="inline-code"></block> fichier à la<block ref="35b7dd24bfd716b0553d5e558b8afe97" prefix=" " category="inline-code"></block> déposer.</block>
+  <block id="684a4c2862f5fef1f6d28303a5df57cb" category="list-text">Répétez les étapes 1 à 19 sur le commutateur cs1.</block>
+  <block id="2a337cc6f46f4693d67597c0ef1ee846" category="list-text">Vérifiez que les LIF du cluster sont revenus à leurs ports d'origine :</block>
+  <block id="4762efa89f72255be51c1d0825e428be" category="paragraph-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block><block ref="6fb43cd5c831afd08ed62ea7c301589a" category="inline-link-macro-rx"></block></block>
+  <block id="b909ee9989176f6e840120585c3fea56" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="c8a7fd6048c409f4bb8f849cc3de1f18" category="inline-link-macro-rx"></block></block>
+  <block id="ae93ed58d7575c5c70b27cf4137f8eea" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="76b532b4ae4cf629b8e1a3ede08fd7ff" category="inline-link-macro-rx"></block></block>
+  <block id="d75e350c3cf28f8c449927363dd63c2d" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
+  <block id="ebdf13bb97bf138835dab6c2a993e949" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois.</block>
+  <block id="fe30b32a598525ac96383ad88e17b716" category="list-text">Connectez-vous pour commuter cs2 en utilisant SSH ou en utilisant une console série.</block>
+  <block id="2f406b2bd46b9ba5f6666f06bf5e0963" category="list-text">Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> .</block>
+  <block id="cb777c10f9fb518790486e5ed5aaa726" category="paragraph">Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> .</block>
+  <block id="7c76693fe3a5440ca33fd1c97c9b7d5f" category="list-text">Redémarrer le commutateur cs2 :</block>
+  <block id="4024f3f51435c125a23a18c9eb97a8f1" category="list-text">Répétez les étapes 1 à 12 sur le commutateur cs1.</block>
+  <block id="1959becdb9eb2f2b79f8d0f6a1c3dac5" category="section-title">Étape 2 : Vérifiez les connexions du commutateur</block>
+  <block id="e584e042106b9f2e3cb1bed1028c54ec" category="paragraph">Si des LIFS de cluster ne sont pas revenus à leurs ports d'origine, rétablissez-les manuellement :<block ref="fd9372c4352804e1777df0a2cb83a782" prefix=" " category="inline-code"></block></block>
+  <block id="e7d0e521aaef91db12e42096f85621fb" category="paragraph">Se référer à<block ref="76a0ad9e6d9605be893ded0930762dd1" category="inline-link-rx"></block> pour les instructions d'installation.</block>
+  <block id="2412ff6bce69dc4d650edfaf531b0713" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.</block>
+  <block id="3d2afa4ea8ad3376eaf42149ff603bb8" category="paragraph">Pour plus de détails sur les configurations RCF disponibles, voir<block ref="ae1b7e6502ecb7d7f7a8bedc8a444edf" category="inline-link-macro-rx"></block> .</block>
+  <block id="859e86b59e029b4d8c6d1da0c4315c5b" category="paragraph">Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous<block ref="7022ba5e5ec6244ac8d3473bbc8c433f" category="inline-link-macro-rx"></block> ou<block ref="8a829f0d1f577ca80ad99d80f239a28e" category="inline-link-macro-rx"></block> selon les besoins.</block>
+  <block id="0030df7a82cb9ead737fc3da5e46570b" category="list-text">Redémarrez le commutateur cs2 :</block>
+  <block id="8b205e91662e46037aa9052c6d1ff328" category="list-text">Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> guides.</block>
+  <block id="b023bb729025ca88fe6c5be17701fc24" category="paragraph">Vous pouvez observer la sortie suivante sur la console du commutateur cs1 en fonction de la version RCF précédemment chargée sur le commutateur 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT : Déblocage du port port-channel1 sur VLAN0092.  Cohérence du port restaurée.  17 nov. 2020 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_PEER : Blocage du port-channel1 sur VLAN0001.  VLAN homologue incohérent.  17 nov. 2020 16:07:23 cs1 %$ VDC-1 %$ %STP-2-BLOCK_PVID_LOCAL : Blocage du port-channel1 sur VLAN0092.  VLAN local incohérent.</block>
+  <block id="278a6e8b09deddf22df3bc66e8fde4d6" category="list-text">Répétez les étapes 4 à 19 sur le commutateur cs1.</block>
+  <block id="3ce877113d00b2d2db1bf03284161f16" category="paragraph">Vous pouvez utiliser le<block ref="27ef00bd0eeb78214f4636adfe0cfe59" prefix=" " category="inline-code"></block> commande pour démarrer une vérification d'accessibilité pour la connectivité du cluster, puis afficher les détails :<block ref="79ca324fd00eadc332828cf274c18782" prefix=" " category="inline-code"></block> et<block ref="349936611c6519c48a39cbd40f1f907a" prefix=" " category="inline-code"></block></block>
+  <block id="f889f50da345ce88363bb40f1b9c08c7" category="paragraph">Pour toutes les versions ONTAP , vous pouvez également utiliser le<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block> commande pour vérifier la connectivité :<block ref="7eaac8e45910aa8bf3a06f6966ab0656" prefix=" " category="inline-code"></block></block>
+  <block id="56009d4a3551e4cd8dd286aeb3b995b2" category="list-text">Répétez les étapes 4 à 18 sur le commutateur cs2.</block>
+  <block id="ccc0c44906852495d8366985298ade30" category="paragraph"><block ref="8a0cae1eba0d9e7d8585394230633a6a" prefix="" category="inline-code"></block></block>
+  <block id="978b1c1834eeeeb2cd4f5e31b0fcd031" category="paragraph"><block ref="2604b542355ffcabadf719bc679823f5" prefix="" category="inline-code"></block></block>
+  <block id="d3dc05ffb632711e253bcbaf70df3ac1" category="paragraph"><block ref="e5087c379e47889d9cd3b1c58d6a78fc" prefix="" category="inline-code"></block></block>
+  <block id="586d42207828d6f0182104524a563f38" category="paragraph"><block ref="02c3ce8b7cc1fcd04a2b4fdfb66a017a" prefix="" category="inline-code"></block></block>
+  <block id="075ac52ed81c056bfc96abfbf9b92730" category="paragraph">Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le<block ref="83c120250f1359d2a0f3a51d41516558" category="inline-link-macro-rx"></block> .</block>
+  <block id="cdc07d8ef141a4d566e6de1f333e3f61" category="list-text">Répétez les étapes 1 à 19 sur le commutateur cs2.</block>
+  <block id="6015ba5fcef1f3caa77869608d6c2789" category="sidebar">Documentation des commutateurs pour les systèmes matériels ONTAP</block>
+  <block id="3cfca170bb40e17157ca40a91be0fc18" category="sidebar">Les commutateurs partagés vous permettent de créer des clusters ONTAP avec plus de deux nœuds. Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent la base de solutions d'interconnexion de cluster évolutives dans les environnements NetApp ONTAP .</block>
+  <block id="6540ada8c7e3cfaf34a97a9fc18ba533" category="sidebar">Utilisez la documentation de ce site pour installer, configurer et maintenir vos commutateurs partagés pour les déploiements de cluster ONTAP .</block>
+  <block id="c69eabfb6733d6d3c9d2ba971bfd15b2" category="sidebar">Installer et configurer des commutateurs partagés</block>
+  <block id="fe39b20bc3fd9de68b9c56c1555eba44" category="sidebar">Installer le matériel du commutateur 9336C-FX2</block>
+  <block id="292bfbc74faa3c69ea97053b710050e1" category="sidebar">Configurer le logiciel du commutateur 9336C-FX2</block>
+  <block id="6d2ac3125800134a281aad252b2e6f7e" category="sidebar">Maintenir les commutateurs partagés</block>
+  <block id="e3a2407d2baf9ca6f3a0a7a13bf9ab66" category="sidebar">Remplacer le commutateur 9336C-FX2</block>
+  <block id="9725b453d47042649c1d30716f06297d" category="sidebar">Réinitialiser le commutateur 9336C-FX2 aux paramètres d'usine</block>
+  <block id="da3536e3f4767ec4860d848c1b36098e" category="sidebar">Documentation des commutateurs pour les systèmes matériels ONTAP</block>
+  <block id="d0dfe2145063d5d6960f55dcbfb612c8" category="sidebar">install_upgrade_rcf</block>
+  <block id="f3b17afc64da773efa83071745456131" category="sidebar">Vérifier la configuration SSH</block>
 </blocks>

@@ -1,0 +1,271 @@
+---
+permalink: switch-cisco-3232c/install-rcf-software-3232c.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
+summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous générez d’abord les clés SSH, puis vous activez SSH.' 
+---
+= Installer le fichier RCF (Reference Configuration File)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois.
+
+.Avant de commencer
+Vérifiez les installations et les connexions suivantes :
+
+* Sauvegarde actuelle de la configuration du commutateur.
+* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
+* La FCR actuelle.
+* Connexion de la console au commutateur, requise lors de l'installation du FCR.
+
+
+.Description de la tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+
+Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure.  Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL.  Pour permettre des opérations de cluster sans interruption, la procédure suivante migre tous les LIF de cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
+
+Veiller à terminer la procédure dans link:prepare-install-cisco-nexus-3232c.html["Préparez-vous à installer NX-OS et RCF"], puis suivez les étapes ci-dessous.
+
+
+
+== Étape 1 : installez le RCF sur les switchs
+
+. Connectez-vous pour commuter cs2 en utilisant SSH ou en utilisant une console série.
+. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] .
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple montre que TFTP est utilisé pour copier une FCR dans le bootflash sur le commutateur cs2 :
+
+[listing, subs="+quotes"]
+----
+cs2# *copy tftp: bootflash: vrf management*
+Enter source filename: *Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. Appliquez le RCF préalablement téléchargé sur le bootflash.
++
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] .
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+Cet exemple montre le fichier RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs2 :
+
+[listing, subs="+quotes"]
+----
+cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
+----
+====
++
+[NOTE]
+====
+Assurez-vous de lire attentivement les sections *Notes d'installation*, *Notes importantes* et *bannière* de votre RCF.  Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.
+
+====
+. Examinez le résultat de la bannière du `show banner motd` commande. Vous devez lire et suivre les instructions sous *remarques importantes* pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
+. Vérifiez que le fichier RCF est la version la plus récente correcte :
++
+`show running-config`
+
++
+Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :
+
++
+** La bannière RCF
+** Les paramètres du nœud et du port
+** Personnalisations
++
+Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+
+
+
+. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-3232c.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur le bootflash.
++
+[NOTE]
+====
+Assurez-vous de configurer les éléments suivants : * Nom d'utilisateur et mot de passe * Adresse IP de gestion * Passerelle par défaut * Nom du commutateur
+
+====
++
+`cs2# show run | section "switchname" > bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "hostname" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | i "username admin password" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
+. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
++
+`cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
+
++
+`cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
+
++
+Voir l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+
+. Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
++
+`show file bootflash:write_erase.cfg`
+
+. Émettre le `write erase` commande pour effacer la configuration enregistrée actuelle :
++
+`cs2# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
++
+`cs2# *copy bootflash:write_erase.cfg startup-config*`
+
+. Redémarrer le commutateur cs2 :
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Répétez les étapes 1 à 12 sur le commutateur cs1.
+. Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
+
+
+
+
+== Étape 2 : Vérifiez les connexions du commutateur
+
+. Vérifiez que les ports de commutateur connectés aux ports de cluster sont *UP*.
++
+`show interface brief | grep up`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+.
+.
+Eth1/1/1      1       eth  access up      none                    10G(D) --
+Eth1/1/2      1       eth  access up      none                    10G(D) --
+Eth1/7        1       eth  trunk  up      none                   100G(D) --
+Eth1/8        1       eth  trunk  up      none                   100G(D) --
+.
+.
+----
+====
+. Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :
++
+`show port-channel summary`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
+cs1#
+----
+====
+. Vérifier que les LIFs du cluster ont rétabli leur port de base :
++
+`network interface show -role cluster`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network            Current             Current Is
+Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
+----------- ------------------ ---------- ------------------ ------------------- ------- ----
+Cluster
+            cluster1-01_clus1  up/up      169.254.3.4/23     cluster1-01         e0d     true
+            cluster1-01_clus2  up/up      169.254.3.5/23     cluster1-01         e0d     true
+            cluster1-02_clus1  up/up      169.254.3.8/23     cluster1-02         e0d     true
+            cluster1-02_clus2  up/up      169.254.3.9/23     cluster1-02         e0d     true
+            cluster1-03_clus1  up/up      169.254.1.3/23     cluster1-03         e0b     true
+            cluster1-03_clus2  up/up      169.254.1.1/23     cluster1-03         e0b     true
+            cluster1-04_clus1  up/up      169.254.1.6/23     cluster1-04         e0b     true
+            cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
+8 entries were displayed.
+cluster1::*>
+----
+====
++
+Si des LIFS de cluster ne sont pas revenus à leurs ports d'origine, rétablissez-les manuellement :
+`network interface revert -vserver <vserver_name> -lif <lif_name>`
+
+. Vérifiez que le cluster fonctionne correctement :
++
+`cluster show`
+
++
+.Montrer l'exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------- -------
+cluster1-01          true    true          false
+cluster1-02          true    true          false
+cluster1-03          true    true          true
+cluster1-04          true    true          false
+4 entries were displayed.
+cluster1::*>
+----
+====
+
+
+
+
+== Étape 3 : Configurez votre cluster ONTAP
+
+NetApp vous recommande d'utiliser System Manager pour configurer de nouveaux clusters.
+
+System Manager fournit un flux de travail simple et facile pour la configuration et l'installation du cluster, y compris l'attribution d'une adresse IP de gestion de nœud, l'initialisation du cluster, la création d'un niveau local, la configuration des protocoles et l'approvisionnement du stockage initial.
+
+Se référer à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour les instructions d'installation.
+
+.Et la suite ?
+Après avoir installé le RCF, vouslink:configure-ssh-keys.html["vérifier la configuration SSH"] .

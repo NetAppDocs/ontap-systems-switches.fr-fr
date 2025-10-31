@@ -426,4 +426,4 @@ Le commutateur redémarre sans aucune configuration appliquée et revient aux pa
 
 
 .Quelle est la prochaine étape
-link:configure-licenses.html["Installez les licences"] .
+Après avoir installé le logiciel EFOS, vous pouvez link:configure-licenses.html["installez vos licences"].

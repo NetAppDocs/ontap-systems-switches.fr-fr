@@ -136,4 +136,4 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 
 .Et la suite ?
-link:prepare-nxos-rcf-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"].
+Une fois vos commutateurs configurés, vous pouvez link:prepare-nxos-rcf-9336c-shared.html["préparer l'installation de NX-OS et RCF"].

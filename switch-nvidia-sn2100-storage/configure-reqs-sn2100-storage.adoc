@@ -35,4 +35,4 @@ Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 Go exécut
 
 
 .Quelle est la prochaine étape
-link:components-sn2100-storage.html["Composants et références"] .
+Après avoir examiné les exigences de configuration, vous pouvez confirmer votre link:components-sn2100-storage.html["composants et numéros de pièces"].

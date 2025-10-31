@@ -580,4 +580,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-link:install-rcf-3132q-v.html["Installer le fichier RCF (Reference Configuration File)"].
+Après avoir installé le logiciel NX-OS, vous pouvez link:install-upgrade-rcf-overview-3132q-v.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"].

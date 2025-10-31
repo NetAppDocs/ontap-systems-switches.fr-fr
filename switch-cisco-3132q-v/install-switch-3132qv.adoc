@@ -50,4 +50,4 @@ Consultez les procédures fournies dans les guides d'installation du matériel d
 
 
 .Et la suite ?
-En option, vous pouvezlink:install-cisco-nexus-3132qv.html["installer un commutateur Cisco Nexus 3132Q-V dans une armoire NetApp"] .  Sinon, allez àlink:cabling-considerations-3132q-v.html["Examiner le câblage et la configuration"] .
+Vous pouvez, si vous le souhaitez, link:install-cisco-nexus-3132qv.html["installer un commutateur Cisco Nexus 3132Q-V dans une armoire NetApp"]. Sinon, vous pouvez link:cabling-considerations-3132q-v.html["vérifier le câblage et la configuration"] exigences.

@@ -71,4 +71,4 @@ Où ?
 
 
 .Quelle est la prochaine étape
-link:install-9336c-shared.html["Poser le commutateur"].
+Une fois vos feuilles de travail sur le câblage terminées, vous pouvez link:install-9336c-shared.html["installer le commutateur"].

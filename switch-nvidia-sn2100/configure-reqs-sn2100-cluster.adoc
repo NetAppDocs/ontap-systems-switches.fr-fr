@@ -45,4 +45,4 @@ Le commutateur SN2100 prend en charge les applications de cluster et de stockage
 
 
 .Et la suite ?
-link:components-sn2100-cluster.html["Composants et références"] .
+Après avoir examiné les exigences de configuration, vous pouvez confirmer votre link:components-sn2100-cluster.html["composants et numéros de pièces"].

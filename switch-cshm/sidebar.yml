@@ -12,7 +12,7 @@ entries:
     url: "/switch-cshm/config-overview.html"
   - title: Configurer la collecte des journaux
     url: "/switch-cshm/config-log-collection.html"
-  - title: 'Facultatif : configurer SNMPv3'
+  - title: Configurer SNMPv3 (facultatif)
     url: "/switch-cshm/config-snmpv3.html"
 - title: Vérifier l'état du commutateur
   pdf-filename: Monitor_Switch_Health

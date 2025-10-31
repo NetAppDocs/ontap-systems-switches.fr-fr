@@ -95,4 +95,4 @@ node2                true    true          false
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Une fois la mise à niveau de votre logiciel EFOS ou RCF confirmée, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

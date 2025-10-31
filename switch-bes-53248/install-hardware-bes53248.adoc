@@ -19,4 +19,4 @@ Pour installer le matériel BES-53248, reportez-vous à la documentation de Broa
 
 
 .Et la suite ?
-link:cabling-considerations-bes-53248.html["Examiner le câblage et la configuration"] .
+Une fois le matériel du commutateur installé, vous pouvez link:cabling-considerations-bes53248.html["revoir le câblage et la configuration"] exigences.

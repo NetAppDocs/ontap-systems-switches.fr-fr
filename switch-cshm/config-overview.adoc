@@ -14,5 +14,5 @@ summary: 'Le moniteur d"état des commutateurs Ethernet (CSHM) est chargé de ga
 Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage.
 
 * link:config-log-collection.html["Configurer la collecte des journaux"]
-* link:config-snmpv3.html["Facultatif : configurer SNMPv3"]
+* link:config-snmpv3.html["Configurer SNMPv3 (facultatif)"]
 

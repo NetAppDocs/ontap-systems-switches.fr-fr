@@ -249,4 +249,4 @@ Configuration Saved!
 
 
 .Et la suite ?
-link:configure-efos-software.html["Installez le logiciel EFOS"].
+Une fois vos commutateurs configurés, vous pouvez link:configure-efos-software.html["installer le logiciel EFOS"].

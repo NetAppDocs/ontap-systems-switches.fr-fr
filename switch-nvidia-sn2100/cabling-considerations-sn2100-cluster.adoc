@@ -333,4 +333,4 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 --
 ====
 .Et la suite ?
-link:install-cable-shelves-sn2100-cluster.html["Reliez les tiroirs NS224 au stockage relié au commutateur"].
+Après avoir examiné vos exigences en matière de câblage et de configuration, vous link:install-cable-shelves-sn2100-cluster.html["câbler les étagères NS224 comme un rangement relié à un interrupteur"].

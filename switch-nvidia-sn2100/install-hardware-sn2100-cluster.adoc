@@ -19,4 +19,4 @@ Pour installer le matériel SN2100, reportez-vous à la documentation de NVIDIA.
 
 
 .Et la suite ?
-link:cabling-considerations-sn2100-cluster.html["Examiner le câblage et la configuration"] .
+Une fois votre matériel installé, vous link:cabling-considerations-sn2100-cluster.html["revoir le câblage et la configuration"] exigences.

@@ -1169,4 +1169,4 @@ system node autosupport invoke -node * -type all -message MAINT=END
 
 
 .Et la suite ?
-link:configure-ssh.html["Activez SSH"].
+Une fois le RCF installé, vous pouvez link:configure-ssh.html["activer SSH"].

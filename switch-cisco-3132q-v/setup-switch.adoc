@@ -212,4 +212,4 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 
 .Et la suite ?
-link:prepare-install-cisco-nexus-3132q.html["Préparez-vous à installer NX-OS et RCF"].
+Une fois vos commutateurs configurés, vous link:prepare-install-cisco-nexus-3132q.html["se préparer à installer NX-OS et RCF"].

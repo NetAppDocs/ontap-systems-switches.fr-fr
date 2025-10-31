@@ -571,3 +571,6 @@ Pour plus d'informations, voir link:https://kb.netapp.com/Advice_and_Troubleshoo
 `set -privilege admin`
 
 
+
+.Et la suite ?
+Après avoir remplacé vos interrupteurs, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

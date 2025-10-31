@@ -50,4 +50,4 @@ Consultez les procédures fournies dans les guides d'installation du matériel d
 
 
 .Et la suite ?
-En option, vous pouvezlink:install-cisco-nexus-3232c.html["installer un commutateur Cisco Nexus 3223C dans une armoire NetApp"] .  Sinon, allez àlink:cabling-considerations-3232c.html["Examiner le câblage et la configuration"] .
+Vous pouvez, si vous le souhaitez, link:install-cisco-nexus-3232c.html["installer un commutateur Cisco Nexus 3223C dans une armoire NetApp"]. Sinon, allez à link:cabling-considerations-3232c.html["revoir le câblage et la configuration"].

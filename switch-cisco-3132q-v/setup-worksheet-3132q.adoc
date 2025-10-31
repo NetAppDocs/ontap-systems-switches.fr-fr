@@ -590,4 +590,4 @@ ISL 40G pour commuter Le port A 32
 
 |===
 .Quelle est la prochaine étape
-link:install-switch-3132qv.html["Poser le commutateur"] .
+Une fois vos feuilles de travail sur le câblage terminées, vous link:install-switch-3132qv.html["installer le commutateur"].

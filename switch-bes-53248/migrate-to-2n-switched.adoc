@@ -643,4 +643,4 @@ Pour plus d'informations, voir : https://kb.netapp.com/Advice_and_Troubleshootin
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

@@ -217,4 +217,4 @@ SCP server Administrative Mode: ............... Enabled
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Une fois SSH activé, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

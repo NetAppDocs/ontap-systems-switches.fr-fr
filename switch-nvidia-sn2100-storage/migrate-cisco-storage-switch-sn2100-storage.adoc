@@ -442,4 +442,4 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Après avoir migré vos commutateurs, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

@@ -689,4 +689,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-link:install-rcf-3232c.html["Installez le fichier de configuration RCF"].
+Après avoir installé le logiciel NX-OS, vous link:install-upgrade-rcf-overview-3232c.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"].

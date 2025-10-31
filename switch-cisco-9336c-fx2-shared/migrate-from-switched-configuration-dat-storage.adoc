@@ -307,3 +307,6 @@ cluster1::*>
 ----
 ====
 
+
+.Et la suite ?
+Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

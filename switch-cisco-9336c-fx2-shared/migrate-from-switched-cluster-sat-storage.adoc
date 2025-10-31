@@ -211,3 +211,6 @@ sh1 (config)# *exit*
 . Retirer les commutateurs inutilisés du cluster.
 . Retirer les commutateurs de stockage inutilisés.
 
+
+.Et la suite ?
+Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

@@ -534,4 +534,4 @@ exit
 NOTE: Pour les ports à haute vitesse entre 0/49 et 0/54 inclus, décommentez chaque port mais ne décommentez qu'une ligne *speed* dans le FCR pour chacun de ces ports, soit : *speed 100G full-duplex* ou *speed 40G full-duplex* comme indiqué dans l'exemple. Pour les ports à faible vitesse entre 0/17 et 0/48 inclus, décommentez la section 8 ports entière lorsqu'une licence appropriée a été activée.
 
 .Et la suite ?
-link:configure-install-rcf.html["Installer le fichier RCF (Reference Configuration File)"] ou link:upgrade-rcf.html["Mettez à niveau le RCF"].
+Une fois les licences installées, vous pouvez link:configure-install-rcf.html["installer le fichier de configuration de référence (RCF)"] ou link:upgrade-rcf.html["mise à niveau du RCF"].

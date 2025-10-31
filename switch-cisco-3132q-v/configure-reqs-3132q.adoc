@@ -33,4 +33,4 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
 
 .Quelle est la prochaine étape
-link:required-documentation-3132q.html["Documentation requise"] .
+Après avoir examiné les exigences de configuration, vous pouvez consulter le link:required-documentation-3132q.html["documentation requise"].

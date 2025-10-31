@@ -696,4 +696,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-link:install-nxos-rcf-9336c-shared.html["Installer la FCR"].
+Après avoir installé le logiciel NX-OS, vous pouvez link:install-nxos-rcf-9336c-shared.html["installer le RCF"].

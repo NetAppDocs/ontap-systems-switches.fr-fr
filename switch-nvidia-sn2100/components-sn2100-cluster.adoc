@@ -61,4 +61,4 @@ Kit de rails, commutateur simple NVIDIA faible profondeur
 NOTE: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].
 
 .Et la suite ?
-link:required-documentation-sn2100-cluster.html["Documentation requise"] .
+Après avoir confirmé vos composants et leurs références, vous examinez le link:required-documentation-sn2100-cluster.html["documentation requise"].

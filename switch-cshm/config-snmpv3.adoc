@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, configure, snmpv3, switch logs, debugging, collection 
 summary: 'Vous pouvez utiliser cette procédure pour configurer SNMPv3 pour votre commutateur spécifique, qui prend en charge la surveillance de l"état du commutateur Ethernet (CSHM).' 
 ---
-= Facultatif : configurez SNMPv3 pour votre commutateur
+= Configurez SNMPv3 pour votre commutateur (facultatif)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -64,4 +64,4 @@ sshServer              1          enabled
 IMPORTANT: Lorsque vous activez FIPS, vous devez modifier le nombre de bits à 256 sur le commutateur à l'aide de la commande `ssh key ecdsa 256 force`. Voir https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configurez la sécurité réseau à l'aide de FIPS"^] pour plus de détails.
 
 .Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+Après avoir vérifié votre configuration SSH, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

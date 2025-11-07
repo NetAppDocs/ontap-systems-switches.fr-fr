@@ -696,4 +696,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-Après avoir installé ou mis à niveau le logiciel NX-OS, vouslink:install-upgrade-rcf-overview-cluster.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"] .
+Après avoir installé ou mis à jour le logiciel NX-OS, vous pouvezlink:install-upgrade-rcf-overview-cluster.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"] .

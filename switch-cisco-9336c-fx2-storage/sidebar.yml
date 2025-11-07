@@ -36,9 +36,15 @@ entries:
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html"
   - title: Installer ou mettre à niveau le logiciel NX-OS
     url: "/switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html"
-  - title: Installation ou mise à niveau du RCF
-    url: "/switch-cisco-9336c-fx2-storage/install-rcf-software-9336c-storage.html"
-  - title: Vérifier la configuration de SSH
+  - title: Installez ou mettez à niveau le RCF
+    pdf-filename: Install_upgrade_rcf
+    entries:
+    - title: Présentation de l'installation ou de la mise à niveau du RCF
+      url: "/switch-cisco-9336c-fx2-storage/install-upgrade-rcf-overview-9336c-storage.html"
+    - title: Installer la FCR
+      url: "/switch-cisco-9336c-fx2-storage/install-rcf-software-9336c-storage.html"
+    - title: Mettez à niveau votre version RCF
+      url: "/switch-cisco-9336c-fx2-storage/upgrade-rcf-software-9336c-storage.html"
     url: "/switch-cisco-9336c-fx2-storage/configure-ssh-keys.html"
   - title: Réinitialiser le commutateur aux paramètres d'usine
     url: "/switch-cisco-9336c-fx2-storage/reset-switch-9336c-storage.html"

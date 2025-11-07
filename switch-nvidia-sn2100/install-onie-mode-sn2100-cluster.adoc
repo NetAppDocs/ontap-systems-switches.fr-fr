@@ -351,4 +351,4 @@ Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/Syste
 --
 ====
 .Et la suite ?
-Après avoir installé Cumulus Linux en mode ONIE, vous link:install-rcf-sn2100-cluster.html["installer le script du fichier de configuration de référence (RCF)"].
+Après avoir installé Cumulus Linux en mode ONIE, vous pouvezlink:install-rcf-sn2100-cluster.html["installer le script du fichier de configuration de référence (RCF)"] .

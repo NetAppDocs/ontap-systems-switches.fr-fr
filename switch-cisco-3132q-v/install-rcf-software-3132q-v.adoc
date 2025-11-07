@@ -268,7 +268,7 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 +
 `cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
-. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
+. Lors de l'installation de RCF version 1.12 et ultérieures, exécutez les commandes suivantes :
 +
 `cs2# echo "hardware access-list tcam region vpc-convergence 256" >> bootflash:write_erase.cfg`
 

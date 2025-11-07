@@ -696,4 +696,4 @@ Si une LIF de cluster n'est pas retournée sur son port de rattachement, la rest
 
 
 .Et la suite ?
-Après avoir installé ou mis à niveau le logiciel NX-OS, vouslink:install-rcf-software-9336c-storage.html["installer ou mettre à niveau le RCF"] .
+Après avoir installé ou mis à jour le logiciel NX-OS, vous pouvezlink:install-rcf-software-9336c-storage.html["installer ou mettre à niveau le RCF"] .

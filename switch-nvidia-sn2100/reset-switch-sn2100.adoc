@@ -76,3 +76,5 @@ Voir le NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linu
 
 --
 ====
+.Quelle est la prochaine étape
+Après avoir réinitialisé vos interrupteurs, vous pouvezlink:configure-overview-sn2100-cluster.html["reconfigurer"] eux selon les besoins.

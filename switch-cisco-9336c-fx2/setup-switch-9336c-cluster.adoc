@@ -192,4 +192,4 @@ NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modific
 
 
 .Et la suite ?
-Après avoir configuré vos commutateurs, vouslink:install-nxos-overview-9336c-cluster.html["préparez-vous à installer le logiciel NX-OS et RCF"] .
+Une fois vos commutateurs configurés, vous pouvez link:install-nxos-overview-9336c-cluster.html["préparez-vous à installer le logiciel NX-OS et RCF"].

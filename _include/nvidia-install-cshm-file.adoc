@@ -87,7 +87,7 @@ Si vous n'êtes pas sûr, supprimez tous les fichiers de configuration pour les 
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet*
+cluster1::> *system switch ethernet configure-health-monitor*
 ----
 . Vérifiez que le résultat de la commande se termine par le texte suivant pour votre version de ONTAP :
 
@@ -113,11 +113,11 @@ Le package CSHM téléchargé a été traité avec succès.
 En cas d'erreur, contactez le support NetApp.
 
 . [[step6]]attendez jusqu'à deux fois l'intervalle d'interrogation du moniteur d'état du commutateur Ethernet, détecté en exécutant `system switch ethernet polling-interval show`, avant de terminer l'étape suivante.
-. Exécutez la commande `system switch ethernet show` sur le système ONTAP et assurez-vous que les commutateurs de cluster sont détectés avec le champ surveillé défini sur *vrai* et que le champ du numéro de série n'affiche pas *Inconnu*.
+. Exécutez la commande `system switch ethernet configure-health-monitor show` sur le système ONTAP et assurez-vous que les commutateurs du cluster sont détectés avec le champ surveillé défini sur *Vrai* et le champ du numéro de série n'affichant pas *Inconnu*.
 +
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet show*
+cluster1::> *system switch ethernet configure-health-monitor show*
 ----
 
 

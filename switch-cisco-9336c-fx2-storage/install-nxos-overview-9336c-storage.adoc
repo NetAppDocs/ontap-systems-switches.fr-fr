@@ -225,4 +225,4 @@ Cluster
 
 
 .Et la suite ?
-Après avoir préparé l'installation du logiciel NX-OS et RCF, vouslink:install-nxos-software-9336c-storage.html["installer ou mettre à niveau le logiciel NX-OS"] .
+Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous pouvez link:install-nxos-software-9336c-storage.html["installer ou mettre à niveau le logiciel NX-OS"].

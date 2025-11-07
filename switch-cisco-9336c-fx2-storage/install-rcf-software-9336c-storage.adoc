@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install rcf, cisco switches, storage 
 summary: Vous pouvez installer le RCF après avoir configuré pour la première fois le switch de stockage Nexus 9336C-FX2. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. 
 ---
-= Installez ou mettez à niveau le fichier de configuration de référence
+= Installez le fichier de configuration de référence
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -122,7 +122,7 @@ cs1# copy running-config startup-config [#######################################
 +
 `cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
 
-. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
+. Lors de l'installation de RCF version 1.12 et ultérieures, exécutez les commandes suivantes :
 +
 `cs1# echo "hardware access-list tcam region ing-racl 1024" >> bootflash:write_erase.cfg`
 
@@ -137,7 +137,7 @@ Voir l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Swi
 
 . Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
 +
-`show file bootflash:write_erase.cfg`
+`*show file bootflash:write_erase.cfg*`
 
 . Émettre le `write erase` commande pour effacer la configuration enregistrée actuelle :
 +
@@ -486,4 +486,4 @@ System Manager simplifie et simplifie le processus d'installation et de configur
 Accédez à https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP sur un nouveau cluster avec System Manager"] pour obtenir des instructions de configuration.
 
 .Et la suite ?
-Après avoir installé ou mis à niveau votre RCF, vouslink:configure-ssh-keys.html["vérifier la configuration SSH"]
+Une fois votre RCF installé, vous pouvezlink:configure-ssh-keys.html["vérifier la configuration SSH"]

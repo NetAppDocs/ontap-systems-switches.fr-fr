@@ -712,4 +712,4 @@ RPC status:
 
 
 .Et la suite ?
-Après avoir migré les commutateurs, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .
+Une fois les commutateurs migrés, vous pouvezlink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

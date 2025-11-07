@@ -1,8 +1,8 @@
 ---
-permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster.html 
+permalink: switch-cisco-9336c-fx2-storage/install-upgrade-rcf-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH est une condition requise lors de l"utilisation des fonctions de surveillance de l"état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9336C-FX2 pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. 
 ---
 = Installez ou mettez à niveau la présentation du fichier de configuration de référence (RCF)
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'SSH est une condition requise lors de l"utilisation des fonctions de s
 
 
 [role="lead"]
-Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
+Vous installez le fichier de configuration de référence (RCF) après avoir configuré pour la première fois le commutateur de stockage Nexus 9336C-FX2. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
 
 Pour plus d'informations sur l'installation ou la mise à niveau de votre FCR, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^].
 
@@ -56,14 +56,14 @@ Les ports sont configurés pour 4 ports de dérivation 10 GbE, 4 ports de dériv
  a| 
 Cluster-haute-disponibilité-stockage
  a| 
-Les ports sont configurés pour le 40 GbE pour Cluster+HA, le 4 x 10 GbE Breakout pour Cluster et le 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.
+Les ports sont configurés pour 40/100GbE pour Cluster+HA, 4 ports de dérivation 10GbE pour Cluster et 4 ports de dérivation 25GbE pour Cluster+HA, et 100GbE pour chaque paire de stockage HA.
 
 
 
  a| 
 Cluster
  a| 
-Deux versions de FCR avec différentes allocations de ports 4 x 10 GbE (répartition) et ports 40 GbE. Tous les nœuds FAS/AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f.
+Deux variantes de RCF avec des allocations différentes de ports 4x10GbE (breakout) et de ports 40/100GbE.  Tous les nœuds FAS et AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f .
 
 
 
@@ -74,11 +74,11 @@ Tous les ports sont configurés pour les connexions de stockage NVMe 100 GbE.
 
 |===
 .Documentation suggérée
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 +
 Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs Cisco Nexus 9000 Series"^]
 +
 Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
 
@@ -87,21 +87,19 @@ Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibl
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
 
-* Les noms des deux commutateurs Cisco sont *cs1* et *cs2*.
-* Les noms de noeud sont *cluster1-01*, *cluster1-02*, *cluster1-03* et *cluster1-04*.
-* Les noms de LIF du cluster sont *cluster1-01_clus1*, *cluster1-01 04_clus2*, *cluster1-02_clus1*, *cluster1-02_clus2*, *cluster1-03_clus1*, *cluster1-03_clus2*, *cluster1-04_clus1* et *cluster2*.
+* Les noms des deux commutateurs Cisco sont cs1 et cs2.
+* Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
+* Les noms LIF du cluster sont node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 et node1-04_clus2.
 * Le `cluster1::*>` l'invite indique le nom du cluster.
 
 
-Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE *e0a* et *e0b*. Reportez-vous au https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plates-formes.
+Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.
 
 
 NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
-
-Pour plus de détails sur les configurations de FCR disponibles, reportez-vous à la section link:configure-software-overview-9336c-cluster.html["Workflow d'installation du logiciel"].
 
 .Commandes utilisées
 La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 .Et la suite ?
-Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous pouvezlink:install-rcf-software-9336c-cluster.html["installer le RCF"] oulink:upgrade-rcf-software-9336c-cluster.html["améliorez votre RCF"] selon les besoins.
+Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous pouvezlink:install-rcf-software-9336c-storage.html["installer le RCF"] oulink:upgrade-rcf-software-9336c-storage.html["améliorez votre RCF"] au besoin.

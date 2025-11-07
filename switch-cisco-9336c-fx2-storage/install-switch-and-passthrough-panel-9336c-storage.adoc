@@ -134,4 +134,4 @@ Le port de gestion est le port supérieur droit situé sur le côté PSU du comm
 
 
 .Quelle est la prochaine étape
-Après avoir installé les commutateurs dans l'armoire NetApp , vouslink:setup-switch-9336c-storage.html["configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T"] .
+Une fois les commutateurs installés dans l'armoire NetApp , vous pouvezlink:setup-switch-9336c-storage.html["configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T"] .

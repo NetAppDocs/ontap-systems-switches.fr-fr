@@ -267,4 +267,4 @@ storage::*>
 
 
 .Et la suite ?
-Après avoir remplacé vos commutateurs, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .
+Après avoir remplacé vos interrupteurs, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

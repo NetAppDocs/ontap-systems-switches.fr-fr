@@ -672,4 +672,4 @@ unreachable default metric 4278198272
 --
 ====
 .Et la suite ?
-Après avoir mis à jour votre version de Cumulus Linux, vous link:install-rcf-sn2100-cluster.html["installer ou mettre à niveau le script RCF"].
+Après avoir mis à jour votre version de Cumulus Linux, vous pouvezlink:install-rcf-sn2100-cluster.html["installer ou mettre à niveau le script RCF"] .

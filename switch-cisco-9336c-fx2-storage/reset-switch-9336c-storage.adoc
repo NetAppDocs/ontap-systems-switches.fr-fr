@@ -44,3 +44,6 @@ This command will reboot the system. (y/n)? [n] *y*
 Le système redémarre et entre dans l'assistant de configuration.  Pendant le démarrage, si vous recevez l'invite « Annuler le provisionnement automatique et continuer avec la configuration normale ?  (oui/non)[n]”, vous devez répondre *oui* pour continuer.
 
 
+
+.Quelle est la prochaine étape
+Après avoir réinitialisé vos interrupteurs, vous pouvezlink:configure-switch-overview-9336c-storage.html["reconfigurer"] eux selon les besoins.

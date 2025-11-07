@@ -24,4 +24,4 @@ https://hwu.netapp.com/["NetApp Hardware Universe"^]
 
 
 .Et la suite ?
-Après avoir câblé vos étagères, vous link:configure-sn2100-cluster.html["configurer le commutateur"].
+Une fois vos étagères câblées, vous pouvezlink:configure-sn2100-cluster.html["configurer le commutateur"] .

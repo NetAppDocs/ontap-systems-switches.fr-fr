@@ -723,4 +723,4 @@ Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Syst
 --
 ====
 .Et la suite ?
-Après avoir installé Cumulus Linux en mode Cumulus, vous link:install-rcf-sn2100-storage.html["installer ou mettre à niveau le script RCF"].
+Après avoir installé Cumulus Linux en mode Cumulus, vous pouvezlink:install-rcf-sn2100-storage.html["installer ou mettre à niveau le script RCF"] .

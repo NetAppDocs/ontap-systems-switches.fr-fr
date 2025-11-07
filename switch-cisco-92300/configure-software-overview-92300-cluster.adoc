@@ -13,11 +13,11 @@ summary: Présentation de la configuration logicielle des commutateurs de cluste
 [role="lead"]
 Pour installer et configurer le logiciel d'un commutateur Cisco Nexus 92300YC et pour installer ou mettre à niveau le fichier de configuration de référence (RCF), procédez comme suit :
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-install-initial.html["Configurer le commutateur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-install-initial.html["Configurez le commutateur"]
 [role="quick-margin-para"]
 Configurez le commutateur de cluster 92300YC.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-nxos-overview.html["Préparez l'installation du logiciel NX-OS et du RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-nxos-overview.html["Préparez-vous à installer le logiciel NX-OS et RCF."]
 [role="quick-margin-para"]
 Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco 92300YC.
 
@@ -25,10 +25,10 @@ Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) do
 [role="quick-margin-para"]
 Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco 392300YC.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-the-rcf-file.html["Installer la FCR"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-the-rcf-file.html["Installez le RCF"]
 [role="quick-margin-para"]
 Installez le RCF après avoir configuré le commutateur Cisco 92300YC pour la première fois.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifier la configuration de SSH"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifier la configuration SSH"]
 [role="quick-margin-para"]
 Vérifiez que SSH est activé sur les commutateurs pour utiliser les fonctionnalités de surveillance de l’état du commutateur Ethernet (CSHM) et de collecte de journaux.

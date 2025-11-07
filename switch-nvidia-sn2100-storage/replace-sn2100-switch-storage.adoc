@@ -2,73 +2,73 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: 'Remplacement d"un commutateur de stockage NVIDIA SN2100 défectueux en procédure \(NDU\) sans interruption.' 
+summary: 'Remplacement d"un commutateur de stockage NVIDIA SN2100 défectueux dans le cadre d"une procédure non perturbatrice (NDU).' 
 ---
-= Remplacement d'un commutateur de stockage NVIDIA SN2100
+= Remplacer un commutateur de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez remplacer un commutateur de stockage NVIDIA SN2100 défectueux. Cette procédure ne fonctionne pas sans interruption.
+Vous pouvez remplacer un commutateur de stockage NVIDIA SN2100 défectueux. Il s’agit d’une procédure non perturbatrice.
 
 .Avant de commencer
-Avant d'installer le logiciel Cumulus et les RCFs sur un commutateur de stockage NVIDIA SN2100, vérifiez que :
+Avant d'installer le logiciel Cumulus et les RCF sur un commutateur de stockage NVIDIA SN2100, assurez-vous que :
 
-* Votre système peut prendre en charge les switchs de stockage NVIDIA SN2100.
-* Vous avez téléchargé les CFR applicables.
+* Votre système peut prendre en charge les commutateurs de stockage NVIDIA SN2100.
+* Vous avez téléchargé les RCF applicables.
 
 
-Le http://hwu.netapp.com["Hardware Universe"^] fournit des détails complets sur les ports pris en charge et leurs configurations.
+Le http://hwu.netapp.com["Hardware Universe"^] fournit des informations complètes sur les ports pris en charge et leurs configurations.
 
-La configuration réseau existante doit présenter les caractéristiques suivantes :
+La configuration réseau existante doit présenter les caractéristiques suivantes :
 
-* Effectuez toutes les étapes de dépannage pour confirmer que vous devez remplacer votre commutateur.
+* Suivez toutes les étapes de dépannage pour confirmer que vous devez remplacer votre interrupteur.
 * Assurez-vous que la connectivité de gestion existe sur les deux commutateurs.
 +
 
-NOTE: Assurez-vous que toutes les étapes de dépannage ont été effectuées pour vérifier que votre commutateur doit être remplacé.
+NOTE: Assurez-vous que toutes les étapes de dépannage ont été effectuées pour confirmer que votre commutateur doit être remplacé.
 
 
 
-Les caractéristiques du commutateur NVIDIA SN2100 de remplacement doivent être les suivantes :
+Le commutateur de remplacement NVIDIA SN2100 doit présenter les caractéristiques suivantes :
 
 * La connectivité du réseau de gestion est fonctionnelle.
-* Vous pouvez accéder au commutateur de remplacement à l'aide de la console.
-* L'image appropriée du système d'exploitation FCR et Cumulus est chargée sur le commutateur.
+* Vous pouvez accéder au commutateur de remplacement via la console.
+* L'image appropriée du système d'exploitation RCF et Cumulus est chargée sur le commutateur.
 * La personnalisation initiale du commutateur est terminée.
 
 
-.Récapitulatif de la procédure
-Cette procédure remplace le deuxième commutateur de stockage NVIDIA SN2100 sw2 par le nouveau commutateur NVIDIA SN2100 nsw2. Les deux nœuds sont le nœud1 et le nœud2.
+.Résumé de la procédure
+Cette procédure remplace le deuxième commutateur de stockage NVIDIA SN2100 sw2 par le nouveau commutateur NVIDIA SN2100 nsw2.  Les deux nœuds sont le nœud 1 et le nœud 2.
 
-Étapes à suivre :
+Étapes à suivre :
 
-* Vérifier que le commutateur à remplacer est sw2.
-* Débrancher les câbles du commutateur sw2.
-* Rebrancher les câbles sur le commutateur nsw2.
-* Vérifiez toutes les configurations de périphérique sur le commutateur nsw2.
+* Confirmez que l'interrupteur à remplacer est bien le sw2.
+* Débranchez les câbles de l'interrupteur sw2.
+* Rebranchez les câbles au commutateur nsw2.
+* Vérifiez toutes les configurations des périphériques sur le commutateur nsw2.
 
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 `set -privilege advanced`
 
-. Vérifiez l’état de santé des ports du nœud de stockage pour confirmer la connexion au commutateur de stockage S1 :
+. Vérifiez l'état de santé des ports du nœud de stockage pour confirmer la connexion au commutateur de stockage S1 :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -90,12 +90,12 @@ node2
 cluster1::*>
 ----
 ====
-. Vérifier que le commutateur de stockage sw1 est disponible :
+. Vérifiez que le commutateur de stockage sw1 est disponible :
 +
 `network device-discovery show -protocol lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -121,12 +121,12 @@ Press <space> to page down, <return> for next line, or 'q' to quit...
 10 entries were displayed.
 ----
 ====
-. Exécutez le `net show interface` commande sur le commutateur de travail pour confirmer que vous pouvez voir les deux nœuds et tous les tiroirs :
+. Exécutez le `net show interface` Commande à exécuter sur le commutateur fonctionnel pour confirmer que vous pouvez voir les deux nœuds et toutes les étagères :
 +
 `net show interface`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -148,12 +148,12 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Vérifiez les ports shelf dans le système de stockage :
+. Vérifiez les ports des étagères dans le système de stockage :
 +
 `storage shelf port show -fields remote-device, remote-port`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -172,14 +172,14 @@ shelf   id  remote-port   remote-device
 cluster1::*>
 ----
 ====
-. Retirer tous les câbles reliés au commutateur de stockage sw2.
+. Retirez tous les câbles connectés au commutateur de stockage sw2.
 . Rebranchez tous les câbles au commutateur de remplacement nsw2.
-. Vérifier à nouveau l'état de santé des ports du nœud de stockage :
+. Revérifiez l'état de santé des ports du nœud de stockage :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -201,12 +201,12 @@ node2
 cluster1::*>
 ----
 ====
-. Vérifier que les deux commutateurs sont disponibles :
+. Vérifiez que les deux commutateurs sont disponibles :
 +
 `net device-discovery show -protocol lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -233,12 +233,12 @@ Press <space> to page down, <return> for next line, or 'q' to quit...
 10 entries were displayed.
 ----
 ====
-. Vérifiez les ports shelf dans le système de stockage :
+. Vérifiez les ports des étagères dans le système de stockage :
 +
 `storage shelf port show -fields remote-device, remote-port`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -257,15 +257,15 @@ shelf   id    remote-port     remote-device
 cluster1::*>
 ----
 ====
-. Rétablissez le niveau de privilège sur admin :
+. Rétablir le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir remplacé vos interrupteurs, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

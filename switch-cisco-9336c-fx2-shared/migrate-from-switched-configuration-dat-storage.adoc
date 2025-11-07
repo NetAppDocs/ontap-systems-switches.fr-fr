@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-configuration-dat
 keywords:  
 summary:  
 ---
-= Migrer depuis une configuration commutée avec un stockage DAS
+= Migrer depuis une configuration commutée avec stockage à connexion directe
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,88 +14,88 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer depuis une configuration commutée avec un stockage DAS en ajoutant deux nouveaux commutateurs partagés.
+Vous pouvez migrer depuis une configuration à commutation avec stockage à connexion directe en ajoutant deux nouveaux commutateurs partagés.
 
 .Commutateurs pris en charge
-Les commutateurs suivants sont pris en charge :
+Les commutateurs suivants sont pris en charge :
 
 * Nexus 9336C-FX2
 * Nexus 3232C
 
 
-Les versions ONTAP et NX-OS prises en charge dans cette procédure se trouvent sur la page des commutateurs Ethernet Cisco. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"].
+Les versions ONTAP et NX-OS prises en charge dans cette procédure sont indiquées sur la page des commutateurs Ethernet Cisco . Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] .
 
-.Ports de connexion
-Les switches utilisent les ports suivants pour se connecter aux nœuds :
+.ports de connexion
+Les commutateurs utilisent les ports suivants pour se connecter aux nœuds :
 
-* Nexus 9336C-FX2 :
+* Nexus 9336C-FX2 :
 +
-** Ports 1- 3 : mode d'arrachage (4 x 10 G) ports intra-cluster, int e1/1/1-4, e1/2/1-4, e1/3/1-4
-** Ports 4- 6 : mode d'arrachage (4x25G) ports intra-cluster/HA, int e1/4/1-4, e1/5/1-4, e1/6/1-4
-** Ports 7-34 : ports intra-clusters/HA 40 GbE, int e1/7-34
+** Ports 1 à 3 : Mode Breakout (4 x 10 Gbit/s) Ports intra-cluster, int e1/1/1-4, e1/2/1-4, e1/3/1-4
+** Ports 4 à 6 : Mode Breakout (4 x 25 Gbit/s) Ports intra-cluster/HA, int e1/4/1-4, e1/5/1-4, e1/6/1-4
+** Ports 7-34 : Ports intra-cluster/HA 40/100 GbE, int e1/7-34
 
 
-* Nexus 3232C :
+* Nexus 3232C :
 +
-** Ports 1 à 30 : 10 GbE/40/100 GbE
+** Ports 1 à 30 : 10/40/100 GbE
 
 
-* Les switchs utilisent les ports ISL (Inter-Switch Link) suivants :
+* Les commutateurs utilisent les ports de liaison inter-commutateurs (ISL) suivants :
 +
-** Ports int e1/35-36 : Nexus 9336C-FX2
-** Ports e1/31-32 : Nexus 3232C
+** Ports int e1/35-36 : Nexus 9336C-FX2
+** Ports e1/31-32 : Nexus 3232C
 
 
 
 
-Le https://hwu.netapp.com["Hardware Universe"] le contient des informations sur le câblage pris en charge pour tous les commutateurs de cluster.
+Le https://hwu.netapp.com["Hardware Universe"] Contient des informations sur le câblage pris en charge pour tous les commutateurs du cluster.
 
-.Ce dont vous avez besoin
-* Assurez-vous d'avoir effectué les tâches suivantes :
+.Ce dont vous aurez besoin
+* Assurez-vous d'avoir effectué les tâches suivantes :
 +
-** Configuré certains des ports des commutateurs Nexus 9336C-FX2 pour qu'ils fonctionnent à 100 GbE.
-** Planification, migration et documentation de la connectivité 100 GbE entre les nœuds et les commutateurs Nexus 9336C-FX2.
-** Migration sans interruption des autres commutateurs de cluster Cisco d'un cluster ONTAP vers les commutateurs réseau Cisco Nexus 9336C-FX2.
+** J'ai configuré certains ports des commutateurs Nexus 9336C-FX2 pour qu'ils fonctionnent à 100 GbE.
+** Planification, migration et documentation de la connectivité 100 GbE des nœuds vers les commutateurs Nexus 9336C-FX2.
+** Migration sans interruption d'autres commutateurs de cluster Cisco d'un cluster ONTAP vers des commutateurs réseau Cisco Nexus 9336C-FX2.
 
 
-* Le réseau de commutateurs existant est correctement configuré et opérationnel.
-* Tous les ports sont à l'état *up* pour assurer la continuité de l'activité.
-* Les commutateurs Nexus 9336C-FX2 sont configurés et fonctionnent sous la version adéquate du système d'exploitation NX-OS installé et le fichier RCF (Reference Configuration File) appliqué.
-* La configuration réseau existante comprend les éléments suivants :
+* Le réseau de commutation existant est correctement configuré et fonctionnel.
+* Tous les ports sont opérationnels afin de garantir un fonctionnement sans interruption.
+* Les commutateurs Nexus 9336C-FX2 sont configurés et fonctionnent sous la version appropriée de NX-OS installée et le fichier de configuration de référence (RCF) appliqué.
+* La configuration réseau existante est la suivante :
 +
-** Un cluster NetApp redondant et entièrement fonctionnel utilisant les deux anciens commutateurs Cisco.
-** Connectivité de gestion et accès à la console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
-** Toutes les LIFs de cluster dans l'état *up* avec les LIFs de cluster sont sur leurs ports de base.
-** Ports ISL activés et câblés entre les autres commutateurs Cisco et entre les nouveaux commutateurs.
+** Un cluster NetApp redondant et pleinement fonctionnel utilisant des commutateurs Cisco plus anciens.
+** Connectivité de gestion et accès console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
+** Toutes les LIF du cluster à l'état *actif* sont sur leurs ports d'origine.
+** Les ports ISL sont activés et câblés entre les autres commutateurs Cisco et entre les nouveaux commutateurs.
 
 
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les switchs de cluster Cisco Nexus 3232C existants sont _c1_ et _c2_.
+* Les commutateurs de cluster Cisco Nexus 3232C existants sont _c1_ et _c2_.
 * Les nouveaux commutateurs Nexus 9336C-FX2 sont _sh1_ et _sh2_.
 * Les nœuds sont _node1_ et _node2_.
-* Les LIFS du cluster sont respectivement _node1_clum1_ et _node1_clum2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
-* Le contacteur c2 est d'abord remplacé par le contacteur sh2, puis le contacteur c1 est remplacé par le contacteur sh1.
+* Les LIF du cluster sont _node1_clus1_ et _node1_clus2_ sur le nœud 1, et _node2_clus1_ et _node2_clus2_ sur le nœud 2 respectivement.
+* L'interrupteur c2 est d'abord remplacé par l'interrupteur sh2, puis l'interrupteur c1 est remplacé par l'interrupteur sh1.
 
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=x h`
 
 +
 Où x représente la durée de la fenêtre de maintenance en heures.
 
-. Vérifiez le statut administratif et opérationnel de chaque port du cluster.
-. Vérifier que tous les ports du cluster sont défectueux :
+. Vérifiez l'état administratif et opérationnel de chaque port du cluster.
+. Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
 +
 `network port show –role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -122,12 +122,12 @@ cluster1::*>
 ====
 
 
-. [[step4]]vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home Port :
+. [[étape 4]]Vérifiez que toutes les interfaces du cluster (LIF) sont sur le port principal :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -147,12 +147,12 @@ cluster1::*>
 ====
 
 
-. [[step5]]Vérifiez que le cluster affiche les informations des deux commutateurs de cluster :
+. [[étape 5]]Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -179,9 +179,9 @@ cluster1::*>
 ====
 
 
-. [[step6]]Désactiver la fonction de restauration automatique sur les LIFs du cluster.
+. [[étape6]]Désactiver la restauration automatique sur les LIF du cluster.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -191,9 +191,9 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 ====
 
 
-. [[étape7]]Arrêter l'interrupteur c2.
+. [[étape 7]] Fermez l'interrupteur c2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -206,15 +206,15 @@ c2(config)# *shutdown*
 ====
 
 
-. [[step8]]vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur de cluster sh1 :
+. [[étape 8]]Vérifiez que les LIF du cluster ont migré vers les ports hébergés sur le commutateur de cluster sh1 :
 +
 `network interface show -role cluster`
 
 +
-Cette opération peut prendre quelques secondes.
+Cela peut prendre quelques secondes.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -234,11 +234,11 @@ cluster1::*>
 ====
 
 
-. [[étape9]]remplacer le commutateur c2 par le nouveau commutateur sh2 et recouvrez le câble du nouveau commutateur.
-. Vérifiez que les ports sont en marche arrière sur le sh2. *Remarque* que les LIFs sont toujours sur le commutateur c1.
-. Arrêter le contacteur c1.
+. [[étape 9]]Remplacez l'interrupteur c2 par le nouvel interrupteur sh2 et recâblez le nouvel interrupteur.
+. Vérifiez que les ports sont de nouveau opérationnels sur sh2.  *Notez* que les LIF sont toujours sur le commutateur c1.
+. Coupez l'alimentation de l'interrupteur c1.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -251,9 +251,9 @@ c1(config)# *shutdown*
 ====
 
 
-. [[step12]]vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur sh2 du cluster. Cette opération peut prendre quelques secondes.
+. [[étape 12]]Vérifiez que les LIF du cluster ont migré vers les ports hébergés sur le commutateur de cluster sh2. Cela peut prendre quelques secondes.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -273,11 +273,11 @@ cluster1::*>
 ====
 
 
-. [[step13]]remplacer l'interrupteur c1 par le nouvel interrupteur sh1 et recarbler le nouveau contacteur.
-. Vérifiez que les ports sont en secours sur le sh1. *Remarque* que les LIFs sont toujours sur le commutateur c2.
-. Activer la fonction de revert automatique sur les LIFs du cluster :
+. [[étape 13]]Remplacez l'interrupteur c1 par le nouvel interrupteur sh1 et recâblez le nouvel interrupteur.
+. Vérifiez que les ports sont de nouveau opérationnels sur sh1.  *Notez* que les LIF sont toujours sur le commutateur c2.
+. Activer la restauration automatique sur les LIF du cluster :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -287,12 +287,12 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True
 ====
 
 
-. [[step16]]vérifier que le cluster fonctionne correctement :
+. [[étape 16]]Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -308,5 +308,5 @@ cluster1::*>
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

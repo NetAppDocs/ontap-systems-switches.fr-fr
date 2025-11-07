@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
 summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous générez d’abord les clés SSH, puis vous activez SSH.' 
 ---
-= Installez ou mettez à niveau la présentation du fichier de configuration de référence (RCF)
+= Présentation de l'installation ou de la mise à niveau du fichier de configuration de référence (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,16 +13,16 @@ summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Clu
 [role="lead"]
 Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
 
-Pour plus d'informations sur l'installation ou la mise à niveau de votre FCR, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^].
+Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 
 .Configurations RCF disponibles
-Le tableau suivant décrit les CFR disponibles pour différentes configurations. Choisissez la FCR applicable à votre configuration.
+Le tableau suivant décrit les RCF disponibles pour différentes configurations.  Choisissez le RCF applicable à votre configuration.
 
-Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et remarques importantes de votre FCR.
+Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et notes importantes de votre RCF.
 
 [cols="1,2"]
 |===
-| Nom de la FCR | Description 
+| Nom du RCF | Description 
 
 
  a| 
@@ -42,66 +42,66 @@ Prend en charge quatre clusters ONTAP avec au moins quatre nœuds, y compris les
  a| 
 1-Cluster-HA
  a| 
-Tous les ports sont configurés pour le 40 GbE. Prend en charge le trafic partagé cluster/haute disponibilité sur les ports. Requis pour les systèmes AFF A320, AFF A250 et FAS500f. En outre, tous les ports peuvent être utilisés en tant que ports dédiés du cluster.
+Tous les ports sont configurés pour le 40/100GbE.  Prend en charge le trafic partagé de cluster/HA sur les ports.  Requis pour les systèmes AFF A320, AFF A250 et FAS500f .  De plus, tous les ports peuvent être utilisés comme ports de cluster dédiés.
 
 
 
  a| 
 1-Cluster-HA-Breakout
  a| 
-Les ports sont configurés pour 4 ports de dérivation 10 GbE, 4 ports de dérivation 25 GbE (FCR 1.6+ sur les switchs 40 GbE) et 4/100 GbE. Prise en charge du trafic partagé cluster/haute disponibilité sur les ports pour les nœuds qui utilisent des ports partagés cluster/haute disponibilité : systèmes AFF A320, AFF A250 et FAS500f. En outre, tous les ports peuvent être utilisés en tant que ports dédiés du cluster.
+Les ports sont configurés pour une sortie 4x10GbE, une sortie 4x25GbE (RCF 1.6+ sur les commutateurs 100GbE) et 40/100GbE.  Prend en charge le trafic de cluster partagé/HA sur les ports pour les nœuds qui utilisent des ports de cluster partagé/HA : systèmes AFF A320, AFF A250 et FAS500f .  De plus, tous les ports peuvent être utilisés comme ports de cluster dédiés.
 
 
 
  a| 
-Cluster-haute-disponibilité-stockage
+Cluster-HA-Stockage
  a| 
-Les ports sont configurés pour le 40 GbE pour Cluster+HA, le 4 x 10 GbE Breakout pour Cluster et le 4 x 25 GbE pour Cluster+HA, et le 100 GbE pour chaque paire haute disponibilité de stockage.
+Les ports sont configurés pour 40/100GbE pour Cluster+HA, 4x10GbE pour Cluster et 4x25GbE pour Cluster+HA, et 100GbE pour chaque paire de stockage HA.
 
 
 
  a| 
 Cluster
  a| 
-Deux versions de FCR avec différentes allocations de ports 4 x 10 GbE (répartition) et ports 40 GbE. Tous les nœuds FAS/AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f.
+Deux variantes de RCF avec des allocations différentes de ports 4x10GbE (breakout) et de ports 40/100GbE. Tous les nœuds FAS/ AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f .
 
 
 
  a| 
 Stockage
  a| 
-Tous les ports sont configurés pour les connexions de stockage NVMe 100 GbE.
+Tous les ports sont configurés pour les connexions de stockage NVMe 100GbE.
 
 |===
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
 +
-Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.
+Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge sur le site d'assistance NetApp .  Notez qu'il peut exister des dépendances de commandes entre la syntaxe des commandes dans le RCF et la syntaxe présente dans certaines versions de NX-OS.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus série 3000"^]
 +
-Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs Cisco sont *cs1* et *cs2*.
-* Les noms de noeud sont *cluster1-01*, *cluster1-02*, *cluster1-03* et *cluster1-04*.
-* Les noms de LIF du cluster sont *cluster1-01_clus1*, *cluster1-01 04_clus2*, *cluster1-02_clus1*, *cluster1-02_clus2*, *cluster1-03_clus1*, *cluster1-03_clus2*, *cluster1-04_clus1* et *cluster2*.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les noms des nœuds sont *cluster1-01*, *cluster1-02*, *cluster1-03* et *cluster1-04*.
+* Les noms LIF du cluster sont *cluster1-01_clus1*, *cluster1-01_clus2*, *cluster1-02_clus1*, *cluster1-02_clus2*, *cluster1-03_clus1*, *cluster1-03_clus2*, *cluster1-04_clus1* et *cluster1-04_clus2*.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE *e0a* et *e0b*. Reportez-vous au https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plates-formes.
+Les exemples de cette procédure utilisent quatre nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE *e0a* et *e0b*.  Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
 
 
-NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
-Pour plus de détails sur les configurations RCF disponibles, voirlink:configure-software-overview-3232c-cluster.html["Workflow d'installation du logiciel"] .
+Pour plus de détails sur les configurations RCF disponibles, voirlink:configure-software-overview-3232c-cluster.html["Flux de travail d'installation de logiciels"] .
 
 .Commandes utilisées
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vouslink:install-rcf-software-3232c.html["installer le RCF"] oulink:upgrade-rcf-software-3232c.html["améliorez votre RCF"] selon les besoins.

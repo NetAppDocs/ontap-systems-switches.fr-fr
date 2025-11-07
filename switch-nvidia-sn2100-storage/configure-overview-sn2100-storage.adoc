@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Avant de configurer les switchs NVIDIA SN2100, consultez la présentation de la procédure. 
+summary: Avant de configurer les commutateurs NVIDIA SN2100, consultez la présentation de la procédure. 
 ---
 = Flux de travail d'installation et de configuration pour les commutateurs NVIDIA SN2100
 :allow-uri-read: 
@@ -11,11 +11,11 @@ summary: Avant de configurer les switchs NVIDIA SN2100, consultez la présentati
 
 
 [role="lead"]
-Le NVIDIA SN2100 est un commutateur Ethernet qui vous permet de basculer les données entre les contrôleurs et les tiroirs disques.
+Le NVIDIA SN2100 est un commutateur Ethernet qui permet de transférer des données entre les contrôleurs et les baies de disques.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs SN2100.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-sn2100-storage.html["Examiner les exigences de configuration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-reqs-sn2100-storage.html["Examiner les exigences de configuration"]
 [role="quick-margin-para"]
 Passez en revue les exigences de configuration du commutateur de stockage SN2100.
 
@@ -27,7 +27,7 @@ Passez en revue les composants et les numéros de pièces du commutateur de stoc
 [role="quick-margin-para"]
 Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs SN2100 et le cluster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installer le matériel de fixation"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installez le matériel"]
 [role="quick-margin-para"]
 Installez le matériel du commutateur.
 

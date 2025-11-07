@@ -2,53 +2,53 @@
 permalink: switch-cisco-9336c-fx2-storage/install-nxos-overview-9336c-storage.html 
 sidebar: sidebar 
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
-summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence \(RCFs\) doivent être installés sur les commutateurs de cluster Cisco Nexus 9336C-FX2.' 
+summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 9336C-FX2.' 
 ---
-= Préparez l'installation ou la mise à niveau du logiciel NX-OS et du RCF
+= Préparez-vous à installer ou à mettre à niveau le logiciel NX-OS et RCF.
 :allow-uri-read: 
 
 
 [role="lead"]
-Avant d'installer le logiciel NX-OS et le fichier RCF (Reference Configuration File), suivez cette procédure.
+Avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF), suivez cette procédure.
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs Cisco sont cs1 et cs2.
 * Les noms des nœuds sont cluster1-01 et cluster1-02.
-* Les noms de LIF de cluster sont cluster1-01_concluA1 et cluster1-01_clus2 pour cluster1-01 et cluster1-02_clum1 et cluster1-02_clus2 pour cluster1-02.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les noms LIF du cluster sont cluster1-01_clus1 et cluster1-01_clus2 pour le cluster1-01 et cluster1-02_clus1 et cluster1-02_clus2 pour le cluster1-02.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 où x représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
-. Afficher le nombre d'interfaces d'interconnexion de cluster configurées sur chaque nœud pour chaque commutateur d'interconnexion de cluster :
+. Afficher le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
 +
 [source, cli]
 ----
 network device-discovery show -protocol lldp
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -68,16 +68,16 @@ cluster1-01/lldp
 4 entries were displayed.
 ----
 ====
-. Vérifier le statut administratif ou opérationnel de chaque interface de cluster.
+. Vérifiez l'état administratif ou opérationnel de chaque interface du cluster.
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -103,14 +103,14 @@ e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
 4 entries were displayed.
 ----
 ====
-.. Afficher les informations relatives aux LIFs :
+.. Afficher les informations relatives aux LIF :
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -131,22 +131,22 @@ Cluster
 ====
 
 
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -162,9 +162,9 @@ node2
        3/5/2024 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -197,14 +197,14 @@ RPC status:
 ----
 --
 ====
-. [[step6]] vérifier que la commande auto-revert est activée sur toutes les LIFs du cluster :
+. [[étape 6]] Vérifiez que la commande de restauration automatique est activée sur toutes les LIF du cluster :
 +
 [source, cli]
 ----
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -224,5 +224,5 @@ Cluster
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous pouvez link:install-nxos-software-9336c-storage.html["installer ou mettre à niveau le logiciel NX-OS"].

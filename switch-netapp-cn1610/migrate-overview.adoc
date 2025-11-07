@@ -2,23 +2,23 @@
 permalink: switch-netapp-cn1610/migrate-overview.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, netapp cn1610 
-summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs du réseau en cluster NetApp CN1610.' 
+summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer, sans interruption, vers un cluster commuté à deux nœuds comprenant des commutateurs de réseau de cluster NetApp CN1610.' 
 ---
-= Options de migration pour un cluster à deux nœuds avec commutateurs de cluster NetApp CN1610
+= Options de migration pour un cluster commuté à deux nœuds avec des commutateurs de cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs du réseau en cluster NetApp CN1610. La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur.
+Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer, sans interruption, vers un cluster commuté à deux nœuds comprenant des commutateurs de réseau de cluster NetApp CN1610.  La procédure à suivre dépend du fait que chaque contrôleur dispose de deux ports réseau de cluster dédiés ou d'un seul port de cluster par contrôleur.
 
-La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur.
+La plupart des systèmes nécessitent deux ports réseau dédiés au cluster sur chaque contrôleur.
 
-Les nœuds FAS22xx permettent un port de cluster unique sur chaque contrôleur.
+Les nœuds FAS22xx permettent un seul port de cluster sur chaque contrôleur.
 
-Deux options de migration sont disponibles :
+Deux options de migration sont disponibles :
 
-* link:migrate-switched-netapp-cn1610.html["Migrer d'un cluster sans commutateur vers un environnement de cluster NetApp CN1610 commuté"]
-* link:migrate-fas22xx-systems.html["Migration depuis un cluster sans commutateur (systèmes FAS22xx avec une connexion unique cluster-network)"]
+* link:migrate-switched-netapp-cn1610.html["Migration d'un cluster sans commutateur vers un environnement de cluster NetApp CN1610 commuté"]
+* link:migrate-fas22xx-systems.html["Migration depuis un cluster sans commutateur (systèmes FAS22xx avec une seule connexion réseau de cluster)"]
 

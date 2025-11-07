@@ -2,32 +2,32 @@
 permalink: switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, vérifiez toutes les conditions et la documentation recommandée.' 
+summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toutes les exigences et la documentation recommandée.' 
 ---
-= Configuration requise pour les switchs NVIDIA SN2100
+= Configuration requise pour les commutateurs NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance des switchs NVIDIA SN2100, vérifiez toutes les exigences de configuration.
+Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toutes les exigences de configuration.
 
 
 
-== Conditions requises pour l'installation
+== Conditions d'installation
 
-Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous devez prendre en charge deux commutateurs de réseau de clusters. Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont facultatifs.
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels.
 
-Vous installez le commutateur NVIDIA SN2100 (X190006) dans l'armoire de commutateur NVIDIA double/simple avec les supports standard fournis avec le commutateur.
+Vous installez le commutateur NVIDIA SN2100 (X190006) dans l'armoire à commutateur double/simple NVIDIA avec les supports standard fournis avec le commutateur.
 
-Pour connaître les instructions de câblage, reportez-vous à la section link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"].
+Pour les consignes de câblage, voirlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] .
 
 
 
-== Prise en charge de ONTAP et Linux
+== Prise en charge ONTAP et de Linux
 
-Le commutateur NVIDIA SN2100 est un commutateur 10/25/40 GbE exécutant Cumulus Linux. Le commutateur prend en charge les éléments suivants :
+Le commutateur NVIDIA SN2100 est un commutateur 10/25/40/100GbE fonctionnant sous Cumulus Linux.  Le commutateur prend en charge les éléments suivants :
 
 * ONTAP 9.10.1P3 et versions ultérieures
 +
@@ -35,8 +35,8 @@ Le commutateur SN2100 prend en charge les applications de cluster et de stockage
 
 * Versions du système d'exploitation Cumulus Linux (CL)
 +
-** Les versions CL spécifiques sont qualifiées et prises en charge par NetApp. Pour plus d'informations sur la compatibilité, reportez-vous à la link:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informations sur les commutateurs Ethernet NVIDIA"^] page ou à la link:https://hwu.netapp.com["NetApp Hardware Universe"^].
-** Pour télécharger le logiciel SN2100 Cumulus de NVIDIA, vous devez disposer d'informations de connexion pour accéder au portail de support d'entreprise de NVIDIA. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Comment s'inscrire auprès de NVIDIA pour accéder au portail de support de l'entreprise"^] .
+** Certaines versions de CL sont qualifiées et prises en charge par NetApp.  Pour obtenir des informations à jour sur la compatibilité, veuillez consulter lelink:https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Informations sur les commutateurs Ethernet NVIDIA"^] la page ou lalink:https://hwu.netapp.com["Hardware Universe NetApp"^] .
+** Pour télécharger le logiciel SN2100 Cumulus depuis le NVIDIA, vous devez disposer d'identifiants de connexion pour accéder au portail d'assistance aux entreprises de NVIDIA.  Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Nvidia/How_To_Register_With_NVIDIA_For_Enterprise_Support_Portal_Access["Comment s'inscrire auprès de NVIDIA pour accéder au portail d'assistance aux entreprises"^] .
 
 
 
@@ -44,5 +44,5 @@ Le commutateur SN2100 prend en charge les applications de cluster et de stockage
 * Vous pouvez installer Cumulus Linux lorsque le commutateur exécute Cumulus Linux ou ONIE.
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir examiné les exigences de configuration, vous pouvez confirmer votre link:components-sn2100-cluster.html["composants et numéros de pièces"].

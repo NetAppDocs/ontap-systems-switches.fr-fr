@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
 summary: Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les informations suivantes. 
 ---
-= Examinez les considérations relatives au câblage et à la configuration
+= Examiner les considérations relatives au câblage et à la configuration
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,7 +17,7 @@ Avant de configurer vos commutateurs 9336C-FX2 et 9336C-FX2-T, passez en revue l
 
 == Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7
 
-Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports de carte réseau NVIDIA ConnectX-6 (CX6), ConnectX-6 DX (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.
+Si vous connectez un port de commutateur à un contrôleur ONTAP en utilisant des ports NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.
 
 [listing, subs="+quotes"]
 ----
@@ -32,11 +32,11 @@ Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de po
 *Save the changes:*
 (cs1)# *copy running-config startup-config*
 ----
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 
 
-== Exigences FEC 25 GbE
+== Exigences FEC 25GbE
 
 
 
@@ -55,8 +55,8 @@ Les ports FAS2820 e0a et e0b nécessitent des modifications de configuration FEC
 ----
 
 
-== Les ports ne sont pas liés en raison des ressources TCAM
+== Les ports ne se connectent pas en raison des ressources TCAM.
 
 Sur les commutateurs 9336C-FX2 et 9336C-FX2-T, les ressources de mémoire adressable de contenu ternaire (TCAM) configurées dans la configuration utilisée par le commutateur sont épuisées.
 
-Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Les ports ne sont pas liés sur Cisco Nexus 9336C-FX2 en raison des ressources TCAM"^] pour plus d'informations sur la résolution de ce problème.
+Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Les ports ne se connectent pas sur le Cisco Nexus 9336C-FX2 en raison des ressources TCAM."^] pour plus de détails sur la façon de résoudre ce problème.

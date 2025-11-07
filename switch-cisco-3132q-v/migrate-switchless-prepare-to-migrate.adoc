@@ -2,19 +2,19 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Préparation à la migration depuis des clusters sans commutateur vers des clusters avec commutateur
+= Préparez-vous à la migration des clusters sans commutateur vers les clusters commutés.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-La procédure suivante permet de préparer votre cluster sans commutateur à une migration vers un cluster à 2 nœuds avec commutateur.
+Suivez ces étapes pour préparer votre cluster sans commutateur à la migration vers un cluster commuté à deux nœuds.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -24,17 +24,17 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster :
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -59,12 +59,12 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 4 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques :
+.. Afficher les informations relatives aux interfaces logiques :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -84,20 +84,20 @@ Cluster
 ====
 
 
-. Vérifiez que les RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3132Q-V selon vos besoins, et apportez les personnalisations essentielles du site, telles que les utilisateurs et les mots de passe, les adresses réseau, etc.
+. Vérifiez que les RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3132Q-V selon vos besoins, et effectuez toutes les personnalisations essentielles du site, telles que les utilisateurs et les mots de passe, les adresses réseau, etc.
 +
-Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et le logiciel d'image, vous devez suivre les étapes suivantes :
+Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à jour le logiciel RCF et d'imagerie, vous devez suivre les étapes suivantes :
 
 +
-.. Aller àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Allez àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site d'assistance NetApp .
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de RCF.
-.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-.. Téléchargez la version appropriée du logiciel d'image.
+.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel de traitement d'images.
 
 
-. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
+. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 link:migrate-switchless-configure-ports.html["Configurez vos ports"].

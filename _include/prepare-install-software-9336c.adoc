@@ -3,61 +3,61 @@
 
 
 .Documentation suggérée
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["page du commutateur Ethernet Cisco"^]
 +
 Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guides de mise à niveau et de mise à niveau des logiciels"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guides de mise à niveau et de rétrogradation des logiciels"^]
 +
-Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
-* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Mise à niveau Cisco Nexus 9000 et 3000 et matrice ISSU"^]
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matrice de mise à niveau et de mise à niveau logicielle sans interruption de service (ISSU) des Cisco Nexus 9000 et 3000"^]
 +
-Fournit des informations sur la mise à niveau/rétrogradation perturbatrice du logiciel Cisco NX-OS sur les commutateurs Nexus série 9000 en fonction de vos versions actuelles et cibles.
+Fournit des informations sur la mise à niveau/rétrogradation disruptive du logiciel Cisco NX-OS sur les commutateurs de la série Nexus 9000 en fonction de vos versions actuelles et cibles.
 
 +
-Sur la page, sélectionnez *upgrade perturbateur* et sélectionnez votre version actuelle et votre version cible dans la liste déroulante.
+Sur la page, sélectionnez *Mise à niveau disruptive* et choisissez votre version actuelle et votre version cible dans la liste déroulante.
 
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs Cisco sont cs1 et cs2.
 * Les noms des nœuds sont cluster1-01 et cluster1-02.
-* Les noms de LIF de cluster sont cluster1-01_concluA1 et cluster1-01_clus2 pour cluster1-01 et cluster1-02_clum1 et cluster1-02_clus2 pour cluster1-02.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les noms LIF du cluster sont cluster1-01_clus1 et cluster1-01_clus2 pour le cluster1-01 et cluster1-02_clus1 et cluster1-02_clus2 pour le cluster1-02.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 où x représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
-. Afficher le nombre d'interfaces d'interconnexion de cluster configurées sur chaque nœud pour chaque commutateur d'interconnexion de cluster :
+. Afficher le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
 +
 [source, cli]
 ----
 network device-discovery show -protocol cdp
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -77,16 +77,16 @@ cluster1-01/cdp
 4 entries were displayed.
 ----
 ====
-. Vérifier le statut administratif ou opérationnel de chaque interface de cluster.
+. Vérifiez l'état administratif ou opérationnel de chaque interface du cluster.
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -110,14 +110,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-.. Afficher les informations relatives aux LIFs :
+.. Afficher les informations relatives aux LIF :
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -138,22 +138,22 @@ Cluster
 ====
 
 
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -169,9 +169,9 @@ node2
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2    cluster1-01_clus2   none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -204,14 +204,14 @@ RPC status:
 ----
 --
 ====
-. [[step6]] vérifier que la commande auto-revert est activée sur toutes les LIFs du cluster :
+. [[étape 6]] Vérifiez que la commande de restauration automatique est activée sur toutes les LIF du cluster :
 +
 [source, cli]
 ----
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]

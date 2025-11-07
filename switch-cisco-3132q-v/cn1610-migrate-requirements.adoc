@@ -4,88 +4,88 @@ sidebar: sidebar
 keywords: install, cisco nexus 3132q-v switch, 
 summary: Avant de configurer les commutateurs Cisco Nexus 3132q-v, consultez un aperçu du processus et de la nomenclature. 
 ---
-= Conditions requises pour la migration
+= Exigences de migration
 :allow-uri-read: 
 :imagesdir: ../media/
 
 
 [role="lead"]
-Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.
+Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
 
 [NOTE]
 ====
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 ====
 Pour plus d'informations, voir :
 
-* https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Page de description NetApp CN1601 et CN1610"^]
-* https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Description du commutateur Ethernet Cisco"^]
+* https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Page de description des modèles NetApp CN1601 et CN1610"^]
+* https://mysupport.netapp.com/site/info/cisco-ethernet-switch["page de description du commutateur Ethernet Cisco"^]
 * http://hwu.netapp.com["Hardware Universe"^]
 
 
 
 
-== Exigences du CN1610
+== Exigences CN1610
 
-Les commutateurs de cluster suivants sont pris en charge :
+Les commutateurs de cluster suivants sont pris en charge :
 
 * NetApp CN1610
 * Cisco Nexus 3132Q-V
 
 
-Les commutateurs du cluster prennent en charge les connexions de nœud suivantes :
+Les commutateurs du cluster prennent en charge les connexions de nœuds suivantes :
 
-* NetApp CN1610 : ports 0/1 à 0/12 (10 GbE)
-* Cisco Nexus 3132Q-V : ports e1/1-30 (40/100 GbE)
+* NetApp CN1610 : ports 0/1 à 0/12 (10 GbE)
+* Cisco Nexus 3132Q-V : ports e1/1-30 (40/100 GbE)
 
 
-Les commutateurs de cluster utilisent les ports ISL (Inter-switch Link) suivants :
+Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) suivants :
 
-* NetApp CN1610 : ports 0/13 à 0/16 (10 GbE)
-* Cisco Nexus 3132Q-V : ports e1/31-32 (40/100 GbE)
+* NetApp CN1610 : ports 0/13 à 0/16 (10 GbE)
+* Cisco Nexus 3132Q-V : ports e1/31-32 (40/100 GbE)
 +
-Le link:https://hwu.netapp.com/["Hardware Universe"^] Contient des informations sur le câblage pris en charge vers les commutateurs Nexus 3132Q-V :
+Lelink:https://hwu.netapp.com/["Hardware Universe"^] contient des informations sur le câblage pris en charge pour les commutateurs Nexus 3132Q-V :
 
-* Les nœuds équipés de connexions de cluster 10 GbE requièrent des câbles QSFP à connecteur de fibre optique SFP+ ou des câbles QSFP à connecteur de cuivre SFP+
-* Les nœuds équipés de connexions de cluster 40/100 GbE requièrent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28
-
-
-Le câblage ISL approprié est le suivant :
-
-* Début : pour CN1610 à CN1610 (SFP+ à SFP+), quatre câbles fibre optique SFP+ ou cuivre à connexion directe
-* Intérimaire : pour les modèles CN1610 à Nexus 3132Q-V (QSFP à quatre connecteurs SFP+), un câble QSFP à fibre optique ou à câble de dérivation en cuivre SFP+
-* Final : pour les Nexus 3132Q-V vers Nexus 3132Q-V (QSFP28 vers QSFP28), deux câbles à fibre optique QSFP28 ou à connexion directe en cuivre
+* Les nœuds dotés de connexions de cluster 10 GbE nécessitent des câbles de dérivation à fibre optique QSFP vers SFP+ ou des câbles de dérivation en cuivre QSFP vers SFP+.
+* Les nœuds dotés de connexions de cluster 40/100 GbE nécessitent des modules optiques QSFP/QSFP28 compatibles avec des câbles à fibres optiques ou des câbles à connexion directe en cuivre QSFP/QSFP28.
 
 
-Les câbles NetApp Twinax ne sont pas compatibles avec les commutateurs Cisco Nexus 3132Q-V.
+Le câblage ISL approprié est le suivant :
 
-Si votre configuration CN1610 actuelle utilise des câbles NetApp Twinax pour les connexions cluster-nœud-commutateur ou ISL et que vous souhaitez continuer à utiliser Twinax dans votre environnement, vous devez acheter des câbles Cisco Twinax. Vous pouvez également utiliser des câbles à fibre optique pour les connexions ISL et les connexions cluster-node-switch.
+* Pour les connexions CN1610 à CN1610 (SFP+ à SFP+), quatre câbles SFP+ à fibre optique ou à connexion directe en cuivre.
+* Solution provisoire : pour la connexion CN1610 vers Nexus 3132Q-V (adaptateur QSFP vers quatre SFP+), un câble adaptateur fibre optique ou cuivre QSFP vers SFP+.
+* Version finale : Pour une connexion Nexus 3132Q-V à Nexus 3132Q-V (QSFP28 à QSFP28), deux câbles à fibre optique ou à connexion directe en cuivre QSFP28
 
-.A propos des exemples utilisés
-Les exemples de cette procédure décrivent le remplacement des commutateurs CN1610 par des commutateurs Cisco Nexus 3132Q-V. Vous pouvez utiliser ces étapes (avec modifications) pour d'autres anciens commutateurs Cisco.
 
-La procédure utilise également la nomenclature de commutateur et de nœud suivante :
+Les câbles twinax NetApp ne sont pas compatibles avec les commutateurs Cisco Nexus 3132Q-V.
 
-* Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+Si votre configuration CN1610 actuelle utilise des câbles twinax NetApp pour les connexions nœud de cluster-commutateur ou les connexions ISL et que vous souhaitez continuer à utiliser twinax dans votre environnement, vous devez vous procurer des câbles twinax Cisco .  Vous pouvez également utiliser des câbles à fibres optiques pour les connexions ISL et les connexions entre les nœuds du cluster et le commutateur.
+
+.À propos des exemples utilisés
+Les exemples de cette procédure décrivent le remplacement des commutateurs CN1610 par des commutateurs Cisco Nexus 3132Q-V.  Vous pouvez utiliser ces étapes (avec des modifications) pour d'autres commutateurs Cisco plus anciens.
+
+La procédure utilise également la nomenclature suivante pour les commutateurs et les nœuds :
+
+* Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 * Les commutateurs CN1610 à remplacer sont *CL1* et *CL2*.
-* Les commutateurs Nexus 3132Q-V pour remplacer les commutateurs CN1610 sont *C1* et *C2*.
-* *N1_clus1* est la première interface logique de cluster (LIF) connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
-* *N1_clus2* est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
-* *N1_clus3* est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
-* *N1_clus4* est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] page.
-* Les noeuds sont *n1*, *n2*, *n3* et *n4*.
+* Les commutateurs Nexus 3132Q-V destinés à remplacer les commutateurs CN1610 sont *C1* et *C2*.
+* *n1_clus1* est la première interface logique de cluster (LIF) connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
+* *n1_clus2* est le premier LIF de cluster connecté au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
+* *n1_clus3* est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
+* *n1_clus4* est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles sur le https://mysupport.netapp.com/NOW/download/software/sanswitch/fcp/Cisco/netapp_cnmn/download.shtml["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] page.
+* Les nœuds sont *n1*, *n2*, *n3* et *n4*.
 
 
-Les exemples de cette procédure utilisent quatre nœuds :
+Les exemples de cette procédure utilisent quatre nœuds :
 
 * Deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : *e0a*, *e0b*, *e0c* et *e0d*.
 * Les deux autres nœuds utilisent deux ports d'interconnexion de cluster 40 GbE : *e4a* et *e4e*.
 +
-Le link:https://hwu.netapp.com/["Hardware Universe"^] répertorie les ports de cluster réels sur vos plateformes.
+Lelink:https://hwu.netapp.com/["Hardware Universe"^] liste les ports de cluster réels sur vos plateformes.
 
 
 
-.Et la suite ?
-link:cn5596-prepare-to-migrate.html["La préparation à la migration"].
+.Quelle est la prochaine étape ?
+link:cn5596-prepare-to-migrate.html["Préparez-vous à la migration"].

@@ -2,47 +2,47 @@
 permalink: switch-cisco-92300/install-nxos-overview.html 
 sidebar: sidebar 
 keywords: install nx-os rcf cisco nx 92300yc cluster switch 
-summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence \(RCFs\) doivent être installés sur les commutateurs de cluster Cisco Nexus 92300YC.' 
+summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 92300YC.' 
 ---
-= Préparation à l'installation du logiciel NX-OS et du fichier RCF (Reference Configuration File)
+= Préparez-vous à installer le logiciel NX-OS et le fichier de configuration de référence (RCF).
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant d'installer le logiciel NX-OS et le fichier RCF (Reference Configuration File), suivez cette procédure.
+Avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF), suivez cette procédure.
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Logiciels et guides de mise à niveau appropriés, disponibles sur le site https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus 9000 Series"^].
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux ni problème similaire).
+* Logiciels appropriés et guides de mise à niveau, disponibles auprès de https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^] .
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b` .  Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
 
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms des deux commutateurs Cisco sont `cs1` et `cs2`.
-* Les noms de nœud sont `node1` et `node2`.
-* Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour les nœuds 1 et `node2_clus1` et `node2_clus2` pour le noeud 2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les noms des deux commutateurs Cisco sont : `cs1` et `cs2` .
+* Les noms des nœuds sont `node1` et `node2` .
+* Les noms LIF du cluster sont `node1_clus1` et `node1_clus2` pour le nœud 1 et `node2_clus1` et `node2_clus2` pour le nœud 2.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire. Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.  Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
 .Étapes
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 `set -privilege advanced`
 
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -51,19 +51,19 @@ où _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 +
-La commande suivante supprime la création automatique de dossiers pendant deux heures :
+La commande suivante désactive la création automatique de cas pendant deux heures :
 
 +
 [listing]
 ----
 cluster1:> **system node autosupport invoke -node * -type all -message MAINT=2h**
 ----
-. Afficher le nombre d'interfaces d'interconnexion de cluster configurées sur chaque nœud pour chaque commutateur d'interconnexion de cluster : `network device-discovery show -protocol cdp`
+. Afficher le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster : `network device-discovery show -protocol cdp`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -83,11 +83,11 @@ node1      /cdp
 4 entries were displayed.
 ----
 ====
-. Vérifier le statut administratif ou opérationnel de chaque interface de cluster.
+. Vérifiez l'état administratif ou opérationnel de chaque interface du cluster.
 +
-.. Afficher les attributs des ports réseau :  `network port show –ipspace Cluster`
+.. Afficher les attributs du port réseau : `network port show –ipspace Cluster`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -111,9 +111,9 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 4 entries were displayed.
 ----
 ====
-.. Afficher les informations relatives aux LIFs : `network interface show -vserver Cluster`
+.. Afficher les informations relatives aux LIF : `network interface show -vserver Cluster`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -134,22 +134,22 @@ Cluster
 ====
 
 
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -165,9 +165,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -200,12 +200,12 @@ RPC status:
 ----
 --
 ====
-. [[step6]] vérifier que la commande auto-revert est activée sur toutes les LIFs du cluster :
+. [[étape 6]] Vérifiez que la commande de restauration automatique est activée sur toutes les LIF du cluster :
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -226,5 +226,5 @@ Cluster
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 link:install-nxos-software.html["Installez le logiciel NX-OS"].

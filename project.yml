@@ -14,13 +14,13 @@ sidebar:
   entries:
   - title: Documentation des commutateurs pour les systèmes matériels ONTAP
     url: "/index.html"
-  - title: Commencez
+  - title: Commencer
     entries:
     - title: Quoi de neuf
       url: "/whats-new.html"
-    - title: En savoir plus sur les commutateurs des systèmes ONTAP
+    - title: Découvrez les commutateurs des systèmes ONTAP
       url: "/get-started/learn-switch-concept.html"
-    - title: Mise en service
+    - title: Se mettre en marche
       url: "/get-started/get-up-and-running.html"
   - title: Commutateurs de systèmes AFX
     url: "/afx/index.html"
@@ -42,11 +42,11 @@ sidebar:
     url: "/shared/index.html"
     entries:
     - section: switch-cisco-9336c-fx2-shared
-      pdf-filename: switch-cisco-9336c-fx2-stockage
+      pdf-filename: commutateur-cisco-9336c-fx2-stockage
   - section: switch-cshm
-  - title: Commutateurs de fin de disponibilité
+  - title: Interrupteurs de fin de disponibilité
     entries:
-    - title: Présentation
+    - title: Aperçu
       url: "/overview-eod.html"
     - section: switch-cisco-3232c
     - section: switch-cisco-3132q-v

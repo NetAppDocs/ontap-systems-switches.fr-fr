@@ -9,11 +9,11 @@ summary: 'Présentation de l"installation et de la configuration des commutateur
 
 
 [role="lead"]
-Le commutateur Cisco 9332D-GX2B fait partie de la plate-forme Cisco Nexus 9000.  Les commutateurs des systèmes AFX vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
+Le commutateur Cisco 9332D-GX2B fait partie de la plate-forme Cisco Nexus 9000. Les commutateurs des systèmes AFX vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9332D-GX2B.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-setup-ports-9332d.html["Vérifiez les détails du port du commutateur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-setup-ports-9332d.html["Vérifiez les détails du port du commutateur"]
 [role="quick-margin-para"]
 Consultez les détails du port pour le commutateur Cisco 9332D-GX2B.
 
@@ -25,7 +25,7 @@ Consultez la documentation spécifique du commutateur et du contrôleur pour con
 [role="quick-margin-para"]
 Passez en revue les exigences de la fonctionnalité Cisco Smart Call Home, utilisée pour surveiller les composants matériels et logiciels de votre réseau.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware.html["Installer le matériel de fixation"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware.html["Installez le matériel"]
 [role="quick-margin-para"]
 Installez le matériel du commutateur.
 

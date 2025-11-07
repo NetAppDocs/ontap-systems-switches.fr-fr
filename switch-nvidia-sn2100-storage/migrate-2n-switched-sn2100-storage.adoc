@@ -2,105 +2,105 @@
 permalink: switch-nvidia-sn2100-storage/migrate-2n-switched-sn2100-storage.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched NVIDIA SN2100 cluster environment,switchless cluster environments,NVIDIA SN2100 switches 
-summary: 'Si vous disposez déjà d"un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster avec commutateur à deux nœuds à l"aide de commutateurs NVIDIA SN2100, ce qui vous permet d"évoluer au-delà de deux nœuds du cluster.' 
+summary: 'Si vous disposez d"un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster à deux nœuds commutés à l"aide de commutateurs NVIDIA SN2100 pour vous permettre d"évoluer au-delà de deux nœuds dans le cluster.' 
 ---
-= Migrez vers un cluster à deux nœuds avec commutateurs de cluster NVIDIA SN2100
+= Migrer vers un cluster commuté à deux nœuds avec des commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez déjà d'un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster avec commutateur à deux nœuds à l'aide de commutateurs NVIDIA SN2100, ce qui vous permet d'évoluer au-delà de deux nœuds du cluster.
+Si vous disposez d'un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster à deux nœuds commutés à l'aide de commutateurs NVIDIA SN2100 pour vous permettre d'évoluer au-delà de deux nœuds dans le cluster.
 
-La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports cluster-network.
-
-
-
-== Examen des conditions requises
-
-.Ce dont vous avez besoin
-Pour la configuration sans commutateur à 2 nœuds, vérifiez que :
-
-* La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.
-* Les nœuds exécutent ONTAP 9.10.1P3 et version ultérieure.
-* Tous les ports du cluster sont à l'état up.
-* Toutes les interfaces logiques (LIF) de cluster sont mises à l'état actif et sur leurs ports de type home.
+La procédure à suivre dépend du fait que chaque contrôleur dispose de deux ports réseau de cluster dédiés ou d'un seul port de cluster par contrôleur.  Le processus décrit fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports du réseau de cluster.
 
 
-Pour la configuration du commutateur de cluster NVIDIA SN2100, vérifiez que :
 
-* Les deux commutateurs disposent d'une connectivité réseau de gestion.
-* Il y a un accès à la console aux commutateurs du cluster.
-* Les connexions de nœud à nœud NVIDIA SN2100 et de commutateur à commutateur utilisent des câbles Twinax ou fibre optique.
+== Exigences de révision
+
+.Ce dont vous aurez besoin
+Pour la configuration sans commutateur à deux nœuds, assurez-vous que :
+
+* La configuration sans commutateur à deux nœuds est correctement mise en place et fonctionne.
+* Les nœuds exécutent ONTAP 9.10.1P3 et versions ultérieures.
+* Tous les ports du cluster sont opérationnels.
+* Toutes les interfaces logiques du cluster (LIF) sont en état actif et sur leurs ports d'origine.
+
+
+Pour la configuration du commutateur de cluster NVIDIA SN2100, assurez-vous que :
+
+* Les deux commutateurs disposent d'une connectivité au réseau de gestion.
+* Il existe un accès console aux commutateurs du cluster.
+* Les connexions de nœud à nœud et de commutateur à commutateur du commutateur NVIDIA SN2100 utilisent des câbles Twinax ou à fibre optique.
 +
 
-NOTE: Voir link:cabling-considerations-sn2100-storage.html["Considérations relatives au câblage et à la configuration"] pour mises en garde et autres détails.
+NOTE: Voirlink:cabling-considerations-sn2100-storage.html["Considérations relatives au câblage et à la configuration"] pour les mises en garde et plus de détails.
 
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^] Contient plus d'informations sur le câblage.
 
-* Les câbles ISL (Inter-Switch Link) sont connectés aux ports swp15 et swp16 sur les deux commutateurs NVIDIA SN2100.
-* La personnalisation initiale des deux commutateurs SN2100 est terminée, de sorte que :
+* Les câbles Inter-Switch Link (ISL) sont connectés aux ports swp15 et swp16 sur les deux commutateurs NVIDIA SN2100.
+* La personnalisation initiale des deux commutateurs SN2100 est terminée, de sorte que :
 +
-** Les commutateurs SN2100 exécutent la dernière version de Cumulus Linux
-** Les fichiers de configuration de référence (RCFs) ont été appliqués aux commutateurs
-** Toute personnalisation de site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
+** Les commutateurs SN2100 exécutent la dernière version de Cumulus Linux.
+** Des fichiers de configuration de référence (RCF) ont été appliqués aux commutateurs
+** Toute personnalisation du site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
 
 
 
 
 
 
-== Migrer les commutateurs
+== Déplacer les commutateurs
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs de cluster et les nœuds :
 
 * Les noms des commutateurs SN2100 sont _sw1_ et _sw2_.
 * Les noms des SVM du cluster sont _node1_ et _node2_.
-* Les noms des LIFS sont respectivement _node1_clude1_ et _node1_clus2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
-* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
-* Les ports de dérivation prennent le format suivant : swp[port]s[port de dérivation 0-3]. Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp13_.
+* Les noms des LIF sont _node1_clus1_ et _node1_clus2_ sur le nœud 1, et _node2_clus1_ et _node2_clus2_ sur le nœud 2 respectivement.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les ports du cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
+* Les ports de dérivation prennent le format : swp[port]s[port de dérivation 0-3].  Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp1s3_.
 +
-Le https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+Le https://hwu.netapp.com["Hardware Universe"^] Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
 
 
 
 
 
-=== Étape 1 : préparer la migration
+=== Étape 1 : Préparer la migration
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 où _x_ représente la durée de la fenêtre de maintenance en heures.
 
-. Modifiez le niveau de privilège en avancé, en saisissant `y` lorsque vous êtes invité à continuer :
+. Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
 +
 `set -privilege advanced`
 
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
 
 
 
 
-=== Étape 2 : configurer les câbles et les ports
+=== Étape 2 : Configurer les câbles et les ports
 
-. Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les nouveaux commutateurs sw1 et sw2 du cluster.
+. Désactivez tous les ports orientés vers les nœuds (à l'exception des ports ISL) sur les deux nouveaux commutateurs de cluster sw1 et sw2.
 +
 Vous ne devez pas désactiver les ports ISL.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les commandes suivantes désactivent les ports node-face sur les commutateurs sw1 et sw2 :
+Les commandes suivantes désactivent les ports côté nœud sur les commutateurs sw1 et sw2 :
 
 [listing, subs="+quotes"]
 ----
@@ -113,15 +113,15 @@ cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
 ====
-. Vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs SN2100 sw1 et sw2 sont en service sur les ports swp15 et swp16 :
+. Vérifiez que l'ISL et les ports physiques de l'ISL entre les deux commutateurs SN2100 sw1 et sw2 sont actifs sur les ports swp15 et swp16 :
 +
 `net show interface`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports ISL sont active sur le commutateur sw1 :
+L'exemple suivant montre que les ports ISL sont actifs sur le commutateur sw1 :
 
 [listing, subs="+quotes"]
 ----
@@ -134,7 +134,7 @@ State  Name       Spd   MTU    Mode        LLDP         Summary
 UP     swp15      100G  9216   BondMember  sw2 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw2 (swp16)  Master: cluster_isl(UP)
 ----
-+ l'exemple suivant montre que les ports ISL sont activés sur le commutateur sw2 :
++ L'exemple suivant montre que les ports ISL sont actifs sur le commutateur sw2 :
 
 +
 
@@ -150,15 +150,15 @@ UP     swp15      100G  9216   BondMember  sw1 (swp15)  Master: cluster_isl(UP)
 UP     swp16      100G  9216   BondMember  sw1 (swp16)  Master: cluster_isl(UP)
 ----
 ====
-. Vérifier que tous les ports du cluster sont bien :
+. Vérifiez que tous les ports du cluster sont opérationnels :
 +
 `network port show`
 
 +
-Chaque port doit s'afficher pendant `Link` et en bonne santé pour `Health Status`.
+Chaque port devrait s'afficher correctement. `Link` et sain pour `Health Status` .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -185,15 +185,15 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 
 ----
 ====
-. Vérifier que toutes les LIFs de cluster sont opérationnelles :
+. Vérifiez que toutes les interfaces réseau du cluster sont opérationnelles :
 +
 `network interface show`
 
 +
-Chaque LIF de cluster doit afficher la valeur true pour `Is Home` et avoir un `Status Admin/Oper` de haut/haut
+Chaque LIF de cluster doit afficher vrai pour `Is Home` et avoir un `Status Admin/Oper` de haut/haut
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -210,12 +210,12 @@ Cluster
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
 ====
-. Désactiver la fonction de revert automatique sur les LIFs du cluster :
+. Désactiver la restauration automatique sur les LIF du cluster :
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -233,17 +233,17 @@ Cluster
 
 ----
 ====
-. Débranchez le câble du port du bloc d'instruments e3a sur le nœud1, puis connectez e3a au port 3 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
+. Déconnectez le câble du port de cluster e3a sur le nœud 3, puis connectez e3a au port 1 sur le commutateur de cluster sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - commutateurs"^] contient plus d'informations sur le câblage.
+Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^] Contient plus d'informations sur le câblage.
 
-. Débranchez le câble du port du bloc d'instruments e3a sur le nœud2, puis connectez e3a au port 4 du commutateur du bloc d'instruments sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
-. Sur le commutateur sw1, activez tous les ports orientés nœud.
+. Déconnectez le câble du port de cluster e3a sur node2, puis connectez e3a au port 4 sur le commutateur de cluster sw1, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
+. Sur le commutateur sw1, activez tous les ports orientés vers le nœud.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-La commande suivante active tous les ports node-face sur le switch sw1 :
+La commande suivante active tous les ports connectés au nœud sur le commutateur sw1 :
 
 [listing, subs="+quotes"]
 ----
@@ -252,12 +252,12 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 ====
-. Sur le commutateur sw1, vérifiez que tous les ports sont en service :
+. Sur le commutateur sw1, vérifiez que tous les ports sont actifs :
 +
 `net show interface all`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -284,15 +284,15 @@ UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
 ====
-. Vérifier que tous les ports du cluster sont bien :
+. Vérifiez que tous les ports du cluster sont opérationnels :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que tous les ports du cluster apparaissent sur les nœuds 1 et sur le nœud 2 :
+L'exemple suivant montre que tous les ports du cluster sont opérationnels sur les nœuds 1 et 2 :
 
 [listing, subs="+quotes"]
 ----
@@ -316,15 +316,15 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 
 ----
 ====
-. Afficher des informations relatives à l'état des nœuds du cluster :
+. Afficher les informations relatives à l'état des nœuds du cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -337,14 +337,14 @@ node2                true    true          false
 
 ----
 ====
-. Déconnectez le câble du port du cluster e3b sur le nœud1, puis connectez e3b au port 3 du commutateur sw2 du cluster, en utilisant le câblage approprié pris en charge par les commutateurs SN2100.
-. Déconnectez le câble du port du cluster e3b sur le nœud2, puis connectez e3b au port 4 du commutateur sw2 du cluster, en utilisant le câblage approprié pris en charge par les commutateurs SN2100.
-. Sur le commutateur sw2, activez tous les ports orientés nœud.
+. Déconnectez le câble du port de cluster e3b sur le nœud 3, puis connectez e3b au port 1 sur le commutateur de cluster sw2, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
+. Déconnectez le câble du port de cluster e3b sur node2, puis connectez e3b au port 4 sur le commutateur de cluster sw2, à l'aide du câblage approprié pris en charge par les commutateurs SN2100.
+. Sur le commutateur sw2, activez tous les ports orientés vers le nœud.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les commandes suivantes permettent d'activer les ports orientés nœud sur le commutateur sw2 :
+Les commandes suivantes activent les ports côté nœud sur le commutateur sw2 :
 
 [listing, subs="+quotes"]
 ----
@@ -353,12 +353,12 @@ cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
 ====
-. Sur le commutateur sw2, vérifiez que tous les ports sont en service :
+. Sur le commutateur sw2, vérifiez que tous les ports sont actifs :
 +
 `net show interface all`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -385,15 +385,15 @@ UP     swp16     100G  9216   BondMember  swp16          Master: cluster_isl(UP)
 ...
 ----
 ====
-. Sur les deux commutateurs sw1 et sw2, vérifier que les deux nœuds ont chacun une connexion à chaque commutateur :
+. Sur les deux commutateurs sw1 et sw2, vérifiez que chaque nœud possède une connexion à chaque commutateur :
 +
 `net show lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les résultats appropriés pour les deux commutateurs sw1 et sw2 :
+L'exemple suivant illustre les résultats attendus pour les deux commutateurs sw1 et sw2 :
 
 [listing, subs="+quotes"]
 ----
@@ -420,14 +420,14 @@ swp16      100G   BondMember  sw1                swp16
 
 
 
-=== Étape 3 : réaliser la procédure
+=== Étape 3 : Terminer la procédure
 
-. Affiche des informations sur les périphériques réseau détectés dans votre cluster :
+. Afficher les informations relatives aux périphériques réseau détectés dans votre cluster :
 +
 `net device-discovery show -protocol lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -444,15 +444,15 @@ node2      /lldp
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4          -
 ----
 ====
-. Vérifier que tous les ports du cluster sont bien :
+. Vérifiez que tous les ports du cluster sont opérationnels :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que tous les ports du cluster apparaissent sur les nœuds 1 et sur le nœud 2 :
+L'exemple suivant montre que tous les ports du cluster sont opérationnels sur les nœuds 1 et 2 :
 
 [listing, subs="+quotes"]
 ----
@@ -476,12 +476,12 @@ e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 ----
 ====
-. Activer la fonction de revert automatique sur toutes les LIFs du cluster :
+. Activer la restauration automatique sur tous les LIF du cluster :
 +
 `net interface modify -vserver Cluster -lif * -auto-revert true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -498,19 +498,19 @@ Cluster
           node2_clus2   true
 ----
 ====
-. Vérifiez que toutes les interfaces affichent la valeur true pour `Is Home`:
+. Vérifiez que toutes les interfaces affichent « vrai » pour `Is Home` :
 +
 `net interface show -vserver Cluster`
 
 +
 
-NOTE: Cette opération peut prendre une minute.
+NOTE: Cela peut prendre une minute.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que toutes les LIFs sont up sur le nœud1 et celui du nœud2, ainsi que celui-ci `Is Home` les résultats sont vrais :
+L'exemple suivant montre que toutes les LIF sont opérationnelles sur les nœuds 1 et 2 et que `Is Home` Les résultats sont exacts :
 
 [listing, subs="+quotes"]
 ----
@@ -527,15 +527,15 @@ Cluster
 
 ----
 ====
-. Vérifiez que les paramètres sont désactivés :
+. Vérifiez que les paramètres sont désactivés :
 +
 `network options switchless-cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-La sortie FALSE dans l'exemple suivant montre que les paramètres de configuration sont désactivés :
+Le résultat erroné de l'exemple suivant indique que les paramètres de configuration sont désactivés :
 
 [listing, subs="+quotes"]
 ----
@@ -543,15 +543,15 @@ cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: *false*
 ----
 ====
-. Vérifiez l'état des membres du nœud sur le cluster :
+. Vérifiez l'état des nœuds membres du cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -563,22 +563,22 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -594,9 +594,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -629,15 +629,15 @@ RPC status:
 ----
 --
 ====
-. [[step8]] activez la fonction de collecte de journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux liés au commutateur, à l'aide des commandes :
+. [[étape 8]] Activez la fonction de collecte des journaux de surveillance de l'état du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur, à l'aide des commandes :
 +
-`system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
+`system switch ethernet log setup-password`et `system switch ethernet log enable-collection`
 
 +
-Entrez : `system switch ethernet log setup-password`
+Entrer: `system switch ethernet log setup-password`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -669,13 +669,13 @@ Enter the password again: <enter switch password>
 ----
 ====
 +
-Suivi par :
+Suivi de:
 
 +
 `system switch ethernet log enable-collection`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -692,20 +692,20 @@ cluster1::*>
 ====
 +
 
-NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
+NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp .
 
-. Lancez la fonction de collecte du journal du commutateur :
+. Lancer la fonction de collecte des journaux de commutation :
 +
 `system switch ethernet log collect -device *`
 
 +
-Attendez 10 minutes, puis vérifiez que la collecte de journaux a réussi à l'aide de la commande :
+Attendez 10 minutes, puis vérifiez que la collecte des journaux a réussi à l'aide de la commande :
 
 +
 `system switch ethernet log show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -719,11 +719,11 @@ Index  Switch                       Log Timestamp        Status
 2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
 ====
-. Rétablissez le niveau de privilège sur admin :
+. Rétablir le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

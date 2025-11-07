@@ -1,98 +1,98 @@
-= Examen des conditions requises
+= Exigences de révision
 :allow-uri-read: 
 
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-Assurez-vous que :
+Assurez-vous que :
 
 * Vous avez vérifié le numéro de série du commutateur pour vous assurer que le bon commutateur est migré.
-* Certains des ports des switchs Nexus 9336C-FX2 sont configurés pour s'exécuter à 10 GbE ou 40 GbE.
-* La connectivité 10 GbE et 40 GbE entre les nœuds et les commutateurs de cluster Nexus 9336C-FX2 a été planifiée, migrée et documentée.
-* Le cluster fonctionne entièrement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
-* La personnalisation initiale des commutateurs Cisco Nexus 9336C-FX2 est terminée :
+* Certains ports des commutateurs Nexus 9336C-FX2 sont configurés pour fonctionner à 10GbE ou 40GbE.
+* La connectivité 10GbE et 40GbE des nœuds aux commutateurs de cluster Nexus 9336C-FX2 a été planifiée, migrée et documentée.
+* Le cluster est pleinement fonctionnel (il ne devrait y avoir aucune erreur dans les journaux ni aucun problème similaire).
+* La personnalisation initiale des commutateurs Cisco Nexus 9336C-FX2 est terminée, de sorte que :
 +
 ** Les commutateurs 9336C-FX2 exécutent la dernière version recommandée du logiciel.
-** Vérifiez que les fichiers de configuration de référence (CFR) ont été entièrement appliqués aux nouveaux commutateurs avant de migrer les LIFs vers les nouveaux commutateurs.
-** Vérifiez les configurations en cours d'exécution et de démarrage sur les deux commutateurs avant de déplacer le trafic réseau.
-** Toute personnalisation de site, telle que DNS, NTP, SMTP, SNMP, Et SSH, sont configurés sur les nouveaux commutateurs.
+** Vérifiez que les fichiers de configuration de référence (RCF) ont été entièrement appliqués à tous les nouveaux commutateurs avant de migrer les LIF vers les nouveaux commutateurs.
+** Vérifiez les configurations en fonctionnement et de démarrage des deux commutateurs avant de rediriger le trafic réseau.
+** Toute personnalisation du site, telle que DNS, NTP, SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
 
 
-* Vous avez accès à la table de compatibilité des commutateurs sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.
-* Vous avez consulté les manuels de mise à niveau et de mise à niveau appropriés disponibles sur le site Web de Cisco pour connaître les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco à l'adresse https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus 9000 Series"^] page.
-
-
-
-NOTE: Si vous modifiez la vitesse de port des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800, vous pouvez observer que des paquets mal formés sont reçus après la conversion de vitesse. Voir  https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bogue n° 1570339"^] Et l'article de la base de connaissances https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Erreurs CRC sur les ports T6 après la conversion de 40 GbE à 100 GbE"^] pour obtenir des conseils.
+* Vous avez accès au tableau de compatibilité des commutateurs sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] page répertoriant les versions ONTAP, NX-OS et RCF prises en charge.
+* Vous avez consulté les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour les procédures de mise à niveau et de rétrogradation des commutateurs Cisco . https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 9000"^] page.
 
 
 
-== Migrer les commutateurs
+NOTE: Si vous modifiez la vitesse des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800 , vous pourriez observer la réception de paquets malformés après la conversion de vitesse.  Voir https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug 1570339"^] et l'article de la base de connaissances https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Erreurs CRC sur les ports T6 après conversion de 40 GbE à 100 GbE"^] pour vous guider.
+
+
+
+== Déplacer les commutateurs
 
 .À propos des exemples
-Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de clusters 10GbE e0a et e0b. Voir la https://hwu.netapp.com/["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE e0a et e0b.  Voir le https://hwu.netapp.com/["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
 
 
-NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms des deux commutateurs Cisco existants sont *cs1* et *cs2*
-* Les nouveaux commutateurs du bloc-commutateurs Nexus 9336C-FX2 sont *cs1-New* et *cs2-New*.
-* Les noms de noeud sont *node1* et *node2*.
-* Les noms de LIF de cluster sont *node1_clum1* et *node1_clum2* pour le nœud 1, et *node2_clum1* et *node2_clum2* pour le nœud 2.
-* L'invite *cluster1:*>* indique le nom du cluster.
+* Les noms des deux commutateurs Cisco existants sont *cs1* et *cs2*.
+* Les nouveaux commutateurs de cluster Nexus 9336C-FX2 sont *cs1-new* et *cs2-new*.
+* Les noms des nœuds sont *node1* et *node2*.
+* Les noms LIF du cluster sont *node1_clus1* et *node1_clus2* pour le nœud 1, et *node2_clus1* et *node2_clus2* pour le nœud 2.
+* L'invite *cluster1::*>* indique le nom du cluster.
 
 
-Au cours de cette procédure, se référer à l'exemple suivant :
+Au cours de cette procédure, reportez-vous à l'exemple suivant :
 
 image::../media/Initial_setup.png[Configuration initiale du commutateur]
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs Nexus 9000 Series"^] Commandes ; les commandes ONTAP sont utilisées, sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs de la série Nexus 9000"^] commandes ; les commandes ONTAP sont utilisées, sauf indication contraire.
 
-Cette procédure couvre le scénario suivant :
+Cette procédure couvre le scénario suivant :
 
-* Le commutateur cs2 est remplacé en premier par le commutateur cs2-New.
+* La Switch CS2 est d'abord remplacée par la nouvelle Switch CS2.
 +
-** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
+** Fermez les ports des nœuds du cluster.  Tous les ports doivent être fermés simultanément pour éviter l'instabilité du cluster.
 +
-*** Toutes les LIFs du cluster basculent sur le nouveau commutateur cs2-New.
+*** Toutes les interfaces logiques du cluster basculent vers le nouveau commutateur cs2-new.
 
 
-** Le câblage entre les nœuds et cs2 est ensuite déconnecté du cs2 et reconnecté au cs2-New.
+** Les câbles entre les nœuds et cs2 sont ensuite déconnectés de cs2 et reconnectés à cs2-new.
 
 
-* Le commutateur cs1 est remplacé par le commutateur cs1-New.
+* Le commutateur cs1 est remplacé par le commutateur cs1-new.
 +
-** Arrêtez les ports des nœuds du cluster. Tous les ports doivent être arrêtés simultanément pour éviter l'instabilité du cluster.
+** Fermez les ports des nœuds du cluster.  Tous les ports doivent être fermés simultanément pour éviter l'instabilité du cluster.
 +
-*** Toutes les LIFs du cluster basculent sur le nouveau commutateur cs1-New.
+*** Toutes les interfaces logiques du cluster basculent vers le nouveau commutateur cs1-new.
 
 
-** Le câblage entre les nœuds et cs1 est ensuite déconnecté de cs1 et reconnecté à cs1-New.
-
-
-
-
-
-NOTE: Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer la continuité de l'activité du cluster, la procédure suivante bascule toutes les LIFs du cluster sur le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+** Les câbles entre les nœuds et cs1 sont ensuite déconnectés de cs1 et reconnectés à cs1-new.
 
 
 
-=== Étape 1 : préparer la migration
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
+
+NOTE: Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure. Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL. Pour garantir un fonctionnement non perturbateur du cluster, la procédure suivante bascule toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
+
+
+
+=== Étape 1 : Préparer la migration
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
 où _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 `set -privilege advanced`
 
@@ -103,14 +103,14 @@ L'invite avancée (*>) apparaît.
 
 
 
-=== Étape 2 : configurer les ports et le câblage
+=== Étape 2 : Configurer les ports et le câblage
 
-. Sur les nouveaux commutateurs, vérifiez que l'ISL est câblé et en bon état entre les commutateurs cs1-nouveau et cs2-nouveau :
+. Sur les nouveaux commutateurs, vérifiez que la liaison ISL est bien câblée et fonctionnelle entre les commutateurs cs1-new et cs2-new :
 +
 `show port-channel summary`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -146,12 +146,12 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
 ====
-. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs de cluster existants :
+. Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster existants :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -168,14 +168,14 @@ node2      /cdp
             e0b    cs2                       Ethernet1/2        N5K-C5596UP
 ----
 ====
-. Déterminez le statut administratif ou opérationnel pour chaque port du cluster.
+. Déterminez l'état administratif ou opérationnel de chaque port du cluster.
 +
-.. Vérifier que tous les ports du cluster sont défectueux :
+.. Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -199,12 +199,12 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Vérifier que toutes les interfaces de cluster (LIFs) se trouvent sur leurs ports de type home :
+.. Vérifiez que toutes les interfaces du cluster (LIF) sont connectées à leurs ports d'origine :
 +
 `network interface show -vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -221,12 +221,12 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
 ----
 ====
-.. Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
+.. Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -253,18 +253,18 @@ cs2                         cluster-network     10.233.205.93   N5K-C5596UP
 ====
 
 
-. [[step_4]]Désactiver la restauration automatique sur les LIFs du cluster.
+. [[step_4]]Désactiver la restauration automatique sur les LIF du cluster.
 +
-Si vous désactivez la fonction de restauration automatique pour cette procédure, les LIF du cluster ne reviendront pas automatiquement sur leur port d'attache. Ils restent sur le port actuel pendant qu'il continue à être opérationnel.
+En désactivant la restauration automatique pour cette procédure, les LIF du cluster ne reviendront pas automatiquement à leur port d'origine.  Ils restent sur le port actuel tant qu'il reste opérationnel.
 
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
 +
 
-NOTE: La désactivation de la fonction de restauration automatique garantit que ONTAP ne bascule que sur les LIFs du cluster lorsque les ports du switch sont arrêtés ultérieurement.
+NOTE: La désactivation de la restauration automatique garantit ONTAP ne bascule sur les LIF du cluster que lorsque les ports du commutateur sont arrêtés ultérieurement.
 
-. Sur le commutateur de cluster cs2, arrêter les ports connectés aux ports de cluster de *tous* les nœuds afin de basculer sur les LIFs du cluster :
+. Sur le commutateur de cluster cs2, désactivez les ports connectés aux ports de cluster de *tous* les nœuds afin de basculer les LIF du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -275,12 +275,12 @@ cs2(config-if-range)# *exit*
 cs2(config)# *exit*
 cs2#
 ----
-. Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
+. Vérifiez que les LIF du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
 `network interface show -vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -296,12 +296,12 @@ Cluster
             node2_clus2   up/up      169.254.3.9/16     node2      e0a     false
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -313,9 +313,9 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Si les LIFs du cluster ont basculé sur le commutateur cs1 et que le cluster fonctionne correctement, passez à <<step_10,Étape. 10>>l' . Si certaines LIFs du cluster ne fonctionnent pas correctement ou si le cluster est défectueux, vous pouvez restaurer la connectivité sur le commutateur cs2 comme suit :
+. Si les LIF du cluster ont basculé vers le commutateur cs1 et que le cluster est sain, accédez à<<step_10,Étape. 10>> .  Si certaines interfaces logiques (LIF) du cluster ne sont pas saines ou si le cluster est défaillant, vous pouvez rétablir la connectivité au commutateur cs2 comme suit :
 +
-.. Afficher les ports connectés aux ports du cluster de *tous* les nœuds :
+.. Activez les ports connectés aux ports du cluster de *tous* les nœuds :
 +
 [listing, subs="+quotes"]
 ----
@@ -326,12 +326,12 @@ cs2(config-if-range)# *exit*
 cs2(config)# *exit*
 cs2#
 ----
-.. Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
+.. Vérifiez que les LIF du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
 `network interface show -vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -347,12 +347,12 @@ Cluster
             node2_clus2   up/up      169.254.3.9/16     node2      e0a     false
 ----
 ====
-.. Vérifiez que le cluster fonctionne correctement :
+.. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -366,20 +366,20 @@ node2      true    true          false
 ====
 
 
-. Une fois que vous avez restauré l'intégrité de la LIF et du cluster, redémarrez le processus à partir de <<step_4,Étape. 4>>.
-. [[STEP_10]]déplacez tous les câbles de connexion de nœud de cluster de l'ancien commutateur cs2 vers le nouveau commutateur cs2-New.
+. Une fois que vous avez rétabli l'intégrité du LIF et du cluster, redémarrez le processus à partir de<<step_4,Étape. 4>> .
+. [[step_10]]Déplacez tous les câbles de connexion des nœuds du cluster de l'ancien commutateur cs2 vers le nouveau commutateur cs2-new.
 +
-*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New*
+*Les câbles de connexion des nœuds du cluster ont été déplacés vers le nouveau commutateur cs2*
 
 +
-image::../media/new_switch_cs1.png[Câbles de connexion de nœud de cluster déplacés vers le commutateur cs2-New]
+image::../media/new_switch_cs1.png[Les câbles de connexion des nœuds du cluster ont été déplacés vers le nouveau commutateur cs2.]
 
-. Confirmez l'intégrité des connexions réseau transférées vers cs2-New :
+. Vérifiez l'état des connexions réseau déplacées vers cs2-new :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -404,14 +404,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
 +
-Tous les ports de cluster qui ont été déplacés doivent être en service.
+Tous les ports du cluster qui ont été déplacés devraient être opérationnels.
 
-. Vérifier les informations de voisins sur les ports du cluster :
+. Vérifiez les informations des voisins sur les ports du cluster :
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -431,16 +431,16 @@ node2      /cdp
 ----
 ====
 +
-Vérifiez que les ports de cluster déplacés voient le commutateur cs2-New comme voisin.
+Vérifiez que les ports du cluster déplacés voient le nouveau commutateur cs2 comme voisin.
 
-. Vérifiez les connexions des ports de commutateur du point de vue du commutateur cs2-New :
+. Vérifiez les connexions des ports du commutateur du point de vue du commutateur cs2-new :
 +
 [listing, subs="+quotes"]
 ----
 cs2-new# *show interface brief*
 cs2-new# *show cdp neighbors*
 ----
-. Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster de *tous* les nœuds afin de faire basculer les LIFs de cluster.
+. Sur le commutateur de cluster cs1, désactivez les ports connectés aux ports de cluster de *tous* les nœuds afin de basculer les LIF du cluster.
 +
 [listing, subs="+quotes"]
 ----
@@ -452,14 +452,14 @@ cs1(config)# *exit*
 cs1#
 ----
 +
-Toutes les LIFs du cluster basculent sur le commutateur cs2-New.
+Toutes les interfaces logiques du cluster basculent vers le nouveau commutateur cs2.
 
-. Vérifiez que les LIFs du cluster ont basculé vers les ports hébergés sur le commutateur cs2-New. Cette opération peut prendre quelques secondes :
+. Vérifiez que les LIF du cluster ont basculé vers les ports hébergés sur le commutateur cs2-new.  Cela peut prendre quelques secondes :
 +
 `network interface show -vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -475,12 +475,12 @@ Cluster
             node2_clus2  up/up      169.254.3.9/16     node2       e0b     true
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -492,19 +492,19 @@ node1      true    true          false
 node2      true    true          false
 ----
 ====
-. Déplacez les câbles de connexion du nœud de cluster de cs1 vers le nouveau commutateur cs1-New.
+. Déplacez les câbles de connexion du nœud de cluster de cs1 vers le nouveau commutateur cs1-new.
 +
-*Câbles de connexion de nœud de cluster déplacés vers le commutateur cs1-New*
+*Les câbles de connexion des nœuds du cluster ont été déplacés vers le nouveau commutateur cs1*
 
 +
-image::../media/new_switch_cs2.png[Câbles de connexion de nœud de cluster déplacés vers le commutateur cs1-New]
+image::../media/new_switch_cs2.png[Les câbles de connexion des nœuds du cluster ont été déplacés vers le nouveau commutateur cs1.]
 
-. Confirmez l'intégrité des connexions réseau transférées vers cs1-New :
+. Vérifiez l'état des connexions réseau déplacées vers cs1-new :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -529,14 +529,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
 +
-Tous les ports de cluster qui ont été déplacés doivent être en service.
+Tous les ports du cluster qui ont été déplacés devraient être opérationnels.
 
-. Vérifier les informations de voisins sur les ports du cluster :
+. Vérifiez les informations des voisins sur les ports du cluster :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -555,21 +555,21 @@ node2      /cdp
 ----
 ====
 +
-Vérifiez que les ports de cluster déplacés voient le commutateur cs1-New comme voisin.
+Vérifiez que les ports du cluster déplacés voient le commutateur cs1-new comme voisin.
 
-. Vérifiez les connexions des ports de commutateur du point de vue du commutateur cs1-New :
+. Vérifiez les connexions des ports du commutateur du point de vue du commutateur cs1-new :
 +
 [listing, subs="+quotes"]
 ----
 cs1-new# *show interface brief*
 cs1-new# *show cdp neighbors*
 ----
-. Vérifiez que l'ISL entre cs1-New et cs2-New est toujours opérationnel :
+. Vérifiez que la liaison ISL entre cs1-new et cs2-new est toujours opérationnelle :
 +
 `show port-channel summary`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -609,36 +609,36 @@ Group Port-       Type     Protocol  Member Ports
 
 
 
-=== Étape 3 : vérifier la configuration
+=== Étape 3 : Vérifier la configuration
 
-. Activez la fonction de revert automatique sur les LIFs du cluster.
+. Activer la restauration automatique sur les LIF du cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Vérifier que les LIFs du cluster sont rétablies sur leurs ports de base (cette opération peut prendre une minute) :
+. Vérifiez que les LIF du cluster sont revenues à leurs ports d'origine (cela peut prendre une minute) :
 +
 `network interface show -vserver Cluster`
 
 +
-Si les LIF de cluster n'ont pas été rétablies sur leur port de départ, elles peuvent être revert manuellement :
+Si les LIF du cluster ne sont pas revenues à leur port d'origine, rétablissez-les manuellement :
 
 +
 `network interface revert -vserver Cluster -lif *`
 
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
@@ -662,9 +662,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -697,8 +697,8 @@ RPC status:
 ----
 --
 ====
-. [[step5]]si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+. [[étape 5]]Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois les commutateurs migrés, vous pouvezlink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

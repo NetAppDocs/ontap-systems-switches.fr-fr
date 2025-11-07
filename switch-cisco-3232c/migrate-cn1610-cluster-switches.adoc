@@ -2,27 +2,27 @@
 permalink: switch-cisco-3232c/migrate-cn1610-cluster-switches.html 
 sidebar: sidebar 
 keywords: migrate, cn1610 switch, cisco nexus 3232c cluster 
-summary: 'Pour remplacer les switchs de cluster CN1610 existants d"un cluster par des switchs de cluster Cisco Nexus 3232C, vous devez effectuer une séquence de tâches spécifique.' 
+summary: Pour remplacer les commutateurs de cluster CN1610 existants dans un cluster par des commutateurs de cluster Cisco Nexus 3232C, vous devez effectuer une séquence de tâches spécifique. 
 ---
-= Migrez un switch de cluster CN1610 vers un switch de cluster Cisco Nexus 3232C
+= Migrer un commutateur de cluster CN1610 vers un commutateur de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour remplacer les switchs de cluster CN1610 existants d'un cluster par des switchs de cluster Cisco Nexus 3232C, vous devez effectuer une séquence de tâches spécifique.
+Pour remplacer les commutateurs de cluster CN1610 existants dans un cluster par des commutateurs de cluster Cisco Nexus 3232C, vous devez effectuer une séquence de tâches spécifique.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-Avant la migration, n'oubliez pas de la consulter link:migrate-requirements-3232c.html["Conditions requises pour la migration"].
+Avant la migration, assurez-vous de consulterlink:migrate-requirements-3232c.html["Exigences de migration"] .
 
 
-NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+NOTE: La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Si nécessaire, se référer aux sections suivantes pour plus d'informations :
+Si nécessaire, veuillez vous référer aux informations suivantes :
 
 * link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 et CN1610"^]
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
@@ -31,29 +31,29 @@ Si nécessaire, se référer aux sections suivantes pour plus d'informations :
 
 
 
-== Migrer les commutateurs
+== Déplacer les commutateurs
 
 .À propos des exemples
-Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux câbles fibre d'interconnexion de cluster 40 GbE : e4a et e4e. Le link:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les câbles à fibre optique du cluster de vos plates-formes.
+Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d’interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d.  Les deux autres nœuds utilisent deux câbles à fibres optiques d'interconnexion de cluster 40 GbE : e4a et e4e.  Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les câbles à fibres optiques en grappe sur vos plateformes.
 
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les nœuds sont n1, n2, n3 et n4.
-* Les sorties de la commande peuvent varier en fonction des différentes versions du logiciel ONTAP.
+* Les résultats des commandes peuvent varier en fonction des différentes versions du logiciel ONTAP .
 * Les commutateurs CN1610 à remplacer sont CL1 et CL2.
-* Les switchs Nexus 3232C pour remplacer les switchs CN1610 sont C1 et C2.
-* n1_conclu1 est la première interface logique (LIF) de cluster connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.
-* n1_CL2 est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
-* n1_clus3 est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
-* n1_CL4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
+* Les commutateurs Nexus 3232C destinés à remplacer les commutateurs CN1610 sont C1 et C2.
+* n1_clus1 est la première interface logique de cluster (LIF) qui est connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.
+* n1_clus2 est le premier LIF de cluster connecté au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
+* n1_clus3 est le deuxième LIF connecté au commutateur de cluster 2 (CL2 ou C2) pour le nœud n1.
+* n1_clus4 est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud n1.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
 
 
 
-=== Étape 1 : préparer la migration
+=== Étape 1 : Préparer la migration
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -63,18 +63,18 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Ce message informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Ce message informe le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Afficher des informations sur les périphériques de votre configuration :
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre combien d'interfaces d'interconnexion de cluster ont été configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
+L'exemple suivant illustre le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -97,14 +97,14 @@ n2     /cdp
 8 entries were displayed.
 ----
 ====
-. Détermination du statut administratif ou opérationnel pour chaque interface de cluster
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster.
 +
-.. Afficher les attributs des ports réseau du cluster :
+.. Afficher les attributs du port réseau du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -132,12 +132,12 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 8 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques :
+.. Afficher les informations relatives aux interfaces logiques :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -160,15 +160,15 @@ Cluster
  8 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les commutateurs de cluster découverts :
+.. Afficher les informations relatives aux commutateurs de cluster détectés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche les commutateurs de cluster connus sur le cluster avec leurs adresses IP de gestion :
+L'exemple suivant affiche les commutateurs du cluster connus de celui-ci, ainsi que leurs adresses IP de gestion :
 
 [listing, subs="+quotes"]
 ----
@@ -193,27 +193,27 @@ CL2                           cluster-network  10.10.1.102   CN1610
 ====
 
 
-. Vérifiez que le RCF et l'image appropriés sont installés sur les nouveaux switchs 3232C selon vos besoins et que vous pouvez personnaliser le site de base.
+. Vérifiez que le RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3232C selon vos besoins, et effectuez les personnalisations essentielles du site.
 +
-Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer la procédure suivante :
+Vous devriez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à niveau le RCF et l'image, vous devez suivre la procédure suivante :
 
 +
-.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
-.. Téléchargez la version appropriée de la FCR.
-.. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
-.. Téléchargez la version appropriée du logiciel d'image surlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^] .
+.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site d'assistance NetApp .
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Téléchargez la version appropriée du RCF.
+.. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel d'image à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence pour les commutateurs réseau de cluster et de gestion Cisco"^] .
 
 
-. Migrer les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :
+. Migrez les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ destination-node _destination-node-name_ -destination-port _destination-port-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez migrer chaque LIF individuellement comme indiqué dans l'exemple suivant :
+Vous devez migrer chaque LIF individuellement, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -227,12 +227,12 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus3 -source-no
 -destination-node  n2  -destination-port  e0d*
 ----
 ====
-. Vérifiez l'état du cluster :
+. Vérifier l'état de santé du cluster :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -259,17 +259,17 @@ Cluster
 
 
 
-=== Étape 2 : remplacer le commutateur CL2 du bloc d'instruments par C2
+=== Étape 2 : Remplacer le commutateur de cluster CL2 par C2
 
-. Arrêtez les ports d'interconnexion de cluster qui sont physiquement connectés au commutateur CL2 :
+. Fermez les ports d'interconnexion du cluster qui sont physiquement connectés au commutateur CL2 :
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les quatre ports d'interconnexion de cluster en cours d'arrêt pour le nœud n1 et le nœud n2 :
+L'exemple suivant montre la désactivation des quatre ports d'interconnexion du cluster pour les nœuds n1 et n2 :
 
 [listing, subs="+quotes"]
 ----
@@ -279,22 +279,22 @@ cluster::*> *network port modify -node n2 -port e0b -up-admin false*
 cluster::*> *network port modify -node n2 -port e0c -up-admin false*
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -311,9 +311,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -362,15 +362,15 @@ RPC status:
 ----
 --
 ====
-. [[step3]] arrêtez les ports ISL 13 à 16 sur le commutateur CN1610 CL1 actif à l'aide de la commande appropriée.
+. [[étape 3]] Fermez les ports ISL 13 à 16 sur le commutateur CN1610 actif CL1 à l'aide de la commande appropriée.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports ISL 13 à 16 sont arrêtés sur le commutateur CN1610 CL1 :
+L'exemple suivant montre la désactivation des ports ISL 13 à 16 sur le commutateur CN1610 CL1 :
 
 [listing, subs="+quotes"]
 ----
@@ -382,15 +382,15 @@ L'exemple suivant montre que les ports ISL 13 à 16 sont arrêtés sur le commut
 (CL1)#
 ----
 ====
-. Construire un ISL temporaire entre CL1 et C2 :
+. Établir une liaison inter-niveaux temporaire entre CL1 et C2 :
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant illustre la création d'un ISL temporaire entre CL1 (ports 13-16) et C2 (ports e1/24/1-4) à l'aide de Cisco `switchport mode trunk` commande :
+L'exemple suivant illustre la création d'une liaison inter-commutateurs (ISL) temporaire entre CL1 (ports 13-16) et C2 (ports e1/24/1-4) à l'aide d'un Cisco. `switchport mode trunk` commande:
 
 [listing, subs="+quotes"]
 ----
@@ -408,32 +408,32 @@ C2(config-if-range)# *exit*
 C2(config-if)# *exit*
 ----
 ====
-. Retirez les câbles reliés au commutateur CN1610 CL2 de tous les nœuds.
+. Retirez les câbles connectés au commutateur CN1610 CL2 sur tous les nœuds.
 +
-À l'aide du câblage pris en charge, vous devez reconnecter les ports déconnectés de tous les nœuds au switch Nexus 3232C C2.
+En utilisant un câblage compatible, vous devez reconnecter les ports déconnectés sur tous les nœuds au commutateur Nexus 3232C C2.
 
 . Retirez quatre câbles ISL des ports 13 à 16 du commutateur CN1610 CL1.
 +
-Vous devez connecter les câbles de dérivation Cisco QSFP28 vers SFP+ appropriés, qui relient le port 1/24 du nouveau commutateur Cisco 3232C C2 aux ports 13 à 16 du commutateur CN1610 existant CL1.
+Vous devez connecter les câbles de dérivation Cisco QSFP28 vers SFP+ appropriés reliant le port 1/24 du nouveau commutateur Cisco 3232C C2 aux ports 13 à 16 du commutateur CN1610 existant CL1.
 
 +
 [NOTE]
 ====
-Lors du reconnexion des câbles au nouveau switch Cisco 3232C, les câbles utilisés doivent être des câbles fibre optique ou twinax Cisco.
+Lors du rebranchement de câbles sur le nouveau commutateur Cisco 3232C, les câbles utilisés doivent être soit des câbles à fibre optique, soit des câbles twinax Cisco .
 
 ====
-. Activez l'ISL dynamique en configurant l'interface ISL 3/1 sur le commutateur CN1610 actif pour désactiver le mode statique.
+. Rendez l'ISL dynamique en configurant l'interface ISL 3/1 sur le commutateur CN1610 actif pour désactiver le mode statique.
 +
-Cette configuration correspond à la configuration ISL sur le switch 3232C de 2 lorsque les liens ISL sont activés sur les deux switchs.
+Cette configuration correspond à la configuration ISL sur le commutateur 3232C C2 lorsque les ISL sont activés sur les deux commutateurs.
 
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'interface ISL 3/1 configurée pour rendre le ISL dynamique :
+L'exemple suivant montre la configuration de l'interface ISL 3/1 pour rendre l'ISL dynamique :
 
 [listing, subs="+quotes"]
 ----
@@ -445,15 +445,15 @@ L'exemple suivant montre l'interface ISL 3/1 configurée pour rendre le ISL dyna
 (CL1)#
 ----
 ====
-. Intégrez des liens ISL 13 à 16 sur le commutateur CN1610 actif CL1.
+. Activez les ISL 13 à 16 sur le commutateur CN1610 actif CL1.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports ISL 13 à 16 sont mis en service sur l'interface port-Channel 3/1 :
+L'exemple suivant montre comment activer les ports ISL 13 à 16 sur l'interface de canal de port 3/1 :
 
 [listing, subs="+quotes"]
 ----
@@ -465,15 +465,15 @@ L'exemple suivant montre que les ports ISL 13 à 16 sont mis en service sur l'in
 (CL1)#
 ----
 ====
-. Vérifiez que les liens ISL sont `up` Sur le commutateur CN1610 CL1.
+. Vérifiez que les ISL sont `up` sur le commutateur CN1610 CL1.
 +
-L'état de la liaison doit être de `Up`, "Type" doit être `Dynamic`, Et la colonne "Port actif" doit être `True` pour les ports 0/13 à 0/16.
+L'« état du lien » devrait être `Up` , « Type » devrait être `Dynamic` et la colonne « Port actif » devrait être `True` pour les ports 0/13 à 0/16.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les liens ISL sont vérifiés `up` Sur le commutateur CN1610 CL1 :
+L'exemple suivant montre la vérification des ISL comme `up` sur le commutateur CN1610 CL1 :
 
 [listing, subs="+quotes"]
 ----
@@ -499,21 +499,21 @@ Ports  Timeout       Speed       Active
        partner/long
 ----
 ====
-. Vérifiez que les liens ISL sont `up` Sur le switch 3232C C2 :
+. Vérifiez que les ISL sont `up` sur le commutateur 3232C C2 :
 +
 `show port-channel summary`
 
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-Les ports eth1/24/1 à eth1/24/4 doivent indiquer `(P)`, Ce qui signifie que les quatre ports ISL sont dans le canal de port. Eth1/31 et eth1/32 doivent indiquer `(D)` car ils ne sont pas connectés.
+Les ports Eth1/24/1 à Eth1/24/4 doivent indiquer `(P)` , ce qui signifie que les quatre ports ISL sont actifs dans le canal de ports.  Eth1/31 et Eth1/32 devraient indiquer `(D)` car ils ne sont pas connectés.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les liens ISL sont vérifiés `up` Sur le switch 3232C C2 :
+L'exemple suivant montre la vérification des ISL comme `up` sur le commutateur 3232C C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -534,15 +534,15 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/24/4(P)
 ----
 ====
-. Ajouter tous les ports d'interconnexion de cluster connectés au switch 3232C de tous les nœuds :
+. Activez tous les ports d'interconnexion du cluster connectés au commutateur 3232C C2 sur tous les nœuds :
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre comment afficher les ports d'interconnexion de cluster connectés au switch 3232C C2 :
+L'exemple suivant montre comment mettre en service les ports d'interconnexion du cluster connectés au commutateur 3232C C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -552,12 +552,12 @@ cluster::*> *network port modify -node n2 -port e0b -up-admin true*
 cluster::*> *network port modify -node n2 -port e0c -up-admin true*
 ----
 ====
-. Restaurez toutes les LIF d'interconnexion de cluster migrées qui sont connectées à C2 sur tous les nœuds :
+. Rétablir la configuration de toutes les interfaces logiques d'interconnexion de cluster migrées qui sont connectées à C2 sur tous les nœuds :
 +
 `network interface revert -vserver cluster -lif _lif-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -568,15 +568,15 @@ cluster::*> *network interface revert -vserver cluster -lif n2_clus2*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus3*
 ----
 ====
-. Vérifier que tous les ports d'interconnexion de cluster sont restaurés sur leurs ports de base :
+. Vérifiez que tous les ports d'interconnexion du cluster sont rétablis à leurs ports d'origine :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIF du no2 sont rétablies sur leurs ports d'accueil. Elles sont rétablies si les ports de la colonne « Current Port » ont l'état `true` Dans la colonne « est domicile ». Si la valeur « est domicile » est de `false`, Alors la LIF n'est pas rétablie.
+L'exemple suivant montre que les LIF du cluster 2 sont rétablies sur leurs ports d'origine ; le rétablissement des LIF est réussi si les ports de la colonne « Port actuel » ont l'état suivant : `true` dans la colonne « Est à la maison ».  Si la valeur « Est à la maison » est `false` , alors le LIF n'est pas annulé.
 
 [listing, subs="+quotes"]
 ----
@@ -598,15 +598,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Vérifier que tous les ports du cluster sont connectés :
+. Vérifiez que tous les ports du cluster sont connectés :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le résultat vérifiant que toutes les interconnexions de cluster sont `up`:
+L'exemple suivant montre le résultat vérifiant que toutes les interconnexions du cluster sont `up` :
 
 [listing, subs="+quotes"]
 ----
@@ -634,22 +634,22 @@ e0d   cluster   cluster     up    9000  auto/10000     -
 8 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -666,9 +666,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -717,15 +717,15 @@ RPC status:
 ----
 --
 ====
-. [[step16]] migrer les LIFs associées au premier commutateur CN1610 CL1 :
+. [[étape 16]] Migrer les LIF associées au premier commutateur CN1610 CL1 :
 +
 `network interface migrate -vserver cluster -lif _lif-name_ -source-node _node-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez migrer chaque LIF de cluster de manière individuelle vers les ports de cluster appropriés hébergés sur le commutateur C2, comme illustré ci-dessous :
+Vous devez migrer chaque LIF de cluster individuellement vers les ports de cluster appropriés hébergés sur le commutateur de cluster C2, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -743,17 +743,17 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-no
 
 
 
-=== Étape 3 : remplacer le commutateur CL1 du bloc d'instruments par C1
+=== Étape 3 : Remplacez le commutateur de cluster CL1 par C1
 
-. Vérifiez le statut du cluster :
+. Vérifiez l'état du cluster :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIFs de cluster requises ont été migrées vers les ports de cluster appropriés hébergés sur le commutateur de cluster C2 :
+L'exemple suivant montre que les LIF de cluster requises ont été migrées vers les ports de cluster appropriés hébergés sur le commutateur de cluster C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -775,15 +775,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Arrêtez les ports de nœud qui sont connectés à CL1 sur tous les nœuds :
+. Fermez les ports de nœud connectés à CL1 sur tous les nœuds :
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les ports spécifiques à l'arrêt sur les nœuds n1 et n2 :
+L'exemple suivant montre la désactivation de ports spécifiques sur les nœuds n1 et n2 :
 
 [listing, subs="+quotes"]
 ----
@@ -793,15 +793,15 @@ cluster::*> *network port modify -node n2 -port e0a -up-admin false*
 cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ----
 ====
-. Arrêter les ports ISL 24, 31 et 32 sur le switch actif 3232C C2.
+. Fermez les ports ISL 24, 31 et 32 sur le commutateur 3232C actif C2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les liens ISL 24, 31 et 32 sont arrêtés sur le switch actif 3232C C2 :
+L'exemple suivant montre la désactivation des ISL 24, 31 et 32 sur le commutateur actif 3232C C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -816,23 +816,23 @@ C2(config)# *exit*
 C2#
 ----
 ====
-. Retirez les câbles reliés au commutateur CN1610 CL1 de tous les nœuds.
+. Retirez les câbles connectés au commutateur CN1610 CL1 sur tous les nœuds.
 +
-À l'aide du câblage approprié, vous devez reconnecter les ports déconnectés de tous les nœuds au switch Nexus 3232C C1.
+En utilisant le câblage approprié, vous devez reconnecter les ports déconnectés sur tous les nœuds au commutateur Nexus 3232C C1.
 
-. Retirez les câbles QSFP28 du port E1/24 du Nexus 3232C C2.
+. Retirez les câbles QSFP28 du port e1/24 du Nexus 3232C C2.
 +
-Vous devez connecter les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 sur C2 à l'aide de câbles à fibre optique ou à connexion directe Cisco QSFP28 pris en charge.
+Vous devez connecter les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 sur C2 à l'aide de câbles à fibre optique Cisco QSFP28 ou de câbles à connexion directe pris en charge.
 
-. Restaurez la configuration sur le port 24 et retirez le canal 2 temporaire du port C2 :
+. Rétablissez la configuration sur le port 24 et supprimez le canal de port temporaire 2 sur C2 :
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le `running-configuration` le fichier en cours de copie vers le `startup-configuration` fichier :
+L'exemple suivant illustre le `running-configuration` fichier en cours de copie vers le `startup-configuration` déposer:
 
 [listing, subs="+quotes"]
 ----
@@ -859,15 +859,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Mettre les ports ISL 31 et 32 sur C2, le switch actif 3232C.
+. Activez les ports ISL 31 et 32 sur C2, le commutateur 3232C actif.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que des liens ISL 31 et 32 sont apportés sur le switch 3232C de C2 :
+L'exemple suivant montre les ISL 31 et 32 étant appliqués au commutateur 3232C C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -881,15 +881,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Vérifiez que les connexions ISL sont `up` Sur le switch 3232C C2.
+. Vérifiez que les connexions ISL sont `up` sur le commutateur 3232C C2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les connexions ISL en cours de vérification. Les ports eth1/31 et eth1/32 indiquent `(P)`, Ce qui signifie que les deux ports ISL sont `up` dans le canal de port :
+L'exemple suivant illustre la vérification des connexions ISL.  Les ports Eth1/31 et Eth1/32 indiquent `(P)` , ce qui signifie que les deux ports ISL sont `up` dans le canal de port :
 
 [listing, subs="+quotes"]
 ----
@@ -920,15 +920,15 @@ Group Port-       Type     Protocol  Member Ports
 1     Po1(SU)     Eth      LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Ajouter tous les ports d'interconnexion de cluster connectés au nouveau switch 3232C de tous les nœuds :
+. Mettez en service tous les ports d'interconnexion du cluster connectés au nouveau commutateur 3232C C1 sur tous les nœuds :
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'ensemble des ports d'interconnexion de cluster connectés au nouveau switch 3232C, auquel on peut activer :
+L'exemple suivant montre la mise en service de tous les ports d'interconnexion du cluster connectés au nouveau commutateur 3232C C1 :
 
 [listing, subs="+quotes"]
 ----
@@ -938,15 +938,15 @@ cluster::*> *network port modify -node n2 -port e0a -up-admin true*
 cluster::*> *network port modify -node n2 -port e0d -up-admin true*
 ----
 ====
-. Vérifiez l'état du port du nœud de cluster :
+. Vérifiez l'état du port du nœud du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre un résultat qui vérifie que les ports d'interconnexion de cluster des nœuds n1 et n2 du nouveau switch 3232C sont de `up`:
+L'exemple suivant présente un résultat qui vérifie que les ports d'interconnexion du cluster sur les nœuds n1 et n2 du nouveau commutateur 3232C C1 sont `up` :
 
 [listing, subs="+quotes"]
 ----
@@ -978,17 +978,17 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 
 
 
-=== Étape 4 : réaliser la procédure
+=== Étape 4 : Terminer la procédure
 
-. Restaurez toutes les LIF d'interconnexion de cluster migrées qui étaient connectées à C1 sur tous les nœuds :
+. Rétablir la configuration de toutes les interfaces logiques d'interconnexion de cluster migrées qui étaient initialement connectées à C1 sur tous les nœuds :
 +
 `network interface revert -server cluster -lif _lif-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez migrer chaque LIF individuellement comme indiqué dans l'exemple suivant :
+Vous devez migrer chaque LIF individuellement, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -998,15 +998,15 @@ cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus4*
 ----
 ====
-. Vérifiez que l'interface est à présent à domicile :
+. Vérifiez que l'interface est bien à l'accueil :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le statut des interfaces d'interconnexion de cluster est `up` Et « est à domicile » pour les nœuds n1 et n2 :
+L'exemple suivant illustre l'état des interfaces d'interconnexion du cluster. `up` et « Est le domicile » pour les nœuds n1 et n2 :
 
 [listing, subs="+quotes"]
 ----
@@ -1028,22 +1028,22 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -1060,9 +1060,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -1111,18 +1111,18 @@ RPC status:
 ----
 --
 ====
-. [[step4]] étendre le cluster en ajoutant des nœuds aux switchs de cluster Nexus 3232C.
-. Affichez les informations relatives aux périphériques de votre configuration :
+. [[étape 4]] Développez le cluster en ajoutant des nœuds aux commutateurs de cluster Nexus 3232C.
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 ** `network device-discovery show`
 ** `network port show -role cluster`
 ** `network interface show -role cluster`
 ** `system cluster-switch show`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les exemples suivants illustrent les nœuds n3 et n4 avec des ports de cluster 40 GbE connectés aux ports e1/7 et e1/8, respectivement, sur les deux switchs de cluster Nexus 3232C. Les deux nœuds sont reliés au cluster. Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.
+Les exemples suivants montrent les nœuds n3 et n4 avec des ports de cluster 40 GbE connectés respectivement aux ports e1/7 et e1/8 sur les deux commutateurs de cluster Nexus 3232C.  Les deux nœuds sont joints au cluster.  Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.
 
 [listing, subs="+quotes"]
 ----
@@ -1248,15 +1248,15 @@ CL2                         cluster-network  10.10.1.102    CN1610
 ====
 
 
-. Supprimez les commutateurs CN1610 remplacés s'ils ne sont pas automatiquement supprimés :
+. Retirez les commutateurs CN1610 remplacés s'ils ne sont pas retirés automatiquement :
 +
 `system cluster-switch delete -device _switch-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez supprimer les deux périphériques individuellement comme indiqué dans l'exemple suivant :
+Vous devez supprimer les deux appareils individuellement, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -1264,15 +1264,15 @@ cluster::> *system cluster-switch delete –device CL1*
 cluster::> *system cluster-switch delete –device CL2*
 ----
 ====
-. Vérifier que les commutateurs de cluster appropriés sont surveillés :
+. Vérifiez que les commutateurs de cluster appropriés sont surveillés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les commutateurs C1 et C2 du cluster sont en cours de surveillance :
+L'exemple suivant montre que les commutateurs de cluster C1 et C2 sont surveillés :
 
 [listing, subs="+quotes"]
 ----
@@ -1300,11 +1300,11 @@ C2                          cluster-network    10.10.1.104      NX3232C
 2 entries were displayed.
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"].

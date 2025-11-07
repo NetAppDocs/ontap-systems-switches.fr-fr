@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/install-overview-cisco-3232c.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 3232c switch, 
-summary: Avant de configurer des commutateurs Cisco Nexus 3232c, consultez un aperçu du processus et de la nomenclature. 
+summary: Avant de configurer les commutateurs Cisco Nexus 3232c, consultez un aperçu du processus et de la nomenclature. 
 ---
 = Flux de travail d'installation et de configuration pour les commutateurs Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,23 +11,23 @@ summary: Avant de configurer des commutateurs Cisco Nexus 3232c, consultez un ap
 
 
 [role="lead"]
-Les switchs Cisco Nexus 3232C peuvent être utilisés comme switchs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.
+Les commutateurs Cisco Nexus 3232C peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
 
 Suivez ces étapes de flux de travail pour installer et configurer votre commutateur Cisco Nexus 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-3232c.html["Configuration requise"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-reqs-3232c.html["Exigences de configuration"]
 [role="quick-margin-para"]
-Passez en revue les exigences de configuration pour le commutateur de cluster 3232C.
+Passez en revue les exigences de configuration du commutateur de cluster 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:required-documentation-3232c.html["Documentation requise"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:required-documentation-3232c.html["Documents requis"]
 [role="quick-margin-para"]
 Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs 3232C et le cluster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:smart-call-home-3232c.html["Configuration requise pour le service d'appel intelligent"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:smart-call-home-3232c.html["Exigences de Smart Call Home"]
 [role="quick-margin-para"]
 Passez en revue les exigences de la fonctionnalité Cisco Smart Call Home, utilisée pour surveiller les composants matériels et logiciels de votre réseau.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installer le matériel de fixation"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installez le matériel"]
 [role="quick-margin-para"]
 Installez le matériel du commutateur.
 

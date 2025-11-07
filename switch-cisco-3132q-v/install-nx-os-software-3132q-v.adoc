@@ -15,32 +15,32 @@ Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de c
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-* Sauvegarde actuelle de la configuration du commutateur.
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux ni problème similaire).
 
 
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateur Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
-* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]. Consultez les guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du commutateur Cisco.
+* https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus série 3000"^]. Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
 
 
 
 == Installez le logiciel
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Veiller à terminer la procédure dans link:prepare-install-cisco-nexus-3132q.html["Préparez l'installation du logiciel NX-OS et du fichier de configuration de référence"], puis suivez les étapes ci-dessous.
+Assurez-vous de terminer la procédure danslink:prepare-install-cisco-nexus-3132q.html["Préparez-vous à installer le logiciel NX-OS et le fichier de configuration de référence."] , puis suivez les étapes ci-dessous.
 
 .Étapes
 . Connectez le commutateur de cluster au réseau de gestion.
-. Utilisez le `ping` Commande permettant de vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le FCR.
+. Utilisez le `ping` commande permettant de vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le RCF.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -51,12 +51,12 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
+. Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -80,14 +80,14 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Vérifiez le statut administratif et opérationnel de chaque port du cluster.
+. Vérifiez l'état administratif et opérationnel de chaque port du cluster.
 +
-.. Vérifiez que tous les ports du cluster sont *up* avec un état sain :
+.. Vérifiez que tous les ports du cluster sont *actifs* et en bon état :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -130,12 +130,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
+.. Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
 +
 `network interface show -role Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -157,12 +157,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
+.. Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -190,13 +190,13 @@ cluster1::*>
 ====
 
 
-. Désactivez la fonction de restauration automatique sur les LIF du cluster. Les LIF du cluster basculent sur le commutateur partenaire du cluster et y restent pendant la procédure de mise à niveau sur le commutateur ciblé :
+. Désactiver la restauration automatique sur les LIF du cluster.  Les LIF du cluster basculent vers le commutateur du cluster partenaire et y restent pendant que vous effectuez la procédure de mise à niveau sur le commutateur cible :
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Copiez le logiciel NX-OS sur le commutateur Nexus 3132Q-V à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guides de référence des commandes Cisco Nexus série 3000 NX-OS"^].
+. Copiez le logiciel NX-OS sur le commutateur Nexus 3132Q-V en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guides de référence des commandes NX-OS Cisco Nexus série 3000"^] .
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -218,12 +218,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. Vérifiez la version en cours d'exécution du logiciel NX-OS :
+. Vérifiez la version du logiciel NX-OS en cours d'exécution :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -284,7 +284,7 @@ cs2#
 L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -348,12 +348,12 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 cs2#
 ----
 ====
-. Vérifiez la nouvelle version du logiciel NX-OS après le redémarrage du commutateur :
+. Vérifiez la nouvelle version du logiciel NX-OS après le redémarrage du commutateur :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -411,14 +411,14 @@ Active Package(s):
 cs2#
 ----
 ====
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -459,12 +459,12 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Vérifiez l'état du commutateur depuis le cluster.
+.. Vérifiez l'état du commutateur à partir du cluster.
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -507,7 +507,7 @@ cs2                         cluster-network    10.233.205.91    N3K-C3132Q-V
 
 2 entries were displayed.
 ----
-Vous pouvez observer les valeurs de sortie suivantes sur la console des commutateurs cs1 en fonction de la version RCF précédemment chargée sur le commutateur :
+Vous pourriez observer la sortie suivante sur la console du commutateur cs1 en fonction de la version RCF précédemment chargée sur le commutateur :
 
 [listing]
 ----
@@ -518,12 +518,12 @@ Vous pouvez observer les valeurs de sortie suivantes sur la console des commutat
 ====
 
 
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -540,16 +540,16 @@ cluster1::*>
 ----
 ====
 . Répétez les étapes 6 à 11 sur le commutateur cs1.
-. Activez la fonction de revert automatique sur les LIFs du cluster.
+. Activer la restauration automatique sur les LIF du cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Vérifier que les LIFs du cluster ont rétabli leur port de base :
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -572,12 +572,12 @@ cluster1::*>
 ----
 ====
 +
-Si une LIF de cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
 
 +
 `network interface revert -vserver Cluster -lif <lif_name>`
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir installé le logiciel NX-OS, vous pouvez link:install-upgrade-rcf-overview-3132q-v.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"].

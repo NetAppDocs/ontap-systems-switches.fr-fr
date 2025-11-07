@@ -2,24 +2,24 @@
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
-summary: 'SSH est une condition requise lors de l"utilisation des fonctions de surveillance de l"état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous générez d"abord les clés SSH puis activez SSH.' 
 ---
-= Activez SSH sur les commutateurs de cluster BES-53248
+= Activer SSH sur les commutateurs de cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, vous devez générer les clés SSH, puis activer SSH sur les commutateurs du cluster.
+Si vous utilisez les fonctionnalités de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, vous devez générer les clés SSH puis activer SSH sur les commutateurs du cluster.
 
 .Étapes
-. Vérifiez que SSH est désactivé :
+. Vérifiez que SSH est désactivé :
 +
 `show ip ssh`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -41,7 +41,7 @@ SCP server Administrative Mode: ............... Disabled
 ----
 ====
 +
-** Si SSH n’est pas désactivé, désactivez-le comme suit :
+** Si SSH n'est pas désactivé, désactivez-le comme suit :
 +
 `no ip ssh server enable`
 
@@ -58,7 +58,7 @@ SCP server Administrative Mode: ............... Disabled
 ====
 +
 
-WARNING: Assurez-vous de désactiver SSH avant de modifier les clés, sinon, un avertissement est signalé sur le commutateur.
+WARNING: Assurez-vous de désactiver SSH avant de modifier les clés, sinon un avertissement sera affiché sur le commutateur.
 
 
 
@@ -67,7 +67,7 @@ WARNING: Assurez-vous de désactiver SSH avant de modifier les clés, sinon, un 
 `crypto key generate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -94,7 +94,7 @@ Do you want to overwrite the existing ECDSA keys? (y/n): *y*
 `aaa authorization commands "noCmdAuthList" none`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -105,7 +105,7 @@ Do you want to overwrite the existing ECDSA keys? (y/n): *y*
 ====
 . Réactiver SSH/SCP.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -120,7 +120,7 @@ Do you want to overwrite the existing ECDSA keys? (y/n): *y*
 `write memory`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -136,13 +136,13 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Chiffrez les clés SSH (pour *FIPS-mode uniquement*) :
+. Chiffrez les clés SSH (pour le *mode FIPS* uniquement) :
 +
 
-CAUTION: En mode FIPS, les clés doivent être chiffrées avec une phrase secrète pour des raisons de sécurité. En l'absence d'une clé chiffrée, l'application ne démarre pas. Les clés sont créées et chiffrées à l'aide des commandes suivantes :
+CAUTION: En mode FIPS, les clés doivent être chiffrées avec une phrase de passe pour des raisons de sécurité.  En l'absence de clé de chiffrement, l'application ne démarre pas.  Les clés sont créées et chiffrées à l'aide des commandes suivantes :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -184,16 +184,16 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Redémarrez le commutateur :
+. Redémarrez le commutateur :
 +
 `reload`
 
-. Vérifiez que SSH est activé :
+. Vérifiez que SSH est activé :
 +
 `show ip ssh`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -216,5 +216,5 @@ SCP server Administrative Mode: ............... Enabled
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois SSH activé, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

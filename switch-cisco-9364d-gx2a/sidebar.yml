@@ -2,39 +2,39 @@
 section: switch-cisco-9364d-gx2a
 title: Cisco Nexus 9364D-GX2A
 entries:
-- title: Commencez
+- title: Commencer
   pdf-filename: Aperçu_9364d-gx2a
   entries:
   - title: Démarrage rapide
     url: "/switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
   - title: Détails du port du commutateur
     url: "/switch-cisco-9364d-gx2a/configure-setup-ports-9364d.html"
-  - title: Documentation requise
+  - title: Documents requis
     url: "/switch-cisco-9364d-gx2a/required-documentation-9364d-cluster.html"
-  - title: Configuration requise pour le service d'appel intelligent
+  - title: Exigences de Smart Call Home
     url: "/switch-cisco-9364d-gx2a/smart-call-9364d-cluster.html"
-- title: Installer le matériel de fixation
+- title: Installer le matériel
   url: "/switch-cisco-9364d-gx2a/install-hardware.html"
   pdf-filename: Installer_matériel_9364d-gx2a
-- title: Configurez le logiciel
+- title: Configurer le logiciel
   pdf-filename: Configurer_logiciel_9364d-gx2a
   entries:
   - title: Configurer le flux de travail du logiciel
     url: "/switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
-  - title: Configurer le commutateur
+  - title: Configurez le commutateur
     url: "/switch-cisco-9364d-gx2a/setup-switch-9364d-cluster.html"
   - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-9364d-gx2a/install-nxos-overview-9364d-cluster.html"
   - title: Installer ou mettre à niveau le logiciel NX-OS
     url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
-  - title: Installez ou mettez à niveau le RCF
-    pdf-filename: Install_upgrade_rcf
+  - title: Installer ou mettre à niveau le RCF
+    pdf-filename: Installer_mise_à_jour_rcf
     entries:
-    - title: Présentation de l'installation ou de la mise à niveau du RCF
+    - title: Présentation de l'installation ou de la mise à niveau de RCF
       url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster.html"
-    - title: Installer la FCR
+    - title: Installez le RCF
       url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
-    - title: Mettez à niveau votre version RCF
+    - title: Mettez à jour votre version RCF
       url: "/switch-cisco-9364d-gx2a/upgrade-rcf-software-9364d-cluster.html"
   - title: Vérifiez que SSH est activé
     url: "/switch-cisco-9364d-gx2a/configure-ssh-keys.html"

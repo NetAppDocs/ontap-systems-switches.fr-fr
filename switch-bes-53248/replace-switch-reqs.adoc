@@ -2,60 +2,60 @@
 permalink: switch-bes-53248/replace-switch-reqs.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom sur un réseau en cluster est une procédure sans interruption \(NDU\).' 
+summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice (NDU).' 
 ---
-= Exigences de remplacement
+= exigences de remplacement
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de remplacer le contacteur, s'assurer que les conditions suivantes sont réunies dans l'environnement actuel et sur le commutateur de remplacement.
+Avant de remplacer l'interrupteur, assurez-vous que les conditions suivantes sont remplies dans l'environnement actuel et sur l'interrupteur de remplacement.
 
 
 
-== Infrastructure réseau et cluster existante
+== Infrastructure de cluster et de réseau existante
 
-Assurez-vous que :
+Assurez-vous que :
 
-* Le cluster existant est vérifié entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.
-* Tous les ports de cluster sont *up*.
-* Toutes les interfaces logiques de cluster (LIFS) sont administrativement et de manière opérationnelle * up* et sur leurs ports de base.
-* Le ONTAP `cluster ping-cluster -node node1` la commande doit indiquer que les paramètres, `basic connectivity` et `larger than PMTU communication`, ont réussi sur tous les chemins.
-
-
+* Le cluster existant est vérifié comme étant entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.
+* Tous les ports du cluster sont *actifs*.
+* Toutes les interfaces logiques du cluster (LIF) sont administrativement et opérationnellement *actives* et sur leurs ports d'origine.
+* L' ONTAP `cluster ping-cluster -node node1` La commande doit indiquer que les paramètres, `basic connectivity` et `larger than PMTU communication` , réussissent sur tous les plans.
 
 
-== Commutateur de bloc d'instruments de remplacement BES-53248
-
-Assurez-vous que :
-
-* La connectivité réseau de gestion sur le commutateur de remplacement est fonctionnelle.
-* L'accès à la console au commutateur de remplacement est en place.
-* Les connexions de nœuds sont les ports 0/1 à 0/16 avec licence par défaut.
-* Tous les ports ISL (Inter-Switch Link) sont désactivés sur les ports 0/55 et 0/56.
-* Le fichier de configuration de référence (RCF) souhaité et l'image du commutateur du système d'exploitation EFOS sont chargés sur le commutateur.
-* La personnalisation initiale du commutateur est terminée, comme indiqué dans link:configure-install-initial.html["Configurez le commutateur du cluster BES-53248"].
 
 
-Toute personnalisation de site antérieure, telle que STP, SNMP et SSH, est copiée sur le nouveau commutateur.
+== Commutateur de remplacement pour groupe d'instruments BES-53248
+
+Assurez-vous que :
+
+* La connectivité du réseau de gestion sur le commutateur de remplacement est fonctionnelle.
+* L'accès console au commutateur de remplacement est opérationnel.
+* Les connexions du nœud sont les ports 0/1 à 0/16 avec une licence par défaut.
+* Tous les ports de liaison inter-commutateurs (ISL) sont désactivés sur les ports 0/55 et 0/56.
+* Le fichier de configuration de référence souhaité (RCF) et l'image du commutateur du système d'exploitation EFOS sont chargés sur le commutateur.
+* La personnalisation initiale du commutateur est terminée, comme détaillé danslink:configure-install-initial.html["Configurer le commutateur de cluster BES-53248"] .
+
+
+Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH, sont copiées sur le nouveau commutateur.
 
 
 
 == Activer la journalisation de la console
 
-NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :
+NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
 
 * Laissez AutoSupport activé pendant la maintenance.
-* Déclencher une AutoSupport de maintenance avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance. Consultez cet article de la base de connaissance https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus d'informations.
-* Activer la journalisation des sessions pour toutes les sessions CLI. Pour obtenir des instructions sur l'activation de la journalisation des sessions, consultez la section « consignation des sorties de session » de cet article de la base de connaissances https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^].
+* Déclenchez une intervention de maintenance AutoSupport avant et après la maintenance afin de désactiver la création de tickets pendant toute la durée de celle-ci.  Consultez cet article de la base de connaissances https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus de détails.
+* Activez la journalisation des sessions pour toutes les sessions CLI.  Pour savoir comment activer la journalisation des sessions, consultez la section « Journalisation des sorties de session » de cet article de la base de connaissances. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
 
 
 
 
-== Pour en savoir plus
+== Pour plus d'informations
 
 * https://mysupport.netapp.com/["Site de support NetApp"^]
-* https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^]
+* https://hwu.netapp.com/Home/Index["Hardware Universe NetApp"^]
 

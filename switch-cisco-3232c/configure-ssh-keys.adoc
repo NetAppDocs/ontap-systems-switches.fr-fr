@@ -2,31 +2,31 @@
 permalink: switch-cisco-3232c/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH est une condition requise lors de l"utilisation des fonctions de surveillance de l"état du commutateur de cluster \(CSHM\) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous générez d’abord les clés SSH, puis vous activez SSH.' 
 ---
-= Vérifiez la configuration de votre SSH
+= Vérifiez votre configuration SSH
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, vérifiez que les clés SSH et SSH sont activées sur les commutateurs du cluster.
+Si vous utilisez les fonctionnalités de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, vérifiez que SSH et les clés SSH sont activés sur les commutateurs du cluster.
 
 .Étapes
-. Vérifiez que SSH est activé :
+. Vérifiez que SSH est activé :
 +
 [listing, subs="+quotes"]
 ----
 (switch) *show ssh server*
 ssh version 2 is enabled
 ----
-. Vérifiez que les clés SSH sont activées :
+. Vérifiez que les clés SSH sont activées :
 +
 `show ssh key`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -61,7 +61,7 @@ sshServer              1          enabled
 
 
 
-IMPORTANT: Lorsque vous activez FIPS, vous devez modifier le nombre de bits à 256 sur le commutateur à l'aide de la commande `ssh key ecdsa 256 force`. Voir https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configurez la sécurité réseau à l'aide de FIPS"^] pour plus de détails.
+IMPORTANT: Lors de l'activation du FIPS, vous devez modifier le nombre de bits à 256 sur le commutateur à l'aide de la commande `ssh key ecdsa 256 force` .  Voir https://docs.netapp.com/us-en/ontap/networking/configure_network_security_using_federal_information_processing_standards_@fips@.html#enable-fips["Configurer la sécurité du réseau à l'aide de FIPS"^] pour plus de détails.
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir vérifié votre configuration SSH, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

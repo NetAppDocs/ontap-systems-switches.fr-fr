@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/setup-install-cshm-file.html 
 sidebar: sidebar 
 keywords: 'install, applicable, configuration, file, cluster, switch, health, monitor, ontap, install the cluster switch health monitor (csm) configuration file for sn2100 switches' 
-summary: 'Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l"état des commutateurs de stockage NVIDIA SN2100.' 
+summary: 'Vous pouvez utiliser cette procédure pour installer le fichier de configuration approprié pour la surveillance de l"état des commutateurs de cluster des commutateurs de stockage NVIDIA SN2100.' 
 ---
 = Installez le fichier de configuration du moniteur d'état du commutateur Ethernet
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Vous pouvez utiliser cette procédure pour installer le fichier de con
 
 
 [role="lead"]
-Suivez cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état du commutateur Ethernet des commutateurs de cluster NVIDIA. Modèles pris en charge :
+Suivez cette procédure pour installer le fichier de configuration approprié pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA .  Les modèles pris en charge sont :
 
 * MSN2100-CB2FC
 * MSN2100-CB2RC
@@ -23,34 +23,34 @@ Suivez cette procédure pour installer le fichier de configuration applicable po
 NOTE: Cette procédure d'installation s'applique à ONTAP 9.10.1 et versions ultérieures.
 
 .Avant de commencer
-* Vérifiez que vous devez télécharger le fichier de configuration en exécutant et en `system switch ethernet show` vérifiant si *OTHER* est affiché pour votre modèle.
+* Vérifiez que vous devez télécharger le fichier de configuration en exécutant la commande suivante : `system switch ethernet show` et en vérifiant si la mention *AUTRE* apparaît pour votre modèle.
 +
-Si votre modèle affiche toujours *OTHER* après avoir appliqué le fichier de configuration, contactez le support NetApp.
+Si votre modèle affiche toujours *AUTRE* après l'application du fichier de configuration, contactez le support NetApp .
 
 * Assurez-vous que le cluster ONTAP est opérationnel.
 * Activez SSH pour utiliser toutes les fonctionnalités disponibles dans CSHM.
-* Effacez le `/mroot/etc/cshm_nod/nod_sign/` répertoire sur tous les nœuds :
+* Effacer `/mroot/etc/cshm_nod/nod_sign/` répertoire sur tous les nœuds :
 +
-.. Entrez le nodeshell :
+.. Entrez dans le shell du nœud :
 +
 `system node run -node <name>`
 
-.. Passer au privilège avancé :
+.. Passer aux privilèges avancés :
 +
 `priv set advanced`
 
-.. Répertoriez les fichiers de configuration dans le `/etc/cshm_nod/nod_sign` répertoire. Si le répertoire existe et contient des fichiers de configuration, il répertorie les noms des fichiers.
+.. Listez les fichiers de configuration dans le `/etc/cshm_nod/nod_sign` annuaire.  Si le répertoire existe et contient des fichiers de configuration, il affiche la liste des noms de fichiers.
 +
 `ls /etc/cshm_nod/nod_sign`
 
 .. Supprimez tous les fichiers de configuration correspondant à vos modèles de commutateurs connectés.
 +
-Si vous n'êtes pas sûr, supprimez tous les fichiers de configuration pour les modèles pris en charge répertoriés ci-dessus, puis téléchargez et installez les derniers fichiers de configuration pour ces mêmes modèles.
+En cas de doute, supprimez tous les fichiers de configuration des modèles pris en charge listés ci-dessus, puis téléchargez et installez les fichiers de configuration les plus récents pour ces mêmes modèles.
 
 +
 `rm /etc/cshm_nod/nod_sign/<filename>`
 
-.. Vérifiez que les fichiers de configuration supprimés ne se trouvent plus dans le répertoire :
+.. Vérifiez que les fichiers de configuration supprimés ne se trouvent plus dans le répertoire :
 +
 `ls /etc/cshm_nod/nod_sign`
 
@@ -59,12 +59,12 @@ Si vous n'êtes pas sûr, supprimez tous les fichiers de configuration pour les 
 
 
 .Étapes
-. Téléchargez le fichier zip de configuration du moniteur d'état du commutateur Ethernet basé sur la version ONTAP correspondante. Ce fichier est disponible à partir de la https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Switchs Ethernet NVIDIA"^] page.
+. Téléchargez le fichier zip de configuration du moniteur d'état du commutateur Ethernet en fonction de la version ONTAP correspondante.  Ce fichier est disponible à partir de https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Commutateurs Ethernet NVIDIA"^] page.
 +
-.. Sur la page de téléchargement du logiciel NVIDIA SN2100, sélectionnez *Nvidia CSHM File*.
-.. Sur la page attention/doit lire, cochez la case pour accepter.
-.. Sur la page Contrat de licence utilisateur final, cochez la case accepter et cliquez sur *accepter et continuer*.
-.. Sur la page Nvidia CSHM File - Download, sélectionnez le fichier de configuration applicable. Les fichiers suivants sont disponibles :
+.. Sur la page de téléchargement du logiciel NVIDIA SN2100, sélectionnez *Fichier CSHM NVIDIA*.
+.. Sur la page Attention/À lire absolument, cochez la case pour accepter.
+.. Sur la page du contrat de licence utilisateur final, cochez la case pour accepter et cliquez sur *Accepter et continuer*.
+.. Sur la page de téléchargement des fichiers CSHM Nvidia, sélectionnez le fichier de configuration approprié.  Les fichiers suivants sont disponibles :
 
 
 
@@ -90,25 +90,25 @@ Si vous n'êtes pas sûr, supprimez tous les fichiers de configuration pour les 
 
 --
 ====
-. [[step2]]chargez le fichier zip applicable sur votre serveur Web interne.
-. Accédez au paramètre de mode avancé à partir d'un des systèmes ONTAP du cluster.
+. [[étape 2]]Téléchargez le fichier zip approprié sur votre serveur Web interne.
+. Accédez aux paramètres du mode avancé depuis l'un des systèmes ONTAP du cluster.
 +
 `set -privilege advanced`
 
-. Exécutez la commande switch Health Monitor configure.
+. Exécutez la commande de configuration du moniteur d'état du commutateur.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::> *system switch ethernet configure-health-monitor*
 ----
-. Vérifiez que le résultat de la commande se termine par le texte suivant pour votre version de ONTAP :
+. Vérifiez que la sortie de la commande se termine par le texte suivant pour votre version ONTAP :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.15.1 et versions ultérieures
 --
-La surveillance de l'état du commutateur Ethernet a installé le fichier de configuration.
+Le fichier de configuration a été installé pour la surveillance de l'état du commutateur Ethernet.
 
 --
 .ONTAP 9.11.1 à 9.14.1
@@ -122,9 +122,9 @@ Le package CSHM téléchargé a été traité avec succès.
 
 --
 ====
-En cas d'erreur, contactez le support NetApp.
+En cas d'erreur, contactez le support NetApp .
 
-. [[step6]]attendez jusqu'à deux fois l'intervalle d'interrogation du moniteur d'état du commutateur Ethernet, détecté en exécutant `system switch ethernet polling-interval show`, avant de terminer l'étape suivante.
+. [[step6]]Attendez jusqu'à deux fois l'intervalle d'interrogation du moniteur d'état du commutateur Ethernet, déterminé en exécutant `system switch ethernet polling-interval show` , avant de passer à l'étape suivante.
 . Exécutez la commande `system switch ethernet configure-health-monitor show` sur le système ONTAP et assurez-vous que les commutateurs du cluster sont détectés avec le champ surveillé défini sur *Vrai* et le champ du numéro de série n'affichant pas *Inconnu*.
 +
 [listing, subs="+quotes"]
@@ -133,5 +133,5 @@ cluster1::> *system switch ethernet configure-health-monitor show*
 ----
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois le fichier CSHM installé, vous pouvezlink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

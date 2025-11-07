@@ -2,15 +2,15 @@
 :allow-uri-read: 
 
 
-Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration de la collecte, de demande de journaux *support* détaillés et d'activation d'une collecte horaire de données *périodiques* collectées par AutoSupport.
+Le moniteur d'intégrité des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau de cluster et de stockage et de collecter les journaux de commutation à des fins de débogage.  Cette procédure vous guide tout au long du processus de configuration de la collecte, de la demande de journaux *Support* détaillés et de l'activation d'une collecte horaire de données *Périodiques* collectées par AutoSupport.
 
-*REMARQUE :* si vous activez le mode FIPS, vous devez effectuer les opérations suivantes :
+*REMARQUE :* Si vous activez le mode FIPS, vous devez effectuer les opérations suivantes :
 
 [NOTE]
 ====
-. Régénérer les clés SSH sur le commutateur en suivant les instructions du fournisseur.
+. Régénérez les clés SSH sur le commutateur en suivant les instructions du fournisseur.
 . Régénérer les clés SSH dans ONTAP à l'aide de `debug system regenerate-systemshell-key-pair`
-. Réexécutez la routine de configuration de la collecte des journaux à l'aide de la `system switch ethernet log setup-password` commande
+. Réexécutez la routine de configuration de la collecte des journaux en utilisant `system switch ethernet log setup-password` commande
 
 
 ====
@@ -18,15 +18,15 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 
 == Avant de commencer
 
-* L'utilisateur doit avoir accès aux commandes du commutateur `show` . S'ils ne sont pas disponibles, créez un nouvel utilisateur et accordez les autorisations nécessaires à l'utilisateur.
-* La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
-* Pour la collecte de journaux avec les commutateurs Broadcom et Cisco :
+* L'utilisateur doit avoir accès à l'interrupteur `show` commandes.  Si ces éléments ne sont pas disponibles, créez un nouvel utilisateur et accordez-lui les autorisations nécessaires.
+* La surveillance de l'état du commutateur doit être activée pour celui-ci.  Vérifiez cela en vous assurant que `Is Monitored:` Le champ est défini sur *vrai* dans la sortie de `system switch ethernet show` commande.
+* Pour la collecte des journaux avec les commutateurs Broadcom et Cisco :
 +
 ** L'utilisateur local doit disposer de privilèges d'administrateur réseau.
-** Un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration de cluster avec la collecte des journaux activée. Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour le même utilisateur. Toute configuration de collecte de journaux supplémentaire effectuée remplace toute clé SSH préexistante pour l'utilisateur.
+** Un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration de cluster avec collecte de journaux activée.  Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour un même utilisateur.  Toute configuration supplémentaire de collecte de journaux effectuée écrase toutes les clés SSH préexistantes de l'utilisateur.
 
 
-* Pour la prise en charge de la collecte de journaux avec les commutateurs NVIDIA, _user_ pour la collecte de journaux doit être autorisé à exécuter la `cl-support` commande sans avoir à fournir de mot de passe. Pour autoriser cette utilisation, lancer la commande :
+* Pour la collecte des journaux de support avec les commutateurs NVIDIA , l'utilisateur chargé de la collecte des journaux doit être autorisé à exécuter le programme. `cl-support` commander sans avoir à fournir de mot de passe.  Pour autoriser cette utilisation, exécutez la commande :
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
@@ -40,9 +40,9 @@ Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'i
 ====
 .ONTAP 9.15.1 et versions ultérieures
 --
-. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur.  Vous êtes invité à saisir le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
-*REMARQUE :* Si vous répondez *y* à l'invite de spécification de l'utilisateur, assurez-vous que l'utilisateur dispose des autorisations nécessaires comme indiqué dans <<Avant de commencer>> .
+*REMARQUE :* Si vous répondez « oui » à l’invite de spécification de l’utilisateur, assurez-vous que celui-ci dispose des autorisations nécessaires, comme indiqué dans<<Avant de commencer>> .
 
 +
 [source, cli]
@@ -79,9 +79,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Pour CL 5.11.1, créez l'utilisateur *cumulus* et répondez *y* à l'invite suivante : Souhaitez-vous spécifier un utilisateur autre qu'admin pour la collecte des journaux ? {y|n} : *y*
+NOTE: Pour CL 5.11.1, créez l'utilisateur *cumulus* et répondez *y* à l'invite suivante : Souhaitez-vous spécifier un utilisateur autre que admin pour la collecte des journaux ?  {o|n}: *o*
 
-. [[step2]]Activer la collecte périodique des journaux :
+. [[étape 2]]Activer la collecte périodique des journaux :
 +
 [source, cli]
 ----
@@ -110,7 +110,7 @@ cs1                                       true        scheduled   never-run
 cs2                                       true        scheduled   never-run
 2 entries were displayed.
 ----
-. Demander la collecte du journal de support :
+. Collecte des journaux de support demandée :
 +
 [source, cli]
 ----
@@ -135,7 +135,7 @@ cs1                                       false       halted      initiated
 cs2                                       true        scheduled   initiated
 2 entries were displayed.
 ----
-. Pour afficher tous les détails de la collecte des journaux, y compris l'activation, le message d'état, l'horodatage précédent et le nom de fichier de la collecte périodique, l'état de la demande, le message d'état, ainsi que l'horodatage précédent et le nom de fichier de la collection de support, utilisez les éléments suivants :
+. Pour consulter tous les détails de la collecte des journaux, y compris l'activation, le message d'état, l'horodatage et le nom de fichier de la collecte périodique précédente, l'état de la requête, le message d'état, ainsi que l'horodatage et le nom de fichier de la collecte de support précédente, utilisez les éléments suivants :
 +
 [source, cli]
 ----
@@ -172,9 +172,9 @@ cluster1::*> *system switch ethernet log show -instance*
 --
 .ONTAP 9.14.1 et versions antérieures
 --
-. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur.  Vous êtes invité à saisir le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
-*REMARQUE :* si vous répondez à `y` l'invite de spécification de l'utilisateur, assurez-vous que l'utilisateur dispose des autorisations nécessaires<<Avant de commencer>>, comme indiqué dans .
+*REMARQUE :* Si vous répondez `y` Lors de l'invite de spécification de l'utilisateur, assurez-vous que celui-ci dispose des autorisations nécessaires, comme indiqué dans<<Avant de commencer>> .
 
 +
 [source, cli]
@@ -211,9 +211,9 @@ Enter the password again: *<enter switch password>*
 
 
 
-NOTE: Pour CL 5.11.1, créez l'utilisateur *cumulus* et répondez *y* à l'invite suivante : Souhaitez-vous spécifier un utilisateur autre qu'admin pour la collecte des journaux ? {y|n} : *y*
+NOTE: Pour CL 5.11.1, créez l'utilisateur *cumulus* et répondez *y* à l'invite suivante : Souhaitez-vous spécifier un utilisateur autre que admin pour la collecte des journaux ?  {o|n}: *o*
 
-. [[step2]] Pour demander la collecte des journaux d’assistance et activer la collecte périodique, exécutez la commande suivante. Ceci lance les deux types de collecte de journaux : les journaux détaillés `Support` et une collecte de données toutes les heures `Periodic` .
+. [[étape 2]] Pour demander la collecte des journaux de support et activer la collecte périodique, exécutez la commande suivante.  Cela lance les deux types de collecte de journaux : la collecte détaillée `Support` journaux et une collecte horaire de `Periodic` données.
 +
 [source, cli]
 ----
@@ -235,7 +235,7 @@ Do you want to modify the cluster switch log collection configuration? {y|n}: [n
 Enabling cluster switch log collection.
 ----
 +
-Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :
+Attendez 10 minutes, puis vérifiez que la collecte des journaux est terminée :
 
 +
 [source, cli]

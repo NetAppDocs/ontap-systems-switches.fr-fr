@@ -4,52 +4,52 @@ sidebar: sidebar
 keywords: switches initial setup,initial setup,efos download 
 summary: 'Vous pouvez utiliser cette procédure pour effectuer l"installation initiale du commutateur de cluster BES-53248.' 
 ---
-= Configurez le commutateur du cluster BES-53248
+= Configurer le commutateur de cluster BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour effectuer une configuration initiale du commutateur de cluster BES-53248.
+Suivez ces étapes pour effectuer une configuration initiale du commutateur de cluster BES-53248.
 
 .Avant de commencer
-* Le matériel est installé, comme décrit à la section link:install-hardware-bes53248.html["Installer le matériel de fixation"].
-* Vous avez passé en revue les points suivants :
+* Le matériel est installé, comme décrit danslink:install-hardware-bes53248.html["Installez le matériel"] .
+* Vous avez consulté les éléments suivants :
 +
-** link:configure-reqs-bes53248.html["Configuration requise"]
+** link:configure-reqs-bes53248.html["Exigences de configuration"]
 ** link:components-bes53248.html["Composants et références"]
-** link:required-documentation-bes53248.html["Exigences de documentation"]
+** link:required-documentation-bes53248.html["Exigences en matière de documentation"]
 
 
 
 
 .À propos des exemples
-Les exemples des procédures de configuration utilisent la nomenclature de commutateur et de nœud suivante :
+Les exemples des procédures de configuration utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms de commutateurs NetApp sont `cs1` et `cs2`. La mise à niveau commence sur le second commutateur, _cs2._
-* Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour le noeud 1, et `node2_clus1` et `node2_clus2` pour le noeud 2.
-* Le nom IPspace est le Cluster.
-* Le `cluster1::>` l'invite indique le nom du cluster.
-* Les ports de cluster de chaque nœud sont nommés `e0a` et `e0b`. Voir la https://hwu.netapp.com/Home/Index["NetApp Hardware Universe"^] pour les ports réels de cluster pris en charge sur votre plateforme.
-* Les liaisons interswitch (ISL) prises en charge pour les commutateurs NetApp sont les ports 0/55 et 0/56.
-* Les connexions de nœuds prises en charge pour les switchs NetApp sont les ports 0/1 à 0/16 avec une licence par défaut.
-* Les exemples utilisent deux nœuds, mais il peut y avoir jusqu'à 24 nœuds dans un cluster.
+* Les noms des commutateurs NetApp sont `cs1` et `cs2` .  La mise à niveau commence sur le deuxième commutateur, _cs2._
+* Les noms LIF du cluster sont `node1_clus1` et `node1_clus2` pour le nœud 1, et `node2_clus1` et `node2_clus2` pour le nœud 2.
+* Le nom de l'espace IP est Cluster.
+* Le `cluster1::>` L'invite indique le nom du cluster.
+* Les ports du cluster sur chaque nœud sont nommés `e0a` et `e0b` .  Voir le https://hwu.netapp.com/Home/Index["Hardware Universe NetApp"^] pour les ports de cluster réellement pris en charge sur votre plateforme.
+* Les liaisons inter-commutateurs (ISL) prises en charge pour les commutateurs NetApp sont les ports 0/55 et 0/56.
+* Les connexions de nœuds prises en charge pour les commutateurs NetApp sont les ports 0/1 à 0/16 avec licence par défaut.
+* Les exemples utilisent deux nœuds, mais un cluster peut comporter jusqu'à 24 nœuds.
 
 
 .Étapes
 . Connectez le port série à un hôte ou à un port série.
-. Connectez le port de gestion (le port de clé RJ-45 sur le côté gauche du commutateur) au même réseau que celui où se trouve votre serveur TFTP.
-. Sur la console, définissez les paramètres série côté hôte :
+. Connectez le port de gestion (le port RJ-45 en forme de clé situé sur le côté gauche du commutateur) au même réseau que celui où se trouve votre serveur TFTP.
+. Sur la console, configurez les paramètres série côté hôte :
 +
-** 115200 bauds
-** 8 bits de données (data bits)
-** 1 bit de stop
+** 115200 baud
+** 8 bits de données
+** 1 butée
 ** parité : aucune
-** contrôle de flux : aucun
+** contrôle de flux : aucun
 
 
-. Connectez-vous au commutateur en tant que `admin` Et appuyez sur *entrée* lorsque vous êtes invité à saisir un mot de passe. Le nom de commutateur par défaut est *routing*. À l'invite, entrez `enable`. Ceci vous donne accès au mode d’exécution privilégié pour la configuration du commutateur.
+. Connectez-vous à la console en tant que `admin` et appuyez sur *Entrée* lorsque le mot de passe vous est demandé.  Le nom du commutateur par défaut est *routing*.  À l'invite, saisissez `enable` .  Cela vous donne accès au mode EXEC privilégié pour la configuration du commutateur.
 +
 [listing, subs="+quotes"]
 ----
@@ -59,7 +59,7 @@ Password:
 Password:
 (Routing)#
 ----
-. Définissez le nom du commutateur sur *cs2*.
+. Renommez le commutateur en *cs2*.
 +
 [listing, subs="+quotes"]
 ----
@@ -73,7 +73,7 @@ Password:
 ====
 .IPv4
 --
-Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
+Le port de service est configuré par défaut pour utiliser le DHCP.  L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
 
 [listing, subs="+quotes"]
 ----
@@ -84,7 +84,7 @@ Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le 
 --
 .IPv6
 --
-Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
+Le port de service est configuré par défaut pour utiliser le DHCP.  L'adresse IP, le masque de sous-réseau et l'adresse de passerelle par défaut sont attribués automatiquement.
 
 [listing, subs="+quotes"]
 ----
@@ -95,7 +95,7 @@ Le port de service est défini pour utiliser DHCP par défaut. L'adresse IP, le 
 ----
 --
 ====
-. [[step7]]Vérifiez les résultats à l'aide de la commande :
+. [[étape 7]]Vérifiez les résultats à l'aide de la commande :
 +
 `show serviceport`
 
@@ -115,7 +115,7 @@ Configured IPv6 Protocol....................... None
 IPv6 AutoConfig Mode........................... Disabled
 Burned In MAC Address.......................... D8:C4:97:71:12:3C
 ----
-. Configurez le domaine et le serveur de noms :
+. Configurer le domaine et le serveur de noms :
 +
 [source, cli]
 ----
@@ -131,14 +131,14 @@ ip name server <server_name>
 (cs2)(Config)# *exit*
 (cs2)#
 ----
-. Configurez le serveur NTP.
+. Configurer le serveur NTP.
 
 
 [role="tabbed-block"]
 ====
 .EFOS 3.10.0.3 et versions ultérieures
 --
-Configurez le fuseau horaire et la synchronisation de l'heure (NTP) :
+Configurer le fuseau horaire et la synchronisation de l'heure (NTP) :
 
 [source, cli]
 ----
@@ -156,7 +156,7 @@ clock
 --
 .EFOS 3.9.0.2 et versions antérieures
 --
-Configurer le fuseau horaire et la synchronisation de l'heure (SNTP) :
+Configurer le fuseau horaire et la synchronisation de l'heure (SNTP) :
 
 [source, cli]
 ----
@@ -175,7 +175,7 @@ clock
 ----
 --
 ====
-. [[step10]]configurez l'heure manuellement si vous n'avez pas configuré de serveur NTP à l'étape précédente.
+. [[étape 10]]Configurez l'heure manuellement si vous n'avez pas configuré de serveur NTP à l'étape précédente.
 
 
 [role="tabbed-block"]
@@ -228,7 +228,7 @@ No time source
 ----
 --
 ====
-. [[step11]]Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
+. [[étape 11]]Enregistrez la configuration en cours dans la configuration de démarrage :
 +
 `write memory`
 
@@ -248,5 +248,5 @@ Configuration Saved!
 ----
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs configurés, vous pouvez link:configure-efos-software.html["installer le logiciel EFOS"].

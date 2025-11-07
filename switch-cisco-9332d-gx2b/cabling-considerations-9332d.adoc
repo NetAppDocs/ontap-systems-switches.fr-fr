@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: 9332d-gx2b cabling setup, 9332d-gx2b switches configuration, nx-os 
 summary: Avant de configurer votre commutateur Cisco 9332D-GX2B, consultez les informations suivantes. 
 ---
-= Examinez les considérations relatives au câblage et à la configuration
+= Examiner les considérations relatives au câblage et à la configuration
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -29,4 +29,4 @@ Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide des p
 (cs1)(config)# *exit*
 (cs1)# *copy running-config startup-config*
 ----
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.

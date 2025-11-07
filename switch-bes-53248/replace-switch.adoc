@@ -2,32 +2,32 @@
 permalink: switch-bes-53248/replace-switch.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom sur un réseau en cluster est une procédure sans interruption \(NDU\).' 
+summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice (NDU).' 
 ---
-= Remplacez un commutateur de cluster BES-53248 pris en charge par Broadcom
+= Remplacer un commutateur de cluster BES-53248 pris en charge par Broadcom
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour remplacer un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom sur un réseau de clusters. Il s'agit d'une procédure sans interruption.
+Suivez ces étapes pour remplacer un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster. Il s’agit d’une procédure non perturbatrice (NDU).
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms des commutateurs BES-53248 existants sont `cs1` et `cs2`.
-* Le nom du nouveau commutateur BES-53248 est `newcs2`.
-* Les noms de nœud sont `node1` et `node2`.
-* Les ports de cluster de chaque nœud sont nommés `e0a` et `e0b`.
-* Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour le noeud 1, et `node2_clus1` et `node2_clus2` pour le noeud 2.
-* Vous êtes invité à modifier tous les nœuds du cluster à `cluster1::>`
+* Les noms des commutateurs BES-53248 existants sont : `cs1` et `cs2` .
+* Le nom du nouveau commutateur BES-53248 est `newcs2` .
+* Les noms des nœuds sont `node1` et `node2` .
+* Les ports du cluster sur chaque nœud sont nommés `e0a` et `e0b` .
+* Les noms LIF du cluster sont `node1_clus1` et `node1_clus2` pour le nœud 1, et `node2_clus1` et `node2_clus2` pour le nœud 2.
+* L'invite pour les modifications apportées à tous les nœuds du cluster est `cluster1::>`
 
 
 .À propos de la topologie
-Cette procédure est basée sur la topologie réseau de cluster suivante :
+Cette procédure est basée sur la topologie de réseau de clusters suivante :
 
-.Montrer l'exemple de topologie
+.Afficher un exemple de topologie
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -103,8 +103,8 @@ cs1                      0/56      179       R          BES-53248        0/56
 ----
 ====
 .Étapes
-. Vérifiez le link:replace-switch-reqs.html["Exigences de remplacement"].
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Examinerlink:replace-switch-reqs.html["exigences de remplacement"] .
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -113,31 +113,31 @@ où _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Installez le fichier RCF (Reference Configuration File) approprié et l'image sur le commutateur, newcs2, puis effectuez les préparations nécessaires au site.
+. Installez le fichier de configuration de référence (RCF) et l'image appropriés sur le commutateur, newcs2, et effectuez toutes les préparations de site nécessaires.
 +
-Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et EFOS pour le nouveau commutateur. Si vous avez vérifié que le nouveau commutateur est correctement configuré et qu'il n'a pas besoin de mises à jour du logiciel RCF et EFOS, passez à l'étape 2.
-
-+
-.. Vous pouvez télécharger le logiciel Broadcom EFOS applicable pour vos commutateurs de cluster à partir du https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] le site. Suivez les étapes de la page de téléchargement pour télécharger le fichier EFOS de la version du logiciel ONTAP que vous installez.
-.. La FCR appropriée est disponible sur le https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page. Suivez les étapes de la page de téléchargement pour télécharger la FCR appropriée pour la version du logiciel ONTAP que vous installez.
-
-
-. Sur le nouveau commutateur, connectez-vous en tant que `admin` et arrêter tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1 à 16).
-+
-
-NOTE: Si vous avez acheté des licences supplémentaires pour des ports supplémentaires, arrêtez également ces ports.
+Si nécessaire, vérifiez, téléchargez et installez les versions appropriées des logiciels RCF et EFOS pour le nouveau commutateur.  Si vous avez vérifié que le nouveau commutateur est correctement configuré et ne nécessite pas de mises à jour des logiciels RCF et EFOS, passez à l'étape 2.
 
 +
-Si le commutateur que vous remplacez n'est pas fonctionnel et que celui-ci est hors tension, les LIF des nœuds du cluster doivent déjà avoir basculer vers l'autre port de cluster pour chaque nœud.
+.. Vous pouvez télécharger le logiciel Broadcom EFOS adapté à vos commutateurs de cluster depuis le site web. https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] site.  Suivez les étapes indiquées sur la page de téléchargement pour télécharger le fichier EFOS correspondant à la version du logiciel ONTAP que vous installez.
+.. Le RCF approprié est disponible auprès de https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.  Suivez les étapes indiquées sur la page de téléchargement pour télécharger le fichier RCF correspondant à la version du logiciel ONTAP que vous installez.
+
+
+. Sur le nouveau commutateur, connectez-vous en tant que `admin` et fermer tous les ports qui seront connectés aux interfaces du cluster de nœuds (ports 1 à 16).
++
+
+NOTE: Si vous avez acheté des licences supplémentaires pour des ports supplémentaires, fermez également ces ports.
+
++
+Si le commutateur que vous remplacez est hors service et hors tension, les LIF des nœuds du cluster devraient déjà avoir basculé vers l'autre port du cluster pour chaque nœud.
 
 +
 
-NOTE: Aucun mot de passe n'est requis pour la saisie `enable` mode.
+NOTE: Aucun mot de passe n'est requis pour entrer `enable` mode.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -153,12 +153,12 @@ Password:
 (newcs2)#
 ----
 ====
-. Vérifier que toutes les LIFs du cluster ont `auto-revert` activé :
+. Vérifiez que tous les LIF du cluster ont `auto-revert` activé:
 +
 `network interface show -vserver Cluster -fields auto-revert`
 
 +
-.Montrer l'exemple de topologie
+.Afficher un exemple de topologie
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -174,9 +174,9 @@ Cluster   node2_clus1  true
 Cluster   node2_clus2  true
 ----
 ====
-. Arrêtez les ports ISL 0/55 et 0/56 sur le commutateur BES-53248 cs1 :
+. Désactivez les ports ISL 0/55 et 0/56 sur le commutateur BES-53248 cs1 :
 +
-.Montrer l'exemple de topologie
+.Afficher un exemple de topologie
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -186,16 +186,16 @@ Cluster   node2_clus2  true
 (cs1)(interface 0/55-0/56)# *shutdown*
 ----
 ====
-. Retirez tous les câbles du commutateur bes-53248 cs2, puis connectez-les aux mêmes ports du commutateur BES-53248 newcs2.
-. Mettez les ports ISL 0/55 et 0/56 entre les commutateurs cs1 et newcs2, puis vérifiez le statut du canal du port.
+. Retirez tous les câbles du commutateur BES-53248 cs2, puis connectez-les aux mêmes ports du commutateur BES-53248 newcs2.
+. Activez les ports ISL 0/55 et 0/56 entre les commutateurs cs1 et newcs2, puis vérifiez l'état de fonctionnement du canal de port.
 +
-L'état de liaison du canal 1/1 doit être *up* et tous les ports membres doivent être True sous l'en-tête Port Active.
+L'état de liaison du port-channel 1/1 doit être *actif* et tous les ports membres doivent être True sous l'en-tête Port actif.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple active les ports ISL 0/55 et 0/56 et affiche l'état de liaison du port-Channel 1/1 sur le commutateur cs1 :
+Cet exemple active les ports ISL 0/55 et 0/56 et affiche l'état de la liaison pour le canal de port 1/1 sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -223,13 +223,13 @@ Ports  Timeout       Speed      Active
        partner/long
 ----
 ====
-. Sur le nouveau commutateur newcs2, réactivez tous les ports connectés aux interfaces du cluster de nœuds (ports 1 à 16).
+. Sur le nouveau commutateur newcs2, réactivez tous les ports qui sont connectés aux interfaces du cluster de nœuds (ports 1 à 16).
 +
 
-NOTE: Si vous avez acheté des licences supplémentaires pour des ports supplémentaires, arrêtez également ces ports.
+NOTE: Si vous avez acheté des licences supplémentaires pour des ports supplémentaires, fermez également ces ports.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -244,15 +244,15 @@ Password:
 (newcs2)(config)# *exit*
 ----
 ====
-. Vérifiez que le port e0b est * up* :
+. Vérifiez que le port e0b est *actif* :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-La sortie doit être similaire à ce qui suit :
+Le résultat devrait être similaire à ce qui suit :
 
 [listing, subs="+quotes"]
 ----
@@ -275,14 +275,14 @@ e0a       Cluster      Cluster          up   9000  auto/10000  healthy  false
 e0b       Cluster      Cluster          up   9000  auto/auto   -        false
 ----
 ====
-. Sur le même nœud que vous avez utilisé à l'étape précédente, attendez que la LIF de cluster node 1_clus2 sur le nœud 1 pour qu'elle revert automatiquement.
+. Sur le même nœud que celui utilisé à l'étape précédente, attendez que le LIF de cluster node1_clus2 sur node1 se rétablisse automatiquement.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Dans cet exemple, la LIF node1_clus2 sur le nœud 1 est rétablie avec succès si `Is Home` est `true` et le port est e0b.
+Dans cet exemple, LIF node1_clus2 sur node1 est rétabli avec succès si `Is Home` est `true` et le port est e0b.
 
-La commande suivante affiche des informations sur les LIF des deux nœuds. L'installation du premier nœud est réussie si `Is Home` est `true` dans cet exemple, pour les deux interfaces de cluster et ils affichent les affectations de ports correctes `e0a` et `e0b` sur le noeud 1.
+La commande suivante affiche des informations sur les LIF sur les deux nœuds.  La mise en service du premier nœud est réussie si `Is Home` est `true` pour les deux interfaces du cluster et elles affichent les affectations de ports correctes, dans cet exemple `e0a` et `e0b` sur le nœud 1.
 
 [listing, subs="+quotes"]
 ----
@@ -298,15 +298,15 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2      e0a     false
 ----
 ====
-. Affichage des informations relatives aux nœuds dans un cluster :
+. Afficher les informations relatives aux nœuds d'un cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Dans cet exemple, le nœud est associé à `node1` et `node2` dans ce cluster est `true`:
+Cet exemple montre que l'état de santé du nœud pour `node1` et `node2` dans ce groupe est `true` :
 
 [listing, subs="+quotes"]
 ----
@@ -317,7 +317,7 @@ node1  true     true          true
 node2  true     true          true
 ----
 ====
-. Vérifiez la configuration suivante du réseau du cluster :
+. Veuillez confirmer la configuration réseau du cluster suivante :
 +
 `network port show`
 
@@ -325,7 +325,7 @@ node2  true     true          true
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -361,12 +361,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Vérifiez que le réseau de clusters fonctionne correctement :
+. Vérifiez que le réseau du cluster est sain :
 +
 `show isdp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -393,11 +393,11 @@ cs1          0/55    179         R             BES-53248   0/55
 cs1          0/56    179         R             BES-53248   0/56
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir remplacé vos interrupteurs, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

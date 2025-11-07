@@ -1,14 +1,14 @@
-= Nouveau support de commutateur
+= Nouvelle prise en charge des commutateurs
 :allow-uri-read: 
 
 
 
 
-== Nouveau support de commutateur
+== Nouvelle prise en charge des commutateurs
 
 [cols="25h,~,~"]
 |===
-| Commutateurs | Description | Disponible au début 
+| Interrupteurs | Description | Disponible dès le début 
 
 
  a| 
@@ -30,70 +30,70 @@ ONTAP 9.17.1
 
 
  a| 
-Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T 12 ports 10/25/40/100 GbE (X190212-CS-PE et X190212-CS-PI)
+Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T à 12 ports 10/25/40/100GbE (X190212-CS-PE et X190212-CS-PI)
  a| 
-Prend en charge les configurations de cluster 10/25/40/100 GbE et les configurations de stockage 100 GbE (stockage connecté au commutateur).
- a| 
-ONTAP 9.10.1
-
-
-
- a| 
-Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T 12 ports 10/25/40/100 GbE (X190212-CS-PE et X190212-CS-PI)
- a| 
-Prend en charge les configurations de cluster 10/25/40/100 GbE et les configurations de stockage 100 GbE (stockage connecté au commutateur).
+Prend en charge les configurations de cluster 10/25/40/100GbE et les configurations de stockage 100GbE (stockage connecté au commutateur).
  a| 
 ONTAP 9.10.1
 
 
 
  a| 
-Commutateur NVIDIA 100 GbE à 16 ports (X190006-PE et X190006-PI)
+Commutateur de cluster et de stockage Cisco Nexus 9336C-FX2-T à 12 ports 10/25/40/100GbE (X190212-CS-PE et X190212-CS-PI)
  a| 
-Prise en charge du commutateur d'interconnexion de cluster NVIDIA SN2100 et du commutateur de stockage, y compris la prise en charge des configurations MetroCluster IP.
+Prend en charge les configurations de cluster 10/25/40/100GbE et les configurations de stockage 100GbE (stockage connecté au commutateur).
  a| 
 ONTAP 9.10.1
 
 
 
  a| 
-Commutateur Cisco 100 GbE à 36 ports (X190200-CS-PE et X190200-CS-PI)
+Commutateur NVIDIA 16 ports 100GbE (X190006-PE et X190006-PI)
  a| 
-Prise en charge d'une infrastructure partagée (cluster, haute disponibilité et stockage DAS) sur la même paire de commutateurs Cisco Nexus 9336C-FX2, y compris la prise en charge des configurations MetroCluster IP.
+Prise en charge du commutateur d'interconnexion de cluster et du commutateur de stockage NVIDIA SN2100, y compris la prise en charge des configurations IP MetroCluster .
+ a| 
+ONTAP 9.10.1
+
+
+
+ a| 
+Commutateur Cisco 36 ports 100GbE (X190200-CS-PE et X190200-CS-PI)
+ a| 
+Prend en charge une infrastructure partagée (Cluster, HA et stockage connecté au commutateur) sur la même paire de commutateurs Cisco Nexus 9336C-FX2, y compris la prise en charge des configurations IP MetroCluster .
  a| 
 ONTAP 9.9.1
 
 
 
  a| 
-Commutateur Cisco 100 GbE à 36 ports (X190200-CS-PE et X190200-CS-PI), (X190210-FE-PE et X190210-FE-PI)
+Commutateur Cisco 36 ports 100GbE (X190200-CS-PE et X190200-CS-PI), (X190210-FE-PE et X190210-FE-PI)
  a| 
-Prise en charge des commutateurs de stockage et des commutateurs d'interconnexion de cluster Cisco Nexus 9336C-FX2 pour les systèmes de stockage AFF et ASA, ainsi que pour la connectivité des données front-end.
+Le commutateur d'interconnexion de cluster et le commutateur de stockage Cisco Nexus 9336C-FX2 prennent en charge les systèmes de stockage AFF et ASA , ainsi que la connectivité des données frontales.
  a| 
-ONTAP 9.8
+ONTAP 9,8
 
 
 
  a| 
 Commutateur Broadcom BES-53248 (X190005 et X190005R)
  a| 
-Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/FAS avec ports 10 GbE et 40 GbE.
+Prise en charge du commutateur d'interconnexion de cluster Broadcom BES-53248 pour les contrôleurs AFF/ FAS avec des ports 10/25GbE et 40/100GbE.
  a| 
-ONTAP 9.8
+ONTAP 9,8
 
 
 
  a| 
-Commutateur Cisco 100 GbE à 36 ports (X190200) et commutateur Cisco 100 GbE à 32 ports (X190100 et X190100R)
+Commutateur Cisco 100GbE à 36 ports (X190200) et commutateur Cisco 100GbE à 32 ports (X190100 et X190100R)
  a| 
-Prise en charge des switchs de stockage Cisco Nexus 3232C pour la connexion des tiroirs de disques NVMe NS224 avec les systèmes de stockage AFF et ASA :
+Prise en charge du commutateur de stockage Cisco Nexus 3232C pour la connexion des baies de disques NVMe NS224 aux systèmes de stockage AFF et ASA :
 
-* AFF A800/AFF ASA A800
-* ASA AFF A700/AFF A700
-* AFF A400/AFF ASA A400
+* AFF A800/ AFF ASA A800
+* AFF A700/ AFF ASA A700
+* AFF A400/ AFF ASA A400
 * AFF A320
 
  a| 
-ONTAP 9.8
+ONTAP 9,8
 
 |===

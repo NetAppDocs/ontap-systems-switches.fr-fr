@@ -2,30 +2,30 @@
 permalink: switch-cisco-3232c/install-rcf-3232c.html 
 sidebar: sidebar 
 keywords: install, rcf 
-summary: Vous pouvez installer la FCR après la première configuration du switch Nexus 3232C.vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. 
+summary: Vous pouvez installer RCF après avoir configuré le commutateur Nexus 3232C pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à jour votre version de RCF. 
 ---
-= Installation ou mise à niveau du fichier RCF (Reference Configuration File)
+= Installer ou mettre à niveau le fichier de configuration de référence (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer la FCR après la configuration du switch Nexus 3232C pour la première fois.
+Suivez cette procédure pour installer le RCF après avoir configuré le commutateur Nexus 3232C pour la première fois.
 
-Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] Pour plus d'informations lors de la mise à niveau de votre FCR.
+Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de la mise à niveau de votre RCF.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-* Sauvegarde actuelle de la configuration du commutateur.
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* Le fichier FCR (Reference Configuration File) actuel.
-* Connexion de la console au commutateur, requise lors de l'installation du FCR.
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^] Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Notez que la syntaxe de la commande peut être utilisée dans la FCR et dans les versions de NX-OS.
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]. Reportez-vous aux guides de mise à niveau et aux logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux ni problème similaire).
+* Le fichier de configuration de référence (RCF) actuel.
+* Une connexion console au commutateur est nécessaire lors de l'installation du RCF.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["page du commutateur Ethernet Cisco"^]Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge.  Notez qu'il peut exister des dépendances entre la syntaxe des commandes dans le RCF et celle des versions de NX-OS.
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus série 3000"^]. Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
 
 
@@ -33,28 +33,28 @@ Vous pouvez également utiliser cette procédure pour mettre à niveau votre ver
 == Installez le fichier
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms des deux commutateurs Cisco sont `cs1` et `cs2`.
-* Les noms de nœud sont `cluster1-01`, `cluster1-02`, `cluster1-03`, et `cluster1-04`.
-* Les noms LIF de cluster sont `cluster1-01_clus1`, `cluster1-01_clus2`, `cluster1-02_clus1`, `cluster1-02_clus2` , `cluster1-03_clus1`, `cluster1-03_clus2`, `cluster1-04_clus1`, et `cluster1-04_clus2`.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les noms des deux commutateurs Cisco sont : `cs1` et `cs2` .
+* Les noms des nœuds sont `cluster1-01` , `cluster1-02` , `cluster1-03` , et `cluster1-04` .
+* Les noms LIF du cluster sont `cluster1-01_clus1` , `cluster1-01_clus2` , `cluster1-02_clus1` , `cluster1-02_clus2` , `cluster1-03_clus1` , `cluster1-03_clus2` , `cluster1-04_clus1` , et `cluster1-04_clus2` .
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure. Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL. Pour garantir le fonctionnement non perturbateur du cluster, la procédure suivante migre toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
 
-Veiller à terminer la procédure dans link:prepare-install-cisco-nexus-3232c.html["Préparez-vous à installer NX-OS et RCF"], puis suivez les étapes ci-dessous.
+Assurez-vous de terminer la procédure danslink:prepare-install-cisco-nexus-3232c.html["Préparez-vous à installer NX-OS et RCF"] , puis suivez les étapes ci-dessous.
 
 .Étapes
-. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
+. Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -78,14 +78,14 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Vérifiez le statut administratif et opérationnel de chaque port du cluster.
+. Vérifiez l'état administratif et opérationnel de chaque port du cluster.
 +
-.. Vérifier que tous les ports du cluster sont défectueux :
+.. Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
 +
 `network port show –role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -128,12 +128,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
+.. Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -155,12 +155,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
+.. Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -189,9 +189,9 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 ====
 
 
-. Désactivez la fonction de restauration automatique sur les LIF du cluster.
+. Désactiver la restauration automatique sur les LIF du cluster.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -199,9 +199,9 @@ cs2                         cluster-network    10.233.205.93    NX3232C
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
 ====
-. Sur le commutateur de cluster cs2, arrêtez les ports connectés aux ports de cluster des nœuds.
+. Sur le commutateur de cluster cs2, désactivez les ports connectés aux ports de cluster des nœuds.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -210,12 +210,12 @@ cs2(config)# *interface eth1/1/1-2,eth1/7-8*
 cs2(config-if-range)# *shutdown*
 ----
 ====
-. Vérifiez que les ports de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
+. Vérifiez que les ports du cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -237,12 +237,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -258,15 +258,15 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Si ce n'est pas déjà fait, enregistrez une copie de la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier texte :
+. Si vous ne l'avez pas déjà fait, enregistrez une copie de la configuration actuelle du commutateur en copiant le résultat de la commande suivante dans un fichier texte :
 +
 `show running-config`
 
-. Enregistrez tous les ajouts personnalisés entre le courant `running-config` et le fichier RCF en cours d'utilisation.
-. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur le bootflash.
+. Enregistrez tout ajout personnalisé entre les éléments actuels `running-config` et le fichier RCF utilisé.
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur la mémoire flash de démarrage.
 +
 
-NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer la configuration de base.  Vous devez être connecté au port de console série du commutateur pour configurer à nouveau le commutateur.
+NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer la configuration de base. Vous devez être connecté au port de console série du commutateur pour configurer à nouveau le commutateur.
 
 +
 `cs2# show run | section "switchname" > bootflash:write_erase.cfg`
@@ -283,7 +283,7 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 +
 `cs2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
-. Pour la version RCF 1.12 et ultérieure, exécutez les commandes suivantes :
+. Pour RCF version 1.12 et ultérieures, exécutez les commandes suivantes :
 +
 `cs2# echo "hardware access-list tcam region racl-lite 512" >> bootflash:write_erase.cfg`
 
@@ -291,9 +291,9 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Voir l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
-. Vérifiez que le `write_erase.cfg` le fichier est rempli comme prévu :
+. Vérifiez que le `write_erase.cfg` Le fichier est rempli comme prévu :
 +
 `show file bootflash:write_erase.cfg`
 
@@ -311,19 +311,19 @@ Voir l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Swi
 +
 `cs2# *copy bootflash:write_erase.cfg startup-config*`
 
-. Redémarrer le commutateur :
+. Redémarrez le commutateur :
 +
 `cs2# *reload*`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre que TFTP est utilisé pour copier une FCR dans le bootflash sur le commutateur cs2 :
+Cet exemple montre comment TFTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
@@ -335,24 +335,24 @@ TFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====
-. Appliquez le RCF préalablement téléchargé sur le bootflash.
+. Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre le fichier RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs2 :
+Cet exemple montre le fichier RCF `Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
 cs2# *copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-commands*
 ----
 ====
-. Examinez le résultat de la bannière du `show banner motd` commande. Vous devez lire et suivre les instructions sous *remarques importantes* pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
+. Examinez la sortie de la bannière à partir de `show banner motd` commande.  Vous devez lire et suivre les instructions figurant dans la section *Remarques importantes* pour assurer la configuration et le fonctionnement corrects du commutateur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -401,44 +401,44 @@ cs2# show banner motd
 ====
 +
 
-NOTE: Lors de l'application de FCR pour la première fois, le message *ERROR: Failed to write VSH commands* est attendu et peut être ignoré.
+NOTE: Lors de la première application du RCF, le message *ERREUR : Échec de l’écriture des commandes VSH* est normal et peut être ignoré.
 
-. Vérifiez que le fichier RCF est la version la plus récente correcte :
+. Vérifiez que le fichier RCF est bien la version la plus récente correcte :
 +
 `show running-config`
 
 +
-Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :
+Lorsque vous vérifiez le résultat pour vous assurer que vous avez le RCF correct, vérifiez que les informations suivantes sont correctes :
 
 +
 ** La bannière RCF
-** Les paramètres du nœud et du port
+** Paramètres du nœud et du port
 ** Personnalisations
 +
-Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+Le résultat varie en fonction de la configuration de votre site.  Vérifiez les paramètres du port et consultez les notes de version pour connaître les modifications spécifiques à la version de RCF que vous avez installée.
 
 
 
-. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-3232c.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Après avoir vérifié que les versions de RCF et les paramètres de commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
+. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-3232c.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Référence des commandes Cisco Nexus série 3000 NX-OS"^] guides.
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
 
 +
 [listing]
 ----
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
-. Redémarrer le commutateur cs2. Vous pouvez ignorer les événements « cluster port down » signalés sur les nœuds pendant le redémarrage du commutateur.
+. Redémarrez le commutateur cs2.  Vous pouvez ignorer les événements « ports de cluster hors service » signalés sur les nœuds pendant le redémarrage du commutateur.
 +
 [listing, subs="+quotes"]
 ----
 cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-. Appliquer la même FCR et sauvegarder la configuration en cours d'exécution pendant une seconde fois.
+. Appliquez le même RCF et enregistrez la configuration en cours une seconde fois.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -447,14 +447,14 @@ cs2# copy Nexus_3232C_RCF_v1.6-Cluster-HA-Breakout.txt running-config echo-comma
 cs2# copy running-config startup-config [########################################] 100% Copy complete
 ----
 ====
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports e0d sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -495,9 +495,9 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Vérifiez l'état du commutateur depuis le cluster (il se peut que le commutateur cs2 n'affiche pas, car les LIF ne sont pas homeed sur e0d).
+.. Vérifiez l'état du commutateur à partir du cluster (cela peut ne pas afficher le commutateur cs2, car les LIF ne sont pas hébergées sur e0d).
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -544,7 +544,7 @@ cs2                         cluster-network    10.233.205.91    N3K-C3232C
 +
 [NOTE]
 ====
-Vous pouvez observer la sortie suivante sur la console des commutateurs cs1 en fonction de la version RCF précédemment chargée sur le commutateur
+Vous pourriez observer le résultat suivant sur la console du commutateur cs1, en fonction de la version RCF précédemment chargée sur le commutateur.
 
 ....
 2020 Nov 17 16:07:18 cs1 %$ VDC-1 %$ %STP-2-UNBLOCK_CONSIST_PORT: Unblocking port port-channel1 on VLAN0092. Port consistency restored.
@@ -556,14 +556,14 @@ Vous pouvez observer la sortie suivante sur la console des commutateurs cs1 en f
 
 +
 
-NOTE: Les nœuds de cluster peuvent prendre jusqu'à 5 minutes pour qu'ils fonctionnent correctement.
+NOTE: Il peut falloir jusqu'à 5 minutes pour que les nœuds du cluster soient signalés comme étant en bonne santé.
 
-. Sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
+. Sur le commutateur de cluster cs1, désactivez les ports connectés aux ports de cluster des nœuds.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant utilise la sortie d'exemple d'interface de l'étape 1 :
+L'exemple suivant utilise la sortie d'exemple d'interface de l'étape 1 :
 
 [listing, subs="+quotes"]
 ----
@@ -571,12 +571,12 @@ cs1(config)# *interface eth1/1/1-2,eth1/7-8*
 cs1(config-if-range)# *shutdown*
 ----
 ====
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.
+. Vérifiez que les LIF du cluster ont migré vers les ports hébergés sur le commutateur cs2. Cela peut prendre quelques secondes.
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -598,12 +598,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -620,15 +620,15 @@ cluster1::*>
 ----
 ====
 . Répétez les étapes 7 à 23 sur le commutateur cs1.
-. Activez la fonction de revert automatique sur les LIFs du cluster.
+. Activer la restauration automatique sur les LIF du cluster.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Vérifier que les ports de commutateurs connectés aux ports du cluster sont bien connectés.
+. Vérifiez que les ports du commutateur connectés aux ports du cluster sont opérationnels.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -644,12 +644,12 @@ Eth1/8        1       eth  trunk  up      none                   100G(D) --
 .
 ----
 ====
-. Vérifier que l'ISL entre cs1 et cs2 est fonctionnel :
+. Vérifiez que l'ISL entre cs1 et cs2 est fonctionnel :
 +
 `show port-channel summary`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -671,12 +671,12 @@ Group Port-       Type     Protocol  Member Ports
 cs1#
 ----
 ====
-. Vérifier que les LIFs du cluster ont rétabli leur port de base :
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -699,15 +699,15 @@ cluster1::*>
 ----
 ====
 +
-Si une LIF de cluster n'a pas renvoyé vers ses ports de home accueil, les revert manuellement :
+Si des LIFS de cluster ne sont pas revenus à leurs ports d'origine, rétablissez-les manuellement :
 `network interface revert -vserver _vserver_name_ -lif _lif_name_`
 
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -723,22 +723,22 @@ cluster1-04          true    true          false
 cluster1::*>
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -768,9 +768,9 @@ cluster1-04
 .
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -815,5 +815,5 @@ RPC status:
 ----
 --
 ====
-.Et la suite ?
-link:configure-ssh-keys.html["Vérifier la configuration de SSH"].
+.Quelle est la prochaine étape ?
+link:configure-ssh-keys.html["Vérifier la configuration SSH"].

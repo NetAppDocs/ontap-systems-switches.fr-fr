@@ -2,9 +2,9 @@
 permalink: switch-cisco-9332d-gx2b/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
-summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux.  Pour activer SSH sur les commutateurs de cluster Cisco 9332d-gx2b, vous générez d’abord les clés SSH, puis vous activez SSH.' 
+summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9332d-gx2b, vous générez d’abord les clés SSH, puis vous activez SSH.' 
 ---
-= Vérifiez la configuration de votre SSH
+= Vérifiez votre configuration SSH
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,19 +14,19 @@ summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Clu
 Si vous utilisez les fonctionnalités Ethernet Switch Health Monitor (CSHM) et de collecte de journaux, vérifiez que SSH et les clés SSH sont activés sur les commutateurs.
 
 .Étapes
-. Vérifiez que SSH est activé :
+. Vérifiez que SSH est activé :
 +
 [listing, subs="+quotes"]
 ----
 (switch) *show ssh server*
 ssh version 2 is enabled
 ----
-. Vérifiez que les clés SSH sont activées :
+. Vérifiez que les clés SSH sont activées :
 +
 `show ssh key`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -67,5 +67,5 @@ sshServer              1          enabled
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir vérifié votre configuration SSH, vouslink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

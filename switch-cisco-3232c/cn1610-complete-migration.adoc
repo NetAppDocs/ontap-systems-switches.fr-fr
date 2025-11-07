@@ -2,27 +2,27 @@
 permalink: switch-cisco-3232c/cn1610-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser des commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Terminez votre migration des switchs CN1610 vers des switchs 3232C
+= Finalisez votre migration des commutateurs CN1610 vers les commutateurs 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour finaliser la migration des switchs CN1610 vers des switchs Nexus 3232C.
+Suivez les étapes suivantes pour finaliser la migration des commutateurs CN1610 vers les commutateurs Nexus 3232C.
 
 .Étapes
-. Restaurez toutes les LIF d'interconnexion de cluster migrées qui étaient connectées à C1 sur tous les nœuds :
+. Rétablir la configuration de toutes les interfaces logiques d'interconnexion de cluster migrées qui étaient initialement connectées à C1 sur tous les nœuds :
 +
 `network interface revert -server cluster -lif _lif-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez migrer chaque LIF individuellement comme indiqué dans l'exemple suivant :
+Vous devez migrer chaque LIF individuellement, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -32,15 +32,15 @@ cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus4*
 ----
 ====
-. Vérifiez que l'interface est à présent à domicile :
+. Vérifiez que l'interface est bien à l'accueil :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le statut des interfaces d'interconnexion de cluster est `up` Et « est à domicile » pour les nœuds n1 et n2 :
+L'exemple suivant illustre l'état des interfaces d'interconnexion du cluster. `up` et « Est le domicile » pour les nœuds n1 et n2 :
 
 [listing, subs="+quotes"]
 ----
@@ -62,22 +62,22 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -94,9 +94,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -145,18 +145,18 @@ RPC status:
 ----
 --
 ====
-. [[step4]] étendre le cluster en ajoutant des nœuds aux switchs de cluster Nexus 3232C.
-. Affichez les informations relatives aux périphériques de votre configuration :
+. [[étape 4]] Développez le cluster en ajoutant des nœuds aux commutateurs de cluster Nexus 3232C.
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 ** `network device-discovery show`
 ** `network port show -role cluster`
 ** `network interface show -role cluster`
 ** `system cluster-switch show`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les exemples suivants illustrent les nœuds n3 et n4 avec des ports de cluster 40 GbE connectés aux ports e1/7 et e1/8, respectivement, sur les deux switchs de cluster Nexus 3232C. Les deux nœuds sont reliés au cluster. Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.
+Les exemples suivants montrent les nœuds n3 et n4 avec des ports de cluster 40 GbE connectés respectivement aux ports e1/7 et e1/8 sur les deux commutateurs de cluster Nexus 3232C.  Les deux nœuds sont joints au cluster.  Les ports d'interconnexion de cluster 40 GbE utilisés sont e4a et e4e.
 
 [listing, subs="+quotes"]
 ----
@@ -282,15 +282,15 @@ CL2                         cluster-network  10.10.1.102    CN1610
 ====
 
 
-. Supprimez les commutateurs CN1610 remplacés s'ils ne sont pas automatiquement supprimés :
+. Retirez les commutateurs CN1610 remplacés s'ils ne sont pas retirés automatiquement :
 +
 `system cluster-switch delete -device _switch-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez supprimer les deux périphériques individuellement comme indiqué dans l'exemple suivant :
+Vous devez supprimer les deux appareils individuellement, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -298,15 +298,15 @@ cluster::> *system cluster-switch delete –device CL1*
 cluster::> *system cluster-switch delete –device CL2*
 ----
 ====
-. Vérifier que les commutateurs de cluster appropriés sont surveillés :
+. Vérifiez que les commutateurs de cluster appropriés sont surveillés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les commutateurs C1 et C2 du cluster sont en cours de surveillance :
+L'exemple suivant montre que les commutateurs de cluster C1 et C2 sont surveillés :
 
 [listing, subs="+quotes"]
 ----
@@ -334,11 +334,11 @@ C2                          cluster-network    10.10.1.104      NX3232C
 2 entries were displayed.
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"].

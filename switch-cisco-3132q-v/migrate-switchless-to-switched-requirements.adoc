@@ -4,17 +4,17 @@ sidebar: sidebar
 keywords: install, cisco nexus 3132q-v switch, 
 summary: Avant de configurer les commutateurs Cisco Nexus 3132q-v, consultez un aperçu du processus et de la nomenclature. 
 ---
-= Conditions requises pour la migration
+= Exigences de migration
 :allow-uri-read: 
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous avez un cluster à 2 nœuds sans commutateur, consultez cette procédure pour connaître les exigences applicables à la migration vers un cluster à 2 nœuds avec commutateur.
+Si vous disposez d'un cluster sans commutateur à deux nœuds, consultez cette procédure pour connaître les exigences applicables à la migration vers un cluster commuté à deux nœuds.
 
 [NOTE]
 ====
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 ====
 Pour plus d'informations, voir :
@@ -24,60 +24,60 @@ Pour plus d'informations, voir :
 * link:http://hwu.netapp.com["Hardware Universe"^]
 
 
-.Connexions de port et de nœud
-Assurez-vous de bien comprendre les exigences de câblage et de connexion des ports et nœuds lorsque vous migrez vers un cluster commuté à deux nœuds avec des commutateurs de cluster Cisco Nexus 3132Q-V.
+.Connexions de ports et de nœuds
+Assurez-vous de bien comprendre les exigences de connexion des ports et des nœuds ainsi que le câblage lorsque vous migrez vers un cluster commuté à deux nœuds avec des commutateurs de cluster Cisco Nexus 3132Q-V.
 
-* Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) e1/31-32.
-* Le link:https://hwu.netapp.com/["Hardware Universe"^] Contient des informations sur le câblage pris en charge vers les commutateurs Nexus 3132Q-V :
+* Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) e1/31-32.
+* Lelink:https://hwu.netapp.com/["Hardware Universe"^] contient des informations sur le câblage pris en charge pour les commutateurs Nexus 3132Q-V :
 +
-** Les nœuds équipés de connexions de cluster 10 GbE requièrent des modules optiques QSFP avec des câbles à fibre optique de séparation ou des câbles QSFP avec des câbles en cuivre SFP+.
-** Les nœuds avec des connexions de cluster 40 GbE nécessitent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
-** Les commutateurs de cluster utilisent le câblage ISL approprié : 2 câbles à connexion directe en fibre ou en cuivre QSFP28.
+** Les nœuds dotés de connexions de cluster 10 GbE nécessitent des modules optiques QSFP avec des câbles de dérivation en fibre optique ou des câbles de dérivation en cuivre QSFP vers SFP+.
+** Les nœuds dotés de connexions de cluster 40 GbE nécessitent des modules optiques QSFP/QSFP28 compatibles avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
+** Les commutateurs du cluster utilisent le câblage ISL approprié : 2 câbles à fibre optique ou en cuivre à connexion directe QSFP28.
 
 
-* Sur le Nexus 3132Q-V, vous pouvez utiliser les ports QSFP en mode Ethernet 40 Gb ou 4 x 10 Gb Ethernet.
+* Sur le Nexus 3132Q-V, vous pouvez utiliser les ports QSFP en mode Ethernet 40 Gb ou en mode Ethernet 4x10 Gb.
 +
-Par défaut, il y a 32 ports en mode Ethernet 40 Gb. Ces ports Ethernet 40 Gb sont numérotés en 2 points. Par exemple, le second port Ethernet 40 Gbit est numéroté 1/2. Le processus de modification de la configuration de 40 Go Ethernet à 10 Go Ethernet s'appelle _écorché_ et le processus de modification de la configuration de 10 Go Ethernet à 40 Go Ethernet s'appelle _Breakin_. Lorsque vous divisez un port Ethernet 40 Gb en ports Ethernet 10 Gb, les ports obtenus sont numérotés selon une convention de nommage 3-Tuple. Par exemple, les ports de dérivation du second port Ethernet 40 Gbit sont numérotés en 1/2/1, 1/2/2, 1/2/3 et 1/2/4.
+Par défaut, le mode Ethernet 40 Gb comporte 32 ports.  Ces ports Ethernet 40 Gb sont numérotés selon une convention de nommage par paires.  Par exemple, le deuxième port Ethernet 40 Gb est numéroté 1/2.  Le processus de changement de configuration de 40 Gb Ethernet à 10 Gb Ethernet est appelé _breakout_ et le processus de changement de configuration de 10 Gb Ethernet à 40 Gb Ethernet est appelé _breakin_.  Lorsque vous divisez un port Ethernet 40 Gb en ports Ethernet 10 Gb, les ports résultants sont numérotés selon une convention de nommage à 3 éléments.  Par exemple, les ports de dérivation du deuxième port Ethernet 40 Gb sont numérotés 1/2/1, 1/2/2, 1/2/3 et 1/2/4.
 
-* Sur le côté gauche du Nexus 3132Q-V est un ensemble de quatre ports SFP+ multiplexés sur le premier port QSFP.
+* Sur le côté gauche du Nexus 3132Q-V se trouve un ensemble de quatre ports SFP+ multiplexés sur le premier port QSFP.
 +
-Par défaut, la FCR est structurée de manière à utiliser le premier port QSFP.
+Par défaut, le RCF est configuré pour utiliser le premier port QSFP.
 
 +
-Vous pouvez activer quatre ports SFP+ au lieu d'un port QSFP pour Nexus 3132Q-V en utilisant le `hardware profile front portmode sfp-plus` commande. De même, vous pouvez réinitialiser Nexus 3132Q-V pour utiliser un port QSFP au lieu de quatre ports SFP+ en utilisant le `hardware profile front portmode qsfp` commande.
+Vous pouvez activer quatre ports SFP+ au lieu d'un port QSFP pour le Nexus 3132Q-V en utilisant le `hardware profile front portmode sfp-plus` commande.  De même, vous pouvez réinitialiser le Nexus 3132Q-V pour utiliser un port QSFP au lieu de quatre ports SFP+ en utilisant la méthode suivante : `hardware profile front portmode qsfp` commande.
 
-* Assurez-vous que vous avez configuré certains des ports du Nexus 3132Q-V pour qu'ils fonctionnent à 10 GbE ou 40 GbE.
+* Assurez-vous d'avoir configuré certains ports du Nexus 3132Q-V pour qu'ils fonctionnent à 10 GbE ou 40 GbE.
 +
-Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du `no interface breakout module 1 port 1-6 map 10g-4x` commande.
+Vous pouvez configurer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande.  De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de dérivation en utilisant le `no interface breakout module 1 port 1-6 map 10g-4x` commande.
 
-* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] .
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
 
 .Avant de commencer
-* Configurations correctement configurées et opérationnelles.
+* Configurations correctement mises en place et fonctionnelles.
 * Nœuds exécutant ONTAP 9.4 ou version ultérieure.
-* Tous les ports de cluster dans `up` état.
+* Tous les ports du cluster dans le `up` État.
 * Le commutateur de cluster Cisco Nexus 3132Q-V est pris en charge.
-* La configuration réseau en cluster existante comporte les éléments suivants :
+* La configuration réseau du cluster existant comprend :
 +
-** L'infrastructure en cluster Nexus 3132 redondante et entièrement fonctionnelle sur les deux commutateurs.
-** Les dernières versions de RCF et de NX-OS sur vos commutateurs.
+** L'infrastructure de cluster Nexus 3132 est redondante et pleinement fonctionnelle sur les deux commutateurs.
+** Les dernières versions de RCF et NX-OS sur vos commutateurs.
 +
 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]contient des informations sur les versions ONTAP et NX-OS prises en charge dans cette procédure.
 
 ** Connectivité de gestion sur les deux commutateurs.
-** Accès à la console aux deux commutateurs.
-** Toutes les interfaces logiques (LIF) du cluster dans le `up` état sans migration.
+** Accès console aux deux commutateurs.
+** Toutes les interfaces logiques de cluster (LIF) dans le `up` état sans être migré.
 ** Personnalisation initiale du commutateur.
-** Tous les ports ISL activés et câblés.
+** Tous les ports ISL sont activés et câblés.
 
 
 
 
-En outre, vous devez planifier, migrer et lire la documentation requise sur la connectivité 10 GbE et 40 GbE depuis les nœuds vers les commutateurs de cluster Nexus 3132Q-V.
+De plus, vous devez planifier, migrer et lire la documentation requise sur la connectivité 10 GbE et 40 GbE des nœuds vers les commutateurs de cluster Nexus 3132Q-V.
 
-.A propos des exemples utilisés
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+.À propos des exemples utilisés
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Commutateurs de cluster Nexus 3132Q-V, C1 et C2.
 * Les nœuds sont n1 et n2.
@@ -85,28 +85,28 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 
 [NOTE]
 ====
-Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE *e4a* et *e4e*. link:https://hwu.netapp.com/["Hardware Universe"^]La contient des informations sur les ports de cluster sur vos plateformes.
+Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE *e4a* et *e4e*.  Lelink:https://hwu.netapp.com/["Hardware Universe"^] contient des informations sur les ports de cluster sur vos plateformes.
 
 ====
-Cette procédure couvre les scénarios suivants :
+Cette procédure couvre les scénarios suivants :
 
-* *N1_clus1* est la première interface logique de cluster (LIF) à être connectée au commutateur de cluster C1 pour le nœud *n1*.
-* *N1_clus2* est la première LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud *n1*.
-* *N2_clus1* est la première LIF de cluster à être connectée au commutateur de cluster C1 pour le nœud *n2*.
-* *N2_clus2* est la deuxième LIF de cluster à connecter au commutateur de cluster C2 pour le nœud *n2*.
-* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco ®"^] .
+* *n1_clus1* est la première interface logique de cluster (LIF) à être connectée au commutateur de cluster C1 pour le nœud *n1*.
+* *n1_clus2* est la première interface LIF du cluster à être connectée au commutateur de cluster C2 pour le nœud *n1*.
+* *n2_clus1* est la première interface LIF du cluster à être connectée au commutateur de cluster C1 pour le nœud *n2*.
+* *n2_clus2* est la deuxième interface LIF du cluster à connecter au commutateur de cluster C2 pour le nœud *n2*.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
 
 [NOTE]
 ====
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 ====
-* Le cluster commence par deux nœuds connectés et fonctionne dans un cluster à deux nœuds sans commutateur.
+* Le cluster démarre avec deux nœuds connectés et fonctionnant dans une configuration de cluster sans commutateur à deux nœuds.
 * Le premier port du cluster est déplacé vers C1.
-* Le second port du cluster est déplacé vers C2.
-* L'option de cluster sans commutateur à 2 nœuds est désactivée.
+* Le deuxième port du cluster est déplacé vers C2.
+* L'option de cluster sans commutateur à deux nœuds est désactivée.
 
 
-.Et la suite ?
-link:migrate-switchless-prepare-to-migrate.html["La préparation à la migration"].
+.Quelle est la prochaine étape ?
+link:migrate-switchless-prepare-to-migrate.html["Préparez-vous à la migration"].

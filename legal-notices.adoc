@@ -11,19 +11,19 @@ summary:
 
 
 [role="lead"]
-Les mentions légales donnent accès aux déclarations de copyright, aux marques, aux brevets, etc.
+Les mentions légales donnent accès aux déclarations de droits d'auteur, aux marques déposées, aux brevets et bien plus encore.
 
 
 
-== Droits d'auteur
+== Copyright
 
 link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
 
 
 
-== Marques déposées
+== Marques de commerce
 
-NetApp, le logo NETAPP et les marques mentionnées sur la page des marques commerciales NetApp sont des marques commerciales de NetApp, Inc. Les autres noms de sociétés et de produits peuvent être des marques commerciales de leurs propriétaires respectifs.
+NETAPP, le logo NETAPP et les marques répertoriées sur la page Marques NetApp sont des marques commerciales de NetApp, Inc. Les autres noms de sociétés et de produits peuvent être des marques commerciales de leurs propriétaires respectifs.
 
 link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/company/legal/trademarks/"^]
 
@@ -31,7 +31,7 @@ link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/co
 
 == Brevets
 
-Vous trouverez une liste actuelle des brevets appartenant à NetApp à l'adresse suivante :
+Une liste actuelle des brevets détenus par NetApp est disponible à l'adresse suivante :
 
 link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf"^]
 

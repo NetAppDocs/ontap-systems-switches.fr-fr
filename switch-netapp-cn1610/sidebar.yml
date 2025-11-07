@@ -2,35 +2,35 @@
 section: switch-netapp-cn1610
 title: NetApp CN1610
 entries:
-- title: Commencez
-  pdf-filename: Présentation_cn1610
+- title: Commencer
+  pdf-filename: Overview_cn1610
   url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
-- title: Workflow d'installation et de configuration
+- title: Installation et configuration du flux de travail
   url: "/switch-netapp-cn1610/install-overview-cn1610.html"
-- title: Documentation requise
+- title: Documents requis
   url: "/switch-netapp-cn1610/required-documentation-cn1610.html"
-- title: Installation et configuration
+- title: Installer et configurer
   pdf-filename: Install_configure_cn1610
   entries:
-  - title: Installer le matériel de fixation
+  - title: Installer le matériel
     url: "/switch-netapp-cn1610/install-hardware-cn1610.html"
   - title: Installez le logiciel FASTPATH
     url: "/switch-netapp-cn1610/install-fastpath-software.html"
-  - title: Installer une FCR
+  - title: Installer un RCF
     url: "/switch-netapp-cn1610/install-rcf-file.html"
-  - title: Installez FASTPATH et RCF pour ONTAP 8.3.1 ou version ultérieure
+  - title: Installez FASTPATH ​​et RCF pour ONTAP 8.3.1 et versions ultérieures.
     url: "/switch-netapp-cn1610/install-fastpath-rcf-831.html"
   - title: Configurer le commutateur
     url: "/switch-netapp-cn1610/configure-hardware-cn1610.html"
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_cn1610
   entries:
-  - title: Migrez d'un cluster sans commutateur vers un cluster commuté
+  - title: Migration d'un cluster sans interrupteur vers un cluster avec interrupteur
     url: "/switch-netapp-cn1610/migrate-switched-netapp-cn1610.html"
 - title: Remplacer les interrupteurs
   pdf-filename: Replace_switches_cn1610
   entries:
-  - title: Remplacez un commutateur de cluster NetApp CN1610
+  - title: Remplacer un commutateur de cluster NetApp CN1610
     url: "/switch-netapp-cn1610/replace-cn1610-switch.html"
-  - title: Remplacez les switchs de cluster par des connexions sans commutateur
+  - title: Remplacez les commutateurs groupés par des connexions sans commutateur.
     url: "/switch-netapp-cn1610/migrate-to-switchless-cluster-interconnect.html"

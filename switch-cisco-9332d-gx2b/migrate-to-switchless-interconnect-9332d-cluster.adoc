@@ -2,7 +2,7 @@
 permalink: switch-cisco-9332d-gx2b/migrate-to-switchless-interconnect-9332d-cluster.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster interconnect, cisco nexus switch 9332D-GX2B2 
-summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.' 
+summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté vers un cluster où deux nœuds sont directement connectés pour ONTAP 9.3 et versions ultérieures.' 
 ---
 = Remplacez les commutateurs de cluster Cisco Nexus 9332D-GX2B2 par des connexions sans commutateur
 :allow-uri-read: 
@@ -11,62 +11,62 @@ summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté ve
 
 
 [role="lead"]
-Vous pouvez migrer d'un cluster avec un réseau de cluster commuté vers un cluster auquel deux nœuds sont directement connectés pour ONTAP 9.3 et les versions ultérieures.
+Vous pouvez migrer d'un cluster avec un réseau de cluster commuté vers un cluster où deux nœuds sont directement connectés pour ONTAP 9.3 et versions ultérieures.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-.Directives
-Consultez les directives suivantes :
+.Lignes directrices
+Veuillez consulter les directives suivantes :
 
-* La migration vers une configuration de cluster à 2 nœuds sans commutateur assure une continuité de l'activité. La plupart des systèmes disposent de deux ports d'interconnexion de cluster dédiés sur chaque nœud, mais cette procédure peut également être utilisée pour les systèmes avec un plus grand nombre de ports d'interconnexion de cluster dédiés sur chaque nœud, tels que quatre, six ou huit.
-* Vous ne pouvez pas utiliser la fonctionnalité d'interconnexion de cluster sans commutateur avec plus de deux nœuds.
-* Si vous disposez déjà d'un cluster à deux nœuds avec des commutateurs d'interconnexion de cluster et qu'il exécute ONTAP 9.3 ou une version ultérieure, vous pouvez remplacer les commutateurs par des connexions directes et retour entre les nœuds.
+* La migration vers une configuration de cluster sans commutateur à deux nœuds est une opération non perturbatrice.  La plupart des systèmes disposent de deux ports d'interconnexion de cluster dédiés sur chaque nœud, mais vous pouvez également utiliser cette procédure pour les systèmes comportant un plus grand nombre de ports d'interconnexion de cluster dédiés sur chaque nœud, tels que quatre, six ou huit.
+* Vous ne pouvez pas utiliser la fonction d'interconnexion de cluster sans commutateur avec plus de deux nœuds.
+* Si vous disposez d'un cluster existant à deux nœuds utilisant des commutateurs d'interconnexion de cluster et exécutant ONTAP 9.3 ou une version ultérieure, vous pouvez remplacer les commutateurs par des connexions directes et dos à dos entre les nœuds.
 
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Cluster sain qui se compose de deux nœuds connectés par des commutateurs de cluster. Les nœuds doivent exécuter la même version de ONTAP.
-* Chaque nœud inclut le nombre requis de ports de cluster dédiés qui offrent des connexions d'interconnexion de cluster redondantes pour prendre en charge votre configuration système. Par exemple, un système dispose de deux ports redondants avec deux ports dédiés d'interconnexion de cluster sur chaque nœud.
-
-
+* Un cluster sain composé de deux nœuds connectés par des commutateurs de cluster.  Les nœuds doivent exécuter la même version ONTAP .
+* Chaque nœud dispose du nombre requis de ports de cluster dédiés, qui fournissent des connexions d'interconnexion de cluster redondantes pour prendre en charge la configuration de votre système.  Par exemple, un système comporte deux ports redondants et deux ports d'interconnexion de cluster dédiés sur chaque nœud.
 
 
-== Migrer les commutateurs
 
-.Description de la tâche
-La procédure suivante supprime les commutateurs du cluster dans un cluster à deux nœuds et remplace chaque connexion au commutateur par une connexion directe au nœud partenaire.
 
-image::../media/tnsc_clusterswitches_and_direct_connections.PNG[Les commutateurs du cluster ont été remplacés par des connexions directes]
+== Déplacer les commutateurs
+
+.À propos de cette tâche
+La procédure suivante supprime les commutateurs de cluster dans un cluster à deux nœuds et remplace chaque connexion au commutateur par une connexion directe au nœud partenaire.
+
+image::../media/tnsc_clusterswitches_and_direct_connections.PNG[Les commutateurs de cluster ont été remplacés par des connexions directes.]
 
 .À propos des exemples
-Les exemples de la procédure suivante illustrent les nœuds qui utilisent « e0a » et « e0b » comme ports de cluster. Il est possible que les nœuds utilisent différents ports de cluster, car ils varient selon le système.
+Les exemples de la procédure suivante montrent des nœuds qui utilisent « e0a » et « e0b » comme ports de cluster.  Vos nœuds peuvent utiliser des ports de cluster différents, car ceux-ci varient selon le système.
 
 
 
-=== Étape 1 : préparer la migration
+=== Étape 1 : Préparer la migration
 
-. Modifiez le niveau de privilège en avancé, en saisissant `y` lorsque vous êtes invité à continuer :
+. Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
 +
 `set -privilege advanced`
 
 +
-L'invite avancée `*>` s'affiche.
+L'invite avancée `*>` apparaît.
 
-. ONTAP 9.3 et les versions ultérieures prennent en charge la détection automatique des clusters sans commutateur, qui est activée par défaut.
+. ONTAP 9.3 et versions ultérieures prennent en charge la détection automatique des clusters sans commutateur, qui est activée par défaut.
 +
-Vous pouvez vérifier que la détection des clusters sans commutateur est activée en exécutant la commande Advanced Privilege :
+Vous pouvez vérifier que la détection des clusters sans commutateur est activée en exécutant la commande avec privilèges avancés :
 
 +
 `network options detect-switchless-cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple de sortie suivant indique si l'option est activée.
+L'exemple de résultat suivant indique si l'option est activée.
 
 [listing]
 ----
@@ -76,20 +76,20 @@ Enable Switchless Cluster Detection: true
 ----
 ====
 +
-Si l'option « Activer la détection Switchless Cluster » est de `false`, Contactez le support NetApp.
+Si « Activer la détection de cluster sans commutateur » est `false` , contactez le support NetApp .
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=<number_of_hours>h`
 
 +
-où `h` est la durée de la fenêtre de maintenance en heures. Ce message informe le support technique de cette tâche de maintenance de manière à ce qu'il puisse supprimer la création automatique de dossier pendant la fenêtre de maintenance.
+où `h` Il s'agit de la durée de la fenêtre de maintenance en heures.  Ce message informe le support technique de cette tâche de maintenance afin qu'il puisse désactiver la création automatique de tickets pendant la période de maintenance.
 
 +
-Dans l'exemple suivant, la commande supprime la création automatique de dossiers pendant deux heures :
+Dans l'exemple suivant, la commande désactive la création automatique de cas pendant deux heures :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -101,24 +101,24 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
-=== Étape 2 : configurer les ports et le câblage
+=== Étape 2 : Configurer les ports et le câblage
 
-. Organisez les ports de cluster de chaque commutateur en groupes de sorte que les ports de cluster du groupe1 passent au switch de cluster 1 et que les ports de cluster du groupe2 se rendent au switch de cluster 2. Ces groupes sont requis plus tard dans la procédure.
-. Identifier les ports du cluster et vérifier l'état et l'état de la liaison :
+. Organisez les ports de cluster de chaque commutateur en groupes de sorte que les ports de cluster du groupe 1 soient connectés au commutateur de cluster 1 et les ports de cluster du groupe 2 au commutateur de cluster 2.  Ces groupes seront nécessaires plus tard dans la procédure.
+. Identifiez les ports du cluster et vérifiez l'état et la santé des liaisons :
 +
 `network port show -ipspace Cluster`
 
 +
-Dans l'exemple suivant pour les nœuds avec des ports de cluster « e0a » et « e0b », un groupe est identifié comme « node1:e0a » et « node2:e0a » et l'autre groupe comme « node1:e0b » et « node2:e0b ». Vos nœuds peuvent utiliser différents ports de cluster car ils varient selon le système.
+Dans l'exemple suivant pour les nœuds avec des ports de cluster « e0a » et « e0b », un groupe est identifié comme « node1:e0a » et « node2:e0a » et l'autre groupe comme « node1:e0b » et « node2:e0b ».  Vos nœuds peuvent utiliser des ports de cluster différents car ils varient selon le système.
 
 +
-image::../media/tnsc_clusterswitch_connections.PNG[Connexions du commutateur de cluster entre le nœud 1 et le nœud 2]
+image::../media/tnsc_clusterswitch_connections.PNG[Les connexions de commutation du cluster entre le nœud 1 et le nœud 2]
 
 +
-Vérifier que les ports ont une valeur de `up` Pour la colonne “liaison” et une valeur de `healthy` Pour la colonne État de santé.
+Vérifiez que les ports ont une valeur de `up` pour la colonne « Lien » et une valeur de `healthy` pour la colonne « État de santé ».
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -142,15 +142,15 @@ e0b   Cluster   Cluster          up    9000  auto/10000  healthy false
 4 entries were displayed.
 ----
 ====
-. Vérifier que toutes les LIFs du cluster se trouvent sur leurs ports de type home.
+. Vérifiez que toutes les interfaces réseau du cluster sont bien connectées à leurs ports d'origine.
 +
-Vérifiez que la colonne « est-home » est de `true` Pour chaque LIF de cluster :
+Vérifiez que la colonne « est à la maison » est `true` pour chacun des LIF du cluster :
 
 +
 `network interface show -vserver Cluster -fields is-home`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -167,24 +167,24 @@ Cluster  node2_clus2  true
 ----
 ====
 +
-Si des LIF de cluster ne se trouvent pas sur leurs ports de départ, rerestaurez ces LIFs à leurs ports de base :
+Si certaines interfaces logiques (LIF) du cluster ne sont pas connectées à leurs ports d'origine, rétablissez leur connexion à ces LIF sur leurs ports d'origine :
 
 +
 `network interface revert -vserver Cluster -lif *`
 
-. Désactiver l'auto-revert pour les LIFs de cluster :
+. Désactiver la restauration automatique pour les LIF du cluster :
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Vérifiez que tous les ports répertoriés à l'étape précédente sont connectés à un commutateur réseau :
+. Vérifiez que tous les ports mentionnés à l'étape précédente sont connectés à un commutateur réseau :
 +
 `network device-discovery show -port _cluster_port_`
 
 +
-La colonne “périphérique découvert” doit être le nom du commutateur de cluster auquel le port est connecté.
+La colonne « Périphérique découvert » doit indiquer le nom du commutateur de cluster auquel le port est connecté.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 L'exemple suivant montre que les ports de cluster « e0a » et « e0b » sont correctement connectés aux commutateurs de cluster « cs1 » et « cs2 ».
@@ -205,22 +205,22 @@ node2/cdp
 4 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -236,9 +236,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -271,41 +271,41 @@ RPC status:
 ----
 --
 ====
-. [[step7]] Vérifiez que le cluster fonctionne correctement :
+. [[étape 7]] Vérifiez que le cluster est sain :
 +
 `cluster ring show`
 
 +
-Toutes les unités doivent être maîtres ou secondaires.
+Toutes les unités doivent être soit principales, soit secondaires.
 
 . Configurez la configuration sans commutateur pour les ports du groupe 1.
 +
 
-IMPORTANT: Pour éviter d'éventuels problèmes de mise en réseau, vous devez déconnecter les ports du groupe1 et les reconnecter le plus rapidement possible, par exemple *en moins de 20 secondes*.
+IMPORTANT: Pour éviter d'éventuels problèmes de réseau, vous devez déconnecter les ports du groupe 1 et les reconnecter l'un après l'autre le plus rapidement possible, par exemple, *en moins de 20 secondes*.
 
 +
-.. Débrancher tous les câbles des orifices du groupe1 en même temps.
+.. Débranchez simultanément tous les câbles des ports du groupe 1.
 +
-Dans l'exemple suivant, les câbles sont déconnectés du port « e0a » sur chaque nœud, et le trafic du cluster continue via le commutateur et le port « e0b » sur chaque nœud :
+Dans l'exemple suivant, les câbles sont déconnectés du port « e0a » sur chaque nœud, et le trafic du cluster continue via le commutateur et le port « e0b » sur chaque nœud :
 
 +
 image::../media/tnsc_clusterswitch1_disconnected.PNG[ClusterSwitch1 déconnecté]
 
-.. Reliez les orifices du groupe1 vers l'arrière.
+.. Câblez les ports du groupe 1 dos à dos.
 +
-Dans l'exemple suivant, « e0a » sur le nœud 1 est connecté à « e0a » sur le nœud 2 :
+Dans l'exemple suivant, « e0a » sur le nœud 1 est connecté à « e0a » sur le nœud 2 :
 
 +
 image::../media/tnsc_ports_e0a_direct_connection.PNG[Connexion directe entre les ports « e0a »]
 
 
 
-. L'option de réseau en cluster sans commutateur passe de `false` à `true`. Cette opération peut prendre jusqu'à 45 secondes. Vérifiez que l'option sans commutateur est définie sur `true`:
+. L'option de réseau cluster sans commutateur passe de `false` à `true` .  Cela peut prendre jusqu'à 45 secondes.  Vérifiez que l'option sans interrupteur est bien réglée sur `true` :
 +
 `network options switchless-cluster show`
 
 +
-L'exemple suivant montre que le cluster sans commutateur est activé :
+L'exemple suivant montre que le cluster sans commutateur est activé :
 
 +
 [listing]
@@ -313,22 +313,22 @@ L'exemple suivant montre que le cluster sans commutateur est activé :
 cluster::*> network options switchless-cluster show
 Enable Switchless Cluster: true
 ----
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -344,9 +344,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -380,27 +380,27 @@ RPC status:
 --
 ====
 
-IMPORTANT: Avant de passer à l'étape suivante, vous devez attendre au moins deux minutes pour confirmer une connexion de retour à l'arrière sur le groupe 1.
+IMPORTANT: Avant de passer à l'étape suivante, vous devez attendre au moins deux minutes pour confirmer une connexion directe et fonctionnelle sur le groupe 1.
 
-. [[step11]] configurez la configuration sans commutateur pour les ports du groupe 2.
+. [[étape 11]] Configurez la configuration sans commutateur pour les ports du groupe 2.
 +
 
-IMPORTANT: Pour éviter des problèmes de mise en réseau potentiels, vous devez déconnecter les ports du groupe 2 et les reconnecter le plus rapidement possible, par exemple *en moins de 20 secondes*.
+IMPORTANT: Pour éviter d'éventuels problèmes de réseau, vous devez déconnecter les ports du groupe 2 et les reconnecter l'un après l'autre le plus rapidement possible, par exemple, *en moins de 20 secondes*.
 
 +
-.. Déconnectez tous les câbles des ports du groupe 2 en même temps.
+.. Débranchez simultanément tous les câbles des ports du groupe 2.
 +
-Dans l'exemple suivant, les câbles sont déconnectés du port « e0b » sur chaque nœud, et le trafic des clusters continue via la connexion directe entre les ports « e0a » :
+Dans l'exemple suivant, les câbles sont déconnectés du port « e0b » sur chaque nœud, et le trafic du cluster continue via la connexion directe entre les ports « e0a » :
 
 +
 image::../media/tnsc_clusterswitch2_disconnected.PNG[ClusterSwitch2 déconnecté]
 
-.. Reliez les ports du groupe2 dos à dos.
+.. Câblez les ports du groupe 2 dos à dos.
 +
-Dans l'exemple suivant, « e0a » sur le nœud 1 est connecté à « e0a » sur le nœud 2 et « e0b » sur le nœud 1 est connecté au port « e0b » sur le nœud 2 :
+Dans l'exemple suivant, « e0a » sur le nœud 1 est connecté à « e0a » sur le nœud 2 et « e0b » sur le nœud 1 est connecté à « e0b » sur le nœud 2 :
 
 +
-image::../media/tnsc_node1_and_node2_direct_connection.PNG[Connexion directe entre les ports du node1 et du node2]
+image::../media/tnsc_node1_and_node2_direct_connection.PNG[Connexion directe entre les ports du nœud 1 et du nœud 2]
 
 
 
@@ -408,17 +408,17 @@ image::../media/tnsc_node1_and_node2_direct_connection.PNG[Connexion directe ent
 
 
 
-=== Étape 3 : vérifier la configuration
+=== Étape 3 : Vérifier la configuration
 
-. Vérifiez que les ports des deux nœuds sont correctement connectés :
+. Vérifiez que les ports des deux nœuds sont correctement connectés :
 +
 `network device-discovery show -port _cluster_port_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports de cluster « e0a » et « e0b » sont correctement connectés au port correspondant du partenaire de cluster :
+L'exemple suivant montre que les ports de cluster « e0a » et « e0b » sont correctement connectés au port correspondant sur le partenaire de cluster :
 
 [listing]
 ----
@@ -442,19 +442,19 @@ node2/lldp
 8 entries were displayed.
 ----
 ====
-. Réactiver l'auto-revert pour les LIFs du cluster :
+. Réactiver la restauration automatique pour les LIF du cluster :
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Vérifier que toutes les LIFs sont bien. Cette opération peut prendre quelques secondes.
+. Vérifiez que tous les LIF sont bien à leur domicile. Cela peut prendre quelques secondes.
 +
 `network interface show -vserver Cluster -lif _lif_name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les LIFs ont été rétablies si la colonne « est à l'origine » est `true`, comme indiqué pour `node1_clus2` et `node2_clus2` dans l'exemple suivant :
+Les LIF ont été rétablis si la colonne « Est à la maison » est `true` , comme indiqué pour `node1_clus2` et `node2_clus2` dans l'exemple suivant :
 
 [listing]
 ----
@@ -469,20 +469,20 @@ Cluster  node2_clus2   e0b       true
 ----
 ====
 +
-Si une LIF DE cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :
+Si certains LIFS du cluster ne sont pas revenus à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
 
 +
 `network interface revert -vserver Cluster -lif _lif_name_`
 
-. Vérifiez l'état du cluster des nœuds depuis la console système de l'un ou l'autre nœuds :
+. Vérifiez l'état du cluster des nœuds depuis la console système de l'un ou l'autre nœud :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre epsilon sur les deux nœuds à être `false`:
+L'exemple suivant montre que epsilon est égal à `false` :
 
 [listing]
 ----
@@ -493,22 +493,22 @@ node2 true    true        false
 2 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -524,9 +524,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -559,14 +559,14 @@ RPC status:
 ----
 --
 ====
-. [[step6]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. [[étape 6]] Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 +
-Pour plus d'informations, voir link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows_-_ONTAP_9["Article 1010449 de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^].
+Pour plus d'informations, voir link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows_-_ONTAP_9["Article 1010449 de la base de connaissances NetApp : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^].
 
-. Rétablissez le niveau de privilège sur admin :
+. Rétablir le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 

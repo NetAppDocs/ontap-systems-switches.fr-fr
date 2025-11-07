@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
 summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. 
 ---
-= Installez ou mettez à niveau la présentation du fichier de configuration de référence (RCF)
+= Présentation de l'installation ou de la mise à niveau du fichier de configuration de référence (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,41 +13,41 @@ summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nex
 [role="lead"]
 Vous installez le fichier de configuration de référence (RCF) après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
 
-Pour plus d'informations sur l'installation ou la mise à niveau de votre FCR, reportez-vous à l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^].
+Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 
 .Configuration RCF disponible
 * *Cluster-HA-Storage* - Prend en charge le trafic cluster/HA/stockage partagé sur les ports (NX9332D-GX2B-RCF-v10.0-Shared.txt).
 
 
-Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et remarques importantes de votre FCR.
+Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et notes importantes de votre RCF.
 
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
 +
-Consultez le tableau de compatibilité des switchs pour connaître les versions ONTAP et RCF prises en charge sur le site de support NetApp. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et la syntaxe trouvée dans des versions spécifiques de NX-OS.
+Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge sur le site d'assistance NetApp .  Notez qu'il peut exister des dépendances de commandes entre la syntaxe des commandes dans le RCF et la syntaxe présente dans certaines versions de NX-OS.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs Cisco Nexus 9000 Series"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs Cisco Nexus série 9000"^]
 +
-Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs Cisco sont cs1 et cs2.
 * Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
 * Les noms LIF du cluster sont node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 et node1-04_clus2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
 Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.
 
 
-NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
 .Commandes utilisées
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vouslink:install-rcf-software-9332d-cluster.html["installer le RCF"] oulink:upgrade-rcf-software-9332d-cluster.html["améliorez votre RCF"] selon les besoins.

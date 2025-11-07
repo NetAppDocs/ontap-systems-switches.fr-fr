@@ -2,61 +2,61 @@
 permalink: switch-nvidia-sn2100/cabling-considerations-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: Avant de configurer votre commutateur NVIDIA SN2100, consultez les informations suivantes. 
+summary: Avant de configurer votre commutateur NVIDIA SN2100, veuillez consulter les informations suivantes. 
 ---
-= Examinez les considérations relatives au câblage et à la configuration
+= Examiner les considérations relatives au câblage et à la configuration
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer votre commutateur NVIDIA SN2100, prenez en compte les considérations suivantes.
+Avant de configurer votre commutateur NVIDIA SN2100, veuillez prendre en compte les points suivants.
 
 
 
-== Détails du port NVIDIA
+== Détails du portage NVIDIA
 
 |===
 
 
-| *Ports de commutateur* | *Utilisation des ports* 
+| *Ports de commutation* | *Utilisation des ports* 
 
 
  a| 
 swp1s0-3
  a| 
-Nœuds de ports de cluster breakout 4 x 10 GbE
+4 nœuds de ports de cluster de dérivation 10 GbE
 
 
 
  a| 
 swp2s0-3
  a| 
-Nœuds de ports de cluster breakout 4 x 25GbE
+4 nœuds de ports de cluster de dérivation 25 GbE
 
 
 
  a| 
 swp3-14
  a| 
-Nœuds de ports de cluster 40 GbE
+nœuds de port de cluster 40/100GbE
 
 
 
  a| 
 swp15-16
  a| 
-Ports ISL 100 GbE
+Ports de liaison inter-commutateurs (ISL) 100 GbE
 
 |===
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutateur.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 
 
-== Délais de liaison avec connexions optiques
+== Délais de connexion avec les liaisons optiques
 
-Si vous rencontrez des retards de liaison de plus de cinq secondes, Cumulus Linux 5.4 et versions ultérieures prend en charge la liaison rapide. Vous pouvez configurer les liens à l'aide du `nv set` commande comme suit :
+Si vous rencontrez des délais de connexion supérieurs à cinq secondes, Cumulus Linux 5.4 et versions ultérieures incluent une prise en charge de la connexion rapide.  Vous pouvez configurer les liens en utilisant `nv set` commande comme suit :
 
 [listing, subs="+quotes"]
 ----
@@ -64,7 +64,7 @@ Si vous rencontrez des retards de liaison de plus de cinq secondes, Cumulus Linu
 *nv config apply*
 *reload the switchd*
 ----
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -81,7 +81,7 @@ Only switchd reload required
 ====
 
 
-== Prise en charge des connexions en cuivre
+== Support pour les connexions en cuivre
 
 Les modifications de configuration suivantes sont nécessaires pour résoudre ce problème.
 
@@ -89,7 +89,7 @@ Les modifications de configuration suivantes sont nécessaires pour résoudre ce
 ====
 .Cumulus Linux 4.4.3
 --
-. Identifiez le nom de chaque interface à l'aide de câbles en cuivre 40 GbE/100 GbE :
+. Identifiez le nom de chaque interface utilisant des câbles en cuivre 40GbE/100GbE :
 +
 [listing, subs="+quotes"]
 ----
@@ -100,12 +100,12 @@ Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
 swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
 swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
 ----
-. Ajoutez les deux lignes suivantes au `/etc/cumulus/switchd.conf` Fichier pour chaque port (swjpg <n>) utilisant des câbles cuivre 40 GbE/100 GbE :
+. Ajoutez les deux lignes suivantes au `/etc/cumulus/switchd.conf` fichier pour chaque port (swp<n>) utilisant des câbles en cuivre 40GbE/100GbE :
 +
 ** `interface.swp<n>.enable_media_depended_linkup_flow=TRUE`
 ** `interface.swp<n>.enable_short_tuning=TRUE`
 +
-Par exemple :
+Par exemple:
 
 +
 [listing, subs="+quotes"]
@@ -120,13 +120,13 @@ interface.swp4.enable_short_tuning=TRUE
 ----
 
 
-. Redémarrez le `switchd` service :
+. Redémarrez le `switchd` service:
 +
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *sudo systemctl restart switchd.service*
 ----
-. Vérifier que les ports fonctionnent :
+. Vérifiez que les ports sont opérationnels :
 +
 [listing, subs="+quotes"]
 ----
@@ -140,9 +140,9 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 
 --
-.Cumulus Linux 5.x.
+.Cumulus Linux 5.x
 --
-. Identifiez le nom de chaque interface à l'aide de câbles en cuivre 40 GbE/100 GbE :
+. Identifiez le nom de chaque interface utilisant des câbles en cuivre 40GbE/100GbE :
 +
 [listing, subs="+quotes"]
 ----
@@ -153,13 +153,13 @@ Interface  Identifier     Vendor Name     Vendor PN    Vendor SN      Vendor Rev
 swp3       0x11 (QSFP28)  Molex           112-00576    93A2229911111  B0
 swp4       0x11 (QSFP28)  Molex           112-00576    93A2229922222  B0
 ----
-. Configurez les liens à l'aide du `nv set` commande comme suit :
+. Configurez les liens à l'aide de `nv set` commande comme suit :
 +
 ** `nv set interface <interface-id> link fast-linkup on`
 ** `nv config apply`
-** Rechargez le `switchd` services
+** Rechargez le `switchd` service
 +
-Par exemple :
+Par exemple:
 
 +
 [listing, subs="+quotes"]
@@ -175,7 +175,7 @@ Only switchd reload required
 ----
 
 
-. Vérifier que les ports fonctionnent :
+. Vérifiez que les ports sont opérationnels :
 +
 [listing, subs="+quotes"]
 ----
@@ -190,9 +190,9 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Consultez l'article de la base de connaissances https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40 GbE"^] pour plus de détails.
+Consultez l'article de la base de connaissances https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40/100GbE."^] pour plus de détails.
 
-Sur Cumulus Linux 4.4.2, les connexions en cuivre ne sont pas prises en charge sur les commutateurs SN2100 dotés d'une carte réseau X1151A, d'une carte réseau X1146A ou de ports 100GbE intégrés. Par exemple :
+Sur Cumulus Linux 4.4.2, les connexions cuivre ne sont pas prises en charge sur les commutateurs SN2100 avec carte réseau X1151A, carte réseau X1146A ou ports 100GbE intégrés. Par exemple:
 
 * AFF A800 sur les ports e0a et e0b
 * AFF A320 sur les ports e0g et e0h
@@ -202,28 +202,28 @@ Sur Cumulus Linux 4.4.2, les connexions en cuivre ne sont pas prises en charge s
 
 == Adaptateur QSA
 
-Lorsqu'un adaptateur QSA est utilisé pour se connecter aux ports de cluster 10 GbE/25 GbE d'une plateforme, la liaison peut ne pas se trouver.
+Lorsqu'un adaptateur QSA est utilisé pour se connecter aux ports de cluster 10GbE/25GbE d'une plateforme, la liaison peut ne pas s'établir.
 
-Pour résoudre ce problème, procédez comme suit :
+Pour résoudre ce problème, procédez comme suit :
 
-* Pour 10GbE, définissez manuellement la vitesse de liaison swp1s0-3 sur 10000 et la négociation automatique sur Désactivé.
-* Pour 25 GbE, définissez manuellement la vitesse de liaison swp2s0-3 sur 25000 et définissez la négociation automatique sur Désactivé.
-
-
-
-NOTE: Si vous utilisez des adaptateurs QSA 10 GbE/25 GbE, insérez-les dans des ports 40 GbE/100 GbE non séparationés (swp3-swp14). N'insérez pas la carte QSA dans un port configuré pour le tri.
+* Pour le 10GbE, réglez manuellement la vitesse de liaison swp1s0-3 sur 10000 et désactivez la négociation automatique.
+* Pour le 25GbE, réglez manuellement la vitesse de liaison swp2s0-3 sur 25000 et désactivez la négociation automatique.
 
 
 
-== Définition de la vitesse de l'interface sur les ports écorchés
+NOTE: Lors de l'utilisation d'adaptateurs QSA 10GbE/25GbE, insérez-les dans des ports 40GbE/100GbE non-breakout (swp3-swp14).  N’insérez pas l’adaptateur QSA dans un port configuré pour le dérivation.
 
-Selon l'émetteur-récepteur du port de commutateur, vous devrez peut-être régler la vitesse de l'interface de commutateur sur une vitesse fixe. Si vous utilisez des ports de dérivation 10 GbE et 25 GbE, vérifiez que la négociation automatique est désactivée et définissez la vitesse de l'interface sur le commutateur.
+
+
+== Configuration de la vitesse de l'interface sur les ports de dérivation
+
+Selon l'émetteur-récepteur du port du commutateur, vous devrez peut-être configurer la vitesse de l'interface du commutateur sur une valeur fixe.  Si vous utilisez des ports de dérivation 10GbE et 25GbE, vérifiez que la négociation automatique est désactivée et configurez la vitesse de l'interface sur le commutateur.
 
 [role="tabbed-block"]
 ====
 .Cumulus Linux 4.4.3
 --
-Par exemple :
+Par exemple:
 
 [listing, subs="+quotes"]
 ----
@@ -254,7 +254,7 @@ iface swp2s0
      link-autoneg off
      link-speed 25000 *<---- port speed set*
 ----
-Vérifiez l'état de l'interface et du port pour vous assurer que les paramètres sont appliqués :
+Vérifiez l'état de l'interface et du port pour vous assurer que les paramètres sont appliqués :
 
 [listing, subs="+quotes"]
 ----
@@ -283,9 +283,9 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 .
 ----
 --
-.Cumulus Linux 5.x.
+.Cumulus Linux 5.x
 --
-Par exemple :
+Par exemple:
 
 [listing, subs="+quotes"]
 ----
@@ -302,7 +302,7 @@ link                                                   
 [breakout]                                                                                    
   state                 up                      up                      up
 ----
-Vérifiez l'état de l'interface et du port pour vous assurer que les paramètres sont appliqués :
+Vérifiez l'état de l'interface et du port pour vous assurer que les paramètres sont appliqués :
 
 [listing, subs="+quotes"]
 ----
@@ -332,5 +332,5 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir examiné vos exigences en matière de câblage et de configuration, vous pouvezlink:install-cable-shelves-sn2100-cluster.html["câbler les étagères NS224 comme un rangement relié à un interrupteur"] .

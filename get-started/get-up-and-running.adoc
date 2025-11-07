@@ -2,7 +2,7 @@
 permalink: get-started/get-up-and-running.html 
 sidebar: sidebar 
 keywords:  
-summary: Découvrez la mise en cluster, le stockage et les commutateurs partagés. 
+summary: Découvrez les commutateurs en cluster, de stockage et partagés. 
 ---
 = Soyez opérationnel avec les systèmes AFX, les clusters, le stockage et les commutateurs partagés
 :allow-uri-read: 
@@ -13,11 +13,11 @@ summary: Découvrez la mise en cluster, le stockage et les commutateurs partagé
 [role="lead"]
 Pour démarrer avec les systèmes AFX, les clusters, le stockage et les commutateurs partagés, vous installez des composants matériels et configurez votre commutateur.
 
-Le déploiement du switch implique le workflow suivant.
+Le déploiement du commutateur implique le flux de travail suivant.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"] Installez le matériel de fixation du commutateur
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]Installez le matériel de commutation
 [role="quick-margin-para"]
-Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions suivantes pour votre modèle de commutateur.
+Installez vos commutateurs dans le rack ou l'armoire.  Consultez les instructions suivantes pour votre modèle de commutateur.
 
 [cols="11,9,9,9"]
 |===
@@ -30,14 +30,14 @@ Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions 
 
  a| 
 .Commutateurs de cluster
-* link:../switch-bes-53248/install-hardware-bes53248.html["Installer le commutateur BES-53248"]
+* link:../switch-bes-53248/install-hardware-bes53248.html["Installer l'interrupteur BES-53248"]
 * link:../switch-cisco-9336c-fx2/install-switch-9336c-cluster.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["Installez le commutateur NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100/install-hardware-sn2100-cluster.html["Installer le commutateur NVIDIA SN2100"]
 
  a| 
 .Commutateurs de stockage
 * link:../switch-cisco-9336c-fx2-storage/install-9336c-storage.html["Installer le commutateur Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["Installez le commutateur NVIDIA SN2100"]
+* link:../switch-nvidia-sn2100-storage/install-hardware-sn2100-storage.html["Installer le commutateur NVIDIA SN2100"]
 
  a| 
 .Commutateurs partagés
@@ -45,9 +45,9 @@ Installez les commutateurs sur le rack ou l'armoire. Consultez les instructions 
 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"] Installez le système de stockage et les tiroirs de stockage
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]Installez le système de rangement et les étagères de rangement
 [role="quick-margin-para"]
-Installez le système de stockage et les tiroirs de stockage dans l'armoire ou le rack. Accédez aux instructions d'installation et de configuration de votre modèle de plate-forme.
+Installez votre système de rangement et vos étagères dans l'armoire ou le rack.  Accédez aux instructions d'installation et de configuration correspondant à votre modèle de plateforme.
 
 [cols="2,9,9,9"]
 |===
@@ -65,9 +65,9 @@ Installez le système de stockage et les tiroirs de stockage dans l'armoire ou l
  a| 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Câblez les commutateurs aux contrôleurs
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]Câblez les interrupteurs aux contrôleurs.
 [role="quick-margin-para"]
-Les instructions d'installation et de configuration des systèmes ONTAP comprennent des instructions pour le câblage des ports de contrôleur au commutateur. Cependant, si vous avez besoin de listes de câbles et d'émetteurs-récepteurs pris en charge et d'informations détaillées sur les ports hôtes de votre commutateur, accédez aux instructions suivantes pour votre modèle de commutateur.
+Les instructions d'installation et de configuration des systèmes ONTAP incluent des instructions pour le câblage des ports du contrôleur au commutateur.  Toutefois, si vous avez besoin de listes de câbles et d'émetteurs-récepteurs pris en charge, ainsi que d'informations détaillées sur les ports hôtes de votre commutateur, consultez les instructions suivantes pour votre modèle de commutateur.
 
 [cols="11,9,9,9"]
 |===
@@ -97,7 +97,7 @@ Les instructions d'installation et de configuration des systèmes ONTAP comprenn
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]Configurer le logiciel du commutateur
 [role="quick-margin-para"]
-Pour installer et configurer le logiciel sur votre commutateur, suivez le workflow d'installation du logiciel correspondant à votre modèle de commutateur.
+Pour installer et configurer le logiciel sur votre commutateur, suivez la procédure d'installation logicielle correspondant à votre modèle de commutateur.
 
 [cols="11,9,9,9"]
 |===
@@ -111,23 +111,23 @@ Pour installer et configurer le logiciel sur votre commutateur, suivez le workfl
  a| 
 .Commutateurs de cluster
 * link:../switch-bes-53248/configure-software-overview-bes53248.html["Installer le logiciel pour les commutateurs BES-53248"]
-* link:../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html["Installation du logiciel pour le commutateur NVIDIA SN2100"]
+* link:../switch-cisco-9336c-fx2/configure-software-overview-9336c-cluster.html["Installer le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
+* link:../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html["Installer le logiciel pour le commutateur NVIDIA SN2100"]
 
  a| 
 .Commutateurs de stockage
-* link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
-* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["Installation du logiciel pour le commutateur NVIDIA SN2100"]
+* link:../switch-cisco-9336c-fx2-storage/configure-software-overview-9336c-storage.html["Installer le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
+* link:../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html["Installer le logiciel pour le commutateur NVIDIA SN2100"]
 
  a| 
 .Commutateurs partagés
-* link:../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Installez le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
+* link:../switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html["Installer le logiciel pour le commutateur Cisco Nexus 9336C-FX2"]
 
 
 |===
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]Configuration complète du système
 [role="quick-margin-para"]
-Une fois que vous avez configuré vos commutateurs et installé le logiciel requis, accédez aux instructions d'installation et de configuration de votre modèle de plateforme de systèmes ONTAP pour terminer la configuration du système.
+Une fois vos commutateurs configurés et le logiciel requis installé, consultez les instructions d'installation et de configuration de votre modèle de plateforme ONTAP pour finaliser la configuration de votre système.
 
 [cols="2,9,9,9"]
 |===
@@ -145,11 +145,11 @@ Une fois que vous avez configuré vos commutateurs et installé le logiciel requ
  a| 
 
 |===
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]Configuration complète ONTAP
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]Configuration ONTAP complète
 [role="quick-margin-para"]
-Après avoir installé et configuré les contrôleurs et les commutateurs des systèmes ONTAP, vous devez terminer la configuration de votre stockage dans ONTAP. Consultez les instructions suivantes en fonction de votre configuration de déploiement.
+Après avoir installé et configuré vos contrôleurs et commutateurs de systèmes ONTAP , vous devez terminer la configuration de votre stockage dans ONTAP.  Accédez aux instructions suivantes en fonction de votre configuration de déploiement.
 
 [role="quick-margin-list"]
-* Pour les déploiements ONTAP, voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurez ONTAP"^].
-* Pour les déploiements ONTAP avec MetroCluster, consultez https://docs.netapp.com/us-en/ontap-metrocluster/["Configurez MetroCluster avec ONTAP"^].
+* Pour les déploiements ONTAP , voir https://docs.netapp.com/us-en/ontap/task_configure_ontap.html["Configurer ONTAP"^] .
+* Pour les déploiements ONTAP avec MetroCluster , voir https://docs.netapp.com/us-en/ontap-metrocluster/["Configurer Metrocluster avec ONTAP"^] .
 

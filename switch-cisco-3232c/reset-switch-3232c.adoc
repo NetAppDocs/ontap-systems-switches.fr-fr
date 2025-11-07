@@ -11,8 +11,8 @@ summary: Avant de configurer votre commutateur Cisco Nexus 3232C, consultez les 
 [role="lead"]
 Pour réinitialiser le commutateur de cluster 3232C aux paramètres d'usine par défaut, vous devez effacer les paramètres du commutateur 3232C.
 
-.Description de la tâche
-* Vous devez être connecté au commutateur à l'aide de la console série.
+.À propos de cette tâche
+* Vous devez être connecté au commutateur via la console série.
 * Cette tâche réinitialise la configuration du réseau de gestion.
 
 
@@ -41,6 +41,6 @@ Do you wish to proceed anyway? (y/n) [n] *y*
 This command will reboot the system. (y/n)? [n] *y*
 ----
 +
-Le système redémarre et entre dans l'assistant de configuration.  Pendant le démarrage, si vous recevez l'invite « Annuler le provisionnement automatique et continuer avec la configuration normale ?  (oui/non)[n]”, vous devez répondre *oui* pour continuer.
+Le système redémarre et entre dans l'assistant de configuration. Pendant le démarrage, si vous recevez l'invite « Annuler le provisionnement automatique et continuer avec la configuration normale ? (oui/non)[n]”, vous devez répondre *oui* pour continuer.
 
 

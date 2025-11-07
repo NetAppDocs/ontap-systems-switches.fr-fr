@@ -2,35 +2,35 @@
 permalink: switch-cisco-3132q-v/cn5596-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Préparer la migration des switchs Nexus 5596 vers des switchs Nexus 3132Q-V.
+= Préparez-vous à la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3132Q-V.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour préparer vos switchs Cisco Nexus 5596 en vue d'une migration vers des switchs Cisco Nexus 3132Q-V.
+Suivez ces étapes pour préparer vos commutateurs Cisco Nexus 5596 à la migration vers les commutateurs Cisco Nexus 3132Q-V.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Ce message informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Ce message informe le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Afficher des informations sur les périphériques de votre configuration :
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre combien d'interfaces d'interconnexion de cluster ont été configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
+L'exemple suivant montre le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
 
 [listing]
 ----
@@ -51,17 +51,17 @@ n2         /cdp
 8 entries were displayed.
 ----
 ====
-. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster :
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche les attributs des ports réseau sur un système :
+L'exemple suivant illustre les attributs des ports réseau d'un système :
 
 [listing]
 ----
@@ -89,13 +89,13 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-.. Affiche des informations sur les interfaces logiques : +
+.. Afficher les informations relatives aux interfaces logiques : +
 `network interface show`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche les informations générales sur toutes les LIF du système :
+L'exemple suivant affiche les informations générales concernant toutes les LIF de votre système :
 
 [listing]
 ----
@@ -116,13 +116,13 @@ Cluster
 8 entries were displayed.
 ----
 ====
-.. Affiche des informations sur les commutateurs de cluster découverts : +
+.. Afficher les informations relatives aux commutateurs de cluster détectés : +
 `system cluster-switch show`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche les commutateurs de cluster connus pour le cluster, ainsi que leurs adresses IP de gestion :
+L'exemple suivant affiche les commutateurs du cluster connus de celui-ci, ainsi que leurs adresses IP de gestion :
 
 [listing]
 ----
@@ -150,12 +150,12 @@ CL2                           cluster-network    10.10.1.102     NX5596
 ====
 
 
-. Réglez le `-auto-revert` paramètre à `false` Sur le cluster, les LIF de 1 et de 1:2 sont disponibles sur les deux nœuds :
+. Réglez le `-auto-revert` paramètre à `false` sur les LIF de cluster clus1 et clus2 sur les deux nœuds :
 +
 `network interface modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -166,33 +166,33 @@ cluster::*> network interface modify -vserver node2 -lif clus1 -auto-revert fals
 cluster::*> network interface modify -vserver node2 -lif clus2 -auto-revert false
 ----
 ====
-. Vérifiez que le FCR et l'image appropriés sont installés sur les nouveaux commutateurs 3132Q-V en fonction de vos besoins, et apportez les personnalisations essentielles au site, comme les utilisateurs et les mots de passe, les adresses réseau, etc.
+. Vérifiez que le RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3132Q-V selon vos besoins, et effectuez les personnalisations essentielles du site, telles que les utilisateurs et les mots de passe, les adresses réseau, etc.
 +
-Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et l'image, procédez comme suit :
-
-+
-.. Aller àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
-.. Téléchargez la version appropriée de la FCR.
-.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-.. Téléchargez la version appropriée du logiciel d'image.
-+
-Reportez-vous à la page __ONTAP 8.x ou version ultérieure fichiers de configuration de référence des commutateurs réseau de gestion et de cluster__Download, puis sélectionnez la version appropriée.
+Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à niveau le RCF et l'image, suivez ces étapes :
 
 +
-Pour trouver la version correcte, reportez-vous à la page de téléchargement du commutateur de réseau en cluster _ONTAP 8.x ou version ultérieure_.
+.. Allez àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site d'assistance NetApp .
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Téléchargez la version appropriée du RCF.
+.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel de traitement d'images.
++
+Consultez la page de téléchargement des fichiers de configuration de référence du commutateur réseau de cluster et de gestion __ONTAP 8.x ou version ultérieure__, puis sélectionnez la version appropriée.
+
++
+Pour trouver la version correcte, consultez la page de téléchargement du commutateur réseau de cluster _ONTAP 8.x ou version ultérieure_.
 
 
 
-. Migrer les LIF associées au second switch Nexus 5596 à remplacer :
+. Migrer les LIF associées au deuxième commutateur Nexus 5596 à remplacer :
 +
 `network interface migrate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre n1 et n2, mais la migration LIF doit se faire sur tous les nœuds :
+L'exemple suivant montre n1 et n2, mais la migration LIF doit être effectuée sur tous les nœuds :
 
 [listing]
 ----
@@ -206,15 +206,15 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus3 -source-nod
 destination-node n2 -destination-port e0d
 ----
 ====
-. Vérifiez l'état du cluster :
+. Vérifier l'état de santé du cluster :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le résultat de la précédente `network interface migrate` commande :
+L'exemple suivant illustre le résultat de l'étape précédente `network interface migrate` commande:
 
 [listing]
 ----
@@ -235,15 +235,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Arrêtez les ports d'interconnexion de cluster qui sont physiquement connectés au commutateur CL2 :
+. Fermez les ports d'interconnexion du cluster qui sont physiquement connectés au commutateur CL2 :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les commandes suivantes arrêtent les ports spécifiés sur n1 et n2, mais les ports doivent être arrêtés sur tous les nœuds :
+Les commandes suivantes désactivent les ports spécifiés sur n1 et n2, mais les ports doivent être désactivés sur tous les nœuds :
 
 [listing]
 ----
@@ -253,22 +253,22 @@ cluster::*> network port modify -node n2 -port e0b -up-admin false
 cluster::*> network port modify -node n2 -port e0c -up-admin false
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* Veuillez patienter quelques secondes avant d’exécuter la commande « show » pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -285,9 +285,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -336,12 +336,12 @@ RPC status:
 ----
 --
 ====
-. [[step10]]Arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :
+. [[étape 10]] Fermez les ports ISL 41 à 48 sur le commutateur Nexus 5596 actif CL1 :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre comment arrêter les ports ISL 41 à 48 sur le commutateur Nexus 5596 CL1 :
+L'exemple suivant montre comment désactiver les ports ISL 41 à 48 sur le commutateur Nexus 5596 CL1 :
 
 [listing]
 ----
@@ -356,12 +356,12 @@ L'exemple suivant montre comment arrêter les ports ISL 41 à 48 sur le commutat
 +
 Si vous remplacez un Nexus 5010 ou 5020, spécifiez les numéros de port appropriés pour ISL.
 
-. Construire un ISL temporaire entre CL1 et C2.
+. Établir une liaison ISL temporaire entre CL1 et C2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre qu'un ISL temporaire est configuré entre CL1 et C2 :
+L'exemple suivant montre la mise en place d'une liaison inter-réseaux (ISL) temporaire entre CL1 et C2 :
 
 [listing]
 ----
@@ -381,5 +381,5 @@ C2(config-if)# exit
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 link:cn5596-configure-ports.html["Configurez vos ports"].

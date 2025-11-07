@@ -9,7 +9,7 @@ summary: Détails du port pour les commutateurs Cisco Nexus 9332D-GX2B
 
 
 [role="lead"]
-Le commutateur Cisco Nexus 9332D-GX2B fait partie de la plate-forme Cisco Nexus 9000.  Les commutateurs système AFX vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
+Le commutateur Cisco Nexus 9332D-GX2B fait partie de la plate-forme Cisco Nexus 9000. Les commutateurs système AFX vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
 
 
 

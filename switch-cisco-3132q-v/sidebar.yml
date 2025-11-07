@@ -2,104 +2,104 @@
 section: switch-cisco-3132q-v
 title: Cisco Nexus 3132Q-V
 entries:
-- title: Commencez
-  pdf-filename: Présentation_3132q-v
+- title: Commencer
+  pdf-filename: Aperçu_3132q-v
   entries:
   - title: Démarrage rapide
     url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
-  - title: Configuration requise
+  - title: Exigences de configuration
     url: "/switch-cisco-3132q-v/configure-reqs-3132q.html"
-  - title: Documentation requise
+  - title: Documents requis
     url: "/switch-cisco-3132q-v/required-documentation-3132q.html"
-  - title: Configuration requise pour le service d'appel intelligent
+  - title: Exigences de Smart Call Home
     url: "/switch-cisco-3132q-v/smart-call-home-3132q.html"
-- title: Installer le matériel de fixation
-  pdf-filename: Install_Hardware_3132q-v
+- title: Installer le matériel
+  pdf-filename: Installer_matériel_3132q-v
   entries:
   - title: Flux de travail d'installation du matériel
     url: "/switch-cisco-3132q-v/install-hardware-workflow.html"
-  - title: Remplir la fiche de câblage
+  - title: Feuille de câblage complète
     url: "/switch-cisco-3132q-v/setup-worksheet-3132q.html"
-  - title: Poser le commutateur
+  - title: Installez l'interrupteur
     url: "/switch-cisco-3132q-v/install-switch-3132qv.html"
-  - title: Installez le commutateur dans l'armoire NetApp
+  - title: Installer le commutateur dans l'armoire NetApp
     url: "/switch-cisco-3132q-v/install-cisco-nexus-3132qv.html"
-  - title: Examiner le câblage et la configuration
+  - title: Vérifier le câblage et la configuration
     url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
-- title: Configurez le logiciel
-  pdf-filename: Configure_Software_3132q-v
+- title: Configurer le logiciel
+  pdf-filename: Configurer_logiciel_3132q-v
   entries:
-  - title: Workflow d'installation du logiciel
+  - title: Flux de travail d'installation de logiciels
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
-  - title: Configurer le commutateur
+  - title: Configurez le commutateur
     url: "/switch-cisco-3132q-v/setup-switch.html"
-  - title: Préparez-vous à installer le logiciel NX-OS et RCF
+  - title: Préparez-vous à installer le logiciel NX-OS et RCF.
     url: "/switch-cisco-3132q-v/prepare-install-cisco-nexus-3132q.html"
   - title: Installez le logiciel NX-OS
     url: "/switch-cisco-3132q-v/install-nx-os-software-3132q-v.html"
-  - title: Installez ou mettez à niveau le RCF
+  - title: Installer ou mettre à niveau le RCF
     pdf-filename: install_upgrade_rcf
     entries:
-    - title: Présentation de l'installation ou de la mise à niveau du RCF
+    - title: Présentation de l'installation ou de la mise à niveau de RCF
       url: "/switch-cisco-3132q-v/install-upgrade-rcf-overview-3132q-v.html"
-    - title: Installer la FCR
+    - title: Installez le RCF
       url: "/switch-cisco-3132q-v/install-rcf-software-3132q-v.html"
-    - title: Mettez à niveau votre version RCF
+    - title: Mettez à jour votre version RCF
       url: "/switch-cisco-3132q-v/upgrade-rcf-3132q-v.html"
   - title: Vérifier la configuration SSH
     url: "/switch-cisco-3132q-v/configure-ssh-keys.html"
   - title: Réinitialiser le commutateur aux paramètres d'usine
     url: "/switch-cisco-3132q-v/reset-switch-3132q-v.html"
 - title: Migration des commutateurs
-  pdf-filename: Migrate_switches_3132q-v
+  pdf-filename: Migrer_switches_3132q-v
   entries:
   - title: Migration du commutateur CN1610
     pdf-filename: CN1610_switch_migration
     entries:
     - title: Flux de travail de migration du commutateur CN1610
       url: "/switch-cisco-3132q-v/cn1610-migrate-workflow.html"
-    - title: Conditions requises pour la migration
+    - title: Exigences de migration
       url: "/switch-cisco-3132q-v/cn1610-migrate-requirements.html"
-    - title: La préparation à la migration
+    - title: Préparez-vous à la migration
       url: "/switch-cisco-3132q-v/cn1610-prepare-to-migrate.html"
     - title: Configurez vos ports
       url: "/switch-cisco-3132q-v/cn1610-configure-ports.html"
-    - title: Terminez votre migration
+    - title: Finalisez votre migration
       url: "/switch-cisco-3132q-v/cn1610-complete-migration.html"
-  - title: Migration des commutateurs Cisco Nexus 5596
+  - title: Migration du commutateur Cisco Nexus 5596
     pdf-filename: CN5596_switch_migration
     entries:
-    - title: Workflow de migration des commutateurs Cisco Nexus 5596
+    - title: Flux de travail de migration du commutateur Cisco Nexus 5596
       url: "/switch-cisco-3132q-v/cn5596-migrate-workflow.html"
-    - title: Conditions requises pour la migration
+    - title: Exigences de migration
       url: "/switch-cisco-3132q-v/cn5596-migrate-requirements.html"
-    - title: La préparation à la migration
+    - title: Préparez-vous à la migration
       url: "/switch-cisco-3132q-v/cn5596-prepare-to-migrate.html"
     - title: Configurez vos ports
       url: "/switch-cisco-3132q-v/cn5596-configure-ports.html"
-    - title: Terminez la migration
+    - title: Finalisez votre migration
       url: "/switch-cisco-3132q-v/cn5596-complete-migration.html"
-  - title: Migration de clusters sans commutateur vers des clusters à 2 nœuds avec
-      commutateur
-    pdf-filename: Migrate_from_switchless_to_switched_cluster
+  - title: Migration des clusters sans commutateur vers des clusters commutés à deux
+      nœuds
+    pdf-filename: Migration d'un cluster sans commutateur vers un cluster avec commutateur
     entries:
-    - title: Migration d'un workflow sans commutateur vers un workflow à 2 nœuds avec
-        commutateur
+    - title: Migration d'un flux de travail sans commutateur vers un flux de travail
+        commuté à deux nœuds
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
-    - title: Conditions requises pour la migration
+    - title: Exigences de migration
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html"
-    - title: La préparation à la migration
+    - title: Préparez-vous à la migration
       url: "/switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html"
     - title: Configurez vos ports
       url: "/switch-cisco-3132q-v/migrate-switchless-configure-ports.html"
-    - title: Terminez la migration
+    - title: Finalisez votre migration
       url: "/switch-cisco-3132q-v/migrate-switchless-complete-migration.html"
 - title: Remplacer les interrupteurs
-  pdf-filename: Replace_switches_3132q-v
+  pdf-filename: Remplacer_interrupteurs_3132q-v
   entries:
-  - title: Exigences de remplacement
+  - title: exigences de remplacement
     url: "/switch-cisco-3132q-v/switch-requirements.html"
-  - title: Remplacer les commutateurs 3132Q-V.
+  - title: Remplacer les commutateurs 3132Q-V
     url: "/switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
-  - title: Remplacez les switchs de cluster par des connexions sans commutateur
+  - title: Remplacez les commutateurs groupés par des connexions sans commutateur.
     url: "/switch-cisco-3132q-v/migrate-to-switchless-cluster-interconnect.html"

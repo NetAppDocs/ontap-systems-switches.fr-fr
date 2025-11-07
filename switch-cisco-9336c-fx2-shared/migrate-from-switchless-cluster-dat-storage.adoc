@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-sto
 keywords:  
 summary:  
 ---
-= Migrez depuis un cluster sans commutateur avec du stockage DAS
+= Migrer depuis un cluster sans commutateur avec stockage à connexion directe
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,86 +14,86 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer d'un cluster sans commutateur doté d'un système de stockage DAS en ajoutant deux nouveaux commutateurs partagés.
+Vous pouvez migrer depuis un cluster sans commutateur avec stockage à connexion directe en ajoutant deux nouveaux commutateurs partagés.
 
-La procédure que vous utilisez dépend de votre présence de deux ports cluster-network dédiés sur chaque contrôleur ou d'un port de cluster unique sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10 GbE BASE-T intégrés pour les ports de réseau de clusters.
+La procédure à suivre dépend du fait que chaque contrôleur dispose de deux ports réseau de cluster dédiés ou d'un seul port de cluster par contrôleur.  Le processus décrit fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10Gb BASE-T intégrés pour les ports du réseau de cluster.
 
-La plupart des systèmes requièrent deux ports dédiés du réseau cluster sur chaque contrôleur. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] pour en savoir plus.
+La plupart des systèmes nécessitent deux ports réseau dédiés au cluster sur chaque contrôleur. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] pour plus d'informations.
 
-Si vous disposez déjà d'un environnement en cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement en cluster avec commutateur à deux nœuds à l'aide des commutateurs Cisco Nexus 9336C-FX2 pour évoluer au-delà de deux nœuds du cluster.
+Si vous disposez déjà d'un environnement de cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds à l'aide de commutateurs Cisco Nexus 9336C-FX2 pour vous permettre d'évoluer au-delà de deux nœuds dans le cluster.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-Assurez-vous que :
+Assurez-vous que :
 
-* Pour la configuration sans commutateur à 2 nœuds :
+* Pour la configuration sans commutateur à deux nœuds :
 +
-** La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.
-** Les nœuds exécutent ONTAP 9.8 et version ultérieure.
-** Tous les ports de cluster sont à l'état *up*.
-** Toutes les interfaces logiques de cluster (LIFS) sont dans l'état *up* et sur leurs ports *home*.
+** La configuration sans commutateur à deux nœuds est correctement mise en place et fonctionne.
+** Les nœuds exécutent ONTAP 9.8 et versions ultérieures.
+** Tous les ports du cluster sont en état de fonctionnement.
+** Toutes les interfaces logiques du cluster (LIF) sont à l'état *actif* et sur leurs ports *domicile*.
 
 
-* Pour la configuration du commutateur Cisco Nexus 9336C-FX2 :
+* Pour la configuration du commutateur Cisco Nexus 9336C-FX2 :
 +
-** Les deux commutateurs disposent d'une connectivité réseau de gestion.
-** Il y a un accès à la console aux commutateurs du cluster.
-** Les connexions de commutateur à nœud et de commutateur à commutateur Nexus 9336C-FX2 utilisent des câbles Twinax ou à fibre optique.
-** La solution NetApp https://hwu.netapp.com["Hardware Universe"] contient plus d'informations sur le câblage.
-** Les câbles ISL (Inter-Switch Link) sont connectés aux ports 1/35 et 1/36 sur les deux commutateurs 9336C-FX2.
+** Les deux commutateurs disposent d'une connectivité au réseau de gestion.
+** Il existe un accès console aux commutateurs du cluster.
+** Les connexions de commutateur à commutateur et de commutateur à nœud Nexus 9336C-FX2 utilisent des câbles Twinax ou à fibre optique.
+** NetApp https://hwu.netapp.com["Hardware Universe"] Contient plus d'informations sur le câblage.
+** Les câbles Inter-Switch Link (ISL) sont connectés aux ports 1/35 et 1/36 sur les deux commutateurs 9336C-FX2.
 
 
-* La personnalisation initiale des commutateurs 9336C-FX2 est terminée. Pour que :
+* La personnalisation initiale des commutateurs 9336C-FX2 est terminée.  Afin que :
 +
 ** Les commutateurs 9336C-FX2 exécutent la dernière version du logiciel
-** Les fichiers de configuration de référence (RCFs) ont été appliqués aux commutateurs
-** Toute personnalisation de site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
+** Des fichiers de configuration de référence (RCF) ont été appliqués aux commutateurs
+** Toute personnalisation du site, telle que SMTP, SNMP et SSH, est configurée sur les nouveaux commutateurs.
 
 
 
 
 
 
-== Migrer les commutateurs
+== Déplacer les commutateurs
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs de cluster et les nœuds :
 
 * Les noms des commutateurs 9336C-FX2 sont _cs1_ et _cs2_.
 * Les noms des SVM du cluster sont _node1_ et _node2_.
-* Les noms des LIFS sont respectivement _node1_clude1_ et _node1_clus2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
-* L'invite cluster1:*> indique le nom du cluster.
-* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, comme pour le contrôleur AFF A400. Le https://hwu.netapp.com["Hardware Universe"] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+* Les noms des LIF sont _node1_clus1_ et _node1_clus2_ sur le nœud 1, et _node2_clus1_ et _node2_clus2_ sur le nœud 2 respectivement.
+* L'invite cluster1::*> indique le nom du cluster.
+* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, conformément au contrôleur AFF A400 .  Le https://hwu.netapp.com["Hardware Universe"] Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
 
 
 
 
-=== Étape 1 : migration depuis un cluster sans commutateur avec connexion directe
+=== Étape 1 : Migration depuis un groupe sans commutateur avec connexion directe
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :  `system node autosupport invoke -node * -type all -message MAINT=xh`.
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh` .
 +
 où x représente la durée de la fenêtre de maintenance en heures.
 
 
 
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. [[step2]]définissez le niveau de privilège sur avancé, en entrant y lorsque vous êtes invité à continuer :
+. [[étape 2]]Modifiez le niveau de privilège en avancé, en saisissant « y » lorsque vous êtes invité à continuer :
 +
 `set -privilege advanced`
 
 +
 L'invite avancée (*>) apparaît.
 
-. Désactivez tous les ports orientés nœuds (et non les ports ISL) sur les nouveaux commutateurs de cluster cs1 et cs2. Vous ne devez pas désactiver les ports ISL.
+. Désactivez tous les ports orientés vers les nœuds (à l'exception des ports ISL) sur les deux nouveaux commutateurs de cluster cs1 et cs2.  Vous ne devez pas désactiver les ports ISL.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports 1 à 34 orientés nœud sont désactivés sur le commutateur cs1 :
+L'exemple suivant montre que les ports 1 à 34 orientés vers le nœud sont désactivés sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -105,15 +105,15 @@ cs1(config-if-range)# *shutdown*
 ====
 
 
-. [[step4]]vérifier que l'ISL et les ports physiques de l'ISL entre les deux commutateurs 9336C-FX2 cs1 et cs2 sont en service sur les ports 1/35 et 1/36 :
+. [[étape 4]]Vérifiez que l'ISL et les ports physiques sur l'ISL entre les deux commutateurs 9336C-FX2 cs1 et cs2 sont actifs sur les ports 1/35 et 1/36 :
 +
 `show port-channel summary`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports ISL sont active sur le commutateur cs1 :
+L'exemple suivant montre que les ports ISL sont opérationnels sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -132,7 +132,7 @@ Group Port-       Type     Protocol  Member Ports
 --------------------------------------------------------------------------------
 1     Po1(SU)     Eth      LACP      Eth1/35(P)   Eth1/36(P)
 ----
-L'exemple suivant montre que les ports ISL sont active sur le commutateur cs2 :
+L'exemple suivant montre que les ports ISL sont opérationnels sur le commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
@@ -154,7 +154,7 @@ Group Port-       Type     Protocol  Member Ports
 ====
 
 
-. [[step5]]affiche la liste des périphériques voisins :
+. [[étape 5]]Afficher la liste des appareils voisins :
 +
 `show cdp neighbors`
 
@@ -162,10 +162,10 @@ Group Port-       Type     Protocol  Member Ports
 Cette commande fournit des informations sur les périphériques connectés au système.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -179,7 +179,7 @@ cs2                Eth1/35        175    R S I s     N9K-C9336C    Eth1/35
 cs2                Eth1/36        175    R S I s     N9K-C9336C    Eth1/36
 Total entries displayed: 2
 ----
-L'exemple suivant répertorie les périphériques voisins sur le commutateur cs2 :
+L'exemple suivant liste les périphériques voisins sur le commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
@@ -197,15 +197,15 @@ Total entries displayed: 2
 ====
 
 
-. [[étape6]]Vérifiez que tous les ports du cluster sont bien en service :
+. [[étape 6]]Vérifiez que tous les ports du cluster sont actifs :
 +
 `network port show - ipspace Cluster`
 
 +
-Chaque port doit s'afficher pour Link et Healthy pour Health Status.
+Chaque port doit afficher « actif » pour la liaison et « sain » pour l’état de santé.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -230,15 +230,15 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy
 ====
 
 
-. [[step7]]vérifier que toutes les LIF de cluster sont opérationnelles :
+. [[étape 7]]Vérifiez que tous les LIF du cluster sont opérationnels :
 +
 `network interface show - vserver Cluster`
 
 +
-Chaque LIF de cluster doit afficher la valeur true pour `Is Home` Et disposer d'un statut Admin/Oper up/up.
+Chaque LIF de cluster doit afficher vrai pour `Is Home` et avoir un statut Administrateur/Opérateur actif/actif.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -257,12 +257,12 @@ Cluster
 ====
 
 
-. [[step8]]vérifier que la fonction de restauration automatique est activée sur toutes les LIFs de cluster :
+. [[étape 8]]Vérifiez que la restauration automatique est activée sur toutes les LIF du cluster :
 +
 `network interface show - vserver Cluster -fields auto-revert`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -281,17 +281,17 @@ Cluster
 ====
 
 
-. [[step9]]déconnectez le câble du port du cluster e3a sur le nœud1, puis connectez e3a au port 1 du commutateur du cluster cs1 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. [[étape9]]Débranchez le câble du port de cluster e3a sur le nœud 1, puis connectez e3a au port 1 sur le commutateur de cluster cs1, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
 +
-La solution NetApp https://hwu.netapp.com["Hardware Universe"] contient plus d'informations sur le câblage.
+NetApp https://hwu.netapp.com["Hardware Universe"] Contient plus d'informations sur le câblage.
 
-. Déconnectez le câble du port e3a du bloc d'instruments sur le nœud2, puis connectez e3a au port 2 du commutateur cs1 du bloc d'instruments à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
-. Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
+. Déconnectez le câble du port de cluster e3a sur node2, puis connectez e3a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs1.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs1 :
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -303,15 +303,15 @@ cs1(config-if-range)# *no shutdown*
 ====
 
 
-. [[step12]]Vérifiez que toutes les LIFs de cluster sont *up*, opérationnelles et affichées comme TRUE `Is Home`:
+. [[étape 12]]Vérifiez que tous les LIF du cluster sont *actifs*, opérationnels et affichent la valeur « vrai » pour `Is Home` :
 +
 `network interface show - vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que toutes les LIFs sont *up* sur le nœud1 et le nœud2 et ainsi `Is Home` les résultats sont *vrais* :
+L'exemple suivant montre que tous les LIF sont *actifs* sur les nœuds 1 et 2 et que `Is Home` Les résultats sont *véridiques* :
 
 [listing, subs="+quotes"]
 ----
@@ -329,15 +329,15 @@ Cluster
 ====
 
 
-. [[step13]]affiche des informations sur l'état des nœuds du cluster :
+. [[étape 13]]Afficher les informations relatives à l'état des nœuds du cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -351,14 +351,14 @@ node2                true    true          false
 ====
 
 
-. [[step14]]déconnectez le câble du port du cluster e3b sur le node1, puis connectez e3b au port 1 du commutateur de cluster cs2 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
-. Déconnectez le câble du port du cluster e3b sur le nœud2, puis connectez e3b au port 2 du commutateur du cluster cs2 à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
-. Activer tous les ports orientés nœud sur le commutateur de cluster cs2.
+. [[étape 14]]Débranchez le câble du port de cluster e3b sur le nœud 1, puis connectez e3b au port 1 sur le commutateur de cluster cs2, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Déconnectez le câble du port de cluster e3b sur node2, puis connectez e3b au port 2 sur le commutateur de cluster cs2, à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
+. Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs2 :
+L'exemple suivant montre que les ports 1/1 à 1/34 sont activés sur le commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
@@ -370,15 +370,15 @@ cs2(config-if-range)# *no shutdown*
 ====
 
 
-. [[step17]]vérifier que tous les ports du cluster sont up :
+. [[étape 17]]Vérifiez que tous les ports du cluster sont actifs :
 +
 `network port show - ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que tous les ports du cluster apparaissent sur les nœuds 1 et sur le nœud 2 :
+L'exemple suivant montre que tous les ports du cluster sont opérationnels sur les nœuds 1 et 2 :
 
 [listing, subs="+quotes"]
 ----
@@ -404,19 +404,19 @@ e3b       Cluster      Cluster          up   9000  auto/100000 healthy  false
 ====
 
 
-. [[step18]]Vérifiez que toutes les interfaces sont vraies pour `Is Home`:
+. [[étape 18]]Vérifiez que toutes les interfaces affichent « vrai » pour `Is Home` :
 +
 `network interface show - vserver Cluster`
 
 +
 
-NOTE: Cette opération peut prendre plusieurs minutes.
+NOTE: Cela peut prendre plusieurs minutes.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que toutes les LIFs sont *up* sur node1 et node2 et cela `Is Home` les résultats sont vrais :
+L'exemple suivant montre que tous les LIF sont *actifs* sur les nœuds 1 et 2 et que `Is Home` Les résultats sont exacts :
 
 [listing, subs="+quotes"]
 ----
@@ -434,15 +434,15 @@ Cluster
 ====
 
 
-. [[step19]]vérifier que les deux nœuds disposent chacun d'une connexion à chaque switch :
+. [[étape 19]]Vérifiez que chaque nœud possède une connexion à chaque commutateur :
 +
 `show cdp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+L'exemple suivant illustre les résultats attendus pour les deux commutateurs :
 
 [listing, subs="+quotes"]
 ----
@@ -472,12 +472,12 @@ Total entries displayed: 4
 ====
 
 
-. [[step20]]affiche des informations sur les périphériques réseau détectés dans votre cluster :
+. [[step20]]Afficher les informations sur les périphériques réseau détectés dans votre cluster :
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -498,12 +498,12 @@ node1       /cdp
 ====
 
 
-. [[step21]]vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et ne contient aucune erreur :
+. [[étape 21]]Vérifiez que la configuration de stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -534,19 +534,19 @@ storage::*>
 ====
 
 
-. [[step22]]Vérifiez que les paramètres sont désactivés :
+. [[étape 22]]Vérifiez que les paramètres sont désactivés :
 +
 `network options switchless-cluster show`
 
 +
 
-NOTE: La commande peut prendre plusieurs minutes. Attendez l'annonce « 3 minutes d'expiration de la durée de vie ».
+NOTE: L'exécution de la commande peut prendre plusieurs minutes.  Attendez l'annonce « Durée de vie de 3 minutes expirée ».
 
 +
-Le `false` l'exemple suivant montre que les paramètres de configuration sont désactivés :
+Le `false` L'exemple suivant montre que les paramètres de configuration sont désactivés :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -557,15 +557,15 @@ Enable Switchless Cluster: false
 ====
 
 
-. [[step23]]Vérifiez l'état des membres du nœud dans le cluster :
+. [[étape 23]]Vérifiez l'état des nœuds membres du cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -576,22 +576,22 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -607,9 +607,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -641,7 +641,7 @@ RPC status:
 ----
 --
 ====
-. [[step25]] redéfinissez le niveau de privilège sur admin :
+. [[étape 25]] Rétablissez le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 
@@ -649,23 +649,23 @@ RPC status:
 
 
 
-=== Étape 2 : configurer le commutateur partagé
+=== Étape 2 : Configurer le commutateur partagé
 
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs partagés sont _sh1_ et _sh2_.
 * Les nœuds sont _node1_ et _node2_.
 
 
 
-NOTE: La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes Cisco Nexus 9000 Series Commutateuret des commandes ONTAP sauf indication contraire.
+NOTE: La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-. Vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
+. Vérifiez que la configuration de stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -694,12 +694,12 @@ sh2
 storage::*>
 ----
 ====
-. Vérifiez que les ports du nœud de stockage sont opérationnels et fonctionnels :
+. Vérifiez que les ports du nœud de stockage sont sains et opérationnels :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -723,15 +723,15 @@ node2
 ====
 
 
-. [[step3]]déplacer la paire HA 1, NSM224 chemin A ports vers la plage de ports sh1 11-22.
-. Installez un câble entre la paire HA 1, node1, chemin A et la plage de ports sh1 11-22. Par exemple, le chemin D'accès À Un port de stockage sur un système AFF A400 est e0c.
-. Installez un câble de la paire HA 1, node2, chemin A vers la plage de ports sh1 11-22.
-. Vérifiez que les ports du nœud sont sains et opérationnels :
+. [[étape 3]]Déplacez la paire HA 1, les ports du chemin A du NSM224 vers la plage de ports sh1 11-22.
+. Installez un câble de la paire HA 1, nœud 1, chemin A à la plage de ports sh1 11-22.  Par exemple, le chemin du port de stockage A sur un AFF A400 est e0c.
+. Installez un câble de la paire HA 1, nœud 2, chemin A à la plage de ports sh1 11-22.
+. Vérifiez que les ports du nœud sont sains et opérationnels :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -753,12 +753,12 @@ node2
         e5b     ENET  storage           100      enabled  online        30
 ----
 ====
-. Vérifier l'absence de problèmes de câblage ou de commutateur de stockage au niveau du cluster :
+. Vérifiez qu'il n'y a pas de problèmes de commutateur de stockage ou de câblage avec le cluster :
 +
 `system health alert show -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -767,15 +767,15 @@ storage::*> *system health alert show -instance*
 There are no entries matching your query.
 ----
 ====
-. Déplacez les ports B de la paire HA 1, du chemin NSM224 vers la plage de ports sh2 11-22.
-. Installez un câble entre la paire HA 1, node1, chemin B et la plage de ports sh2 11-22. Par exemple, le port de stockage du chemin B d'un AFF A400 est e5b.
-. Installez un câble entre la paire HA 1, node2, chemin B et la plage de ports sh2 11-22.
-. Vérifiez que les ports du nœud sont sains et opérationnels :
+. Déplacez la paire HA 1, les ports du chemin B du NSM224 vers la plage de ports sh2 11-22.
+. Installez un câble de la paire HA 1, nœud 1, chemin B à la plage de ports sh2 11-22.  Par exemple, le port de stockage du chemin B sur un AFF A400 est e5b.
+. Installez un câble de la paire HA 1, nœud 2, chemin B à la plage de ports sh2 11-22.
+. Vérifiez que les ports du nœud sont sains et opérationnels :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -797,12 +797,12 @@ node2
         e5b     ENET  storage           100      enabled  online        30
 ----
 ====
-. Vérifiez que la configuration du stockage de la paire HA 1 est correcte et ne contient aucune erreur :
+. Vérifiez que la configuration de stockage de la paire HA 1 est correcte et sans erreur :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -831,9 +831,9 @@ sh2
 storage::*>
 ----
 ====
-. Reconfigurez les ports de stockage secondaires inutilisés (contrôleur) de la paire HA 1 entre le stockage et la mise en réseau. Si plusieurs NS224 étaient connectés directement, il y aura des ports qui devraient être reconfigurés.
+. Reconfigurez les ports de stockage secondaires (contrôleur) inutilisés sur la paire HA 1 de stockage à réseau.  Si plusieurs NS224 étaient connectés directement, certains ports devraient être reconfigurés.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -842,18 +842,18 @@ storage port modify –node [node name] –port [port name] –mode network
 ----
 ====
 +
-Pour placer des ports de stockage dans un broadcast domain :
+Pour placer les ports de stockage dans un domaine de diffusion :
 
 +
-** `network port broadcast-domain create` (pour créer un nouveau domaine, si nécessaire)
-** `network port broadcast-domain add-ports` (pour ajouter des ports à un domaine existant)
+** `network port broadcast-domain create`(pour créer un nouveau domaine, si nécessaire)
+** `network port broadcast-domain add-ports`(pour ajouter des ports à un domaine existant)
 
 
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

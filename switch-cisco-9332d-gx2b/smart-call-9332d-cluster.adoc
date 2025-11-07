@@ -2,9 +2,9 @@
 permalink: switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html 
 sidebar: sidebar 
 keywords: cisco smart call,small call home 
-summary: 'Smart Call Home surveille le matériel et les composants logiciels de votre réseau afin de générer une notification par e-mail des conditions système critiques. Lorsqu"un événement se produit sur votre terminal, l"appel intelligent affiche une alerte pour tous les destinataires configurés dans votre profil de destination.' 
+summary: 'Smart Call Home surveille les composants matériels et logiciels de votre réseau afin de générer une notification par e-mail en cas de conditions système critiques.  Lorsqu"un événement se produit sur votre appareil, Smart Call Home envoie une alerte à tous les destinataires configurés dans votre profil de destination.' 
 ---
-= Configuration requise pour le service d'appel intelligent
+= Exigences de Smart Call Home
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -19,11 +19,11 @@ Smart Call Home surveille les composants matériels et logiciels de votre résea
 
 Avant de pouvoir utiliser Smart Call Home, tenez compte des exigences suivantes :
 
-* Un serveur de messagerie doit être en place.
-* Le commutateur doit disposer d'une connexion IP au serveur de messagerie.
-* Le nom du contact (contact du serveur SNMP), le numéro de téléphone et l'adresse postale doivent être configurés. Ceci est nécessaire pour déterminer l'origine des messages reçus.
-* Un CCO ID doit être associé à un contrat Cisco SMARTnet Service approprié pour votre entreprise.
-* Le service Cisco SMARTnet doit être en place pour que le périphérique soit enregistré.
+* Un serveur de messagerie doit être installé.
+* Le commutateur doit disposer d'une connectivité IP avec le serveur de messagerie.
+* Les informations relatives au nom du contact (contact du serveur SNMP), au numéro de téléphone et à l'adresse postale doivent être configurées.  Cela est nécessaire pour déterminer l'origine des messages reçus.
+* Un identifiant CCO doit être associé à un contrat de service Cisco SMARTnet approprié pour votre entreprise.
+* Le service Cisco SMARTnet doit être installé pour que l'appareil puisse être enregistré.
 
 
-Le http://www.cisco.com/c/en/us/products/switches/index.html["Site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer l'appel intelligent.
+Le http://www.cisco.com/c/en/us/products/switches/index.html["site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer Smart Call Home.

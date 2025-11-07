@@ -2,18 +2,18 @@
 permalink: switch-bes-53248/configure-software-overview-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Passez en revue la présentation du logiciel. 
+summary: Consultez la présentation du logiciel. 
 ---
-= Workflow d'installation du logiciel pour les commutateurs BES-53248
+= Procédure d'installation du logiciel pour les commutateurs BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour installer et configurer le logiciel d'un commutateur de cluster BES-53248, procédez comme suit :
+Pour installer et configurer le logiciel d'un commutateur de cluster BES-53248, suivez ces étapes :
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-install-initial.html["Configurer le commutateur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-install-initial.html["Configurez le commutateur"]
 [role="quick-margin-para"]
 Configurez le commutateur de cluster BES-53248.
 
@@ -21,17 +21,17 @@ Configurez le commutateur de cluster BES-53248.
 [role="quick-margin-para"]
 Téléchargez et installez le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:configure-licenses.html["Installez les licences pour les commutateurs de cluster BES-53248"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:configure-licenses.html["Installez les licences pour les commutateurs de cluster BES-53248."]
 [role="quick-margin-para"]
-Vous pouvez également ajouter de nouveaux ports en achetant et en installant des licences supplémentaires. Le modèle de base de switchs est conçu pour 16 ports 10 GbE ou 25 GbE et 2 ports 100 GbE.
+Vous pouvez ajouter de nouveaux ports en achetant et en installant des licences supplémentaires.  Le modèle de base du commutateur est sous licence pour 16 ports 10GbE ou 25GbE et deux ports 100GbE.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:configure-install-rcf.html["Installer le fichier RCF (Reference Configuration File)"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:configure-install-rcf.html["Installez le fichier de configuration de référence (RCF)"]
 [role="quick-margin-para"]
-Installez ou mettez à niveau le RCF sur le commutateur de cluster BES-53248, puis vérifiez si les ports ne correspondent pas à une licence supplémentaire après l'application du RCF.
+Installez ou mettez à niveau le RCF sur le commutateur de cluster BES-53248, puis vérifiez les ports pour une licence supplémentaire après l'application du RCF.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh.html["Activez SSH sur les commutateurs de cluster BES-53248"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh.html["Activer SSH sur les commutateurs de cluster BES-53248"]
 [role="quick-margin-para"]
-Si vous utilisez le moniteur d'état du commutateur Ethernet (CSHM) et les fonctionnalités de collecte de journaux, activez SSH sur les commutateurs.
+Si vous utilisez les fonctions de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, activez SSH sur les commutateurs.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:reset-switch-bes-53248.html["Réinitialiser le commutateur aux paramètres d'usine"]
 [role="quick-margin-para"]

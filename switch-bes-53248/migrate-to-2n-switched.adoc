@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: two-node switchless clusters, migrating to a two-node switched BES-53248 cluster environment,BES-53248 switches, migrating two-node switched clusters,2-node 
-summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à deux nœuds avec commutateur qui inclut des commutateurs de cluster BES-53248 pris en charge par Broadcom' 
+summary: 'Si vous disposez d"un cluster à deux nœuds sans commutateur, vous pouvez migrer, sans interruption de service, vers un cluster à deux nœuds avec commutateurs incluant des commutateurs de cluster BES-53248 compatibles Broadcom.' 
 ---
 = Migrer vers un environnement de cluster NetApp commuté
 :allow-uri-read: 
@@ -11,76 +11,76 @@ summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous po
 
 
 [role="lead"]
-Si vous disposez d'un environnement existant à deux nœuds _switch_ cluster, vous pouvez migrer vers un environnement à deux nœuds _Switched_ cluster à l'aide de commutateurs de cluster BES-53248 pris en charge par Broadcom, ce qui vous permet d'évoluer au-delà de deux nœuds du cluster.
+Si vous disposez d'un environnement de cluster existant à deux nœuds _sans commutateur_, vous pouvez migrer vers un environnement de cluster à deux nœuds _commuté_ en utilisant des commutateurs de cluster BES-53248 pris en charge par Broadcom, ce qui vous permet d'étendre le cluster à plus de deux nœuds.
 
-Le processus de migration fonctionne pour tous les ports de nœud de cluster via des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau de clusters.
+Le processus de migration fonctionne pour tous les ports de nœuds de cluster utilisant des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau du cluster.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-Vérifiez les conditions suivantes pour l'environnement du cluster.
+Veuillez prendre connaissance des exigences suivantes relatives à l'environnement du cluster.
 
-* Notez que la plupart des systèmes nécessitent deux ports dédiés du réseau en cluster sur chaque contrôleur.
-* Assurez-vous que le commutateur de cluster BES-53248 est configuré comme décrit à la section link:replace-switch-reqs.html["Exigences de remplacement"] avant de commencer ce processus de migration.
-* Pour la configuration sans commutateur à 2 nœuds, vérifiez que :
+* Notez que la plupart des systèmes nécessitent deux ports réseau de cluster dédiés sur chaque contrôleur.
+* Assurez-vous que le commutateur de cluster BES-53248 est configuré comme décrit danslink:replace-switch-reqs.html["exigences de remplacement"] avant de commencer ce processus de migration.
+* Pour la configuration sans commutateur à deux nœuds, assurez-vous que :
 +
-** La configuration sans commutateur à 2 nœuds est correctement configurée et opérationnelle.
-** Les nœuds exécutent ONTAP 9.5P8 et version ultérieure. La prise en charge des ports de cluster 40/100 GbE commence par la version 3.4.4.6 du firmware EFOS et les versions ultérieures.
-** Tous les ports de cluster sont à l'état *up*.
-** Toutes les interfaces logiques (LIF) de cluster sont à l'état *up* et sur leurs ports de base.
+** La configuration sans commutateur à deux nœuds est correctement mise en place et fonctionne.
+** Les nœuds exécutent ONTAP 9.5P8 et versions ultérieures.  La prise en charge des ports de cluster 40/100 GbE commence avec la version 3.4.4.6 du firmware EFOS et les versions ultérieures.
+** Tous les ports du cluster sont en état de fonctionnement.
+** Toutes les interfaces logiques du cluster (LIF) sont à l'état *actif* et sur leurs ports d'origine.
 
 
-* Pour la configuration du commutateur de cluster BES-53248 pris en charge par Broadcom, vérifiez que :
+* Pour la configuration du commutateur de cluster BES-53248 pris en charge par Broadcom, assurez-vous que :
 +
-** Le commutateur de bloc d'instruments BES-53248 est entièrement fonctionnel sur les deux commutateurs.
-** Les deux commutateurs disposent d'une connectivité réseau de gestion.
-** Il y a un accès à la console aux commutateurs du cluster.
-** Les connexions de commutateur à nœud et de commutateur à commutateur BES-53248 utilisent des câbles Twinax ou fibre optique.
+** Le commutateur de cluster BES-53248 est entièrement fonctionnel sur les deux commutateurs.
+** Les deux commutateurs disposent d'une connectivité au réseau de gestion.
+** Il existe un accès console aux commutateurs du cluster.
+** Les connexions de commutateur de nœud à nœud et de commutateur à commutateur du BES-53248 utilisent des câbles Twinax ou à fibre optique.
 +
-Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] Contient des informations sur la compatibilité ONTAP, le micrologiciel EFOS pris en charge et le câblage aux commutateurs BES-53248.
+Le https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] contient des informations sur la compatibilité ONTAP , le firmware EFOS pris en charge et le câblage vers les commutateurs BES-53248.
 
 
 
-* Les câbles ISL (Inter-Switch Link) sont connectés aux ports 0/55 et 0/56 des deux commutateurs BES-53248.
-* La personnalisation initiale des deux commutateurs BES-53248 est terminée, de sorte que :
+* Les câbles Inter-Switch Link (ISL) sont connectés aux ports 0/55 et 0/56 sur les deux commutateurs BES-53248.
+* La personnalisation initiale des deux commutateurs BES-53248 est terminée, de sorte que :
 +
 ** Les commutateurs BES-53248 exécutent la dernière version du logiciel.
-** Le cas échéant, les commutateurs BES-53248 disposent de licences de port en option.
-** Les fichiers de configuration de référence (RCFs) sont appliqués aux commutateurs.
+** Les commutateurs BES-53248 sont livrés avec des licences de port optionnelles installées, si elles sont achetées.
+** Les fichiers de configuration de référence (RCF) sont appliqués aux commutateurs.
 
 
-* Toute personnalisation de site (SMTP, SNMP et SSH) est configurée sur les nouveaux commutateurs.
+* Toute personnalisation du site (SMTP, SNMP et SSH) est configurée sur les nouveaux commutateurs.
 
 
-.Contraintes de vitesse du groupe de ports
-* Les ports 48 10 GbE (SFP28/SFP+) sont combinés en 12 groupes de 4 ports comme suit : ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
-* La vitesse des ports SFP28/SFP+ doit être identique (10 GbE ou 25 GbE) sur tous les ports du groupe à 4 ports.
-* Si les vitesses d'un groupe de 4 ports sont différentes, les ports de commutateur ne fonctionneront pas correctement.
+.contraintes de vitesse du groupe portuaire
+* Les 48 ports 10/25GbE (SFP28/SFP+) sont combinés en 12 groupes de 4 ports comme suit : Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
+* La vitesse du port SFP28/SFP+ doit être la même (10GbE ou 25GbE) sur tous les ports du groupe de 4 ports.
+* Si les vitesses sont différentes dans un groupe de 4 ports, les ports du commutateur ne fonctionneront pas correctement.
 
 
 
 
-== Migrer vers l'environnement du cluster
+== Migrer vers l'environnement cluster
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature de commutateurs et de nœuds du cluster suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs de cluster et les nœuds :
 
-* Les noms des commutateurs BES-53248 sont `cs1` et `cs2`.
-* Les noms des SVM du cluster sont `node1` et `node2`.
-* Les noms des LIFs sont `node1_clus1` et `node1_clus2` sur le nœud 1, et `node2_clus1` et `node2_clus2` sur le nœud 2 respectivement.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
-* Les ports de cluster utilisés dans cette procédure sont `e0a` et `e0b`.
+* Les noms des commutateurs BES-53248 sont : `cs1` et `cs2` .
+* Les noms des SVM du cluster sont `node1` et `node2` .
+* Les noms des LIF sont `node1_clus1` et `node1_clus2` sur le nœud 1, et `node2_clus1` et `node2_clus2` sur le nœud 2 respectivement.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les ports du cluster utilisés dans cette procédure sont `e0a` et `e0b` .
 +
-Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contient les informations les plus récentes sur les ports de cluster réels de vos plates-formes.
+Le https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
 
 
 
 
 
-=== Étape 1 : préparer la migration
+=== Étape 1 : Préparer la migration
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -89,36 +89,36 @@ où x représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 +
-La commande suivante supprime la création automatique de dossiers pendant deux heures :
+La commande suivante désactive la création automatique de cas pendant deux heures :
 
 +
 [listing]
 ----
 cluster1::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 `set -privilege advanced`
 
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
 
 
 
 
-=== Étape 2 : configurer les ports et le câblage
+=== Étape 2 : Configurer les ports et le câblage
 
-. Désactivez tous les ports orientés nœud activés (et non les ports ISL) sur les nouveaux commutateurs de cluster cs1 *et* cs2.
+. Désactivez tous les ports connectés au nœud (à l'exception des ports ISL) sur les deux nouveaux commutateurs du cluster cs1 *et* cs2.
 +
 
 NOTE: Vous ne devez pas désactiver les ports ISL.
 
 +
-L'exemple suivant montre que les ports 1 à 16 orientés nœud sont désactivés sur le commutateur cs1 :
+L'exemple suivant montre que les ports 1 à 16 orientés vers le nœud sont désactivés sur le commutateur cs1 :
 
 +
 [listing, subs="+quotes"]
@@ -129,15 +129,15 @@ L'exemple suivant montre que les ports 1 à 16 orientés nœud sont désactivés
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-. Vérifiez que l'ISL et les ports physiques sur l'ISL entre les deux commutateurs BES-53248 cs1 et cs2 sont activés :
+. Vérifiez que la liaison ISL et les ports physiques de cette liaison entre les deux commutateurs BES-53248 cs1 et cs2 sont opérationnels :
 +
 `show port-channel`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports ISL sont active sur le commutateur cs1 :
+L'exemple suivant montre que les ports ISL sont opérationnels sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -160,7 +160,7 @@ Ports  Timeout       Speed      Active
        partner/long
 (cs1) #
 ----
-L'exemple suivant montre que les ports ISL sont active sur le commutateur cs2 :
+L'exemple suivant montre que les ports ISL sont opérationnels sur le commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
@@ -183,7 +183,7 @@ Ports  Timeout       Speed      Active
        partner/long
 ----
 ====
-. Afficher la liste des périphériques voisins :
+. Afficher la liste des appareils voisins :
 +
 `show isdp neighbors`
 
@@ -191,10 +191,10 @@ Ports  Timeout       Speed      Active
 Cette commande fournit des informations sur les périphériques connectés au système.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
+L'exemple suivant répertorie les périphériques voisins sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
@@ -207,7 +207,7 @@ Device ID      Intf     Holdtime  Capability   Platform    Port ID
 cs2            0/55     176       R            BES-53248   0/55
 cs2            0/56     176       R            BES-53248   0/56
 ----
-L'exemple suivant répertorie les périphériques voisins sur le commutateur cs2 :
+L'exemple suivant liste les périphériques voisins sur le commutateur cs2 :
 
 [listing, subs="+quotes"]
 ----
@@ -221,12 +221,12 @@ cs2            0/55     176       R            BES-53248   0/55
 cs2            0/56     176       R            BES-53248   0/56
 ----
 ====
-. Vérifier que tous les ports du cluster sont bien :
+. Vérifiez que tous les ports du cluster sont opérationnels :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -250,12 +250,12 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy
 ----
 ====
-. Vérifier que toutes les LIFs de cluster sont opérationnelles :
+. Vérifiez que toutes les interfaces réseau du cluster sont opérationnelles :
 +
 `network interface show -vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -272,20 +272,20 @@ Cluster
             node2_clus2  up/up      169.254.19.183/16  node2         e0b     true
 ----
 ====
-. Désactivez la fonction de restauration automatique sur les LIF du cluster.
+. Désactiver la restauration automatique sur les LIF du cluster.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert false*
 ----
-. Débranchez le câble du port du cluster e0a sur le nœud 1, puis connectez e0a au port 1 du commutateur cs1 du cluster, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
+. Déconnectez le câble du port de cluster e0a sur le nœud 1, puis connectez e0a au port 1 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 +
-Le https://hwu.netapp.com/Home/Index["_NetApp Hardware Universe_"^] contient plus d'informations sur le câblage.
+Le https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] Contient plus d'informations sur le câblage.
 
-. Débranchez le câble du port du cluster e0a sur le nœud 2, puis connectez e0a au port 2 du commutateur cs1 du cluster à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
-. Activer tous les ports orientés nœuds sur le commutateur de cluster cs1.
+. Déconnectez le câble du port de cluster e0a sur node2, puis connectez e0a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
+. Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs1.
 +
-L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs1 :
+L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs1 :
 
 +
 [listing, subs="+quotes"]
@@ -296,12 +296,12 @@ L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur 
 (cs1)(Interface 0/1-0/16)# *exit*
 (cs1)(Config)# *exit*
 ----
-. Vérifier que tous les ports du cluster sont bien :
+. Vérifiez que tous les ports du cluster sont opérationnels :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -325,12 +325,12 @@ e0a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-. Vérifier que toutes les LIFs de cluster sont opérationnelles :
+. Vérifiez que toutes les interfaces réseau du cluster sont opérationnelles :
 +
 `network interface show -vserver Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -347,15 +347,15 @@ Cluster
          node2_clus2  up/up      169.254.19.183/16  node2       e0b     true
 ----
 ====
-. Afficher des informations relatives à l'état des nœuds du cluster :
+. Afficher les informations relatives à l'état des nœuds du cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -367,11 +367,11 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Déconnectez le câble du port de cluster e0b sur le nœud1, puis connectez le port 1 du commutateur de cluster cs2 en utilisant le câblage approprié pris en charge par les commutateurs BES-53248.
-. Déconnectez le câble du port de cluster e0b sur le nœud 2, puis connectez le port e0b au port 2 du commutateur de cluster cs2, en utilisant le câblage approprié pris en charge par les commutateurs BES-53248.
-. Activer tous les ports orientés nœud sur le commutateur de cluster cs2.
+. Déconnectez le câble du port de cluster e0b sur le nœud 1, puis connectez e0b au port 1 sur le commutateur de cluster cs2, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
+. Déconnectez le câble du port de cluster e0b sur node2, puis connectez e0b au port 2 sur le commutateur de cluster cs2, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
+. Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs2.
 +
-L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs2 :
+L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur cs2 :
 
 +
 [listing, subs="+quotes"]
@@ -382,12 +382,12 @@ L'exemple suivant montre que les ports 1 à 16 sont activés sur le commutateur 
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)# *exit*
 ----
-. Vérifier que tous les ports du cluster sont bien :
+. Vérifiez que tous les ports du cluster sont opérationnels :
 +
 `network port show -ipspace Cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -415,34 +415,34 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
-=== Étape 3 : vérifier la configuration
+=== Étape 3 : Vérifier la configuration
 
-. Activez la fonction de revert automatique sur les LIFs du cluster.
+. Activer la restauration automatique sur les LIF du cluster.
 +
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*
 ----
-. Vérifier que les LIFs du cluster sont rétablies sur leurs ports de base (cette opération peut prendre une minute) :
+. Vérifiez que les LIF du cluster sont revenues à leurs ports d'origine (cela peut prendre une minute) :
 +
 `network interface show -vserver Cluster`
 
 +
-Si les LIF de cluster n'ont pas été rétablies sur leur port de départ, elles peuvent être revert manuellement :
+Si les LIF du cluster ne sont pas revenues à leur port d'origine, rétablissez-les manuellement :
 
 +
 `network interface revert -vserver Cluster -lif *`
 
-. Vérifiez que toutes les interfaces s'affichent `true` pour `Is Home`:
+. Vérifiez que toutes les interfaces s'affichent `true` pour `Is Home` :
 +
 `network interface show -vserver Cluster`
 
 +
 
-NOTE: Cette opération peut prendre plusieurs minutes.
+NOTE: Cela peut prendre plusieurs minutes.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -459,15 +459,15 @@ Cluster
           node2_clus2  up/up      169.254.19.183/16  node2      e0b     true
 ----
 ====
-. Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur :
+. Vérifiez que chaque nœud possède une connexion à chaque commutateur :
 +
 `show isdp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+L'exemple suivant illustre les résultats attendus pour les deux commutateurs :
 
 [listing, subs="+quotes"]
 ----
@@ -495,12 +495,12 @@ cs1            0/55         175       R            BES-53248   0/55
 cs1            0/56         175       R            BES-53248   0/56
 ----
 ====
-. Affiche des informations sur les périphériques réseau détectés dans votre cluster :
+. Afficher les informations relatives aux périphériques réseau détectés dans votre cluster :
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -517,16 +517,16 @@ node1      /cdp
             e0b    cs2                       0/1               BES-53248
 ----
 ====
-. Vérifiez que les paramètres sont désactivés :
+. Vérifiez que les paramètres sont désactivés :
 +
 `network options switchless-cluster show`
 
 +
 
-NOTE: La commande peut prendre plusieurs minutes. Attendez que l'annonce « 3 minutes d'expiration de la durée de vie » soit annoncée.
+NOTE: L'exécution de la commande peut prendre plusieurs minutes.  Attendez l'annonce « Durée de vie restante de 3 minutes ».
 
 +
-Le `false` l'exemple suivant montre que les paramètres de configuration sont désactivés :
+Le `false` L'exemple suivant montre que les paramètres de configuration sont désactivés :
 
 +
 [listing, subs="+quotes"]
@@ -534,15 +534,15 @@ Le `false` l'exemple suivant montre que les paramètres de configuration sont d�
 cluster1::*> *network options switchless-cluster show*
 Enable Switchless Cluster: false
 ----
-. Vérifiez l'état des membres du nœud sur le cluster :
+. Vérifiez l'état des nœuds membres du cluster :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -554,22 +554,22 @@ node1                true    true          false
 node2                true    true          false
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -586,9 +586,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -620,16 +620,16 @@ RPC status:
 ----
 --
 ====
-. [[step9]]remplacez le niveau de privilège par admin :
+. [[étape 9]]Rétablissez le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -638,9 +638,9 @@ cluster1::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
 +
-Pour plus d'informations, voir : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Article de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^]
+Pour plus d'informations, consultez : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Article de la base de connaissances NetApp : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^]
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

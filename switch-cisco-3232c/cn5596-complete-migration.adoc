@@ -2,24 +2,24 @@
 permalink: switch-cisco-3232c/cn5596-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser des commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Effectuez votre migration de 5596 switchs vers des switchs 3232C
+= Finalisez votre migration des commutateurs 5596 vers les commutateurs 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Procédez comme suit pour finaliser la migration des switchs Nexus 5596 vers des switchs Nexus 3232C.
+Suivez les étapes suivantes pour finaliser la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3232C.
 
 .Étapes
-. Vérifier que les commutateurs de cluster appropriés sont surveillés :
+. Vérifiez que les commutateurs de cluster appropriés sont surveillés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -47,11 +47,11 @@ C2                          cluster-network    10.10.1.104      NX3232C
 2 entries were displayed.
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"].

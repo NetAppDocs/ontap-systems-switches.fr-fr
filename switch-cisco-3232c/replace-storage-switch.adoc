@@ -2,52 +2,52 @@
 permalink: switch-cisco-3232c/replace-storage-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus, 3232c storage switch 
-summary: Vous pouvez remplacer un switch de stockage Cisco Nexus 3232C défectueux et non disruptive en exécutant une séquence de tâches spécifique. 
+summary: Vous pouvez remplacer sans interruption un commutateur de stockage Cisco Nexus 3232C défectueux en effectuant une séquence de tâches spécifique. 
 ---
-= Remplacement d'un switch de stockage Cisco Nexus 3232C
+= Remplacer un commutateur de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour remplacer un switch de stockage Cisco Nexus 3232C défectueux. Cette procédure ne perturbe pas les opérations.
+Suivez ces étapes pour remplacer un commutateur de stockage Cisco Nexus 3232C défectueux. Il s’agit d’une procédure non perturbatrice.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-La configuration réseau existante doit présenter les caractéristiques suivantes :
+La configuration réseau existante doit présenter les caractéristiques suivantes :
 
-* La page des commutateurs Ethernet Cisco présente les dernières versions de RCF et NX-OS sur vos commutateurs.
+* La page relative aux commutateurs Ethernet Cisco contient les dernières versions de RCF et de NX-OS installées sur vos commutateurs.
 * La connectivité de gestion doit exister sur les deux commutateurs.
 +
 [NOTE]
 ====
-Assurez-vous que toutes les étapes de dépannage ont été effectuées pour vérifier que votre commutateur doit être remplacé.
+Assurez-vous que toutes les étapes de dépannage ont été effectuées pour confirmer que votre commutateur doit être remplacé.
 
 ====
 
 
-Les caractéristiques du switch Cisco Nexus 3232C de remplacement doivent être les suivantes :
+Le commutateur Cisco Nexus 3232C de remplacement doit présenter les caractéristiques suivantes :
 
-* La connectivité du réseau de gestion doit fonctionner.
-* L'accès à la console au commutateur de remplacement doit être en place.
-* Vous devez charger l'image appropriée du système d'exploitation RCF et NX-OS sur le commutateur.
+* La connectivité du réseau de gestion doit être fonctionnelle.
+* L'accès console au commutateur de remplacement doit être disponible.
+* L'image système d'exploitation RCF et NX-OS appropriée doit être chargée sur le commutateur.
 * La personnalisation initiale du commutateur doit être terminée.
 
 
 
 
-== Remplacer le contacteur
+== Remplacez l'interrupteur
 
-Cette procédure remplace le second switch de stockage Nexus 3232C S2 par le nouveau switch 3232C NS2. Les deux nœuds sont le nœud1 et le nœud2.
+Cette procédure remplace le deuxième commutateur de stockage Nexus 3232C S2 par le nouveau commutateur 3232C NS2.  Les deux nœuds sont le nœud 1 et le nœud 2.
 
 
 
-=== Étape 1 : vérifier que le commutateur à remplacer est S2
+=== Étape 1 : Vérifiez que le commutateur à remplacer est un S2
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
@@ -55,15 +55,15 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Vérifier l'état de santé des ports du nœud de stockage pour s'assurer qu'il existe une connexion au commutateur de stockage S1 :
+. Vérifiez l'état de santé des ports du nœud de stockage pour vous assurer qu'il existe une connexion au commutateur de stockage S1 :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -84,12 +84,12 @@ node2
                    e7b  ENET  storage      0 enabled  offline     30
 ----
 ====
-. Vérifiez que le commutateur de stockage S1 est disponible :
+. Vérifiez que le commutateur de stockage S1 est disponible :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -116,12 +116,12 @@ node2/lldp
             e4e    node1                     e4e               -
 ----
 ====
-. Exécutez le `show lldp neighbors` commande sur le commutateur de travail pour confirmer que vous pouvez voir les deux nœuds et tous les tiroirs :
+. Exécutez le `show lldp neighbors` Commande à exécuter sur le commutateur fonctionnel pour confirmer que vous pouvez voir les deux nœuds et toutes les étagères :
 +
 `show lldp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -143,14 +143,14 @@ SHFGD2008000022         Eth1/8          120        S           e0a
 
 
 
-=== Étape 2 : configurer le câblage
+=== Étape 2 : Configurer le câblage
 
-. [[5]]vérifier les ports du tiroir dans le système de stockage :
+. [[cinq]]Vérifiez les ports d'étagère dans le système de stockage :
 +
 `storage shelf port show -fields remote-device,remote-port`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -169,20 +169,20 @@ shelf  id  remote-port  remote-device
 3.20   3   -            -
 ----
 ====
-. Retirer tous les câbles reliés au commutateur de stockage S2.
-. Rebranchez tous les câbles au commutateur NS2 de remplacement.
+. Retirez tous les câbles connectés au commutateur de stockage S2.
+. Rebranchez tous les câbles à l'interrupteur de remplacement NS2.
 
 
 
 
-=== Étape 3 : vérifier toutes les configurations de périphérique sur le commutateur NS2
+=== Étape 3 : Vérifier la configuration de tous les périphériques sur le commutateur NS2
 
-. Vérifiez l'état de santé des ports du nœud de stockage :
+. Vérifiez l'état de santé des ports du nœud de stockage :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -203,12 +203,12 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Vérifier que les deux commutateurs sont disponibles :
+. Vérifiez que les deux commutateurs sont disponibles :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -239,12 +239,12 @@ node2/lldp
             e7b    NS2                       Ethernet1/2       -
 ----
 ====
-. Vérifiez les ports shelf dans le système de stockage :
+. Vérifiez les ports des étagères dans le système de stockage :
 +
 `storage shelf port show -fields remote-device,remote-port`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -262,11 +262,11 @@ shelf id remote-port remote-device
 3.20  3  Ethernet1/8 NS2
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"]
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"]

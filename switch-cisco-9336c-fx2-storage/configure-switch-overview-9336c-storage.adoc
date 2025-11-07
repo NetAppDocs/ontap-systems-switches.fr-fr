@@ -17,7 +17,7 @@ Cisco Nexus 9336C-FX2 (36 ports) est un commutateur de cluster/stockage/données
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2 et 9336C-FX2-T.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-9336c-storage.html["Examiner les exigences de configuration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-reqs-9336c-storage.html["Examiner les exigences de configuration"]
 [role="quick-margin-para"]
 Passez en revue les exigences de configuration pour les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T.
 
@@ -33,7 +33,7 @@ Consultez la documentation spécifique du commutateur et du contrôleur pour con
 [role="quick-margin-para"]
 Passez en revue les exigences de la fonctionnalité Cisco Smart Call Home, utilisée pour surveiller les composants matériels et logiciels de votre réseau.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:install-9336c-storage.html["Installer le matériel de fixation"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:install-9336c-storage.html["Installez le matériel"]
 [role="quick-margin-para"]
 Installez le matériel du commutateur.
 

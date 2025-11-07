@@ -13,14 +13,14 @@ summary: Avant de configurer les commutateurs de cluster NVIDIA SN2100, consulte
 [role="lead"]
 Pour installer et configurer le matériel d'un commutateur de stockage SN2100, procédez comme suit :
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:install-hardware-sn2100-storage.html["Installer le matériel de fixation"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:install-hardware-sn2100-storage.html["Installez le matériel"]
 [role="quick-margin-para"]
 Installez le matériel du commutateur.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:cabling-considerations-sn2100-storage.html["Examinez les considérations relatives au câblage et à la configuration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:cabling-considerations-sn2100-storage.html["Examiner les considérations relatives au câblage et à la configuration"]
 [role="quick-margin-para"]
-Consultez les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.
+Examiner les exigences relatives aux connexions optiques, à l'adaptateur QSA et à la vitesse du port de commutation.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-cable-shelves-sn2100-storage.html["Reliez les étagères NS224"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-cable-shelves-sn2100-storage.html["Câbler les étagères NS224"]
 [role="quick-margin-para"]
-Suivez les procédures de câblage si vous disposez d'un système dans lequel les tiroirs disques du NS224 doivent être câblés en tant que stockage connecté au commutateur (pas de stockage à connexion directe).
+Suivez les procédures de câblage si vous avez un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté à un commutateur (et non en tant que stockage connecté directement).

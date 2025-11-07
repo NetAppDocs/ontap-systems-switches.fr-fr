@@ -18,20 +18,20 @@ Pour l'installation et la maintenance du commutateur Cisco Nexus 9332D-GX2B, ass
 
 
 
-== Exigences liées au réseau
+== Exigences réseau
 
-Vous avez besoin des informations réseau suivantes pour toutes les configurations de switchs.
+Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateur.
 
 * Sous-réseau IP pour le trafic du réseau de gestion
-* Noms d'hôte et adresses IP pour chaque contrôleur du système de stockage et tous les commutateurs applicables
+* Noms d'hôte et adresses IP pour chacun des contrôleurs de système de stockage et tous les commutateurs applicables
 * La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé).
-* Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
+* Se référer à https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
 
 
 
 
 == Exigences de câblage
 
-* Vous disposez du nombre et du type appropriés de câbles et de connecteurs pour vos commutateurs. Voir la https://hwu.netapp.com["Hardware Universe"^].
-* Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console du switch à l'aide du câble console inclus.
+* Vous disposez du nombre et du type de câbles et de connecteurs de câbles appropriés pour vos commutateurs. Voir le https://hwu.netapp.com["Hardware Universe"^] .
+* Selon le type de commutateur que vous configurez initialement, vous devez vous connecter au port de console du commutateur avec le câble de console inclus.
 

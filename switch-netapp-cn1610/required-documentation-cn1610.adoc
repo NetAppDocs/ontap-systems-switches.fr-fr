@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/required-documentation-cn1610.html 
 sidebar: sidebar 
 keywords: cn1610, switch, netapp 
-summary: 'Pour l"installation et la maintenance des commutateurs NetApp CN1610, veillez à consulter toute la documentation recommandée.' 
+summary: 'Pour l"installation et la maintenance du commutateur NetApp CN1610, assurez-vous de consulter toute la documentation recommandée.' 
 ---
 = Exigences en matière de documentation pour les commutateurs NetApp CN1610
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Pour l"installation et la maintenance des commutateurs NetApp CN1610, 
 
 
 [role="lead"]
-Pour l'installation et la maintenance des commutateurs NetApp CN1610, veillez à consulter toute la documentation recommandée.
+Pour l'installation et la maintenance du commutateur NetApp CN1610, assurez-vous de consulter toute la documentation recommandée.
 
 [cols="1,2"]
 |===
@@ -21,32 +21,32 @@ Pour l'installation et la maintenance des commutateurs NetApp CN1610, veillez à
  a| 
 https://library.netapp.com/ecm/ecm_download_file/ECMP1117853["Guide d'installation 1G"^]
  a| 
-Présentation des fonctionnalités matérielles et logicielles du commutateur CN1601 et du processus d'installation.
+Présentation des caractéristiques matérielles et logicielles du commutateur CN1601 et du processus d'installation.
 
 
 
  a| 
 https://library.netapp.com/ecm/ecm_download_file/ECMP1117824["Guide d'installation 10G"^]
  a| 
-Présentation des fonctions logicielles et matérielles du commutateur CN1610 et décrit les fonctionnalités à installer et à accéder à l'interface de ligne de commande.
+Présentation des caractéristiques matérielles et logicielles du commutateur CN1610 et description des fonctionnalités permettant d'installer le commutateur et d'accéder à l'interface de ligne de commande (CLI).
 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guide de configuration et de configuration des commutateurs CN1601 et CN1610"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMP1118645["Guide d'installation et de configuration des commutateurs CN1601 et CN1610"^]
  a| 
-Explique comment configurer le matériel et les logiciels du commutateur pour votre environnement de cluster.
+Détails sur la configuration matérielle et logicielle du commutateur pour votre environnement de cluster.
 
 
 
  a| 
-Guide de l'administrateur des commutateurs CN1601
+Guide de l'administrateur du commutateur CN1601
  a| 
-Fournit des exemples d'utilisation du commutateur CN1601 dans un réseau type.
+Fournit des exemples d'utilisation du commutateur CN1601 dans un réseau typique.
 
 * https://library.netapp.com/ecm/ecm_download_file/ECMP1117844["Guide de l'administrateur"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811865["Guide de l'administrateur, version 1.1.x.x"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["Guide de l'administrateur, version 1.2.x.x"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811865["Guide de l'administrateur, version 1.1.xx"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117874["Guide de l'administrateur, version 1.2.xx"^]
 
 
 
@@ -54,11 +54,11 @@ Fournit des exemples d'utilisation du commutateur CN1601 dans un réseau type.
  a| 
 Référence des commandes CLI du commutateur réseau CN1610
  a| 
-Fournit des informations détaillées sur les commandes de l'interface de ligne de commandes que vous utilisez pour configurer le logiciel CN1601.
+Fournit des informations détaillées sur les commandes de l'interface de ligne de commande (CLI) que vous utilisez pour configurer le logiciel CN1601.
 
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117834["Référence de commande"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811863["Référence de commande, version 1.1.x.x"^]
-* https://library.netapp.com/ecm/ecm_download_file/ECMP1117863["Référence de commande, version 1.2.x.x"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117834["Référence des commandes"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP2811863["Référence des commandes, version 1.1.xx"^]
+* https://library.netapp.com/ecm/ecm_download_file/ECMP1117863["Référence des commandes, version 1.2.xx"^]
 
 
 |===

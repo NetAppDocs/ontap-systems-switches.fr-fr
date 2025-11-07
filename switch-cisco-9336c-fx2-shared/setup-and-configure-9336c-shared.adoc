@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/setup-and-configure-9336c-shared.html
 keywords:  
 summary:  
 ---
-= Configurez les commutateurs partagés Cisco Nexus 9336C-FX2
+= Configurer les commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -17,123 +17,123 @@ summary:
 Suivez ces instructions pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2.
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Documentation partagée requise sur le commutateur, documentation sur le contrôleur et documentation ONTAP. Voir link:required-documentation-9336c-shared.html["Documentation requise pour les commutateurs partagés Cisco Nexus 9336C-FX2"] et https://docs.netapp.com/us-en/ontap/index.html["Documentation NetApp ONTAP"^].
+* Documentation requise pour le commutateur partagé, le contrôleur et ONTAP .  Voirlink:required-documentation-9336c-shared.html["Exigences en matière de documentation pour les commutateurs partagés Cisco Nexus 9336C-FX2"] et https://docs.netapp.com/us-en/ontap/index.html["Documentation NetApp ONTAP"^] .
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
-* Feuilles de calcul de câblage remplies. Voir link:cable-9336c-shared.html["Complétez la fiche technique de câblage Cisco Nexus 9336C-FX2"]. Pour plus d'informations sur le câblage, reportez-vous au https://hwu.netapp.com["Hardware Universe"].
+* Fiches de câblage complétées. Voirlink:cable-9336c-shared.html["Complétez la fiche de câblage Cisco Nexus 9336C-FX2"] .  Pour plus d'informations sur le câblage, reportez-vous au https://hwu.netapp.com["Hardware Universe"] .
 
 
 .Étapes
-. [[étape3]]effectuer une configuration initiale des commutateurs.
+. [[étape 3]]Effectuez une configuration initiale des commutateurs.
 +
-Pour la configuration, vous devez disposer du nombre et du type appropriés de câbles et de connecteurs pour vos commutateurs.
+Pour la configuration, vous aurez besoin du nombre et du type appropriés de câbles et de connecteurs de câbles pour vos commutateurs.
 
 +
-Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console des commutateurs avec le câble console inclus ; vous devez également fournir des informations réseau spécifiques.
+Selon le type de commutateur que vous configurez initialement, vous devez vous connecter au port console du commutateur avec le câble console fourni ; vous devez également fournir des informations réseau spécifiques.
 
 . Démarrez le commutateur.
 +
-Lors du premier démarrage du commutateur, fournissez les réponses applicables aux questions de configuration initiale suivantes.
+Veuillez fournir les réponses appropriées aux questions de configuration initiale suivantes lors du premier démarrage du commutateur.
 
 +
 La politique de sécurité de votre site définit les réponses et les services à activer.
 
 +
-.. Abandonner le provisionnement automatique et poursuivre la configuration normale ? (oui/non) ?
+.. Annuler le provisionnement automatique et poursuivre la configuration normale ?  (oui/non)
 +
-Répondez par *oui*. La valeur par défaut est non
+Répondez par *oui*.  La valeur par défaut est non.
 
-.. Voulez-vous appliquer une norme de mot de passe sécurisée ? (oui/non) ?
+.. Souhaitez-vous imposer une norme de mot de passe sécurisé ?  (oui/non)
 +
-Répondez par *oui*. La valeur par défaut est oui.
+Répondez par *oui*.  La valeur par défaut est oui.
 
-.. Entrez le mot de passe pour l'administrateur.
+.. Saisissez le mot de passe de l'administrateur.
 +
-Le mot de passe par défaut est admin. Vous devez créer un nouveau mot de passe fort.
+Le mot de passe par défaut est « admin » ; vous devez créer un nouveau mot de passe fort.
 
 +
-Un mot de passe faible peut être rejeté.
+Un mot de passe faible peut être refusé.
 
-.. Voulez-vous entrer la boîte de dialogue de configuration de base ? (oui/non) ?
+.. Souhaitez-vous accéder à la boîte de dialogue de configuration de base ?  (oui/non)
 +
-Répondre par *oui* à la configuration initiale du commutateur.
+Répondez *oui* lors de la configuration initiale du commutateur.
 
-.. Créer un autre compte de connexion ? (oui/non) ?
+.. Créer un autre compte de connexion ?  (oui/non)
 +
-Votre réponse dépend des stratégies de votre site concernant les administrateurs secondaires. La valeur par défaut est non
+Votre réponse dépend des politiques de votre site concernant les administrateurs alternatifs.  La valeur par défaut est non.
 
-.. Configurer la chaîne de communauté SNMP en lecture seule ? (oui/non) ?
+.. Configurer la chaîne de communauté SNMP en lecture seule ?  (oui/non)
 +
-Répondre par *non*. La valeur par défaut est non
+Répondez par *non*.  La valeur par défaut est non.
 
-.. Configurer la chaîne de communauté SNMP en lecture-écriture ? (oui/non) ?
+.. Configurer la chaîne de communauté SNMP en lecture-écriture ?  (oui/non)
 +
-Répondre par *non*. La valeur par défaut est non
+Répondez par *non*.  La valeur par défaut est non.
 
-.. Entrez le nom du commutateur.
+.. Saisissez le nom du commutateur.
 +
 Le nom du commutateur est limité à 63 caractères alphanumériques.
 
-.. Poursuivre la configuration de gestion hors bande (mgmt0) ? (oui/non) ?
+.. Continuer avec la configuration de gestion hors bande (mgmt0) ?  (oui/non)
 +
-Répondez par *yes* (par défaut) à cette invite. À l'invite mgmt0 adresse IPv4 :, entrez votre adresse IP : adresse_ip
+Répondez par *oui* (par défaut) à cette invite.  À l'invite « Adresse IPv4 mgmt0 », saisissez votre adresse IP : adresse_ip
 
-.. Configurer la passerelle par défaut ? (oui/non) ?
+.. Configurer la passerelle par défaut ?  (oui/non)
 +
-Répondez par *oui*. À l'invite Default-Gateway:, saisissez votre passerelle_par_défaut.
+Répondez par *oui*.  À l'invite « adresse IPv4 de la passerelle par défaut : », saisissez votre passerelle par défaut.
 
-.. Configurer les options IP avancées ? (oui/non) ?
+.. Configurer les options IP avancées ?  (oui/non)
 +
-Répondre par *non*. La valeur par défaut est non
+Répondez par *non*.  La valeur par défaut est non.
 
-.. Activer le service telnet ? (oui/non) ?
+.. Activer le service telnet ?  (oui/non)
 +
-Répondre par *non*. La valeur par défaut est non
+Répondez par *non*.  La valeur par défaut est non.
 
-.. Activer le service SSH ? (oui/non) ?
+.. Activer le service SSH ?  (oui/non)
 +
-Répondez par *oui*. La valeur par défaut est oui.
+Répondez par *oui*.  La valeur par défaut est oui.
 
-+
-
-NOTE: SSH est recommandé lors de l'utilisation du moniteur d'état du commutateur Ethernet (CSHM) pour ses fonctions de collecte de journaux. SSHv2 est également recommandé pour une sécurité améliorée.
-
-.. [[step14]]Entrez le type de clé SSH que vous souhaitez générer (dsa/rsa/rsa1). La valeur par défaut est rsa.
-.. Entrez le nombre de bits de clé (1024- 2048).
-.. Configurer le serveur NTP ? (oui/non) ?
-+
-Répondre par *non*. La valeur par défaut est non
-
-.. Configurer la couche d'interface par défaut (L3/L2) :
-+
-Répondre avec *L2*. La valeur par défaut est L2.
-
-.. Configurer l'état d'interface du port du commutateur par défaut (shutr/nosolt) :
-+
-Répondre avec *nohut*. La valeur par défaut est nosott.
-
-.. Configuration du profil du système Copp (strict/modéré/ELEDent/dense) :
-+
-Répondez avec *strict*. La valeur par défaut est stricte.
-
-.. Voulez-vous modifier la configuration ? (oui/non) ?
-+
-La nouvelle configuration est à présent visible. Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir. Répondez sans à l'invite si vous êtes satisfait de la configuration. Répondez par *yes* si vous souhaitez modifier vos paramètres de configuration.
-
-.. Utilisez cette configuration et enregistrez-la ? (oui/non) ?
-+
-Répondez avec *yes* pour enregistrer la configuration. Ceci met automatiquement à jour les images kickstart et système.
-
-
-
-. Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.
 +
 
-NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modifications ne sera effective lors du prochain redémarrage du commutateur.
+NOTE: L'utilisation de SSH est recommandée lors de l'utilisation de Ethernet Switch Health Monitor (CSHM) pour ses fonctionnalités de collecte de journaux.  SSHv2 est également recommandé pour une sécurité renforcée.
 
-. Vérifier la version sur les commutateurs du réseau du cluster et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
+.. [[étape 14]]Entrez le type de clé SSH que vous souhaitez générer (dsa/rsa/rsa1).  La valeur par défaut est rsa.
+.. Entrez le nombre de bits clés (1024- 2048).
+.. Configurer le serveur NTP ?  (oui/non)
++
+Répondez par *non*.  La valeur par défaut est non.
+
+.. Configurer la couche d'interface par défaut (L3/L2) :
++
+Répondez avec *L2*.  La valeur par défaut est L2.
+
+.. Configurer l'état par défaut de l'interface du port de commutation (arrêté/non arrêté) :
++
+Répondez par *noshut*.  La valeur par défaut est noshut.
+
+.. Configurer le profil système CoPP (strict/modéré/souple/dense) :
++
+Répondez avec *strict*.  Le paramètre par défaut est strict.
+
+.. Souhaitez-vous modifier la configuration ?  (oui/non)
++
+Vous devriez voir la nouvelle configuration à ce stade.  Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir.  Répondez « non » à l'invite si la configuration vous convient.  Répondez *oui* si vous souhaitez modifier vos paramètres de configuration.
+
+.. Utilisez cette configuration et enregistrez-la ?  (oui/non)
++
+Répondez *oui* pour enregistrer la configuration.  Cela met automatiquement à jour les images Kickstart et système.
 
 
-.Et la suite ?
+
+. Vérifiez les choix de configuration que vous avez effectués dans l'écran qui apparaît à la fin de l'installation et assurez-vous d'enregistrer la configuration.
++
+
+NOTE: Si vous ne sauvegardez pas la configuration à cette étape, aucune des modifications ne sera prise en compte lors du prochain redémarrage du commutateur.
+
+. Vérifiez la version installée sur les commutateurs du réseau du cluster et, si nécessaire, téléchargez la version du logiciel compatible avec NetApp sur ces commutateurs. https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
+
+
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs configurés, vous pouvez link:prepare-nxos-rcf-9336c-shared.html["préparer l'installation de NX-OS et RCF"].

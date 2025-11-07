@@ -5,11 +5,11 @@ indexpage:
     vos commutateurs de systèmes AFX pour les déploiements de cluster ONTAP .
   keywords: AFX systems switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Les commutateurs des systèmes AFX vous permettent de créer des clusters ONTAP
-    avec plus de deux nœuds.  Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
+    avec plus de deux nœuds. Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
     la base de solutions d'interconnexion de cluster évolutives dans les environnements
     NetApp ONTAP .
   tiles:
-  - title: Commencez
+  - title: Commencer
     links:
     - title: Cisco Nexus 9332D-GX2B
       url: "../switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
@@ -37,7 +37,7 @@ indexpage:
       url: "../switch-cisco-9364d-gx2a/reset-switch-9364d.html"
   - title: Documentation connexe
     links:
-    - title: Systèmes matériels ONTAP
+    - title: systèmes matériels ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Documentation sur les commutateurs de cluster
       url: "../index.html"

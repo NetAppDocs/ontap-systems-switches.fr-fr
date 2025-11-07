@@ -2,22 +2,22 @@
 permalink: switch-bes-53248/reset-switch-bes-53248.html 
 sidebar: sidebar 
 keywords: BES-53248 reset switch to factory defaults, BES-53248 switches configuration, efos 
-summary: Avant de configurer votre commutateur Broadcom BES-53248, consultez les informations suivantes. 
+summary: Avant de configurer votre commutateur Broadcom BES-53248, veuillez consulter les informations suivantes. 
 ---
 = Réinitialiser le commutateur de cluster BES-53248 aux paramètres d'usine par défaut
 :allow-uri-read: 
 
 
 [role="lead"]
-Pour réinitialiser le commutateur de cluster BES-53248 aux paramètres d'usine, vous devez effacer les paramètres du commutateur BES-53248.
+Pour réinitialiser le commutateur de cluster BES-53248 aux paramètres d'usine par défaut, vous devez effacer les paramètres du commutateur BES-53248.
 
-.Description de la tâche
-* Vous devez être connecté au commutateur à l'aide de la console série.
+.À propos de cette tâche
+* Vous devez être connecté au commutateur via la console série.
 * Cette tâche réinitialise la configuration du réseau de gestion.
 
 
 .Étapes
-. Passez à l’invite de commande élevée.
+. Passez à l'invite de commandes avec privilèges élevés.
 +
 [listing, subs="+quotes"]
 ----
@@ -45,11 +45,11 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 
 
-NOTE: Si le système vous demande si vous souhaitez enregistrer la configuration non enregistrée ou modifiée avant de recharger le commutateur, sélectionnez *non*.
+NOTE: Si le système vous demande si vous souhaitez enregistrer la configuration non enregistrée ou modifiée avant de recharger le commutateur, sélectionnez *Non*.
 
-. [[step4]] Attendez que le commutateur se recharge, puis connectez-vous au commutateur.
+. [[étape 4]] Attendez que le commutateur se recharge, puis connectez-vous au commutateur.
 +
-L'utilisateur par défaut est « admin » et aucun mot de passe n'est défini. Une invite similaire à la commande suivante s'affiche :
+L'utilisateur par défaut est « admin » et aucun mot de passe n'est défini.  Un message similaire à celui-ci s'affiche :
 
 +
 [listing]

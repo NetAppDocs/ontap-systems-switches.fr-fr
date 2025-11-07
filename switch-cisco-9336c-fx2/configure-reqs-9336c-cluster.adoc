@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2/configure-reqs-9336c-cluster.html 
 keywords: shared storage cluster switch 
-summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé. 
+summary: 'À partir d" ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé.' 
 ---
 = Exigences de configuration pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :hardbreaks:
@@ -18,51 +18,51 @@ Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 
 
 
 
-== Prise en charge de ONTAP
+== Prise en charge ONTAP
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-À partir de ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
+À partir d' ONTAP 9.9.1, vous pouvez utiliser des commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagée.
 
-Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, deux commutateurs réseau sont nécessaires.
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau compatibles.
 
 
-NOTE: Le moniteur d'état du commutateur Ethernet ne prend pas en charge ONTAP 9.13.1P8 et versions antérieures et 9.14.1P3 ou NX-OS version 10.3(4a)(M).
+NOTE: Le moniteur d'état du commutateur Ethernet ne prend pas en charge ONTAP 9.13.1P8 et versions antérieures, 9.14.1P3 et versions antérieures, ni NX-OS version 10.3(4a)(M).
 
 --
 .ONTAP 9.10.1 et versions ultérieures
 --
 De plus, à partir d' ONTAP 9.10.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2-T pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagé.
 
-Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, deux commutateurs réseau sont nécessaires.
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau compatibles.
 
 --
 ====
 
 
-== Configuration requise
+== Exigences de configuration
 
-Assurez-vous que :
+Assurez-vous que :
 
-* Vous disposez du nombre et du type appropriés de câbles et de connecteurs pour vos commutateurs. Voir la https://hwu.netapp.com["Hardware Universe"^].
-* Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console du switch à l'aide du câble console inclus.
-
-
+* Vous disposez du nombre et du type de câbles et de connecteurs de câbles appropriés pour vos commutateurs. Voir le https://hwu.netapp.com["Hardware Universe"^] .
+* Selon le type de commutateur que vous configurez initialement, vous devez vous connecter au port de console du commutateur avec le câble de console inclus.
 
 
-== Exigences liées au réseau
 
-Vous avez besoin des informations réseau suivantes pour toutes les configurations de switchs.
+
+== Exigences réseau
+
+Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateur.
 
 * Sous-réseau IP pour le trafic du réseau de gestion
-* Noms d'hôte et adresses IP pour chaque contrôleur du système de stockage et tous les commutateurs applicables
-* La plupart des contrôleurs de système de stockage sont gérés par l'interface e0M en vous connectant au port de service Ethernet (icône de clé anglaise). Sur les systèmes AFF A800 et AFF A700s, l'interface e0M utilise un port Ethernet dédié.
-* Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
+* Noms d'hôte et adresses IP pour chacun des contrôleurs de système de stockage et tous les commutateurs applicables
+* La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé). Sur les systèmes AFF A800 et AFF A700s , l'interface e0M utilise un port Ethernet dédié.
+* Se référer à https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
 
 
-Pour plus d'informations sur la configuration initiale de votre commutateur, reportez-vous au guide suivant : https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation et de mise à jour Cisco Nexus 9336C-FX2"^].
+Pour plus d'informations sur la configuration initiale de votre commutateur, consultez le guide suivant : https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation et de mise à niveau du Cisco Nexus 9336C-FX2"^] .
 
 .Quelle est la prochaine étape
-Après avoir examiné les exigences de configuration, vous pouvez confirmer votrelink:components-9336c-cluster.html["composants et numéros de pièces"] .
+Après avoir examiné les exigences de configuration, vous pouvez confirmer votre link:components-9336c-cluster.html["composants et numéros de pièces"].

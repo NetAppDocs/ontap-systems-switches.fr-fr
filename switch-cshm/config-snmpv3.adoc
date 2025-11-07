@@ -11,44 +11,44 @@ summary: 'Vous pouvez utiliser cette procédure pour configurer SNMPv3 pour votr
 
 
 [role="lead"]
-SNMP est utilisé pour surveiller les commutateurs. La surveillance par SNMPv3 est configurée en suivant cette procédure.
+Le protocole SNMP est utilisé pour surveiller les commutateurs.  La surveillance par SNMPv3 est configurée en suivant cette procédure.
 
-Le contrôleur d'état du commutateur Ethernet (CSHM) utilise le protocole SNMP pour surveiller l'état et les performances des commutateurs de cluster et de stockage. Par défaut, SNMPv2c est configuré automatiquement via le fichier de configuration de référence (RCF). SNMPv3 est plus sécurisé que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le cryptage et l'intégrité des messages, qui protègent contre les accès non autorisés et assurent la confidentialité et l'intégrité des données pendant la transmission.
+Le moniteur d'état des commutateurs Ethernet (CSHM) utilise SNMP pour surveiller l'état et les performances des commutateurs de cluster et de stockage.  Par défaut, SNMPv2c est configuré automatiquement via le fichier de configuration de référence (RCF).  SNMPv3 est plus sûr que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le chiffrement et l'intégrité des messages, qui protègent contre les accès non autorisés et garantissent la confidentialité et l'intégrité des données lors de la transmission.
 
 [NOTE]
 ====
 * SNMPv3 n'est pris en charge que sur ONTAP 9.12.1 et versions ultérieures.
-* ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 et les versions ultérieures corrigent ces deux problèmes :
+* Les versions ONTAP 9.13.1P12, 9.14.1P9, 9.15.1P5, 9.16.1 et ultérieures corrigent ces deux problèmes :
 +
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Pour la surveillance de l'état ONTAP des commutateurs Cisco, le trafic SNMPv2 peut toujours être visible après le passage à SNMPv3 pour la surveillance"^]
-** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["Alertes de ventilateur et d'alimentation de commutateur faussement positives en cas de pannes SNMP"^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-82891["Pour la surveillance de l'état des commutateurs Cisco ONTAP , le trafic SNMPv2 peut encore être observé après le passage à SNMPv3."^]
+** link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-Issues/CONTAP-119131["Alertes erronées concernant le ventilateur et l'alimentation en cas de défaillance SNMP."^]
 
 
 
 
 ====
-.Description de la tâche
-Les commandes suivantes sont utilisées pour configurer un nom d'utilisateur SNMPv3 sur les commutateurs *Broadcom*, *Cisco* et *NVIDIA* :
+.À propos de cette tâche
+Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs *Broadcom*, * Cisco* et * NVIDIA* :
 
 [role="tabbed-block"]
 ====
 .Commutateurs Broadcom
 --
-Configurez un nom d'utilisateur SNMPv3 OPÉRATEUR RÉSEAU sur les commutateurs Broadcom BES-53248.
+Configurez un nom d'utilisateur SNMPv3 NETWORK-OPERATOR sur les commutateurs Broadcom BES-53248.
 
-* Pour *pas d'authentification* :
+* Pour les *sans authentification* :
 +
 [source, cli]
 ----
 snmp-server user SNMPv3UserNoAuth NETWORK-OPERATOR noauth
 ----
-* Pour l'authentification *MD5/SHA* :
+* Pour l'*authentification MD5/SHA* :
 +
 [source, cli]
 ----
 snmp-server user SNMPv3UserAuth NETWORK-OPERATOR [auth-md5|auth-sha]
 ----
-* Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
+* Pour l'*authentification MD5/SHA avec chiffrement AES/DES* :
 +
 [source, cli]
 ----
@@ -56,20 +56,20 @@ snmp-server user SNMPv3UserAuthEncrypt NETWORK-OPERATOR [auth-md5|auth-sha] [pri
 ----
 
 
-La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
+La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
+La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
 
 [source, cli]
 ----
 cluster1::*> system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .Étapes
-. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le cryptage :
+. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le chiffrement :
 +
 [source, cli]
 ----
@@ -87,7 +87,7 @@ show snmp status
 ----------------- ------------------ ---- ------ -------------------------
 <username>        network-admin      MD5  AES128 8000113d03d8c497710bee
 ----
-. Configurez l'utilisateur SNMPv3 sur le côté ONTAP :
+. Configurez l'utilisateur SNMPv3 côté ONTAP :
 +
 [source, cli]
 ----
@@ -112,7 +112,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. Configurez CSHM pour qu'il surveille avec le nouvel utilisateur SNMPv3 :
+. Configurez CSHM pour effectuer la surveillance avec le nouvel utilisateur SNMPv3 :
 +
 [source, cli]
 ----
@@ -141,7 +141,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 ----
-. Après avoir attendu la période d’interrogation CSHM, vérifiez que le numéro de série est renseigné pour le commutateur Ethernet.
+. Après avoir attendu la période d'interrogation CSHM, vérifiez que le numéro de série est renseigné pour le commutateur Ethernet.
 +
 [source, cli]
 ----
@@ -174,21 +174,21 @@ DEPRECATED-Community String or SNMPv3 Username: -
 --
 .Commutateurs Cisco
 --
-Configurer un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs Cisco 9336C-FX2 :
+Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs Cisco 9336C-FX2 :
 
-* Pour *pas d'authentification* :
+* Pour les *sans authentification* :
 +
 [source, cli]
 ----
 snmp-server user SNMPv3_USER NoAuth
 ----
-* Pour l'authentification *MD5/SHA* :
+* Pour l'*authentification MD5/SHA* :
 +
 [source, cli]
 ----
 snmp-server user SNMPv3_USER auth [md5|sha] AUTH-PASSWORD
 ----
-* Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
+* Pour l'*authentification MD5/SHA avec chiffrement AES/DES* :
 +
 [source, cli]
 ----
@@ -196,20 +196,20 @@ snmp-server user SNMPv3_USER AuthEncrypt  auth [md5|sha] AUTH-PASSWORD priv aes-
 ----
 
 
-La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
+La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
+La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
 
 [source, cli]
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .Étapes
-. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le cryptage :
+. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le chiffrement :
 +
 [source, cli]
 ----
@@ -240,7 +240,7 @@ User              Auth               Priv
 
 (sw1)(Config)#
 ----
-. Configurez l'utilisateur SNMPv3 sur le côté ONTAP :
+. Configurez l'utilisateur SNMPv3 côté ONTAP :
 +
 [source, cli]
 ----
@@ -267,7 +267,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. Configurez CSHM pour qu'il surveille avec le nouvel utilisateur SNMPv3 :
+. Configurez CSHM pour effectuer la surveillance avec le nouvel utilisateur SNMPv3 :
 +
 [source, cli]
 ----
@@ -296,7 +296,7 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1" -snmp-version SNMPv3 -community-or-username <username>*
 cluster1::*>
 ----
-. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui décrit à l'étape précédente après la fin de la période d'interrogation CSHM.
+. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui détaillé à l'étape précédente une fois la période d'interrogation CSHM terminée.
 +
 [source, cli]
 ----
@@ -331,21 +331,21 @@ cluster1::*>
 --
 .NVIDIA - CL 5.4.0
 --
-Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant CLI 5.4.0 :
+Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant l'interface de ligne de commande 5.4.0 :
 
-* Pour *pas d'authentification* :
+* Pour les *sans authentification* :
 +
 [source, cli]
 ----
 nv set service snmp-server username SNMPv3_USER auth-none
 ----
-* Pour l'authentification *MD5/SHA* :
+* Pour l'*authentification MD5/SHA* :
 +
 [source, cli]
 ----
 nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
-* Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
+* Pour l'*authentification MD5/SHA avec chiffrement AES/DES* :
 +
 [source, cli]
 ----
@@ -353,20 +353,20 @@ nv set service snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWOR
 ----
 
 
-La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
+La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
+La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
 
 [source, cli]
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .Étapes
-. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le cryptage :
+. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le chiffrement :
 +
 [source, cli]
 ----
@@ -441,7 +441,7 @@ Version 3 Usernames                Configured     *<---- Configured here*
 ---------------------------------  ----------------
 cumulus@sw1:~$
 ----
-. Configurez l'utilisateur SNMPv3 sur le côté ONTAP :
+. Configurez l'utilisateur SNMPv3 côté ONTAP :
 +
 [source, cli]
 ----
@@ -466,7 +466,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. Configurez CSHM pour qu'il surveille avec le nouvel utilisateur SNMPv3 :
+. Configurez CSHM pour effectuer la surveillance avec le nouvel utilisateur SNMPv3 :
 +
 [source, cli]
 ----
@@ -494,7 +494,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
-. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui décrit à l'étape précédente après la fin de la période d'interrogation CSHM.
+. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui détaillé à l'étape précédente une fois la période d'interrogation CSHM terminée.
 +
 [source, cli]
 ----
@@ -527,21 +527,21 @@ DEPRECATED-Community String or SNMPv3 Username: -
 --
 .NVIDIA - CL 5.11.0
 --
-Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant CLI 5.11.0 :
+Configurez un nom d'utilisateur SNMPv3 SNMPv3_USER sur les commutateurs NVIDIA SN2100 exécutant l'interface de ligne de commande 5.11.0 :
 
-* Pour *pas d'authentification* :
+* Pour les *sans authentification* :
 +
 [source, cli]
 ----
 nv set system snmp-server username SNMPv3_USER auth-none
 ----
-* Pour l'authentification *MD5/SHA* :
+* Pour l'*authentification MD5/SHA* :
 +
 [source, cli]
 ----
 nv set system snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
-* Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
+* Pour l'*authentification MD5/SHA avec chiffrement AES/DES* :
 +
 [source, cli]
 ----
@@ -549,20 +549,20 @@ nv set system snmp-server username SNMPv3_USER [auth-md5|auth-sha] AUTH-PASSWORD
 ----
 
 
-La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
+La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
 
 [source, cli]
 ----
 security login create -user-or-group-name SNMPv3_USER -application snmp -authentication-method usm -remote-switch-ipaddress ADDRESS
 ----
-La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
+La commande suivante établit le nom d'utilisateur SNMPv3 avec CSHM :
 
 [source, cli]
 ----
 system switch ethernet modify -device DEVICE -snmp-version SNMPv3 -community-or-username SNMPv3_USER
 ----
 .Étapes
-. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le cryptage :
+. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le chiffrement :
 +
 [source, cli]
 ----
@@ -588,7 +588,7 @@ trap-link-down
 state                 enabled
 cumulus@sw1:~$
 ----
-. Configurez l'utilisateur SNMPv3 sur le côté ONTAP :
+. Configurez l'utilisateur SNMPv3 côté ONTAP :
 +
 [source, cli]
 ----
@@ -613,7 +613,7 @@ Which privacy protocol do you want to choose (none, des, aes128) [none]: *aes128
 Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
-. Configurez CSHM pour qu'il surveille avec le nouvel utilisateur SNMPv3 :
+. Configurez CSHM pour effectuer la surveillance avec le nouvel utilisateur SNMPv3 :
 +
 [source, cli]
 ----
@@ -641,7 +641,7 @@ DEPRECATED-Community String or SNMPv3 Username: -
 cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
-. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui décrit à l'étape précédente après la fin de la période d'interrogation CSHM.
+. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui détaillé à l'étape précédente une fois la période d'interrogation CSHM terminée.
 +
 [source, cli]
 ----

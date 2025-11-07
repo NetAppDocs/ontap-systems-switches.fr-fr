@@ -4,30 +4,30 @@ sidebar: sidebar
 keywords: command, verify, operational, bes, cluster, switch, upgrade, verify the configuration after a cluster switch upgrade - bes-53428 switches 
 summary: Vous pouvez utiliser les commandes fournies ici pour vérifier que tout est opérationnel après une mise à niveau du commutateur de cluster BES-53248. 
 ---
-= Vérifiez le réseau de clusters ONTAP après une mise à niveau du logiciel EFOS ou FCR des commutateurs de cluster BES-53248
+= Vérifiez le réseau du cluster ONTAP après une mise à niveau du logiciel EFOS ou RCF des commutateurs du cluster BES-53248.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez utiliser les commandes suivantes pour vérifier l'état du réseau de clusters ONTAP après une mise à niveau du logiciel EFOS ou du fichier RCF pour les commutateurs de cluster BES-53248.
+Vous pouvez utiliser les commandes suivantes pour vérifier l'état du réseau du cluster ONTAP après une mise à niveau du logiciel EFOS ou RCF pour les commutateurs de cluster BES-53248.
 
 .Étapes
-. Afficher les informations relatives aux ports réseau sur le cluster via la commande :
+. Afficher les informations relatives aux ports réseau du cluster à l'aide de la commande :
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-`Link` doit avoir la valeur `up` et `Health Status` doit être de `healthy`.
+`Link`doit avoir la valeur `up` et `Health Status` doit être `healthy` .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la sortie de la commande :
+L'exemple suivant illustre le résultat de la commande :
 
 [listing, subs="+quotes"]
 ----
@@ -50,14 +50,14 @@ e0a    Cluster      Cluster          up   9000  auto/10000 healthy  false
 e0b    Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-. Pour chaque LIF, vérifiez que `Is Home` est `true` et `Status Admin/Oper` est `up` sur les deux nœuds, à l'aide de la commande :
+. Pour chaque LIF, vérifiez que `Is Home` est `true` et `Status Admin/Oper` est `up` sur les deux nœuds, en utilisant la commande :
 +
 [source, cli]
 ----
 network interface show -vserver Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -74,12 +74,12 @@ Cluster
             node2_clus2  up/up    169.254.110.131/16 node2         e0b     true
 ----
 ====
-. Vérifiez que le `Health Status` de chaque nœud est `true` à l'aide de la commande :
+. Vérifiez que le `Health Status` chaque nœud est `true` en utilisant la commande :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -94,5 +94,5 @@ node2                true    true          false
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois la mise à niveau de votre logiciel EFOS ou RCF confirmée, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

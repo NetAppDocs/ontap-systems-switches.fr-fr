@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/components-9336c-shared.html 
 keywords: shared storage cluster switch 
-summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé. 
+summary: 'À partir d" ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans un scénario de commutateur partagé.' 
 ---
-= Composants et références pour les commutateurs partagés Cisco Nexus 9336C-FX2
+= Composants et références des commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,12 +14,12 @@ summary: À partir de la version ONTAP 9.9.1, vous pouvez utiliser les commutate
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, veillez à consulter la liste des composants et références.
+Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, assurez-vous de consulter la liste des composants et les numéros de pièces.
 
-Le tableau suivant répertorie le numéro de référence et la description du commutateur 9336C-FX2, des ventilateurs et des alimentations électriques :
+Le tableau suivant répertorie la référence et la description du commutateur 9336C-FX2, des ventilateurs et des alimentations :
 
 |===
-| Numéro de référence | Description 
+| Numéro de pièce | Description 
 
 
 | X190200-CS-PE | N9K-9336C-FX2, CS, PTSX, 36PT10/25/40/100GQSFP28 
@@ -31,16 +31,16 @@ Le tableau suivant répertorie le numéro de référence et la description du co
 | X190002 | Kit d'accessoires X190001/X190003 
 
 
-| X-NXA-PAC-1100W-PE2 | N9K-9336C CA 1 100 W PSU - ventilation d'échappement côté port 
+| X-NXA-PAC-1100W-PE2 | Alimentation N9K-9336C AC 1100W - Sortie d'air latérale 
 
 
-| X-NXA-PAC-1100W-PI2 | N9K-9336C CA 1 100 W PSU - ventilation d'admission côté port 
+| X-NXA-PAC-1100W-PI2 | Alimentation N9K-9336C AC 1100W - Entrée d'air côté port 
 
 
-| X-NXA-FAN-65CFM-PE | N9K-9336C 65CFM, débit d'air d'échappement côté port 
+| X-NXA-FAN-65CFM-PE | N9K-9336C 65 CFM, débit d'air d'échappement côté bâbord 
 
 
-| X-NXA-FAN-65CFM-PI | N9K-9336C 65CFM, débit d'air d'admission côté port 
+| X-NXA-FAN-65CFM-PI | N9K-9336C 65 CFM, débit d'air d'admission côté bâbord 
 |===
 .Quelle est la prochaine étape
 Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le link:required-documentation-9336c-shared.html["documentation requise"].

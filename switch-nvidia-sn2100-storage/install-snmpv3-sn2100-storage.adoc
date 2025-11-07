@@ -2,41 +2,41 @@
 permalink: switch-nvidia-sn2100-storage/install-snmpv3-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
-summary: Cette version inclut la prise en charge du protocole SNMPv3 pour la surveillance des journaux. 
+summary: Cette version inclut la prise en charge de SNMPv3 pour la surveillance des journaux. 
 ---
-= Configurer SNMPv3 pour la collecte log switch
+= Configurer SNMPv3 pour la collecte des journaux du commutateur
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour configurer le protocole SNMPv3 qui prend en charge la collecte du journal de commutation et la surveillance de l'état du commutateur (SHM).
+Suivez cette procédure pour configurer SNMPv3, qui prend en charge la collecte des journaux de commutation et la surveillance de l'état du commutateur (SHM).
 
-.Description de la tâche
-Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs NVIDIA SN2100 :
+.À propos de cette tâche
+Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs NVIDIA SN2100 :
 
-* Pour *pas d'authentification* :
+* Pour les *sans authentification* :
 `net add snmp-server username _SNMPv3_USER_ auth-none`
-* Pour l'authentification *MD5/SHA* :
+* Pour l'*authentification MD5/SHA* :
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_`
-* Pour l'authentification *MD5/SHA avec cryptage AES/DES* :
+* Pour l'*authentification MD5/SHA avec chiffrement AES/DES* :
 `net add snmp-server username _SNMPv3_USER_ [auth-md5|auth-sha] _AUTH-PASSWORD_ [encrypt-aes|encrypt-des] _PRIV-PASSWORD_`
 
 
-La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
+La commande suivante configure un nom d'utilisateur SNMPv3 côté ONTAP :
 `cluster1::*> security login create -user-or-group-name _SNMPv3_USER_ -application snmp -authentication-method usm -remote-switch-ipaddress _ADDRESS_`
 
-La commande suivante établit le nom d'utilisateur SNMPv3 avec SHM :
+La commande suivante établit le nom d'utilisateur SNMPv3 avec SHM :
 `cluster1::*> system switch ethernet modify -device _DEVICE_ -snmp-version SNMPv3 -community-or-username _SNMPv3_USER_`
 
 .Étapes
-. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le cryptage :
+. Configurez l'utilisateur SNMPv3 sur le commutateur pour utiliser l'authentification et le chiffrement :
 +
 `net show snmp status`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -109,12 +109,12 @@ Version 3 Usernames                Configured     *<---- Configured here*
 cumulus@sw1:~$
 ----
 ====
-. Configurez l'utilisateur SNMPv3 sur le côté ONTAP :
+. Configurez l'utilisateur SNMPv3 côté ONTAP :
 +
 `security login create -user-or-group-name SNMPv3User -application snmp -authentication-method usm -remote-switch-ipaddress 10.231.80.212`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -136,12 +136,12 @@ Enter privacy protocol password (minimum 8 characters long):
 Enter privacy protocol password again:
 ----
 ====
-. Configurez SHM pour qu'il surveille avec le nouvel utilisateur SNMPv3 :
+. Configurez SHM pour effectuer la surveillance avec le nouvel utilisateur SNMPv3 :
 +
 `system switch ethernet show-all -device "sw1 (b8:59:9f:09:7c:22)" -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -166,12 +166,12 @@ cluster1::*>
 cluster1::*> *system switch ethernet modify -device "sw1 (b8:59:9f:09:7c:22)" -snmp-version SNMPv3 -community-or-username SNMPv3User*
 ----
 ====
-. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est identique à celui détaillé à l'étape précédente une fois la période d'interrogation SHM terminée.
+. Vérifiez que le numéro de série à interroger avec l'utilisateur SNMPv3 nouvellement créé est le même que celui détaillé à l'étape précédente une fois la période d'interrogation SHM terminée.
 +
 `system switch ethernet polling-interval show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]

@@ -2,29 +2,29 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-workflow.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Avant de configurer votre switch Cisco 3232C, vérifiez les informations suivantes. 
+summary: Avant de configurer votre commutateur Cisco 3232C, consultez les informations suivantes. 
 ---
-= Migrez depuis un flux de production à 2 nœuds sans commutateur
+= Migration à partir d'un flux de travail de cluster sans commutateur à deux nœuds
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes de workflow pour migrer d'un cluster sans switch à 2 nœuds vers un cluster avec switchs de cluster Cisco Nexus 3232C.
+Suivez ces étapes de flux de travail pour migrer d'un cluster sans commutateur à deux nœuds vers un cluster avec des commutateurs de cluster Cisco Nexus 3232C.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:migrate-from-switchless-migrate-requirements.html["Conditions requises pour la migration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:migrate-from-switchless-migrate-requirements.html["Exigences de migration"]
 [role="quick-margin-para"]
-Passez en revue l'exemple d'informations de commutateur pour le processus de migration.
+Consultez les informations relatives aux commutateurs d'exemple pour le processus de migration.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:migrate-from-switchless-prepare-to-migrate.html["La préparation à la migration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:migrate-from-switchless-prepare-to-migrate.html["Préparez-vous à la migration"]
 [role="quick-margin-para"]
-Préparez votre cluster à 2 nœuds sans commutateur en vue d'une migration vers un cluster à 2 nœuds avec commutateur.
+Préparez votre cluster à deux nœuds sans commutateur en vue de sa migration vers un cluster à deux nœuds avec commutateur.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:migrate-from-switchless-configure-ports.html["Configurez vos ports"]
 [role="quick-margin-para"]
-Configurez votre cluster à 2 nœuds sans commutateur pour la migration vers un cluster à 2 nœuds avec commutateur.
+Configurez votre cluster à deux nœuds sans commutateur en vue de sa migration vers un cluster à deux nœuds avec commutateur.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:migrate-from-switchless-complete-migration.html["Terminez la migration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:migrate-from-switchless-complete-migration.html["Finalisez votre migration"]
 [role="quick-margin-para"]
-Terminez votre migration vers un cluster à 2 nœuds avec commutateur.
+Finalisez votre migration vers un cluster commuté à deux nœuds.

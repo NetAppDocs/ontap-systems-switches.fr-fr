@@ -2,305 +2,305 @@
 permalink: switch-cisco-3232c/setup_worksheet_3232c.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3232C 
-summary: 'Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l"exemple de fiche de câblage rempli comme guide. Chaque switch peut être configuré en tant que seul port 100 GbE, 40 GbE ou 4 ports 10 GbE.' 
+summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en utilisant comme guide l"exemple de feuille de câblage remplie.  Chaque commutateur peut être configuré comme un seul port 100GbE, un port 40GbE ou 4 ports 10GbE.' 
 ---
-= Fiche de câblage Cisco Nexus 3232C complète
+= Fiche de câblage complète du Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour documenter les plates-formes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
+Si vous souhaitez documenter les plateformes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
 
-L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 
-Chaque switch peut être configuré en tant que seul port 100 GbE, 40 GbE ou 4 ports 10 GbE.
+Chaque commutateur peut être configuré comme un seul port 100GbE, un port 40GbE ou 4 ports 10GbE.
 
 
 
-== Exemple de fiche de câblage
+== Exemple de schéma de câblage
 
-L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
 
 [cols="1, 1, 1, 1"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
 
-| Port du commutateur | Utilisation du nœud et du port | Port du commutateur | Utilisation du nœud et du port 
+| Port de commutation | Utilisation des nœuds et des ports | Port de commutation | Utilisation des nœuds et des ports 
 
 
  a| 
 1
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 1
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 2
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 2
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 3
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 3
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 4
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 4
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 5
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 5
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 6
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 6
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 7
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 7
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 8
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 8
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 9
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 9
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 10
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 10
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 11
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 11
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 12
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 12
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 13
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 13
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 14
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 14
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 15
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 15
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 16
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 16
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 17
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 17
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 18
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
  a| 
 18
  a| 
-4 nœuds 10 GbE/40 x 25 GbE ou 100 GbE
+nœud 4x10GbE/4x25GbE ou 40/100GbE
 
 
 
  a| 
 19
  a| 
-Nœud 40 Gbit/s/100 GbE 19
+Nœud 19 40G/100GbE
  a| 
 19
  a| 
-Nœud 40 Gbit/s/100 GbE 19
+Nœud 19 40G/100GbE
 
 
 
  a| 
 20
  a| 
-Nœud 40 Gbit/s/100 GbE 20
+Nœud 20 40G/100GbE
  a| 
 20
  a| 
-Nœud 40 Gbit/s/100 GbE 20
+Nœud 20 40G/100GbE
 
 
 
  a| 
 21
  a| 
-Nœud 40 Gbit/s/100 GbE 21
+Nœud 21 40G/100GbE
  a| 
 21
  a| 
-Nœud 40 Gbit/s/100 GbE 21
+Nœud 21 40G/100GbE
 
 
 
  a| 
 22
  a| 
-Nœud 40 Gbit/s/100 GbE 22
+Nœud 22 40G/100GbE
  a| 
 22
  a| 
-Nœud 40 Gbit/s/100 GbE 22
+Nœud 22 40G/100GbE
 
 
 
  a| 
 23
  a| 
-Nœud 40 Gbit/s/100 GbE 23
+Nœud 23 40G/100GbE
  a| 
 23
  a| 
-Nœud 40 Gbit/s/100 GbE 23
+Nœud 23 40G/100GbE
 
 
 
  a| 
 24
  a| 
-Nœud 40 Gbit/s/100 GbE 24
+Nœud 24 40G/100GbE
  a| 
 24
  a| 
-Nœud 40 Gbit/s/100 GbE 24
+Nœud 24 40G/100GbE
 
 
 
  a| 
-25 à 30
+25 à 30 ans
  a| 
 Réservé
  a| 
-25 à 30
+25 à 30 ans
  a| 
 Réservé
 
@@ -309,36 +309,36 @@ Réservé
  a| 
 31
  a| 
-ISL 100 GbE vers le port 31 du commutateur B
+Liaison interconnexion 100 GbE vers le port 31 du commutateur B
  a| 
 31
  a| 
-ISL 100 GbE vers le port 31 du commutateur A
+Liaison ISL 100GbE vers le port 31 du commutateur A
 
 
 
  a| 
 32
  a| 
-ISL 100 GbE vers le port 32 du commutateur B
+Liaison interconnexion 100 GbE vers le port 32 du commutateur B
  a| 
 32
  a| 
-ISL 100 GbE vers le port 32 du commutateur A
+Liaison ISL 100GbE vers le port 32 du commutateur A
 
 |===
 
 
 == Feuille de câblage vierge
 
-Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.
 
 [cols="1, 1, 1, 1"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
 
-| Port du commutateur | Utilisation du nœud/port | Port du commutateur | Utilisation du nœud/port 
+| Port de commutation | Utilisation des nœuds/ports | Port de commutation | Utilisation des nœuds/ports 
 
 
  a| 
@@ -558,11 +558,11 @@ Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes p
 
 
  a| 
-25 à 30
+25 à 30 ans
  a| 
 Réservé
  a| 
-25 à 30
+25 à 30 ans
  a| 
 Réservé
 
@@ -571,22 +571,22 @@ Réservé
  a| 
 31
  a| 
-ISL 100 GbE vers le port 31 du commutateur B
+Liaison interconnexion 100 GbE vers le port 31 du commutateur B
  a| 
 31
  a| 
-ISL 100 GbE vers le port 31 du commutateur A
+Liaison ISL 100GbE vers le port 31 du commutateur A
 
 
 
  a| 
 32
  a| 
-ISL 100 GbE vers le port 32 du commutateur B
+Liaison interconnexion 100 GbE vers le port 32 du commutateur B
  a| 
 32
  a| 
-ISL 100 GbE vers le port 32 du commutateur A
+Liaison ISL 100GbE vers le port 32 du commutateur A
 
 |===
 .Quelle est la prochaine étape

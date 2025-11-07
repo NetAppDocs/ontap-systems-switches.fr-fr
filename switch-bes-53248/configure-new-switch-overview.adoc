@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-new-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Avant de configurer les commutateurs de cluster BES-53248, consultez la présentation de la configuration. 
+summary: 'Avant de configurer les commutateurs de cluster BES-53248, consultez la vue d"ensemble de la configuration.' 
 ---
 = Flux de travail d'installation et de configuration pour les commutateurs BES-53248
 :allow-uri-read: 
@@ -11,13 +11,13 @@ summary: Avant de configurer les commutateurs de cluster BES-53248, consultez la
 
 
 [role="lead"]
-Le BES-53248 est un commutateur sans système d'exploitation conçu pour fonctionner dans des clusters ONTAP de deux à 24 nœuds.
+Le BES-53248 est un commutateur bare metal conçu pour fonctionner dans des clusters ONTAP allant de deux à 24 nœuds.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs BES-53248.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-reqs-bes53248.html["Examiner les exigences de configuration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-reqs-bes53248.html["Examiner les exigences de configuration"]
 [role="quick-margin-para"]
-Passez en revue les exigences de configuration pour le commutateur de cluster BES-53248.
+Passez en revue les exigences de configuration du commutateur de cluster BES-53248.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:components-bes53248.html["Examiner les composants et les numéros de pièces"]
 [role="quick-margin-para"]
@@ -27,7 +27,7 @@ Passez en revue les composants et les numéros de pièces du commutateur de clus
 [role="quick-margin-para"]
 Consultez la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs BES-53248 et le cluster ONTAP .
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installer le matériel de fixation"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-hardware-workflow.html["Installez le matériel"]
 [role="quick-margin-para"]
 Installez le matériel du commutateur.
 

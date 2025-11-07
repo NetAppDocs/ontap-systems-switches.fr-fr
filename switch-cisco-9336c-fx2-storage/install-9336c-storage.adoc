@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/install-9336c-storage.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Si vous ne possédez pas encore la documentation et les informations de configuration requises, vous devez les collecter avant de configurer votre cluster et vos commutateurs de réseau de gestion. 
+summary: Si vous ne disposez pas déjà des informations et de la documentation de configuration requises, vous devez rassembler ces informations avant de configurer votre cluster et vos commutateurs réseau de gestion. 
 ---
 = Installer les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
@@ -14,40 +14,40 @@ summary: Si vous ne possédez pas encore la documentation et les informations de
 Suivez cette procédure pour installer les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
-* Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
+* Accès à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et le fichier de configuration de référence (RCF) applicables.
+* Version NX-OS applicable, téléchargée depuis https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
-* Terminé link:setup-worksheet-9336c-storage.html["fiches de câblage"].
-* Réseau de gestion et de réseau en cluster NetApp(R) en vigueur téléchargeable depuis le site de support NetApp, à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^]. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
-* Documentation requise sur les commutateurs. Voir link:required-documentation-9336c-storage.html["Documentation requise"] pour en savoir plus.
+* Complétélink:setup-worksheet-9336c-storage.html["fiches de câblage"] .
+* Fichiers de configuration de ressources (RCF) applicables pour les réseaux de cluster et de gestion NetApp, téléchargeables depuis le site de support NetApp . http://mysupport.netapp.com/["monsupport.netapp.com"^] .  Tous les commutateurs de réseau de cluster et de réseau de gestion Cisco sont livrés avec la configuration d'usine standard Cisco . Ces commutateurs disposent également de la version actuelle du logiciel NX-OS mais n'ont pas les RCF chargés.
+* Documentation requise pour le commutateur. Voirlink:required-documentation-9336c-storage.html["Documents requis"] pour plus d'informations.
 
 
 .Étapes
-. Installez les commutateurs et les contrôleurs du réseau de gestion et de réseau de cluster.
+. Installez le réseau de cluster ainsi que les commutateurs et contrôleurs du réseau de gestion.
 +
 [cols="1,2"]
 |===
-| Si vous installez... | Alors... 
+| Si vous installez votre... | Alors... 
 
 
  a| 
 Cisco Nexus 9336C-FX2 dans une armoire système NetApp
  a| 
-Voir link:install-switch-and-passthrough-panel-9336c-storage.html["Installez le commutateur dans l'armoire NetApp"] Pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp.
+Voirlink:install-switch-and-passthrough-panel-9336c-storage.html["Installer le commutateur dans l'armoire NetApp"] pour obtenir les instructions d'installation du commutateur dans une armoire NetApp .
 
 
 
  a| 
-Équipement dans un rack Telco
+Équipement dans une baie de télécommunications
  a| 
-Consultez les procédures fournies dans les guides d'installation du matériel du commutateur et les instructions d'installation et de configuration de NetApp.
+Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
 
 |===
-. Reliez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs à l'aide des fiches de câblage complétées.
-. Mettez le réseau de cluster sous tension, ainsi que les commutateurs et les contrôleurs du réseau de gestion.
+. Câblez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs en utilisant les feuilles de câblage remplies.
+. Mise sous tension des commutateurs et contrôleurs du réseau de cluster et du réseau de gestion.
 
 
-.Et la suite ?
-En option, vous pouvezlink:install-switch-and-passthrough-panel-9336c-storage.html["Installez un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"] . Sinon, allez àlink:setup-switch-9336c-storage.html["configurer le commutateur"] .
+.Quelle est la prochaine étape ?
+Vous pouvez, si vous le souhaitez, link:install-switch-and-passthrough-panel-9336c-storage.html["installer un commutateur Cisco Nexus 9336C-FX2 dans une armoire NetApp"]. Sinon, allez à link:setup-switch-9336c-storage.html["configurer le commutateur"].

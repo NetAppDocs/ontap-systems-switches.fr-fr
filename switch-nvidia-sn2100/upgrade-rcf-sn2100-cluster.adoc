@@ -2,45 +2,45 @@
 permalink: switch-nvidia-sn2100/upgrade-rcf-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: upgrade rcf script, python script, sn2100 SN2100 switches, cumulus 
-summary: 'Assurez-vous que les éléments suivants sont disponibles sur le commutateur avant d"installer le script RCF' 
+summary: 'Assurez-vous que les éléments suivants sont disponibles sur le commutateur avant d"installer le script RCF.' 
 ---
-= Mettez à niveau le script RCF (Reference Configuration File)
+= Mettre à jour le script du fichier de configuration de référence (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour mettre à niveau le script RCF.
+Suivez cette procédure pour mettre à jour le script RCF.
 
 .Avant de commencer
-Avant de mettre à niveau le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
+Avant de mettre à jour le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
 
-* Cumulus Linux est installé. Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour les versions prises en charge.
-* Adresse IP, masque de sous-réseau et passerelle par défaut définis via DHCP ou configurés manuellement.
+* Cumulus Linux est installé.  Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour les versions prises en charge.
+* L'adresse IP, le masque de sous-réseau et la passerelle par défaut sont définis via DHCP ou configurés manuellement.
 
 
 
-NOTE: Vous devez spécifier un utilisateur dans le fichier RCF (en plus de l'utilisateur admin) à utiliser spécifiquement pour la collecte des journaux.
+NOTE: Vous devez spécifier un utilisateur dans le RCF (en plus de l'utilisateur administrateur) qui sera utilisé spécifiquement pour la collecte des journaux.
 
 .Versions actuelles du script RCF
-Deux scripts RCF sont disponibles pour les applications de cluster et de stockage. Télécharger les fichiers RCF à partir de la https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Téléchargement du logiciel NVIDIA SN2100"^] page. La procédure pour chaque est la même.
+Deux scripts RCF sont disponibles pour les applications Cluster et Storage.  Télécharger les RCF à partir de https://mysupport.netapp.com/site/info/nvidia-cluster-switch["Téléchargement du logiciel NVIDIA SN2100"^] page.  La procédure est la même pour chaque cas.
 
-* Cluster : *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*
-* Stockage : *MSN2100-FCR-v1._x_-stockage*
+* Cluster : *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*
+* Stockage : *MSN2100-RCF-v1._x_-Stockage*
 
 
 .À propos des exemples
-L'exemple de procédure suivant montre comment télécharger et appliquer le script RCF pour les commutateurs de cluster.
+La procédure d'exemple suivante montre comment télécharger et appliquer le script RCF pour les commutateurs de cluster.
 
-Exemple de sortie de commande utilise l'adresse IP de gestion de commutateur 10.233.204.71, le masque de réseau 255.255.254.0 et la passerelle par défaut 10.233.204.1.
+L'exemple de sortie de commande utilise l'adresse IP de gestion du commutateur 10.233.204.71, le masque de sous-réseau 255.255.254.0 et la passerelle par défaut 10.233.204.1.
 
 .Étapes
 [role="tabbed-block"]
 ====
 .Cumulus Linux 5.11
 --
-. Afficher les interfaces disponibles sur le commutateur SN2100 :
+. Afficher les interfaces disponibles sur le commutateur SN2100 :
 +
 [listing, subs="+quotes"]
 ----
@@ -59,7 +59,7 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 + swp15      9216 100G    up sw2                      swp15       swp
 + swp16      9216 100G    up sw2                      swp16       swp
 ----
-. Copiez le script python RCF sur le commutateur.
+. Copiez le script Python RCF sur le commutateur.
 +
 [listing, subs="+quotes"]
 ----
@@ -70,9 +70,9 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: Bien que `scp` est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers.
+NOTE: Bien que `scp` Si cette méthode est utilisée dans l'exemple, vous pouvez utiliser votre méthode de transfert de fichiers préférée.
 
-. Appliquez le script FCR python *MSN2100-FCR-v1._x_-Cluster-HA-Breakout-LLDP*.
+. Appliquez le script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
 ----
@@ -95,14 +95,14 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Le script RCF exécute les étapes indiquées dans l'exemple ci-dessus.
+Le script RCF effectue les étapes énumérées dans l'exemple ci-dessus.
 
 +
 
-NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue` est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
+NOTE: À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue` est exécuté.  Cela vous permet de vérifier le nom du fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
 
 +
-Par exemple :
+Par exemple:
 
 +
 [listing]
@@ -138,10 +138,10 @@ admin@sw1:mgmt:~$ cat /etc/issue
 ----
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Vérifiez la configuration après le redémarrage :
+. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
 ----
@@ -255,9 +255,9 @@ Incomplete Command: set interface swp3-16 link fast-linkupp3-16 link fast-linkup
 ----
 +
 
-NOTE: Les exceptions répertoriées n'affectent pas les performances et peuvent être ignorées en toute sécurité.
+NOTE: Les exceptions mentionnées n'ont aucune incidence sur les performances et peuvent être ignorées sans risque.
 
-. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
+. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
 +
 [listing, subs="+quotes"]
 ----
@@ -282,7 +282,7 @@ swp6       0x00 None
 swp15      0x11 (QSFP28)  Amphenol     112-00595        APF20279210117  B0
 swp16      0x11 (QSFP28)  Amphenol     112-00595        APF20279210166  B0
 ----
-. Vérifier que les nœuds chacun ont une connexion à chaque commutateur :
+. Vérifiez que chaque nœud est connecté à chaque commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -295,9 +295,9 @@ swp2s1     25G    Trunk/L2    node1                 �
 swp15      100G   BondMember  sw2                      swp15
 swp16      100G   BondMember  sw2                      swp16
 ----
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -319,7 +319,7 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
-.. Vérifiez l'état du commutateur depuis le cluster (ceci peut ne pas afficher le commutateur sw2, car les LIF ne sont pas homeed sur e0d).
+.. Vérifiez l'état du commutateur à partir du cluster (cela peut ne pas afficher le commutateur sw2, car les LIF ne sont pas installées sur e0d).
 +
 [listing, subs="+quotes"]
 ----
@@ -362,7 +362,7 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 .Cumulus Linux 5.4
 --
-. Afficher les interfaces disponibles sur le commutateur SN2100 :
+. Afficher les interfaces disponibles sur le commutateur SN2100 :
 +
 [listing, subs="+quotes"]
 ----
@@ -381,7 +381,7 @@ Interface     MTU   Speed State Remote Host         Remote Port- Type      Summa
 + swp15      9216 100G    up sw2                      swp15       swp
 + swp16      9216 100G    up sw2                      swp16       swp
 ----
-. Copiez le script python RCF sur le commutateur.
+. Copiez le script Python RCF sur le commutateur.
 +
 [listing, subs="+quotes"]
 ----
@@ -392,9 +392,9 @@ MSN2100-RCF-v1.x-Cluster-HA-Breakout-LLDP          100% 8607   111.2KB/s        
 ----
 +
 
-NOTE: Pendant `scp` est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers.
+NOTE: Alors que `scp` Si cette méthode est utilisée dans l'exemple, vous pouvez utiliser votre méthode de transfert de fichiers préférée.
 
-. Appliquez le script FCR python *MSN2100-FCR-v1._x_-Cluster-HA-Breakout-LLDP*.
+. Appliquez le script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
 ----
@@ -417,14 +417,14 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Le script RCF exécute les étapes indiquées dans l'exemple ci-dessus.
+Le script RCF effectue les étapes énumérées dans l'exemple ci-dessus.
 
 +
 
-NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue` est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
+NOTE: À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/issue` est exécuté.  Cela vous permet de vérifier le nom du fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
 
 +
-Par exemple :
+Par exemple:
 
 +
 [listing]
@@ -460,10 +460,10 @@ admin@sw1:mgmt:~$ cat /etc/issue
 ----
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Vérifiez la configuration après le redémarrage :
+. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
 ----
@@ -577,9 +577,9 @@ Incomplete Command: set interface swp3-16 link fast-linkupp3-16 link fast-linkup
 ----
 +
 
-NOTE: Les exceptions répertoriées n'affectent pas les performances et peuvent être ignorées en toute sécurité.
+NOTE: Les exceptions mentionnées n'ont aucune incidence sur les performances et peuvent être ignorées sans risque.
 
-. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
+. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
 +
 [listing, subs="+quotes"]
 ----
@@ -604,7 +604,7 @@ swp6       0x00 None
 swp15      0x11 (QSFP28)  Amphenol     112-00595        APF20279210117  B0
 swp16      0x11 (QSFP28)  Amphenol     112-00595        APF20279210166  B0
 ----
-. Vérifier que les nœuds chacun ont une connexion à chaque commutateur :
+. Vérifiez que chaque nœud est connecté à chaque commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -617,9 +617,9 @@ swp2s1     25G    Trunk/L2    node1                 �
 swp15      100G   BondMember  sw2                      swp15
 swp16      100G   BondMember  sw2                      swp16
 ----
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -641,7 +641,7 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
-.. Vérifiez l'état du commutateur depuis le cluster (ceci peut ne pas afficher le commutateur sw2, car les LIF ne sont pas homeed sur e0d).
+.. Vérifiez l'état du commutateur à partir du cluster (cela peut ne pas afficher le commutateur sw2, car les LIF ne sont pas installées sur e0d).
 +
 [listing, subs="+quotes"]
 ----
@@ -684,7 +684,7 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 --
 .Cumulus Linux 4.4.3
 --
-. Afficher les interfaces disponibles sur le commutateur SN2100 :
+. Afficher les interfaces disponibles sur le commutateur SN2100 :
 +
 [listing, subs="+quotes"]
 ----
@@ -711,7 +711,7 @@ ADMDN  swp14  N/A  9216   NotConfigured
 ADMDN  swp15  N/A  9216   NotConfigured
 ADMDN  swp16  N/A  9216   NotConfigured
 ----
-. Copiez le script python RCF sur le commutateur.
+. Copiez le script Python RCF sur le commutateur.
 +
 [listing, subs="+quotes"]
 ----
@@ -722,9 +722,9 @@ MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP         100% 8607   111.2KB/s       
 ----
 +
 
-NOTE: Pendant `scp` est utilisé dans l'exemple, vous pouvez utiliser votre méthode préférée de transfert de fichiers.
+NOTE: Alors que `scp` Si cette méthode est utilisée dans l'exemple, vous pouvez utiliser votre méthode de transfert de fichiers préférée.
 
-. Appliquez le script FCR python *MSN2100-FCR-v1._x_-Cluster-HA-Breakout-LLDP*.
+. Appliquez le script Python RCF *MSN2100-RCF-v1._x_-Cluster-HA-Breakout-LLDP*.
 +
 [listing, subs="+quotes"]
 ----
@@ -746,18 +746,18 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Le script RCF exécute les étapes indiquées dans l'exemple ci-dessus.
+Le script RCF effectue les étapes énumérées dans l'exemple ci-dessus.
 
 +
 
-NOTE: À l'étape 3 *mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/motd` est exécuté. Cela vous permet de vérifier le nom de fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
+NOTE: À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande `cat /etc/motd` est exécuté.  Cela vous permet de vérifier le nom du fichier RCF, la version RCF, les ports à utiliser et d'autres informations importantes dans la bannière RCF.
 
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-cluster.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Vérifiez la configuration après le redémarrage :
+. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
 ----
@@ -821,7 +821,7 @@ switch-priority  TC  ETS
 2                 2  DWRR 28%
 5                 5  DWRR 43%
 ----
-. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
+. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
 +
 [listing, subs="+quotes"]
 ----
@@ -833,7 +833,7 @@ swp4       0x11 (QSFP28)  AVAGO        332-00440        AF1815GU05Z 
 swp15      0x11 (QSFP28)  Amphenol     112-00573        APF21109348001  B0
 swp16      0x11 (QSFP28)  Amphenol     112-00573        APF21109347895  B0
 ----
-. Vérifier que les nœuds chacun ont une connexion à chaque commutateur :
+. Vérifiez que chaque nœud est connecté à chaque commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -846,9 +846,9 @@ swp4       100G   Trunk/L2    sw2                     e3b
 swp15      100G   BondMember  sw13                    swp15
 swp16      100G   BondMember  sw14                    swp16
 ----
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 [listing, subs="+quotes"]
 ----
@@ -870,7 +870,7 @@ Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
 e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
-.. Vérifiez l'état du commutateur depuis le cluster (ceci peut ne pas afficher le commutateur sw2, car les LIF ne sont pas homeed sur e0d).
+.. Vérifiez l'état du commutateur à partir du cluster (cela peut ne pas afficher le commutateur sw2, car les LIF ne sont pas installées sur e0d).
 +
 [listing, subs="+quotes"]
 ----

@@ -2,77 +2,77 @@
 permalink: switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html 
 sidebar: sidebar 
 keywords: migrate, two-node cluster, switchless, cisco nexus 3232c 
-summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster à 2 nœuds avec switchs, incluant des switchs réseau de cluster Cisco Nexus 3232C.' 
+summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster commuté à deux nœuds comprenant des commutateurs réseau de cluster Cisco Nexus 3232C.' 
 ---
-= Migrer d'un cluster sans commutateur à 2 nœuds vers un cluster avec des switchs de cluster Cisco Nexus 3232C
+= Migration d'un cluster sans commutateur à deux nœuds vers un cluster avec des commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un cluster _sans commutateur_ à deux nœuds, vous pouvez migrer vers un cluster _commuté_ à deux nœuds qui inclut des switchs réseau de cluster Cisco Nexus 3232C. Cette procédure ne fonctionne pas sans interruption.
+Si vous disposez d'un cluster à deux nœuds _sans commutateur_, vous pouvez migrer vers un cluster à deux nœuds _commuté_ qui comprend des commutateurs réseau de cluster Cisco Nexus 3232C. Il s’agit d’une procédure non perturbatrice.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Vérifiez les installations et les connexions suivantes :
+Vérifiez les installations et connexions suivantes :
 
-* Les ports sont disponibles pour les connexions de nœuds. Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) e1/31-32.
-* Vous disposez de câbles appropriés pour les connexions du cluster :
+* Des ports sont disponibles pour les connexions des nœuds.  Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) e1/31-32.
+* Vous disposez des câbles appropriés pour les connexions du cluster :
 +
-** Les nœuds équipés de connexions de cluster 10 GbE requièrent des modules optiques QSFP avec des câbles à fibre optique dérivation ou des câbles QSFP avec des câbles de dérivation en cuivre SFP+.
-** Les nœuds équipés de connexions en cluster 40/100 GbE nécessitent des modules optiques QSFP/QSFP28 avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
-** Les commutateurs de cluster nécessitent des câbles ISL appropriés : 2 câbles à connexion directe en fibre ou en cuivre QSFP28.
+** Les nœuds dotés de connexions de cluster 10 GbE nécessitent des modules optiques QSFP avec des câbles de dérivation en fibre optique ou des câbles de dérivation en cuivre QSFP vers SFP+.
+** Les nœuds avec connexions de cluster 40/100 GbE nécessitent des modules optiques QSFP/QSFP28 compatibles avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
+** Les commutateurs de cluster nécessitent le câblage ISL approprié : 2 câbles à fibre optique ou en cuivre à connexion directe QSFP28.
 
 
-* Les configurations sont correctement configurées et opérationnelles.
+* Les configurations sont correctement mises en place et fonctionnent correctement.
 +
-Les deux nœuds doivent être connectés et fonctionner dans un cluster à 2 nœuds sans commutateur.
+Les deux nœuds doivent être connectés et fonctionner dans une configuration de cluster sans commutateur à deux nœuds.
 
-* Tous les ports de cluster sont à l'état *up*.
-* Le switch de cluster Cisco Nexus 3232C est pris en charge.
-* La configuration réseau en cluster existante comporte les éléments suivants :
+* Tous les ports du cluster sont en état de fonctionnement.
+* Les commutateurs de cluster Cisco Nexus 3232C sont pris en charge.
+* La configuration réseau du cluster existant est la suivante :
 +
-** Infrastructure de cluster Nexus 3232C redondante et entièrement fonctionnelle sur les deux switchs
-** Les dernières versions de RCF et de NX-OS sur vos commutateurs
-** Connectivité de gestion sur les deux commutateurs
-** Accès à la console aux deux commutateurs
-** Toutes les interfaces logiques (LIF) de cluster sont à l'état *up* sans avoir été migrées
-** Personnalisation initiale du commutateur
-** Tous les ports ISL sont activés et câblés
+** Une infrastructure de cluster Nexus 3232C redondante et pleinement fonctionnelle sur les deux commutateurs
+** Les dernières versions de RCF et NX-OS sur vos commutateurs
+** La connectivité de gestion sur les deux commutateurs
+** Accès console aux deux commutateurs
+** Toutes les interfaces logiques du cluster (LIF) à l'état *actif* sans avoir été migrées
+** Personnalisation initiale de l'interrupteur
+** Tous les ports ISL sont activés et câblés.
 
 
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Switchs de cluster Nexus 3232C, C1 et C2.
+* Commutateurs de cluster Nexus 3232C, C1 et C2.
 * Les nœuds sont n1 et n2.
 
 
-Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE e4a et e4e. Le link:https://hwu.netapp.com/["_Hardware Universe_"^] possède des informations détaillées sur les ports de cluster de vos plates-formes.
+Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE e4a et e4e.  Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les ports de cluster sur vos plateformes.
 
-* n1_concluA1 est la première interface logique (LIF) de cluster à être connectée au commutateur de cluster C1 pour le nœud n1.
-* n1_clus2 est la première LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud n1.
-* n2_concluA1 est la première LIF de cluster à être connectée au commutateur de cluster C1 pour le nœud n2.
-* n2_clus2 est la deuxième LIF de cluster à être connectée au commutateur de cluster C2 pour le nœud n2.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
+* n1_clus1 est la première interface logique de cluster (LIF) à être connectée au commutateur de cluster C1 pour le nœud n1.
+* n1_clus2 est le premier LIF de cluster à être connecté au commutateur de cluster C2 pour le nœud n1.
+* n2_clus1 est le premier LIF de cluster à être connecté au commutateur de cluster C1 pour le nœud n2.
+* n2_clus2 est le deuxième LIF de cluster à être connecté au commutateur de cluster C2 pour le nœud n2.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
 
 [NOTE]
 ====
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 ====
 
 
-== Étape 1 : affichage et migration des ports physiques et logiques
+== Étape 1 : Afficher et migrer les ports physiques et logiques
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -82,17 +82,17 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster :
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -116,12 +116,12 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 4 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques et les nœuds home désignés :
+.. Afficher les informations relatives aux interfaces logiques et à leurs nœuds d'origine désignés :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -140,15 +140,15 @@ Cluster
 4 entries were displayed.
 ----
 ====
-.. Vérifiez que la détection de cluster sans commutateur est activée à l'aide de la commande Advanced Privilege :
+.. Vérifiez que la détection de cluster sans commutateur est activée à l'aide de la commande de privilège avancée :
 +
 `network options detect-switchless-cluster show``
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Le résultat de l'exemple suivant indique que la détection des clusters sans commutateur est activée :
+L'exemple suivant montre que la détection de clusters sans commutateur est activée :
 
 [listing, subs="+quotes"]
 ----
@@ -158,34 +158,34 @@ Enable Switchless Cluster Detection: true
 ====
 
 
-. Vérifiez que les CFR et l'image appropriés sont installés sur les nouveaux switchs 3232C et effectuez les personnalisations du site nécessaires, telles que l'ajout d'utilisateurs, de mots de passe et d'adresses réseau.
+. Vérifiez que les RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3232C et effectuez les personnalisations de site nécessaires telles que l'ajout d'utilisateurs, de mots de passe et d'adresses réseau.
 +
-Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et le logiciel d'image, vous devez suivre les étapes suivantes :
+Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à jour le logiciel RCF et d'imagerie, vous devez suivre les étapes suivantes :
 
 +
-.. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
+.. Rendez-vous sur la page _Commutateurs Ethernet Cisco_ du site d'assistance NetApp .
 +
 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de RCF.
-.. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
-.. Téléchargez la version appropriée du logiciel d'image.
+.. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel de traitement d'images.
 +
-link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau de cluster et de gestion Cisco"^] .
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence pour les commutateurs réseau de cluster et de gestion Cisco"^].
 
 
 
-. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
-. Sur les switchs Nexus 3232C C1 et C2, désactivez tous les ports C1 et C2 orientés nœuds mais ne désactivez pas les ports ISL e1/31-32.
+. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+. Sur les commutateurs Nexus 3232C C1 et C2, désactivez tous les ports orientés vers le nœud C1 et C2, mais ne désactivez pas les ports ISL e1/31-32.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports 1 à 30 sont désactivés sur les switchs de cluster Nexus 3232C C1 et C2, utilisant une configuration prise en charge dans RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt`:
+L'exemple suivant montre la désactivation des ports 1 à 30 sur les commutateurs de cluster Nexus 3232C C1 et C2 à l'aide d'une configuration prise en charge par RCF. `NX3232_RCF_v1.0_24p10g_24p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -205,19 +205,19 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. Connectez les ports 1/31 et 1/32 de C1 aux mêmes ports de C2 à l'aide du câblage pris en charge.
-. Vérifier que les ports ISL sont opérationnels sur les modèles C1 et C2 :
+. Connectez les ports 1/31 et 1/32 sur C1 aux mêmes ports sur C2 en utilisant un câblage compatible.
+. Vérifiez que les ports ISL sont opérationnels sur C1 et C2 :
 +
 `show port-channel summary`
 
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant présente Cisco `show port-channel summary` Commande utilisée pour vérifier que les ports ISL sont opérationnels sur les C1 et C2 :
+L'exemple suivant illustre le Cisco. `show port-channel summary` commande utilisée pour vérifier que les ports ISL sont opérationnels sur C1 et C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -247,15 +247,15 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Affiche la liste des périphériques voisins sur le commutateur.
+. Afficher la liste des appareils voisins sur le commutateur.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la commande Cisco `show cdp neighbors` utilisé pour afficher les périphériques voisins sur le commutateur :
+L'exemple suivant illustre la commande Cisco `show cdp neighbors` utilisé pour afficher les périphériques voisins sur le commutateur :
 
 [listing, subs="+quotes"]
 ----
@@ -277,15 +277,15 @@ C1                 Eth1/32        178    R S I s     N3K-C3232C  Eth1/32
 Total entries displayed: 2
 ----
 ====
-. Afficher la connectivité des ports du cluster sur chaque nœud :
+. Afficher la connectivité des ports du cluster sur chaque nœud :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la connectivité des ports du cluster, affichée dans le cas d'une configuration en cluster sans commutateur à deux nœuds :
+L'exemple suivant illustre la connectivité des ports de cluster affichée pour une configuration de cluster sans commutateur à deux nœuds :
 
 [listing, subs="+quotes"]
 ----
@@ -301,15 +301,15 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Migrez les LIF n1_concluA1 et n2_cluA1 vers les ports physiques de leurs nœuds de destination :
+. Migrez les LIF n1_clus1 et n2_clus1 vers les ports physiques de leurs nœuds de destination :
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ source-node _source-node-name_ -destination-port _destination-port-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez exécuter la commande pour chaque nœud local comme indiqué dans l'exemple suivant :
+Vous devez exécuter la commande pour chaque nœud local comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -323,17 +323,17 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
-== Étape 2 : arrêter les LIF réaffectées et débrancher les câbles
+== Étape 2 : Arrêtez les LIF réaffectées et débranchez les câbles
 
-. Vérifier que les interfaces de cluster ont bien migré :
+. Vérifiez que les interfaces du cluster ont bien été migrées :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'état « est à l'origine » pour les LIF n1_clum1 et n2_clum1 est devenu « faux » une fois la migration terminée :
+L'exemple suivant montre que le statut « Is Home » des LIF n1_clus1 et n2_clus1 est devenu « false » une fois la migration terminée :
 
 [listing, subs="+quotes"]
 ----
@@ -350,15 +350,15 @@ Cluster
  4 entries were displayed.
 ----
 ====
-. Fermez les ports du cluster pour les LIF n1_clum1 et n2_clum1, qui ont été migrées à l'étape 9 :
+. Fermez les ports de cluster pour les LIF n1_clus1 et n2_clus1, qui ont été migrés à l'étape 9 :
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin false`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez exécuter la commande pour chaque port comme indiqué dans l'exemple suivant :
+Vous devez exécuter la commande pour chaque port comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -366,22 +366,22 @@ cluster::*> *network port modify -node n1 -port e4a -up-admin false*
 cluster::*> *network port modify -node n2 -port e4a -up-admin false*
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -398,9 +398,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -430,29 +430,29 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 ----
 --
 ====
-. [[step4]] déconnectez le câble de e4a sur le nœud n1.
+. [[étape 4]] Débranchez le câble de e4a sur le nœud n1.
 +
-Vous pouvez faire référence à la configuration en cours d'exécution et connecter le premier port 40 GbE du switch C1 (port 1/7 dans cet exemple) à e4a sur n1 à l'aide du câblage pris en charge par les switchs Nexus 3232C.
+Vous pouvez vous référer à la configuration en cours et connecter le premier port 40 GbE du commutateur C1 (port 1/7 dans cet exemple) à e4a sur n1 en utilisant le câblage pris en charge pour les commutateurs Nexus 3232C.
 
 
 
 
 
-== Étape 3 : activer les ports du cluster
+== Étape 3 : Activer les ports du cluster
 
-. Débrancher le câble e4a du nœud n2.
+. Débranchez le câble de e4a sur le nœud n2.
 +
-Vous pouvez vous reporter à la configuration en cours d'exécution et connecter e4a au prochain port 40 GbE disponible sur C1, port 1/8, à l'aide du câblage pris en charge.
+Vous pouvez vous référer à la configuration en cours et connecter e4a au prochain port 40 GbE disponible sur C1, port 1/8, en utilisant un câblage compatible.
 
-. Activation de tous les ports orientés nœuds sur C1.
+. Activez tous les ports orientés vers le nœud sur C1.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports 1 à 30 sont activés sur les switchs de cluster Nexus 3232C C1 et C2 en utilisant la configuration prise en charge dans RCF `NX3232_RCF_v1.0_24p10g_26p100g.txt`:
+L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3232C C1 et C2, conformément à la configuration prise en charge par RCF. `NX3232_RCF_v1.0_24p10g_26p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -463,12 +463,12 @@ C1(config-if-range)# *exit*
 C1(config)# *exit*
 ----
 ====
-. Activer le premier port du cluster, e4a, sur chaque nœud :
+. Activez le premier port du cluster, e4a, sur chaque nœud :
 +
 `network port modify -node _node-name_ -port _port-name_ -up-admin true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -477,12 +477,12 @@ cluster::*> *network port modify -node n1 -port e4a -up-admin true*
 cluster::*> *network port modify -node n2 -port e4a -up-admin true*
 ----
 ====
-. Vérifier que les clusters fonctionnent sur les deux nœuds :
+. Vérifiez que les clusters sont opérationnels sur les deux nœuds :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -508,15 +508,15 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 4 entries were displayed.
 ----
 ====
-. Pour chaque nœud, restaurez toutes les LIF d'interconnexion de cluster migrées :
+. Pour chaque nœud, rétablissez tous les LIF d'interconnexion de cluster migrés :
 +
 `network interface revert -vserver cluster -lif _lif-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez restaurer chaque LIF vers son port de maison individuellement, comme indiqué dans l'exemple suivant :
+Vous devez rétablir individuellement chaque LIF sur son port d'origine, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -524,15 +524,15 @@ cluster::*> *network interface revert -vserver cluster -lif n1_clus1*
 cluster::*> *network interface revert -vserver cluster -lif n2_clus1*
 ----
 ====
-. Vérifier que toutes les LIFs sont maintenant rétablies sur leurs ports de base :
+. Vérifiez que toutes les interfaces réseau locales (LIF) sont désormais rétablies sur leurs ports d'origine :
 +
 `network interface show -role cluster`
 
 +
-Le `Is Home` la colonne doit afficher une valeur de `true` pour tous les ports répertoriés dans le `Current Port` colonne. Si la valeur affichée est de `false`, le port n'a pas été rétabli.
+Le `Is Home` La colonne doit afficher la valeur de `true` pour tous les ports énumérés dans le `Current Port` colonne.  Si la valeur affichée est `false` , le port n'a pas été rétabli.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -554,14 +554,14 @@ Cluster
 
 
 
-== Étape 4 : activer les LIF réaffectées
+== Étape 4 : Activer les LIF réaffectées
 
-. Afficher la connectivité des ports du cluster sur chaque nœud :
+. Afficher la connectivité des ports du cluster sur chaque nœud :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -578,15 +578,15 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Migration de clum2 vers le port e4a sur la console de chaque nœud :
+. Migrez clus2 vers le port e4a sur la console de chaque nœud :
 +
 `network interface migrate cluster -lif _lif-name_ -source-node _source-node-name_ -destination-node _destination-node-name_ -destination-port _destination-port-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez migrer chaque LIF vers son port de maison, comme illustré ci-dessous :
+Vous devez migrer chaque LIF individuellement vers son port d'origine, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -596,15 +596,15 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus2 -source-no
 -destination-node n2 -destination-port e4a*
 ----
 ====
-. Fermez les ports de cluster de façon concluante 2 LIF sur les deux nœuds :
+. Fermez les ports du cluster clus2 LIF sur les deux nœuds :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les ports spécifiés en cours de définition `false`, arrêt des ports sur les deux nœuds :
+L'exemple suivant montre comment configurer les ports spécifiés. `false` , en fermant les ports sur les deux nœuds :
 
 [listing, subs="+quotes"]
 ----
@@ -612,12 +612,12 @@ cluster::*> *network port modify -node n1 -port e4e -up-admin false*
 cluster::*> *network port modify -node n2 -port e4e -up-admin false*
 ----
 ====
-. Vérifier le statut LIF de cluster :
+. Vérifier l'état du cluster LIF :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -635,20 +635,20 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Débrancher le câble de e4e sur le nœud n1.
+. Débranchez le câble de e4e sur le nœud n1.
 +
-Vous pouvez faire référence à la configuration en cours d'exécution et connecter le premier port 40 GbE du switch C2 (port 1/7 dans cet exemple) à e4e sur le nœud n1, à l'aide du câblage approprié pour le modèle de switch Nexus 3232C.
+Vous pouvez vous référer à la configuration en cours et connecter le premier port 40 GbE du commutateur C2 (port 1/7 dans cet exemple) à e4e sur le nœud n1, en utilisant le câblage approprié pour le modèle de commutateur Nexus 3232C.
 
-. Débrancher le câble de e4e sur le nœud n2.
+. Débranchez le câble de e4e sur le nœud n2.
 +
-Vous pouvez faire référence à la configuration en cours d'exécution et connecter e4e au prochain port 40 GbE disponible sur C2, port 1/8, à l'aide du câblage approprié pour le modèle de switch Nexus 3232C.
+Vous pouvez vous référer à la configuration en cours et connecter e4e au prochain port 40 GbE disponible sur C2, port 1/8, en utilisant le câblage approprié pour le modèle de commutateur Nexus 3232C.
 
-. Activer tous les ports orientés nœud sur C2.
+. Activez tous les ports exposés aux nœuds sur C2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide d'une configuration prise en charge dans RCF `NX3232C_RCF_v1.0_24p10g_26p100g.txt`:
+L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide d'une configuration prise en charge par RCF. `NX3232C_RCF_v1.0_24p10g_26p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -659,15 +659,15 @@ C2(config-if-range)# *exit*
 C2(config)# *exit*
 ----
 ====
-. Activer le second port du cluster, e4e, sur chaque nœud :
+. Activez le deuxième port du cluster, e4e, sur chaque nœud :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le second port du cluster e4e introduit sur chaque nœud :
+L'exemple suivant montre comment le deuxième port de cluster e4e est activé sur chaque nœud :
 
 [listing, subs="+quotes"]
 ----
@@ -675,12 +675,12 @@ cluster::*> *network port modify -node n1 -port e4e -up-admin true*
 cluster::*> *network port modify -node n2 -port e4e -up-admin true*s
 ----
 ====
-. Pour chaque nœud, restaurez toutes les LIF d'interconnexion de cluster migrées : `network interface revert`
+. Pour chaque nœud, rétablissez tous les LIF d'interconnexion de cluster migrés : `network interface revert`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIF migrées sont rétablies dans leur port de départ.
+L'exemple suivant montre le retour des LIF migrées à leurs ports d'origine.
 
 [listing, subs="+quotes"]
 ----
@@ -688,15 +688,15 @@ cluster::*> *network interface revert -vserver Cluster -lif n1_clus2*
 cluster::*> *network interface revert -vserver Cluster -lif n2_clus2*
 ----
 ====
-. Vérifier que tous les ports d'interconnexion de cluster sont rétablis dans leurs ports de base :
+. Vérifiez que tous les ports d'interconnexion du cluster sont désormais revenus à leurs ports d'origine :
 +
 `network interface show -role cluster`
 
 +
-Le `Is Home` la colonne doit afficher une valeur de `true` pour tous les ports répertoriés dans le `Current Port` colonne. Si la valeur affichée est de `false`, le port n'a pas été rétabli.
+Le `Is Home` La colonne doit afficher la valeur de `true` pour tous les ports énumérés dans le `Current Port` colonne.  Si la valeur affichée est `false` , le port n'a pas été rétabli.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -714,13 +714,13 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Vérifiez que tous les ports d'interconnexion de cluster sont dans le `up` état :
+. Vérifiez que tous les ports d'interconnexion du cluster sont dans le `up` État:
 +
 `network port show -role cluster`
 
-. Afficher les numéros de port du commutateur du cluster via lesquels chaque port du cluster est connecté à chaque nœud : `network device-discovery show`
+. Afficher les numéros de port du commutateur de cluster par lesquels chaque port de cluster est connecté à chaque nœud : `network device-discovery show`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -737,12 +737,12 @@ n2          /cdp
             e4e    C2                  Ethernet1/8      N3K-C3232C
 ----
 ====
-. Affichage des commutateurs de cluster découverts et surveillés :
+. Afficher les commutateurs de cluster découverts et surveillés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -766,26 +766,26 @@ Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I
 Version Source: CDP 2 entries were displayed.
 ----
 ====
-. Vérifiez que la détection sans commutateur de cluster a modifié l'option de cluster sans commutateur sur Désactivé :
+. Vérifiez que la détection de cluster sans commutateur a bien désactivé l'option de cluster sans commutateur :
 +
 `network options switchless-cluster show`
 
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -802,9 +802,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -835,11 +835,11 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 ----
 --
 ====
-. [[step16]] si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. [[étape 16]] Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"].
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"].

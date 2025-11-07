@@ -4,15 +4,15 @@ sidebar: sidebar
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
 summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 9332D-GX2B.' 
 ---
-= Préparez-vous à installer le logiciel NX-OS et RCF
+= Préparez-vous à installer le logiciel NX-OS et RCF.
 :allow-uri-read: 
 
 
 [role="lead"]
-Avant d'installer le logiciel NX-OS et le fichier RCF (Reference Configuration File), suivez cette procédure.
+Avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF), suivez cette procédure.
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs Cisco sont cs1 et cs2.
 * Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
@@ -24,29 +24,29 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 ** node1-04_clus1 et node1-04_clus2 pour node1-04
 
 
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=x h`
 +
 où x représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 [source, cli]
 ----
 set -privilege advanced
 ----
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
 . Vérifiez le statut administratif et opérationnel de chaque port.
 +
@@ -59,7 +59,7 @@ L'invite avancée (`*>`) s'affiche.
 network device-discovery show -protocol cdp
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -98,14 +98,14 @@ node1-02/cdp
 .
 ----
 ====
-... Afficher les attributs des ports réseau :
+... Afficher les attributs du port réseau :
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -157,7 +157,7 @@ e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 network interface show -vserver Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -189,7 +189,7 @@ Cluster
 `ha interconnect status show -node <node-name>`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -257,7 +257,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -300,7 +300,7 @@ node1-04
 storage shelf port show
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -337,7 +337,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -372,14 +372,14 @@ shelf id connector-state remote-port    remote-device
 
 . Vérifiez la connectivité des interfaces du cluster distant.
 +
-.. Vous pouvez utiliser le `network interface check cluster-connectivity show` commande pour afficher les détails d'une vérification d'accessibilité pour la connectivité du cluster :
+.. Vous pouvez utiliser le `network interface check cluster-connectivity show` commande permettant d'afficher les détails d'un contrôle d'accessibilité pour la connectivité du cluster :
 +
 [source, cli]
 ----
 network interface check cluster-connectivity show
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -402,12 +402,12 @@ node1-02
 .
 ----
 ====
-.. Alternativement, vous pouvez utiliser le `cluster ping-cluster -node <node-name>` commande pour vérifier la connectivité :
+.. Vous pouvez également utiliser le `cluster ping-cluster -node <node-name>` commande pour vérifier la connectivité :
 +
 `cluster ping-cluster -node <node-name>`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -459,7 +459,7 @@ RPC status:
 network interface show -vserver Cluster -fields auto-revert
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -482,5 +482,5 @@ Cluster node1-04_clus2     true
 ====
 
 
-.Et la suite ?
-Après avoir préparé l'installation du logiciel NX-OS et RCF, vouslink:install-nxos-software-9332d-cluster.html["installer ou mettre à niveau le logiciel NX-OS"] .
+.Quelle est la prochaine étape ?
+Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous link:install-nxos-software-9332d-cluster.html["installer ou mettre à niveau le logiciel NX-OS"].

@@ -15,49 +15,48 @@ Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
 Vérifiez les éléments suivants :
 
-* Complétez la procédure enlink:install-nxos-overview-9364d-cluster.html["Préparez-vous à installer NX-OS et RCF"] .
+* Terminez la procédure danslink:install-nxos-overview-9364d-cluster.html["Préparez-vous à installer NX-OS et RCF"] .
 * Une sauvegarde actuelle de la configuration du commutateur est disponible.
 * Un cluster entièrement fonctionnel (aucune erreur dans les journaux ou problèmes similaires) est en place.
 
 
 .Documentation suggérée
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["page du commutateur Ethernet Cisco"^]
 +
 Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
 
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guides de mise à niveau et de mise à niveau des logiciels"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-guides-list.html["Guides de mise à niveau et de rétrogradation des logiciels"^]
 +
-Reportez-vous aux guides de mise à niveau et de logiciels appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
-* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Mise à niveau Cisco Nexus 9000 et 3000 et matrice ISSU"^]
+* link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matrice de mise à niveau et de mise à niveau logicielle sans interruption de service (ISSU) des Cisco Nexus 9000 et 3000"^]
 +
-Fournit des informations sur les mises à niveau/mises à niveau vers une version antérieure disruptives du logiciel Cisco NX-OS sur les commutateurs de la gamme Nexus 9000
-en fonction de vos versions actuelles et cibles.
+Fournit des informations sur la mise à niveau/rétrogradation disruptive du logiciel Cisco NX-OS sur les commutateurs de la série Nexus 9000 en fonction de vos versions actuelles et cibles.
 
 +
-Sur la page, sélectionnez *upgrade perturbateur* et sélectionnez votre version actuelle et votre version cible dans la liste déroulante.
+Sur la page, sélectionnez *Mise à niveau disruptive* et choisissez votre version actuelle et votre version cible dans la liste déroulante.
 
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs Cisco sont cs1 et cs2.
 * Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
 * Les noms LIF du cluster sont node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 et node1-04_clus2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
 
 
 == Installez le logiciel
 
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 [IMPORTANT]
 ====
@@ -68,12 +67,12 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs C
 ====
 .Étapes
 . Connectez le commutateur au réseau de gestion.
-. Utilisez la commande ping pour vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le FCR.
+. Utilisez la commande ping pour vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le RCF.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2 :
+Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2.1 :
 
 [listing, subs="+quotes"]
 ----
@@ -83,14 +82,14 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
+. Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 [source, cli]
 ----
 network device-discovery show
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -135,14 +134,14 @@ node1-01/lldp
 +
 .. *Ports de cluster*
 +
-... Vérifier que tous les ports du cluster sont défectueux :
+... Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -183,14 +182,14 @@ e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-... Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
+... Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -213,14 +212,14 @@ Cluster
 8 entries were displayed.
 ----
 ====
-... Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
+... Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
 +
 [source, cli]
 ----
 system cluster-switch show -is-monitoring-enabled-operational true
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -258,7 +257,7 @@ cs1(FLMXXXXXXXX)             cluster-network   10.228.137.253   N9K-C9364D-GX2A
 `ha interconnect status show -node <node-name>`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -326,7 +325,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -369,7 +368,7 @@ node1-04
 storage shelf port show
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -406,7 +405,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -439,13 +438,13 @@ shelf id connector-state remote-port    remote-device
 
 
 
-. Désactivez la fonction de restauration automatique sur les LIF du cluster. Les LIF du cluster basculent sur le commutateur partenaire du cluster et y restent pendant la procédure de mise à niveau sur le commutateur ciblé :
+. Désactiver la restauration automatique sur les LIF du cluster.  Les LIF du cluster basculent vers le commutateur du cluster partenaire et y restent pendant que vous effectuez la procédure de mise à niveau sur le commutateur cible :
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
 . Copiez le logiciel NX-OS et les images EPLD sur le commutateur Nexus 9364D-GX2A.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -483,12 +482,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. Vérifiez la version en cours d'exécution du logiciel NX-OS :
+. Vérifiez la version du logiciel NX-OS en cours d'exécution :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -556,7 +555,7 @@ cs2#
 L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -622,12 +621,12 @@ Warning: please do not remove or power off the module at this time.
 Finishing the upgrade, switch will reboot in 10 seconds.
 ----
 ====
-. Vérifiez la nouvelle version du logiciel NX-OS après le redémarrage du commutateur :
+. Vérifiez la nouvelle version du logiciel NX-OS après le redémarrage du commutateur :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -690,9 +689,9 @@ Active Package(s):
 cs2#
 ----
 ====
-. Mettre à niveau l'image EPLD et redémarrer le commutateur.
+. Mettez à jour l'image EPLD et redémarrez le commutateur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -741,9 +740,9 @@ EPLDs upgraded.
 Module 1 EPLD upgrade is successful.
 ----
 ====
-. Après le redémarrage du commutateur, reconnectez-vous et vérifiez que la nouvelle version de EPLD a été chargée correctement.
+. Après le redémarrage du commutateur, reconnectez-vous et vérifiez que la nouvelle version d'EPLD a bien été chargée.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -765,14 +764,14 @@ GEM  FPGA                        0x2
 +
 .. *Ports de cluster*
 +
-... Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
+... Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 [source, cli]
 ----
 network port show -ipspace Cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -812,7 +811,7 @@ e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
 e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
 ----
 ====
-... Vérifiez l'état de santé du commutateur depuis le cluster :
+... Vérifiez l'état du commutateur à partir du cluster :
 +
 [source, cli]
 ----
@@ -824,7 +823,7 @@ network device-discovery show -protocol cdp
 system cluster-switch show -is-monitoring-enabled-operational true
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -890,7 +889,7 @@ cs1(FLMXXXXXXXX)             cluster-network   10.228.137.253   N9K-C9364D-GX2A
 `ha interconnect status show -node <node-name>`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -958,7 +957,7 @@ Interconnect Port 1 :
 storage port show -port-type ENET
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1001,7 +1000,7 @@ node1-04
 storage shelf port show
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1038,7 +1037,7 @@ Shelf ID Module State        Internal?
 storage shelf port show -fields remote-device,remote-port,connector-state
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1071,12 +1070,12 @@ shelf id connector-state remote-port    remote-device
 
 
 
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1095,18 +1094,18 @@ node1-04             true    true          true
 ----
 ====
 . Répétez les étapes 6 à 13 pour installer le logiciel NX-OS sur le commutateur cs1.
-. Activez la fonction de revert automatique sur les LIFs du cluster.
+. Activer la restauration automatique sur les LIF du cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Vérifier que les LIFs du cluster ont rétabli leur port de base :
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1128,12 +1127,12 @@ Cluster
 ----
 ====
 +
-Si une LIF de cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
 
 +
 `network interface revert -vserver Cluster -lif <lif-name>`
 
 
 
-.Et la suite ?
-Après avoir installé ou mis à niveau le logiciel NX-OS, vouslink:install-upgrade-rcf-overview-cluster.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"] .
+.Quelle est la prochaine étape ?
+Après avoir installé ou mis à jour le logiciel NX-OS, vouslink:install-upgrade-rcf-overview-cluster.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"] .

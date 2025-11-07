@@ -2,17 +2,17 @@
 permalink: switch-cshm/monitor-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Vous pouvez utiliser les commandes suivantes... 
+summary: Vous pouvez utiliser les commandes suivantes… 
 ---
-= Présentation du bilan de santé
+= Aperçu du bilan de santé
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Cette fonction surveille de manière proactive certaines conditions critiques du cluster et déclenche des alertes en cas de défaillance ou de risque.
+Les systèmes de surveillance de l'état de santé contrôlent de manière proactive certaines conditions critiques au sein de votre cluster et émettent des alertes en cas de détection d'une panne ou d'un risque.
 
-Pour afficher les alertes de contrôle de l'état du commutateur Ethernet en cours, lancer la commande : `system health alert show -monitor ethernet-switch`
+Pour consulter les alertes de surveillance de l'état du commutateur Ethernet actuellement activées, exécutez la commande : `system health alert show -monitor ethernet-switch`
 
-Pour afficher les alertes de contrôle de l'état des commutateurs Ethernet disponibles, lancer la commande : `system health alert definition show -monitor ethernet-switch`
+Pour consulter les alertes de surveillance de l'état du commutateur Ethernet disponibles, exécutez la commande : `system health alert definition show -monitor ethernet-switch`

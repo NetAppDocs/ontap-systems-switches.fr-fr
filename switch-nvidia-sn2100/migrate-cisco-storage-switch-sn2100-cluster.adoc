@@ -2,67 +2,67 @@
 permalink: switch-nvidia-sn2100/migrate-cisco-storage-switch-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: migrating to a storage switch with NVIDIA SN2100 storage switches, how to migrate 
-summary: 'Vous pouvez migrer d"anciens switchs Cisco sans interruption pour un cluster ONTAP vers des switchs de stockage NVIDIA SN2100.' 
+summary: 'Vous pouvez migrer sans interruption les anciens commutateurs Cisco d"un cluster ONTAP vers des commutateurs de stockage NVIDIA SN2100.' 
 ---
-= Migrez d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA SN2100
+= Migration d'un commutateur de stockage Cisco vers un commutateur de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez migrer d'anciens switchs Cisco d'un cluster ONTAP vers des switchs de stockage NVIDIA SN2100. Cette procédure ne fonctionne pas sans interruption.
+Vous pouvez migrer d'anciens commutateurs Cisco pour un cluster ONTAP vers des commutateurs de stockage NVIDIA SN2100. Il s’agit d’une procédure non perturbatrice.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez d'anciens switchs Cisco par des switchs de stockage NVIDIA SN2100. Voir link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des switchs NVIDIA SN2100"].
+Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez d'anciens commutateurs Cisco par des commutateurs de stockage NVIDIA SN2100. Voirlink:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"] .
 
 .Commutateurs pris en charge
-Les commutateurs de stockage suivants sont pris en charge :
+Les commutateurs de stockage suivants sont pris en charge :
 
 * Cisco Nexus 9336C-FX2
 * Cisco Nexus 3232C
 
 
-Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au https://hwu.netapp.com/["Hardware Universe"^].
+Pour plus de détails sur les ports pris en charge et leurs configurations, consultez la documentation. https://hwu.netapp.com/["Hardware Universe"^] .
 
-.Ce dont vous avez besoin
-Assurez-vous que :
+.Ce dont vous aurez besoin
+Assurez-vous que :
 
-* Le cluster existant est correctement configuré et opérationnel.
-* Tous les ports de stockage sont dans l'état up pour assurer la continuité de l'activité.
-* Les commutateurs de stockage NVIDIA SN2100 sont configurés et fonctionnent sous la version appropriée de Cumulus Linux, installée dans le fichier RCF (Reference Configuration File) appliqué.
-* La configuration existante du réseau de stockage comporte les éléments suivants :
+* Le cluster existant est correctement configuré et fonctionnel.
+* Tous les ports de stockage sont opérationnels afin de garantir un fonctionnement sans interruption.
+* Les commutateurs de stockage NVIDIA SN2100 sont configurés et fonctionnent sous la version appropriée de Cumulus Linux installée avec le fichier de configuration de référence (RCF) appliqué.
+* La configuration du réseau de stockage existant est la suivante :
 +
-** Un cluster NetApp redondant et entièrement fonctionnel utilisant les deux anciens commutateurs Cisco.
-** Connectivité de gestion et accès à la console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
-** Toutes les LIFs de cluster dans l'état *up* avec les LIFs de cluster sont sur leurs ports de base.
-** Ports ISL activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
+** Un cluster NetApp redondant et pleinement fonctionnel utilisant des commutateurs Cisco plus anciens.
+** Connectivité de gestion et accès console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
+** Tous les LIF du cluster à l'état *actif* sont connectés à leurs ports d'origine.
+** Les ports ISL sont activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
 
 
-* Certains ports des switchs NVIDIA SN2100 sont configurés pour s'exécuter à 100 GbE.
+* Certains ports des commutateurs NVIDIA SN2100 sont configurés pour fonctionner à 100 GbE.
 * Vous avez planifié, migré et documenté la connectivité 100 GbE des nœuds vers les commutateurs de stockage NVIDIA SN2100.
 
 
 
 
-== Migrer les commutateurs
+== Déplacer les commutateurs
 
 .À propos des exemples
-Dans cette procédure, les commutateurs de stockage Cisco Nexus 9336C-FX2 sont utilisés pour des commandes et des sorties par exemple.
+Dans cette procédure, les commutateurs de stockage Cisco Nexus 9336C-FX2 sont utilisés comme exemples de commandes et de sorties.
 
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les commutateurs de stockage Cisco Nexus 9336C-FX2 existants sont _S1_ et _S2_.
 * Les nouveaux commutateurs de stockage NVIDIA SN2100 sont _sw1_ et _sw2_.
 * Les nœuds sont _node1_ et _node2_.
-* Les LIFS du cluster sont respectivement _node1_clum1_ et _node1_clum2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
+* Les LIF du cluster sont _node1_clus1_ et _node1_clus2_ sur le nœud 1, et _node2_clus1_ et _node2_clus2_ sur le nœud 2 respectivement.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
 * Les ports réseau utilisés dans cette procédure sont _e5a_ et _e5b_.
-* Les ports de dérivation prennent le format suivant : swp1s0-3. Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp13_.
-* Le commutateur S2 est d'abord remplacé par le commutateur sw2, puis le commutateur S1 est remplacé par le commutateur sw1.
+* Les ports de dérivation prennent le format : swp1s0-3.  Par exemple, les quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp1s3_.
+* L'interrupteur S2 est d'abord remplacé par l'interrupteur sw2, puis l'interrupteur S1 est remplacé par l'interrupteur sw1.
 +
 ** Le câblage entre les nœuds et S2 est ensuite déconnecté de S2 et reconnecté à sw2.
 ** Le câblage entre les nœuds et S1 est ensuite déconnecté de S1 et reconnecté à sw1.
@@ -72,16 +72,16 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 
 
 
-=== Étape 1 : préparer la migration
+=== Étape 1 : Préparer la migration
 
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
+. Si AutoSupport est activé, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 où _x_ représente la durée de la fenêtre de maintenance en heures.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer : `set -privilege advanced`
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer : `set -privilege advanced`
 +
 L'invite avancée (*>) apparaît.
 
@@ -89,20 +89,20 @@ L'invite avancée (*>) apparaît.
 
 
 
-=== Étape 2 : configurer les ports et le câblage
+=== Étape 2 : Configurer les ports et le câblage
 
-. Statut administratif ou opérationnel pour chaque interface de stockage
+. Déterminer l'état administratif ou opérationnel de chaque interface de stockage.
 +
-Chaque port doit afficher activé pour  `Status`.
+Chaque port doit afficher « activé » pour `Status` .
 
 +
-Afficher les attributs des ports réseau :
+Afficher les attributs du port réseau :
 
 +
 `storage port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -124,12 +124,12 @@ node2
 cluster1::*>
 ----
 ====
-. Les ports de stockage de chaque nœud sont connectés aux commutateurs de stockage existants de la manière suivante (du point de vue des nœuds) à l'aide de la commande :
+. Les ports de stockage de chaque nœud sont connectés aux commutateurs de stockage existants de la manière suivante (du point de vue des nœuds) à l'aide de la commande :
 +
 `network device-discovery show -protocol lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -146,12 +146,12 @@ node2      /lldp
             e5b    S2 (7c:ad:4f:98:8e:3c)    Eth1/2           -
 ----
 ====
-. Sur les commutateurs S1 et S2, les ports et les commutateurs de stockage sont connectés de la manière suivante (du point de vue des commutateurs) à l'aide de la commande :
+. Sur les commutateurs S1 et S2, les ports de stockage et les commutateurs sont connectés de la manière suivante (du point de vue des commutateurs) à l'aide de la commande :
 +
 `show lldp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -183,9 +183,9 @@ SHFGB2017000269       Eth1/12        120         S                
 SHFGB2017000269       Eth1/13        120         S                   e0b
 ----
 ====
-. Sur le commutateur sw2, arrêtez les ports connectés aux ports de stockage et aux nœuds des tiroirs disques.
+. Sur le commutateur sw2, désactivez les ports connectés aux ports de stockage et aux nœuds des baies de disques.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -195,10 +195,10 @@ cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
 ====
-. Déplacez les ports de stockage de nœuds du contrôleur et des tiroirs disques de l'ancien commutateur S2 au nouveau commutateur sw2, en utilisant le câblage approprié pris en charge par NVIDIA SN2100.
-. Sur le commutateur sw2, activer les ports connectés aux ports de stockage des nœuds et des tiroirs disques.
+. Déplacez les ports de stockage du nœud du contrôleur et des baies de disques de l'ancien commutateur S2 vers le nouveau commutateur sw2, en utilisant un câblage approprié pris en charge par NVIDIA SN2100.
+. Sur le commutateur sw2, activez les ports connectés aux ports de stockage des nœuds et des baies de disques.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -208,9 +208,9 @@ cumulus@sw2:~$ *net pending*
 cumulus@sw2:~$ *net commit*
 ----
 ====
-. Les ports de stockage de chaque nœud sont désormais connectés aux switchs de la façon suivante, du point de vue des nœuds :
+. Du point de vue des nœuds, les ports de stockage de chaque nœud sont désormais connectés aux commutateurs de la manière suivante :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -229,12 +229,12 @@ node2      /lldp
             e5b    sw2 (b8:ce:f6:19:1a:7e)   swp2           -
 ----
 ====
-. Vérifiez les attributs des ports réseau :
+. Vérifiez les attributs du port réseau :
 +
 `storage port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -256,9 +256,9 @@ node2
 cluster1::*>
 ----
 ====
-. Sur le commutateur sw2, vérifier que tous les ports de stockage de nœud sont en service :
+. Sur le commutateur sw2, vérifiez que tous les ports de stockage des nœuds sont opérationnels :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -279,9 +279,9 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Sur le commutateur sw1, arrêtez les ports connectés aux ports de stockage des nœuds et des tiroirs disques.
+. Sur le commutateur sw1, désactivez les ports connectés aux ports de stockage des nœuds et des baies de disques.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -291,10 +291,10 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 ====
-. Déplacez les ports de stockage des nœuds du contrôleur et des tiroirs disques de l'ancien commutateur S1 vers le nouveau commutateur sw1, en utilisant le câblage approprié pris en charge par NVIDIA SN2100.
-. Sur le commutateur sw1, mettez les ports connectés aux ports de stockage des nœuds et des tiroirs disques.
+. Déplacez les ports de stockage du nœud du contrôleur et les baies de disques de l'ancien commutateur S1 vers le nouveau commutateur sw1, en utilisant un câblage approprié pris en charge par NVIDIA SN2100.
+. Sur le commutateur sw1, activez les ports connectés aux ports de stockage des nœuds et des baies de disques.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -304,9 +304,9 @@ cumulus@sw1:~$ *net pending*
 cumulus@sw1:~$ *net commit*
 ----
 ====
-. Les ports de stockage de chaque nœud sont désormais connectés aux switchs de la façon suivante, du point de vue des nœuds :
+. Du point de vue des nœuds, les ports de stockage de chaque nœud sont désormais connectés aux commutateurs de la manière suivante :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -325,15 +325,15 @@ node2      /lldp
             e5b    sw2  (b8:ce:f6:19:1a:7e)  swp2            -
 ----
 ====
-. Vérifier la configuration finale :
+. Vérifiez la configuration finale :
 +
 `storage port show`
 
 +
-Chaque port doit afficher activé pour `State` et activé pour `Status`.
+Chaque port doit afficher « activé » pour `State` et activé pour `Status` .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -355,9 +355,9 @@ node2
 cluster1::*>
 ----
 ====
-. Sur le commutateur sw2, vérifier que tous les ports de stockage de nœud sont en service :
+. Sur le commutateur sw2, vérifiez que tous les ports de stockage des nœuds sont opérationnels :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -378,15 +378,15 @@ UP     swp6    100G  9216   Trunk/L2   SHFFG1826000102 (e0b)   Master: bridge(UP
 ...
 ----
 ====
-. Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur :
+. Vérifiez que chaque nœud possède une connexion à chaque commutateur :
 +
 `net show lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+L'exemple suivant illustre les résultats attendus pour les deux commutateurs :
 
 [listing, subs="+quotes"]
 ----
@@ -417,14 +417,14 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 
-=== Étape 3 : réaliser la procédure
+=== Étape 3 : Terminer la procédure
 
-. Créez un mot de passe pour la fonction de collecte du journal du moniteur d'intégrité du commutateur Ethernet :
+. Créez un mot de passe pour la fonction de collecte des journaux de surveillance de l'état du commutateur Ethernet :
 +
 `system switch ethernet log setup-password`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -453,12 +453,12 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Activez la fonction de collecte des journaux du moniteur d'état du commutateur Ethernet :
+. Activez la fonction de collecte des journaux de surveillance de l'état du commutateur Ethernet :
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -477,13 +477,13 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :
+Attendez 10 minutes, puis vérifiez que la collecte des journaux est terminée :
 
 +
 `system switch ethernet log show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -499,13 +499,13 @@ Index  Switch                       Log Timestamp        Status
 ====
 +
 
-CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.
+CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp .
 
-. Rétablissez le niveau de privilège sur admin :
+. Rétablir le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

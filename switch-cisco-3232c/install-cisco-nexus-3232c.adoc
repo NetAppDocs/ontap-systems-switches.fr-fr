@@ -2,48 +2,48 @@
 permalink: switch-cisco-3232c/install-cisco-nexus-3232c.html 
 sidebar: sidebar 
 keywords: install, cisco nexus, 3232c cluster switch, pass-through panel, netapp cabinet 
-summary: Vous pouvez installer le switch Cisco Nexus 3232C et le panneau de pass-through dans une armoire NetApp avec les supports standard inclus dans le switch. 
+summary: Vous pouvez installer le commutateur Cisco Nexus 3232C et le panneau de passage dans une armoire NetApp avec les supports standard fournis avec le commutateur. 
 ---
-= Installez un switch de cluster Cisco Nexus 3232C dans une armoire NetApp
+= Installer un commutateur de cluster Cisco Nexus 3232C dans une armoire NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-En fonction de votre configuration, vous devrez peut-être installer le switch de cluster Cisco Nexus 3232C et le panneau de connexion dans une armoire NetApp avec les supports standard inclus avec le switch.
+Selon votre configuration, vous devrez peut-être installer le commutateur de cluster Cisco Nexus 3232C et le panneau de transfert dans une armoire NetApp avec les supports standard fournis avec le commutateur.
 
 .Avant de commencer
-* Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité indiquées dans le link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guide d'installation matérielle Cisco Nexus 3000 Series"^].
-* Pour chaque commutateur, les huit vis 10-32 ou 12-24 et écrous à clip pour monter les supports et les rails coulissants sur les montants avant et arrière de l'armoire.
-* Kit de rails standard Cisco pour installer le commutateur dans une armoire NetApp.
+* Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité dans lelink:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guide d'installation matérielle de la gamme Cisco Nexus 3000"^] .
+* Pour chaque interrupteur, les huit vis 10-32 ou 12-24 et les écrous clips pour monter les supports et les rails coulissants sur les montants avant et arrière de l'armoire.
+* Kit de montage standard Cisco pour installer le commutateur dans une baie NetApp .
 
 
 [NOTE]
 ====
-Les cordons de raccordement ne sont pas fournis avec le kit de dérivation et doivent être fournis avec vos commutateurs. Si ces commutateurs n'ont pas été expédiés, vous pouvez les commander auprès de NetApp (référence X1558A-R6).
+Les câbles de connexion ne sont pas inclus dans le kit de passage et doivent être fournis avec vos commutateurs.  S'ils n'ont pas été livrés avec les commutateurs, vous pouvez les commander auprès de NetApp (référence X1558A-R6).
 
 ====
 .Étapes
-. Installer l'obturateur de passage dans l'armoire NetApp.
+. Installez le panneau de fermeture traversant dans l'armoire NetApp .
 +
-Le kit de panneau pass-through est disponible auprès de NetApp (référence X8784-R6).
+Le kit de panneau traversant est disponible chez NetApp (référence X8784-R6).
 
 +
-Le kit de panneau d'intercommunication NetApp contient les composants suivants :
+Le kit de panneau de transfert NetApp contient le matériel suivant :
 
 +
-** Un obturateur traversant
+** Un panneau d'obturation traversant
 ** Quatre vis 10-32 x 0,75
-** Quatre écrous à collier 10-32
+** Quatre écrous à clip 10-32
 +
-... Déterminer l'emplacement vertical des commutateurs et de l'obturateur dans l'armoire.
+... Déterminez l'emplacement vertical des interrupteurs et du panneau d'obturation dans l'armoire.
 +
-Dans cette procédure, l'obturateur sera installé dans U40.
+Dans cette procédure, le panneau d'obturation sera installé dans U40.
 
 ... Installez deux écrous à clip de chaque côté dans les trous carrés appropriés pour les rails avant de l'armoire.
-... Centrez le panneau verticalement pour éviter toute intrusion dans l'espace adjacent du rack, puis serrez les vis.
-... Insérez les connecteurs femelles des deux cordons de pontage de 48 pouces à l'arrière du panneau et à travers l'ensemble de balais.
+... Centrez le panneau verticalement pour éviter toute intrusion dans l'espace rack adjacent, puis serrez les vis.
+... Insérez les connecteurs femelles des deux cordons de raccordement de 48 pouces par l'arrière du panneau et à travers l'ensemble de brosses.
 +
 image::../media/cisco_9148_jumper_cords.gif[]
 
@@ -53,84 +53,84 @@ image::../media/cisco_9148_jumper_cords.gif[]
 
 
 
-_(1) connecteur femelle du cavalier._
+(1) Connecteur femelle du cordon de raccordement.
 
-. Installez les supports de montage en rack sur le châssis du switch Nexus 3232C.
+. Installez les supports de montage en rack sur le châssis du commutateur Nexus 3232C.
 +
-.. Placez un support de montage en rack avant sur un côté du châssis du commutateur de manière à ce que l'oreille de montage soit alignée avec le cache du châssis (côté bloc d'alimentation ou ventilateur), puis utilisez quatre vis M4 pour fixer le support au châssis.
+.. Placez un support de montage en rack avant sur un côté du châssis du commutateur de sorte que l'oreille de montage soit alignée avec la plaque frontale du châssis (côté bloc d'alimentation ou ventilateur), puis utilisez quatre vis M4 pour fixer le support au châssis.
 +
 image::../media/3132q_front_bracket.gif[support avant]
 
-.. Répétez l'étape 2a avec l'autre support de montage en rack avant de l'autre côté du commutateur.
-.. Installez le support de montage arrière en rack sur le châssis du commutateur.
-.. Répétez l'étape 2c avec l'autre support de montage arrière sur rack de l'autre côté du commutateur.
+.. Répétez l’étape 2a avec l’autre support de montage en rack avant de l’autre côté du commutateur.
+.. Installez le support de montage en rack arrière sur le châssis du commutateur.
+.. Répétez l’étape 2c avec l’autre support de montage en rack arrière de l’autre côté du commutateur.
 
 
-. Poser les écrous à collier aux emplacements des trous carrés des quatre montants IEA.
+. Installez les écrous à clip dans les emplacements des trous carrés pour les quatre poteaux IEA.
 +
 image::../media/ru_locations_for_3132q_v.gif[]
 
 +
-Les deux switchs 3232C seront toujours montés dans le haut 2U de l'armoire RU41 et 42.
+Les deux commutateurs 3232C seront toujours montés dans les 2U supérieurs de l'armoire RU41 et 42.
 
-. Installez les rails coulissants dans l'armoire.
+. Installez les rails de guidage dans l'armoire.
 +
-.. Positionnez le premier rail coulissant au niveau du repère RU42 à l'arrière du montant arrière gauche, insérez les vis avec le type de filetage correspondant, puis serrez les vis avec les doigts.
+.. Positionnez le premier rail coulissant au niveau de la marque RU42 à l'arrière du montant arrière gauche, insérez des vis avec le type de filetage correspondant, puis serrez les vis avec vos doigts.
 +
 image::../media/3132q_v_slider_rails.gif[]
 
 +
-_(1) lorsque vous faites glisser doucement le rail coulissant, alignez-le sur les trous de vis du rack._ + _(2) serrez les vis des rails coulissants sur les montants de l'armoire._
+_(1) En faisant glisser délicatement le rail coulissant, alignez-le avec les trous de vis du rack._ + _(2) Serrez les vis des rails coulissants sur les montants du meuble._
 
-.. Répéter l'étape 4a pour le montant arrière droit.
-.. Répétez les étapes 4a et 4b aux emplacements du RU41 sur l'armoire.
+.. Répétez l'étape 4a pour le montant arrière droit.
+.. Répétez les étapes 4a et 4b aux emplacements RU41 sur l'armoire.
 
 
-. Installez le commutateur dans l'armoire.
+. Installez l'interrupteur dans l'armoire.
 +
 [NOTE]
 ====
-Cette étape nécessite deux personnes : une personne pour soutenir le commutateur depuis l'avant et une autre pour le guider dans les rails coulissants arrière.
+Cette étape nécessite deux personnes : une personne pour soutenir l'interrupteur par l'avant et une autre pour guider l'interrupteur dans les rails coulissants arrière.
 
 ====
 +
-.. Positionner l'arrière du contacteur en RU41.
+.. Positionnez l'arrière du commutateur sur RU41.
 +
-image::../media/3132q_v_positioning.gif[3232C au niveau de U39-40]
+image::../media/3132q_v_positioning.gif[Positionnement 3232C à U39-40]
 
 +
-_(1) lorsque le châssis est poussé vers les montants arrière, alignez les deux guides arrière de montage sur rack avec les rails coulissants._
+(1) Lorsque le châssis est poussé vers les montants arrière, alignez les deux guides de montage arrière du rack avec les rails de guidage.
 
 +
-_(2) faites glisser doucement le commutateur jusqu'à ce que les supports de montage avant du rack soient alignés avec les montants avant._
+(2) Faites glisser délicatement l'interrupteur jusqu'à ce que les supports de montage en rack avant soient alignés avec les montants avant.
 
-.. Fixez le commutateur à l'armoire.
+.. Fixez l'interrupteur à l'armoire.
 +
 image::../media/3132q_attaching.gif[]
 
 +
-_(1) avec une personne tenant l'avant du châssis, l'autre personne doit serrer complètement les quatre vis arrière sur les montants de l'armoire._
+(1) Pendant qu'une personne maintient l'avant du châssis à niveau, l'autre personne doit serrer complètement les quatre vis arrière sur les montants du boîtier.
 
-.. Le châssis étant désormais pris en charge sans assistance, serrez à fond les vis avant aux montants.
-.. Répéter les étapes 5a à 5c pour le second contacteur à l'emplacement RU42.
+.. Le châssis étant désormais soutenu sans assistance, serrez complètement les vis avant sur les poteaux.
+.. Répétez les étapes 5a à 5c pour le deuxième commutateur à l'emplacement RU42.
 +
 [NOTE]
 ====
-En utilisant le commutateur entièrement installé comme support, il n'est pas nécessaire de maintenir l'avant du deuxième commutateur pendant le processus d'installation.
+En utilisant l'interrupteur entièrement installé comme support, il n'est pas nécessaire de tenir l'avant du deuxième interrupteur pendant le processus d'installation.
 
 ====
 
 
-. Lorsque les commutateurs sont installés, branchez les cordons de pontage aux entrées d'alimentation du commutateur.
-. Branchez les fiches mâles des deux cordons de raccordement aux prises PDU disponibles les plus proches.
+. Une fois les commutateurs installés, connectez les cordons de démarrage aux entrées d’alimentation des commutateurs.
+. Connectez les fiches mâles des deux cordons de démarrage aux prises PDU disponibles les plus proches.
 +
 [NOTE]
 ====
-Pour maintenir la redondance, les deux cordons doivent être connectés à différentes PDU.
+Pour maintenir la redondance, les deux cordons doivent être connectés à des PDU différents.
 
 ====
-. Connectez le port de gestion de chaque switch 3232C à l'un des switchs de gestion (si commandé) ou connectez-les directement à votre réseau de gestion.
+. Connectez le port de gestion de chaque commutateur 3232C à l'un des commutateurs de gestion (si commandés) ou connectez-les directement à votre réseau de gestion.
 +
-Le port de gestion est le port supérieur droit situé sur le côté PSU du commutateur. Le câble CAT6 de chaque commutateur doit être acheminé via le panneau de passage après l'installation des commutateurs pour se connecter aux commutateurs de gestion ou au réseau de gestion.
+Le port de gestion est le port supérieur droit situé sur le côté PSU du commutateur. Le câble CAT6 de chaque commutateur doit être acheminé via le panneau de passage une fois les commutateurs installés pour se connecter aux commutateurs de gestion ou au réseau de gestion.
 
 

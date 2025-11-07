@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-storage/replace-storage-switch-9336c-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
-summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux sur un réseau en cluster est une procédure \(NDU\) sans interruption.' 
+summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).' 
 ---
 = Remplacer les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
@@ -17,58 +17,58 @@ Vous pouvez remplacer les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T défectueu
 Avant d'installer le logiciel NX-OS et les RCF sur les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous que :
 
 * Votre système peut prendre en charge les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
-* Vous avez consulté le tableau de compatibilité des commutateurs sur la page des commutateurs Ethernet Cisco pour les versions ONTAP, NX-OS et RCF prises en charge.
-* Vous avez fait référence aux logiciels et aux guides de mise à niveau appropriés disponibles sur le site Web de Cisco.
+* Vous avez consulté le tableau de compatibilité des commutateurs sur la page des commutateurs Ethernet Cisco pour connaître les versions ONTAP, NX-OS et RCF prises en charge.
+* Vous avez consulté les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco .
 
 
-Commutateurs Cisco Nexus 3000 Series :
+Commutateurs Cisco Nexus série 3000 :
 
-* Vous avez téléchargé les CFR applicables.
-* La configuration réseau existante présente les caractéristiques suivantes :
+* Vous avez téléchargé les RCF applicables.
+* La configuration réseau existante présente les caractéristiques suivantes :
 +
-** La page des commutateurs Ethernet Cisco présente les dernières versions de RCF et NX-OS sur vos commutateurs.
+** La page relative aux commutateurs Ethernet Cisco contient les dernières versions de RCF et de NX-OS installées sur vos commutateurs.
 ** La connectivité de gestion doit exister sur les deux commutateurs.
 
 
-* Le commutateur Cisco Nexus 9336C-FX2 de remplacement présente les caractéristiques suivantes :
+* Le commutateur de remplacement Cisco Nexus 9336C-FX2 présente les caractéristiques suivantes :
 +
 ** La connectivité du réseau de gestion est fonctionnelle.
-** L'accès à la console au commutateur de remplacement est en place.
-** L'image appropriée du système d'exploitation RCF et NX-OS est chargée sur le commutateur.
+** L'accès console au commutateur de remplacement est opérationnel.
+** L'image système d'exploitation RCF et NX-OS appropriée est chargée sur le commutateur.
 ** La configuration initiale du commutateur est terminée.
 
 
 
 
-.Description de la tâche
-Cette procédure remplace le second commutateur de stockage S2 Nexus 9336C-FX2 par le nouveau commutateur NS2 9336C-FX. Les deux nœuds sont le nœud1 et le nœud2.
+.À propos de cette tâche
+Cette procédure remplace le deuxième commutateur de stockage Nexus 9336C-FX2 S2 par le nouveau commutateur 9336C-FX NS2.  Les deux nœuds sont le nœud 1 et le nœud 2.
 
-Étapes à suivre :
+Étapes à suivre :
 
-* Vérifiez que le commutateur à remplacer est S2.
-* Débrancher les câbles du commutateur S2.
-* Rebrancher les câbles sur le commutateur NS2.
-* Vérifiez toutes les configurations de périphérique sur le commutateur NS2.
+* Confirmez que l'interrupteur à remplacer est bien le S2.
+* Débranchez les câbles de l'interrupteur S2.
+* Rebranchez les câbles à l'interrupteur NS2.
+* Vérifiez toutes les configurations des périphériques sur le commutateur NS2.
 +
 
-NOTE: Il peut y avoir des dépendances entre la syntaxe de commande dans les versions RCF et NX-OS.
+NOTE: Il peut exister des dépendances entre la syntaxe des commandes dans les versions RCF et NX-OS.
 
 
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
 
-. Vérifier l'état de santé des ports du nœud de stockage pour s'assurer qu'il existe une connexion au commutateur de stockage S1 :
+. Vérifiez l'état de santé des ports du nœud de stockage pour vous assurer qu'il existe une connexion au commutateur de stockage S1 :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -90,12 +90,12 @@ node2
 storage::*>
 ----
 ====
-. Vérifiez que le commutateur de stockage S1 est disponible :
+. Vérifiez que le commutateur de stockage S1 est disponible :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -123,12 +123,12 @@ node2/lldp
 storage::*>
 ----
 ====
-. Lancez l'émission `lldp neighbors` commande sur le commutateur de travail pour confirmer que vous pouvez voir les deux nœuds et tous les tiroirs :
+. Dirigez le spectacle `lldp neighbors` Commande à exécuter sur le commutateur fonctionnel pour confirmer que vous pouvez voir les deux nœuds et toutes les étagères :
 +
 `show lldp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -146,12 +146,12 @@ SHFGD2008000022  Eth1/7       120          S             e0a
 SHFGD2008000022  Eth1/8       120          S             e0a
 ----
 ====
-. Vérifiez les ports shelf dans le système de stockage :
+. Vérifiez les ports des étagères dans le système de stockage :
 +
 `storage shelf port show -fields remote-device,remote-port`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -170,14 +170,14 @@ shelf   id  remote-port   remote-device
 storage::*>
 ----
 ====
-. Retirer tous les câbles reliés au commutateur de stockage S2.
-. Rebranchez tous les câbles au commutateur NS2 de remplacement.
-. Vérifier à nouveau l'état de santé des ports du nœud de stockage :
+. Retirez tous les câbles connectés au commutateur de stockage S2.
+. Rebranchez tous les câbles à l'interrupteur de remplacement NS2.
+. Revérifiez l'état de santé des ports du nœud de stockage :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -199,12 +199,12 @@ node2
 storage::*>
 ----
 ====
-. Vérifier que les deux commutateurs sont disponibles :
+. Vérifiez que les deux commutateurs sont disponibles :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -236,12 +236,12 @@ node2/lldp
 storage::*>
 ----
 ====
-. Vérifiez les ports shelf dans le système de stockage :
+. Vérifiez les ports des étagères dans le système de stockage :
 +
 `storage shelf port show -fields remote-device,remote-port`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -260,11 +260,11 @@ shelf   id    remote-port     remote-device
 storage::*>
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir remplacé vos interrupteurs, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

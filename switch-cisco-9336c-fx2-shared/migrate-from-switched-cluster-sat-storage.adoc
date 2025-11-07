@@ -4,7 +4,7 @@ permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-stora
 keywords:  
 summary:  
 ---
-= Migrer depuis un cluster commuté avec un stockage DAS
+= Migrer depuis un cluster commuté avec stockage connecté au commutateur
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,19 +14,19 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer d'un cluster commuté avec un système de stockage par switch en réutilisant les commutateurs de stockage.
+Vous pouvez migrer à partir d'un cluster commuté avec stockage connecté au commutateur en réutilisant les commutateurs de stockage.
 
-En réutilisant les switchs de stockage, les switchs de stockage de la paire haute disponibilité 1 deviennent les switchs partagés comme illustré dans la figure suivante.
+En réutilisant les commutateurs de stockage, les commutateurs de stockage de la paire HA 1 deviennent les commutateurs partagés, comme illustré dans la figure suivante.
 
-image:9336c_image1.jpg["Connexion par commutateur"]
+image:9336c_image1.jpg["Interrupteur attaché"]
 
 .Étapes
-. Vérifier que la configuration du stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
+. Vérifiez que la configuration de stockage de la paire HA 1 (et de la paire HA 2) est correcte et sans erreur :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -57,15 +57,15 @@ storage::*>
 ====
 
 
-. [[step2]]déplacer la paire haute disponibilité 1, chemin NSM224, câbles A du commutateur de stockage A vers les ports de stockage NSM224 pour la paire haute disponibilité 1, chemin A du commutateur de stockage A.
-. Déplacez le câble de la paire HA 1, nœud A, chemin A vers le port de stockage NSM224 pour la paire HA 1, nœud A du commutateur de stockage A.
-. Déplacez le câble de la paire HA 1, nœud B, chemin A vers le port de stockage NSM224 pour la paire HA 1, nœud B du commutateur de stockage A.
-. Vérifier que le stockage relié à la paire HA 1, le commutateur de stockage A fonctionne correctement :
+. [[étape 2]]Déplacez les câbles HA paire 1, chemin A NSM224 du commutateur de stockage A vers les ports de stockage NSM224 pour HA paire 1, chemin A sur le commutateur de stockage A.
+. Déplacez le câble de la paire HA 1, nœud A, chemin A vers le port de stockage NSM224 pour la paire HA 1, nœud A sur le commutateur de stockage A.
+. Déplacez le câble de la paire HA 1, nœud B, chemin A vers le port de stockage NSM224 pour la paire HA 1, nœud B sur le commutateur de stockage A.
+. Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage A, est en bon état :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -89,13 +89,13 @@ node2
 ====
 
 
-. [[step6]]remplacer la FCR de stockage sur le commutateur a partagé par le fichier RCF partagé. Voir link:install-nxos-rcf-9336c-shared.html["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
-. Vérifier que le stockage relié à la paire HA 1, le commutateur de stockage A fonctionne correctement :
+. [[étape6]]Remplacez le RCF de stockage sur le commutateur partagé A par le fichier RCF partagé.  Voirlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage A, est en bon état :
 +
 `system health alert show -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -106,15 +106,15 @@ There are no entries matching your query.
 ====
 
 
-. [[step8]]déplacer les câbles du chemin B de la paire haute disponibilité 1 et NSM224 du commutateur de stockage B vers les ports de stockage NS224 partagés pour la paire haute disponibilité 1, chemin B vers le commutateur de stockage B.
-. Déplacez le câble de la paire HA 1, du nœud A, du chemin B vers le port de stockage partagé pour la paire HA 1, le nœud A, le chemin B du commutateur de stockage B.
-. Déplacez le câble de la paire HA 1, du nœud B, du chemin B vers le port de stockage partagé pour la paire HA 1, le nœud B, le chemin B du commutateur de stockage B.
-. Vérifier que le stockage relié à la paire HA 1, le commutateur de stockage B fonctionne correctement :
+. [[étape 8]]Déplacez les câbles HA paire 1, chemin B NSM224 du commutateur de stockage B vers les ports de stockage NS224 partagés pour HA paire 1, chemin B vers le commutateur de stockage B.
+. Déplacez le câble de la paire HA 1, nœud A, chemin B vers le port de stockage partagé pour la paire HA 1, nœud A, chemin B sur le commutateur de stockage B.
+. Déplacez le câble de la paire HA 1, nœud B, chemin B vers le port de stockage partagé pour la paire HA 1, nœud B, chemin B sur le commutateur de stockage B.
+. Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage B, est en bon état :
 +
 `system health alert show -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -125,13 +125,13 @@ There are no entries matching your query.
 ====
 
 
-. [[step12]]remplacer le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Voir link:install-nxos-rcf-9336c-shared.html["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
-. Vérifier que le stockage relié à la paire HA 1, le commutateur de stockage B fonctionne correctement :
+. [[étape 12]]Remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé.  Voirlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage B, est en bon état :
 +
 `system health alert show -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -142,12 +142,12 @@ There are no entries matching your query.
 ====
 
 
-. [[step14]]vérifier que la configuration de stockage de la paire HA 1 est correcte et ne contient aucune erreur :
+. [[étape 14]]Vérifiez que la configuration de stockage de la paire HA 1 est correcte et sans erreur :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -178,9 +178,9 @@ storage::*>
 ====
 
 
-. [[step15]]installez les liens ISL entre le commutateur partagé A et le commutateur partagé B :
+. [[étape 15]]Installez les ISL entre le commutateur partagé A et le commutateur partagé B :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -203,14 +203,14 @@ sh1 (config)# *exit*
 ====
 
 
-. [[step16]]migrer la mise en réseau du cluster des commutateurs de cluster existants vers les commutateurs partagés en utilisant la procédure de remplacement du commutateur et le FCR partagé. Le nouveau commutateur partagé A est « cs1 ». Le nouveau commutateur partagé B est « cs2 ». Voir link:replace-9336c-fx2-shared.html["Remplacer un commutateur partagé Cisco Nexus 9336C-FX2"] et link:install-nxos-rcf-9336c-shared.html["Installez le FCR sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus d'informations.
-. Vérifiez que la configuration du réseau commuté est valide :
+. [[étape 16]]Migrez le réseau du cluster des commutateurs de cluster existants vers les commutateurs partagés en utilisant la procédure de remplacement de commutateur et le RCF partagé.  Le nouveau commutateur partagé A est « cs1 ».  Le nouveau commutateur partagé B est « cs2 ».  Voirlink:replace-9336c-fx2-shared.html["Remplacer un commutateur partagé Cisco Nexus 9336C-FX2"] etlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. Vérifiez que la configuration réseau commutée est valide :
 +
 `network port show`
 
-. Retirer les commutateurs inutilisés du cluster.
-. Retirer les commutateurs de stockage inutilisés.
+. Supprimez les commutateurs de cluster inutilisés.
+. Retirez les commutateurs de stockage inutilisés.
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs migrés, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

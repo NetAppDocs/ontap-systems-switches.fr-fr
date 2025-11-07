@@ -2,32 +2,32 @@
 permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, consultez la liste des composants et références des kits d"armoire et de rail.' 
+summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter la liste des composants et les références du boîtier et du kit de rails.' 
 ---
-= Composants et références pour les switchs NVIDIA SN2100
+= Composants et références des commutateurs NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur NVIDIA SN2100, consultez la liste des composants et références des kits d'armoire et de rail.
+Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter la liste des composants et les références du boîtier et du kit de rails.
 
 
 
-== Détails de l'armoire
+== Détails du cabinet
 
-Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire de commutation double/simple NVIDIA à l'aide des supports standard fournis avec le commutateur.
+Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire à commutateur double/simple NVIDIA avec les supports standard fournis avec le commutateur.
 
 
 
 == Détails du kit de rails
 
-Le tableau suivant répertorie le numéro de référence et la description des commutateurs et kits de rails MSN2100 :
+Le tableau suivant répertorie la référence et la description des interrupteurs et kits de rails MSN2100 :
 
 [cols="1,2"]
 |===
-| Numéro de référence | Description 
+| Numéro de pièce | Description 
 
 
  a| 
@@ -40,39 +40,39 @@ Commutateur de cluster, NVIDIA SN2100, 16PT 100G, PTSX
  a| 
 X190006-PI
  a| 
-Commutateur de cluster, NVIDIA SN2100, 16 PT 100 G, PSIN
+Commutateur de cluster, NVIDIA SN2100, 16PT 100G, PSIN
 
 
 
  a| 
 X190106-FE-PE
  a| 
-Commutateur, NVIDIA SN2100, 16PT 100G, PTSX, frontal
+Commutateur, NVIDIA SN2100, 16PT 100G, PTSX, Interface utilisateur
 
 
 
  a| 
 X190106-FE-PI
  a| 
-Switch, NVIDIA SN2100, 16PT 100G, PSIN, Front End
+Commutateur, NVIDIA SN2100, 16PT 100G, PSIN, Interface utilisateur
 
 
 
  a| 
 X-MTEF-KIT-D
  a| 
-Kit de rails, commutateur double NVIDIA côte à côte
+Kit de rails, double commutateur NVIDIA côte à côte
 
 
 
  a| 
 X-MTEF-KIT-E
  a| 
-Kit de rails, commutateur simple NVIDIA faible profondeur
+Kit de rails, interrupteur unique NVIDIA à faible profondeur
 
 |===
 
-NOTE: Pour plus d'informations, consultez la documentation NVIDIA à l'adresse https://docs.nvidia.com/networking/display/sn2000pub/Installation["Installation du commutateur SN2100 et du kit de rails"^].
+NOTE: Consultez la documentation NVIDIA pour plus de détails. https://docs.nvidia.com/networking/display/sn2000pub/Installation["installation de votre kit d'aiguillage et de rail SN2100"^] .
 
 .Quelle est la prochaine étape
 Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le link:required-documentation-sn2100-storage.html["documentation requise"].

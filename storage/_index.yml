@@ -5,11 +5,11 @@ indexpage:
     vos commutateurs de stockage pour les déploiements de cluster ONTAP .
   keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Les commutateurs de stockage vous permettent de créer des clusters ONTAP avec
-    plus de deux nœuds.  Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
+    plus de deux nœuds. Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
     la base de solutions d'interconnexion de cluster évolutives dans les environnements
     NetApp ONTAP .
   tiles:
-  - title: Commencez
+  - title: Commencer
     links:
     - title: Cisco Nexus 9336C-FX2 et 9336C-FX2-T
       url: "../switch-cisco-9336c-fx2-storage/configure-switch-overview-9336c-storage.html"
@@ -38,7 +38,7 @@ indexpage:
       url: "../switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
   - title: Documentation connexe
     links:
-    - title: Systèmes matériels ONTAP
+    - title: systèmes matériels ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Documentation sur les commutateurs de cluster
       url: "../index.html"

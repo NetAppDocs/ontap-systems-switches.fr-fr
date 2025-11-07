@@ -2,35 +2,35 @@
 permalink: switch-cisco-92300/configure-install-initial.html 
 sidebar: sidebar 
 keywords: install cisco 92300YC cluster switch, cisco nx 92300yc 
-summary: 'Cette procédure permet d"effectuer l"installation initiale du commutateur Cisco Nexus 92300YC.' 
+summary: 'Vous pouvez utiliser cette procédure pour effectuer l"installation initiale du commutateur Cisco Nexus 92300YC.' 
 ---
-= Configurez le commutateur Cisco Nexus 92300YC
+= Configurer le commutateur Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour configurer le commutateur Cisco Nexus 92300YC.
+Suivez cette procédure pour installer et configurer le commutateur Cisco Nexus 92300YC.
 
 .Étapes
 . Connectez le port série à un hôte ou à un port série.
-. Connectez le port de gestion (du côté non port du commutateur) au même réseau où se trouve le serveur SFTP.
-. Sur la console, définissez les paramètres série côté hôte :
+. Connectez le port de gestion (du côté opposé aux ports du commutateur) au même réseau que celui où se trouve votre serveur SFTP.
+. Sur la console, configurez les paramètres série côté hôte :
 +
-** 9600 bauds
-** 8 bits de données (data bits)
-** 1 bit de stop
+** 9600 baud
+** 8 bits de données
+** 1 butée
 ** parité : aucune
-** contrôle de flux : aucun
+** contrôle de flux : aucun
 
 
-. Lors du premier démarrage ou du redémarrage après effacement de la configuration en cours d'exécution, le commutateur Nexus 92300YC effectue une boucle lors d'un cycle de démarrage. Interrompez ce cycle en tapant *yes* pour abandonner la mise sous tension de l'approvisionnement automatique.
+. Lors du premier démarrage ou du redémarrage après effacement de la configuration en cours, le commutateur Nexus 92300YC effectue une boucle de démarrage.  Interrompez ce cycle en tapant *oui* pour annuler la mise sous tension automatique.
 +
-La configuration du compte administrateur système s'affiche.
+La configuration du compte d'administrateur système s'affiche.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -44,22 +44,22 @@ Disabling POAP.......Disabling POAP
 Do you want to enforce secure password standard (yes/no) [y]:
 ----
 ====
-. Tapez *y* pour appliquer la norme de mot de passe sécurisé :
+. Tapez *y* pour appliquer la norme de mot de passe sécurisé :
 +
 [listing, subs="+quotes"]
 ----
 Do you want to enforce secure password standard (yes/no) [y]: *y*
 ----
-. Entrez et confirmez le mot de passe pour l'administrateur utilisateur :
+. Saisissez et confirmez le mot de passe de l'utilisateur admin :
 +
 [listing]
 ----
 Enter the password for "admin":
 Confirm the password for "admin":
 ----
-. Tapez *yes* pour entrer dans la boîte de dialogue Configuration système de base.
+. Tapez *oui* pour accéder à la boîte de dialogue Configuration système de base.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -79,13 +79,13 @@ to skip the remaining dialogs.
 Would you like to enter the basic configuration dialog (yes/no):
 ----
 ====
-. Créer un autre compte de connexion :
+. Créer un autre compte de connexion :
 +
 [listing]
 ----
 Create another login account (yes/no) [n]:
 ----
-. Configurez les chaînes de communauté SNMP en lecture seule et en lecture-écriture :
+. Configurer les chaînes de communauté SNMP en lecture seule et en lecture-écriture :
 +
 [listing]
 ----
@@ -93,13 +93,13 @@ Configure read-only SNMP community string (yes/no) [n]:
 
 Configure read-write SNMP community string (yes/no) [n]:
 ----
-. Configurer le nom du commutateur de cluster :
+. Configurer le nom du commutateur de cluster :
 +
 [listing, subs="+quotes"]
 ----
 Enter the switch name : *cs2*
 ----
-. Configurez l'interface de gestion hors bande :
+. Configurer l'interface de gestion hors bande :
 +
 [listing, subs="+quotes"]
 ----
@@ -113,19 +113,19 @@ Configure the default gateway? (yes/no) [y]: *y*
 
 IPv4 address of the default gateway : 172.22.128.1
 ----
-. Configurer les options IP avancées :
+. Configurer les options IP avancées :
 +
 [listing, subs="+quotes"]
 ----
 Configure advanced IP options? (yes/no) [n]: *n*
 ----
-. Configurer les services Telnet :
+. Configurer les services Telnet :
 +
 [listing, subs="+quotes"]
 ----
 Enable the telnet service? (yes/no) [n]: *n*
 ----
-. Configuration des services SSH et des clés SSH :
+. Configurer les services SSH et les clés SSH :
 +
 [listing, subs="+quotes"]
 ----
@@ -135,7 +135,7 @@ Enable the ssh service? (yes/no) [y]: *y*
 
        Number of rsa key bits <1024-2048> [1024]: *2048*
 ----
-. Configurer d'autres paramètres :
+. Configurer les autres paramètres :
 +
 [listing, subs="+quotes"]
 ----
@@ -147,7 +147,7 @@ Configure the ntp server? (yes/no) [n]: *n*
 
   Configure CoPP system profile (strict/moderate/lenient/dense) [strict]: *strict*
 ----
-. Confirmez les informations du commutateur et enregistrez la configuration :
+. Vérifiez les informations du commutateur et enregistrez la configuration :
 +
 [listing, subs="+quotes"]
 ----
@@ -161,5 +161,5 @@ Copy complete.
 ----
 
 
-.Et la suite ?
-link:install-nxos-overview.html["Préparez-vous à installer le logiciel NX-OS et RCF"].
+.Quelle est la prochaine étape ?
+link:install-nxos-overview.html["Préparez-vous à installer le logiciel NX-OS et RCF."].

@@ -2,81 +2,81 @@
 permalink: switch-netapp-cn1610/install-rcf-file.html 
 sidebar: sidebar 
 keywords: reference configuration, file ,install, cn1610, switch, install rcf 
-summary: 'Lorsque vous installez un fichier RCF (Reference Configuration File), vous devez d"abord migrer les LIFs du cluster à l"écart du commutateur cs2. Une fois le FCR installé et validé, les LIF peuvent être rapatriées.' 
+summary: 'Lors de l"installation d"un fichier de configuration de référence (RCF), vous devez d"abord migrer les LIF du cluster hors du commutateur cs2.  Une fois le RCF installé et validé, les LIF peuvent être réimportés.' 
 ---
-= Installez un fichier de configuration de référence sur un commutateur CN1610
+= Installez un fichier de configuration de référence sur un commutateur CN1610.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivre cette procédure pour installer un fichier RCF (Reference Configuration File).
+Suivez cette procédure pour installer un fichier de configuration de référence (RCF).
 
-Avant d'installer une FCR, vous devez d'abord migrer les LIF de cluster en les éloignant du commutateur cs2. Une fois le FCR installé et validé, les LIF peuvent être rapatriées.
+Avant d'installer un RCF, vous devez d'abord migrer les LIF du cluster hors du commutateur cs2.  Une fois le RCF installé et validé, les LIF peuvent être réimportés.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Sauvegarde actuelle de la configuration du commutateur.
-* Un cluster totalement opérationnel (aucune erreur dans les journaux, ni carte réseau de cluster défectueuse, ni aucun problème similaire).
-* Connexions de port entièrement opérationnelles sur le commutateur du cluster.
-* Tous les ports de cluster sont configurés.
-* Toutes les interfaces logiques (LIF) de cluster sont configurées.
-* Un chemin de communication réussi : le ONTAP (privilège : avancé) `cluster ping-cluster -node node1` la commande doit indiquer cela `larger than PMTU communication` a réussi sur tous les chemins.
-* Version prise en charge de FCR et ONTAP.
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux et aucune carte d'interface réseau (NIC) défectueuse ou problème similaire).
+* Connexions de ports entièrement fonctionnelles sur le commutateur de cluster.
+* Tous les ports du cluster sont configurés.
+* Toutes les interfaces logiques du cluster (LIF) sont configurées.
+* Une voie de communication réussie : ONTAP (privilège : avancé) `cluster ping-cluster -node node1` La commande doit indiquer que `larger than PMTU communication` réussit sur tous les plans.
+* Une version prise en charge de RCF et ONTAP.
 +
-Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Pour les versions RCF et ONTAP prises en charge.
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] page pour les versions RCF et ONTAP prises en charge.
 
 
 
 
 
-== Installer la FCR
+== Installez le RCF
 
-La procédure suivante utilise la syntaxe de clustered Data ONTAP 8.2. Par conséquent, le Vserver, les noms des LIF et les résultats de l'interface de ligne de commande sont différents de ceux du Data ONTAP 8.3.
+La procédure suivante utilise la syntaxe clusterisée de Data ONTAP 8.2.  Par conséquent, le Vserver du cluster, les noms LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
 
-Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe de commande.
+Il peut exister des dépendances entre la syntaxe des commandes dans les versions RCF et FASTPATH.
 
 
-NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée en raison de problèmes de sécurité. Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé. Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur des commutateurs NetApp CN1610"^] A plus d'informations sur SSH.
+NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée pour des raisons de sécurité.  Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé.  Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur du commutateur NetApp CN1610"^] contient plus d'informations sur SSH.
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* les deux commutateurs NetApp sont cs1 et cs2.
-* Les deux LIF de cluster sont de type 1 et de type 1.
-* Les vServers sont vs1 et vs2.
-* Le `cluster::*>` l'invite indique le nom du cluster.
-* Les ports de cluster de chaque nœud sont nommés e1a et e2a.
+* Les deux commutateurs NetApp sont cs1 et cs2.
+* Les deux LIF de cluster sont clus1 et clus2.
+* Les serveurs virtuels sont vs1 et vs2.
+* Le `cluster::*>` L'invite indique le nom du cluster.
+* Les ports du cluster sur chaque nœud sont nommés e1a et e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
+https://hwu.netapp.com/["Hardware Universe"^]contient plus d'informations sur les ports de cluster réellement pris en charge sur votre plateforme.
 
-* Les liaisons ISL (Inter-Switch Links) prises en charge sont les ports 0/13 à 0/16.
-* Les ports 0/1 à 0/12 sont pris en charge par les connexions de nœuds.
-* Version prise en charge DE FASTPATH, RCF et ONTAP.
+* Les liaisons inter-commutateurs (ISL) prises en charge sont les ports 0/13 à 0/16.
+* Les connexions de nœuds prises en charge sont les ports 0/1 à 0/12.
+* Une version prise en charge de FASTPATH, RCF et ONTAP.
 +
-Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Consultez cette page pour les versions FASTPATH, RCF et ONTAP prises en charge.
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] page répertoriant les versions FASTPATH, RCF et ONTAP prises en charge.
 
 
 
 
 
-=== Étape 1 : migrer le cluster
+=== Étape 1 : Migrer le cluster
 
-. Enregistrez les informations de configuration actuelles du commutateur :
+. Enregistrez les informations de configuration actuelles de votre commutateur :
 +
 `write memory`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la configuration actuelle du commutateur enregistrée dans la configuration de démarrage (`startup-config`) fichier sur le commutateur cs2 :
+L'exemple suivant montre comment la configuration actuelle du commutateur est enregistrée dans la configuration de démarrage.(`startup-config` ) fichier sur switch cs2 :
 
 [listing]
 ----
@@ -91,12 +91,12 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Sur la console de chaque nœud, migrez clus2 vers le port e1a :
+. Sur la console de chaque nœud, migrez clus2 vers le port e1a :
 +
 `network interface migrate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -106,15 +106,15 @@ cluster::*> network interface migrate -vserver vs1 -lif clus2 -source-node node1
 cluster::*> network interface migrate -vserver vs2 -lif clus2 -source-node node2 -destnode node2 -dest-port e1a
 ----
 ====
-. Sur la console de chaque nœud, vérifiez que la migration a eu lieu :
+. Sur la console de chaque nœud, vérifiez que la migration a bien eu lieu :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que clus2 a migré vers le port e1a sur les deux nœuds :
+L'exemple suivant montre que clus2 a migré vers le port e1a sur les deux nœuds :
 
 [listing]
 ----
@@ -123,15 +123,15 @@ cluster::*> network port show -role cluster
          clus2      up/up      10.10.10.2/16   node2    e1a     false
 ----
 ====
-. Arrêter le port e2a sur les deux nœuds :
+. Fermez le port e2a sur les deux nœuds :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que le port e2a est arrêté sur les deux nœuds :
+L'exemple suivant montre la fermeture du port e2a sur les deux nœuds :
 
 [listing]
 ----
@@ -139,12 +139,12 @@ cluster::*> network port modify -node node1 -port e2a -up-admin false
 cluster::*> network port modify -node node2 -port e2a -up-admin false
 ----
 ====
-. Vérifiez que le port e2a est arrêté sur les deux nœuds :
+. Vérifiez que le port e2a est fermé sur les deux nœuds :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -162,9 +162,9 @@ node2
        e2a    cluster  down 9000  true/true   full/full   auto/10000
 ----
 ====
-. Arrêter les ports ISL sur cs1, le commutateur NetApp actif.
+. Fermez les ports ISL sur cs1, le commutateur NetApp actif.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -180,18 +180,18 @@ node2
 
 
 
-=== Étape 2 : installer FCR
+=== Étape 2 : installer RCF
 
-. Copier la FCR sur le commutateur.
+. Copiez le RCF sur le commutateur.
 +
 
-NOTE: Vous devez définir le `.scr` extension dans le cadre du nom du fichier avant d'appeler le script. Cette extension est l'extension du système d'exploitation FASTPATH.
+NOTE: Vous devez définir le `.scr` l'extension dans le nom du fichier avant d'exécuter le script.  Cette extension est destinée au système d'exploitation FASTPATH.
 
 +
-Le commutateur valide automatiquement le script lorsqu'il est téléchargé sur le commutateur et la sortie va sur la console.
+Le commutateur validera automatiquement le script lors de son téléchargement, et la sortie sera affichée sur la console.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -203,9 +203,9 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 ====
-. Vérifiez que le script a été téléchargé et enregistré avec le nom de fichier que vous lui avez donné.
+. Vérifiez que le script a bien été téléchargé et enregistré sous le nom de fichier que vous lui avez attribué.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -223,10 +223,10 @@ CN1610_CS_RCF_v1.1.scr           2199
 . Validez le script.
 +
 
-NOTE: Le script est validé pendant le téléchargement pour vérifier que chaque ligne est une ligne de commande de commutateur valide.
+NOTE: Le script est validé pendant le téléchargement afin de vérifier que chaque ligne correspond à une ligne de commande switch valide.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -236,9 +236,9 @@ NOTE: Le script est validé pendant le téléchargement pour vérifier que chaqu
 Configuration script 'CN1610_CS_RCF_v1.1.scr' validated.
 ----
 ====
-. Appliquez le script au commutateur.
+. Appliquez le script à l'interrupteur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -251,19 +251,19 @@ Are you sure you want to apply the configuration script? (y/n) y
 Configuration script 'CN1610_CS_RCF_v1.1.scr' applied.
 ----
 ====
-. Vérifiez que vos modifications ont été appliquées sur le commutateur.
+. Vérifiez que vos modifications ont bien été prises en compte sur le commutateur.
 +
 [listing]
 ----
 (cs2) # show running-config
 ----
 +
-L'exemple affiche le `running-config` fichier sur le commutateur. Vous devez comparer le fichier avec la FCR pour vérifier que les paramètres que vous avez définis sont ceux que vous attendez.
+L'exemple affiche le `running-config` fichier sur le commutateur.  Vous devez comparer le fichier au RCF pour vérifier que les paramètres que vous avez définis correspondent à vos attentes.
 
 . Enregistrez les modifications.
-. Réglez le `running-config` le fichier doit être le fichier standard.
+. Réglez le `running-config` Le fichier doit être le fichier standard.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -277,12 +277,12 @@ Are you sure you want to save? (y/n) y
 Config file 'startup-config' created successfully.
 ----
 ====
-. Redémarrez le commutateur et vérifiez que `running-config` le fichier est correct.
+. Redémarrez le commutateur et vérifiez que le `running-config` Le fichier est correct.
 +
-Une fois le redémarrage terminé, vous devez vous connecter et afficher `running-config` File, puis recherchez la description sur l'interface 3/64, qui est le label de version pour la FCR.
+Une fois le redémarrage terminé, vous devez vous connecter et consulter le `running-config` fichier, puis recherchez la description sur l'interface 3/64, qui est l'étiquette de version pour le RCF.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -298,9 +298,9 @@ Configuration Saved!
 System will now restart!
 ----
 ====
-. Mettre les ports ISL sur cs1, le commutateur actif.
+. Activez les ports ISL sur cs1, le commutateur actif.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -312,15 +312,15 @@ System will now restart!
 (cs1) (config)# exit
 ----
 ====
-. Vérifiez que les liens ISL sont opérationnels.
+. Vérifiez que les ISL sont opérationnels :
 +
 `show port-channel 3/1`
 
 +
-Le champ État du lien doit indiquer `Up`.
+Le champ État du lien doit indiquer `Up` .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -349,15 +349,15 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. Ajouter le port cluster e2a sur les deux nœuds :
+. Activez le port de cluster e2a sur les deux nœuds :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le port e2a en cours de démarrage sur les nœuds 1 et 2 :
+L'exemple suivant montre l'activation du port e2a sur les nœuds node1 et node2 :
 
 [listing]
 ----
@@ -369,14 +369,14 @@ cluster::*> network port modify -node node2 -port e2a -up-admin true
 
 
 
-=== Étape 3 : validation de l'installation
+=== Étape 3 : Valider l’installation
 
-. Vérifiez que le port e2a fonctionne sur les deux nœuds :
+. Vérifiez que le port e2a est actif sur les deux nœuds :
 +
 `network port show -_role cluster_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -394,15 +394,15 @@ node2
        e2a  cluster  up   9000  true/true   full/full   auto/10000
 ----
 ====
-. Sur les deux nœuds, revert clus2 associé au port e2a :
+. Sur les deux nœuds, rétablissez la configuration du cluster 2 associé au port e2a :
 +
 `network interface revert`
 
 +
-Il est possible que le LIF soit revert automatiquement, selon votre version de ONTAP.
+Le LIF peut revenir automatiquement, selon votre version d' ONTAP.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -411,12 +411,12 @@ cluster::*> network interface revert -vserver node1 -lif clus2
 cluster::*> network interface revert -vserver node2 -lif clus2
 ----
 ====
-. Vérifier que le LIF est déjà chez lui (`true`) sur les deux nœuds :
+. Vérifiez que le LIF est maintenant à la maison(`true` ) sur les deux nœuds :
 +
 `network interface show -_role cluster_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -434,12 +434,12 @@ vs2
         clus2      up/up      10.10.10.2/24  node2    e2a     true
 ----
 ====
-. Afficher l'état des membres du nœud :
+. Consultez l'état des membres du nœud :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -454,9 +454,9 @@ node2
                true    true
 ----
 ====
-. Copiez le `running-config` vers le `startup-config` fichier lorsque vous êtes satisfait des versions du logiciel et des paramètres du commutateur.
+. Copiez le `running-config` fichier au `startup-config` Enregistrez le fichier lorsque vous êtes satisfait des versions du logiciel et modifiez les paramètres.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -472,8 +472,8 @@ Config file 'startup-config' created successfully.
 Configuration Saved!
 ----
 ====
-. Répéter les étapes précédentes pour installer la FCR sur l'autre commutateur, cs1.
+. Répétez les étapes précédentes pour installer le RCF sur l'autre commutateur, cs1.
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"]
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"]

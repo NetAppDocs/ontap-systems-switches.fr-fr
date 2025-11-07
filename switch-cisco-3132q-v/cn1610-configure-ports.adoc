@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/cn1610-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
 = Configurez vos ports pour la migration des commutateurs CN1610 vers les commutateurs 3132Q-V.
 :allow-uri-read: 
@@ -11,30 +11,30 @@ summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commuta
 
 
 [role="lead"]
-Procédez comme suit pour configurer vos ports pour la migration des commutateurs CN1610 vers les nouveaux commutateurs Nexus 3132Q-V.
+Suivez ces étapes pour configurer vos ports en vue de la migration des commutateurs CN1610 vers les nouveaux commutateurs Nexus 3132Q-V.
 
 .Étapes
-. Sur tous les nœuds, retirez les câbles reliés au commutateur CN1610 CL2.
+. Sur tous les nœuds, retirez les câbles qui sont connectés au commutateur CN1610 CL2.
 +
-Grâce au câblage pris en charge, vous devez reconnecter les ports déconnectés de tous les nœuds au commutateur Nexus 3132Q-V C2.
+Avec un câblage compatible, vous devez reconnecter les ports déconnectés sur tous les nœuds au commutateur Nexus 3132Q-V C2.
 
 . Retirez quatre câbles ISL des ports 13 à 16 du commutateur CN1610 CL1.
 +
-Vous devez connecter les câbles de dérivation Cisco QSFP à SFP+ appropriés reliant le port 1/24 du nouveau commutateur Cisco 3132Q-V C2, aux ports 13 à 16 du commutateur CN1610 existant CL1.
+Vous devez connecter les câbles de dérivation Cisco QSFP vers SFP+ appropriés reliant le port 1/24 du nouveau commutateur Cisco 3132Q-V C2 aux ports 13 à 16 du commutateur CN1610 existant CL1.
 
 +
 
-NOTE: Lorsque vous reconnectez des câbles au nouveau commutateur Cisco 3132Q-V, vous devez utiliser soit des câbles à fibre optique, soit des câbles Twinax Cisco.
+NOTE: Lors du rebranchement de câbles sur le nouveau commutateur Cisco 3132Q-V, vous devez utiliser soit des câbles à fibre optique, soit des câbles twinax Cisco .
 
-. Pour rendre l'ISL dynamique, configurez l'interface ISL 3/1 sur le commutateur CN1610 actif pour désactiver le mode statique : `no port-channel static`
+. Pour rendre l'ISL dynamique, configurez l'interface ISL 3/1 sur le commutateur CN1610 actif pour désactiver le mode statique : `no port-channel static`
 +
-Cette configuration correspond à la configuration ISL sur le commutateur 3132Q-V C2 lorsque les liens ISL sont activés sur les deux commutateurs à l'étape 11.
+Cette configuration correspond à la configuration ISL sur le commutateur 3132Q-V C2 lorsque les ISL sont activés sur les deux commutateurs à l'étape 11.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la configuration de l'interface ISL 3/1 utilisant le `no port-channel static` Pour rendre l'ISL dynamique :
+L'exemple suivant illustre la configuration de l'interface ISL 3/1 utilisant `no port-channel static` commande pour rendre l'ISL dynamique :
 
 [listing]
 ----
@@ -46,12 +46,12 @@ L'exemple suivant montre la configuration de l'interface ISL 3/1 utilisant le `n
 (CL1)#
 ----
 ====
-. Intégrez des liens ISL 13 à 16 sur le commutateur CN1610 actif CL1.
+. Activez les ISL 13 à 16 sur le commutateur CN1610 actif CL1.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant illustre le processus d'affichage des ports ISL 13 à 16 sur l'interface port-Channel 3/1 :
+L'exemple suivant illustre le processus de mise en service des ports ISL 13 à 16 sur l'interface de canal de port 3/1 :
 
 [listing]
 ----
@@ -63,15 +63,15 @@ L'exemple suivant illustre le processus d'affichage des ports ISL 13 à 16 sur l
 (CL1)#
 ----
 ====
-. Vérifiez que les liens ISL sont `up` Sur le commutateur CN1610 CL1 :
+. Vérifiez que les ISL sont `up` sur le commutateur CN1610 CL1 :
 +
 `show port-channel`
 
 +
-L'état de la liaison doit être de `Up`, "Type" doit être `Dynamic`, Et la colonne "Port actif" doit être `True` pour les ports 0/13 à 0/16 :
+L'« état du lien » devrait être `Up` , « Type » devrait être `Dynamic` et la colonne « Port actif » devrait être `True` pour les ports 0/13 à 0/16 :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -98,15 +98,15 @@ Ports  Timeout       Speed       Active
        partner/long
 ----
 ====
-. Vérifiez que les liens ISL sont `up` Sur le commutateur 332Q-V C2 :
+. Vérifiez que les ISL sont `up` sur le commutateur 3132Q-V C2 :
 +
 `show port-channel summary`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Les ports eth1/24/1 à eth1/24/4 doivent indiquer `(P)`, Ce qui signifie que les quatre ports ISL sont dans le port-Channel. Eth1/31 et eth1/32 doivent indiquer `(D)` comme ils ne sont pas connectés :
+Les ports Eth1/24/1 à Eth1/24/4 doivent indiquer `(P)` , ce qui signifie que les quatre ports ISL sont actifs dans le canal de ports.  Eth1/31 et Eth1/32 devraient indiquer `(D)` car ils ne sont pas connectés :
 
 [listing]
 ----
@@ -127,15 +127,15 @@ Group Port-       Type     Protocol  Member Ports
                                      Eth1/24/4(P)
 ----
 ====
-. Ajouter tous les ports d'interconnexion de cluster connectés au commutateur 3132Q-V C2 sur tous les nœuds :
+. Activez tous les ports d'interconnexion du cluster connectés au commutateur 3132Q-V C2 sur tous les nœuds :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre comment afficher les ports d'interconnexion de cluster connectés au commutateur 3132Q-V C2 :
+L'exemple suivant montre comment mettre en service les ports d'interconnexion du cluster connectés au commutateur 3132Q-V C2 :
 
 [listing]
 ----
@@ -145,12 +145,12 @@ cluster::*> network port modify -node n2 -port e0b -up-admin true
 cluster::*> network port modify -node n2 -port e0c -up-admin true
 ----
 ====
-. Restaurez toutes les LIF d'interconnexion de cluster migrées qui sont connectées à C2 sur tous les nœuds :
+. Rétablir la configuration de toutes les interfaces logiques d'interconnexion de cluster migrées qui sont connectées à C2 sur tous les nœuds :
 +
 `network interface revert`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -161,15 +161,15 @@ cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus3
 ----
 ====
-. Vérifier que tous les ports d'interconnexion de cluster sont restaurés sur leurs ports de base :
+. Vérifiez que tous les ports d'interconnexion du cluster sont rétablis à leurs ports d'origine :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIF du clus2 sont rétablies sur leurs ports d'accueil et montre que les LIF sont rétablies si les ports de la colonne « Current Port » ont le statut de `true` Dans la colonne « est domicile ». Si la valeur est domicile est `false`, Alors la LIF n'est pas rétablie.
+L'exemple suivant montre que les LIF du cluster 2 sont rétablies sur leurs ports d'origine et que ce rétablissement est réussi si les ports de la colonne « Port actuel » ont l'état suivant : `true` dans la colonne « Est à la maison ».  Si la valeur de la maison est `false` , alors le LIF n'est pas annulé.
 
 [listing]
 ----
@@ -192,15 +192,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Vérifier que tous les ports du cluster sont connectés :
+. Vérifiez que tous les ports du cluster sont connectés :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le résultat de la précédente `network port modify` commande, vérification de la place de toutes les interconnexions du cluster `up`:
+L'exemple suivant illustre le résultat de l'étape précédente `network port modify` commande, vérifiant que toutes les interconnexions du cluster sont `up` :
 
 [listing]
 ----
@@ -228,22 +228,22 @@ e0d   cluster   cluster     up    9000  auto/10000     -        -
 8 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* Veuillez patienter quelques secondes avant d’exécuter la commande « show » pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -260,9 +260,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2   n1_clus2       none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -312,15 +312,15 @@ RPC status:
 ----
 --
 ====
-. [[step12]] sur chaque nœud du cluster, migrer les interfaces associées au premier commutateur CN1610 CL1 à remplacer :
+. [[étape 12]] Sur chaque nœud du cluster, migrez les interfaces associées au premier commutateur CN1610 CL1, à remplacer :
 +
 `network interface migrate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les ports ou LIFs en cours de migration sur les nœuds n1 et n2 :
+L'exemple suivant montre les ports ou LIF en cours de migration sur les nœuds n1 et n2 :
 
 [listing]
 ----
@@ -330,15 +330,15 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus1 -destinatio
 cluster::*> network interface migrate -vserver Cluster -lif n2_clus4 -destination-node n2 -destination-port e0c
 ----
 ====
-. Vérifiez l'état du cluster :
+. Vérifier l'état du cluster :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIFs de cluster requises ont été migrées vers les ports de cluster appropriés hébergés sur le commutateur de cluster C2 :
+L'exemple suivant montre que les LIF de cluster requises ont été migrées vers les ports de cluster appropriés hébergés sur le commutateur de cluster C2 :
 
 [listing]
 ----
@@ -361,15 +361,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-. Arrêtez les ports de nœud qui sont connectés à CL1 sur tous les nœuds :
+. Fermez les ports de nœud connectés à CL1 sur tous les nœuds :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre comment arrêter les ports spécifiés sur les nœuds n1 et n2 :
+L'exemple suivant montre comment désactiver les ports spécifiés sur les nœuds n1 et n2 :
 
 [listing]
 ----
@@ -379,15 +379,15 @@ cluster::*> network port modify -node n2 -port e0a -up-admin false
 cluster::*> network port modify -node n2 -port e0d -up-admin false
 ----
 ====
-. Arrêter les ports ISL 24, 31 et 32 sur le commutateur actif 3132Q-V C2 :
+. Désactivez les ports ISL 24, 31 et 32 sur le commutateur actif 3132Q-V C2 :
 +
 `shutdown`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre comment arrêter les liens ISL 24, 31 et 32 sur le commutateur 332Q-V actif C2 :
+L'exemple suivant montre comment désactiver les ISL 24, 31 et 32 sur le commutateur actif 3132Q-V C2 :
 
 [listing]
 ----
@@ -402,20 +402,20 @@ C2(config)# exit
 C2#
 ----
 ====
-. Retirez les câbles reliés au commutateur CN1610 CL1 de tous les nœuds.
+. Retirez les câbles connectés au commutateur CN1610 CL1 sur tous les nœuds.
 +
-Grâce au câblage pris en charge, vous devez reconnecter les ports déconnectés de tous les nœuds au commutateur Nexus 3132Q-V C1.
+Avec un câblage compatible, vous devez reconnecter les ports déconnectés sur tous les nœuds au commutateur Nexus 3132Q-V C1.
 
-. Retirez les câbles QSFP du port E1/24 du connecteur Nexus 3132Q-V C2.
+. Retirez les câbles QSFP du port e1/24 du Nexus 3132Q-V C2.
 +
-Vous devez connecter les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 sur C2 à l'aide de câbles à fibre optique ou à connexion directe Cisco QSFP pris en charge.
+Vous devez connecter les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 sur C2 à l'aide de câbles à fibre optique Cisco QSFP ou de câbles à connexion directe pris en charge.
 
-. Restaurez la configuration sur le port 24 et retirez le canal 2 temporaire du port C2 en copiant le `running-configuration` vers le `startup-configuration` fichier.
+. Restaurez la configuration sur le port 24 et supprimez le canal de port temporaire 2 sur C2, en copiant le `running-configuration` fichier au `startup-configuration` déposer.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant copie le `running-configuration` vers le `startup-configuration` fichier :
+L'exemple suivant copie le `running-configuration` fichier au `startup-configuration` déposer:
 
 [listing]
 ----
@@ -434,15 +434,15 @@ C2# copy running-config startup-config
 Copy Complete.
 ----
 ====
-. Mettre en place les ports ISL 31 et 32 sur C2, le commutateur actif 3132Q-V :
+. Activez les ports ISL 31 et 32 sur C2, le commutateur 3132Q-V actif :
 +
 `no shutdown`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre comment afficher des liens ISL 31 et 32 sur le commutateur 3132Q-V C2 :
+L'exemple suivant montre comment activer les ISL 31 et 32 sur le commutateur 3132Q-V C2 :
 
 [listing]
 ----
@@ -459,5 +459,5 @@ Copy Complete.
 ====
 
 
-.Et la suite ?
-link:cn1610-complete-migration.html["Terminez la migration"].
+.Quelle est la prochaine étape ?
+link:cn1610-complete-migration.html["Finalisez votre migration"].

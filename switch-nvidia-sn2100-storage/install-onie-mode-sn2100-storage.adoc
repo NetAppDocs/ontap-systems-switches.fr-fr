@@ -2,46 +2,46 @@
 permalink: switch-nvidia-sn2100-storage/install-onie-mode-sn2100-storage.html 
 sidebar: sidebar 
 keywords: install cumulus onie mode, sn2100 SN2100 switches setup, cumulus linux, onie mode 
-summary: 'Le système d"exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE.' 
+summary: 'Le système d"exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute Cumulus Linux, soit ONIE.' 
 ---
-= Installez Cumulus Linux en mode ONIE
+= Installer Cumulus Linux en mode ONIE
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur est en mode ONIE.
+Suivez cette procédure pour installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur fonctionne en mode ONIE.
 
 
-NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé lorsque le commutateur exécute Cumulus Linux ou ONIE (voir link:install-cumulus-mode-sn2100-storage.html["Installer en mode Cumulus"]).
+NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute Cumulus Linux, soit lorsqu'il exécute ONIE (voirlink:install-cumulus-mode-sn2100-storage.html["Installation en mode Cumulus"] ).
 
-.Description de la tâche
-Vous pouvez installer Cumulus Linux à l'aide de l'environnement d'installation en réseau ouvert (ONIE) qui permet la détection automatique d'une image du programme d'installation réseau. Cela facilite le modèle de système de sécurisation des commutateurs avec un choix de systèmes d'exploitation, comme Cumulus Linux. La façon la plus simple d'installer Cumulus Linux avec ONIE est avec la découverte HTTP locale.
+.À propos de cette tâche
+Vous pouvez installer Cumulus Linux en utilisant Open Network Install Environment (ONIE) qui permet la découverte automatique d'une image d'installation réseau.  Cela facilite la mise en place d'un modèle système de sécurisation des commutateurs avec un choix de système d'exploitation, tel que Cumulus Linux.  La méthode la plus simple pour installer Cumulus Linux avec ONIE consiste à utiliser la découverte HTTP locale.
 
 
-NOTE: Si votre hôte est compatible IPv6, assurez-vous qu'il exécute un serveur Web. Si votre hôte est compatible IPv4, assurez-vous qu'il exécute DHCP en plus d'un serveur Web.
+NOTE: Si votre hôte est compatible IPv6, assurez-vous qu'il exécute un serveur web.  Si votre hôte est compatible IPv4, assurez-vous qu'il exécute un serveur DHCP en plus d'un serveur web.
 
-Cette procédure explique comment mettre à niveau Cumulus Linux une fois que l'administrateur a démarré dans ONIE.
+Cette procédure explique comment mettre à niveau Cumulus Linux après que l'administrateur a démarré dans ONIE.
 
 .Étapes
-. Téléchargez le fichier d'installation de Cumulus Linux dans le répertoire racine du serveur Web. Renommez ce fichier `onie-installer`.
+. Téléchargez le fichier d'installation de Cumulus Linux dans le répertoire racine du serveur web.  Renommez ce fichier `onie-installer` .
 . Connectez votre hôte au port Ethernet de gestion du commutateur à l'aide d'un câble Ethernet.
-. Mettez l'interrupteur sous tension. Le commutateur télécharge le programme d'installation de l'image ONIE et démarre. Une fois l'installation terminée, l'invite de connexion Cumulus Linux s'affiche dans la fenêtre du terminal.
+. Mettez l'interrupteur sous tension.  La console télécharge l'installateur d'image ONIE et démarre.  Une fois l'installation terminée, l'invite de connexion Cumulus Linux apparaît dans la fenêtre du terminal.
 +
 
-NOTE: Chaque fois que Cumulus Linux est installé, l'intégralité de la structure du système de fichiers est effacée et reconstruite.
+NOTE: À chaque installation de Cumulus Linux, l'intégralité de la structure du système de fichiers est effacée puis reconstruite.
 
-. Redémarrez le commutateur SN2100 :
+. Redémarrez le commutateur SN2100 :
 +
 [listing, subs="+quotes"]
 ----
 cumulus@cumulus:mgmt:~$ *sudo reboot*
 ----
-. Appuyez sur la touche *Esc* de l'écran GNU GRUB pour interrompre le processus de démarrage normal, sélectionnez *ONIE* et appuyez sur *entrée*.
-. Sur l'écran suivant qui s'affiche, sélectionnez *ONIE: Install OS*.
-. Le processus de détection du programme d'installation ONIE exécute la recherche de l'installation automatique. Appuyez sur *entrée* pour arrêter temporairement le processus.
-. Lorsque le processus de détection est arrêté :
+. Appuyez sur la touche *Esc* sur l'écran GNU GRUB pour interrompre le processus de démarrage normal, sélectionnez *ONIE* et appuyez sur *Entrée*.
+. Sur l'écran suivant, sélectionnez *ONIE : Installer le système d'exploitation*.
+. Le processus de découverte du programme d'installation ONIE s'exécute à la recherche de l'installation automatique.  Appuyez sur *Entrée* pour interrompre temporairement le processus.
+. Lorsque le processus de découverte est terminé :
 +
 [listing, subs="+quotes"]
 ----
@@ -50,12 +50,12 @@ discover: installer mode detected.
 Stopping: discover...start-stop-daemon: warning: killing process 427:
 No such process done.
 ----
-. Si le service DHCP fonctionne sur votre réseau, vérifiez que l'adresse IP, le masque de sous-réseau et la passerelle par défaut sont correctement attribués :
+. Si le service DHCP est activé sur votre réseau, vérifiez que l'adresse IP, le masque de sous-réseau et la passerelle par défaut sont correctement attribués :
 +
 `ifconfig eth0`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -79,7 +79,7 @@ default         10.233.204.1    0.0.0.0         UG    0      0      0   eth0
 10.233.204.0    *               255.255.254.0   U     0      0      0   eth0
 ----
 ====
-. Si le schéma d'adressage IP est défini manuellement, procédez comme suit :
+. Si le schéma d'adressage IP est défini manuellement, procédez comme suit :
 +
 [listing, subs="+quotes"]
 ----
@@ -87,7 +87,7 @@ ONIE:/ # *ifconfig eth0 10.233.204.71 netmask 255.255.254.0*
 ONIE:/ # *route add default gw 10.233.204.1*
 ----
 . Répétez l'étape 9 pour vérifier que les informations statiques sont correctement saisies.
-. Installez Cumulus Linux :
+. Installer Cumulus Linux :
 +
 [listing, subs="+quotes"]
 ----
@@ -104,9 +104,9 @@ ONIE:/ # *route*
   ...
   ...
 ----
-. Une fois l'installation terminée, connectez-vous au commutateur :
+. Une fois l'installation terminée, connectez-vous au commutateur :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -120,12 +120,12 @@ New password: *<new_password>*
 Retype new password: *<new_password>*
 ----
 ====
-. Vérifiez la version de Cumulus Linux :
+. Vérifiez la version de Cumulus Linux :
 +
 `net show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -139,5 +139,5 @@ DISTRIB_DESCRIPTION=*"Cumulus Linux 4.4.3”*
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir installé Cumulus Linux en mode ONIE, vous pouvezlink:install-rcf-sn2100-storage.html["installer ou mettre à niveau le script RCF"] .

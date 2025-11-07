@@ -2,15 +2,15 @@
 permalink: switch-cshm/log-collection-overview.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Vous pouvez utiliser les commandes fournies .... 
+summary: Vous pouvez utiliser les commandes fournies... 
 ---
-= Présentation de la collecte des journaux
+= Aperçu de la collecte des journaux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Une fois la collecte des journaux configurée, vous pouvez activer une collecte horaire des données périodiques collectées par AutoSupport et demander des journaux de support détaillés.
+Une fois la collecte des journaux configurée, vous pouvez activer la collecte horaire des données périodiques collectées par AutoSupport et demander des journaux d'assistance détaillés.
 
-Voir link:config-log-collection.html["Configurer la collecte des journaux"] pour plus de détails.
+Voirlink:config-log-collection.html["Configurer la collecte des journaux"] pour plus de détails.

@@ -1,47 +1,47 @@
-= Créez une entrée de commutateur afin que ONTAP puisse la surveiller
+= Créez une entrée de commutation pour ONTAP puisse la surveiller.
 :allow-uri-read: 
 
 
 
 
-== Créez une entrée de commutateur afin que ONTAP puisse la surveiller
+== Créez une entrée de commutation pour ONTAP puisse la surveiller.
 
-Utilisez `system switch ethernet create` la commande pour configurer et activer manuellement la surveillance d'un commutateur Ethernet spécifié. Ceci est utile si ONTAP n'ajoute pas automatiquement le commutateur, ou si vous avez précédemment supprimé le commutateur et souhaitez le rajouter.
+Utilisez le `system switch ethernet create` commande permettant de configurer et d'activer manuellement la surveillance d'un commutateur Ethernet spécifié.  Cela est utile si ONTAP n'ajoute pas automatiquement le commutateur, ou si vous l'avez précédemment supprimé et souhaitez le rajouter.
 
 [source, cli]
 ----
 system switch ethernet create -device DeviceName -address 1.2.3.4 -snmp-version SNMPv2c -community-or-username cshm1! -model NX3132V -type cluster-network
 ----
-Un exemple type est l'ajout d'un commutateur nommé [DeviceName], avec l'adresse IP 1.2.3.4, et les informations d'identification SNMPv2c définies sur *cshm1!*. Utilisez `-type storage-network` plutôt que `-type cluster-network` si vous configurez un commutateur de stockage.
+Un exemple typique consiste à ajouter un commutateur nommé [DeviceName], avec l'adresse IP 1.2.3.4 et les informations d'identification SNMPv2c définies sur *cshm1!*.  Utiliser `-type storage-network` au lieu de `-type cluster-network` si vous configurez un commutateur de stockage.
 
 
 
 == Désactiver la surveillance sans supprimer le commutateur
 
-Si vous souhaitez mettre en pause ou arrêter la surveillance d'un certain commutateur, mais le conserver pour une surveillance future, modifiez son `is-monitoring-enabled-admim` paramètre au lieu de le supprimer.
+Si vous souhaitez suspendre ou arrêter la surveillance d'un commutateur spécifique, tout en le conservant pour une surveillance ultérieure, modifiez ses paramètres. `is-monitoring-enabled-admim` paramètre au lieu de le supprimer.
 
-Par exemple :
+Par exemple:
 
 [source, cli]
 ----
 system switch ethernet modify -device DeviceName -is-monitoring-enabled-admin false
 ----
-Cela vous permet de préserver les détails et la configuration du commutateur sans générer de nouvelles alertes ou de nouvelles découvertes.
+Cela vous permet de préserver les détails et la configuration des commutateurs sans générer de nouvelles alertes ni de nouvelles redécouvertes.
 
 
 
-== Retirez un commutateur dont vous n'avez plus besoin
+== Retirez un interrupteur dont vous n'avez plus besoin.
 
-Utiliser `system switch ethernet delete` pour supprimer un commutateur qui a été déconnecté ou n'est plus nécessaire :
+Utiliser `system switch ethernet delete` pour supprimer un commutateur qui a été déconnecté ou qui n'est plus nécessaire :
 
 [source, cli]
 ----
 system switch ethernet delete -device DeviceName
 ----
-Par défaut, cette commande réussit uniquement si ONTAP ne détecte pas actuellement le commutateur via CDP ou LLDP. Pour supprimer un commutateur découvert, utilisez le `-force` paramètre :
+Par défaut, cette commande ne réussit que si ONTAP ne détecte pas actuellement le commutateur via CDP ou LLDP.  Pour supprimer un commutateur détecté, utilisez le `-force` paramètre:
 
 [source, cli]
 ----
 system switch ethernet delete -device DeviceName -force
 ----
-Lorsque `-force` est utilisé, le commutateur peut être ajouté automatiquement si ONTAP le détecte à nouveau.
+Quand `-force` Si le commutateur est utilisé, il pourra être rajouté automatiquement si ONTAP le détecte à nouveau.

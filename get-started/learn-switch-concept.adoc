@@ -2,7 +2,7 @@
 permalink: get-started/learn-switch-concept.html 
 sidebar: sidebar 
 keywords:  
-summary: Découvrez la mise en cluster, le stockage et les commutateurs partagés. 
+summary: Découvrez les commutateurs en cluster, de stockage et partagés. 
 ---
 = En savoir plus sur les systèmes AFX, les clusters, le stockage et les commutateurs partagés
 :allow-uri-read: 
@@ -13,16 +13,16 @@ summary: Découvrez la mise en cluster, le stockage et les commutateurs partagé
 [role="lead"]
 NetApp propose des systèmes AFX, des clusters, du stockage et des commutateurs partagés qui offrent des communications internes avec la possibilité de déplacer sans interruption les données et les interfaces réseau à travers le cluster.
 
-Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tandis que les commutateurs de cluster « back-end » assurent des connexions entre deux ou plusieurs contrôleurs NetApp.
+Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tandis que les commutateurs de cluster « dorsaux » assurent les connexions entre deux ou plusieurs contrôleurs NetApp .
 
 
-NOTE: Seuls les switchs back-end validés par NetApp (commandés auprès de NetApp) sont pris en charge.
+NOTE: Seuls les commutateurs back-end validés par NetApp(commandés auprès de NetApp) sont pris en charge.
 
 
 
 == Commutateurs de systèmes AFX
 
-Les commutateurs des systèmes AFX vous permettent de créer des commutateurs réseau rapides, économes en énergie et peu encombrants.  Leur petite taille et leur densité de ports élevée les rendent idéaux pour la gestion de grands réseaux.  Les ports prennent en charge différentes vitesses et peuvent être divisés en plusieurs connexions.  Les commutateurs de systèmes AFX pris en charge par NetApp incluent :
+Les commutateurs des systèmes AFX vous permettent de créer des commutateurs réseau rapides, économes en énergie et peu encombrants. Leur petite taille et leur densité de ports élevée les rendent idéaux pour la gestion de grands réseaux. Les ports prennent en charge différentes vitesses et peuvent être divisés en plusieurs connexions. Les commutateurs de systèmes AFX pris en charge par NetApp incluent :
 
 * Cisco Nexus 9332D-GX2B
 * Cisco Nexus 9364D-GX2A
@@ -32,7 +32,7 @@ Les commutateurs des systèmes AFX vous permettent de créer des commutateurs r�
 
 == Commutateurs de cluster
 
-Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds. Les commutateurs de cluster pris en charge par NetApp comprennent :
+Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds. Les commutateurs de cluster pris en charge par NetApp incluent :
 
 * Broadcom BES-53248
 * Cisco Nexus 9336C-FX2
@@ -43,7 +43,7 @@ Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus
 
 == Commutateurs de stockage
 
-Les commutateurs de stockage vous permettent d'acheminer des données entre les serveurs et les baies de stockage d'un réseau de stockage (SAN). Les commutateurs de stockage pris en charge par NetApp sont les suivants :
+Les commutateurs de stockage vous permettent d'acheminer les données entre les serveurs et les baies de stockage dans un réseau de stockage (SAN).  Les commutateurs de stockage compatibles avec NetApp incluent :
 
 * Cisco Nexus 9336C-FX2
 * NVIDIA SN2100
@@ -53,7 +53,7 @@ Les commutateurs de stockage vous permettent d'acheminer des données entre les 
 
 == Commutateurs partagés
 
-Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagé, en prenant en charge l'utilisation de clusters partagés et de RFC de stockage. Le commutateur partagé pris en charge par NetApp est :
+Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagé, en prenant en charge l'utilisation de RCF de cluster et de stockage partagés.  Le commutateur partagé pris en charge par NetApp est :
 
 * Cisco Nexus 9336C-FX2
 
@@ -62,7 +62,7 @@ Les commutateurs partagés vous permettent de combiner les fonctionnalités de c
 
 == Fin de disponibilité
 
-Les commutateurs de stockage suivants ne sont plus disponibles à la vente, mais sont toujours pris en charge :
+Les commutateurs de stockage suivants ne sont plus disponibles à l'achat, mais bénéficient toujours d'un support technique :
 
 * Cisco Nexus 3232C
 * Cisco Nexus 3132Q-V

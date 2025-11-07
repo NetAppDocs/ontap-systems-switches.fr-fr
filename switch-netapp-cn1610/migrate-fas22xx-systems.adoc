@@ -2,60 +2,60 @@
 permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
-summary: 'Si vous possédez des systèmes FAS22xx dans un cluster existant sans commutateur à deux nœuds dans lequel chaque module de contrôleur dispose d"une connexion 10 GbE unique et dos à dos pour la connectivité des clusters, vous pouvez utiliser l"option de réseau sans commutateur et remplacer la connectivité directe interne par des connexions de commutateurs.' 
+summary: 'Si vous disposez de systèmes FAS22xx dans un cluster existant à deux nœuds sans commutateur, dans lequel chaque module de contrôleur dispose d"une seule connexion 10 GbE directe pour la connectivité du cluster, vous pouvez utiliser l"option de réseau de cluster sans commutateur et remplacer la connectivité directe directe par des connexions de commutateur.' 
 ---
-= Migrez vers un cluster commuté à deux nœuds sur les systèmes FAS22xx avec une seule connexion cluster-network
+= Migration vers un cluster commuté à deux nœuds dans les systèmes FAS22xx avec une seule connexion réseau de cluster
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous possédez des systèmes FAS22xx dans un cluster existant sans commutateur à deux nœuds dans lequel chaque module de contrôleur dispose d'une connexion 10 GbE unique et dos à dos pour la connectivité des clusters, vous pouvez utiliser l'option de réseau sans commutateur et remplacer la connectivité directe interne par des connexions de commutateurs.
+Si vous disposez de systèmes FAS22xx dans un cluster existant à deux nœuds sans commutateur, dans lequel chaque module de contrôleur dispose d'une seule connexion 10 GbE directe pour la connectivité du cluster, vous pouvez utiliser l'option de réseau de cluster sans commutateur et remplacer la connectivité directe directe par des connexions de commutateur.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Deux connexions de cluster pour la migration d'une configuration sans commutateur vers une configuration avec commutateur.
-* Le cluster est en bon état et se compose de deux nœuds connectés avec une connectivité dos à dos.
+* Deux connexions de cluster pour la migration d'une configuration sans commutateur vers une configuration commutée.
+* Le cluster est sain et se compose de deux nœuds connectés en tandem.
 * Les nœuds exécutent ONTAP 8.2 ou une version ultérieure.
 * La fonctionnalité de cluster sans commutateur ne peut pas être utilisée avec plus de deux nœuds.
-* Tous les ports de cluster sont dans le `up` état.
+* Tous les ports du cluster sont dans le `up` État.
 
 
-.Informations associées
-https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Article 1010449 de la base de connaissances NetApp : comment supprimer la création automatique de dossiers pendant les fenêtres de maintenance planifiées"^]
-
-
-
-== Migrer les commutateurs
-
-Cette procédure constitue une procédure sans interruption qui supprime la connectivité directe du cluster dans un environnement sans commutateur et remplace chaque connexion au commutateur par une connexion au nœud partenaire.
+.Informations connexes
+https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_suppress_automatic_case_creation_during_scheduled_maintenance_windows["Article 1010449 de la base de connaissances NetApp : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées"^]
 
 
 
-=== Étape 1 : préparer la migration
+== Déplacer les commutateurs
 
-. Modifiez le niveau de privilège en avancé, en saisissant `y` lorsque vous êtes invité à continuer :
+Cette procédure non perturbatrice supprime la connectivité directe au cluster dans un environnement sans commutateur et remplace chaque connexion au commutateur par une connexion au nœud partenaire.
+
+
+
+=== Étape 1 : Préparer la migration
+
+. Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
 +
 `set -privilege advanced`
 
 +
-L'invite avancée (`*>`) s'affiche.
+L'invite avancée(`*>` ) apparaît.
 
-. Vérifiez l'état du cluster des nœuds sur la console système de l'un ou l'autre nœuds :
+. Vérifiez l'état du cluster des nœuds sur la console système de l'un ou l'autre nœud :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing]
 ----
@@ -69,12 +69,12 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Vérifier l'état de la paire HA sur la console système de n'importe quel nœud : `storage failover show`
+. Vérifiez l'état de la paire HA sur la console système de l'un ou l'autre nœud : `storage failover show`
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'état du nœud 1 et du nœud 2 :
+L'exemple suivant illustre l'état des nœuds 1 et 2 :
 
 [listing]
 ----
@@ -87,94 +87,94 @@ node2          node1          true      Connected to node1
 2 entries were displayed.
 ----
 ====
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
-`x` est la durée de la fenêtre de maintenance en heures.
+`x`Il s'agit de la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Ce message informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Ce message informe le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-La commande suivante supprime la création automatique de dossiers pendant deux heures :
+La commande suivante désactive la création automatique de cas pendant deux heures :
 
 [listing]
 ----
 cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 ----
 ====
-. Vérifiez que l'état actuel du cluster sans commutateur est de `true`, puis désactivez le mode cluster sans commutateur :
+. Vérifiez que l'état actuel du cluster sans commutateur est `true` , puis désactivez le mode cluster sans commutateur :
 +
 `network options switchless-cluster modify -enabled false`
 
-. Reprendre le nœud cible :
+. Prendre le contrôle du nœud cible :
 +
 `storage failover takeover -ofnode _target_node_name_`
 
 +
-Elle n'a pas d'importance sur le nœud cible. Lorsqu'il est pris en charge, le nœud cible redémarre et affiche automatiquement le `Waiting for giveback...` messagerie.
+Peu importe quel nœud est le nœud cible.  Lorsqu'il est pris en charge, le nœud cible redémarre automatiquement et affiche le `Waiting for giveback...` message.
 
 +
-Le nœud actif transmet désormais les données du nœud partenaire (cible) pris en charge.
+Le nœud actif fournit désormais des données au nœud partenaire (cible) qui a été pris en charge.
 
-. Attendre deux minutes après le basculement du nœud douteux pour confirmer que le basculement a été effectué correctement.
-. Le nœud cible affichant le `Waiting for giveback...` message, arrêtez-le.
+. Attendez deux minutes après la prise de contrôle du nœud défaillant pour confirmer que la prise de contrôle s'est déroulée avec succès.
+. Avec le nœud cible affichant le `Waiting for giveback...` message, fermez-le.
 +
-La méthode que vous utilisez pour arrêter le nœud dépend si vous utilisez la gestion à distance par l'intermédiaire du processeur de service du nœud.
+La méthode que vous utilisez pour arrêter le nœud dépend de si vous utilisez la gestion à distance via le processeur de service du nœud (SP).
 
 +
 |===
-| Si le processeur de service est | Alors... 
+| Si SP | Alors... 
 
 
  a| 
 Est configuré
  a| 
-Connectez-vous au nœud SP douteux, puis mettez le système hors tension : `system power off`
+Connectez-vous au nœud défaillant SP, puis mettez le système hors tension : `system power off`
 
 
 
  a| 
 N'est pas configuré
  a| 
-À l'invite du nœud douteux, appuyez sur `Ctrl-C`, puis répondez `y` pour arrêter le nœud.
+À l'invite du nœud défectueux, appuyez sur `Ctrl-C` , puis répondez `y` pour arrêter le nœud.
 
 |===
 
 
 
 
-=== Étape 2 : configurer les câbles et les ports
+=== Étape 2 : Configurer les câbles et les ports
 
-. Sur chaque module de contrôleur, déconnectez le câble qui connecte le port de cluster 10 GbE au cluster sans commutateur.
-. Connectez le port de cluster 10 GbE au commutateur des deux modules de contrôleur.
-. Vérifiez que les ports de cluster 10 GbE connectés sur le commutateur sont configurés pour faire partie du même VLAN.
+. Sur chaque module de contrôleur, débranchez le câble qui relie le port de cluster 10 GbE au cluster sans commutateur.
+. Connectez le port du cluster 10 GbE au commutateur sur les deux modules de contrôleur.
+. Vérifiez que les ports du cluster 10 GbE connectés au commutateur sont configurés pour faire partie du même VLAN.
 +
-Si vous prévoyez de connecter les ports de cluster de chaque module de contrôleur à des commutateurs différents, vous devez vérifier que les ports sur lesquels les ports de cluster sont connectés sur chaque commutateur sont configurés pour le même VLAN et que l'agrégation est correctement configurée sur les deux commutateurs.
+Si vous prévoyez de connecter les ports de cluster de chaque module de contrôleur à des commutateurs différents, vous devez vérifier que les ports auxquels les ports de cluster sont connectés sur chaque commutateur sont configurés pour le même VLAN et que le trunking est correctement configuré sur les deux commutateurs.
 
-. Renvoyer le stockage au nœud cible :
+. Restituer l'espace de stockage au nœud cible :
 +
 `storage failover giveback -ofnode node2`
 
-. Surveiller la progression de l'opération de rétablissement :
+. Suivre l'avancement de l'opération de restitution :
 +
 `storage failover show-giveback`
 
-. Une fois l'opération de rétablissement terminée, vérifiez que la paire HA est saine et que le basculement est possible :
+. Une fois l'opération de restitution terminée, vérifiez que la paire HA est saine et que la prise de contrôle est possible :
 +
 `storage failover show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-La sortie doit être similaire à ce qui suit :
+Le résultat devrait être similaire à ce qui suit :
 
 [listing]
 ----
@@ -187,15 +187,15 @@ node2          node1          true      Connected to node1
 2 entries were displayed.
 ----
 ====
-. Vérifiez que les LIFs de port du cluster fonctionnent correctement :
+. Vérifiez que les interfaces logiques (LIF) des ports du cluster fonctionnent correctement :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIFs sont `up` Sur les noeuds 1 et node2 et que les résultats de la colonne "est à la maison" sont `true`:
+L'exemple suivant montre que les LIF sont `up` sur les nœuds 1 et 2 et que les résultats de la colonne « Est à la maison » sont `true` :
 
 [listing]
 ----
@@ -212,15 +212,15 @@ node2
 2 entries were displayed.
 ----
 ====
-. Vérifiez l'état du cluster des nœuds sur la console système de l'un ou l'autre nœuds :
+. Vérifiez l'état du cluster des nœuds sur la console système de l'un ou l'autre nœud :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche des informations sur la santé et l'éligibilité des nœuds du cluster :
+L'exemple suivant présente des informations sur l'état et l'éligibilité des nœuds du cluster :
 
 [listing]
 ----
@@ -234,22 +234,22 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -265,9 +265,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -301,14 +301,14 @@ RPC status:
 ====
 
 
-=== Étape 3 : réaliser la procédure
+=== Étape 3 : Terminer la procédure
 
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -316,7 +316,7 @@ RPC status:
 cluster::*> system node autosupport invoke -node * -type all -message MAINT=END
 ----
 ====
-. Rétablissez le niveau de privilège sur admin :
+. Rétablir le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 

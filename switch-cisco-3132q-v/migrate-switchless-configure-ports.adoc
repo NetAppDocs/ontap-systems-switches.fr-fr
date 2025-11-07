@@ -2,24 +2,24 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-configure-ports.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Configurez vos ports pour la migration depuis des clusters sans commutateur vers des clusters avec commutateur
+= Configurez vos ports pour la migration des clusters sans commutateur vers les clusters avec commutateur.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour configurer vos ports pour la migration de clusters à 2 nœuds sans commutateur vers des clusters à 2 nœuds avec commutateur.
+Suivez ces étapes pour configurer vos ports en vue de la migration de clusters à deux nœuds sans commutateur vers des clusters à deux nœuds avec commutateur.
 
 .Étapes
-. Sur les commutateurs Nexus 3132Q-V C1 et C2, désactivez tous les ports C1 et C2 orientés nœud, mais ne désactivez pas les ports ISL.
+. Sur les commutateurs Nexus 3132Q-V C1 et C2, désactivez tous les ports orientés vers le nœud C1 et C2, mais ne désactivez pas les ports ISL.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les ports 1 à 30 désactivés sur les commutateurs de cluster Nexus 3132Q-V C1 et C2, à l'aide d'une configuration prise en charge dans RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+L'exemple suivant montre la désactivation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide d'une configuration prise en charge par RCF. `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -42,13 +42,13 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. Connectez les ports 1/31 et 1/32 de C1 aux mêmes ports de C2 à l'aide du câblage pris en charge.
-. Vérifier que les ports ISL sont opérationnels sur les modèles C1 et C2 :
+. Connectez les ports 1/31 et 1/32 sur C1 aux mêmes ports sur C2 en utilisant un câblage compatible.
+. Vérifiez que les ports ISL sont opérationnels sur C1 et C2 :
 +
 `show port-channel summary`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -80,12 +80,12 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Afficher la liste des périphériques voisins sur le commutateur :
+. Afficher la liste des périphériques voisins sur le commutateur :
 +
 `show cdp neighbors`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -115,15 +115,15 @@ C1                 Eth1/32        178    R S I s     N3K-C3132Q-V  Eth1/32
 Total entries displayed: 2
 ----
 ====
-. Afficher la connectivité des ports du cluster sur chaque nœud :
+. Afficher la connectivité des ports du cluster sur chaque nœud :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant présente une configuration de cluster sans commutateur à deux nœuds.
+L'exemple suivant illustre une configuration de cluster sans commutateur à deux nœuds.
 
 [listing]
 ----
@@ -139,15 +139,15 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Migrez l'interface de type 1 vers le port physique hébergeant clus2 :
+. Migrez l'interface clus1 vers le port physique hébergeant clus2 :
 +
 `network interface migrate`
 
 +
-Exécutez cette commande à partir de chaque nœud local.
+Exécutez cette commande depuis chaque nœud local.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -158,12 +158,12 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus1 -source-nod
 -destination-node n2 -destination-port e4e
 ----
 ====
-. Vérifier la migration des interfaces de cluster :
+. Vérifiez la migration des interfaces du cluster :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -182,7 +182,7 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Fermez les ports de cluster de façon conclu1 LIF sur les deux nœuds :
+. Fermez les ports du cluster clus1 LIF sur les deux nœuds :
 +
 `network port modify`
 
@@ -192,22 +192,22 @@ Cluster
 cluster::*> network port modify -node n1 -port e4a -up-admin false
 cluster::*> network port modify -node n2 -port e4a -up-admin false
 ----
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* Veuillez patienter quelques secondes avant d’exécuter la commande « show » pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -224,9 +224,9 @@ n2
        3/5/2022 19:21:20 -06:00   n2_clus2        n1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -259,24 +259,24 @@ RPC status:
 ----
 --
 ====
-. [[step10]]déconnectez le câble de e4a sur le nœud n1.
+. [[étape 10]]Débranchez le câble de e4a sur le nœud n1.
 +
-Vous pouvez vous reporter à la configuration en cours d'exécution et connecter le premier port 40 GbE du commutateur C1 (port 1/7 dans cet exemple) à e4a sur n1 à l'aide du câblage pris en charge sur le commutateur Nexus 3132Q-V.
+Vous pouvez vous référer à la configuration en cours et connecter le premier port 40 GbE du commutateur C1 (port 1/7 dans cet exemple) à e4a sur n1 en utilisant un câblage pris en charge sur Nexus 3132Q-V.
 
 +
 
-NOTE: Lors de la reconnexion des câbles à un nouveau commutateur de cluster Cisco, les câbles utilisés doivent être pris en charge par Cisco à l'aide d'un câble ou d'une fibre optique.
+NOTE: Lors du rebranchement de câbles à un nouveau commutateur de cluster Cisco , les câbles utilisés doivent être soit en fibre optique, soit compatibles avec le câblage pris en charge par Cisco.
 
-. Débrancher le câble e4a du nœud n2.
+. Débranchez le câble de e4a sur le nœud n2.
 +
-Vous pouvez vous reporter à la configuration en cours d'exécution et connecter e4a au prochain port 40 GbE disponible sur C1, port 1/8, à l'aide du câblage pris en charge.
+Vous pouvez vous référer à la configuration en cours et connecter e4a au prochain port 40 GbE disponible sur C1, port 1/8, en utilisant un câblage compatible.
 
-. Activation de tous les ports orientés nœuds sur C1.
+. Activez tous les ports orientés vers le nœud sur C1.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide de la configuration prise en charge dans RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2, conformément à la configuration prise en charge par RCF. `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -287,12 +287,12 @@ C1(config-if-range)# exit
 C1(config)# exit
 ----
 ====
-. Activer le premier port du cluster, e4a, sur chaque nœud :
+. Activez le premier port du cluster, e4a, sur chaque nœud :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -301,12 +301,12 @@ cluster::*> network port modify -node n1 -port e4a -up-admin true
 cluster::*> network port modify -node n2 -port e4a -up-admin true
 ----
 ====
-. Vérifier que les clusters fonctionnent sur les deux nœuds :
+. Vérifiez que les clusters sont opérationnels sur les deux nœuds :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -331,15 +331,15 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 4 entries were displayed.
 ----
 ====
-. Pour chaque nœud, restaurez toutes les LIF d'interconnexion de cluster migrées :
+. Pour chaque nœud, rétablissez tous les LIF d'interconnexion de cluster migrés :
 +
 `network interface revert`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les LIF migrées sont rétablies dans leur port de départ.
+L'exemple suivant montre le retour des LIF migrées à leurs ports d'origine.
 
 [listing]
 ----
@@ -347,15 +347,15 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus1
 cluster::*> network interface revert -vserver Cluster -lif n2_clus1
 ----
 ====
-. Vérifier que tous les ports d'interconnexion de cluster sont rétablis dans leurs ports de base :
+. Vérifiez que tous les ports d'interconnexion du cluster sont désormais revenus à leurs ports d'origine :
 +
 `network interface show`
 
 +
-Le `Is Home` la colonne doit afficher une valeur de `true` pour tous les ports répertoriés dans le `Current Port` colonne. Si la valeur affichée est de `false`, le port n'a pas été rétabli.
+Le `Is Home` La colonne doit afficher la valeur de `true` pour tous les ports énumérés dans le `Current Port` colonne.  Si la valeur affichée est `false` , le port n'a pas été rétabli.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -373,12 +373,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Afficher la connectivité des ports du cluster sur chaque nœud :
+. Afficher la connectivité des ports du cluster sur chaque nœud :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -395,12 +395,12 @@ n2         /cdp
             e4e    n1                  e4e              FAS9000
 ----
 ====
-. Sur la console de chaque nœud, migrez la valeur de club2 vers le port e4a :
+. Sur la console de chaque nœud, migrez clus2 vers le port e4a :
 +
 `network interface migrate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -411,12 +411,12 @@ cluster::*> network interface migrate -vserver Cluster -lif n2_clus2 -source-nod
 -destination-node n2 -destination-port e4a
 ----
 ====
-. Fermez les ports de cluster de façon concluante 2 LIF sur les deux nœuds :
+. Fermez les ports du cluster clus2 LIF sur les deux nœuds :
 +
 `network port modify`
 
 +
-L'exemple suivant montre les ports spécifiés en cours d'arrêt sur les deux nœuds :
+L'exemple suivant montre la désactivation des ports spécifiés sur les deux nœuds :
 
 +
 [listing]
@@ -424,12 +424,12 @@ L'exemple suivant montre les ports spécifiés en cours d'arrêt sur les deux n�
 cluster::*> network port modify -node n1 -port e4e -up-admin false
 cluster::*> network port modify -node n2 -port e4e -up-admin false
 ----
-. Vérifier le statut LIF de cluster :
+. Vérifier l'état du cluster LIF :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -447,20 +447,20 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Débrancher le câble de e4e sur le nœud n1.
+. Débranchez le câble de e4e sur le nœud n1.
 +
-Vous pouvez vous reporter à la configuration en cours d'exécution et connecter le premier port 40 GbE du commutateur C2 (port 1/7 dans cet exemple) à e4e sur n1 à l'aide du câblage pris en charge sur le commutateur Nexus 3132Q-V.
+Vous pouvez vous référer à la configuration en cours et connecter le premier port 40 GbE du commutateur C2 (port 1/7 dans cet exemple) à e4e sur n1 en utilisant un câblage pris en charge sur Nexus 3132Q-V.
 
-. Débrancher le câble de e4e sur le nœud n2.
+. Débranchez le câble de e4e sur le nœud n2.
 +
-Vous pouvez vous reporter à la configuration en cours d'exécution et connecter e4e au prochain port 40 GbE disponible sur C2, port 1/8, à l'aide du câblage pris en charge.
+Vous pouvez vous référer à la configuration en cours et connecter e4e au prochain port 40 GbE disponible sur C2, port 1/8, en utilisant un câblage compatible.
 
-. Activer tous les ports orientés nœud sur C2.
+. Activez tous les ports exposés aux nœuds sur C2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide d'une configuration prise en charge dans RCF `NX3132_RCF_v1.1_24p10g_26p40g.txt`:
+L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide d'une configuration prise en charge par RCF. `NX3132_RCF_v1.1_24p10g_26p40g.txt` :
 
 [listing]
 ----
@@ -471,12 +471,12 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. Activer le second port du cluster, e4e, sur chaque nœud :
+. Activez le deuxième port du cluster, e4e, sur chaque nœud :
 +
 `network port modify`
 
 +
-L'exemple suivant montre les ports spécifiés en cours de démarrage :
+L'exemple suivant montre l'activation des ports spécifiés :
 
 +
 [listing]
@@ -484,12 +484,12 @@ L'exemple suivant montre les ports spécifiés en cours de démarrage :
 cluster::*> network port modify -node n1 -port e4e -up-admin true
 cluster::*> network port modify -node n2 -port e4e -up-admin true
 ----
-. Pour chaque nœud, restaurez toutes les LIF d'interconnexion de cluster migrées :
+. Pour chaque nœud, rétablissez tous les LIF d'interconnexion de cluster migrés :
 +
 `network interface revert`
 
 +
-L'exemple suivant montre que les LIF migrées sont rétablies dans leur port de départ.
+L'exemple suivant montre le retour des LIF migrées à leurs ports d'origine.
 
 +
 [listing]
@@ -497,15 +497,15 @@ L'exemple suivant montre que les LIF migrées sont rétablies dans leur port de 
 cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 ----
-. Vérifier que tous les ports d'interconnexion de cluster sont rétablis dans leurs ports de base :
+. Vérifiez que tous les ports d'interconnexion du cluster sont désormais revenus à leurs ports d'origine :
 +
 `network interface show`
 
 +
-Le `Is Home` la colonne doit afficher une valeur de `true` pour tous les ports répertoriés dans le `Current Port` colonne. Si la valeur affichée est de `false`, le port n'a pas été rétabli.
+Le `Is Home` La colonne doit afficher la valeur de `true` pour tous les ports énumérés dans le `Current Port` colonne.  Si la valeur affichée est `false` , le port n'a pas été rétabli.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -523,12 +523,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Vérifiez que tous les ports d'interconnexion de cluster sont dans le `up` état.
+. Vérifiez que tous les ports d'interconnexion du cluster sont dans le `up` État.
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -555,5 +555,5 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 ====
 
 
-.Et la suite ?
-link:migrate-switchless-complete-migration.html["Terminez la migration"].
+.Quelle est la prochaine étape ?
+link:migrate-switchless-complete-migration.html["Finalisez votre migration"].

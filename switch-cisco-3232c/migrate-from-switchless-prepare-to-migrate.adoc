@@ -2,19 +2,19 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser des commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Préparez la migration de clusters à 2 nœuds sans commutateur vers des clusters à 2 nœuds avec commutateur
+= Préparez-vous à la migration des clusters à deux nœuds sans commutateur vers des clusters à deux nœuds avec commutateur.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour préparer votre cluster à 2 nœuds sans commutateur à migrer vers un cluster à 2 nœuds avec switch qui inclut des switchs réseau de cluster Cisco Nexus 3232C.
+Suivez ces étapes pour préparer votre cluster à deux nœuds sans commutateur à migrer vers un cluster à deux nœuds commuté comprenant des commutateurs réseau de cluster Cisco Nexus 3232C.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -24,17 +24,17 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster :
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -58,12 +58,12 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -
 4 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques et les nœuds home désignés :
+.. Afficher les informations relatives aux interfaces logiques et à leurs nœuds d'origine désignés :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -82,15 +82,15 @@ Cluster
 4 entries were displayed.
 ----
 ====
-.. Vérifiez que la détection de cluster sans commutateur est activée à l'aide de la commande Advanced Privilege :
+.. Vérifiez que la détection de cluster sans commutateur est activée à l'aide de la commande de privilège avancée :
 +
 `network options detect-switchless-cluster show``
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Le résultat de l'exemple suivant indique que la détection des clusters sans commutateur est activée :
+L'exemple suivant montre que la détection de clusters sans commutateur est activée :
 
 [listing, subs="+quotes"]
 ----
@@ -100,34 +100,34 @@ Enable Switchless Cluster Detection: true
 ====
 
 
-. Vérifiez que les CFR et l'image appropriés sont installés sur les nouveaux switchs 3232C et effectuez les personnalisations du site nécessaires, telles que l'ajout d'utilisateurs, de mots de passe et d'adresses réseau.
+. Vérifiez que les RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3232C et effectuez les personnalisations de site nécessaires telles que l'ajout d'utilisateurs, de mots de passe et d'adresses réseau.
 +
-Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et le logiciel d'image, vous devez suivre les étapes suivantes :
+Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à jour le logiciel RCF et d'imagerie, vous devez suivre les étapes suivantes :
 
 +
-.. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
+.. Rendez-vous sur la page _Commutateurs Ethernet Cisco_ du site d'assistance NetApp .
 +
 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Commutateurs Ethernet Cisco"^]
 
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée de RCF.
-.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-.. Téléchargez la version appropriée du logiciel d'image.
+.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel de traitement d'images.
 +
-link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau de cluster et de gestion Cisco"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence pour les commutateurs réseau de cluster et de gestion Cisco"^]
 
 
 
-. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-. Sur les switchs Nexus 3232C C1 et C2, désactivez tous les ports C1 et C2 orientés nœuds mais ne désactivez pas les ports ISL e1/31-32.
+. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+. Sur les commutateurs Nexus 3232C C1 et C2, désactivez tous les ports orientés vers le nœud C1 et C2, mais ne désactivez pas les ports ISL e1/31-32.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous à la liste suivante dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez la liste suivante dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que les ports 1 à 30 sont désactivés sur les switchs de cluster Nexus 3232C C1 et C2, utilisant une configuration prise en charge dans RCF `NX3232_RCF_v1.0_24p10g_24p100g.txt`:
+L'exemple suivant montre la désactivation des ports 1 à 30 sur les commutateurs de cluster Nexus 3232C C1 et C2 à l'aide d'une configuration prise en charge par RCF. `NX3232_RCF_v1.0_24p10g_24p100g.txt` :
 
 [listing, subs="+quotes"]
 ----
@@ -147,19 +147,19 @@ C2(config-if-range)# exit
 C2(config)# exit
 ----
 ====
-. Connectez les ports 1/31 et 1/32 de C1 aux mêmes ports de C2 à l'aide du câblage pris en charge.
-. Vérifier que les ports ISL sont opérationnels sur les modèles C1 et C2 :
+. Connectez les ports 1/31 et 1/32 sur C1 aux mêmes ports sur C2 en utilisant un câblage compatible.
+. Vérifiez que les ports ISL sont opérationnels sur C1 et C2 :
 +
 `show port-channel summary`
 
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous à la liste suivante dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez la liste suivante dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant présente Cisco `show port-channel summary` Commande utilisée pour vérifier que les ports ISL sont opérationnels sur les C1 et C2 :
+L'exemple suivant illustre le Cisco. `show port-channel summary` commande utilisée pour vérifier que les ports ISL sont opérationnels sur C1 et C2 :
 
 [listing, subs="+quotes"]
 ----
@@ -189,15 +189,15 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Affiche la liste des périphériques voisins sur le commutateur.
+. Afficher la liste des appareils voisins sur le commutateur.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous à la liste suivante dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez la liste suivante dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la commande Cisco `show cdp neighbors` utilisé pour afficher les périphériques voisins sur le commutateur :
+L'exemple suivant illustre la commande Cisco `show cdp neighbors` utilisé pour afficher les périphériques voisins sur le commutateur :
 
 [listing, subs="+quotes"]
 ----
@@ -219,15 +219,15 @@ C1                 Eth1/32        178    R S I s     N3K-C3232C  Eth1/32
 Total entries displayed: 2
 ----
 ====
-. Afficher la connectivité des ports du cluster sur chaque nœud :
+. Afficher la connectivité des ports du cluster sur chaque nœud :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre la connectivité des ports du cluster, affichée dans le cas d'une configuration en cluster sans commutateur à deux nœuds :
+L'exemple suivant illustre la connectivité des ports de cluster affichée pour une configuration de cluster sans commutateur à deux nœuds :
 
 [listing, subs="+quotes"]
 ----
@@ -245,5 +245,5 @@ n2         /cdp
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 link:migrate-from-switchless-configure-ports.html["Configurez vos ports"].

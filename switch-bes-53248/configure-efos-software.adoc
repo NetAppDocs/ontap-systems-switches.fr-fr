@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-efos-software.html 
 sidebar: sidebar 
 keywords: BES-53248 cluster switches,installing EFOS software 
-summary: 'Procédez comme suit pour installer le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.' 
+summary: 'Suivez ces étapes pour installer le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.' 
 ---
 = Installez le logiciel EFOS
 :allow-uri-read: 
@@ -11,44 +11,44 @@ summary: 'Procédez comme suit pour installer le logiciel Ethernet Fabric OS (EF
 
 
 [role="lead"]
-Procédez comme suit pour installer le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.
+Suivez ces étapes pour installer le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster BES-53248.
 
-Le logiciel EFOS inclut un ensemble de fonctions et de protocoles réseau avancés pour le développement de systèmes d'infrastructure Ethernet et IP. Cette architecture logicielle convient à tout périphérique d'organisation réseau utilisant des applications nécessitant une inspection ou une séparation complète des paquets.
+Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles réseau avancés pour le développement de systèmes d'infrastructure Ethernet et IP.  Cette architecture logicielle convient à tout dispositif d'organisation de réseau utilisant des applications nécessitant une inspection ou une séparation approfondie des paquets.
 
 
 
-== Avant l'installation
+== Préparer l'installation
 
 .Avant de commencer
 * Cette procédure convient uniquement aux nouvelles installations.
-* Téléchargez le logiciel Broadcom EFOS correspondant à vos commutateurs de cluster à partir du https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] le site.
-* Assurez-vous que le link:configure-install-initial.html["Le commutateur de cluster BES-53248 est configuré"].
+* Téléchargez le logiciel Broadcom EFOS adapté à vos commutateurs de cluster depuis le site web. https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] site.
+* Assurez-vous quelink:configure-install-initial.html["Le commutateur de cluster BES-53248 est configuré"] .
 
 
 
 
 == Installez le logiciel
 
-Utilisez l'une des méthodes suivantes pour installer le logiciel EFOS :
+Utilisez l'une des méthodes suivantes pour installer le logiciel EFOS :
 
-* <<Méthode 1 : installez EFOS>>. Utilisation dans la plupart des cas.
-* <<Méthode 2 : installez EFOS en mode ONIE>>. Utilisez si une version de EFOS est conforme à la norme FIPS et que l'autre version de EFOS n'est pas conforme à la norme FIPS.
-
-
+* <<Méthode 1 : Installer EFOS>>. À utiliser dans la plupart des cas.
+* <<Méthode 2 : Installer EFOS en mode ONIE>>. À utiliser si une version d'EFOS est conforme à la norme FIPS et l'autre version d'EFOS ne l'est pas.
 
 
-=== Méthode 1 : installez EFOS
 
-Procédez comme suit pour installer le logiciel EFOS.
+
+=== Méthode 1 : Installer EFOS
+
+Suivez les étapes ci-dessous pour installer le logiciel EFOS.
 
 .Étapes
-. Connectez-vous au port console série du commutateur ou connectez-vous à SSH.
-. Utilisez le `ping` Commande pour vérifier la connectivité au serveur hébergeant EFOS, les licences et le fichier RCF.
+. Connectez-vous au port console série du commutateur ou connectez-vous via SSH.
+. Utilisez le `ping` commande permettant de vérifier la connectivité au serveur hébergeant EFOS, les licences et le fichier RCF.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple vérifie que le commutateur est connecté au serveur à l'adresse IP 172.19.2 :
+Cet exemple vérifie que le commutateur est connecté au serveur à l'adresse IP 172.19.2.1 :
 
 [listing, subs="+quotes"]
 ----
@@ -60,26 +60,26 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ====
 . Téléchargez le fichier image sur le commutateur.
 +
-Consultez le tableau suivant pour plus d'informations sur les protocoles de copie pris en charge :
+Consultez le tableau suivant pour obtenir des informations sur les protocoles de copie pris en charge :
 
 +
 |===
 
 
-| *Protocole* | *Prérequis* 
+| *Protocole* | *Condition préalable* 
 
 
  a| 
-Protocole TFTP (Trivial File Transfer Protocol)
+Protocole de transfert de fichiers trivial (TFTP)
  a| 
 Aucune
 
 
 
  a| 
-Protocole SFTP (SSH File Transfer Protocol)
+Protocole de transfert de fichiers SSH (SFTP)
  a| 
-Votre pack logiciel doit prendre en charge la gestion sécurisée
+Votre progiciel doit prendre en charge la gestion sécurisée
 
 
 
@@ -112,30 +112,30 @@ Aucune
 
 
  a| 
-SCP (Secure Copy Protocol)
+Protocole de copie sécurisée (SCP)
  a| 
-Votre pack logiciel doit prendre en charge la gestion sécurisée
+Votre progiciel doit prendre en charge la gestion sécurisée
 
 
 
  a| 
 HTTP
  a| 
-Les transferts de fichiers basés sur l'interface de ligne de commande sont pris en charge sur certaines plates-formes lorsqu'un utilitaire WGET natif est disponible
+Les transferts de fichiers via l'interface de ligne de commande sont pris en charge sur certaines plateformes lorsqu'un utilitaire WGET natif est disponible.
 
 
 
  a| 
 HTTPS
  a| 
-Les transferts de fichiers basés sur l'interface de ligne de commande sont pris en charge sur certaines plates-formes lorsqu'un utilitaire WGET natif est disponible
+Les transferts de fichiers via l'interface de ligne de commande sont pris en charge sur certaines plateformes lorsqu'un utilitaire WGET natif est disponible.
 
 |===
 +
-La copie du fichier image dans l'image active signifie que lors du redémarrage, cette image établit la version en cours d'exécution de EFOS. L'image précédente reste disponible comme sauvegarde.
+Copier le fichier image sur l'image active signifie qu'au redémarrage, cette image établira la version EFOS en cours d'exécution.  L'image précédente reste disponible à titre de sauvegarde.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -158,12 +158,12 @@ SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 ====
-. Afficher les images de démarrage de la configuration active et de sauvegarde :
+. Afficher les images de démarrage pour la configuration active et de secours :
 +
 `show bootvar`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -182,12 +182,12 @@ Image Descriptions
     1      3.7.0.4     3.7.0.4     3.7.0.4           3.10.0.3
 ----
 ====
-. Redémarrez le commutateur :
+. Redémarrez le commutateur :
 +
 `reload`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -202,12 +202,12 @@ Configuration Saved!
 System will now restart!
 ----
 ====
-. Reconnectez-vous et vérifiez la nouvelle version du logiciel EFOS :
+. Connectez-vous à nouveau et vérifiez la nouvelle version du logiciel EFOS :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -238,33 +238,32 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Terminez l'installation.
-Pour reconfigurer le commutateur, procédez comme suit :
+. Terminez l'installation.  Suivez ces cinq étapes pour reconfigurer le commutateur :
 +
-.. link:configure-licenses.html["Installez les licences"]
+.. link:configure-licenses.html["Licences d'installation"]
 .. link:configure-install-rcf.html["Installez le fichier RCF"]
-.. link:configure-ssh.html["Activez SSH"]
-.. link:CSHM_log_collection.html["Activer la collecte de journaux"]
+.. link:configure-ssh.html["Activer SSH"]
+.. link:CSHM_log_collection.html["Activer la collecte des journaux"]
 .. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"]
 
 
-. Répétez les étapes 1 à 7 sur le commutateur partenaire.
+. Répétez les étapes 1 à 7 sur l'autre partenaire.
 
 
 
 
-=== Méthode 2 : installez EFOS en mode ONIE
+=== Méthode 2 : Installer EFOS en mode ONIE
 
-Vous pouvez effectuer les étapes suivantes si une version de EFOS est conforme à la norme FIPS et que l'autre version de EFOS n'est pas compatible FIPS. Ces étapes peuvent être utilisées pour installer l'image EFOS 3.7.x.x non conforme à la norme FIPS ou à la norme FIPS à partir d'ONIE si le commutateur ne parvient pas à démarrer.
+Vous pouvez effectuer les étapes suivantes si une version d'EFOS est conforme à la norme FIPS et l'autre version d'EFOS ne l'est pas.  Ces étapes peuvent être utilisées pour installer l'image EFOS 3.7.xx non conforme ou conforme à la norme FIPS à partir d'ONIE si le commutateur ne démarre pas.
 
 .Étapes
-. Se connecter à une console connectée au port série du commutateur.
-. Démarrez le commutateur en mode d'installation ONIE.
+. Connectez-vous à une console reliée au port série du commutateur.
+. Mettez le commutateur en mode d'installation ONIE.
 +
-Au cours du démarrage, sélectionnez ONIE lorsque vous voyez l'invite.
+Au démarrage, sélectionnez ONIE lorsque l'invite s'affiche.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -286,10 +285,10 @@ Au cours du démarrage, sélectionnez ONIE lorsque vous voyez l'invite.
 ----
 ====
 +
-Après avoir sélectionné *ONIE*, le commutateur se charge et vous offre plusieurs choix. Sélectionnez *installer OS*.
+Après avoir sélectionné *ONIE*, le commutateur se charge et vous présente plusieurs choix.  Sélectionnez *Installer le système d'exploitation*.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -313,9 +312,9 @@ Après avoir sélectionné *ONIE*, le commutateur se charge et vous offre plusie
 +
 Le commutateur démarre en mode d'installation ONIE.
 
-. Arrêtez la détection ONIE et configurez l'interface Ethernet.
+. Arrêtez la découverte ONIE et configurez l'interface Ethernet.
 +
-Lorsque le message suivant s'affiche, appuyez sur *entrée* pour appeler la console ONIE :
+Lorsque le message suivant apparaît, appuyez sur *Entrée* pour ouvrir la console ONIE :
 
 +
 [listing]
@@ -325,7 +324,7 @@ Please press Enter to activate this console. Info: eth0:  Checking link... up.
 ----
 +
 
-NOTE: La détection ONIE se poursuit et les messages sont imprimés sur la console.
+NOTE: La découverte d'ONIE se poursuit et des messages s'affichent sur la console.
 
 +
 [listing]
@@ -336,19 +335,19 @@ discover: installer mode detected.
 Stopping: discover... done.
 ONIE:/ #
 ----
-. Configurez l'interface Ethernet du port de gestion du commutateur et ajoutez la route à l'aide de `ifconfig eth0 <ipAddress> netmask <netmask> up` et `route add default gw <gatewayAddress>`
+. Configurez l'interface Ethernet du port de gestion du commutateur et ajoutez la route en utilisant `ifconfig eth0 <ipAddress> netmask <netmask> up` et `route add default gw <gatewayAddress>`
 +
 [listing]
 ----
 ONIE:/ # ifconfig eth0 10.10.10.10 netmask 255.255.255.0 up
 ONIE:/ # route add default gw 10.10.10.1
 ----
-. Vérifiez que le serveur hébergeant le fichier d'installation ONIE est accessible :
+. Vérifiez que le serveur hébergeant le fichier d'installation d'ONIE est accessible :
 +
 `ping`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -365,12 +364,12 @@ round-trip min/avg/max = 0.369/0.464/0.595 ms
 ONIE:/ #
 ----
 ====
-. Installez le nouveau logiciel du commutateur :
+. Installez le nouveau logiciel du commutateur :
 +
 `ONIE:/ # onie-nos-install http://50.50.50.50/Software/onie-installer-x86_64`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -387,14 +386,14 @@ Preparing image archive ... OK.
 ----
 ====
 +
-Le logiciel installe puis redémarre le commutateur. Laissez le commutateur redémarrer normalement dans la nouvelle version de EFOS.
+Le logiciel s'installe puis redémarre le commutateur.  Laissez le commutateur redémarrer normalement sur la nouvelle version EFOS.
 
-. Connectez-vous et vérifiez que le nouveau logiciel du commutateur est installé :
+. Connectez-vous et vérifiez que le nouveau logiciel du commutateur est installé :
 +
 `show bootvar`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -411,18 +410,17 @@ unit 	active 	    backup   current-active  next-active
 (cs2) #
 ----
 ====
-. Terminez l'installation.
-Le commutateur redémarre sans aucune configuration appliquée et revient aux paramètres d'usine par défaut. Pour reconfigurer le commutateur, procédez comme suit :
+. Terminez l'installation.  Le commutateur redémarre sans aucune configuration appliquée et se réinitialise aux paramètres d'usine.  Suivez ces six étapes pour reconfigurer le commutateur :
 +
 .. link:configure-install-initial.html["Configurer le commutateur"]
-.. link:configure-licenses.html["Installez les licences"]
+.. link:configure-licenses.html["Licences d'installation"]
 .. link:configure-install-rcf.html["Installez le fichier RCF"]
-.. link:configure-ssh.html["Activez SSH"]
-.. link:CSHM_log_collection.html["Activer la collecte de journaux"]
+.. link:configure-ssh.html["Activer SSH"]
+.. link:CSHM_log_collection.html["Activer la collecte des journaux"]
 .. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"]
 
 
-. Répétez les étapes 1 à 8 sur le commutateur partenaire.
+. Répétez les étapes 1 à 8 sur l'autre partenaire.
 
 
 .Quelle est la prochaine étape

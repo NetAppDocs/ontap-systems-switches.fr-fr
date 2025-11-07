@@ -2,7 +2,7 @@
 permalink: other/switch_linkout.html 
 sidebar: sidebar 
 keywords: cisco, Nexus 5596, CN1601 
-summary: 'Vous pouvez utiliser ces liens pour d"autres modèles de commutateur.' 
+summary: 'Vous pouvez utiliser ces liens pour d"autres modèles de commutateurs.' 
 ---
 = Modèles précédents
 :allow-uri-read: 
@@ -11,13 +11,13 @@ summary: 'Vous pouvez utiliser ces liens pour d"autres modèles de commutateur.'
 
 
 [role="lead"]
-Vous pouvez utiliser ces liens pour rechercher de la documentation sur les modèles antérieurs de commutateurs de cluster et de stockage.  Les liens vous mènent vers un autre site de documentation.
+Vous pouvez utiliser ces liens pour trouver la documentation relative aux modèles antérieurs de commutateurs de cluster et de stockage.  Ces liens vous mènent vers un autre site de documentation.
 
-* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62376&language=en-US["Commutateurs Cisco Nexus 5596"]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=62376&language=en-US["Cisco Nexus 5596"]
 * https://mysupport.netapp.com/documentation/docweb/index.html?productID=62373&language=en-USNetApp["CN1601"]
 
 
 
-NOTE: Les commutateurs de cluster Nexus 5596UP/5596T ne sont plus disponibles auprès de NetApp, mais ils seront pris en charge par Cisco pour un tim limité.
+NOTE: Les commutateurs de cluster Nexus 5596UP/5596T ne sont plus disponibles chez NetApp, mais seront pris en charge par Cisco pendant une période limitée.
 
-La documentation sur les modèles de commutateurs AFF et FAS, qui ont atteint la fin de la prise en charge matérielle, est disponible pour l'utilisation par les clients dans le https://mysupport.netapp.com/documentation/productsatoz/index.html?archive=true["Archivage"].
+La documentation relative aux modèles de commutateurs AFF et FAS dont le support matériel est arrivé à son terme est disponible pour les clients dans le https://mysupport.netapp.com/documentation/productsatoz/index.html?archive=true["Archive"] .

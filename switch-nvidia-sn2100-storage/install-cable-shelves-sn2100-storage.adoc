@@ -2,27 +2,27 @@
 permalink: switch-nvidia-sn2100-storage/install-cable-shelves-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
-summary: 'Si vous disposez d"un système dans lequel les tiroirs de disques NS224 doivent être câblés en tant que stockage de type commutateur (pas de stockage DAS), utilisez les informations fournies ici.' 
+summary: 'Si vous disposez d"un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté à un commutateur (et non en tant que stockage connecté directement), utilisez les informations fournies ici.' 
 ---
-= Reliez les tiroirs NS224 au stockage relié au commutateur
+= Étagères Cable NS224 avec interrupteur intégré pour le rangement
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un système dans lequel les tiroirs de disques NS224 doivent être câblés en tant que stockage de type commutateur (pas de stockage DAS), utilisez les informations fournies ici.
+Si vous disposez d'un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté à un commutateur (et non en tant que stockage connecté directement), utilisez les informations fournies ici.
 
-* Câbler les tiroirs disques NS224 via des commutateurs de stockage :
+* Câbler les étagères de lecteurs NS224 à travers les commutateurs de stockage :
 +
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informations relatives au câblage des tiroirs disques NS224 connectés au commutateur"^]
+https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informations relatives au câblage des baies de disques durs NS224 à commutateur"^]
 
-* Installez vos commutateurs de stockage :
+* Installez vos commutateurs de stockage :
 +
-https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentation sur les commutateurs AFF et FAS"^]
+https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentation relative aux commutateurs AFF et FAS"^]
 
-* Vérifiez le matériel pris en charge, comme les commutateurs et les câbles, pour votre modèle de plateforme :
+* Veuillez vérifier la compatibilité matérielle de votre modèle de plateforme, notamment avec les commutateurs et câbles de stockage :
 +
-https://hwu.netapp.com/["NetApp Hardware Universe"^]
+https://hwu.netapp.com/["Hardware Universe NetApp"^]
 
 

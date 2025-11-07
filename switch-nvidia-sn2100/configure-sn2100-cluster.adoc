@@ -2,21 +2,21 @@
 permalink: switch-nvidia-sn2100/configure-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: Pour installer le matériel SN2100, reportez-vous à la documentation de NVIDIA. 
+summary: Pour installer le matériel SN2100, reportez-vous à la documentation NVIDIA. 
 ---
-= Configurez le commutateur NVIDIA SN2100
+= Configurer le commutateur NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour configurer le commutateur SN2100, reportez-vous à la documentation de NVIDIA.
+Pour configurer le commutateur SN2100, reportez-vous à la documentation NVIDIA.
 
 .Étapes
-. Vérifiez le link:configure-reqs-sn2100-cluster.html["configuration requise"].
-. Suivez les instructions de la section https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Reprise du système NVIDIA."^].
+. Examinerlink:configure-reqs-sn2100-cluster.html["exigences de configuration"] .
+. Suivez les instructions dans https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Mise en service du système NVIDIA ."^] .
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois votre commutateur configuré, vous pouvezlink:install-cumulus-mode-sn2100-cluster.html["installer Cumulus Linux en mode Cumulus"] oulink:install-onie-mode-sn2100-cluster.html["installer Cumulus Linux en mode ONIE"] .

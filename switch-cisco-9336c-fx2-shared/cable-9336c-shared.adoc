@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: Utilisez les images de câblage pour terminer le câblage entre les contrôleurs et les commutateurs. 
+summary: Utilisez les schémas de câblage pour réaliser le câblage entre les contrôleurs et les commutateurs. 
 ---
-= Complétez la fiche technique de câblage Cisco Nexus 9336C-FX2
+= Complétez la fiche de câblage Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,60 +14,60 @@ summary: Utilisez les images de câblage pour terminer le câblage entre les con
 
 
 [role="lead"]
-Utilisez les images de câblage suivantes pour terminer le câblage entre les contrôleurs et les commutateurs.
+Utilisez les schémas de câblage suivants pour réaliser le câblage entre les contrôleurs et les commutateurs.
 
 
 
-== Câble de stockage NS224 relié par un commutateur
+== Rangement du câble NS224 comme interrupteur intégré
 
-Si vous souhaitez raccorder un câble de stockage NS224 à un commutateur, suivez le diagramme ci-dessous :
+Si vous souhaitez câbler le stockage NS224 en mode interrupteur, suivez le schéma de câblage correspondant :
 
-image:9336c_image1.jpg["Connexion par commutateur"]
+image:9336c_image1.jpg["Interrupteur attaché"]
 
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
-
-
-
-== Câble de rangement NS224 en tant que connexion directe
-
-Si vous souhaitez raccorder un câble de stockage NS224 à connexion directe au lieu d'utiliser les ports de stockage de commutateur partagé, suivez le diagramme à connexion directe :
-
-image:9336c_image2.jpg["Connexion directe"]
-
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
 
 
 
-== Fiche technique de câblage Cisco Nexus 9336C-FX2
+== Rangement du câble NS224 en connexion directe
 
-Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant un exemple de fiche de câblage rempli comme guide.
+Si vous souhaitez câbler le stockage NS224 en connexion directe au lieu d'utiliser les ports de stockage partagés du commutateur, suivez le schéma de connexion directe :
 
-L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+image:9336c_image2.jpg["Fixation directe"]
 
-image:cabling_worksheet.jpg["Fiche de câblage"]
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
 
-Où ?
 
-* 100G ISL pour commuter Un port 35
-* 100G ISL pour commuter Un port 36
-* 100G ISL vers le port 35 du commutateur B.
-* 100G ISL vers le port 36 du commutateur B.
+
+== Fiche de câblage Cisco Nexus 9336C-FX2
+
+Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en vous servant comme guide de l'exemple de feuille de câblage remplie.
+
+La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
+
+image:cabling_worksheet.jpg["Feuille de câblage"]
+
+Où:
+
+* Liaison ISL 100G vers le port 35 du commutateur A
+* Liaison ISL 100G vers le port 36 du commutateur A
+* Liaison ISL 100G vers le port 35 du commutateur B
+* Liaison ISL 100G vers le port 36 du commutateur B
 
 
 
 
 == Feuille de câblage vierge
 
-Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. Le tableau connexions de cluster prises en charge du Hardware Universe définit les ports de cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  Le tableau « Connexions de cluster prises en charge » de l' Hardware Universe définit les ports de cluster utilisés par la plateforme.
 
 image:blank_cabling_worksheet.jpg["Feuille de câblage vierge"]
 
-Où ?
+Où:
 
-* 100G ISL pour commuter Un port 35
-* 100G ISL pour commuter Un port 36
-* 100G ISL vers le port 35 du commutateur B.
-* 100G ISL vers le port 36 du commutateur B.
+* Liaison ISL 100G vers le port 35 du commutateur A
+* Liaison ISL 100G vers le port 36 du commutateur A
+* Liaison ISL 100G vers le port 35 du commutateur B
+* Liaison ISL 100G vers le port 36 du commutateur B
 
 
 .Quelle est la prochaine étape

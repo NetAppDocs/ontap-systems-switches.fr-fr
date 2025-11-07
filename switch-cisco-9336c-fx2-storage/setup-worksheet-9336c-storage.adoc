@@ -2,450 +2,450 @@
 permalink: switch-cisco-9336c-fx2-storage/setup-worksheet-9336c-storage.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2 
-summary: 'Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l"exemple de fiche de câblage rempli comme guide.' 
+summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en utilisant comme guide l"exemple de feuille de câblage remplie.' 
 ---
-= Remplissez les fiches de câblage Cisco Nexus 9336C-FX2 ou 9336C-FX2-T.
+= Complétez la fiche de câblage Cisco Nexus 9336C-FX2 ou 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour documenter les plates-formes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
+Si vous souhaitez documenter les plateformes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
 
-L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 
-* <<9336C-FX2 exemple de fiche technique sur le câblage>>
-* <<9336C-FX2 : fiche technique de câblage vierge>>
-* <<9336C-FX2-T exemple de fiche technique sur le câblage (12 ports)>>
-* <<Fiche technique sur le câblage vierge 9336C-FX2-T (12 ports)>>
-
-
+* <<Fiche de câblage d'exemple 9336C-FX2>>
+* <<Feuille de câblage vierge 9336C-FX2>>
+* <<Fiche de câblage d'exemple 9336C-FX2-T (12 ports)>>
+* <<Feuille de câblage vierge 9336C-FX2-T (12 ports)>>
 
 
-== 9336C-FX2 exemple de fiche technique sur le câblage
 
-L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+
+== Fiche de câblage d'exemple 9336C-FX2
+
+La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
 
 [cols="1,3,1,3"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
 
-| Port du commutateur | Utilisation du nœud et du port | Port du commutateur | Utilisation du nœud et du port 
+| Port de commutation | Utilisation des nœuds et des ports | Port de commutation | Utilisation des nœuds et des ports 
 
 
  a| 
 1
  a| 
-Nœud 4 x 100 GbE 1
+Nœud 1 4x100GbE
  a| 
 1
  a| 
-Nœud 4 x 100 GbE 1
+Nœud 1 4x100GbE
 
 
 
  a| 
 2
  a| 
-Nœud 4 x 100 GbE 2
+Nœud 2 4x100GbE
  a| 
 2
  a| 
-Nœud 4 x 100 GbE 2
+Nœud 2 4x100GbE
 
 
 
  a| 
 3
  a| 
-Nœud 4 x 100 GbE 3
+Nœud 3 4x100GbE
  a| 
 3
  a| 
-Nœud 4 x 100 GbE 3
+Nœud 3 4x100GbE
 
 
 
  a| 
 4
  a| 
-Nœud 4 x 100 GbE 4
+Nœud 4 4x100GbE
  a| 
 4
  a| 
-Nœud 4 x 100 GbE 4
+Nœud 4 4x100GbE
 
 
 
  a| 
 5
  a| 
-Nœud 4 x 100 GbE 5
+Nœud 5 4x100GbE
  a| 
 5
  a| 
-Nœud 4 x 100 GbE 5
+Nœud 5 4x100GbE
 
 
 
  a| 
 6
  a| 
-Nœud 4 x 100 GbE 6
+Nœud 6 4x100GbE
  a| 
 6
  a| 
-Nœud 4 x 100 GbE 6
+Nœud 6 4x100GbE
 
 
 
  a| 
 7
  a| 
-Nœud 4 x 100 GbE 7
+Nœud 7 4x100GbE
  a| 
 7
  a| 
-Nœud 4 x 100 GbE 7
+Nœud 7 4x100GbE
 
 
 
  a| 
 8
  a| 
-Nœud 4 x 100 GbE 8
+Nœud 8 4x100GbE
  a| 
 8
  a| 
-Nœud 4 x 100 GbE 8
+Nœud 8 4x100GbE
 
 
 
  a| 
 9
  a| 
-Nœud 4 x 100 GbE 9
+Nœud 9 4x100GbE
  a| 
 9
  a| 
-Nœud 4 x 100 GbE 9
+Nœud 9 4x100GbE
 
 
 
  a| 
 10
  a| 
-Nœud 4 x 100 GbE 10
+Nœud 10 4x100GbE
  a| 
 10
  a| 
-Nœud 4 x 100 GbE 10
+Nœud 10 4x100GbE
 
 
 
  a| 
 11
  a| 
-Nœud 4 x 100 GbE 11
+Nœud 11 4x100GbE
  a| 
 11
  a| 
-Nœud 4 x 100 GbE 11
+Nœud 11 4x100GbE
 
 
 
  a| 
 12
  a| 
-Nœud 4 x 100 GbE 12
+Nœud 12 4x100GbE
  a| 
 12
  a| 
-Nœud 4 x 100 GbE 12
+Nœud 12 4x100GbE
 
 
 
  a| 
 13
  a| 
-Nœud 4 x 100 GbE 13
+Nœud 13 4x100GbE
  a| 
 13
  a| 
-Nœud 4 x 100 GbE 13
+Nœud 13 4x100GbE
 
 
 
  a| 
 14
  a| 
-Nœud 4 x 100 GbE 14
+Nœud 14 4x100GbE
  a| 
 14
  a| 
-Nœud 4 x 100 GbE 14
+Nœud 14 4x100GbE
 
 
 
  a| 
 15
  a| 
-Nœud 4 x 100 GbE 15
+Nœud 15 4x100GbE
  a| 
 15
  a| 
-Nœud 4 x 100 GbE 15
+Nœud 15 4x100GbE
 
 
 
  a| 
 16
  a| 
-Nœud 4 x 100 GbE 16
+Nœud 16 4x100GbE
  a| 
 16
  a| 
-Nœud 4 x 100 GbE 16
+Nœud 16 4x100GbE
 
 
 
  a| 
 17
  a| 
-Nœud 4 x 100 GbE 17
+Nœud 17 4x100GbE
  a| 
 17
  a| 
-Nœud 4 x 100 GbE 17
+Nœud 17 4x100GbE
 
 
 
  a| 
 18
  a| 
-Nœud 4 x 100 GbE 18
+Nœud 18 4x100GbE
  a| 
 18
  a| 
-Nœud 4 x 100 GbE 18
+Nœud 18 4x100GbE
 
 
 
  a| 
 19
  a| 
-Nœud 4 x 100 GbE 19
+Nœud 19 4x100GbE
  a| 
 19
  a| 
-Nœud 4 x 100 GbE 19
+Nœud 19 4x100GbE
 
 
 
  a| 
 20
  a| 
-Nœud 4 x 100 GbE 20
+Nœud 20 4x100GbE
  a| 
 20
  a| 
-Nœud 4 x 100 GbE 20
+Nœud 20 4x100GbE
 
 
 
  a| 
 21
  a| 
-Nœud 4 x 100 GbE 21
+Nœud 21 4x100GbE
  a| 
 21
  a| 
-Nœud 4 x 100 GbE 21
+Nœud 21 4x100GbE
 
 
 
  a| 
 22
  a| 
-Nœud 4 x 100 GbE 22
+Nœud 22 4x100GbE
  a| 
 22
  a| 
-Nœud 4 x 100 GbE 22
+Nœud 22 4x100GbE
 
 
 
  a| 
 23
  a| 
-Nœud 4 x 100 GbE 23
+Nœud 23 4x100GbE
  a| 
 23
  a| 
-Nœud 4 x 100 GbE 23
+Nœud 23 4x100GbE
 
 
 
  a| 
 24
  a| 
-Nœud 4 x 100 GbE 24
+Nœud 24 4x100GbE
  a| 
 24
  a| 
-Nœud 4 x 100 GbE 24
+Nœud 24 4x100GbE
 
 
 
  a| 
 25
  a| 
-Nœud 4 x 100 GbE 25
+Nœud 25 4x100GbE
  a| 
 25
  a| 
-Nœud 4 x 100 GbE 25
+Nœud 25 4x100GbE
 
 
 
  a| 
 26
  a| 
-Nœud 4 x 100 GbE 26
+Nœud 26 4x100GbE
  a| 
 26
  a| 
-Nœud 4 x 100 GbE 26
+Nœud 26 4x100GbE
 
 
 
  a| 
 27
  a| 
-Nœud 4 x 100 GbE 27
+Nœud 27 4x100GbE
  a| 
 27
  a| 
-Nœud 4 x 100 GbE 27
+Nœud 27 4x100GbE
 
 
 
  a| 
 28
  a| 
-Nœud 4 x 100 GbE 28
+Nœud 28 4x100GbE
  a| 
 28
  a| 
-Nœud 4 x 100 GbE 28
+Nœud 28 4x100GbE
 
 
 
  a| 
 29
  a| 
-Nœud 4 x 100 GbE 29
+Nœud 29 4x100GbE
  a| 
 29
  a| 
-Nœud 4 x 100 GbE 29
+Nœud 29 4x100GbE
 
 
 
  a| 
 30
  a| 
-Nœud 4 x 100 GbE 30
+Nœud 30 4x100GbE
  a| 
 30
  a| 
-Nœud 4 x 100 GbE 30
+Nœud 30 4x100GbE
 
 
 
  a| 
 31
  a| 
-Nœud 4 x 100 GbE 31
+Nœud 31 4x100GbE
  a| 
 31
  a| 
-Nœud 4 x 100 GbE 31
+Nœud 31 4x100GbE
 
 
 
  a| 
 32
  a| 
-Nœud 4 x 100 GbE 32
+Nœud 32 4x100GbE
  a| 
 32
  a| 
-Nœud 4 x 100 GbE 32
+Nœud 32 4x100GbE
 
 
 
  a| 
 33
  a| 
-Nœud 4 x 100 GbE 33
+Nœud 33 4x100GbE
  a| 
 33
  a| 
-Nœud 4 x 100 GbE 33
+Nœud 33 4x100GbE
 
 
 
  a| 
 30
  a| 
-Nœud 4 x 100 GbE 30
+Nœud 30 4x100GbE
  a| 
 30
  a| 
-Nœud 4 x 100 GbE 33
+Nœud 33 4x100GbE
 
 
 
  a| 
 34
  a| 
-Nœud 4 x 100 GbE 34
+Nœud 34 4x100GbE
  a| 
 34
  a| 
-Nœud 4 x 100 GbE 34
+Nœud 34 4x100GbE
 
 
 
  a| 
 35
  a| 
-Nœud 4 x 100 GbE 35
+Nœud 35 4x100GbE
  a| 
 35
  a| 
-Nœud 4 x 100 GbE 35
+Nœud 35 4x100GbE
 
 
 
  a| 
 36
  a| 
-Nœud 4 x 100 GbE 36
+Nœud 36 4x100GbE
  a| 
 36
  a| 
-Nœud 4 x 100 GbE 36
+Nœud 36 4x100GbE
 
 |===
 
 
-== 9336C-FX2 : fiche technique de câblage vierge
+== Feuille de câblage vierge 9336C-FX2
 
-Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.
 
 [cols="5%, 45%, 5%, 45%"]
 |===
@@ -777,143 +777,143 @@ Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes p
 |===
 
 
-== 9336C-FX2-T exemple de fiche technique sur le câblage (12 ports)
+== Fiche de câblage d'exemple 9336C-FX2-T (12 ports)
 
-L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
 
 [cols="1,3,1,3"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
 
-| Port du commutateur | Utilisation du nœud et du port | Port du commutateur | Utilisation du nœud et du port 
+| Port de commutation | Utilisation des nœuds et des ports | Port de commutation | Utilisation des nœuds et des ports 
 
 
  a| 
 1
  a| 
-Nœud 4 x 100 GbE 1
+Nœud 1 4x100GbE
  a| 
 1
  a| 
-Nœud 4 x 100 GbE 1
+Nœud 1 4x100GbE
 
 
 
  a| 
 2
  a| 
-Nœud 4 x 100 GbE 2
+Nœud 2 4x100GbE
  a| 
 2
  a| 
-Nœud 4 x 100 GbE 2
+Nœud 2 4x100GbE
 
 
 
  a| 
 3
  a| 
-Nœud 4 x 100 GbE 3
+Nœud 3 4x100GbE
  a| 
 3
  a| 
-Nœud 4 x 100 GbE 3
+Nœud 3 4x100GbE
 
 
 
  a| 
 4
  a| 
-Nœud 4 x 100 GbE 4
+Nœud 4 4x100GbE
  a| 
 4
  a| 
-Nœud 4 x 100 GbE 4
+Nœud 4 4x100GbE
 
 
 
  a| 
 5
  a| 
-Nœud 4 x 100 GbE 5
+Nœud 5 4x100GbE
  a| 
 5
  a| 
-Nœud 4 x 100 GbE 5
+Nœud 5 4x100GbE
 
 
 
  a| 
 6
  a| 
-Nœud 4 x 100 GbE 6
+Nœud 6 4x100GbE
  a| 
 6
  a| 
-Nœud 4 x 100 GbE 6
+Nœud 6 4x100GbE
 
 
 
  a| 
 7
  a| 
-Nœud 4 x 100 GbE 7
+Nœud 7 4x100GbE
  a| 
 7
  a| 
-Nœud 4 x 100 GbE 7
+Nœud 7 4x100GbE
 
 
 
  a| 
 8
  a| 
-Nœud 4 x 100 GbE 8
+Nœud 8 4x100GbE
  a| 
 8
  a| 
-Nœud 4 x 100 GbE 8
+Nœud 8 4x100GbE
 
 
 
  a| 
 9
  a| 
-Nœud 4 x 100 GbE 9
+Nœud 9 4x100GbE
  a| 
 9
  a| 
-Nœud 4 x 100 GbE 9
+Nœud 9 4x100GbE
 
 
 
  a| 
 10
  a| 
-Nœud 4 x 100 GbE 10
+Nœud 10 4x100GbE
  a| 
 10
  a| 
-Nœud 4 x 100 GbE 10
+Nœud 10 4x100GbE
 
 
 
  a| 
 11 à 36
  a| 
-Requiert une licence
+Licence requise
  a| 
 11 à 36
  a| 
-Requiert une licence
+Licence requise
 
 |===
 
 
-== Fiche technique sur le câblage vierge 9336C-FX2-T (12 ports)
+== Feuille de câblage vierge 9336C-FX2-T (12 ports)
 
-Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.
 
 [cols="1, 1, 1, 1"]
 |===
@@ -1013,14 +1013,14 @@ Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes p
  a| 
 11 à 36
  a| 
-Requiert une licence
+Licence requise
  a| 
 11 à 36
  a| 
-Requiert une licence
+Licence requise
 
 |===
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
 
 .Quelle est la prochaine étape
 Une fois vos feuilles de travail sur le câblage terminées, vous pouvez link:install-9336c-storage.html["installer le commutateur"].

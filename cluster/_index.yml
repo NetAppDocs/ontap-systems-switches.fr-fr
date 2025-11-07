@@ -5,11 +5,11 @@ indexpage:
     vos commutateurs de cluster pour les déploiements de cluster ONTAP .
   keywords: cluster switches, cisco nexus switches, ontap clusters
   lead: Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec
-    plus de deux nœuds.  Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
+    plus de deux nœuds. Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
     la base de solutions d'interconnexion de cluster évolutives dans les environnements
     NetApp ONTAP .
   tiles:
-  - title: Commencez
+  - title: Commencer
     links:
     - title: Broadcom BES-53248
       url: "../switch-bes-53248/configure-new-switch-overview.html"
@@ -48,7 +48,7 @@ indexpage:
       url: "../switch-nvidia-sn2100/reset-switch-sn2100.html"
   - title: Documentation connexe
     links:
-    - title: Systèmes matériels ONTAP
+    - title: systèmes matériels ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Documentation sur les commutateurs de cluster
       url: "../index.html"

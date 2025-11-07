@@ -2,67 +2,67 @@
 permalink: switch-bes-53248/efos-install-rcf-license-file.html 
 sidebar: sidebar 
 keywords: install rcf,setup rcf,rcf file, efos, license file 
-summary: 'Vous pouvez installer le fichier RCF (Reference Configuration File) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.' 
+summary: 'Vous pouvez installer le fichier de configuration de référence (RCF) après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué les nouvelles licences.' 
 ---
-= Installez le fichier RCF (Reference Configuration File) et le fichier de licence
+= Installez le fichier de configuration de référence (RCF) et le fichier de licence.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Depuis EFOS 3.12.0.1, vous pouvez installer le fichier RCF (Reference Configuration File) et le fichier de licence après avoir configuré le commutateur de cluster BES-53248.
+À partir d'EFOS 3.12.0.1, vous pouvez installer le fichier de configuration de référence (RCF) et le fichier de licence après avoir configuré le commutateur de cluster BES-53248.
 
 
-CAUTION: Tous les ports sont configurés lorsque vous installez le RCF, mais vous devez installer votre licence pour activer les ports configurés.
+CAUTION: Tous les ports sont configurés lors de l'installation de RCF, mais vous devez installer votre licence pour activer les ports configurés.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Vérifiez que les éléments suivants sont en place :
+Vérifiez que les éléments suivants sont en place :
 
-* Sauvegarde actuelle de la configuration du commutateur.
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* La FCR actuelle, disponible à partir de la https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
-* Configuration de démarrage dans le fichier RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle. Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-* Une connexion de console au commutateur, nécessaire lors de l'installation du RCF à partir d'un état par défaut défini en usine. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux ni problème similaire).
+* Le RCF actuel, disponible auprès du https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
+* Une configuration de démarrage dans le RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle.  Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit instanciée lors des prochains redémarrages.
+* Une connexion console au commutateur est requise lors de l'installation du RCF à partir d'un état d'usine par défaut.  Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
 
 
 .Documentation suggérée
-Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge. Voir la https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Téléchargement du logiciel EFOS"^] page. Notez qu'il peut y avoir des dépendances de commande entre la syntaxe de commande dans le fichier RCF et celle trouvée dans les versions de EFOS.
+Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge.  Voir le https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Téléchargement du logiciel EFOS"^] page.  Notez qu'il peut exister des dépendances entre la syntaxe des commandes dans le RCF et celle des versions d'EFOS.
 
 
 
 == Installez le fichier de configuration
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs BES-53248 sont cs1 et cs2.
 * Les noms des nœuds sont cluster1-01, cluster1-02, cluster1-03 et cluster1-04.
-* Les noms de LIF du cluster sont cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 et cluster1-04_clus2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
-* Les exemples de cette procédure utilisent quatre nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://hwu.netapp.com/Home/Index["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+* Les noms LIF du cluster sont cluster1-01_clus1, cluster1-01_clus2, cluster1-02_clus1, cluster1-02_clus2, cluster1-03_clus1, cluster1-03_clus2, cluster1-04_clus1 et cluster1-04_clus2.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les exemples de cette procédure utilisent quatre nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b` .  Voir le https://hwu.netapp.com/Home/Index["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
 
 
 
-NOTE: Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
-.Description de la tâche
-La procédure nécessite l'utilisation de commandes ONTAP et de commandes de commutateur Broadcom ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes du commutateur Broadcom ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire au cours de cette procédure. Ceci est de par sa conception, car les modifications de version des fichiers RCF peuvent affecter temporairement la connectivité ISL. Pour assurer un fonctionnement sans interruption du cluster, la procédure suivante migre toutes les LIFs du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
-
-
-CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et des RCF, consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] . Si vous devez effacer complètement les paramètres du commutateur, vous devez effectuer à nouveau la configuration de base. Vous devez être connecté au commutateur à l'aide de la console série car un effacement complet de la configuration réinitialise la configuration du réseau de gestion.
+Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure. Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL. Pour garantir le fonctionnement non perturbateur du cluster, la procédure suivante migre toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
 
 
+CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et des RCF, consultez l'article de la base de connaissances. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] .  Si vous devez effacer complètement les paramètres du commutateur, vous devrez effectuer à nouveau la configuration de base.  Vous devez être connecté au commutateur via la console série car une suppression complète de la configuration réinitialise la configuration du réseau de gestion.
 
-== Étape 1 : préparer l'installation
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+
+== Étape 1 : Préparer l'installation
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 [source, cli]
 ----
@@ -73,17 +73,17 @@ où _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 +
-La commande suivante supprime la création automatique de dossiers pendant deux heures :
+La commande suivante désactive la création automatique de cas pendant deux heures :
 
 +
 [listing]
 ----
 cluster1::*> system node autosupport invoke -node \* -type all -message MAINT=2h
 ----
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 [source, cli]
 ----
@@ -92,14 +92,14 @@ set -privilege advanced
 +
 L'invite avancée (*>) apparaît.
 
-. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
+. Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 [source, cli]
 ----
 network device-discovery show
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -123,16 +123,16 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Vérifiez le statut administratif et opérationnel de chaque port du cluster.
+. Vérifiez l'état administratif et opérationnel de chaque port du cluster.
 +
-.. Vérifier que tous les ports du cluster sont défectueux :
+.. Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
 +
 [source, cli]
 ----
 network port show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -175,14 +175,14 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
+.. Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -204,14 +204,14 @@ Cluster
 ====
 
 
-. Vérifiez que le cluster affiche les informations des deux commutateurs de cluster.
+. Vérifiez que le cluster affiche les informations des deux commutateurs du cluster.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.8 et versions ultérieures
 --
-Depuis ONTAP 9.8, utilisez la commande :
+À partir d' ONTAP 9.8, utilisez la commande :
 
 [source, cli]
 ----
@@ -240,7 +240,7 @@ cluster1::*>
 --
 .ONTAP 9.7 et versions antérieures
 --
-Pour ONTAP 9.7 et les versions antérieures, utilisez la commande :
+Pour ONTAP 9.7 et versions antérieures, utilisez la commande :
 
 [source, cli]
 ----
@@ -268,7 +268,7 @@ cluster1::*>
 ----
 --
 ====
-. [[step6]]Désactiver la fonction de restauration automatique sur les LIFs du cluster.
+. [[étape6]]Désactiver la restauration automatique sur les LIF du cluster.
 +
 [source, cli]
 ----
@@ -278,7 +278,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
-== Étape 2 : configurer les ports
+== Étape 2 : Configurer les ports
 
 . Sur le commutateur cs2, vérifiez la liste des ports connectés aux nœuds du cluster.
 +
@@ -286,7 +286,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 ----
 show isdp neighbor
 ----
-. Sur le commutateur de cluster cs2, arrêtez les ports connectés aux ports de cluster des nœuds. Par exemple, si les ports 0/1 à 0/16 sont connectés aux nœuds ONTAP :
+. Sur le commutateur de cluster cs2, désactivez les ports connectés aux ports de cluster des nœuds.  Par exemple, si les ports 0/1 à 0/16 sont connectés à des nœuds ONTAP :
 +
 [listing, subs="+quotes"]
 ----
@@ -297,14 +297,14 @@ show isdp neighbor
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)#
 ----
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cette opération peut prendre quelques secondes.
+. Vérifiez que les LIF du cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -325,12 +325,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -344,34 +344,34 @@ cluster1-03          true    true          true
 cluster1-04          true    true          false
 ----
 ====
-. Si ce n'est déjà fait, enregistrez la configuration actuelle du commutateur en copiant la sortie de la commande suivante dans un fichier journal :
+. Si vous ne l'avez pas déjà fait, enregistrez la configuration actuelle du commutateur en copiant le résultat de la commande suivante dans un fichier journal :
 +
 [source, cli]
 ----
 show running-config
 ----
-. Nettoyez la configuration du commutateur cs2 et effectuez une configuration de base.
+. Nettoyez la configuration du commutateur CS2 et effectuez une configuration de base.
 +
 
-CAUTION: Lors de la mise à jour ou de l'application d'une nouvelle FCR, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au commutateur à l'aide de la console série pour effacer les paramètres du commutateur. Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"] pour effacer la configuration au préalable.
+CAUTION: Lors de la mise à jour ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer une configuration de base.  Vous devez être connecté au commutateur via la console série pour effacer les paramètres du commutateur.  Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"] pour effacer la configuration au préalable.
 
 +
 
-NOTE: L'effacement de la configuration ne supprime pas les licences.
+NOTE: Effacer la configuration ne supprime pas les licences.
 
 +
-.. SSH dans le commutateur.
+.. Se connecter au commutateur via SSH.
 +
-Continuez uniquement lorsque toutes les LIFs du cluster ont été retirées des ports du switch et que la configuration du switch est prête à être effacée.
+Ne procédez que lorsque toutes les interfaces logiques du cluster ont été retirées des ports du commutateur et que ce dernier est prêt à recevoir la configuration effacée.
 
-.. Entrer le mode privilège :
+.. Passer en mode privilégié :
 +
 [listing]
 ----
 (cs2)> enable
 (cs2)#
 ----
-.. Copiez et collez les commandes suivantes pour supprimer la configuration RCF précédente (selon la version RCF utilisée précédemment, certaines commandes peuvent générer une erreur si aucun paramètre particulier n'est présent) :
+.. Copiez et collez les commandes suivantes pour supprimer la configuration RCF précédente (selon la version RCF précédente utilisée, certaines commandes peuvent générer une erreur si un paramètre particulier est absent) :
 +
 [source, cli]
 ----
@@ -423,7 +423,7 @@ no vlan 17
 no vlan 18
 exit
 ----
-.. Enregistrez la configuration en cours d'exécution dans la configuration de démarrage :
+.. Enregistrez la configuration en cours dans la configuration de démarrage :
 +
 [listing, subs="+quotes"]
 ----
@@ -438,7 +438,7 @@ Config file 'startup-config' created successfully.
 
 Configuration Saved!
 ----
-.. Redémarrer le commutateur :
+.. Redémarrez le commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -446,18 +446,18 @@ Configuration Saved!
 
 Are you sure you would like to reset the system? (y/n) *y*
 ----
-.. Reconnectez-vous au commutateur à l'aide de SSH pour terminer l'installation du RCF.
+.. Connectez-vous à nouveau au commutateur via SSH pour terminer l'installation de RCF.
 
 
 
 
-. Notez toutes les personnalisations effectuées dans la FCR précédente et appliquez-les à la nouvelle FCR. Par exemple, la définition des vitesses de port ou le mode FEC à codage en dur.
-. Copiez la FCR dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
+. Consignez toutes les personnalisations apportées au RCF précédent et appliquez-les au nouveau RCF.  Par exemple, en configurant les vitesses des ports ou en programmant en dur le mode FEC.
+. Copiez le RCF dans la mémoire flash de démarrage du commutateur cs2 en utilisant l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
 +
-Cet exemple montre que HTTP est utilisé pour copier une FCR sur le bootflash du commutateur cs2 :
+Cet exemple montre comment HTTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs2 :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -481,7 +481,7 @@ Configuration script validated.
 File transfer operation completed successfully.
 ----
 ====
-. Vérifiez que le script a été téléchargé et enregistré sous le nom de fichier que vous lui avez donné :
+. Vérifiez que le script a bien été téléchargé et enregistré sous le nom de fichier que vous lui avez attribué :
 +
 `script list`
 
@@ -496,12 +496,12 @@ Reference-config.scr                       2680         2024 05 31 21:54:22
 1 configuration script(s) found.
 2045 Kbytes free.
 ----
-. Appliquer le script au commutateur :
+. Appliquez le script à l'interrupteur :
 +
 `script apply`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -521,7 +521,7 @@ Configuration script 'reference-config.scr' applied.
 ====
 . Installez le fichier de licence.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -560,9 +560,9 @@ Are you sure you would like to reset the system? (y/n) *y*
 ...
 ----
 ====
-. Examinez la sortie de la bannière à partir de la `show clibanner` commande. Vous devez lire et suivre ces instructions pour vérifier la configuration et le fonctionnement corrects du commutateur.
+. Examinez la sortie de la bannière à partir de `show clibanner` commande.  Vous devez lire et suivre ces instructions pour vérifier la configuration et le fonctionnement corrects du commutateur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -592,14 +592,14 @@ NOTE:
   command has been executed and the switch rebooted"
 ----
 ====
-. Sur le switch, vérifiez que les ports sous licence supplémentaires s'affichent après l'application du RCF :
+. Sur le commutateur, vérifiez que les ports sous licence supplémentaires apparaissent après l'application du RCF :
 +
 [source, cli]
 ----
 show port all | exclude Detach
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -635,7 +635,7 @@ Intf      Type   Mode      Mode         Status     Status Trap    Mode   Timeout
 0/56             Enable    100G Full               Down   Enable  Enable long
 ----
 ====
-. Sur le commutateur, vérifiez que vos modifications ont été effectuées :
+. Sur le commutateur, vérifiez que vos modifications ont bien été prises en compte :
 +
 [source, cli]
 ----
@@ -646,7 +646,7 @@ show running-config
 ----
 (cs2)# *show running-config*
 ----
-. Enregistrez la configuration en cours d'exécution afin qu'elle devienne la configuration de démarrage lorsque vous redémarrez le commutateur :
+. Enregistrez la configuration en cours afin qu'elle devienne la configuration de démarrage lors du redémarrage du commutateur :
 +
 `write memory`
 
@@ -663,7 +663,7 @@ Config file 'startup-config' created successfully.
 
 Configuration Saved!
 ----
-. Redémarrez le commutateur et vérifiez que la configuration en cours d'exécution est correcte :
+. Redémarrez le commutateur et vérifiez que la configuration en cours est correcte :
 +
 `reload`
 
@@ -676,7 +676,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 System will now restart!
 ----
-. Sur le commutateur de cluster cs2, faites apparaître les ports connectés aux ports de cluster des nœuds. Par exemple, si les ports 0/1 à 0/16 sont connectés aux nœuds ONTAP :
+. Sur le commutateur de cluster cs2, activez les ports connectés aux ports de cluster des nœuds.  Par exemple, si les ports 0/1 à 0/16 sont connectés à des nœuds ONTAP :
 +
 [listing, subs="+quotes"]
 ----
@@ -687,14 +687,14 @@ System will now restart!
 (cs2)(Interface 0/1-0/16)# *exit*
 (cs2)(Config)#
 ----
-. Vérifiez les ports du commutateur cs2 :
+. Vérifiez les ports du commutateur cs2 :
 +
 [source, cli]
 ----
 show interfaces status all | exclude Detach
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -723,16 +723,16 @@ Port       Name                 State   Mode        Status      Type        Cont
 0/56       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
 ----
 ====
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports e0b sont actifs et fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports e0b sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 [source, cli]
 ----
 network port show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -773,14 +773,14 @@ e0a       Cluster      Cluster          up   9000  auto/100000 healthy false
 e0b       Cluster      Cluster          up   9000  auto/100000 healthy false
 ----
 ====
-.. Vérifiez l'état de santé du commutateur depuis le cluster :
+.. Vérifiez l'état du commutateur à partir du cluster :
 +
 [source, cli]
 ----
 network device-discovery show -protocol cdp
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -805,14 +805,14 @@ cluster1-04/cdp
 ====
 
 
-. Vérifiez que le cluster affiche les informations des deux commutateurs de cluster.
+. Vérifiez que le cluster affiche les informations des deux commutateurs du cluster.
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.8 et versions ultérieures
 --
-Depuis ONTAP 9.8, utilisez la commande :
+À partir d' ONTAP 9.8, utilisez la commande :
 
 [source, cli]
 ----
@@ -841,7 +841,7 @@ cluster1::*>
 --
 .ONTAP 9.7 et versions antérieures
 --
-Pour ONTAP 9.7 et les versions antérieures, utilisez la commande :
+Pour ONTAP 9.7 et versions antérieures, utilisez la commande :
 
 [source, cli]
 ----
@@ -869,9 +869,9 @@ cluster1::*>
 ----
 --
 ====
-. [[step21]]sur le commutateur de cluster cs1, arrêtez les ports connectés aux ports de cluster des nœuds.
+. [[étape 21]]Sur le commutateur de cluster cs1, fermez les ports connectés aux ports de cluster des nœuds.
 +
-L'exemple suivant utilise la sortie d'interface :
+L'exemple suivant utilise la sortie d'exemple d'interface :
 
 +
 [listing, subs="+quotes"]
@@ -881,14 +881,14 @@ L'exemple suivant utilise la sortie d'interface :
 (cs1)(Config)# *interface 0/1-0/16*
 (cs1)(Interface 0/1-0/16)# *shutdown*
 ----
-. Vérifier que les LIFs de cluster ont migré vers les ports hébergés sur le commutateur cs2. Cette opération peut prendre quelques secondes.
+. Vérifiez que les LIF du cluster ont migré vers les ports hébergés sur le commutateur cs2. Cela peut prendre quelques secondes.
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -909,12 +909,12 @@ Cluster
 cluster1::*>
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -929,13 +929,13 @@ cluster1-04          true     true          false
 ----
 ====
 . Répétez les étapes 4 à 19 sur le commutateur cs1.
-. Activer la fonction de revert automatique sur les LIFs du cluster :
+. Activer la restauration automatique sur les LIF du cluster :
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. Redémarrez le commutateur cs1. Cela déclenche le rétablissement des LIFs du cluster sur leurs ports home. Vous pouvez ignorer les événements “panne des ports de cluster” signalés sur les nœuds pendant le redémarrage du commutateur.
+. Redémarrez le commutateur cs1.  Cela déclenche le retour des LIF du cluster à leurs ports d'origine.  Vous pouvez ignorer les événements « ports de cluster hors service » signalés sur les nœuds pendant le redémarrage du commutateur.
 +
 [listing, subs="+quotes"]
 ----
@@ -949,16 +949,16 @@ Configuration Saved! System will now restart!
 
 
 
-== Étape 3 : vérifier la configuration
+== Étape 3 : Vérifier la configuration
 
-. Sur le commutateur cs1, vérifiez que les ports du commutateur connectés aux ports du cluster sont *up* :
+. Sur le commutateur cs1, vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs* :
 +
 [source, cli]
 ----
 show interfaces status all | exclude Detach
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -987,14 +987,14 @@ Port       Name                 State   Mode        Status      Type        Cont
 0/56       Cluster   ISL Port   Up      Auto        100G Full   Copper      Inactive    Trunk
 ----
 ====
-. Vérifier que l'ISL entre les commutateurs cs1 et cs2 est fonctionnel :
+. Vérifiez que la liaison ISL entre les commutateurs cs1 et cs2 est fonctionnelle :
 +
 [source, cli]
 ----
 show port-channel 1/1
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1017,14 +1017,14 @@ Ports   Timeout       Speed     Active
         partner/long
 ----
 ====
-. Vérifier que les LIFs du cluster ont rétabli leur port de base :
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 [source, cli]
 ----
 network interface show -role cluster
 ----
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1044,12 +1044,12 @@ Cluster
             cluster1-04_clus2  up/up      169.254.1.7/23     cluster1-04         e0b     true
 ----
 ====
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -1063,22 +1063,22 @@ cluster1-03          true    true          true
 cluster1-04          true    true          false
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -1095,9 +1095,9 @@ cluster1-02
        3/5/2022 19:21:20 -06:00   cluster1-02_clus2   cluster1-02_clus2   none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -1143,13 +1143,13 @@ RPC status:
 ----
 --
 ====
-. Rétablissez le niveau de privilège sur admin :
+. Rétablir le niveau de privilège à administrateur :
 +
 [source, cli]
 ----
 set -privilege admin
 ----
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 [source, cli]
 ----
@@ -1157,5 +1157,5 @@ system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois le fichier RCF et le fichier de licence installés, vous pouvez link:configure-ssh.html["activer SSH"].

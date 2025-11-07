@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-reqs-bes53248.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, port, assignment, table, configure, bes-53428 cluster switch port assignments - bes-53428 switches 
-summary: 'Vous pouvez utiliser la table d"affectation des ports du commutateur de cluster BES-53248 pour configurer votre cluster.' 
+summary: 'Vous pouvez utiliser le tableau d"affectation des ports du commutateur de cluster BES-53248 comme guide pour configurer votre cluster.' 
 ---
 = Configuration requise pour les commutateurs de cluster BES-53248
 :allow-uri-read: 
@@ -11,74 +11,74 @@ summary: 'Vous pouvez utiliser la table d"affectation des ports du commutateur d
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur BES 53248, vérifiez les exigences de prise en charge et de configuration du système EFOS et du système ONTAP.
+Pour l'installation et la maintenance du commutateur BES-53248, assurez-vous de consulter les exigences de prise en charge et de configuration d'EFOS et ONTAP .
 
 
 
-== Prise en charge de EFOS et ONTAP
+== Assistance EFOS et ONTAP
 
-Voir la https://hwu.netapp.com/Switch/Index["NetApp Hardware Universe"^] et https://mysupport.netapp.com/site/info/broadcom-cluster-switch["Matrice de compatibilité des commutateurs Broadcom"^] Pour les informations de compatibilité EFOS et ONTAP avec les commutateurs BES-53248. La prise en charge de l'EFOS et de l'ONTAP peut varier selon le type de machine spécifique du commutateur BES-53248. Pour plus de détails sur tous les types de machines à commutateur BES-52348, voir link:components-bes53248.html["Composants et références des commutateurs de cluster BES-53248"].
-
-
-
-== Configuration requise
-
-Pour configurer un cluster, il faut un nombre et un type appropriés de câbles et de connecteurs de câbles pour les commutateurs du cluster. Selon le type de commutateur de cluster que vous configurez au départ, vous devez vous connecter au port console du commutateur avec le câble console inclus.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] et https://mysupport.netapp.com/site/info/broadcom-cluster-switch["matrice de compatibilité des commutateurs Broadcom"^] pour les informations de compatibilité EFOS et ONTAP avec les commutateurs BES-53248.  La prise en charge d'EFOS et ONTAP peut varier selon le type de machine spécifique du commutateur BES-53248.  Pour plus de détails sur tous les types de machines de commutation BES-52348, voirlink:components-bes53248.html["Composants et références des commutateurs de groupe BES-53248"] .
 
 
 
-=== Affectations des ports des commutateurs de cluster
+== Exigences de configuration
 
-Vous pouvez utiliser le tableau des attributions de ports de commutateur de cluster BES-53248 pris en charge par Broadcom pour configurer votre cluster.
+Pour configurer un cluster, vous avez besoin du nombre et du type appropriés de câbles et de connecteurs de câbles pour les commutateurs du cluster.  Selon le type de commutateur de cluster que vous configurez initialement, vous devez vous connecter au port console du commutateur avec le câble console fourni.
+
+
+
+=== affectations de ports de commutateur de cluster
+
+Vous pouvez utiliser le tableau d'affectation des ports du commutateur de cluster BES-53248 pris en charge par Broadcom comme guide pour configurer votre cluster.
 
 [cols="1,2"]
 |===
-| Commutateurs | Utilisation des ports 
+| Ports de commutation | Utilisation des ports 
 
 
  a| 
 01-16
  a| 
-Nœuds de cluster 10 GbE avec port, configuration de base
+Nœuds de ports de cluster 10/25 GbE, configuration de base
 
 
 
  a| 
 17-48
  a| 
-Nœuds de cluster 10 GbE avec licences
+Nœuds de ports de cluster 10/25 GbE, avec licences
 
 
 
  a| 
 49-54
  a| 
-Ajout de nœuds de port de cluster 40 GbE avec licences, de droite à gauche
+Nœuds de ports de cluster 40/100 GbE, avec licences, ajoutés de droite à gauche
 
 
 
  a| 
 55-56
  a| 
-Ports ISL (Inter-Switch Link) de cluster 100 GbE, configuration de base
+Ports de liaison inter-commutateurs (ISL) du cluster 100 GbE, configuration de base
 
 |===
-Voir la https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutateur.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
 
 
 
-=== Contrainte de vitesse du groupe de ports
+=== contrainte de vitesse du groupe de ports
 
-* Sur les switchs de cluster BES-53248, les ports 48 10 GbE (SFP28/SFP+) sont combinés en groupes à 12 ports 4-ports comme suit : ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
-* La vitesse des ports SFP28/SFP+ doit être identique (10 GbE ou 25 GbE) sur tous les ports du groupe à 4 ports.
-
-
+* Sur les commutateurs de cluster BES-53248, les 48 ports 10/25GbE (SFP28/SFP+) sont combinés en 12 groupes de 4 ports comme suit : Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
+* La vitesse du port SFP28/SFP+ doit être la même (10GbE ou 25GbE) sur tous les ports du groupe de 4 ports.
 
 
-=== Supplémentaires requise
 
-* Si vous achetez des licences supplémentaires, reportez-vous à la section link:configure-licenses.html["Activez les ports de nouvelles licences"] pour plus de détails sur la façon de les activer.
-* Si SSH est actif, vous devez le réactiver manuellement après avoir exécuté la commande `erase startup-config` et redémarrage du commutateur.
+
+=== Exigences supplémentaires
+
+* Si vous achetez des licences supplémentaires, consultezlink:configure-licenses.html["Activer les ports nouvellement sous licence"] pour plus de détails sur la façon de les activer.
+* Si SSH est actif, vous devez le réactiver manuellement après avoir exécuté la commande. `erase startup-config` et en redémarrant le commutateur.
 
 
 .Quelle est la prochaine étape

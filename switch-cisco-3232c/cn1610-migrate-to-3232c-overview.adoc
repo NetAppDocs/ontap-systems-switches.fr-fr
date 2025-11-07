@@ -2,20 +2,20 @@
 permalink: switch-cisco-3232c/cn1610-migrate-to-3232c-overview.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 3232c switch, 
-summary: Avant de configurer des commutateurs Cisco Nexus 3232c, consultez un aperçu du processus et de la nomenclature. 
+summary: Avant de configurer les commutateurs Cisco Nexus 3232c, consultez un aperçu du processus et de la nomenclature. 
 ---
-= Conditions requises pour la migration
+= Exigences de migration
 :allow-uri-read: 
 :imagesdir: ../media/
 
 
 [role="lead"]
-Les switchs Cisco Nexus 3232C peuvent être utilisés comme switchs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP à plus de deux nœuds.
+Les commutateurs Cisco Nexus 3232C peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.
 
 
-NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+NOTE: La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Si nécessaire, se référer aux sections suivantes pour plus d'informations :
+Si nécessaire, veuillez vous référer aux informations suivantes :
 
 * link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 et CN1610"^]
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
@@ -26,35 +26,35 @@ Si nécessaire, se référer aux sections suivantes pour plus d'informations :
 
 == Exigences de migration CN1610
 
-Les commutateurs du cluster prennent en charge les connexions de nœud suivantes :
+Les commutateurs du cluster prennent en charge les connexions de nœuds suivantes :
 
-* NetApp CN1610 : ports 0/1 à 0/12 (10 GbE)
-* Cisco Nexus 3232C : ports e1/1-30 (40 ou 100 ou 4 x 10 GbE)
+* NetApp CN1610 : ports 0/1 à 0/12 (10 GbE)
+* Cisco Nexus 3232C : ports e1/1-30 (40 ou 100 ou 4x10GbE)
 
 
-Les commutateurs de cluster utilisent les ports ISL (Inter-switch Link) suivants.
+Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) suivants.
 
-* NetApp CN1610 : ports 0/13 à 0/16 (10 GbE)
-* Cisco Nexus 3232C : ports 1/31-32 (100 GbE)
+* NetApp CN1610 : ports 0/13 à 0/16 (10 GbE)
+* Cisco Nexus 3232C : ports 1/31-32 (100 GbE)
 
 
 [NOTE]
 ====
-Vous devez utiliser des câbles de dérivation 4x10G sur le switch de cluster Cisco Nexus 3232C.
+Vous devez utiliser 4 câbles de dérivation 10G sur le commutateur de cluster Cisco Nexus 3232C.
 
 ====
-Le tableau suivant présente les connexions de câblage requises à chaque étape lors de la transition des switchs NetApp CN1610 vers les switchs de cluster Cisco Nexus 3232C :
+Le tableau suivant présente les connexions de câblage nécessaires à chaque étape de la transition des commutateurs NetApp CN1610 vers les commutateurs de cluster Cisco Nexus 3232C :
 
 |===
-| Étape | Description | Câbles requis 
+| Scène | Description | Câbles nécessaires 
 
 
  a| 
-Initiale
+Initial
  a| 
 CN1610 à CN1610 (SFP+ à SFP+)
  a| 
-4 câbles à connexion directe en fibre optique ou cuivre SFP+
+4 câbles à fibre optique ou cuivre à connexion directe SFP+
 
 
 
@@ -63,7 +63,7 @@ Transition
  a| 
 CN1610 à 3232C (QSFP à SFP+)
  a| 
-1 câbles QSFP et 4 SFP+ à fibre optique ou cuivre
+1 câble de dérivation QSFP et 4 câbles de dérivation SFP+ à fibre optique ou en cuivre
 
 
 
@@ -72,37 +72,37 @@ Final
  a| 
 3232C à 3232C (QSFP à QSFP)
  a| 
-2 câbles à connexion directe cuivre ou fibre optique QSFP
+2 câbles à fibre optique QSFP ou à connexion directe en cuivre
 
 |===
-Vous devez avoir téléchargé les fichiers de configuration de référence (RCF) applicables.  Le nombre de ports 10 GbE et 40/100 GbE est défini dans les RCF disponibles surlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
+Vous devez avoir téléchargé les fichiers de configuration de référence (RCF) applicables.  Le nombre de ports 10 GbE et 40/100 GbE est défini dans les RCF disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
-Les versions ONTAP et NX-OS prises en charge dans cette procédure sont répertoriées à l'adresselink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
+Les versions ONTAP et de NX-OS prises en charge par cette procédure sont répertoriées à l'adresse suivante :link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
 
-Les versions ONTAP et FASTPATH ​​prises en charge dans cette procédure sont répertoriées à l'adresselink:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Commutateurs NetApp CN1601 et CN1610"^] .
+Les versions ONTAP et FASTPATH ​​prises en charge par cette procédure sont répertoriées à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Commutateurs NetApp CN1601 et CN1610"^] .
 
-.A propos des exemples utilisés
-Les exemples de la procédure de migration utilisent quatre nœuds :
+.À propos des exemples utilisés
+Les exemples de la procédure de migration utilisent quatre nœuds :
 
 * Deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : *e0a*, *e0b*, *e0c* et *e0d*.
-* Les deux autres nœuds utilisent deux câbles fibre d'interconnexion de cluster 40 GbE : *e4a* et *e4e*.
+* Les deux autres nœuds utilisent deux câbles à fibres optiques d'interconnexion de cluster 40 GbE : *e4a* et *e4e*.
 +
-Le système link:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les câbles fibre optique de cluster de vos plates-formes.
+Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les câbles à fibres optiques en grappe pour vos plateformes.
 
 
 
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noeuds sont *n1*, *n2*, *n3* et *n4*.
-* Les sorties de la commande peuvent varier en fonction des différentes versions du logiciel ONTAP.
+* Les nœuds sont *n1*, *n2*, *n3* et *n4*.
+* Les résultats des commandes peuvent varier en fonction des différentes versions du logiciel ONTAP .
 * Les commutateurs CN1610 à remplacer sont *CL1* et *CL2*.
-* Les switchs Nexus 3232C en remplacement des switchs CN1610 sont *C1* et *C2*.
-* *N1_clus1* est la première interface logique de cluster (LIF) connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
-* *N1_clus2* est la première LIF de cluster connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
-* *N1_clus3* est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
-* *N1_clus4* est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
+* Les commutateurs Nexus 3232C destinés à remplacer les commutateurs CN1610 sont *C1* et *C2*.
+* *n1_clus1* est la première interface logique de cluster (LIF) connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
+* *n1_clus2* est le premier LIF de cluster connecté au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
+* *n1_clus3* est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.
+* *n1_clus4* est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
 
-.Et la suite ?
-link:cn1610-prepare-to-migrate.html["La préparation à la migration"].
+.Quelle est la prochaine étape ?
+link:cn1610-prepare-to-migrate.html["Préparez-vous à la migration"].

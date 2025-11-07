@@ -2,55 +2,55 @@
 permalink: switch-cisco-92300/install-nxos-rcf.html 
 sidebar: sidebar 
 keywords: install rcf,rcf configure 
-summary: Vous pouvez installer la FCR après avoir configuré pour la première fois le commutateur Nexus 92300YC. 
+summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 92300YC pour la première fois. 
 ---
-= Installer le fichier RCF (Reference Configuration File)
+= Installez le fichier de configuration de référence (RCF)
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez installer la FCR après avoir configuré pour la première fois le commutateur Nexus 92300YC.
+Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 92300YC pour la première fois.
 
 .Nomenclature des commutateurs et des nœuds
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms des deux commutateurs Cisco sont `cs1` et `cs2`.
-* Les noms de nœud sont `node1` et `node2`.
-* Les noms LIF de cluster sont `node1_clus1` et `node1_clus2` pour les nœuds 1 et `node2_clus1` et `node2_clus2` pour le noeud 2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
-* Les ports de cluster de chaque nœud sont nommés `e0a` et `e0b`.
+* Les noms des deux commutateurs Cisco sont : `cs1` et `cs2` .
+* Les noms des nœuds sont `node1` et `node2` .
+* Les noms LIF du cluster sont `node1_clus1` et `node1_clus2` pour le nœud 1 et `node2_clus1` et `node2_clus2` pour le nœud 2.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les ports du cluster sur chaque nœud sont nommés `e0a` et `e0b` .
 +
-Voir la link:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] pour les ports réels de cluster pris en charge sur votre plateforme.
+Voir lelink:https://hwu.netapp.com/Home/Index["_Hardware Universe^_"] pour les ports de cluster réellement pris en charge sur votre plateforme.
 
 
 
 .Ports et connexions de nœuds pris en charge
-* Les liaisons interswitch (ISL) prises en charge par les commutateurs Nexus 92300YC sont les ports 1/65 et 1/66.
-* Les connexions de nœud prises en charge pour les commutateurs Nexus 92300YC sont les ports 1/1 à 1/66.
-* Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b`. Voir la https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plates-formes.
+* Les liaisons inter-commutateurs (ISL) prises en charge pour les commutateurs Nexus 92300YC sont les ports 1/65 et 1/66.
+* Les connexions de nœuds prises en charge pour les commutateurs Nexus 92300YC sont les ports 1/1 à 1/66.
+* Les exemples de cette procédure utilisent deux nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b` .  Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
 
 
 .Avant de commencer
-* Vous devez avoir la FCR actuelle.
-* Le cluster doit fonctionner parfaitement (il ne doit y avoir aucune erreur dans les journaux ou d'autres problèmes similaires).
-* Vous devez avoir vérifié ou défini la configuration de démarrage souhaitée dans la FCR pour qu'elle reflète les images de démarrage souhaitées si vous installez uniquement NX-OS et que vous gardez la version actuelle de RCF.
-* Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
-* Vous devez avoir consulté la table de compatibilité des commutateurs sur le https://support.netapp.com/NOW/download/software/cm_switches/["Commutateur Ethernet Cisco"^] Consultez cette page pour les versions ONTAP, NX-OS et RCF prises en charge.
-* Il peut y avoir des dépendances de commande entre la syntaxe de la commande dans la FCR et celle trouvée dans les versions de NX-OS.
+* Vous devez disposer du RCF actuel.
+* Le cluster doit être pleinement fonctionnel (il ne doit y avoir aucune erreur dans les journaux ou de problèmes similaires).
+* Vous devez avoir vérifié ou défini la configuration de démarrage souhaitée dans le RCF pour refléter les images de démarrage souhaitées si vous installez uniquement NX-OS et conservez votre version actuelle du RCF.
+* Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit instanciée lors des prochains redémarrages.
+* Vous avez dû consulter le tableau de compatibilité des commutateurs sur le https://support.netapp.com/NOW/download/software/cm_switches/["Commutateur Ethernet Cisco"^] page répertoriant les versions ONTAP, NX-OS et RCF prises en charge.
+* Il peut exister des dépendances entre la syntaxe des commandes dans le RCF et celle des versions de NX-OS.
 
 
-.Description de la tâche
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+.À propos de cette tâche
+La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
 .Étapes
 . Connectez le commutateur de cluster au réseau de gestion.
-. Utiliser la commande ping pour vérifier la connectivité sur le serveur hébergeant la FCR.
+. Utilisez la commande ping pour vérifier la connectivité au serveur hébergeant le RCF.
 +
-Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2 :
+Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2.1 :
 
 +
 [listing, subs="+quotes"]
@@ -60,7 +60,7 @@ Pinging 172.19.2.1 with 0 bytes of data:
 
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
-. Copier le FCR sur le commutateur Nexus 92300YC :
+. Copiez le RCF sur le commutateur Nexus 92300YC :
 +
 [listing, subs="+quotes"]
 ----
@@ -80,7 +80,7 @@ sftp> exit
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Fusionner le FCR avec l'running-config du switch :
+. Fusionnez le RCF avec la configuration en cours du commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -108,7 +108,7 @@ Edge Port Type (Portfast) has been configured on Ethernet1/1 but will only
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Vérifier sur le commutateur que la FCR a été fusionnée avec succès :
+. Vérifiez sur le commutateur que le RCF a été fusionné avec succès :
 +
 `show running-config`
 
@@ -149,7 +149,7 @@ banner motd #
 *                                                                              *
 ********************************************************************************
 ----
-. Enregistrez la configuration en cours d'exécution afin qu'elle devienne la configuration de démarrage lorsque vous redémarrez le commutateur :
+. Enregistrez la configuration en cours afin qu'elle devienne la configuration de démarrage lors du redémarrage du commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -159,7 +159,7 @@ cs2# *copy running-config startup-config*
 Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
-. Pour ONTAP 9.6P8 et versions ultérieures, activez la fonction de collecte des journaux Ethernet du moniteur d'état des commutateurs pour collecter les fichiers journaux relatifs aux commutateurs à l'aide des commandes suivantes : `system cluster-switch log setup-password` et `system cluster-switch log enable-collection`
+. Pour ONTAP 9.6P8 et versions ultérieures, activez la fonction de collecte des journaux de surveillance de l'état du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur, à l'aide des commandes suivantes : `system cluster-switch log setup-password` et `system cluster-switch log enable-collection`
 +
 [listing, subs="+quotes"]
 ----
@@ -197,7 +197,7 @@ Enabling cluster switch log collection.
 
 cluster1::*>
 ----
-. Redémarrez le commutateur et vérifiez que la configuration en cours d'exécution est correcte :
+. Redémarrez le commutateur et vérifiez que la configuration en cours est correcte :
 +
 `reload`
 

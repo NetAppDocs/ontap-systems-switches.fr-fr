@@ -2,29 +2,29 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La fonction de collecte des journaux du contrôleur d"état du commutateur Ethernet (CSHM) permet de collecter des journaux à partir des commutateurs du cluster ou du réseau de stockage dans ONTAP.' 
+summary: 'La fonction de collecte des journaux du moniteur d"intégrité des commutateurs Ethernet (CSHM) est utilisée pour collecter les journaux des commutateurs de réseau de cluster ou de stockage dans ONTAP.' 
 ---
-= Collecte du journal de surveillance de l'état du commutateur Ethernet
+= Collecte des journaux de surveillance de l'état des commutateurs Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le moniteur d'état des commutateurs Ethernet (CSHM) est chargé de garantir l'intégrité opérationnelle des commutateurs du réseau Cluster et Storage et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *support* détaillés à partir du commutateur et démarre une collecte horaire de données *périodiques* collectées par AutoSupport.
+Le moniteur d'intégrité des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau de cluster et de stockage et de collecter les journaux de commutation à des fins de débogage.  Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *Support* détaillés à partir du commutateur et lance une collecte horaire de données *Périodiques* collectées par AutoSupport.
 
 .Avant de commencer
-* Pour activer la fonction de collecte de journaux, vous devez exécuter ONTAP version 9.10.1P15, 9.11.1P12, ou 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.
-* La surveillance de l'état du commutateur doit être activée pour le commutateur. Vérifiez ceci en vous assurant que le `Is Monitored:` le champ est défini sur *true* dans la sortie du `system switch ethernet show` commande.
+* Pour activer la fonction de collecte des journaux, vous devez exécuter ONTAP version 9.10.1P15, 9.11.1P12 ou 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.
+* La surveillance de l'état du commutateur doit être activée pour celui-ci.  Vérifiez cela en vous assurant que `Is Monitored:` Le champ est défini sur *vrai* dans la sortie de `system switch ethernet show` commande.
 
 
 .Étapes
-. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur. Vous êtes invité à entrer le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
+. Pour configurer la collecte des journaux, exécutez la commande suivante pour chaque commutateur.  Vous êtes invité à saisir le nom du commutateur, le nom d'utilisateur et le mot de passe pour la collecte des journaux.
 +
 `system switch ethernet log setup-password`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -53,12 +53,12 @@ Enter the password: *<enter switch password>*
 Enter the password again: *<enter switch password>*
 ----
 ====
-. Pour démarrer la collecte des journaux, exécutez la commande suivante, en remplaçant le PÉRIPHÉRIQUE par le commutateur utilisé dans la commande précédente. Ceci lance les deux types de collecte de journaux : les journaux détaillés *support* et une collecte horaire de données *périodiques*.
+. Pour démarrer la collecte des journaux, exécutez la commande suivante en remplaçant DEVICE par l'option utilisée dans la commande précédente.  Cela lance les deux types de collecte de journaux : les journaux détaillés de *Support* et une collecte horaire de données *Périodiques*.
 +
 `system switch ethernet log modify -device _<switch-name>_ -log-request true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -77,57 +77,57 @@ Enabling cluster switch log collection.
 ----
 ====
 +
-Attendez 10 minutes, puis vérifiez que la collecte des journaux se termine :
+Attendez 10 minutes, puis vérifiez que la collecte des journaux est terminée :
 
 +
 `system switch ethernet log show`
 
 +
 
-CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp.
+CAUTION: Si l'une de ces commandes renvoie une erreur ou si la collecte des journaux ne se termine pas, contactez le support NetApp .
 
 
 
-.Résoudre les problèmes
-Si vous rencontrez l'un des États d'erreur suivants signalés par la fonction de collecte de journaux (visible dans la sortie de `system switch ethernet log show`), essayez les étapes de débogage correspondantes :
+.Dépannage
+Si vous rencontrez l'un des statuts d'erreur suivants signalés par la fonction de collecte des journaux (visibles dans la sortie de `system switch ethernet log show` ), essayez les étapes de débogage correspondantes :
 
 |===
 
 
-| *Etat d'erreur de collecte de journaux* | *Résolution* 
+| *État d'erreur de collecte des journaux* | *Résolution* 
 
 
  a| 
-*Clés RSA non présentes*
+*Clés RSA absentes*
  a| 
-Régénérer les clés SSH ONTAP. Contactez le support NetApp.
-
-
-
- a| 
-*erreur de mot de passe de commutateur*
- a| 
-Vérifiez les identifiants, testez la connectivité SSH et régénérez les clés SSH ONTAP. Consultez la documentation du commutateur ou contactez le support NetApp pour obtenir des instructions.
+Régénérer les clés SSH ONTAP . Contactez le support NetApp .
 
 
 
  a| 
-*Clés ECDSA non présentes pour FIPS*
+*Erreur de changement de mot de passe*
  a| 
-Si le mode FIPS est activé, les clés ECDSA doivent être générées sur le commutateur avant de réessayer.
-
-
-
- a| 
-*journal préexistant trouvé*
- a| 
-Supprimez le fichier de collecte de journaux précédent sur le commutateur.
+Vérifiez les informations d'identification, testez la connectivité SSH et régénérez les clés SSH ONTAP .  Consultez la documentation du commutateur ou contactez le support NetApp pour obtenir des instructions.
 
 
 
  a| 
-*erreur du journal de vidage du commutateur*
+*Clés ECDSA absentes pour FIPS*
  a| 
-Assurez-vous que l'utilisateur du commutateur dispose des autorisations de collecte de journaux. Reportez-vous aux conditions préalables ci-dessus.
+Si le mode FIPS est activé, des clés ECDSA doivent être générées sur le commutateur avant de réessayer.
+
+
+
+ a| 
+*Journal préexistant trouvé*
+ a| 
+Supprimez le fichier de journalisation précédent sur le commutateur.
+
+
+
+ a| 
+*Erreur de journal de vidage du commutateur*
+ a| 
+Vérifiez que l'utilisateur du commutateur dispose des autorisations de collecte des journaux.  Veuillez vous référer aux prérequis ci-dessus.
 
 |===

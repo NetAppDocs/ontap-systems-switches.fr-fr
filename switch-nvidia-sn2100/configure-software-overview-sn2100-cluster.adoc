@@ -2,26 +2,26 @@
 permalink: switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Présentation de la configuration logicielle ou des switchs NVIDIA SN2100 
+summary: Présentation de la configuration logicielle des commutateurs NVIDIA SN2100. 
 ---
-= Workflow d'installation logicielle pour les switchs NVIDIA SN2100
+= Processus d'installation logicielle pour les commutateurs NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour installer et configurer le logiciel d'un commutateur NVIDIA SN2100, procédez comme suit :
+Pour installer et configurer le logiciel d'un commutateur NVIDIA SN2100, suivez ces étapes :
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:configure-sn2100-cluster.html["Configurer le commutateur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-sn2100-cluster.html["Configurez le commutateur"]
 [role="quick-margin-para"]
 Configurez le commutateur NVIDIA SN2100.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-cumulus-mode-sn2100-cluster.html["Installez Cumulus Linux en mode Cumulus"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-cumulus-mode-sn2100-cluster.html["Installer Cumulus Linux en mode Cumulus"]
 [role="quick-margin-para"]
 Vous pouvez installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur exécute Cumulus Linux.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-onie-mode-sn2100-cluster.html["Installez Cumulus Linux en mode ONIE"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-onie-mode-sn2100-cluster.html["Installer Cumulus Linux en mode ONIE"]
 [role="quick-margin-para"]
 Vous pouvez également installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur exécute Cumulus Linux en mode ONIE.
 
@@ -29,13 +29,13 @@ Vous pouvez également installer le système d'exploitation Cumulus Linux (CL) l
 [role="quick-margin-para"]
 Vous pouvez mettre à niveau votre système d'exploitation Cumulus Linux (CL) selon vos besoins.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:install-rcf-sn2100-cluster.html["Installez ou mettez à niveau le script RCF (Reference Configuration File)"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:install-rcf-sn2100-cluster.html["Installez ou mettez à niveau le script du fichier de configuration de référence (RCF)."]
 [role="quick-margin-para"]
-Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
+Deux scripts RCF sont disponibles pour les applications de clustering et de stockage.  La procédure est la même pour chaque cas.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:setup-install-cshm-file.html["Installez le fichier CSHM"]
 [role="quick-margin-para"]
-Vous pouvez installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA.
+Vous pouvez installer le fichier de configuration approprié pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA .
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"]link:reset-switch-sn2100.html["Réinitialiser le commutateur aux paramètres d'usine"]
 [role="quick-margin-para"]

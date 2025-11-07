@@ -2,50 +2,50 @@
 permalink: switch-cisco-3232c/migrate-requirements-3232c.html 
 sidebar: sidebar 
 keywords: migrate, cn1610 switch, cisco nexus 3232c cluster 
-summary: Vous devez connaître certaines informations de configuration, connexions de ports et exigences de câblage lorsque vous remplacez des switchs de cluster CN1610 par des switchs de cluster Cisco Nexus 3232C. 
+summary: Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez des commutateurs de cluster CN1610 par des commutateurs de cluster Cisco Nexus 3232C. 
 ---
-= Exigences de migration pour les switchs de cluster Cisco Nexus 3232C
+= Exigences de migration pour les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de migrer vers des switchs de cluster Cisco Nexus 3232C. vérifiez les informations de configuration, les connexions de port et les exigences de câblage.
+Avant de migrer vers des commutateurs de cluster Cisco Nexus 3232C, veuillez consulter les informations de configuration, les connexions des ports et les exigences de câblage.
 
 
 
 == Exigences de migration CN1610
 
-Les commutateurs du cluster prennent en charge les connexions de nœud suivantes :
+Les commutateurs du cluster prennent en charge les connexions de nœuds suivantes :
 
-* NetApp CN1610 : ports 0/1 à 0/12 (10 GbE)
-* Cisco Nexus 3232C : ports e1/1-30 (40 ou 100 ou 4 x 10 GbE)
+* NetApp CN1610 : ports 0/1 à 0/12 (10 GbE)
+* Cisco Nexus 3232C : ports e1/1-30 (40 ou 100 ou 4x10GbE)
 
 
-Les commutateurs de cluster utilisent les ports ISL (Inter-switch Link) suivants.
+Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) suivants.
 
-* NetApp CN1610 : ports 0/13 à 0/16 (10 GbE)
-* Cisco Nexus 3232C : ports 1/31-32 (100 GbE)
+* NetApp CN1610 : ports 0/13 à 0/16 (10 GbE)
+* Cisco Nexus 3232C : ports 1/31-32 (100 GbE)
 
 
 [NOTE]
 ====
-Vous devez utiliser des câbles de dérivation 4x10G sur le switch de cluster Cisco Nexus 3232C.
+Vous devez utiliser 4 câbles de dérivation 10G sur le commutateur de cluster Cisco Nexus 3232C.
 
 ====
-Le tableau suivant présente les connexions de câblage requises à chaque étape lors de la transition des switchs NetApp CN1610 vers les switchs de cluster Cisco Nexus 3232C :
+Le tableau suivant présente les connexions de câblage nécessaires à chaque étape de la transition des commutateurs NetApp CN1610 vers les commutateurs de cluster Cisco Nexus 3232C :
 
 |===
-| Étape | Description | Câbles requis 
+| Scène | Description | Câbles nécessaires 
 
 
  a| 
-Initiale
+Initial
  a| 
 CN1610 à CN1610 (SFP+ à SFP+)
  a| 
-4 câbles à connexion directe en fibre optique ou cuivre SFP+
+4 câbles à fibre optique ou cuivre à connexion directe SFP+
 
 
 
@@ -54,7 +54,7 @@ Transition
  a| 
 CN1610 à 3232C (QSFP à SFP+)
  a| 
-1 câbles QSFP et 4 SFP+ à fibre optique ou cuivre
+1 câble de dérivation QSFP et 4 câbles de dérivation SFP+ à fibre optique ou en cuivre
 
 
 
@@ -63,67 +63,67 @@ Final
  a| 
 3232C à 3232C (QSFP à QSFP)
  a| 
-2 câbles à connexion directe cuivre ou fibre optique QSFP
+2 câbles à fibre optique QSFP ou à connexion directe en cuivre
 
 |===
-Vous devez avoir téléchargé les fichiers de configuration de référence (RCF) applicables.  Le nombre de ports 10 GbE et 40/100 GbE est défini dans les RCF disponibles sur lelink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
+Vous devez avoir téléchargé les fichiers de configuration de référence (RCF) applicables.  Le nombre de ports 10 GbE et 40/100 GbE est défini dans les RCF disponibles sur le site.link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
-Les versions ONTAP et NX-OS prises en charge dans cette procédure sont répertoriées à l'adresselink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
+Les versions ONTAP et de NX-OS prises en charge par cette procédure sont répertoriées à l'adresse suivante :link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
 
-Les versions ONTAP et FASTPATH ​​prises en charge dans cette procédure sont répertoriées à l'adresselink:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Commutateurs NetApp CN1601 et CN1610"^] .
+Les versions ONTAP et FASTPATH ​​prises en charge par cette procédure sont répertoriées à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["Commutateurs NetApp CN1601 et CN1610"^] .
 
 
 
-== Exigences du CN5596
+== Exigences CN5596
 
-Les commutateurs de cluster utilisent les ports suivants pour les connexions aux nœuds :
+Les commutateurs du cluster utilisent les ports suivants pour les connexions aux nœuds :
 
-* Ports e1/1-40 (10 GbE) : Nexus 5596
-* Ports e1/1-30 (10/40/100 GbE) : Nexus 3232C
+* Ports e1/1-40 (10 GbE) : Nexus 5596
+* Ports e1/1-30 (10/40/100 GbE) : Nexus 3232C
 +
-** Les commutateurs de cluster utilisent les ports ISL (Inter-Switch Link) suivants :
+** Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) suivants :
 
 
-* Ports e1/41-48 (10 GbE) : Nexus 5596
-* Ports e1/31-32 (40/100 GbE) : Nexus 3232C
+* Ports e1/41-48 (10 GbE) : Nexus 5596
+* Ports e1/31-32 (40/100 GbE) : Nexus 3232C
 +
-** Le link:https://hwu.netapp.com/["_Hardware Universe_"^] Contient des informations sur le câblage pris en charge par les switchs Nexus 3232C :
+** Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur le câblage pris en charge pour les commutateurs Nexus 3232C :
 
 
-* Les nœuds équipés de connexions de cluster 10 GbE requièrent des câbles QSFP à connecteur de fibre optique SFP+ ou des câbles QSFP à connecteur de cuivre SFP+.
-* Les nœuds équipés de connexions de cluster 40/100 GbE requièrent des modules optiques QSFP/QSFP28 pris en charge avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
+* Les nœuds dotés de connexions de cluster 10 GbE nécessitent des câbles de dérivation à fibre optique QSFP vers SFP+ ou des câbles de dérivation en cuivre QSFP vers SFP+.
+* Les nœuds avec connexions de cluster 40/100 GbE nécessitent des modules optiques QSFP/QSFP28 compatibles avec des câbles à fibre optique ou des câbles à connexion directe en cuivre QSFP/QSFP28.
 +
-** Les commutateurs de cluster utilisent le câblage ISL approprié :
+** Les commutateurs du cluster utilisent le câblage ISL approprié :
 
 
-* Début : Nexus 5596 (SFP+ à SFP+)
+* Début : Nexus 5596 (SFP+ vers SFP+)
 +
-** 8 câbles à connexion directe cuivre ou fibre SFP+
+** 8 câbles à connexion directe SFP+ fibre ou cuivre
 
 
-* Intermédiaire : Nexus 5596 à Nexus 3232C (QSFP à coupure 4xSFP+)
+* Solution provisoire : passage du Nexus 5596 au Nexus 3232C (adaptateur QSFP vers 4xSFP+)
 +
-** 1 câble QSFP à SFP+ ou rupture de câble en cuivre
+** 1 câble de dérivation fibre optique ou cuivre QSFP vers SFP+
 
 
-* Finale : Nexus 3232C à Nexus 3232C (QSFP28 à QSFP28)
+* Final : Nexus 3232C vers Nexus 3232C (QSFP28 vers QSFP28)
 +
-** 2 câbles à connexion directe en fibre ou cuivre QSFP28
+** 2 câbles à connexion directe QSFP28 en fibre optique ou en cuivre
 +
-*** Sur les switchs Nexus 3232C, vous pouvez exploiter les ports QSFP/QSFP28 en mode 40/100 Gigabit Ethernet ou 4 Gigabit Ethernet.
+*** Sur les commutateurs Nexus 3232C, vous pouvez faire fonctionner les ports QSFP/QSFP28 en modes Ethernet 40/100 Gigabit ou Ethernet 4 x10 Gigabit.
 +
-Par défaut, il y a 32 ports en mode 40/100 Gigabit Ethernet. Ces ports 40 Gigabit Ethernet sont numérotés en 2 points. Par exemple, le second port 40 Gigabit Ethernet est numéroté 1/2. Le processus de modification de la configuration de 40 Gigabit Ethernet à 10 Gigabit Ethernet s'appelle _Breakout_ et le processus de modification de la configuration de 10 Gigabit Ethernet à 40 Gigabit Ethernet s'appelle _Breakin_. Lorsque vous décomposent un port 40/100 Gigabit Ethernet en ports 10 Gigabit Ethernet, les ports qui en résultent sont numérotés en utilisant une convention de dénomination à 3 points. Par exemple, les ports de rupture du second port 40/100 Gigabit Ethernet sont numérotés en 1/2/1, 1/2/2, 1/2/3 et 1/2/4.
+Par défaut, il existe 32 ports en mode Ethernet 40/100 Gigabit.  Ces ports Ethernet 40 Gigabit sont numérotés selon une convention de nommage par paires.  Par exemple, le deuxième port Ethernet 40 Gigabit est numéroté 1/2.  Le processus de changement de configuration de 40 Gigabit Ethernet à 10 Gigabit Ethernet est appelé _breakout_ et le processus de changement de configuration de 10 Gigabit Ethernet à 40 Gigabit Ethernet est appelé _breakin_.  Lorsque vous divisez un port Ethernet 40/100 Gigabit en 10 ports Ethernet Gigabit, les ports résultants sont numérotés selon une convention de nommage à 3 tuples.  Par exemple, les ports de dérivation du deuxième port Ethernet 40/100 Gigabit sont numérotés 1/2/1, 1/2/2, 1/2/3 et 1/2/4.
 
-*** Sur le côté gauche des switchs Nexus 3232C, 2 ports SFP+, 1/33 et 1/34.
-*** Vous avez configuré certains ports de switchs Nexus 3232C de 10 GbE ou 40/100 GbE.
+*** Sur le côté gauche des commutateurs Nexus 3232C se trouvent 2 ports SFP+, appelés 1/33 et 1/34.
+*** Vous avez configuré certains ports des commutateurs Nexus 3232C pour fonctionner à 10 GbE ou 40/100 GbE.
 +
 [NOTE]
 ====
-Vous pouvez décomposer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande. De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de séparation à l'aide du `no interface breakout module 1 port 1-6 map 10g-4x` commande.
+Vous pouvez configurer les six premiers ports en mode 4x10 GbE en utilisant le `interface breakout module 1 port 1-6 map 10g-4x` commande.  De même, vous pouvez regrouper les six premiers ports QSFP+ de la configuration de dérivation en utilisant le `no interface breakout module 1 port 1-6 map 10g-4x` commande.
 
 ====
-*** Vous avez terminé la planification, la migration et lu la documentation sur la connectivité 10 GbE et 40/100 GbE des nœuds vers les switchs de cluster Nexus 3232C.
-*** Les versions ONTAP et NX-OS prises en charge dans cette procédure sont àlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
+*** Vous avez effectué la planification, la migration et lu la documentation requise sur la connectivité 10 GbE et 40/100 GbE des nœuds aux commutateurs de cluster Nexus 3232C.
+*** Les versions ONTAP et NX-OS prises en charge dans cette procédure sont disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] .
 
 
 

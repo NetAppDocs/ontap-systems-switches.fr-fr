@@ -2,41 +2,41 @@
 permalink: switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: 'Le remplacement d"un commutateur Cisco Nexus 3132Q-V défectueux sur un réseau de clusters est une procédure de CONTINUITÉ de L"activité. Vous devez alors effectuer une séquence de tâches spécifique.' 
+summary: 'Le remplacement d"un commutateur Cisco Nexus 3132Q-V défectueux dans un réseau en cluster est une procédure non perturbatrice (NDO), et vous devez effectuer une séquence de tâches spécifique.' 
 ---
-= Remplacer les commutateurs de cluster Cisco Nexus 3132Q-V.
+= Remplacer les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour remplacer un commutateur Cisco Nexus 3132Q-V défectueux sur un réseau de clusters. La procédure de remplacement constitue une procédure sans interruption.
+Suivez cette procédure pour remplacer un commutateur Cisco Nexus 3132Q-V défectueux dans un réseau en cluster.  La procédure de remplacement est une procédure non invasive (NDO).
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
-.De commutateurs
-Vérifiez le link:switch-requirements.html["Conditions requises pour remplacer les commutateurs de cluster Cisco Nexus 3132Q-V."].
+.Exigences de commutation
+Examinerlink:switch-requirements.html["Exigences relatives au remplacement des commutateurs de cluster Cisco Nexus 3132Q-V"] .
 
 .Avant de commencer
-* La configuration existante de cluster et de réseau comporte les éléments suivants :
+* La configuration existante du cluster et du réseau comprend :
 +
-** L'infrastructure de cluster Nexus 3132Q-V est redondante et entièrement fonctionnelle sur les deux commutateurs.
+** L'infrastructure de cluster Nexus 3132Q-V est redondante et pleinement fonctionnelle sur les deux commutateurs.
 +
 link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Commutateur Ethernet Cisco"^]dispose des dernières versions RCF et NX-OS pour vos commutateurs.
 
-** Tous les ports de cluster sont dans le `up` état.
-** La connectivité de gestion existe sur les deux commutateurs.
-** Toutes les interfaces logiques de cluster (LIF) sont situées dans le `up` état et ont été migrés.
+** Tous les ports du cluster sont dans le `up` État.
+** La connectivité de gestion est présente sur les deux commutateurs.
+** Toutes les interfaces logiques de cluster (LIF) se trouvent dans le `up` état et ont été migrés.
 
 
-* Pour le commutateur de remplacement Nexus 3132Q-V, assurez-vous que :
+* Pour le commutateur de remplacement Nexus 3132Q-V, assurez-vous que :
 +
-** La connectivité réseau de gestion sur le commutateur de remplacement est fonctionnelle.
-** L'accès à la console au commutateur de remplacement est en place.
-** Le commutateur d'image RCF souhaité et du système d'exploitation NX-OS est chargé sur ce commutateur.
+** La connectivité du réseau de gestion sur le commutateur de remplacement est fonctionnelle.
+** L'accès console au commutateur de remplacement est opérationnel.
+** Le commutateur d'image système d'exploitation RCF et NX-OS souhaité est chargé sur le commutateur.
 ** La personnalisation initiale du commutateur est terminée.
 
 
@@ -47,48 +47,48 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 
 == Activer la journalisation de la console
 
-NetApp vous recommande fortement d'activer la journalisation de la console sur les périphériques que vous utilisez et d'effectuer les actions suivantes lors du remplacement de votre commutateur :
+NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
 
 * Laissez AutoSupport activé pendant la maintenance.
-* Déclenchez une maintenance AutoSupport avant et après la maintenance pour désactiver la création de cas pendant la durée de la maintenance.  Voir cet article de la base de connaissanceslink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : comment supprimer la création automatique de cas pendant les fenêtres de maintenance planifiées"^] pour plus de détails.
-* Activer la journalisation de session pour toutes les sessions CLI.  Pour obtenir des instructions sur la façon d'activer la journalisation de session, consultez la section « Journalisation de la sortie de session » dans cet article de la base de connaissances.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
+* Déclenchez une intervention de maintenance AutoSupport avant et après la maintenance afin de désactiver la création de tickets pendant toute la durée de celle-ci.  Consultez cet article de la base de connaissanceslink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus de détails.
+* Activez la journalisation des sessions pour toutes les sessions CLI.  Pour savoir comment activer la journalisation des sessions, consultez la section « Journalisation des sorties de session » de cet article de la base de connaissances.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
 
 
 
 
-== Remplacer le contacteur
+== Remplacez l'interrupteur
 
-Cette procédure remplace le deuxième commutateur CL2 du bloc de commutateurs Nexus 3132Q-V par le nouveau commutateur 332Q-V C2.
+Cette procédure remplace le deuxième commutateur de cluster Nexus 3132Q-V CL2 par un nouveau commutateur 3132Q-V C2.
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* n1_concluA1 est la première interface logique (LIF) de cluster connectée au commutateur de cluster C1 pour le nœud n1.
-* n1_CL2 est la première LIF de cluster connectée au commutateur de cluster CL2 ou C2, pour le nœud n1.
-* n1_conclue3 est la deuxième LIF connectée au commutateur de cluster C2, pour le nœud n1.
-* n1_CL4 est la deuxième LIF connectée au commutateur de cluster CL1, pour le nœud n1.
-* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresselink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco®"^] .
-* Les nœuds sont n1, n2, n3 et n4. - Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e. Voir la link:https://hwu.netapp.com/["Hardware Universe"^] pour les ports réels de cluster sur vos plates-formes.
+* n1_clus1 est la première interface logique de cluster (LIF) connectée au commutateur de cluster C1 pour le nœud n1.
+* n1_clus2 est le premier LIF de cluster connecté au commutateur de cluster CL2 ou C2, pour le nœud n1.
+* n1_clus3 est la deuxième LIF connectée au commutateur de cluster C2, pour le nœud n1.
+* n1_clus4 est la deuxième LIF connectée au commutateur de cluster CL1, pour le nœud n1.
+* Le nombre de ports 10 GbE et 40 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
+* Les nœuds sont n1, n2, n3 et n4.  - Les exemples de cette procédure utilisent quatre nœuds : Deux nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d.  Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e.  Voir lelink:https://hwu.netapp.com/["Hardware Universe"^] pour les ports de cluster réels sur vos plateformes.
 
 
-.Description de la tâche
-Cette procédure couvre le scénario suivant :
+.À propos de cette tâche
+Cette procédure couvre le scénario suivant :
 
-* Le cluster commence par quatre nœuds connectés à deux commutateurs de cluster Nexus 3132Q-V, CL1 et CL2.
-* Le commutateur CL2 du bloc d'instruments doit être remplacé par C2
+* Le cluster commence avec quatre nœuds connectés à deux commutateurs de cluster Nexus 3132Q-V, CL1 et CL2.
+* Le commutateur de cluster CL2 doit être remplacé par C2.
 +
-** Sur chaque nœud, les LIFs de cluster connectées à CL2 sont migrées sur les ports de cluster connectés à CL1.
-** Débranchez le câblage de tous les ports du CL2 et rebranchez le câblage aux mêmes ports sur le commutateur de remplacement C2.
-** Sur chaque nœud, ses LIF de cluster migrées sont rétablies.
+** Sur chaque nœud, les LIF de cluster connectées à CL2 sont migrées vers les ports de cluster connectés à CL1.
+** Débranchez les câbles de tous les ports du commutateur CL2 et rebranchez-les aux mêmes ports du commutateur de remplacement C2.
+** Sur chaque nœud, les LIF de cluster migrés sont rétablis.
 
 
 
 
 
 
-=== Étape 1 : préparer le remplacement
+=== Étape 1 : Préparer le remplacement
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -98,15 +98,15 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Afficher des informations sur les périphériques de votre configuration :
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -135,14 +135,14 @@ n4         /cdp
 12 entries were displayed
 ----
 ====
-. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster :
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -188,12 +188,12 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 12 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques :
+.. Afficher les informations relatives aux interfaces logiques :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -221,12 +221,12 @@ Cluster
 12 entries were displayed.
 ----
 ====
-.. Afficher les informations sur les commutateurs de cluster découverts :
+.. Afficher les informations sur les commutateurs de cluster détectés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -256,27 +256,27 @@ CL2                          cluster-network   10.10.1.102      NX3132V
 ====
 
 
-. Vérifiez que le FCR et l'image appropriés sont installés sur le nouveau commutateur Nexus 3132Q-V en fonction de vos besoins et effectuez les personnalisations essentielles du site.
+. Vérifiez que le RCF et l'image appropriés sont installés sur le nouveau commutateur Nexus 3132Q-V selon vos besoins, et effectuez les personnalisations essentielles du site.
 +
-Vous devez préparer le commutateur de remplacement à ce stade. Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer la procédure suivante :
+Vous devez préparer l'interrupteur de remplacement dès maintenant.  Si vous devez mettre à niveau le RCF et l'image, vous devez suivre les étapes suivantes :
 
 +
-.. Sur le site de support NetApp , voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Commutateurs Ethernet Cisco"^] .
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
-.. Téléchargez la version appropriée de la FCR.
-.. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger le FCR.
-.. Téléchargez la version appropriée du logiciel d'image.
+.. Sur le site d'assistance NetApp , consultezlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch/["Commutateurs Ethernet Cisco"^] .
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Téléchargez la version appropriée du RCF.
+.. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel de traitement d'images.
 
 
-. Migrer les LIFs associées aux ports du cluster connectés au commutateur C2 :
+. Migrer les LIF associées aux ports du cluster connectés au commutateur C2 :
 +
 `network interface migrate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre que la migration LIF s'effectue sur tous les nœuds :
+Cet exemple montre que la migration LIF est effectuée sur tous les nœuds :
 
 [listing]
 ----
@@ -289,12 +289,12 @@ cluster::*> network interface migrate -vserver Cluster -lif n3_clus2 -source-nod
 cluster::*> network interface migrate -vserver Cluster -lif n4_clus2 -source-node n4 –destination-node n4 -destination-port e4a
 ----
 ====
-. Vérifiez l'état du cluster :
+. Vérifier l'état du cluster :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -321,15 +321,15 @@ Cluster
 12 entries were displayed.
 ----
 ====
-. Arrêtez les ports d'interconnexion de cluster qui sont physiquement connectés au commutateur CL2 :
+. Fermez les ports d'interconnexion du cluster qui sont physiquement connectés au commutateur CL2 :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre les ports spécifiés qui sont arrêtés sur tous les nœuds :
+Cet exemple montre la désactivation des ports spécifiés sur tous les nœuds :
 
 [listing]
 ----
@@ -341,22 +341,22 @@ cluster::*> network port modify -node n3 -port e4e -up-admin false
 cluster::*> network port modify -node n4 -port e4e -up-admin false
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* Veuillez patienter quelques secondes avant d’exécuter la commande « show » pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -379,9 +379,9 @@ n4
 ...
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -452,15 +452,15 @@ RPC status:
 ----
 --
 ====
-. [[step9]]Arrêter les ports 1/31 et 1/32 sur CL1 et le commutateur Nexus 3132Q-V actif :
+. [[étape 9]] Fermez les ports 1/31 et 1/32 sur CL1, et le commutateur Nexus 3132Q-V actif :
 +
 `shutdown`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre que les ports ISL 1/31 et 1/32 sont arrêtés sur le commutateur CL1 :
+Cet exemple montre la désactivation des ports ISL 1/31 et 1/32 sur le commutateur CL1 :
 
 [listing]
 ----
@@ -476,11 +476,11 @@ Cet exemple montre que les ports ISL 1/31 et 1/32 sont arrêtés sur le commutat
 
 
 
-=== Étape 2 : configurer les ports
+=== Étape 2 : Configurer les ports
 
-. Retirez tous les câbles reliés au commutateur Nexus 3132Q-V CL2 et reconnectez-les au commutateur C2 de remplacement sur tous les nœuds.
-. Retirez les câbles ISL des ports e1/31 et e1/32 du CL2 et reconnectez-les aux mêmes ports du commutateur C2 de remplacement.
-. Ajouter les ports ISL 1/31 et 1/32 sur le commutateur Nexus 3132Q-V CL1 :
+. Retirez tous les câbles connectés au commutateur Nexus 3132Q-V CL2 et reconnectez-les au commutateur de remplacement C2 sur tous les nœuds.
+. Retirez les câbles ISL des ports e1/31 et e1/32 sur CL2 et reconnectez-les aux mêmes ports sur le commutateur de remplacement C2.
+. Activez les ports ISL 1/31 et 1/32 sur le commutateur Nexus 3132Q-V CL1 :
 +
 [listing]
 ----
@@ -491,15 +491,15 @@ Cet exemple montre que les ports ISL 1/31 et 1/32 sont arrêtés sur le commutat
 (CL1)(Config)# exit
 (CL1)#
 ----
-. Vérifiez que les liens ISL sont dans le CL1 :
+. Vérifiez que les ISL sont opérationnels sur CL1 :
 +
 `show port-channel`
 
 +
-Les ports eth1/31 et eth1/32 doivent indiquer `(P)`, Ce qui signifie que les ports ISL sont dans le port-Channel.
+Les ports Eth1/31 et Eth1/32 devraient indiquer `(P)` , ce qui signifie que les ports ISL sont actifs dans le canal de ports.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -518,15 +518,15 @@ Group Port-        Type   Protocol  Member 						Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Vérifiez que les liens ISL sont dans C2 :
+. Vérifiez que les ISL sont opérationnels sur C2 :
 +
 `show port-channel summary`
 
 +
-Les ports eth1/31 et eth1/32 doivent indiquer `(P)`, Ce qui signifie que les deux ports ISL sont dans le port-Channel.
+Les ports Eth1/31 et Eth1/32 devraient indiquer `(P)` , ce qui signifie que les deux ports ISL sont actifs dans le canal de ports.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -545,12 +545,12 @@ Group Port-        Type   Protocol  Member Ports
 1     Po1(SU)      Eth    LACP      Eth1/31(P)   Eth1/32(P)
 ----
 ====
-. Sur tous les nœuds, ajouter tous les ports d'interconnexion de cluster connectés au commutateur Nexus 3132Q-V C2 :
+. Sur tous les nœuds, activez tous les ports d'interconnexion du cluster connectés au commutateur Nexus 3132Q-V C2 :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -563,12 +563,12 @@ cluster::*> network port modify -node n3 -port e4e -up-admin true
 cluster::*> network port modify -node n4 -port e4e -up-admin true
 ----
 ====
-. Pour tous les nœuds, restaurez toutes les LIF d'interconnexion de cluster migrées :
+. Pour tous les nœuds, rétablissez toutes les LIF d'interconnexion de cluster migrées :
 +
 `network interface revert`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -581,15 +581,15 @@ cluster::*> network interface revert -vserver Cluster -lif n3_clus2
 cluster::*> network interface revert -vserver Cluster -lif n4_clus2
 ----
 ====
-. Vérifiez que les ports d'interconnexion de cluster sont rétablis dans leur état de résidence :
+. Vérifiez que les ports d'interconnexion du cluster sont bien revenus à leur configuration d'origine :
 +
 `network interface show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre que toutes les LIFs sont rétablies, car les ports répertoriés sous `Current Port` le statut de la colonne est de `true` dans le `Is Home` colonne. Si le `Is Home` la valeur de la colonne est `false`, La LIF n'a pas été rétablie.
+Cet exemple montre que toutes les LIF sont rétablies avec succès car les ports listés sous le `Current Port` la colonne a le statut de `true` dans le `Is Home` colonne.  Si le `Is Home` La valeur de la colonne est `false` , le LIF n'a pas été rétabli.
 
 [listing]
 ----
@@ -614,12 +614,12 @@ Cluster
 12 entries were displayed.
 ----
 ====
-. Vérifiez que les ports du cluster sont connectés :
+. Vérifiez que les ports du cluster sont connectés :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -664,22 +664,22 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 12 entries were displayed.
 ----
 ====
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*NOTE:* attendez un certain nombre de secondes avant d'exécuter la commande show pour afficher les détails.
+*REMARQUE :* Veuillez patienter quelques secondes avant d’exécuter la commande « show » pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -702,9 +702,9 @@ n4
 ...
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -775,9 +775,9 @@ RPC status:
 ====
 
 
-=== Étape 3 : vérifier la configuration
+=== Étape 3 : Vérifier la configuration
 
-. Affichez les informations relatives aux périphériques de votre configuration :
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 ** `network device-discovery show`
 ** `network port show -role cluster`
@@ -786,7 +786,7 @@ RPC status:
 
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -908,7 +908,7 @@ C2                          cluster-network    10.10.1.103      NX3132V
 3 entries were displayed.
 ----
 ====
-. Retirez le commutateur Nexus 3132Q-V remplacé, s'il n'est pas déjà retiré automatiquement :
+. Retirez le commutateur Nexus 3132Q-V remplacé, s'il n'est pas déjà retiré automatiquement :
 +
 `system cluster-switch delete`
 
@@ -917,12 +917,12 @@ C2                          cluster-network    10.10.1.103      NX3132V
 ----
 cluster::*> system cluster-switch delete –device CL2
 ----
-. Vérifier que les commutateurs de cluster appropriés sont surveillés :
+. Vérifiez que les commutateurs de cluster appropriés sont surveillés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -950,11 +950,11 @@ C2                          cluster-network     10.10.1.103      NX3132V
 2 entries were displayed.
 ----
 ====
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 
-.Et la suite ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état des commutateurs"]
+.Quelle est la prochaine étape ?
+link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"]

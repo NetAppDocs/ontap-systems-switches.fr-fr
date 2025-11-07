@@ -2,19 +2,19 @@
 permalink: switch-cisco-3232c/cn1610-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser des commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Préparez votre migration à partir de switchs CN1610 3232C
+= Préparez-vous à la migration des commutateurs CN1610 vers les commutateurs 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour préparer votre migration de switch CN1610 vers un switch Cisco Nexus 3232C.
+Suivez ces étapes pour préparer la migration de votre commutateur CN1610 vers un commutateur Cisco Nexus 3232C.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=xh`
 
@@ -24,18 +24,18 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Ce message informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Ce message informe le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Afficher des informations sur les périphériques de votre configuration :
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre combien d'interfaces d'interconnexion de cluster ont été configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
+L'exemple suivant illustre le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -58,14 +58,14 @@ n2     /cdp
 8 entries were displayed.
 ----
 ====
-. Détermination du statut administratif ou opérationnel pour chaque interface de cluster
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster.
 +
-.. Afficher les attributs des ports réseau du cluster :
+.. Afficher les attributs du port réseau du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -93,12 +93,12 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 8 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques :
+.. Afficher les informations relatives aux interfaces logiques :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -121,15 +121,15 @@ Cluster
  8 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les commutateurs de cluster découverts :
+.. Afficher les informations relatives aux commutateurs de cluster détectés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche les commutateurs de cluster connus sur le cluster avec leurs adresses IP de gestion :
+L'exemple suivant affiche les commutateurs du cluster connus de celui-ci, ainsi que leurs adresses IP de gestion :
 
 [listing, subs="+quotes"]
 ----
@@ -154,27 +154,27 @@ CL2                           cluster-network  10.10.1.102   CN1610
 ====
 
 
-. Vérifiez que le RCF et l'image appropriés sont installés sur les nouveaux switchs 3232C selon vos besoins et que vous pouvez personnaliser le site de base.
+. Vérifiez que le RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3232C selon vos besoins, et effectuez les personnalisations essentielles du site.
 +
-Vous devez préparer les deux commutateurs pour le moment. Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer la procédure suivante :
+Vous devriez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à niveau le RCF et l'image, vous devez suivre la procédure suivante :
 
 +
-.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp .
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
-.. Téléchargez la version appropriée de la FCR.
-.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-.. Téléchargez la version appropriée du logiciel d'image surlink:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau Cisco® Cluster et Management"^] .
+.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site d'assistance NetApp .
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Téléchargez la version appropriée du RCF.
+.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel d'image à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence pour les commutateurs réseau de cluster et de gestion Cisco"^] .
 
 
-. Migrer les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :
+. Migrez les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ destination-node _destination-node-name_ -destination-port _destination-port-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Vous devez migrer chaque LIF individuellement comme indiqué dans l'exemple suivant :
+Vous devez migrer chaque LIF individuellement, comme indiqué dans l'exemple suivant :
 
 [listing, subs="+quotes"]
 ----
@@ -188,12 +188,12 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus3 -source-no
 -destination-node  n2  -destination-port  e0d*
 ----
 ====
-. Vérifiez l'état du cluster :
+. Vérifier l'état de santé du cluster :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -218,5 +218,5 @@ Cluster
 ====
 
 
-.Et la suite ?
-link:cn1610-replace-CL2.html["Remplacer le commutateur CN1610 CL2 par le switch 3232C C2"].
+.Quelle est la prochaine étape ?
+link:cn1610-replace-CL2.html["Remplacez le commutateur CN1610 CL2 par le commutateur 3232C C2."].

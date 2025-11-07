@@ -13,18 +13,18 @@ summary: Avant de configurer les commutateurs de cluster Cisco Nexus 3132Q-V, co
 [role="lead"]
 Pour installer et configurer le matériel d'un commutateur de cluster 3132Q-V, procédez comme suit :
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Une seule"]link:setup-worksheet-3132q.html["Complétez la fiche de câblage"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:setup-worksheet-3132q.html["Complétez la fiche de câblage"]
 [role="quick-margin-para"]
-L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-switch-3132qv.html["Poser le commutateur"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-switch-3132qv.html["Installez l'interrupteur"]
 [role="quick-margin-para"]
 Installez le commutateur 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-cisco-nexus-3132qv.html["Installer le commutateur dans une armoire NetApp"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:install-cisco-nexus-3132qv.html["Installez le commutateur dans une armoire NetApp."]
 [role="quick-margin-para"]
 Installez le commutateur 3132Q-V et le panneau de passage dans une armoire NetApp selon les besoins.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:cabling-considerations-3132q-v.html["Examiner le câblage et la configuration"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:cabling-considerations-3132q-v.html["Vérifier le câblage et la configuration"]
 [role="quick-margin-para"]
 Consultez la prise en charge des ports Ethernet NVIDIA .

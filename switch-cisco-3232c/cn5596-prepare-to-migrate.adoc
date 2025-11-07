@@ -2,19 +2,19 @@
 permalink: switch-cisco-3232c/cn5596-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser des switchs Cisco Nexus 3232C en tant que switchs de cluster dans votre cluster AFF ou FAS. 
+summary: Vous pouvez utiliser des commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS . 
 ---
-= Préparer la migration des switchs Nexus 5596 vers des switchs Nexus 3232C
+= Préparez-vous à la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour préparer vos switchs Cisco Nexus 5596 en vue d'une migration vers des switchs Cisco Nexus 3232C.
+Suivez ces étapes pour préparer vos commutateurs Cisco Nexus 5596 à la migration vers les commutateurs Cisco Nexus 3232C.
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -24,18 +24,18 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 +
 [NOTE]
 ====
-Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
 ====
-. Afficher des informations sur les périphériques de votre configuration :
+. Afficher les informations relatives aux périphériques de votre configuration :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre combien d'interfaces d'interconnexion de cluster ont été configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
+L'exemple suivant montre le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -56,17 +56,17 @@ n2         /cdp
 8 entries were displayed.
 ----
 ====
-. Détermination du statut administratif ou opérationnel pour chaque interface de cluster
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster.
 +
-.. Afficher les attributs des ports réseau :
+.. Afficher les attributs du port réseau :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant présente les attributs de port réseau sur les nœuds n1 et n2 :
+L'exemple suivant affiche les attributs du port réseau sur les nœuds n1 et n2 :
 
 [listing, subs="+quotes"]
 ----
@@ -94,15 +94,15 @@ e0d       Cluster      Cluster          up   9000  auto/10000 -        -
 8 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les interfaces logiques :
+.. Afficher les informations relatives aux interfaces logiques :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant affiche les informations générales sur toutes les LIFs de le cluster, y compris leurs ports actuels :
+L'exemple suivant affiche les informations générales concernant toutes les LIF du cluster, y compris leurs ports actuels :
 
 [listing, subs="+quotes"]
 ----
@@ -123,15 +123,15 @@ Cluster
 8 entries were displayed.
 ----
 ====
-.. Afficher des informations sur les commutateurs de cluster découverts :
+.. Afficher les informations relatives aux commutateurs de cluster détectés :
 +
 `system cluster-switch show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les commutateurs actifs du cluster :
+L'exemple suivant illustre les commutateurs de cluster actifs :
 
 [listing, subs="+quotes"]
 ----
@@ -159,42 +159,42 @@ CL2                           cluster-network    10.10.1.102     NX5596
 ====
 
 
-. Vérifiez que le FCR et l'image appropriés sont installés sur les nouveaux switchs 3232C selon vos besoins et effectuez les personnalisations du site essentielles, telles que les utilisateurs et les mots de passe, les adresses réseau et d'autres personnalisations.
+. Vérifiez que le RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3232C selon vos besoins, et effectuez les personnalisations essentielles du site, telles que les utilisateurs et les mots de passe, les adresses réseau et autres personnalisations.
 +
 [NOTE]
 ====
-Vous devez préparer les deux commutateurs pour le moment.
+Vous devez préparer les deux commutateurs dès maintenant.
 
 ====
 +
-Si vous devez mettre à niveau la FCR et l'image, vous devez effectuer les opérations suivantes :
+Si vous devez mettre à niveau le RCF et l'image, vous devez suivre les étapes suivantes :
 
 +
-.. Accédez à la page _commutateurs Ethernet Cisco_ du site de support NetApp.
+.. Rendez-vous sur la page _Commutateurs Ethernet Cisco_ du site d'assistance NetApp .
 +
 link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 
-.. Notez votre commutateur et les versions logicielles requises dans le tableau de cette page.
-.. Téléchargez la version appropriée de la FCR.
-.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions de la page *Télécharger* pour télécharger la FCR.
-.. Téléchargez la version appropriée du logiciel d'image.
+.. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
+.. Téléchargez la version appropriée du RCF.
+.. Sélectionnez *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
+.. Téléchargez la version appropriée du logiciel de traitement d'images.
 +
-Reportez-vous à la page __ONTAP 8.x ou version ultérieure fichiers de configuration de référence des commutateurs réseau de gestion et de cluster__ Télécharger, puis sélectionnez la version appropriée.
+Consultez la page de téléchargement des fichiers de configuration de référence du commutateur de réseau de cluster et de gestion __ONTAP 8.x ou version ultérieure__, puis sélectionnez la version appropriée.
 
 +
-Pour trouver la version correcte, reportez-vous à la page de téléchargement du commutateur de réseau en cluster _ONTAP 8.x ou version ultérieure_.
+Pour trouver la version correcte, consultez la page de téléchargement du commutateur réseau de cluster _ONTAP 8.x ou version ultérieure_.
 
 
 
-. Migrer les LIF associées au second switch Nexus 5596 à remplacer :
+. Migrer les LIF associées au deuxième commutateur Nexus 5596 à remplacer :
 +
 `network interface migrate -vserver _vserver-name_ -lif _lif-name_ -source-node _source-node-name_ - destination-node _node-name_ -destination-port _destination-port-name_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les LIF en cours de migration pour les nœuds n1 et n2 ; la migration LIF doit être effectuée sur tous les nœuds :
+L'exemple suivant montre la migration des LIF pour les nœuds n1 et n2 ; la migration des LIF doit être effectuée sur tous les nœuds :
 
 [listing, subs="+quotes"]
 ----
@@ -208,15 +208,15 @@ cluster::*> *network interface migrate -vserver Cluster -lif n2_clus3 -source-no
 destination-node n2 -destination-port e0d*
 ----
 ====
-. Vérifiez l'état du cluster :
+. Vérifier l'état de santé du cluster :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le statut actuel de chaque cluster :
+L'exemple suivant illustre l'état actuel de chaque cluster :
 
 [listing, subs="+quotes"]
 ----
@@ -239,5 +239,5 @@ Cluster
 ====
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 link:cn5596-configure-ports.html["Configurez vos ports"].

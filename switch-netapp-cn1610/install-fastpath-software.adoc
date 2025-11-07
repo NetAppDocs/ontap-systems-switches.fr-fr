@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/install-fastpath-software.html 
 sidebar: sidebar 
 keywords: install, fastpath, software 
-summary: Lorsque vous installez le logiciel FASTPATH sur les commutateurs NetApp, vous devez commencer la mise à niveau avec le second commutateur, cs2. 
+summary: Lorsque vous installez le logiciel FASTPATH ​​sur vos commutateurs NetApp , vous devez commencer la mise à niveau par le deuxième commutateur, cs2. 
 ---
 = Installez le logiciel FASTPATH
 :allow-uri-read: 
@@ -11,55 +11,55 @@ summary: Lorsque vous installez le logiciel FASTPATH sur les commutateurs NetApp
 
 
 [role="lead"]
-Lorsque vous installez le logiciel FASTPATH sur les commutateurs NetApp, vous devez commencer la mise à niveau avec le second commutateur, _cs2_.
+Lorsque vous installez le logiciel FASTPATH ​​sur vos commutateurs NetApp , vous devez commencer la mise à niveau par le deuxième commutateur, _cs2_.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Sauvegarde actuelle de la configuration du commutateur.
-* Un cluster totalement opérationnel (aucune erreur dans les journaux, ni carte réseau de cluster défectueuse, ni aucun problème similaire).
-* Connexions de port entièrement opérationnelles sur le commutateur du cluster.
-* Tous les ports de cluster sont configurés.
-* Toutes les interfaces logiques (LIF) de cluster sont configurées (elles ne doivent pas avoir été migrées).
-* Un chemin de communication réussi : le ONTAP (privilège : avancé) `cluster ping-cluster -node node1` la commande doit indiquer cela `larger than PMTU communication` a réussi sur tous les chemins.
-* Une version prise en charge DE FASTPATH et ONTAP.
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux et aucune carte d'interface réseau (NIC) défectueuse ou problème similaire).
+* Connexions de ports entièrement fonctionnelles sur le commutateur de cluster.
+* Tous les ports du cluster sont configurés.
+* Toutes les interfaces logiques de cluster (LIF) configurées (ne doivent pas avoir été migrées).
+* Une voie de communication réussie : ONTAP (privilège : avancé) `cluster ping-cluster -node node1` La commande doit indiquer que `larger than PMTU communication` réussit sur tous les plans.
+* Une version prise en charge de FASTPATH ​​et ONTAP.
 +
-Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Pour les versions FASTPATH et ONTAP prises en charge.
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] page répertoriant les versions FASTPATH ​​et ONTAP prises en charge.
 
 
 
 
 
-== Installez LE RACCOURCI
+== Installer FASTPATH
 
-La procédure suivante utilise la syntaxe de clustered Data ONTAP 8.2. Par conséquent, le Vserver, les noms des LIF et les résultats de l'interface de ligne de commande sont différents de ceux du Data ONTAP 8.3.
+La procédure suivante utilise la syntaxe clusterisée de Data ONTAP 8.2.  Par conséquent, le Vserver du cluster, les noms LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
 
-Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe de commande.
+Il peut exister des dépendances entre la syntaxe des commandes dans les versions RCF et FASTPATH.
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* les deux commutateurs NetApp sont cs1 et cs2.
-* Les deux LIF de cluster sont de type 1 et de type 1.
-* Les vServers sont vs1 et vs2.
-* Le `cluster::*>` l'invite indique le nom du cluster.
-* Les ports de cluster de chaque nœud sont nommés e1a et e2a.
+* Les deux commutateurs NetApp sont cs1 et cs2.
+* Les deux LIF de cluster sont clus1 et clus2.
+* Les serveurs virtuels sont vs1 et vs2.
+* Le `cluster::*>` L'invite indique le nom du cluster.
+* Les ports du cluster sur chaque nœud sont nommés e1a et e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
+https://hwu.netapp.com/["Hardware Universe"^]contient plus d'informations sur les ports de cluster réellement pris en charge sur votre plateforme.
 
-* Les liaisons ISL (Inter-Switch Links) prises en charge sont les ports 0/13 à 0/16.
-* Les ports 0/1 à 0/12 sont pris en charge par les connexions de nœuds.
-
-
+* Les liaisons inter-commutateurs (ISL) prises en charge sont les ports 0/13 à 0/16.
+* Les connexions de nœuds prises en charge sont les ports 0/1 à 0/12.
 
 
-=== Étape 1 : migrer le cluster
 
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport :
+
+=== Étape 1 : Migrer le cluster
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 
@@ -68,11 +68,11 @@ _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Connectez-vous au commutateur en tant qu'administrateur. Par défaut, aucun mot de passe n'est défini. Au `(cs2) #` entrez l'invite `enable` commande. Là encore, il n'y a pas de mot de passe par défaut. Ceci vous donne accès au mode d’exécution privilégié, qui vous permet de configurer l’interface réseau.
+. Connectez-vous au commutateur en tant qu'administrateur.  Il n'y a pas de mot de passe par défaut.  À `(cs2) #` invite, entrez le `enable` commande.  Là encore, il n'y a pas de mot de passe par défaut.  Cela vous donne accès au mode EXEC privilégié, qui vous permet de configurer l'interface réseau.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -82,12 +82,12 @@ Password (Enter)
 (cs2) #
 ----
 ====
-. Sur la console de chaque nœud, migrez clus2 vers le port e1a :
+. Sur la console de chaque nœud, migrez clus2 vers le port e1a :
 +
 `network interface migrate`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -96,15 +96,15 @@ cluster::*> network interface migrate -vserver vs1 -lif clus2 -destnode node1 -d
 cluster::*> network interface migrate -vserver vs2 -lif clus2 -destnode node2 -dest-port e1a
 ----
 ====
-. Sur la console de chaque nœud, vérifiez que la migration a eu lieu :
+. Sur la console de chaque nœud, vérifiez que la migration a bien eu lieu :
 +
 `network interface show`
 
 +
-L'exemple suivant montre que clus2 a migré vers le port e1a sur les deux nœuds :
+L'exemple suivant montre que clus2 a migré vers le port e1a sur les deux nœuds :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -126,17 +126,17 @@ vs2
 
 
 
-=== Étape 2 : installez le logiciel FASTPATH
+=== Étape 2 : Installer le logiciel FASTPATH
 
-. Arrêter le port cluster e2a sur les deux nœuds :
+. Fermez le port e2a du cluster sur les deux nœuds :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que le port e2a est arrêté sur les deux nœuds :
+L'exemple suivant montre la fermeture du port e2a sur les deux nœuds :
 
 [listing]
 ----
@@ -144,12 +144,12 @@ cluster::*> network port modify -node node1 -port e2a -up-admin false
 cluster::*> network port modify -node node2 -port e2a -up-admin false
 ----
 ====
-. Vérifiez que le port e2a est arrêté sur les deux nœuds :
+. Vérifiez que le port e2a est fermé sur les deux nœuds :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -167,9 +167,9 @@ node2
        e2a  cluster  down 9000   true/true   full/full   auto/10000
 ----
 ====
-. Arrêter les ports ISL (Inter-Switch Link) sur cs1, le commutateur NetApp actif :
+. Désactivez les ports de liaison inter-commutateurs (ISL) sur cs1, le commutateur NetApp actif :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -183,7 +183,7 @@ node2
 ====
 . Sauvegardez l'image active actuelle sur cs2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -212,10 +212,10 @@ Copy operation successful
 ====
 . Téléchargez le fichier image sur le commutateur.
 +
-La copie du fichier image sur l'image active signifie que lors du redémarrage, cette image établit la version FastPath en cours d'exécution. L'image précédente reste disponible comme sauvegarde.
+Copier le fichier image dans l'image active signifie qu'au redémarrage, cette image établira la version FASTPATH en cours d'exécution.  L'image précédente reste disponible à titre de sauvegarde.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -238,12 +238,12 @@ TFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 ====
-. Vérifiez la version en cours d'exécution du logiciel FASTPATH.
+. Vérifiez la version du logiciel FASTPATH en cours d'exécution.
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -271,12 +271,12 @@ Additional Packages................. FASTPATH QOS
                                      FASTPATH IPv6 Management
 ----
 ====
-. Afficher les images de démarrage de la configuration active et de sauvegarde.
+. Consultez les images de démarrage pour la configuration active et de secours.
 +
 `show bootvar`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -302,7 +302,7 @@ Image Descriptions
 `reload`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -318,14 +318,14 @@ System will now restart!
 
 
 
-=== Étape 3 : validation de l'installation
+=== Étape 3 : Valider l’installation
 
-. Reconnectez-vous et vérifiez la nouvelle version du logiciel FASTPATH.
+. Connectez-vous à nouveau et vérifiez la nouvelle version du logiciel FASTPATH.
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -353,12 +353,12 @@ Additional Packages.................. FASTPATH QOS
                                       FASTPATH IPv6 Management
 ----
 ====
-. Mettre les ports ISL sur cs1, le commutateur actif.
+. Activez les ports ISL sur cs1, le commutateur actif.
 +
 `configure`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -370,15 +370,15 @@ Additional Packages.................. FASTPATH QOS
 (cs1) (config) # exit
 ----
 ====
-. Vérifiez que les liens ISL sont opérationnels.
+. Vérifiez que les ISL sont opérationnels :
 +
 `show port-channel 3/1`
 
 +
-Le champ État du lien doit indiquer `Up`.
+Le champ État du lien doit indiquer `Up` .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -406,9 +406,9 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. Copiez le `running-config` vers le `startup-config` fichier lorsque vous êtes satisfait des versions du logiciel et des paramètres du commutateur.
+. Copiez le `running-config` fichier au `startup-config` Enregistrez le fichier lorsque vous êtes satisfait des versions du logiciel et modifiez les paramètres.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -425,12 +425,12 @@ Config file 'startup-config' created successfully .
 Configuration Saved!
 ----
 ====
-. Activer le second port cluster, e2a, sur chaque nœud :
+. Activez le deuxième port du cluster, e2a, sur chaque nœud :
 +
 `network port modify`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -439,15 +439,15 @@ cluster::*> network port modify -node node1 -port e2a -up-admin true
 cluster::*> **network port modify -node node2 -port e2a -up-admin true**
 ----
 ====
-. Rvert no2 associé au port e2a :
+. Rétablir le cluster 2 associé au port e2a :
 +
 `network interface revert`
 
 +
-Il est possible que le LIF soit revert automatiquement, en fonction de votre version du logiciel ONTAP.
+Le LIF peut se rétablir automatiquement, selon votre version du logiciel ONTAP .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -456,12 +456,12 @@ cluster::*> network interface revert -vserver Cluster -lif n1_clus2
 cluster::*> network interface revert -vserver Cluster -lif n2_clus2
 ----
 ====
-. Vérifier que le LIF est déjà chez lui (`true`) sur les deux nœuds :
+. Vérifiez que le LIF est maintenant à la maison(`true` ) sur les deux nœuds :
 +
 `network interface show -_role cluster_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -479,12 +479,12 @@ vs2
           clus2      up/up      10.10.10.2/24  node2    e2a     true
 ----
 ====
-. Afficher l'état des nœuds :
+. Consultez l'état des nœuds :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -498,7 +498,7 @@ node2                true    true
 ----
 ====
 . Répétez les étapes précédentes pour installer le logiciel FASTPATH sur l'autre commutateur, cs1.
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

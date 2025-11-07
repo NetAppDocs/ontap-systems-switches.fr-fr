@@ -2,56 +2,56 @@
 permalink: switch-cshm/log-collection-troubleshoot.html 
 sidebar: sidebar 
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
-summary: Vous pouvez utiliser les commandes fournies ici pour... 
+summary: Vous pouvez utiliser les commandes fournies ici pour… 
 ---
-= Dépannage de la collecte des journaux
+= Résolution des problèmes liés à la collecte des journaux
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous rencontrez l'un des États d'erreur suivants signalés par la fonction de collecte de journaux (visible dans la sortie de la `system switch ethernet log show` commande), essayez les étapes de débogage correspondantes :
+Si vous rencontrez l'un des statuts d'erreur suivants signalés par la fonction de collecte des journaux (visibles dans la sortie du `system switch ethernet log show` commande), essayez les étapes de débogage correspondantes :
 
 |===
 
 
-| *Etat d'erreur de collecte de journaux* | *Résolution* 
+| *État d'erreur de collecte des journaux* | *Résolution* 
 
 
  a| 
-*Clés RSA non présentes*
+*Clés RSA absentes*
  a| 
-Régénérer les clés SSH ONTAP.
-
-
-
- a| 
-*Erreur de mot de passe de commutateur*
- a| 
-Vérifiez les identifiants, testez la connectivité SSH et régénérez les clés SSH ONTAP. Consultez la documentation du commutateur ou contactez le support NetApp pour obtenir des instructions.
+Régénérer les clés SSH ONTAP .
 
 
 
  a| 
-*Clés ECDSA non présentes pour FIPS*
+*Erreur de mot de passe Switch*
  a| 
-Si le mode FIPS est activé, les clés ECDSA doivent être générées sur le commutateur avant de réessayer.
+Vérifiez les informations d'identification, testez la connectivité SSH et régénérez les clés SSH ONTAP .  Consultez la documentation du commutateur ou contactez le support NetApp pour obtenir des instructions.
+
+
+
+ a| 
+*Clés ECDSA absentes pour FIPS*
+ a| 
+Si le mode FIPS est activé, des clés ECDSA doivent être générées sur le commutateur avant de réessayer.
 
 
 
  a| 
 *Journal préexistant trouvé*
  a| 
-Supprimez le fichier de collecte de journaux précédent sur le commutateur.
+Supprimez le fichier de journalisation précédent sur le commutateur.
 
 
 
  a| 
-*Erreur du journal de vidage de commutateur*
+*Erreur lors de la génération du journal de vidage du commutateur*
  a| 
-Assurez-vous que l'utilisateur du commutateur dispose des autorisations de collecte de journaux. Reportez-vous aux conditions préalables ci-dessus.
+Vérifiez que l'utilisateur du commutateur dispose des autorisations de collecte des journaux.  Veuillez vous référer aux prérequis ci-dessus.
 
 |===
 
-NOTE: Si les détails de la résolution ne fonctionnent pas, contactez le support NetApp.
+NOTE: Si les détails de la solution ne fonctionnent pas, contactez le support NetApp .

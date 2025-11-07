@@ -2,18 +2,18 @@
 permalink: switch-nvidia-sn2100-storage/migrate-cisco-sn2100-cluster-switch-storage.html 
 sidebar: sidebar 
 keywords: migrating to a cluster with NVIDIA SN2100 cluster switches, how to migrate 
-summary: 'Vous pouvez migrer d"anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs de réseau de cluster NVIDIA SN2100.' 
+summary: 'Vous pouvez migrer sans interruption les anciens commutateurs de cluster Cisco d"un cluster ONTAP vers des commutateurs réseau de cluster NVIDIA SN2100.' 
 ---
-= Migrez d'un commutateur de cluster Cisco vers un commutateur de cluster NVIDIA SN2100
+= Migration d'un commutateur de cluster Cisco vers un commutateur de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez migrer des commutateurs de cluster Cisco sans interruption d'activité pour un cluster ONTAP vers des commutateurs de cluster NVIDIA SN2100. Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez d'anciens commutateurs de cluster Cisco par des commutateurs de cluster NVIDIA SN2100.
+Vous pouvez migrer sans interruption des commutateurs de cluster Cisco d'un cluster ONTAP vers des commutateurs de cluster NVIDIA SN2100.  Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez d'anciens commutateurs de cluster Cisco par des commutateurs de cluster NVIDIA SN2100.
 
-Les commutateurs de cluster Cisco suivants sont pris en charge :
+Les commutateurs de cluster Cisco suivants sont pris en charge :
 
 * Nexus 9336C-FX2
 * Nexus 92300YC
@@ -23,39 +23,39 @@ Les commutateurs de cluster Cisco suivants sont pris en charge :
 
 
 .Avant de commencer
-Vous pouvez migrer d'anciens commutateurs de cluster Cisco sans interruption pour un cluster ONTAP vers des commutateurs de cluster NVIDIA SN2100.
+Vous pouvez migrer sans interruption les anciens commutateurs de cluster Cisco d'un cluster ONTAP vers des commutateurs de cluster NVIDIA SN2100.
 
-* Le cluster existant doit être correctement configuré et opérationnel.
-* Tous les ports du cluster doivent être à l'état up pour assurer la continuité de l'activité.
-* Les commutateurs de cluster NVIDIA SN2100 doivent être configurés et fonctionnent sous la version appropriée de Cumulus Linux installée dans le fichier RCF (Reference Configuration File) appliqué.
-* La configuration réseau en cluster existante doit disposer des éléments suivants :
+* Le cluster existant doit être correctement configuré et fonctionnel.
+* Tous les ports du cluster doivent être opérationnels pour garantir un fonctionnement sans interruption.
+* Les commutateurs de cluster NVIDIA SN2100 doivent être configurés et fonctionner sous la version appropriée de Cumulus Linux installée avec le fichier de configuration de référence (RCF) appliqué.
+* La configuration du réseau de cluster existant doit comporter les éléments suivants :
 +
-** Un cluster NetApp redondant et entièrement fonctionnel utilisant les deux anciens commutateurs Cisco.
-** Connectivité de gestion et accès à la console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
-** Toutes les LIFs de cluster à l'état up avec les LIFs de cluster sont sur leurs ports de type home.
-** Ports ISL activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
+** Un cluster NetApp redondant et pleinement fonctionnel utilisant des commutateurs Cisco plus anciens.
+** Connectivité de gestion et accès console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
+** Toutes les interfaces logiques (LIF) du cluster en état opérationnel sont connectées à leurs ports d'origine.
+** Les ports ISL sont activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
 
 
-* Voir la https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des détails complets sur les ports pris en charge et leurs configurations.
-* Vous avez configuré certains ports sur les switchs NVIDIA SN2100 pour qu'ils s'exécutent à 40 GbE ou 100 GbE.
-* Vous avez planifié, migré et documenté une connectivité 40 GbE et 100 GbE entre les nœuds et les commutateurs de cluster NVIDIA SN2100.
+* Voir le https://hwu.netapp.com/["Hardware Universe"^] pour plus de détails sur les ports pris en charge et leurs configurations.
+* Vous avez configuré certains ports des commutateurs NVIDIA SN2100 pour fonctionner à 40 GbE ou 100 GbE.
+* Vous avez planifié, migré et documenté la connectivité 40 GbE et 100 GbE des nœuds vers les commutateurs de cluster NVIDIA SN2100.
 +
 
-NOTE: Dans cette procédure, les switchs de cluster Cisco Nexus 3232C sont utilisés par exemple pour les commandes et les sorties.
+NOTE: Dans cette procédure, des commutateurs de cluster Cisco Nexus 3232C sont utilisés à titre d'exemple pour les commandes et les sorties.
 
 
 
-.Description de la tâche
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+.À propos de cette tâche
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les switchs de cluster Cisco Nexus 3232C existants sont _c1_ et _c2_.
+* Les commutateurs de cluster Cisco Nexus 3232C existants sont _c1_ et _c2_.
 * Les nouveaux commutateurs de cluster NVIDIA SN2100 sont _sw1_ et _sw2_.
 * Les nœuds sont _node1_ et _node2_.
-* Les LIFS du cluster sont respectivement _node1_clum1_ et _node1_clum2_ sur le nœud 1 et _node2_clum1_ et _node2_clum2_ sur le nœud 2.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
-* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
-* Les ports de dérivation prennent le format suivant : swp[port]s[port de dérivation 0-3]. Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp13_.
-* Le contacteur c2 est d'abord remplacé par le contacteur sw2, puis le contacteur c1 est remplacé par le contacteur sw1.
+* Les LIF du cluster sont _node1_clus1_ et _node1_clus2_ sur le nœud 1, et _node2_clus1_ et _node2_clus2_ sur le nœud 2 respectivement.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les ports du cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
+* Les ports de dérivation prennent le format : swp[port]s[port de dérivation 0-3].  Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp1s3_.
+* L'interrupteur c2 est d'abord remplacé par l'interrupteur sw2, puis l'interrupteur c1 est remplacé par l'interrupteur sw1.
 +
 ** Le câblage entre les nœuds et c2 est ensuite déconnecté de c2 et reconnecté à sw2.
 ** Le câblage entre les nœuds et c1 est ensuite déconnecté de c1 et reconnecté à sw1.
@@ -64,15 +64,15 @@ Les exemples de cette procédure utilisent la nomenclature des commutateurs et d
 
 
 .Étapes
-. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de dossiers en invoquant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
 +
 où _x_ représente la durée de la fenêtre de maintenance en heures.
 
-. Définissez le niveau de privilège sur avancé, en entrant *y* lorsque vous êtes invité à continuer : `set -privilege advanced`
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer : `set -privilege advanced`
 +
 L'invite avancée (*>) apparaît.
 
-. Désactiver la fonction de revert automatique sur les LIFs du cluster : `network interface modify -vserver Cluster -lif * -auto-revert false`
+. Désactiver la restauration automatique sur les LIF du cluster : `network interface modify -vserver Cluster -lif * -auto-revert false`
 +
 [listing, subs="+quotes"]
 ----
@@ -80,12 +80,12 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 Warning: Disabling the auto-revert feature of the cluster logical interface may effect the availability of your cluster network. Are you sure you want to continue? {y|n}: *y*
 ----
-. Déterminer le statut administratif ou opérationnel pour chaque interface de cluster :
+. Déterminez l'état administratif ou opérationnel de chaque interface de cluster :
 +
-Chaque port doit s'afficher pendant `Link` et en bonne santé pour `Health Status`.
+Chaque port devrait s'afficher correctement. `Link` et sain pour `Health Status` .
 
 +
-.. Afficher les attributs des ports réseau : `network port show -ipspace Cluster`
+.. Afficher les attributs du port réseau : `network port show -ipspace Cluster`
 +
 [listing, subs="+quotes"]
 ----
@@ -107,9 +107,9 @@ Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
 e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
-.. Afficher des informations sur les interfaces logiques et les nœuds home désignés : `network interface show -vserver Cluster`
+.. Afficher les informations relatives aux interfaces logiques et à leurs nœuds d'origine désignés : `network interface show -vserver Cluster`
 +
-Chaque LIF doit afficher son contenu pendant `Status Admin/Oper` et vrai pour `Is Home`.
+Chaque LIF doit afficher haut/haut pour `Status Admin/Oper` et vrai pour `Is Home` .
 
 +
 [listing, subs="+quotes"]
@@ -128,7 +128,7 @@ Cluster
 ----
 
 
-. Les ports de cluster de chaque nœud sont connectés aux commutateurs de cluster existants de la manière suivante (du point de vue des nœuds) à l'aide de la commande : `network device-discovery show -protocol lldp`
+. Les ports du cluster sur chaque nœud sont connectés aux commutateurs de cluster existants de la manière suivante (du point de vue des nœuds) à l'aide de la commande : `network device-discovery show -protocol lldp`
 +
 [listing, subs="+quotes"]
 ----
@@ -143,7 +143,7 @@ node2      /lldp
             e3a    c1 (6a:ad:4f:98:3b:3f)    Eth1/2            -
             e3b    c2 (6a:ad:4f:98:4c:a4)    Eth1/2            -
 ----
-. Les ports et les commutateurs du cluster sont connectés de la manière suivante (du point de vue des commutateurs) à l'aide de la commande : `show cdp neighbors`
+. Les ports et commutateurs du cluster sont connectés de la manière suivante (du point de vue des commutateurs) à l'aide de la commande : `show cdp neighbors`
 +
 [listing, subs="+quotes"]
 ----
@@ -174,22 +174,22 @@ node2                 Eth1/2        124    H           AFF-A400         e3b
 c1                    Eth1/31       175    S I s       N3K-C3232C       Eth1/31
 c1                    Eth1/32       175    S I s       N3K-C3232C       Eth1/32
 ----
-. Vérifiez la connectivité des interfaces de cluster distantes :
+. Vérifiez la connectivité des interfaces du cluster distant :
 
 
 [role="tabbed-block"]
 ====
 .ONTAP 9.9.1 et versions ultérieures
 --
-Vous pouvez utiliser le `network interface check cluster-connectivity` pour lancer un contrôle d'accessibilité pour la connectivité du cluster, puis afficher les détails :
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start` et `network interface check cluster-connectivity show`
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
 
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity start*
 ----
-*REMARQUE :* attendez un certain nombre de secondes avant d'exécuter `show` la commande pour afficher les détails.
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
 
 [listing, subs="+quotes"]
 ----
@@ -205,9 +205,9 @@ node2
        3/5/2022 19:21:20 -06:00   node2_clus2      node1_clus2      none
 ----
 --
-.Toutes les versions de ONTAP
+.Toutes les versions ONTAP
 --
-Pour toutes les versions de ONTAP, vous pouvez également utiliser `cluster ping-cluster -node <name>` pour vérifier la connectivité :
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
 
 `cluster ping-cluster -node <name>`
 
@@ -239,7 +239,7 @@ RPC status:
 ----
 --
 ====
-. [[step8]] sur le commutateur c2, arrêtez les ports connectés aux ports de cluster des nœuds.
+. [[étape 8]] Sur le commutateur c2, fermez les ports connectés aux ports du cluster des nœuds.
 +
 [listing, subs="+quotes"]
 ----
@@ -252,8 +252,8 @@ Enter configuration commands, one per line. End with CNTL/Z.
 (c2)(Config)# *exit*
 (c2)#
 ----
-. Déplacez les ports du cluster de nœuds de l'ancien commutateur c2 vers le nouveau commutateur sw2, à l'aide du câblage approprié pris en charge par NVIDIA SN2100.
-. Afficher les attributs des ports réseau : `network port show -ipspace Cluster`
+. Déplacez les ports du cluster de nœuds de l'ancien commutateur c2 vers le nouveau commutateur sw2, en utilisant un câblage approprié pris en charge par NVIDIA SN2100.
+. Afficher les attributs du port réseau : `network port show -ipspace Cluster`
 +
 [listing, subs="+quotes"]
 ----
@@ -275,7 +275,7 @@ Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
 e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
-. Les ports de cluster de chaque nœud sont désormais connectés aux commutateurs de cluster de la façon suivante, du point de vue des nœuds :
+. Du point de vue des nœuds, les ports du cluster sur chaque nœud sont désormais connectés aux commutateurs du cluster de la manière suivante :
 +
 [listing, subs="+quotes"]
 ----
@@ -291,7 +291,7 @@ node2      /lldp
             e3a    c1  (6a:ad:4f:98:3b:3f)   Eth1/2            -
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4              -
 ----
-. Sur le commutateur sw2, vérifier que tous les ports de cluster de nœuds sont en service : `net show interface`
+. Sur le commutateur sw2, vérifiez que tous les ports du cluster de nœuds sont actifs : `net show interface`
 +
 [listing, subs="+quotes"]
 ----
@@ -306,7 +306,7 @@ UP     swp4         100G  9216   Trunk/L2    e3b               Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. Sur le commutateur c1, arrêtez les ports connectés aux ports du cluster des nœuds.
+. Sur le commutateur c1, désactivez les ports connectés aux ports de cluster des nœuds.
 +
 [listing, subs="+quotes"]
 ----
@@ -319,10 +319,10 @@ Enter configuration commands, one per line. End with CNTL/Z.
 (c1)(Config)# *exit*
 (c1)#
 ----
-. Déplacez les ports du cluster de nœuds de l'ancien commutateur c1 vers le nouveau commutateur sw1, à l'aide du câblage approprié pris en charge par NVIDIA SN2100.
-. Vérifier la configuration finale du cluster : `network port show -ipspace Cluster`
+. Déplacez les ports du cluster de nœuds de l'ancien commutateur c1 vers le nouveau commutateur sw1, en utilisant un câblage approprié pris en charge par NVIDIA SN2100.
+. Vérifiez la configuration finale du cluster : `network port show -ipspace Cluster`
 +
-Chaque port doit s'afficher pendant `Link` et en bonne santé pour `Health Status`.
+Chaque port devrait s'afficher correctement. `Link` et sain pour `Health Status` .
 
 +
 [listing, subs="+quotes"]
@@ -345,7 +345,7 @@ Port      IPspace    Broadcast Domain Link MTU   Admin/Oper   Status   Status
 e3a       Cluster    Cluster          up   9000  auto/100000  healthy  false
 e3b       Cluster    Cluster          up   9000  auto/100000  healthy  false
 ----
-. Les ports de cluster de chaque nœud sont désormais connectés aux commutateurs de cluster de la façon suivante, du point de vue des nœuds :
+. Du point de vue des nœuds, les ports du cluster sur chaque nœud sont désormais connectés aux commutateurs du cluster de la manière suivante :
 +
 [listing, subs="+quotes"]
 ----
@@ -361,7 +361,7 @@ node2      /lldp
             e3a    sw1 (b8:ce:f6:19:1a:7e)   swp4            -
             e3b    sw2 (b8:ce:f6:19:1b:96)   swp4            -
 ----
-. Sur les commutateurs sw1 et sw2, vérifier que tous les ports de cluster de nœuds sont en service : `net show interface`
+. Sur les commutateurs sw1 et sw2, vérifiez que tous les ports du cluster de nœuds sont actifs : `net show interface`
 +
 [listing, subs="+quotes"]
 ----
@@ -388,9 +388,9 @@ UP     swp4         100G  9216   Trunk/L2    e3b               Master: bridge(UP
 UP     swp15        100G  9216   BondMember  sw1 (swp15)       Master: cluster_isl(UP)
 UP     swp16        100G  9216   BondMember  sw1 (swp16)       Master: cluster_isl(UP)
 ----
-. Vérifier que les deux nœuds disposent chacun d'une connexion à chaque commutateur : `net show lldp`
+. Vérifiez que chaque nœud possède une connexion à chaque commutateur : `net show lldp`
 +
-L'exemple suivant montre les résultats appropriés pour les deux commutateurs :
+L'exemple suivant illustre les résultats attendus pour les deux commutateurs :
 
 +
 [listing, subs="+quotes"]
@@ -413,8 +413,8 @@ swp4       100G   Trunk/L2    node2               e3b
 swp15      100G   BondMember  sw1                 swp15
 swp16      100G   BondMember  sw1                 swp16
 ----
-. Activer la fonction de revert automatique sur les LIFs du cluster : `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
-. Vérifier que toutes les LIFs du réseau du cluster sont de nouveau sur leurs ports de base : `network interface show`
+. Activer la restauration automatique sur les LIF du cluster : `cluster1::*> network interface modify -vserver Cluster -lif * -auto-revert true`
+. Vérifiez que toutes les interfaces réseau LIF du cluster sont de nouveau connectées à leurs ports d'origine : `network interface show`
 +
 [listing, subs="+quotes"]
 ----
@@ -429,9 +429,9 @@ Cluster
             node2_clus1  up/up    169.254.47.194/16  node2         e3a     true
             node2_clus2  up/up    169.254.19.183/16  node2         e3b     true
 ----
-. Activez la fonction de collecte des journaux du moniteur d'intégrité du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur à l'aide des deux commandes suivantes : `system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
+. Activez la fonction de collecte des journaux de surveillance de l'état du commutateur Ethernet pour collecter les fichiers journaux relatifs au commutateur, à l'aide des deux commandes suivantes : `system switch ethernet log setup-password` et `system switch ethernet log enable-collection`
 +
-Entrez : `system switch ethernet log setup-password`
+Entrer: `system switch ethernet log setup-password`
 
 +
 [listing, subs="+quotes"]
@@ -462,7 +462,7 @@ Enter the password: <enter switch password>
 Enter the password again: <enter switch password>
 ----
 +
-Suivi par : `system switch ethernet log enable-collection`
+Suivi de: `system switch ethernet log enable-collection`
 
 +
 [listing, subs="+quotes"]
@@ -478,11 +478,11 @@ cluster1::*>
 ----
 +
 
-NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp.
+NOTE: Si l'une de ces commandes renvoie une erreur, contactez le support NetApp .
 
-. Lancez la fonction de collecte du journal du commutateur : `system switch ethernet log collect -device *`
+. Lancer la fonction de collecte des journaux de commutation : `system switch ethernet log collect -device *`
 +
-Attendez 10 minutes, puis vérifiez que la collecte de journaux a réussi à l'aide de la commande : `system switch ethernet log show`
+Attendez 10 minutes, puis vérifiez que la collecte des journaux a réussi à l'aide de la commande : `system switch ethernet log show`
 
 +
 [listing, subs="+quotes"]
@@ -495,6 +495,6 @@ Index  Switch                       Log Timestamp        Status
 1      sw1 (b8:ce:f6:19:1b:42)      4/29/2022 03:05:25   complete   
 2      sw2 (b8:ce:f6:19:1b:96)      4/29/2022 03:07:42   complete
 ----
-. Rétablissez le niveau de privilège sur admin : `set -privilege admin`
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+. Rétablir le niveau de privilège à administrateur : `set -privilege admin`
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
 

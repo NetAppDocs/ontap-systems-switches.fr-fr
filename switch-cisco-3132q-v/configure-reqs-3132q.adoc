@@ -2,35 +2,35 @@
 permalink: switch-cisco-3132q-v/configure-reqs-3132q.html 
 sidebar: sidebar 
 keywords: Cisco, 3132Q-V 
-summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 3132Q-V, vérifiez les exigences de réseau et de configuration' 
+summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter les exigences en matière de réseau et de configuration.' 
 ---
-= Configuration requise pour les commutateurs Cisco Nexus 3132Q-V.
+= Configuration requise pour les commutateurs Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, vérifiez les exigences de réseau et de configuration.
+Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter les exigences en matière de réseau et de configuration.
 
 
 
-== Configuration requise
+== Exigences de configuration
 
-Pour configurer votre cluster, vous devez disposer du nombre et du type appropriés de câbles et de connecteurs de câbles pour les commutateurs. Selon le type de switch que vous configurez au départ, vous devez vous connecter au port console des commutateurs avec le câble console inclus ; vous devez également fournir des informations réseau spécifiques.
+Pour configurer votre cluster, vous avez besoin du nombre et du type appropriés de câbles et de connecteurs de câbles pour vos commutateurs.  Selon le type de commutateur que vous configurez initialement, vous devez vous connecter au port console du commutateur avec le câble console fourni ; vous devez également fournir des informations réseau spécifiques.
 
 
 
-== Exigences liées au réseau
+== Exigences réseau
 
-Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :
+Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :
 
 * Sous-réseau IP pour le trafic du réseau de gestion.
-* Noms d'hôte et adresses IP pour chaque contrôleur du système de stockage et tous les commutateurs applicables.
-* La plupart des contrôleurs de système de stockage sont gérés par l'interface e0M en vous connectant au port de service Ethernet (icône de clé anglaise). Sur les systèmes AFF A800 et AFF A700, l'interface e0M utilise un port Ethernet dédié.
+* Noms d’hôte et adresses IP pour chacun des contrôleurs du système de stockage et tous les commutateurs applicables.
+* La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé). Sur les systèmes AFF A800 et AFF A700 , l'interface e0M utilise un port Ethernet dédié.
 
 
-Reportez-vous à la https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
+Se référer à https://hwu.netapp.com["Hardware Universe"^] pour obtenir les dernières informations.
 
 .Quelle est la prochaine étape
 Après avoir examiné les exigences de configuration, vous pouvez consulter le link:required-documentation-3132q.html["documentation requise"].

@@ -1,22 +1,22 @@
 ---
 indexpage:
   title: Documentation des commutateurs pour les systèmes matériels ONTAP
-  summary: Utilisez les documents fournis sur ce site pour installer, mettre à niveau
-    et gérer votre cluster, votre système de stockage partagé et vos commutateurs
-    MetroCluster.
+  summary: Utilisez la documentation de ce site pour installer, mettre à niveau et
+    maintenir votre cluster, votre stockage partagé et vos commutateurs MetroCluster
+    .
   keywords: switches
-  lead: NetApp propose un cluster, un système de stockage et des commutateurs partagés
-    pour assurer la connectivité entre le stockage hôte et au moins deux contrôleurs
-    NetApp. Vous pouvez ainsi déplacer les données et les interfaces réseau sans interruption
-    au sein de votre infrastructure de stockage.
+  lead: NetApp propose des commutateurs de cluster, de stockage et partagés pour assurer
+    la connectivité entre le stockage hôte et deux contrôleurs NetApp ou plus, vous
+    permettant de déplacer sans interruption les données et les interfaces réseau
+    à travers votre infrastructure de stockage.
   tiles:
-  - title: Commencez
+  - title: Commencer
     links:
     - title: Quoi de neuf
       url: whats-new.html
     - title: Démarrage rapide
       url: "/get-started/get-up-and-running.html"
-    - title: Notes de version de ONTAP
+    - title: Notes de version ONTAP
       url: https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508
   - title: Commutateurs pris en charge
     links:
@@ -28,35 +28,35 @@ indexpage:
       url: "/storage/index.html"
     - title: Commutateurs partagés
       url: "/shared/index.html"
-  - title: Commutateurs de fin de disponibilité
+  - title: Interrupteurs de fin de disponibilité
     links:
     - title: Commutateur de cluster - Cisco Nexus 3232c
       url: "/switch-cisco-3232c/install-overview-cisco-3232c.html"
-    - title: Commutateur de cluster - Cisco Nexus 3132Q-V.
+    - title: Commutateur de cluster - Cisco Nexus 3132Q-V
       url: "/switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
-    - title: Commutateur de cluster - Cisco Nexus 92300YC.
+    - title: Commutateur de cluster - Cisco Nexus 92300YC
       url: "/switch-cisco-92300/install-overview-cisco-92300.html"
     - title: Commutateur de cluster - NetApp CN1610
       url: "/switch-netapp-cn1610/switch-overview-cn1610.html"
-  - title: Surveillance de l'état du commutateur Ethernet
+  - title: surveillance de l'état des commutateurs Ethernet
     links:
-    - title: Configurer la surveillance de l'état des commutateurs
+    - title: Configurer la surveillance de l'état du commutateur
       url: "/switch-cshm/config-overview.html"
-    - title: Vérifier la surveillance de l'état du commutateur
+    - title: Surveillance de l'état du commutateur
       url: "/switch-cshm/monitor-overview.html"
-    - title: Collectez des journaux pour la surveillance de l'état des switchs
+    - title: Collecte des journaux pour la surveillance de l'état des commutateurs
       url: "/switch-cshm/log-collection-overview.html"
-  - title: Documents ONTAP connexes
+  - title: Documents ONTAP associés
     links:
-    - title: Systèmes matériels ONTAP
+    - title: systèmes matériels ONTAP
       url: https://docs.netapp.com/us-en/ontap-systems/index.html
     - title: Logiciel ONTAP
       url: https://docs.netapp.com/us-en/ontap/index.html
-  - title: Les outils prennent en charge
+  - title: Outils et assistance
     links:
     - title: Matrice d'interopérabilité NetApp
       url: http://mysupport.netapp.com/matrix/
-    - title: NetApp Hardware Universe
+    - title: Hardware Universe NetApp
       url: https://hwu.netapp.com/
     - title: Base de connaissances NetApp
       url: https://kb.netapp.com/

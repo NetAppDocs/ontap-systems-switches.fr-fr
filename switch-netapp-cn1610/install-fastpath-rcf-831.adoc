@@ -2,35 +2,35 @@
 permalink: switch-netapp-cn1610/install-fastpath-rcf-831.html 
 sidebar: sidebar 
 keywords: fastpath, software, install, netapp cluster switches, rcfs, ontap 
-summary: 'Les étapes d"installation sont les mêmes pour les commutateurs de gestion NetApp CN1601 et les commutateurs de cluster CN1610 qui exécutent ONTAP 8.3.1 ou une version ultérieure. Cependant, les deux modèles nécessitent des logiciels et des RCFs différents.' 
+summary: 'Les étapes d"installation sont les mêmes pour les commutateurs de gestion NetApp CN1601 et les commutateurs de cluster CN1610 exécutant ONTAP 8.3.1 ou une version ultérieure.  Cependant, les deux modèles nécessitent des logiciels et des RCF différents.' 
 ---
-= Installez le logiciel FASTPATH et les RCFC pour ONTAP 8.3.1 et versions ultérieures
+= Installez le logiciel FASTPATH ​​et les RCF pour ONTAP 8.3.1 et versions ultérieures.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer le logiciel FASTPATH et les RCFs pour ONTAP 8.3.1 et versions ultérieures.
+Suivez cette procédure pour installer le logiciel FASTPATH ​​et les RCF pour ONTAP 8.3.1 et versions ultérieures.
 
-Les étapes d'installation sont les mêmes pour les commutateurs de gestion NetApp CN1601 et les commutateurs de cluster CN1610 qui exécutent ONTAP 8.3.1 ou une version ultérieure. Cependant, les deux modèles nécessitent des logiciels et des RCFs différents.
+Les étapes d'installation sont les mêmes pour les commutateurs de gestion NetApp CN1601 et les commutateurs de cluster CN1610 exécutant ONTAP 8.3.1 ou une version ultérieure.  Cependant, les deux modèles nécessitent des logiciels et des RCF différents.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Assurez-vous de disposer des éléments suivants :
+Assurez-vous d'avoir les éléments suivants :
 
-* Sauvegarde actuelle de la configuration du commutateur.
-* Un cluster totalement opérationnel (aucune erreur dans les journaux, ni carte réseau de cluster défectueuse, ni aucun problème similaire).
-* Connexions de port entièrement opérationnelles sur le commutateur du cluster.
-* Tous les ports de cluster sont configurés.
-* Toutes les interfaces logiques (LIF) de cluster sont configurées (elles ne doivent pas avoir été migrées).
-* Un chemin de communication réussi : le ONTAP (privilège : avancé) `cluster ping-cluster -node node1` la commande doit indiquer cela `larger than PMTU communication` a réussi sur tous les chemins.
-* Version prise en charge DE FASTPATH, RCF et ONTAP.
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux et aucune carte d'interface réseau (NIC) défectueuse ou problème similaire).
+* Connexions de ports entièrement fonctionnelles sur le commutateur de cluster.
+* Tous les ports du cluster sont configurés.
+* Toutes les interfaces logiques de cluster (LIF) configurées (ne doivent pas avoir été migrées).
+* Une voie de communication réussie : ONTAP (privilège : avancé) `cluster ping-cluster -node node1` La commande doit indiquer que `larger than PMTU communication` réussit sur tous les plans.
+* Une version prise en charge de FASTPATH, RCF et ONTAP.
 +
-Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] Consultez cette page pour les versions FASTPATH, RCF et ONTAP prises en charge.
+Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le http://mysupport.netapp.com/NOW/download/software/cm_switches_ntap/["Commutateurs NetApp CN1601 et CN1610"^] page répertoriant les versions FASTPATH, RCF et ONTAP prises en charge.
 
 
 
@@ -38,41 +38,41 @@ Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le h
 
 == Installez le logiciel FASTPATH
 
-La procédure suivante utilise la syntaxe de clustered Data ONTAP 8.2. Par conséquent, le Vserver, les noms des LIF et les résultats de l'interface de ligne de commande sont différents de ceux du Data ONTAP 8.3.
+La procédure suivante utilise la syntaxe clusterisée de Data ONTAP 8.2.  Par conséquent, le Vserver du cluster, les noms LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
 
-Les versions RCF et FASTPATH peuvent comporter des dépendances entre la syntaxe de commande.
+Il peut exister des dépendances entre la syntaxe des commandes dans les versions RCF et FASTPATH.
 
 
-NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée en raison de problèmes de sécurité. Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé. Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur des commutateurs NetApp CN1610"^] A plus d'informations sur SSH.
+NOTE: Dans la version 1.2 de RCF, la prise en charge de Telnet a été explicitement désactivée pour des raisons de sécurité.  Pour éviter les problèmes de connectivité lors de l'installation de RCF 1.2, vérifiez que Secure Shell (SSH) est activé.  Le https://library.netapp.com/ecm/ecm_get_file/ECMP1117874["Guide de l'administrateur du commutateur NetApp CN1610"^] contient plus d'informations sur SSH.
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* les deux noms de commutateurs NetApp sont cs1 et cs2.
-* Les noms d'interface logique (LIF) de cluster sont node1_clude1 et node1_clus2 pour node1, ainsi que node2_clude1 et node2_clus2 pour node2. (Vous pouvez disposer de 24 nœuds maximum dans un cluster.)
-* Le nom du serveur virtuel de stockage (SVM) est Cluster.
-* Le `cluster1::*>` l'invite indique le nom du cluster.
-* les ports de cluster de chaque nœud sont nommés e0a et e0b.
+* Les deux noms de commutateurs NetApp sont cs1 et cs2.
+* Les noms des interfaces logiques du cluster (LIF) sont node1_clus1 et node1_clus2 pour le nœud 1, et node2_clus1 et node2_clus2 pour le nœud 2.  (Un cluster peut comporter jusqu'à 24 nœuds.)
+* Le nom de la machine virtuelle de stockage (SVM) est Cluster.
+* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les ports du cluster sur chaque nœud sont nommés e0a et e0b.
 +
-https://hwu.netapp.com/["Hardware Universe"^] affiche plus d'informations sur les ports réels du cluster pris en charge sur votre plateforme.
+https://hwu.netapp.com/["Hardware Universe"^]contient plus d'informations sur les ports de cluster réellement pris en charge sur votre plateforme.
 
-* Les liaisons ISL (Inter-Switch Links) prises en charge sont les ports 0/13 à 0/16.
-* Les ports 0/1 à 0/12 sont pris en charge par les connexions de nœuds.
-
-
+* Les liaisons inter-commutateurs (ISL) prises en charge sont les ports 0/13 à 0/16.
+* Les connexions de nœuds prises en charge sont les ports 0/1 à 0/12.
 
 
-=== Étape 1 : migrer le cluster
 
-. Afficher des informations relatives aux ports réseau sur le cluster :
+
+=== Étape 1 : Migrer le cluster
+
+. Afficher les informations relatives aux ports réseau du cluster :
 +
 `network port show -_ipspace cluster_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le type de sortie de la commande :
+L'exemple suivant illustre le type de résultat de la commande :
 
 [listing]
 ----
@@ -89,15 +89,15 @@ node2
 4 entries were displayed.
 ----
 ====
-. Afficher les informations relatives aux LIFs sur le cluster :
+. Afficher les informations relatives aux LIF du cluster :
 +
 `network interface show -_role cluster_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les interfaces logiques sur le cluster. Dans cet exemple, le `-role` Paramètre affiche des informations sur les LIFs associées aux ports de cluster :
+L'exemple suivant illustre les interfaces logiques du cluster.  Dans cet exemple, `-role` Ce paramètre affiche des informations sur les LIF associées aux ports du cluster :
 
 [listing]
 ----
@@ -114,15 +114,15 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Sur chaque nœud respectif, à l'aide d'une LIF de gestion des nœuds, migrer le nœud 1_clus2 vers e0a sur le nœud 1 et le nœud 2_clus2 vers e0a sur le nœud 2 :
+. Sur chaque nœud respectif, en utilisant un LIF de gestion de nœud, migrez node1_clus2 vers e0a sur node1 et node2_clus2 vers e0a sur node2 :
 +
 `network interface migrate`
 
 +
-Vous devez saisir les commandes sur les consoles de contrôleur qui possèdent les LIFs de cluster respectives.
+Vous devez saisir les commandes sur les consoles de contrôle qui possèdent les LIF de cluster respectives.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -133,14 +133,14 @@ cluster1::> network interface migrate -vserver Cluster -lif node2_clus2 -destina
 ====
 +
 
-NOTE: Pour cette commande, le nom du cluster est sensible à la casse et la commande doit être exécutée sur chaque nœud. Il n'est pas possible d'exécuter cette commande dans le cluster LIF en général.
+NOTE: Pour cette commande, le nom du cluster est sensible à la casse et la commande doit être exécutée sur chaque nœud.  Il n'est pas possible d'exécuter cette commande dans le LIF du cluster général.
 
-. Vérifiez que la migration a eu lieu à l'aide du `network interface show` commande sur un nœud.
+. Vérifiez que la migration a bien eu lieu en utilisant le `network interface show` commande sur un nœud.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que clus2 a migré vers le port e0a sur les nœuds node1 et node2 :
+L'exemple suivant montre que clus2 a migré vers le port e0a sur les nœuds node1 et node2 :
 
 [listing]
 ----
@@ -156,25 +156,25 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Définissez le niveau de privilège sur avancé, en saisissant y lorsque vous êtes invité à continuer :
+. Passez au niveau de privilège avancé en saisissant « y » lorsque vous êtes invité à continuer :
 +
 `set -privilege advanced`
 
 +
 L'invite avancée (*>) apparaît.
 
-. Arrêtez le port e0b sur les deux nœuds :
+. Fermez le port e0b du cluster sur les deux nœuds :
 +
 `network port modify -node _node_name_ -port _port_name_ -up-admin false`
 
 +
-Vous devez saisir les commandes sur les consoles de contrôleur qui possèdent les LIFs de cluster respectives.
+Vous devez saisir les commandes sur les consoles de contrôle qui possèdent les LIF de cluster respectives.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre les commandes pour arrêter le port e0b sur tous les nœuds :
+L'exemple suivant montre les commandes permettant de désactiver le port e0b sur tous les nœuds :
 
 [listing]
 ----
@@ -182,12 +182,12 @@ cluster1::*> network port modify -node node1 -port e0b -up-admin false
 cluster1::*> network port modify -node node2 -port e0b -up-admin false
 ----
 ====
-. Vérifiez que le port e0b est arrêté sur les deux nœuds :
+. Vérifiez que le port e0b est fermé sur les deux nœuds :
 +
 `network port show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -206,9 +206,9 @@ node2
 4 entries were displayed.
 ----
 ====
-. Arrêtez les ports ISL (Inter-Switch Link) sur cs1.
+. Fermez les ports de liaison inter-commutateurs (ISL) sur cs1.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -222,7 +222,7 @@ node2
 ====
 . Sauvegardez l'image active actuelle sur cs2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -252,11 +252,11 @@ Copy operation successful
 
 
 
-=== Étape 2 : installez le logiciel FASTPATH et le FCR
+=== Étape 2 : Installez le logiciel FASTPATH et RCF.
 
-. Vérifiez la version en cours d'exécution du logiciel FASTPATH.
+. Vérifiez la version du logiciel FASTPATH en cours d'exécution.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -285,10 +285,10 @@ Additional Packages............................ FASTPATH QOS
 ====
 . Téléchargez le fichier image sur le commutateur.
 +
-La copie du fichier image sur l'image active signifie que lors du redémarrage, cette image établit la version FastPath en cours d'exécution. L'image précédente reste disponible comme sauvegarde.
+Copier le fichier image dans l'image active signifie qu'au redémarrage, cette image établira la version FASTPATH en cours d'exécution.  L'image précédente reste disponible à titre de sauvegarde.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -311,12 +311,12 @@ SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 ====
-. Confirmez les versions actuelles et suivantes de l'image de démarrage active :
+. Veuillez confirmer les versions actuelles et futures des images de démarrage :
 +
 `show bootvar`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -338,12 +338,12 @@ Image Descriptions
     1     1.1.0.8     1.1.0.8            1.1.0.8            1.2.0.7
 ----
 ====
-. Installez la FCR compatible pour la nouvelle version d'image sur le commutateur.
+. Installez le fichier RCF compatible avec la nouvelle version d'image sur le commutateur.
 +
-Si la version RCF est déjà correcte, vérifiez les ports ISL.
+Si la version RCF est déjà correcte, ouvrez les ports ISL.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -374,14 +374,14 @@ File transfer operation completed successfully.
 ====
 +
 
-NOTE: Le `.scr` l'extension doit être définie comme faisant partie du nom du fichier avant d'appeler le script. Cette extension concerne le système d'exploitation FASTPATH.
+NOTE: Le `.scr` L'extension doit être définie dans le nom du fichier avant d'exécuter le script.  Cette extension est destinée au système d'exploitation FASTPATH.
 
 +
-Le commutateur valide automatiquement le script lorsqu'il est téléchargé sur le commutateur. La sortie va à la console.
+Le commutateur valide automatiquement le script lors de son téléchargement.  Le résultat s'affiche sur la console.
 
-. Vérifiez que le script a été téléchargé et enregistré dans le nom de fichier que vous lui avez donné.
+. Vérifiez que le script a bien été téléchargé et enregistré sous le nom de fichier que vous lui avez indiqué.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -396,9 +396,9 @@ CN1610_CS_RCF_v1.2.scr                  2191
 2541 Kbytes free.
 ----
 ====
-. Appliquez le script au commutateur.
+. Appliquez le script à l'interrupteur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -411,12 +411,12 @@ Are you sure you want to apply the configuration script? (y/n) y
 Configuration script 'CN1610_CS_RCF_v1.2.scr' applied.
 ----
 ====
-. Vérifiez que les modifications ont été appliquées au commutateur, puis enregistrez-les :
+. Vérifiez que les modifications ont bien été appliquées au commutateur, puis enregistrez-les :
 +
 `show running-config`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -424,9 +424,9 @@ Configuration script 'CN1610_CS_RCF_v1.2.scr' applied.
 (cs2) #show running-config
 ----
 ====
-. Enregistrez la configuration en cours de fonctionnement pour qu'elle devienne la configuration de démarrage lorsque vous redémarrez le commutateur.
+. Enregistrez la configuration en cours afin qu'elle devienne la configuration de démarrage lors du redémarrage du commutateur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -444,7 +444,7 @@ Configuration Saved!
 ====
 . Redémarrez le commutateur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -463,11 +463,11 @@ System will now restart!
 
 
 
-=== Étape 3 : validation de l'installation
+=== Étape 3 : Valider l’installation
 
-. Reconnectez-vous, puis vérifiez que le commutateur exécute la nouvelle version du logiciel FASTPATH.
+. Connectez-vous à nouveau, puis vérifiez que le commutateur exécute bien la nouvelle version du logiciel FASTPATH.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -494,11 +494,11 @@ Additional Packages............................ FASTPATH QOS
 ----
 ====
 +
-Une fois le redémarrage terminé, vous devez vous connecter pour vérifier la version d'image, afficher la configuration en cours d'exécution et rechercher la description sur l'interface 3/64, qui est le label de version pour le RCF.
+Une fois le redémarrage terminé, vous devez vous connecter pour vérifier la version de l'image, consulter la configuration en cours et rechercher la description sur l'interface 3/64, qui est l'étiquette de version pour le RCF.
 
-. Mettre les ports ISL sur cs1, le commutateur actif.
+. Activez les ports ISL sur cs1, le commutateur actif.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -510,15 +510,15 @@ Une fois le redémarrage terminé, vous devez vous connecter pour vérifier la v
 (cs1) (Config) #exit
 ----
 ====
-. Vérifiez que les liens ISL sont opérationnels.
+. Vérifiez que les ISL sont opérationnels :
 +
 `show port-channel 3/1`
 
 +
-Le champ État du lien doit indiquer `Up`.
+Le champ État du lien doit indiquer `Up` .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -546,18 +546,18 @@ Ports  Timeout       Speed     Active
        partner/long
 ----
 ====
-. Mettez en place le port e0b sur tous les nœuds :
+. Activez le port de cluster e0b sur tous les nœuds :
 +
 `network port modify`
 
 +
-Vous devez saisir les commandes sur les consoles de contrôleur qui possèdent les LIFs de cluster respectives.
+Vous devez saisir les commandes sur les consoles de contrôle qui possèdent les LIF de cluster respectives.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que le port e0b est pris en charge sur les nœuds de nœuds 1 et de nœuds 2 :
+L'exemple suivant montre l'activation du port e0b sur les nœuds node1 et node2 :
 
 [listing]
 ----
@@ -565,12 +565,12 @@ cluster1::*> network port modify -node node1 -port e0b -up-admin true
 cluster1::*> network port modify -node node2 -port e0b -up-admin true
 ----
 ====
-. Vérifiez que le port e0b est activé sur tous les nœuds :
+. Vérifiez que le port e0b est actif sur tous les nœuds :
 +
 `network port show -ipspace cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -589,12 +589,12 @@ node2
 4 entries were displayed.
 ----
 ====
-. Vérifier que le LIF est déjà chez lui (`true`) sur les deux nœuds :
+. Vérifiez que le LIF est maintenant à la maison(`true` ) sur les deux nœuds :
 +
 `network interface show -_role cluster_`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -612,12 +612,12 @@ Cluster
 4 entries were displayed.
 ----
 ====
-. Afficher l'état des membres du nœud :
+. Afficher l'état des membres du nœud :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -631,7 +631,7 @@ node2                true    true          false
 2 entries were displayed.
 ----
 ====
-. Retour au niveau de privilège admin :
+. Retour au niveau de privilège d'administrateur :
 +
 `set -privilege admin`
 

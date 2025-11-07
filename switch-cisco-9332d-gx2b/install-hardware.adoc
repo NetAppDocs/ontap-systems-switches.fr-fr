@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: switches, hardware installation, Cisco Nexus, 9332D-GX2B switches 
 summary: 'Détails sur la façon d"installer et de configurer le matériel de commutation et le matériel de contrôleur pour votre système.' 
 ---
-= Installer le matériel de fixation
+= Installer le matériel
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Aller à lalink:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Flux de travail d'installation et de configuration d'AFX"^] pour apprendre comment installer et configurer le matériel de commutation et le matériel de contrôleur pour votre système.
+Allez àlink:https://docs.netapp.com/us-en/ontap-afx/install-setup/install-setup-workflow.html["Flux de travail d'installation et de configuration d'AFX"^] pour apprendre à installer et configurer le matériel de commutation et le matériel de contrôle de votre système.
 
 La documentation d'installation et de configuration d'AFX comprend des informations telles que :
 

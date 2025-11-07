@@ -2,68 +2,68 @@
 permalink: switch-cisco-3232c/upgrade-3232c-storage-switches.html 
 sidebar: sidebar 
 keywords: upgrade, cisco nexus, 3232c storage switch 
-summary: 'Le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration File) peuvent être mis à niveau sur des switchs de stockage Cisco Nexus 3232C.' 
+summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) peuvent être mis à niveau sur les commutateurs de stockage Cisco Nexus 3232C.' 
 ---
-= Mettre à niveau un switch de stockage Cisco Nexus 3232C
+= Mise à niveau d'un commutateur de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour mettre à niveau le logiciel Cisco NX-OS et les fichiers RCF (Reference Configuration Files) sur des switchs Cisco Nexus 3232C.
+Suivez ces étapes pour mettre à niveau le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) sur les commutateurs Cisco Nexus 3232C.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-Avant de mettre à niveau le logiciel NX-OS et les RCFC sur le commutateur de stockage, assurez-vous que les conditions suivantes existent :
+Avant de mettre à niveau le logiciel NX-OS et les RCF sur le commutateur de stockage, assurez-vous que les conditions suivantes sont réunies :
 
-* Le commutateur fonctionne entièrement (il ne doit y avoir aucune erreur dans les journaux ou des problèmes similaires).
-* Vous avez vérifié ou défini les variables de démarrage souhaitées dans la FCR pour qu'elles reflètent les images de démarrage souhaitées si vous installez uniquement NX-OS et que vous gardez votre version FCR actuelle.
+* Le commutateur fonctionne parfaitement (il ne devrait y avoir aucune erreur dans les journaux ni aucun problème similaire).
+* Vous avez vérifié ou défini vos variables de démarrage souhaitées dans le RCF pour refléter les images de démarrage souhaitées si vous installez uniquement NX-OS et conservez votre version RCF actuelle.
 +
-Si vous devez modifier les variables de démarrage pour qu'elles reflètent les images de démarrage actuelles, vous devez le faire avant de réappliquer la FCR de sorte que la version correcte soit instanciée lors des prochains redémarrages.
+Si vous devez modifier les variables de démarrage pour refléter les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit instanciée lors des prochains redémarrages.
 
-* Vous avez indiqué les logiciels et guides de mise à niveau appropriés disponibles sur le http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Commutateurs Cisco Nexus 3000 Series"^] Pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure du stockage Cisco.
-* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence disponibles sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco®"^] page.
-
-
+* Vous avez consulté les guides logiciels et de mise à niveau appropriés disponibles sur le http://www.cisco.com/en/US/products/ps9670/prod_installation_guides_list.html["Commutateurs Cisco Nexus série 3000"^] Cette page contient la documentation complète sur les procédures de mise à niveau et de rétrogradation du stockage Cisco .
+* Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles sur le https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] page.
 
 
-== Remplacer le contacteur
+
+
+== Remplacez l'interrupteur
 
 .À propos des exemples
-Les exemples de cette procédure utilisent la nomenclature des commutateurs et des nœuds suivante :
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
 * Les noms des deux commutateurs de stockage sont S1 et S2.
-* Les nœuds sont les nœuds 1 et 2.
+* Les nœuds sont nœud1 et nœud2.
 
 
-Les exemples de cette procédure utilisent deux nœuds ; le nœud 1 avec deux ports de stockage et le nœud 2 avec deux ports de stockage. Voir la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier que les ports de stockage de vos plates-formes sont corrects.
+Les exemples de cette procédure utilisent deux nœuds : le nœud 1 avec deux ports de stockage et le nœud 2 avec deux ports de stockage.  Voir lelink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de stockage corrects sur vos plateformes.
 
 
-NOTE: La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire. Les sorties de la commande peuvent varier en fonction des différentes versions d'ONTAP.
+NOTE: La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.  Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.
 
 
 
-=== Étape 1 : vérifier l'état de santé des commutateurs et des ports
+=== Étape 1 : Vérifier l'état de santé des commutateurs et des ports
 
-. Si AutoSupport est activé, supprimez la création automatique de dossier en invoquant un message AutoSupport :
+. Si AutoSupport est activé, supprimez la création automatique de cas en envoyant un message AutoSupport :
 `system node autosupport invoke -node * -type all - message MAINT=xh`
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
 
 +
 
-NOTE: Le message AutoSupport informe le support technique de cette tâche de maintenance de sorte que la création automatique de dossier soit supprimée lors de la fenêtre de maintenance.
+NOTE: Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
 
-. Vérifier que les commutateurs de stockage sont disponibles :
+. Vérifiez que les commutateurs de stockage sont disponibles :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -93,12 +93,12 @@ S2
 storage::*>
 ----
 ====
-. Vérifiez que les ports du nœud sont sains et opérationnels :
+. Vérifiez que les ports du nœud sont sains et opérationnels :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -119,12 +119,12 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Vérifiez qu'il n'y a pas de problème de câblage ou de commutateur de stockage :
+. Vérifiez qu'il n'y a pas de problèmes au niveau du commutateur de stockage ou du câblage :
 +
 `system health alert show -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -137,17 +137,17 @@ There are no entries matching your query.
 
 
 
-=== Étape 2 : copier la FCR sur le commutateur Cisco S2
+=== Étape 2 : Copier le RCF sur le commutateur Cisco S2
 
-. Copiez le RCF sur le commutateur S2 sur le commutateur bootflash à l'aide de l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
+. Copiez le RCF du commutateur S2 vers la mémoire flash de démarrage du commutateur en utilisant l'un des protocoles de transfert suivants : FTP, HTTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre que HTTP est utilisé pour copier une FCR vers le bootflash sur le commutateur S2 :
+L'exemple suivant montre l'utilisation du protocole HTTP pour copier un fichier RCF dans la mémoire flash de démarrage du commutateur S2 :
 
 [listing, subs="+quotes"]
 ----
@@ -160,43 +160,43 @@ Copy complete.
 S2#
 ----
 ====
-. Appliquez le RCF préalablement téléchargé sur le bootflash :
+. Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage :
 +
 `copy bootflash:`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le fichier RCF `Nexus_3232C_RCF_v1.6-Storage.txt` En cours d'installation sur le commutateur S2 :
+L'exemple suivant illustre le fichier RCF `Nexus_3232C_RCF_v1.6-Storage.txt` en cours d'installation sur le commutateur S2 :
 
 [listing, subs="+quotes"]
 ----
 S2# *copy Nexus_3232C_RCF_v1.6-Storage.txt running-config echo-commands*
 ----
 ====
-. Vérifiez que le fichier RCF est la version la plus récente correcte :
+. Vérifiez que le fichier RCF est bien la version la plus récente correcte :
 +
 `show running-config`
 
 +
-Lorsque vous vérifiez que la sortie est correcte, vérifiez que les informations suivantes sont correctes :
+Lorsque vous vérifiez le résultat pour vous assurer que vous avez le RCF correct, vérifiez que les informations suivantes sont correctes :
 
 +
 ** La bannière RCF
-** Les paramètres du nœud et du port
+** Paramètres du nœud et du port
 ** Personnalisations
 +
-Le résultat varie en fonction de la configuration de votre site. Vérifiez les paramètres des ports et reportez-vous aux notes de version pour voir si des modifications spécifiques à la FCR que vous avez installée.
+Le résultat varie en fonction de la configuration de votre site.  Vérifiez les paramètres du port et consultez les notes de version pour connaître les modifications spécifiques à la version de RCF que vous avez installée.
 
 +
 [NOTE]
 ====
-Dans la sortie de la bannière du `show banner motd` Commande, vous devez lire et suivre les instructions de la section *REMARQUES IMPORTANTES* pour vous assurer que la configuration et le fonctionnement du commutateur sont corrects.
+Dans la bannière générée par `show banner motd` Pour utiliser cette commande, vous devez lire et suivre les instructions de la section *REMARQUES IMPORTANTES* afin de garantir la configuration et le fonctionnement corrects du commutateur.
 
 ====
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing]
@@ -239,19 +239,19 @@ S2#
 ====
 +
 
-NOTE: Lors de l'application de FCR pour la première fois, le message *ERROR: Failed to write VSH commands* est attendu et peut être ignoré.
+NOTE: Lors de la première application du RCF, le message *ERREUR : Échec de l’écriture des commandes VSH* est normal et peut être ignoré.
 
 
 
-. Après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le `running-config` vers le `startup-config` Fichier sur le commutateur S2.
+. Après avoir vérifié que les versions du logiciel et les paramètres du commutateur sont corrects, copiez le `running-config` fichier au `startup-config` fichier sur le commutateur S2.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-L'exemple suivant montre le `running-config` le fichier a été copié dans le `startup-config` fichier :
+L'exemple suivant illustre le `running-config` Le fichier a été copié avec succès vers le `startup-config` déposer:
 
 [listing]
 ----
@@ -263,11 +263,11 @@ S2# copy running-config startup-config
 
 
 
-=== Étape 3 : copiez l'image NX-OS sur le commutateur Cisco S2 et redémarrez
+=== Étape 3 : Copiez l’image NX-OS sur le commutateur Cisco S2 et redémarrez-le.
 
 . Copiez l'image NX-OS sur le commutateur S2.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -305,12 +305,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. Installez l'image système de manière à ce que la nouvelle version soit chargée lors du prochain redémarrage du commutateur S2.
+. Installez l'image système afin que la nouvelle version soit chargée lors du prochain redémarrage du commutateur S2.
 +
-Le commutateur est redémarré en 10 secondes avec la nouvelle image comme indiqué dans la sortie suivante :
+Le commutateur redémarrera dans 10 secondes avec la nouvelle image, comme indiqué dans la sortie suivante :
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -378,13 +378,13 @@ S2#
 ====
 . Enregistrez la configuration.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes Cisco Nexus série 3000 NX-OS"^].
+Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
 
 +
 Vous êtes invité à redémarrer le système.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -395,9 +395,9 @@ S2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
 ====
-. Vérifiez que le nouveau numéro de version NX-OS est activé sur le commutateur :
+. Vérifiez que le nouveau numéro de version NX-OS est bien indiqué sur le commutateur :
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -457,14 +457,14 @@ S2#
 
 
 
-=== Étape 4 : vérifier à nouveau l'état de santé des commutateurs et des ports
+=== Étape 4 : Revérifiez l’état de santé des commutateurs et des ports
 
-. Vérifiez à nouveau que les commutateurs de stockage sont disponibles après le redémarrage :
+. Vérifiez que les commutateurs de stockage sont disponibles après le redémarrage :
 +
 `system switch ethernet show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -494,12 +494,12 @@ S2
 storage::*>
 ----
 ====
-. Vérifier que les ports switchs sont opérationnels après le redémarrage :
+. Vérifiez que les ports du commutateur sont en bon état et opérationnels après le redémarrage :
 +
 `storage port show -port-type ENET`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -520,12 +520,12 @@ node2
                    e7b  ENET  storage    100 enabled  online        30
 ----
 ====
-. Vérifier à nouveau l'absence de problèmes de câblage ou de commutateur de stockage sur le cluster :
+. Vérifiez qu'il n'y a pas de problèmes de commutateur de stockage ou de câblage avec le cluster :
 +
 `system health alert show -instance`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -534,8 +534,8 @@ storage::*> *system health alert show -instance*
 There are no entries matching your query.
 ----
 ====
-. Répétez la procédure pour mettre à niveau le logiciel NX-OS et RCF sur le commutateur S1.
-. Si vous avez supprimé la création automatique de cas, réactivez-la en appelant un message AutoSupport :
+. Répétez la procédure pour mettre à niveau le logiciel NX-OS et le RCF sur le commutateur S1.
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
 +
 `system node autosupport invoke -node * -type all -message MAINT=END`
 

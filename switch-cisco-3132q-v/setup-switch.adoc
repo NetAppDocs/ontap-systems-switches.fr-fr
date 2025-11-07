@@ -2,9 +2,9 @@
 permalink: switch-cisco-3132q-v/setup-switch.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Si vous ne possédez pas encore la documentation et les informations de configuration requises, vous devez les collecter avant de configurer votre cluster et vos commutateurs de réseau de gestion. 
+summary: Si vous ne disposez pas déjà des informations et de la documentation de configuration requises, vous devez rassembler ces informations avant de configurer votre cluster et vos commutateurs réseau de gestion. 
 ---
-= Configurez le commutateur Cisco Nexus 3132Q-V
+= Configurer le commutateur Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,138 +14,138 @@ summary: Si vous ne possédez pas encore la documentation et les informations de
 Suivez cette procédure pour configurer le commutateur Cisco Nexus 3132Q-V.
 
 .Avant de commencer
-* Accédez à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et RCF (Reference Configuration File) applicables.
-* Version NX-OS applicable, téléchargée à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
-* Documentation requise sur les commutateurs réseau, la documentation du contrôleur et la documentation ONTAP. Pour plus d'informations, voir link:required-documentation-3132q.html["Documentation requise"].
+* Accès à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et le fichier de configuration de référence (RCF) applicables.
+* Version NX-OS applicable, téléchargée depuis https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
+* Documentation requise pour le commutateur réseau, le contrôleur et ONTAP . Pour plus d'informations, voir link:required-documentation-3132q.html["Documents requis"].
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
-* Feuilles de calcul de câblage remplies. Voir link:setup_worksheet_3132q.html["Fiche technique de câblage Cisco Nexus 3132Q-V."].
-* NetApp applicable au réseau de clusters et au réseau de gestion, téléchargés depuis le site de support NetApp à l'adresse http://mysupport.netapp.com/["mysupport.netapp.com"^] pour les commutateurs que vous recevez. Tous les commutateurs de réseau de gestion et de réseau de cluster Cisco sont livrés avec la configuration par défaut standard de Cisco. Ces commutateurs ont également la version actuelle du logiciel NX-OS, mais ils ne sont pas chargés.
+* Fiches de câblage complétées. Voirlink:setup_worksheet_3132q.html["Fiche de câblage complète du Cisco Nexus 3132Q-V"] .
+* Fichiers de configuration de ressources (RCF) applicables pour les réseaux de cluster et de gestion NetApp , téléchargeables depuis le site de support NetApp à l'adresse suivante : http://mysupport.netapp.com/["monsupport.netapp.com"^] pour les commutateurs que vous recevez.  Tous les commutateurs de réseau de cluster et de réseau de gestion Cisco sont livrés avec la configuration d'usine standard Cisco .  Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCF n'y sont pas chargés.
 
 
 .Étapes
-. Installez les commutateurs et les contrôleurs du réseau de gestion et de réseau de cluster.
+. Installez le réseau de cluster ainsi que les commutateurs et contrôleurs du réseau de gestion.
 +
 [cols="1,2"]
 |===
-| Si vous installez... | Alors... 
+| Si vous installez votre... | Alors... 
 
 
  a| 
 Cisco Nexus 3132Q-V dans une armoire système NetApp
  a| 
-Consultez le document _installation d'un commutateur de cluster Cisco Nexus 3132Q-V et d'un panneau d'intercommunication dans une armoire NetApp_ guide pour obtenir des instructions d'installation du commutateur dans une armoire NetApp.
+Consultez le guide _Installation d'un commutateur de cluster Cisco Nexus 3132Q-V et d'un panneau de transfert dans une armoire NetApp pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp .
 
 
 
  a| 
-Équipement dans un rack Telco
+Équipement dans une baie de télécommunications
  a| 
-Consultez les procédures fournies dans les guides d'installation du matériel du commutateur et les instructions d'installation et de configuration de NetApp.
+Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
 
 |===
-. Reliez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs à l'aide de la fiche de câblage complétée, comme décrit dans la link:setup_worksheet_3132q.html["Fiche technique de câblage Cisco Nexus 3132Q-V."].
-. Mettez le réseau de cluster sous tension, ainsi que les commutateurs et les contrôleurs du réseau de gestion.
-. Effectuer une configuration initiale des commutateurs du réseau de cluster.
+. Câblez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs en utilisant la feuille de câblage complétée, comme décrit danslink:setup_worksheet_3132q.html["Fiche de câblage complète du Cisco Nexus 3132Q-V"] .
+. Mise sous tension des commutateurs et contrôleurs du réseau de cluster et du réseau de gestion.
+. Effectuez une configuration initiale des commutateurs du réseau du cluster.
 +
-Lors du premier démarrage du commutateur, répondez aux questions de configuration initiale suivantes. La politique de sécurité de votre site définit les réponses et les services à activer.
+Veuillez fournir les réponses appropriées aux questions de configuration initiale suivantes lors du premier démarrage du commutateur.  La politique de sécurité de votre site définit les réponses et les services à activer.
 
 +
 [cols="1,2"]
 |===
-| À l'invite | Réponse 
+| Rapide | Réponse 
 
 
  a| 
-Abandonner le provisionnement automatique et poursuivre la configuration normale ? (oui/non) ?
+Annuler le provisionnement automatique et poursuivre la configuration normale ?  (oui/non)
  a| 
-Répondez par *oui*. La valeur par défaut est non
-
-
-
- a| 
-Voulez-vous appliquer une norme de mot de passe sécurisée ? (oui/non) ?
- a| 
-Répondez par *oui*. La valeur par défaut est oui.
+Répondez par *oui*.  La valeur par défaut est non.
 
 
 
  a| 
-Entrez le mot de passe pour admin :
+Souhaitez-vous imposer une norme de mot de passe sécurisé ?  (oui/non)
  a| 
-Le mot de passe par défaut est ""admin""; vous devez créer un nouveau mot de passe fort. Un mot de passe faible peut être rejeté.
-
-
-
- a| 
-Voulez-vous entrer la boîte de dialogue de configuration de base ? (oui/non) ?
- a| 
-Répondre par *oui* à la configuration initiale du commutateur.
+Répondez par *oui*.  La valeur par défaut est oui.
 
 
 
  a| 
-Créer un autre compte de connexion ? (oui/non) ?
+Saisissez le mot de passe de l'administrateur :
  a| 
-Votre réponse dépend des stratégies de votre site concernant les administrateurs secondaires. La valeur par défaut est *non*.
-
-
-
- a| 
-Configurer la chaîne de communauté SNMP en lecture seule ? (oui/non) ?
- a| 
-Répondre par *non*. La valeur par défaut est non
+Le mot de passe par défaut est « `admin` » ; vous devez créer un nouveau mot de passe fort.  Un mot de passe faible peut être refusé.
 
 
 
  a| 
-Configurer la chaîne de communauté SNMP en lecture-écriture ? (oui/non) ?
+Souhaitez-vous accéder à la boîte de dialogue de configuration de base ?  (oui/non)
  a| 
-Répondre par *non*. La valeur par défaut est non
+Répondez *oui* lors de la configuration initiale du commutateur.
 
 
 
  a| 
-Entrez le nom du commutateur.
+Créer un autre compte de connexion ?  (oui/non)
+ a| 
+Votre réponse dépend des politiques de votre site concernant les administrateurs alternatifs.  La valeur par défaut est *non*.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture seule ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture-écriture ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Saisissez le nom du commutateur.
  a| 
 Le nom du commutateur est limité à 63 caractères alphanumériques.
 
 
 
  a| 
-Poursuivre la configuration de gestion hors bande (mgmt0) ? (oui/non) ?
+Continuer avec la configuration de gestion hors bande (mgmt0) ?  (oui/non)
  a| 
-Répondez par *yes* (par défaut) à cette invite. À l'invite mgmt0 adresse IPv4 :, entrez votre adresse IP : adresse_ip.
-
-
-
- a| 
-Configurer la passerelle par défaut ? (oui/non) ?
- a| 
-Répondez par *oui*. À l'invite Default-Gateway:, saisissez votre passerelle_par_défaut.
+Répondez par *oui* (par défaut) à cette invite.  À l'invite mgmt0 adresse IPv4 : saisissez votre adresse IP : ip_address.
 
 
 
  a| 
-Configurer les options IP avancées ? (oui/non) ?
+Configurer la passerelle par défaut ?  (oui/non)
  a| 
-Répondre par *non*. La valeur par défaut est non
-
-
-
- a| 
-Activer le service telnet ? (oui/non) ?
- a| 
-Répondre par *non*. La valeur par défaut est non
+Répondez par *oui*.  À l'invite « adresse IPv4 de la passerelle par défaut : », saisissez votre passerelle par défaut.
 
 
 
  a| 
-Service SSH activé ? (oui/non) ?
+Configurer les options IP avancées ?  (oui/non)
  a| 
-Répondez par *oui*. La valeur par défaut est oui.
+Répondez par *non*.  La valeur par défaut est non.
 
 
-NOTE: SSH est recommandé lors de l'utilisation du moniteur d'état du commutateur Ethernet (CSHM) pour ses fonctions de collecte de journaux. SSHv2 est également recommandé pour une sécurité améliorée.
+
+ a| 
+Activer le service telnet ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Service SSH activé ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est oui.
+
+
+NOTE: L'utilisation de SSH est recommandée lors de l'utilisation de Ethernet Switch Health Monitor (CSHM) pour ses fonctionnalités de collecte de journaux.  SSHv2 est également recommandé pour une sécurité renforcée.
 
 
 
@@ -157,59 +157,59 @@ La valeur par défaut est *rsa*.
 
 
  a| 
-Entrez le nombre de bits de clé (1024-2048).
+Entrez le nombre de bits clés (1024-2048).
  a| 
-Entrez les bits de clé de 1024 à 2048.
-
-
-
- a| 
-Configurer le serveur NTP ? (oui/non) ?
- a| 
-Répondre par *non*. La valeur par défaut est non
+Saisissez les bits clés de 1024 à 2048.
 
 
 
  a| 
-Configurer la couche d'interface par défaut (L3/L2) :
+Configurer le serveur NTP ?  (oui/non)
  a| 
-Répondre avec *L2*. La valeur par défaut est L2.
-
-
-
- a| 
-Configurer l'état d'interface du port du commutateur par défaut (shutr/nosolt) :
- a| 
-Répondre avec *nohut*. La valeur par défaut est nosott.
+Répondez par *non*.  La valeur par défaut est non.
 
 
 
  a| 
-Configuration du profil du système Copp (strict/modéré/ELEDent/dense) :
+Configurer la couche d'interface par défaut (L3/L2) :
  a| 
-Répondez avec *strict*. La valeur par défaut est stricte.
-
-
-
- a| 
-Voulez-vous modifier la configuration ? (oui/non) ?
- a| 
-La nouvelle configuration est à présent visible. Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir. Répondez par *non* à l'invite si vous êtes satisfait de la configuration. Répondez par *yes* si vous souhaitez modifier vos paramètres de configuration.
+Répondez avec *L2*.  La valeur par défaut est L2.
 
 
 
  a| 
-Utilisez cette configuration et enregistrez-la ? (oui/non) ?
+Configurer l'état par défaut de l'interface du port de commutation (arrêté/non arrêté) :
  a| 
-Répondez avec *yes* pour enregistrer la configuration. Ceci met automatiquement à jour les images kickstart et système.
+Répondez par *noshut*.  La valeur par défaut est noshut.
 
 
-NOTE: Si vous n'enregistrez pas la configuration à ce stade, aucune des modifications ne sera effective lors du prochain redémarrage du commutateur.
+
+ a| 
+Configurer le profil système CoPP (strict/modéré/souple/dense) :
+ a| 
+Répondez avec *strict*.  Le paramètre par défaut est strict.
+
+
+
+ a| 
+Souhaitez-vous modifier la configuration ?  (oui/non)
+ a| 
+Vous devriez voir la nouvelle configuration à ce stade.  Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir.  Répondez *non* à l'invite si la configuration vous convient.  Répondez *oui* si vous souhaitez modifier vos paramètres de configuration.
+
+
+
+ a| 
+Utilisez cette configuration et enregistrez-la ?  (oui/non)
+ a| 
+Répondez *oui* pour enregistrer la configuration.  Cela met automatiquement à jour les images Kickstart et système.
+
+
+NOTE: Si vous ne sauvegardez pas la configuration à cette étape, aucune des modifications ne sera prise en compte lors du prochain redémarrage du commutateur.
 
 |===
-. Vérifiez les choix de configuration que vous avez effectués à l'écran qui s'affiche à la fin de la configuration et assurez-vous d'enregistrer la configuration.
-. Vérifier la version sur les commutateurs du réseau du cluster et, si nécessaire, télécharger la version prise en charge par NetApp du logiciel sur les commutateurs à partir du https://software.cisco.com/download/home["Téléchargement du logiciel Cisco"^] page.
+. Vérifiez les choix de configuration que vous avez effectués dans l'écran qui apparaît à la fin de l'installation et assurez-vous d'enregistrer la configuration.
+. Vérifiez la version installée sur les commutateurs du réseau du cluster et, si nécessaire, téléchargez la version du logiciel compatible avec NetApp sur ces commutateurs. https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Une fois vos commutateurs configurés, vous link:prepare-install-cisco-nexus-3132q.html["se préparer à installer NX-OS et RCF"].

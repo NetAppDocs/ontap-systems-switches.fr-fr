@@ -2,31 +2,31 @@
 permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 92300YC 
-summary: 'Si vous souhaitez documenter les plates-formes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant l"exemple de fiche de câblage rempli comme guide.' 
+summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en utilisant comme guide l"exemple de feuille de câblage remplie.' 
 ---
-= Remplir la fiche technique de câblage Cisco Nexus 92300YC
+= Fiche de câblage complète du Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour documenter les plates-formes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
+Si vous souhaitez documenter les plateformes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
 
-L'exemple de fiche technique de câblage fournit des exemples d'attributions de ports recommandées entre les commutateurs et les contrôleurs. La fiche blanche fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
+La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 
 
 
-== Exemple de fiche de câblage
+== Exemple de schéma de câblage
 
-L'exemple de définition de port sur chaque paire de commutateurs est le suivant :
+La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
 
 [cols="1, 1, 1, 1"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
 
-| Port du commutateur | Utilisation du nœud et du port | Port du commutateur | Utilisation du nœud et du port 
+| Port de commutation | Utilisation des nœuds et des ports | Port de commutation | Utilisation des nœuds et des ports 
 
 
  a| 
@@ -736,36 +736,36 @@ Nœud 40/100 GbE
  a| 
 65
  a| 
-100 GbE ISL vers le port B du commutateur 65
+Liaison ISL 100 GbE vers le port 65 du commutateur B
  a| 
 65
  a| 
-100 GbE ISL pour basculer sur le port 65
+Liaison interconnexion 100 GbE vers le port 65 du commutateur A
 
 
 
  a| 
 66
  a| 
-100 GbE ISL vers le port B du commutateur 66
+Liaison ISL 100 GbE vers le port 66 du commutateur B
  a| 
 66
  a| 
-100 GbE ISL pour basculer sur le port 65
+Liaison interconnexion 100 GbE vers le port 65 du commutateur A
 
 |===
 
 
 == Feuille de câblage vierge
 
-Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes prises en charge en tant que nœuds dans un cluster. La section _connexions de cluster prises en charge_ du https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.
 
 [cols="1, 1, 1, 1"]
 |===
 2+| Commutateur de cluster A 2+| Commutateur de cluster B 
 
 
-| Port du commutateur | Utilisation du nœud/port | Port du commutateur | Utilisation du nœud/port 
+| Port de commutation | Utilisation des nœuds/ports | Port de commutation | Utilisation des nœuds/ports 
 
 
  a| 
@@ -1347,23 +1347,23 @@ Vous pouvez utiliser la fiche de câblage vide pour documenter les plateformes p
  a| 
 65
  a| 
-ISL vers le port B du commutateur 65
+ISL vers le commutateur B port 65
  a| 
 65
  a| 
-ISL pour basculer sur le port A 65
+ISL vers commutateur A port 65
 
 
 
  a| 
 66
  a| 
-ISL vers le port B du commutateur 66
+ISL vers le commutateur B port 66
  a| 
 66
  a| 
-ISL pour basculer sur le port A 66
+ISL vers le commutateur A port 66
 
 |===
 .Quelle est la prochaine étape
-link:install-switch-92300yc.html["Poser le commutateur"] .
+link:install-switch-92300yc.html["Installez l'interrupteur"].

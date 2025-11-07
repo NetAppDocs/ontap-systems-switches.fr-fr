@@ -4,42 +4,42 @@ sidebar: sidebar
 keywords: install rcf script, python script, sn2100 SN2100 switches, cumulus 
 summary: Suivez cette procédure pour installer le script RCF. 
 ---
-= Installez ou mettez à niveau le script RCF
+= Installez ou mettez à jour le script RCF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer ou mettre à niveau le script RCF.
+Suivez cette procédure pour installer ou mettre à jour le script RCF.
 
 .Avant de commencer
-Avant d'installer ou de mettre à niveau le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
+Avant d'installer ou de mettre à jour le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
 
 * Cumulus Linux 4.4.3 est installé.
-* Adresse IP, masque de sous-réseau et passerelle par défaut définis via DHCP ou configurés manuellement.
+* L'adresse IP, le masque de sous-réseau et la passerelle par défaut sont définis via DHCP ou configurés manuellement.
 
 
 .Versions actuelles du script RCF
-Deux scripts RCF sont disponibles pour les applications de stockage et de mise en cluster. La procédure pour chaque est la même.
+Deux scripts RCF sont disponibles pour les applications de clustering et de stockage.  La procédure est la même pour chaque cas.
 
-* Mise en grappe : *MSN2100-RCF-v1._x_-Cluster*
-* Stockage : *MSN2100-FCR-v1._x_-stockage*
-
-
-
-NOTE: L'exemple de procédure suivant montre comment télécharger et appliquer le script RCF pour les commutateurs de cluster.
+* Clustering : *MSN2100-RCF-v1._x_-Cluster*
+* Stockage : *MSN2100-RCF-v1._x_-Stockage*
 
 
-NOTE: Exemple de sortie de commande utilise l'adresse IP de gestion de commutateur 10.233.204.71, le masque de réseau 255.255.254.0 et la passerelle par défaut 10.233.204.1.
+
+NOTE: La procédure d'exemple suivante montre comment télécharger et appliquer le script RCF pour les commutateurs de cluster.
+
+
+NOTE: L'exemple de sortie de commande utilise l'adresse IP de gestion du commutateur 10.233.204.71, le masque de sous-réseau 255.255.254.0 et la passerelle par défaut 10.233.204.1.
 
 .Étapes
-. Afficher les interfaces disponibles sur le commutateur SN2100 :
+. Afficher les interfaces disponibles sur le commutateur SN2100 :
 +
 `net show interface all`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -68,7 +68,7 @@ ADMDN  swp15  N/A  9216   NotConfigured
 ADMDN  swp16  N/A  9216   NotConfigured
 ----
 ====
-. Copiez le script python RCF sur le commutateur :
+. Copiez le script Python RCF sur le commutateur :
 +
 [listing, subs="+quotes"]
 ----
@@ -79,7 +79,7 @@ cumulus@cumulus:mgmt:/tmp$ *scp _<user>@<host:/<path>_/MSN2100-RCF-v1.8-Cluster*
 ssologin@10.233.204.71's password:
 MSN2100-RCF-v1.8-Cluster                 100% 8607   111.2KB/s         00:00
 ----
-. Appliquer le script FCR python *MSN2100-RCF-v1.8-Cluster* :
+. Appliquez le script Python RCF *MSN2100-RCF-v1.8-Cluster* :
 +
 [listing, subs="+quotes"]
 ----
@@ -101,19 +101,19 @@ Step 12: Configure SNMP
 Step 13: Reboot the switch
 ----
 +
-Le script RCF effectue les étapes indiquées ci-dessus.
+Le script RCF achève les étapes énumérées ci-dessus.
 
 +
 
-NOTE: Pour tout problème de script FCR python qui ne peut pas être corrigé, contactez https://mysupport.netapp.com/["Support NetApp"^] pour obtenir de l'aide.
+NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez toutes les personnalisations précédentes à la configuration du commutateur. Reportez-vous link:cabling-considerations-sn2100-storage.html["Examinez les considérations relatives au câblage et à la configuration"]à pour plus de détails sur les modifications supplémentaires requises.
-. Vérifiez la configuration après le redémarrage :
+. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-storage.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Vérifiez la configuration après le redémarrage :
 +
 `net show interface all`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -179,12 +179,12 @@ switch-priority  TC  ETS
 5                 5  DWRR 43%
 ----
 ====
-. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
+. Vérifiez les informations relatives à l'émetteur-récepteur dans l'interface :
 +
 `net show interface pluggables`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -198,12 +198,12 @@ swp15      0x11 (QSFP28)  Amphenol     112-00573        APF21109348001
 swp16      0x11 (QSFP28)  Amphenol     112-00573        APF21109347895  B0
 ----
 ====
-. Vérifier que les nœuds chacun ont une connexion à chaque commutateur :
+. Vérifiez que chaque nœud est connecté à chaque commutateur :
 +
 `net show lldp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -218,14 +218,14 @@ swp15      100G   BondMember  sw13                    swp15
 swp16      100G   BondMember  sw14                    swp16
 ----
 ====
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports e0d fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports e0d sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -249,9 +249,9 @@ e3a       Cluster      Cluster          up   9000  auto/10000 healthy  false
 e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 ----
 ====
-.. Vérifiez l'état du commutateur depuis le cluster (ceci peut ne pas afficher le commutateur sw2, car les LIF ne sont pas homeed sur e0d).
+.. Vérifiez l'état du commutateur à partir du cluster (cela peut ne pas afficher le commutateur sw2, car les LIF ne sont pas installées sur e0d).
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -293,5 +293,5 @@ sw2                         cluster-network    10.233.205.91    MSN2100-CB2RC
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir installé ou mis à jour le RCF, vous pouvezlink:setup-install-cshm-file.html["installer le fichier CSHM"] .

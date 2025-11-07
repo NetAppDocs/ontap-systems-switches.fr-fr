@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/install-nx-os-software-3232c.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le switch de cluster Nexus 3232C. 
+summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3232C. 
 ---
 = Installez le logiciel NX-OS
 :allow-uri-read: 
@@ -11,35 +11,35 @@ summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS 
 
 
 [role="lead"]
-Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le switch de cluster Nexus 3232C.
+Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3232C.
 
 
 
-== Examen des conditions requises
+== Exigences de révision
 
 .Avant de commencer
-* Sauvegarde actuelle de la configuration du commutateur.
-* Cluster totalement opérationnel (aucune erreur dans les journaux ou problèmes similaires).
-* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Page des commutateurs Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
-* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus 3000 Series"^]. Reportez-vous aux guides de mise à niveau et aux logiciels appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de mise à niveau vers une version antérieure des commutateurs Cisco.
+* Une sauvegarde actuelle de la configuration du commutateur.
+* Un cluster parfaitement fonctionnel (aucune erreur dans les journaux ni problème similaire).
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["page du commutateur Ethernet Cisco"^]. Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et NX-OS prises en charge.
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Commutateurs Cisco Nexus série 3000"^]. Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir la documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
 
 
 
 
 == Installez le logiciel
 
-La procédure nécessite l'utilisation des commandes ONTAP et des commutateurs Cisco Nexus 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
+La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
-Veiller à terminer la procédure dans link:prepare-install-cisco-nexus-3232c.html["Préparez-vous à installer NX-OS et RCF"], puis suivez les étapes ci-dessous.
+Assurez-vous de terminer la procédure danslink:prepare-install-cisco-nexus-3232c.html["Préparez-vous à installer NX-OS et RCF"] , puis suivez les étapes ci-dessous.
 
 .Étapes
 . Connectez le commutateur de cluster au réseau de gestion.
-. Utilisez le `ping` Commande permettant de vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le FCR.
+. Utilisez le `ping` commande permettant de vérifier la connectivité au serveur hébergeant le logiciel NX-OS et le RCF.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
-Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2 :
+Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2.1 :
 
 [listing, subs="+quotes"]
 ----
@@ -49,12 +49,12 @@ Pinging 172.19.2.1 with 0 bytes of data:
 Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 ----
 ====
-. Afficher les ports de cluster sur chaque nœud connecté aux commutateurs du cluster :
+. Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 `network device-discovery show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -78,14 +78,14 @@ cluster1-04/cdp
 cluster1::*>
 ----
 ====
-. Vérifiez le statut administratif et opérationnel de chaque port du cluster.
+. Vérifiez l'état administratif et opérationnel de chaque port du cluster.
 +
-.. Vérifiez que tous les ports du cluster sont *up* avec un état sain :
+.. Vérifiez que tous les ports du cluster sont *actifs* et en bon état :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -128,12 +128,12 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 cluster1::*>
 ----
 ====
-.. Vérifier que toutes les interfaces de cluster (LIFs) sont sur le port de home port :
+.. Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -155,12 +155,12 @@ Cluster
 cluster1::*>
 ----
 ====
-.. Vérifiez que le cluster affiche les informations relatives aux deux commutateurs de cluster :
+.. Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
 +
 `system cluster-switch show -is-monitoring-enabled-operational true`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -188,13 +188,13 @@ cluster1::*>
 ====
 
 
-. Désactivez la fonction de restauration automatique sur les LIF du cluster. Les LIF du cluster basculent sur le commutateur partenaire du cluster et y restent pendant la procédure de mise à niveau sur le commutateur ciblé :
+. Désactiver la restauration automatique sur les LIF du cluster.  Les LIF du cluster basculent vers le commutateur du cluster partenaire et y restent pendant que vous effectuez la procédure de mise à niveau sur le commutateur cible :
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Copiez le logiciel NX-OS et les images EPLD sur le switch Nexus 3232C.
+. Copiez le logiciel NX-OS et les images EPLD sur le commutateur Nexus 3232C.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -233,12 +233,12 @@ Copy complete, now saving to disk (please wait)...
 Copy complete.
 ----
 ====
-. Vérifiez la version en cours d'exécution du logiciel NX-OS :
+. Vérifiez la version du logiciel NX-OS en cours d'exécution :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -298,7 +298,7 @@ cs2#
 L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -362,12 +362,12 @@ Finishing the upgrade, switch will reboot in 10 seconds.
 cs2#
 ----
 ====
-. Vérifiez la nouvelle version du logiciel NX-OS après le redémarrage du commutateur :
+. Vérifiez la nouvelle version du logiciel NX-OS après le redémarrage du commutateur :
 +
 `show version`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -422,9 +422,9 @@ Active Package(s):
 cs2#
 ----
 ====
-. Mettre à niveau l'image EPLD et redémarrer le commutateur.
+. Mettez à jour l'image EPLD et redémarrez le commutateur.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -466,12 +466,12 @@ Module 1 EPLD upgrade is successful.
 cs2#
 ----
 ====
-. Si vous effectuez une mise à niveau vers NX-OS version 9.3(11), vous devez mettre à niveau l'image EPLD `golden` et redémarrer le commutateur. Sinon, passez à l'étape 12.
+. Si vous effectuez une mise à niveau vers NX-OS version 9.3(11), vous devez mettre à niveau l'EPLD. `golden` image et redémarrez le commutateur une nouvelle fois.  Sinon, passez à l'étape 12.
 +
-Voir https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Notes de mise à niveau EPLD, version 9.3(11)"^] pour plus de détails.
+Voir https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Notes de version de la mise à niveau EPLD, version 9.3(11)"^] pour plus de détails.
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -505,9 +505,9 @@ Module 1 EPLD upgrade is successful.
 cs2#
 ----
 ====
-. Après le redémarrage du commutateur, connectez-vous pour vérifier que la nouvelle version de l'EPLD a été chargée correctement.
+. Après le redémarrage du commutateur, connectez-vous pour vérifier que la nouvelle version d'EPLD a bien été chargée.
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -520,14 +520,14 @@ MI   FPGA                        0x12
 IO   FPGA                        0x12
 ----
 ====
-. Vérifier l'état de santé des ports du cluster sur le cluster.
+. Vérifiez l'état des ports du cluster.
 +
-.. Vérifier que les ports du cluster fonctionnent correctement sur tous les nœuds du cluster :
+.. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
 `network port show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -568,12 +568,12 @@ e0d       Cluster      Cluster          up   9000  auto/100000 healthy false
 8 entries were displayed.
 ----
 ====
-.. Vérifiez l'état du commutateur depuis le cluster.
+.. Vérifiez l'état du commutateur à partir du cluster.
 +
 `network device-discovery show -protocol cdp`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -616,7 +616,7 @@ cs2                         cluster-network    10.233.205.91    N3K-C3232C
 
 2 entries were displayed.
 ----
-Vous pouvez observer les valeurs de sortie suivantes sur la console des commutateurs cs1 en fonction de la version RCF précédemment chargée sur le commutateur :
+Vous pourriez observer la sortie suivante sur la console du commutateur cs1 en fonction de la version RCF précédemment chargée sur le commutateur :
 
 [listing]
 ----
@@ -627,12 +627,12 @@ Vous pouvez observer les valeurs de sortie suivantes sur la console des commutat
 ====
 
 
-. Vérifiez que le cluster fonctionne correctement :
+. Vérifiez que le cluster est sain :
 +
 `cluster show`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -649,16 +649,16 @@ cluster1::*>
 ----
 ====
 . Répétez les étapes 6 à 14 sur le commutateur cs1.
-. Activez la fonction de revert automatique sur les LIFs du cluster.
+. Activer la restauration automatique sur les LIF du cluster.
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
-. Vérifier que les LIFs du cluster ont rétabli leur port de base :
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 `network interface show -role cluster`
 
 +
-.Montrer l'exemple
+.Afficher un exemple
 [%collapsible]
 ====
 [listing, subs="+quotes"]
@@ -681,12 +681,12 @@ cluster1::*>
 ----
 ====
 +
-Si une LIF de cluster n'est pas retournée sur son port de rattachement, la restaurer manuellement depuis le nœud local :
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
 
 +
 `network interface revert -vserver Cluster -lif <lif_name>`
 
 
 
-.Et la suite ?
+.Quelle est la prochaine étape ?
 Après avoir installé le logiciel NX-OS, vous link:install-upgrade-rcf-overview-3232c.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"].

@@ -2,39 +2,39 @@
 section: switch-cisco-9332d-gx2b
 title: Cisco Nexus 9332D-GX2B
 entries:
-- title: Commencez
+- title: Commencer
   pdf-filename: Aperçu_9332d-gx2b
   entries:
   - title: Démarrage rapide
     url: "/switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
   - title: Détails du port du commutateur
     url: "/switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html"
-  - title: Documentation requise
+  - title: Documents requis
     url: "/switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html"
-  - title: Configuration requise pour le service d'appel intelligent
+  - title: Exigences de Smart Call Home
     url: "/switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html"
-- title: Installer le matériel de fixation
+- title: Installer le matériel
   url: "/switch-cisco-9332d-gx2b/install-hardware.html"
   pdf-filename: Installation_matériel_9332d-gx2b
-- title: Configurez le logiciel
+- title: Configurer le logiciel
   pdf-filename: Configurer_logiciel_9332d-gx2b
   entries:
   - title: Configurer le flux de travail du logiciel
     url: "/switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
-  - title: Configurer le commutateur
+  - title: Configurez le commutateur
     url: "/switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html"
   - title: Préparez-vous à installer NX-OS et RCF
     url: "/switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html"
   - title: Installer ou mettre à niveau le logiciel NX-OS
     url: "/switch-cisco-9332d-gx2b/install-nxos-software-9332d-cluster.html"
-  - title: Installez ou mettez à niveau le RCF
-    pdf-filename: Install_upgrade_rcf
+  - title: Installer ou mettre à niveau le RCF
+    pdf-filename: Installer_mise_à_jour_rcf
     entries:
-    - title: Présentation de l'installation ou de la mise à niveau du RCF
+    - title: Présentation de l'installation ou de la mise à niveau de RCF
       url: "/switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster.html"
-    - title: Installer la FCR
+    - title: Installez le RCF
       url: "/switch-cisco-9332d-gx2b/install-rcf-software-9332d-cluster.html"
-    - title: Mettez à niveau votre version RCF
+    - title: Mettez à jour votre version RCF
       url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
   - title: Vérifiez que SSH est activé
     url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"

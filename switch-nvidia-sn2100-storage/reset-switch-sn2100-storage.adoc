@@ -15,26 +15,26 @@ Pour réinitialiser le commutateur de stockage SN2100 aux paramètres d'usine :
 * Pour Cumulus Linux 5.11 et versions ultérieures, vous utilisez le `nv action reset system factory-default` commande.
 
 
-.Description de la tâche
-* Vous devez être connecté au commutateur à l'aide de la console série.
+.À propos de cette tâche
+* Vous devez être connecté au commutateur via la console série.
 * Vous devez avoir le mot de passe root pour accéder aux commandes sudo.
 
 
 
-NOTE: Pour plus d'informations sur l'installation de Cumulus Linux, consultezlink:configure-software-sn2100-storage.html["Workflow d'installation logicielle pour les switchs NVIDIA SN2100"] .
+NOTE: Pour plus d'informations sur l'installation de Cumulus Linux, consultezlink:configure-software-sn2100-storage.html["Processus d'installation logicielle pour les commutateurs NVIDIA SN2100"] .
 
 .Étapes
 [role="tabbed-block"]
 ====
 .Cumulus Linux 5.10 et versions antérieures
 --
-. Depuis la console Cumulus, téléchargez et mettez en file d'attente l'installation du logiciel du commutateur avec la commande `onie-install -a -i` suivi du chemin d'accès au fichier du logiciel du commutateur, par exemple :
+. Depuis la console Cumulus, téléchargez et mettez en file d'attente l'installation du logiciel du commutateur à l'aide de la commande `onie-install -a -i` suivi du chemin d'accès au fichier du logiciel de commutation, par exemple :
 +
 [listing, subs="+quotes"]
 ----
 cumulus@sw1:mgmt:~$ *sudo onie-install -a -i http://<web-server>/<path>/cumulus-linux-5.10.0-mlx-amd64.bin*
 ----
-. L'installateur démarre le téléchargement.  Tapez *y* lorsque vous êtes invité à confirmer l'installation lorsque l'image est téléchargée et vérifiée.
+. L'installateur démarre le téléchargement. Tapez *y* lorsque vous êtes invité à confirmer l'installation lorsque l'image est téléchargée et vérifiée.
 . Redémarrez le commutateur pour installer le nouveau logiciel.
 +
 `sudo reboot`
@@ -46,7 +46,7 @@ cumulus@sw1:mgmt:~$ *sudo reboot*
 ----
 +
 
-NOTE: Le commutateur redémarre et entre dans l'installation du logiciel du commutateur, ce qui prend un certain temps.  Une fois l'installation terminée, le commutateur redémarre et reste à l'état `log-in` rapide.
+NOTE: Le commutateur redémarre et entre dans l'installation du logiciel du commutateur, ce qui prend un certain temps. Une fois l'installation terminée, le commutateur redémarre et reste à la position souhaitée. `log-in` rapide.
 
 
 
@@ -58,7 +58,7 @@ NOTE: Le commutateur redémarre et entre dans l'installation du logiciel du comm
 `nv action reset system factory-default`
 
 +
-Par exemple :
+Par exemple:
 
 +
 [listing, subs="+quotes"]
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Voir le NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Réinitialisation d'usine"^] documentation pour plus de détails.
+Voir le NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Réinitialisation d'usine"^] Pour plus de détails, veuillez consulter la documentation.
 
 --
 ====

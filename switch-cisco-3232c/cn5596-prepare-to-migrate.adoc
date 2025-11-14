@@ -240,4 +240,4 @@ Cluster
 
 
 .Quelle est la prochaine étape ?
-link:cn5596-configure-ports.html["Configurez vos ports"].
+Une fois que vous avez préparé la migration de vos commutateurs, vous pouvezlink:cn5596-configure-ports.html["configurez vos ports"] .

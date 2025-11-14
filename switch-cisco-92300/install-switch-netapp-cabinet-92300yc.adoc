@@ -134,3 +134,6 @@ Pour maintenir la redondance, les deux cordons doivent être connectés à des P
 Le port de gestion est le port supérieur droit situé sur le côté PSU du commutateur. Le câble CAT6 de chaque commutateur doit être acheminé via le panneau de passage une fois les commutateurs installés pour se connecter aux commutateurs de gestion ou au réseau de gestion.
 
 
+
+.Quelle est la prochaine étape
+Une fois les commutateurs installés dans l'armoire NetApp , vous pouvezlink:configure-install-initial.html["configurer le commutateur"] .

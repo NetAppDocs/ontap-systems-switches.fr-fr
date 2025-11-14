@@ -930,4 +930,4 @@ cluster::> system cluster-switch delete -device CL2
 
 
 .Quelle est la prochaine étape ?
-link:cn5596-complete-migration.html["Finalisez votre migration"].
+Une fois vos ports de commutateur configurés, vous pouvezlink:cn5596-complete-migration.html["finalisez votre migration"] .

@@ -590,4 +590,4 @@ Liaison ISL 100GbE vers le port 32 du commutateur A
 
 |===
 .Quelle est la prochaine étape
-Une fois vos feuilles de travail sur le câblage terminées, vous link:install-switch-3232c.html["installer le commutateur"].
+Une fois vos feuilles de travail sur le câblage terminées, vous pouvez link:install-switch-3232c.html["installer le commutateur"].

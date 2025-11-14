@@ -162,4 +162,4 @@ Copy complete.
 
 
 .Quelle est la prochaine étape ?
-link:install-nxos-overview.html["Préparez-vous à installer le logiciel NX-OS et RCF."].
+Une fois vos commutateurs configurés, vous pouvez link:install-nxos-overview.html["préparez-vous à installer le logiciel NX-OS et RCF"].

@@ -689,4 +689,4 @@ Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs 
 
 
 .Quelle est la prochaine étape ?
-Après avoir installé le logiciel NX-OS, vous link:install-upgrade-rcf-overview-3232c.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"].
+Après avoir installé le logiciel NX-OS, vous pouvez link:install-upgrade-rcf-overview-3232c.html["installer ou mettre à niveau le fichier de configuration de référence (RCF)"].

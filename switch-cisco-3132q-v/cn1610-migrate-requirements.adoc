@@ -88,4 +88,4 @@ Lelink:https://hwu.netapp.com/["Hardware Universe"^] liste les ports de cluster 
 
 
 .Quelle est la prochaine étape ?
-link:cn5596-prepare-to-migrate.html["Préparez-vous à la migration"].
+Après avoir examiné les exigences de migration, vous pouvezlink:cn1610-prepare-to-migrate.html["Préparez-vous à migrer vos commutateurs"] .

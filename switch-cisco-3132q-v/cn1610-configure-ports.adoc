@@ -460,4 +460,4 @@ Copy Complete.
 
 
 .Quelle est la prochaine étape ?
-link:cn1610-complete-migration.html["Finalisez votre migration"].
+Une fois vos ports de commutateur configurés, vous pouvezlink:cn1610-complete-migration.html["finalisez votre migration"] .

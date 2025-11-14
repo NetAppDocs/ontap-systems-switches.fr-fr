@@ -609,4 +609,4 @@ Total entries displayed: 4
 
 
 .Quelle est la prochaine étape ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"].
+Une fois votre configuration SSH vérifiée, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

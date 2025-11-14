@@ -68,4 +68,4 @@ La procédure nécessite l'utilisation à la fois des commandes ONTAP et des com
 
 ====
 .Quelle est la prochaine étape ?
-link:migrate-from-switchless-prepare-to-migrate.html["Préparez-vous à la migration"].
+Après avoir examiné les exigences de migration, vous pouvezlink:migrate-from-switchless-prepare-to-migrate.html["Préparez-vous à migrer vos commutateurs"] .

@@ -105,4 +105,4 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 .Quelle est la prochaine étape ?
-link:cn1610-prepare-to-migrate.html["Préparez-vous à la migration"].
+Après avoir examiné les exigences de migration, vous pouvezlink:cn1610-prepare-to-migrate.html["Préparez-vous à migrer vos commutateurs"] .

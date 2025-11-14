@@ -745,4 +745,4 @@ RPC status:
 --
 ====
 .Quelle est la prochaine étape ?
-Après avoir mis à niveau votre RCF, vouslink:configure-ssh-keys.html["vérifier la configuration SSH"] .
+Après avoir mis à niveau votre RCF, vous pouvezlink:configure-ssh-keys.html["vérifier la configuration SSH"] .

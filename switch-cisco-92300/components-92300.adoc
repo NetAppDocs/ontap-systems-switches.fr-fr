@@ -68,4 +68,4 @@ Détails du flux d'air du commutateur Cisco Nexus 92300YC :
 
 
 .Quelle est la prochaine étape
-link:required-documentation-92300.html["Documents requis"].
+Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le link:required-documentation-92300.html["documentation requise"].

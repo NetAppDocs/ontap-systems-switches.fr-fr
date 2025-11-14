@@ -100,4 +100,4 @@ Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettr
 
 
 .Quelle est la prochaine étape ?
-link:migrate-switchless-configure-ports.html["Configurez vos ports"].
+Une fois que vous avez préparé la migration de vos commutateurs, vous pouvezlink:migrate-switchless-configure-ports.html["configurez vos ports"] .

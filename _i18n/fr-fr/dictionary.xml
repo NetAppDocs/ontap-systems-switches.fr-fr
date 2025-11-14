@@ -1491,7 +1491,6 @@
   <block id="a0ac8ba699de917058b2886b16a8a45e" category="paragraph"><block ref="3c9abc42a241e1475a5055b440143fa5" prefix="" category="inline-code"></block></block>
   <block id="1a3c7af3d7e59b306dbe5051e571973a" category="paragraph">L'exemple suivant montre comment activer les ISL 31 et 32 sur le commutateur 3132Q-V C2 :</block>
   <block id="3f4bc1afc097b95d2112ecfa6193b68a" category="inline-link-macro">Finalisez votre migration</block>
-  <block id="626dd73440d1e674728841b2c9becd2a" category="paragraph"><block ref="4f1fe635f2afbf3ed63b1436d0bc6ba5" category="inline-link-macro-rx"></block>.</block>
   <block id="369a7b707189ce01887f91eb552583ad" category="summary">Avant de configurer les commutateurs Cisco Nexus 3132q-v, consultez un aperçu du processus et de la nomenclature.</block>
   <block id="981f990772f790f1d7f9d3b70afc44a5" category="doc">Exigences de migration</block>
   <block id="fc9286ab35f04cf48b4c402b64077bfe" category="paragraph">Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.</block>
@@ -1532,7 +1531,6 @@
   <block id="ab84df33131df5aa5511dff21c37d1ea" category="list-text">Les deux autres nœuds utilisent deux ports d'interconnexion de cluster 40 GbE : *e4a* et *e4e*.</block>
   <block id="1ca31d8f144e1f71bfbab9016379c2a1" category="paragraph">Le<block ref="cbfe825e8e02458e2eef3cd048612d7d" category="inline-link-macro-rx"></block> liste les ports de cluster réels sur vos plateformes.</block>
   <block id="0d370a4f587f437e7fc4ece5f78f2e7d" category="inline-link-macro">Préparez-vous à la migration</block>
-  <block id="43972462833327090676ea361ff9713f" category="paragraph"><block ref="995229e1a43747c0714f7eb4992f1c0f" category="inline-link-macro-rx"></block>.</block>
   <block id="e0dff501823a918e2f3033a5949c3621" category="summary">Avant de configurer votre commutateur Cisco 3132q-v, consultez les informations suivantes.</block>
   <block id="e14e49b4caef6bc8ad9775a137668670" category="doc">Flux de travail pour la migration des commutateurs CN1610 vers les commutateurs Nexus 3132Q-V</block>
   <block id="7a4ba1a6c0b027572a0416dc6bf401d3" category="paragraph">Suivez ces étapes de flux de travail pour migrer vos commutateurs CN1610 vers des commutateurs Cisco Nexus 3132Q-V.</block>
@@ -1578,7 +1576,6 @@
   <block id="20fca188f9df647063b0798615526c99" category="paragraph">L'exemple suivant montre comment désactiver les ports ISL 13 à 16 sur le commutateur CN1610 CL1 :</block>
   <block id="8d9520a7db10148df2c9a1262cf4055a" category="list-text">Établir une liaison inter-niveaux temporaire entre CL1 et C2 :</block>
   <block id="abf1c60f9d26f9c51258947dd5ef15d2" category="paragraph">L'exemple suivant établit une liaison inter-services (ISL) temporaire entre CL1 (ports 13-16) et C2 (ports e1/24/1-4) :</block>
-  <block id="afc51e0f2da0b24e7cd5e8bd9b1a0e2c" category="paragraph"><block ref="cf3c8509cc39fe5420b82170551e0955" category="inline-link-macro-rx"></block>.</block>
   <block id="4c4cf4e66a2a549efd98b45aa0d53a3d" category="doc">Finalisez la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3132Q-V.</block>
   <block id="90da058bec2aa2bf1b450c4b8c56c4c6" category="paragraph">Suivez les étapes suivantes pour finaliser la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3132Q-V.</block>
   <block id="cece4dbf87807c9dd5ea9bd3a957178c" category="paragraph">Les ports Eth1/31 et Eth1/32 devraient indiquer<block ref="664c0d6743f35461a17b57d1b74aca61" prefix=" " category="inline-code"></block> , ce qui signifie que les deux ports ISL sont<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> dans le canal de port :</block>
@@ -1622,7 +1619,6 @@
   <block id="1bcca78caf802f62188aa9cc8b5984f2" category="paragraph">Connectez les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 sur C2 à l'aide de câbles à fibre optique Cisco QSFP ou de câbles à connexion directe pris en charge.</block>
   <block id="57b7a4769fe7ed3b97b5fa3c1e1b265c" category="list-text">Rétablissez la configuration sur le port 24 et supprimez le canal de port temporaire 2 sur C2 :</block>
   <block id="a759436e74247502ca654a3594a02206" category="list-text">Activez les ports ISL 31 et 32 sur C2, le commutateur 3132Q-V actif :<block ref="3c9abc42a241e1475a5055b440143fa5" prefix=" " category="inline-code"></block></block>
-  <block id="525a7ec8693f48429a6229123b80bba5" category="paragraph"><block ref="303a8cd4f5d54f240e31d45fee06fb59" category="inline-link-macro-rx"></block>.</block>
   <block id="62791e1f76f82dd4c5d54b4700356919" category="inline-link-macro">Commutateur Ethernet Cisco</block>
   <block id="316f1eecb7ad81ecbbff1b421526b4b8" category="list-text"><block ref="316f1eecb7ad81ecbbff1b421526b4b8" category="inline-link-macro-rx"></block></block>
   <block id="65de4ce73578ac5d8407f9a06f97685b" category="list-text"><block ref="65de4ce73578ac5d8407f9a06f97685b" category="inline-link-macro-rx"></block></block>
@@ -1698,7 +1694,6 @@
   <block id="cd40e6280d7c588dd322df9d4c9bd367" category="paragraph">Si vous remplacez un Nexus 5010 ou 5020, spécifiez les numéros de port appropriés pour ISL.</block>
   <block id="74bb8188e949e71bcfef0fd8d38fa91b" category="list-text">Établir une liaison ISL temporaire entre CL1 et C2.</block>
   <block id="621728c29c88ed3282a78eafc103c550" category="paragraph">L'exemple suivant montre la mise en place d'une liaison inter-réseaux (ISL) temporaire entre CL1 et C2 :</block>
-  <block id="b17e74d803abb0f368cdc75726b4bd22" category="paragraph"><block ref="b245e0adb8a6dae5a3f9ec732103e83e" category="inline-link-macro-rx"></block>.</block>
   <block id="d986ed9d4c8a95f299636380e9b4371b" category="summary">Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter les exigences en matière de réseau et de configuration.</block>
   <block id="8d41ecb75735e9a1894abf605fc11add" category="doc">Configuration requise pour les commutateurs Cisco Nexus 3132Q-V</block>
   <block id="4d491e2d573f8607664bd3d97fb9c4d5" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter les exigences en matière de réseau et de configuration.</block>
@@ -2027,14 +2022,12 @@
   <block id="711187d3990138a0dd2317c3c829ca0d" category="list-text">Activez le deuxième port du cluster, e4e, sur chaque nœud :</block>
   <block id="1d56491a4b8f4780b32e1db3c1d7888b" category="paragraph">L'exemple suivant montre l'activation des ports spécifiés :</block>
   <block id="64e13957a98ef905c099c4d18c6c4550" category="list-text">Vérifiez que tous les ports d'interconnexion du cluster sont dans le<block ref="46c48bec0d282018b9d167eef7711b2c" prefix=" " category="inline-code"></block> État.</block>
-  <block id="3956a4315d210374d2ccd8faa4e0ae11" category="paragraph"><block ref="dc7e59a9c1f4a0023cebd8662fb6d1d8" category="inline-link-macro-rx"></block>.</block>
   <block id="020c4dd8fb3ae34cb5badfbd65bd2ea8" category="doc">Préparez-vous à la migration des clusters sans commutateur vers les clusters commutés.</block>
   <block id="9e863bebc193ae120cf30f47b3f0796c" category="paragraph">Suivez ces étapes pour préparer votre cluster sans commutateur à la migration vers un cluster commuté à deux nœuds.</block>
   <block id="52e7ec4aaac1e1a0a07e63f3d7eb9c16" category="list-text">Afficher les informations relatives aux interfaces logiques :</block>
   <block id="1712b5c25d5eef605b7adb3dc4669678" category="list-text">Vérifiez que les RCF et l'image appropriés sont installés sur les nouveaux commutateurs 3132Q-V selon vos besoins, et effectuez toutes les personnalisations essentielles du site, telles que les utilisateurs et les mots de passe, les adresses réseau, etc.</block>
   <block id="7fc53d89993e2d6e34cba80e8554d2af" category="paragraph">Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à jour le logiciel RCF et d'imagerie, vous devez suivre les étapes suivantes :</block>
   <block id="f70890a113f7fa0b08aa6d3f7eadf768" category="list-text">Téléchargez la version appropriée de RCF.</block>
-  <block id="fff2be1ad256b31129e6dfbe8ac3a7ff" category="paragraph"><block ref="63aff1b3222202ceacc797ea3fff3172" category="inline-link-macro-rx"></block>.</block>
   <block id="684102a050eacbc96e7f58ed9a9ba017" category="paragraph">Si vous disposez d'un cluster sans commutateur à deux nœuds, consultez cette procédure pour connaître les exigences applicables à la migration vers un cluster commuté à deux nœuds.</block>
   <block id="27f5ac1ca0e853a2882ae6afdc4e8e95" category="inline-link-macro">NetApp CN1601 et CN1610</block>
   <block id="815d8352c3cf3e7b0525b85c41594fa8" category="list-text"><block ref="815d8352c3cf3e7b0525b85c41594fa8" category="inline-link-macro-rx"></block></block>
@@ -2078,7 +2071,6 @@
   <block id="63eab37cfcf6a2b62e0f76932eb79809" category="list-text">Le premier port du cluster est déplacé vers C1.</block>
   <block id="dd353d2ba6b926b08835d3c60dd7ce88" category="list-text">Le deuxième port du cluster est déplacé vers C2.</block>
   <block id="55b7e748bf261410178deee3a2012270" category="list-text">L'option de cluster sans commutateur à deux nœuds est désactivée.</block>
-  <block id="6f2cc0d83b30c920416500dcc53afd6c" category="paragraph"><block ref="7519b85456ed396b2050cb69602f8311" category="inline-link-macro-rx"></block>.</block>
   <block id="3da51cb091224b367b86b017817f034c" category="doc">Flux de travail de migration des clusters sans commutateur vers les clusters commutés à deux nœuds</block>
   <block id="570b9ae50cfa4bff06632f2657efc344" category="paragraph">Suivez ces étapes de flux de travail pour migrer d'un cluster sans commutateur à deux nœuds vers un cluster commuté à deux nœuds comprenant des commutateurs réseau de cluster Cisco Nexus 3132Q-V.</block>
   <block id="8f539e6f311f5ed68d61bba145c1b01b" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="4ae97edc6be3d31736d966755adc1016" category="inline-link-macro-rx"></block></block>
@@ -2443,7 +2435,6 @@
   <block id="10244571410567e2c51f37b22dac0800" category="list-text">*n1_clus3* est la deuxième LIF connectée au commutateur de cluster 2 (CL2 ou C2) pour le nœud *n1*.</block>
   <block id="15322d64f2fcf3eabe8ff475be1d3e70" category="list-text">*n1_clus4* est la deuxième LIF connectée au commutateur de cluster 1 (CL1 ou C1) pour le nœud *n1*.</block>
   <block id="8741c9a7235936d7adbe4b11e84059a0" category="list-text">Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :<block ref="45b8f1baa941c556d7daa8d8054d886c" category="inline-link-macro-rx"></block> .</block>
-  <block id="3143399fe9296c11aafb2c2278478d6a" category="paragraph"><block ref="09f8647628955f086bee147d39a109c3" category="inline-link-macro-rx"></block>.</block>
   <block id="1657c42e4a1f98d51d8b8bfad8d7de04" category="doc">Flux de travail pour la migration des commutateurs CN1610 vers les commutateurs Nexus 3232C</block>
   <block id="5a34c77c4c5efb85ebaa9e3d436b8635" category="paragraph">Suivez ces étapes de flux de travail pour migrer vos commutateurs CN1610 vers des commutateurs Cisco Nexus 3232C.</block>
   <block id="7eef64cb913bcf5aca5f712407ada50a" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="27b0d36035f33f53ab52c04f31d383d8" category="inline-link-macro-rx"></block></block>
@@ -2466,7 +2457,6 @@
   <block id="a2d242366fa878251941b37993d9c788" category="list-text">Migrez les LIF associées au deuxième commutateur CN1610 que vous prévoyez de remplacer :</block>
   <block id="bac3eff3de1438929f64e35c9c1d753e" category="paragraph"><block ref="44d01163c6b63fd73868a8216bae200c" prefix="" category="inline-code"></block></block>
   <block id="e2f05caa5f3cc6fd1ba268a6e3c05239" category="inline-link-macro">Remplacez le commutateur CN1610 CL2 par le commutateur 3232C C2.</block>
-  <block id="711152d5b1a3934f35573e4cbd94a4c6" category="paragraph"><block ref="5ab9085b49bb030724cf7752b67f2506" category="inline-link-macro-rx"></block>.</block>
   <block id="58e1f502ac02bd1601dedcdd1deac1fc" category="doc">Remplacez le commutateur CL1 du CN1610 par le commutateur C1 du 3232C.</block>
   <block id="2b0929b9490d63e5cb4fca44c9d3842d" category="paragraph">Suivez ces étapes pour remplacer votre commutateur CN1610 (CL1) par un commutateur Nexus 3232C (C1).</block>
   <block id="2f7e0ef82095fa5dae5874a5e402a389" category="list-text">Vérifiez l'état du cluster :</block>
@@ -2516,7 +2506,6 @@
   <block id="e2ad2b2cb346f8abd448d557881c7dd5" category="list-text">[[étape 16]] Migrer les LIF associées au premier commutateur CN1610 CL1 :</block>
   <block id="502a7ea7de47db18cb4d391cdc1c745e" category="paragraph"><block ref="e3b59667988659c950426714ec77861c" prefix="" category="inline-code"></block></block>
   <block id="4f654572a7a10c77f8cac19eb51cd80c" category="paragraph">Vous devez migrer chaque LIF de cluster individuellement vers les ports de cluster appropriés hébergés sur le commutateur de cluster C2, comme indiqué dans l'exemple suivant :</block>
-  <block id="ac77eff6aa79e42534f94e47fa7891ad" category="paragraph"><block ref="a947be781fc73c00f71380af213dfe93" category="inline-link-macro-rx"></block>.</block>
   <block id="be546b7aaa48771ac77ceda9e55f432f" category="doc">Finalisez votre migration des commutateurs 5596 vers les commutateurs 3232C.</block>
   <block id="c448b455a0897874453f8d3930345c32" category="paragraph">Suivez les étapes suivantes pour finaliser la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3232C.</block>
   <block id="c274d79ace43975b3b128b3b576c461c" category="doc">Configurez vos ports pour la migration des commutateurs Nexus 5596 vers les commutateurs Nexus 3232C.</block>
@@ -2588,7 +2577,6 @@
   <block id="c45425c8158c8832e8e1c2385508e7c6" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 3232C, assurez-vous de consulter les exigences de configuration et de réseau.</block>
   <block id="31ecd7552867bf00e0a88fbcbfd147a0" category="list-text">Sous-réseau IP pour le trafic du réseau de gestion</block>
   <block id="77918707dd3c6ba610a21dee1c40ef85" category="list-text">Noms d'hôte et adresses IP pour chacun des contrôleurs de système de stockage et tous les commutateurs applicables</block>
-  <block id="33a0b92f0ebac7efe8736828a29dff1a" category="paragraph">Après avoir confirmé vos exigences de configuration, vous examinez le <block ref="ebd73c3e74cc4ef5f3b03634c8dd9a01" category="inline-link-macro-rx"></block>.</block>
   <block id="8a621cac0318aad5331388c261fff40d" category="summary">Présentation de la configuration logicielle des commutateurs de cluster Cisco Nexus 3232C</block>
   <block id="d0e2537bdd90951e7c488815de10574a" category="doc">Flux de travail d'installation du logiciel pour les commutateurs de cluster Cisco Nexus 3232C</block>
   <block id="7b97f12b51fcbcc014add4de101dcc01" category="paragraph">Pour installer et configurer le logiciel d'un commutateur Cisco Nexus 3232C et installer ou mettre à niveau le fichier de configuration de référence (RCF), procédez comme suit :</block>
@@ -2637,7 +2625,6 @@
   <block id="46ddffef0745adf199d35e9bbe4eec40" category="paragraph">Voir<block ref="a4e876354b2a6a79541beefead7e3974" category="inline-link-rx"></block> pour plus de détails.</block>
   <block id="3f5e00dc10415204c495781f25039129" category="list-text">Après le redémarrage du commutateur, connectez-vous pour vérifier que la nouvelle version d'EPLD a bien été chargée.</block>
   <block id="476acca7b2d84d147895203411c05eee" category="list-text">Répétez les étapes 6 à 14 sur le commutateur cs1.</block>
-  <block id="b3418e071ad0af628321787bdfdb144a" category="paragraph">Après avoir installé le logiciel NX-OS, vous <block ref="06b5548e8ac5164b226ba17b6e4d1fe4" category="inline-link-macro-rx"></block>.</block>
   <block id="a4ab042b047af1032e8f32eb55798abb" category="doc">Flux de travail d'installation et de configuration pour les commutateurs Cisco Nexus 3232C</block>
   <block id="8434a6261c6e2022e9770fa7d8138c16" category="paragraph">Suivez ces étapes de flux de travail pour installer et configurer votre commutateur Cisco Nexus 3232C.</block>
   <block id="1a5f7fd8e8d78a257cac8d35257ebfb4" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="f98da02f0354b9650f021d5be0d693ee" category="inline-link-macro-rx"></block></block>
@@ -2688,7 +2675,6 @@
   <block id="2e595795ee7d7b27d6013ed4aa1edbe6" category="paragraph">Vous pouvez, si vous le souhaitez, <block ref="2cea7f88b524cc550d065cf33c8d1c58" category="inline-link-macro-rx"></block>. Sinon, allez à <block ref="3efd7bbc59a61a74defb48cf3f1c6fa7" category="inline-link-macro-rx"></block>.</block>
   <block id="2412ff6bce69dc4d650edfaf531b0713" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.</block>
   <block id="3d2afa4ea8ad3376eaf42149ff603bb8" category="paragraph">Pour plus de détails sur les configurations RCF disponibles, voir<block ref="ae1b7e6502ecb7d7f7a8bedc8a444edf" category="inline-link-macro-rx"></block> .</block>
-  <block id="859e86b59e029b4d8c6d1da0c4315c5b" category="paragraph">Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous<block ref="7022ba5e5ec6244ac8d3473bbc8c433f" category="inline-link-macro-rx"></block> ou<block ref="8a829f0d1f577ca80ad99d80f239a28e" category="inline-link-macro-rx"></block> selon les besoins.</block>
   <block id="1cc0390a1e09f6355aa33a42546e034a" category="summary">Pour remplacer les commutateurs de cluster CN1610 existants dans un cluster par des commutateurs de cluster Cisco Nexus 3232C, vous devez effectuer une séquence de tâches spécifique.</block>
   <block id="0a16e487073b824b443013a4386a6758" category="doc">Migrer un commutateur de cluster CN1610 vers un commutateur de cluster Cisco Nexus 3232C</block>
   <block id="0c0fcfb1c62bc821a6649a0cb742f88b" category="paragraph">Avant la migration, assurez-vous de consulter<block ref="6894d466d0e09d0e91d8f514ea5bb845" category="inline-link-macro-rx"></block> .</block>
@@ -2739,7 +2725,6 @@
   <block id="ae243dc05de3dd97ffb2885d2939900e" category="paragraph">Vous pouvez vous référer à la configuration en cours et connecter e4e au prochain port 40 GbE disponible sur C2, port 1/8, en utilisant le câblage approprié pour le modèle de commutateur Nexus 3232C.</block>
   <block id="bcf33c69268e1ad44bcacbe4d2fc6941" category="paragraph">L'exemple suivant montre l'activation des ports 1 à 30 sur les commutateurs de cluster Nexus 3132Q-V C1 et C2 à l'aide d'une configuration prise en charge par RCF.<block ref="62caefcdbd2c16de136999021412f978" prefix=" " category="inline-code"></block> :</block>
   <block id="130690bef83d418cc4c5e7c9e2fe7857" category="paragraph">L'exemple suivant montre comment le deuxième port de cluster e4e est activé sur chaque nœud :</block>
-  <block id="6d59648f94ba5ff567b199519ccd14d2" category="paragraph"><block ref="4c0a19683ab4dd37cd0517d25639fa78" category="inline-link-macro-rx"></block>.</block>
   <block id="ef8f69c4be9ace5d9033f3ae64c07b9a" category="paragraph">Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer vers un cluster commuté à deux nœuds comprenant des commutateurs réseau de cluster Cisco Nexus 3232C. Il s’agit d’une procédure non perturbatrice.</block>
   <block id="602878c35a1025edde23bc7c68b9c7d3" category="list-text">Des ports sont disponibles pour les connexions des nœuds.  Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) e1/31-32.</block>
   <block id="0f0292fea5361f9b4e042823bba5b23b" category="list-text">Vous disposez des câbles appropriés pour les connexions du cluster :</block>
@@ -2765,7 +2750,6 @@
   <block id="43dccc6da9dd38ebfa4ea66cac58244e" category="list-text">*n1_clus2* est la première interface LIF du cluster à être connectée au commutateur de cluster *C2* pour le nœud *n1*.</block>
   <block id="7fb9af5f9114ed99fbaa118df92ff28f" category="list-text">*n2_clus1* est la première interface LIF du cluster à être connectée au commutateur de cluster *C1* pour le nœud *n2*.</block>
   <block id="4c891bd9748ee371dcae53093d1a6ac6" category="list-text">*n2_clus2* est la deuxième interface LIF du cluster à connecter au commutateur de cluster *C2* pour le nœud *n2*.</block>
-  <block id="c2b651cb0887960da77214423046c103" category="paragraph"><block ref="d55674a1cf14a4e000bac1e76e99e9e2" category="inline-link-macro-rx"></block>.</block>
   <block id="ff039e71465797d1840d563202a533ae" category="doc">Préparez-vous à la migration des clusters à deux nœuds sans commutateur vers des clusters à deux nœuds avec commutateur.</block>
   <block id="1d530d606f915dd294391ddc10aadfb1" category="paragraph">Suivez ces étapes pour préparer votre cluster à deux nœuds sans commutateur à migrer vers un cluster à deux nœuds commuté comprenant des commutateurs réseau de cluster Cisco Nexus 3232C.</block>
   <block id="2b85878efafdb7b5ee91af10edc92786" category="list-text">Afficher les informations relatives aux interfaces logiques et à leurs nœuds d'origine désignés :</block>
@@ -2783,7 +2767,6 @@
   <block id="666408bd4fda7729282db455e2ef1d9c" category="list-text">Afficher la liste des appareils voisins sur le commutateur.</block>
   <block id="23e1b64b8c8851cef7b50ef569617b78" category="paragraph">L'exemple suivant illustre la commande Cisco<block ref="cdf610401d84a31ec0b35a9530629e42" prefix=" " category="inline-code"></block> utilisé pour afficher les périphériques voisins sur le commutateur :</block>
   <block id="07045e09dc5220012b124c8d76ed9e95" category="paragraph">L'exemple suivant illustre la connectivité des ports de cluster affichée pour une configuration de cluster sans commutateur à deux nœuds :</block>
-  <block id="4adb269a9a026b77c5d8c0d7a47dadd6" category="paragraph"><block ref="3e91b4609ba729ab6ae4605c79153e43" category="inline-link-macro-rx"></block>.</block>
   <block id="3bacdcc1065fe85fb6a313ba7549ddd3" category="doc">Migration à partir d'un flux de travail de cluster sans commutateur à deux nœuds</block>
   <block id="be4528e45bc0a70ba748d4a3a609e783" category="paragraph">Suivez ces étapes de flux de travail pour migrer d'un cluster sans commutateur à deux nœuds vers un cluster avec des commutateurs de cluster Cisco Nexus 3232C.</block>
   <block id="88216b0fab1c6439f33757ab88603d20" category="paragraph-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block><block ref="9728c054cd6ced71858a5a06cd6a3679" category="inline-link-macro-rx"></block></block>
@@ -2827,8 +2810,6 @@
   <block id="8df6d09a602fca4aa18fe9e0b5e94fd4" category="list-text">Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :<block ref="d4f081f8f7b730c426160bfa9617a56a" prefix=" " category="inline-code"></block></block>
   <block id="4abcd2a6fe57e9f246dd326cae0ddb1b" category="list-text">Afficher les informations relatives aux LIF :<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
   <block id="b18c2181f3eba90bca1c7f88f8586e11" category="list-text">[[étape 6]]Vérifiez que le<block ref="9f1b7141f09f19c4e33409646aef43cf" prefix=" " category="inline-code"></block> La commande est activée sur toutes les LIF du cluster :<block ref="d268e7bf124a9f74e2dbe2e0127d951b" prefix=" " category="inline-code"></block></block>
-  <block id="738f308f5a85950565ca6768bbd1b6df" category="inline-link-macro">installer le logiciel NX-OS</block>
-  <block id="090d6ba973224b58ce14f935b1afaddc" category="paragraph">Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous <block ref="86658f2b70ba317271005496e806b03c" category="inline-link-macro-rx"></block>.</block>
   <block id="dd70194aaae821572e701e183663363b" category="summary">Vous pouvez remplacer sans interruption un commutateur Cisco Nexus 3232C défectueux dans un cluster en effectuant une séquence de tâches spécifique.</block>
   <block id="0f8423ed5e0e5c2a15b9d97280628d07" category="doc">Remplacer un commutateur de cluster Cisco Nexus 3232C</block>
   <block id="3b76b3384aebd8ed037018ce97b33004" category="paragraph">Suivez ces étapes pour remplacer un commutateur Cisco Nexus 3232C défectueux dans un cluster. Il s’agit d’une procédure non perturbatrice.</block>
@@ -2938,7 +2919,6 @@
   <block id="19bf12997a2536b4572991e599e17801" category="list-text">Fiches de câblage complétées.</block>
   <block id="081cec44dcb55858c91c17808a56de55" category="paragraph">Saisissez le mot de passe de l'administrateur.</block>
   <block id="e7f4ab45950498df235454e086acfca4" category="paragraph">Entrez le nombre de bits clés compris entre 1024 et 2048.</block>
-  <block id="88fdc99e69a743a1eb164994c319127b" category="paragraph">Une fois vos commutateurs configurés, vous <block ref="cd06af6a9a8fb3236be1b579437fb58f" category="inline-link-macro-rx"></block>.</block>
   <block id="645b50612eedcb03bdeff0f4c9f4de12" category="summary">Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en utilisant comme guide l'exemple de feuille de câblage remplie.  Chaque commutateur peut être configuré comme un seul port 100GbE, un port 40GbE ou 4 ports 10GbE.</block>
   <block id="3d4991c772277ad3b0de4a5a176285e3" category="doc">Fiche de câblage complète du Cisco Nexus 3232C</block>
   <block id="cb90078e1ca3fab95e047ce21d18bdc0" category="paragraph">Chaque commutateur peut être configuré comme un seul port 100GbE, un port 40GbE ou 4 ports 10GbE.</block>
@@ -2953,7 +2933,6 @@
   <block id="202f974033cf1161982db034d23ab80c" category="paragraph">Liaison ISL 100GbE vers le port 31 du commutateur A</block>
   <block id="0e799942e6eaaf5fb0e0990b9cff01d0" category="paragraph">Liaison interconnexion 100 GbE vers le port 32 du commutateur B</block>
   <block id="ef3ddd21da594e200a83e463425ee831" category="paragraph">Liaison ISL 100GbE vers le port 32 du commutateur A</block>
-  <block id="b23946ab85420318ad29297bc09065d0" category="paragraph">Une fois vos feuilles de travail sur le câblage terminées, vous <block ref="158345103486debcc0cfc10501f464f8" category="inline-link-macro-rx"></block>.</block>
   <block id="5a9c1ae57a80076b39ad53020fd29eed" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) peuvent être mis à niveau sur les commutateurs de stockage Cisco Nexus 3232C.</block>
   <block id="29165d4eb3f784e35d52698213cb1586" category="doc">Mise à niveau d'un commutateur de stockage Cisco Nexus 3232C</block>
   <block id="aaee942f01ab7b858b2f2b63c62fe972" category="paragraph">Suivez ces étapes pour mettre à niveau le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) sur les commutateurs Cisco Nexus 3232C.</block>
@@ -3052,7 +3031,6 @@
   <block id="ed6ae629414abab8b0e9b2e8deadb8c2" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, assurez-vous de consulter tous les composants du commutateur et leurs numéros de pièces. Voir le<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour plus de détails.</block>
   <block id="26961e618ecd01e172d0cc2829344d09" category="list-text">Flux d'air d'échappement côté port (air standard) -- L'air frais entre dans le châssis par le biais du ventilateur et des modules d'alimentation situés dans l'allée froide et s'échappe par l'extrémité du châssis située dans l'allée chaude.  Flux d'air d'échappement côté bâbord de couleur bleue.</block>
   <block id="a65de0b2540eeae253ed86b6c80d5cd8" category="list-text">Flux d'air d'admission côté port (air inversé) -- L'air frais entre dans le châssis par l'extrémité du port dans l'allée froide et est évacué par le ventilateur et les modules d'alimentation dans l'allée chaude.  Prise d'air latérale de couleur bordeaux.</block>
-  <block id="374e26b57d48a3f53edf0eed7b8b9a0a" category="paragraph"><block ref="953b08a76549ddb5339056aaf68e6af4" category="inline-link-macro-rx"></block>.</block>
   <block id="ede2428532eb37220f5b7dc1131ef1f6" category="summary">Vous pouvez utiliser cette procédure pour effectuer l'installation initiale du commutateur Cisco Nexus 92300YC.</block>
   <block id="af21e8e29322e4f9d397354867978c51" category="doc">Configurer le commutateur Cisco Nexus 92300YC</block>
   <block id="5e38bf6c3da8935e2dab0ce962eb8d7a" category="paragraph">Suivez cette procédure pour installer et configurer le commutateur Cisco Nexus 92300YC.</block>
@@ -3074,10 +3052,8 @@
   <block id="fc8000433fb91bb2ac18805337e9f44f" category="list-text">Configurer les autres paramètres :</block>
   <block id="9cce6cea5fdcbb4782ca8d3b2c134882" category="list-text">Vérifiez les informations du commutateur et enregistrez la configuration :</block>
   <block id="c17578df3a8103b0b9f77304ee468668" category="inline-link-macro">Préparez-vous à installer le logiciel NX-OS et RCF.</block>
-  <block id="6d0680539caaa7f504c758a128c001d8" category="paragraph"><block ref="7bf2abe68cd5ba6b2b26f0fe6668421e" category="inline-link-macro-rx"></block>.</block>
   <block id="6b7440a940de051fd62b68b3fd600735" category="doc">Configuration requise pour les commutateurs Cisco Nexus 92300YC</block>
   <block id="8917a30f03f4abae51ca9229e01f580d" category="paragraph">Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, assurez-vous de passer en revue toutes les exigences de configuration et de réseau.</block>
-  <block id="6518e087ea131b7bbb106dea2f0c4eaf" category="paragraph"><block ref="94f89641c24a2c5acf155cedb6b917d3" category="inline-link-macro-rx"></block>.</block>
   <block id="76528b3388026fec8ee0da8f409827b8" category="summary">Présentation de la configuration logicielle des commutateurs de cluster Cisco Nexus 92300YC</block>
   <block id="6d667de9d7fb01a21a6dead01c80f651" category="doc">Flux de travail d'installation du logiciel pour les commutateurs de cluster Cisco Nexus 92300YC</block>
   <block id="bea3ba57a9f680b5a5369f4a4684f874" category="paragraph">Pour installer et configurer le logiciel d'un commutateur Cisco Nexus 92300YC et pour installer ou mettre à niveau le fichier de configuration de référence (RCF), procédez comme suit :</block>
@@ -3108,7 +3084,6 @@
   <block id="255e02cb0fbcf856f38cae0c4b19764d" category="list-text">Afficher le nombre d'interfaces d'interconnexion de cluster configurées dans chaque nœud pour chaque commutateur d'interconnexion de cluster :<block ref="1ddf946090b02d8488854491b2232bce" prefix=" " category="inline-code"></block></block>
   <block id="57bf5d8f5891a8230d2c53c4b728728e" category="list-text">Afficher les attributs du port réseau :<block ref="5a2357a985889803fc9ad4bba1f860e2" prefix=" " category="inline-code"></block></block>
   <block id="58d8f5733e0a28fbb10c789b8e8b1006" category="list-text">Afficher les informations relatives aux LIF :<block ref="7af866342cc7e87972580d7b709d8820" prefix=" " category="inline-code"></block></block>
-  <block id="cb172d60657939c4a9f0e4bac2ec3d97" category="paragraph"><block ref="e98d73ae63150166bf4e60effb4ddb59" category="inline-link-macro-rx"></block>.</block>
   <block id="13af841949dee66caeadbec7c281ed4f" category="summary">Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 92300YC pour la première fois.</block>
   <block id="c2995f917cf848b1a8ad4f123990b08f" category="inline-link-macro">_Hardware Universe^_</block>
   <block id="47db2740e391cb9dd7afd4c727db1c28" category="paragraph">Voir le<block ref="2e30f42bb79c7c9fe477a9d63d7f110d" category="inline-link-macro-rx"></block> pour les ports de cluster réellement pris en charge sur votre plateforme.</block>
@@ -3135,7 +3110,6 @@
   <block id="aedb89363510ad27a3d565acd684aa56" category="list-text">Le nom de l'espace IP est<block ref="249694a485fc5d3289c38986b4f8e887" prefix=" " category="inline-code"></block> .</block>
   <block id="dfd32790423f16dd03c31199222c75e8" category="list-text">Copiez le logiciel NX-OS et les images EPLD sur le commutateur Nexus 92300YC.</block>
   <block id="bb06ef3d1301c60ccc059da2e6365064" category="inline-link-macro">Installez le fichier de configuration de référence</block>
-  <block id="9461b7a834c383c5538d97f8a173943a" category="paragraph"><block ref="9461b7a834c383c5538d97f8a173943a" category="inline-link-macro-rx"></block></block>
   <block id="255c4d8b5fe19006ce3e32d6abe4c5dd" category="summary">Avant de configurer les commutateurs Cisco Nexus 92300, consultez un aperçu du processus et de la nomenclature.</block>
   <block id="9bd04d9eb8fe7af3717bd79fdc4dd16f" category="doc">Flux de travail d'installation et de configuration pour les commutateurs Cisco Nexus 92300YC</block>
   <block id="312162ac34f340f4565474922d210693" category="paragraph">Les commutateurs Cisco Nexus 92300YC peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.</block>
@@ -3382,7 +3356,6 @@
   <block id="71a881be92e62256287d6347bd624fad" category="paragraph">ISL vers commutateur A port 65</block>
   <block id="eda024fd7d2291c043817bf86d68da64" category="paragraph">ISL vers le commutateur B port 66</block>
   <block id="fbfe4b7728646e201fb34cdd5d08935c" category="paragraph">ISL vers le commutateur A port 66</block>
-  <block id="57b82df28fc00080790149c86d895c6b" category="paragraph"><block ref="4a918828ff9ec1128ca567fb62079d76" category="inline-link-macro-rx"></block>.</block>
   <block id="f5e9ec33bbd550cafe73fcb03480f889" category="summary">Avant de configurer votre commutateur Cisco 9332D-GX2B, consultez les informations suivantes.</block>
   <block id="7fb930ad6a0d234e53294ed9bec42b34" category="paragraph">Avant de configurer votre commutateur Cisco 9332D-GX2B, passez en revue les considérations suivantes.</block>
   <block id="a1d07f6c5f2382a1e6db9b0444491cb4" category="section-title">Prise en charge des ports Ethernet NVIDIA CX6-DX</block>
@@ -5837,4 +5810,51 @@
   <block id="d9aada147c373c06e0d976b129c8f3a7" category="sidebar">Migration du stockage des commutateurs SN2100</block>
   <block id="eb4f7156f10304e1688604176353d64c" category="sidebar">Migration depuis les commutateurs de stockage Cisco</block>
   <block id="5b5eb8c4bef0274e4e1b9402cbc61b6c" category="sidebar">Remplace_switch_sn2100-stockage</block>
+  <block id="47e898230d71197e432bb7dd0ac88730" category="inline-link-macro">Portail de licences pour les commutateurs Ethernet compatibles Broadcom</block>
+  <block id="01ee6db79ef0c7dcf7af7f8c0812323f" category="inline-link-macro">Comment ajouter des licences de port supplémentaires pour le commutateur Broadcom BES-53248</block>
+  <block id="1ec880c9722934c26038bc64978254f2" category="admonition">Pour échanger une clé de transaction contre un fichier de clé de licence de port, rendez-vous sur le<block ref="1a8ec2f1a7f8a934a4dd69a5d5c5300d" category="inline-link-macro-rx"></block> page. Consultez l'article de la base de connaissances<block ref="7475ce8d248fdfe999b98a176df29951" category="inline-link-macro-rx"></block> pour plus de détails.</block>
+  <block id="63d84b478f5cf46bf22ac4a48d7dbdaf" category="paragraph">Une fois la migration de votre commutateur terminée, vous pouvez<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="9da60a268433d9b3a5bb3faade2bc94e" category="inline-link-macro">finalisez votre migration</block>
+  <block id="ceae281b9f46a498a90253a9b6035769" category="paragraph">Une fois vos ports de commutateur configurés, vous pouvez<block ref="25f55b685acb2e49f49d86a4b3166712" category="inline-link-macro-rx"></block> .</block>
+  <block id="ad922f3bf852d7de5ed44851b4878c58" category="inline-link-macro">Préparez-vous à migrer vos commutateurs</block>
+  <block id="14ae1457e72b1298fdb0f41375354ef4" category="paragraph">Après avoir examiné les exigences de migration, vous pouvez<block ref="5556998cec31eb92f32df1b83459efff" category="inline-link-macro-rx"></block> .</block>
+  <block id="1022079d6c4d0fb339ce219f5b0bc80b" category="inline-link-macro">configurez vos ports</block>
+  <block id="356adc3b214ec21b02c42b4b115b16e9" category="paragraph">Une fois que vous avez préparé la migration de vos commutateurs, vous pouvez<block ref="d4000ec1d414a7502b21ae3dd3c5840a" category="inline-link-macro-rx"></block> .</block>
+  <block id="89fc2b7e8e60c774cba9bcb9e55babaf" category="paragraph">Une fois vos ports de commutateur configurés, vous pouvez<block ref="bf0fa41c8a479d2cbcf6bdf3ae6ad5b4" category="inline-link-macro-rx"></block> .</block>
+  <block id="d845a579f300234ad7fa54c0381582ac" category="paragraph">Après avoir examiné les exigences de migration, vous pouvez<block ref="d9f2a1e304fb793e94600787aaab5d88" category="inline-link-macro-rx"></block> .</block>
+  <block id="00ac1893d99097cefb1a4ae2eadb9e59" category="paragraph">Une fois que vous avez préparé la migration de vos commutateurs, vous pouvez<block ref="4f22ab069aceb629014d3d9b8db60ebe" category="inline-link-macro-rx"></block> .</block>
+  <block id="1a91c84925ff3f64a04ef29a84fa8269" category="paragraph">Une fois vos ports de commutateur configurés, vous pouvez<block ref="9b4e9d59e070097158700db7eb74d2b4" category="inline-link-macro-rx"></block> .</block>
+  <block id="bed7763295ee5566a954be1784e7b963" category="paragraph">Une fois que vous avez préparé la migration de vos commutateurs, vous pouvez<block ref="7319dc5bee570ea2ba287a02c36de7d2" category="inline-link-macro-rx"></block> .</block>
+  <block id="0f6d465867451d9f7e8e3fccf626abdd" category="paragraph">Après avoir examiné les exigences de migration, vous pouvez<block ref="74c2d6e9c24c0072ef10faf4f32888a2" category="inline-link-macro-rx"></block> .</block>
+  <block id="1ff9776c7f96ac2701af319ed9604d31" category="paragraph">Après avoir remplacé votre interrupteur, vous pouvez<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="0daff9862c0ebe7681e5b726b1ef4b9f" category="paragraph">Après avoir réinitialisé l'interrupteur, vous pouvez<block ref="f45e97977128cc582bf2e734e3a331a3" category="inline-link-macro-rx"></block> Cela correspond à vos exigences.</block>
+  <block id="f42bb157194542ddefd800174dd049dc" category="paragraph">Une fois la migration de votre commutateur terminée, vous pouvez<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
+  <block id="ef5fadf794d43b06212f5088bf371504" category="paragraph">Après avoir examiné les exigences de migration, vous pouvez<block ref="5556998cec31eb92f32df1b83459efff" category="inline-link-macro-rx"></block> .</block>
+  <block id="830e4cd0f69745eb958c7daa4ecc2636" category="inline-link-macro">Remplacer le commutateur CN1610 CL2 par le commutateur 3232C C2</block>
+  <block id="af51490fe94d63e9c6bb318753351308" category="paragraph">Une fois que vous avez préparé la migration de vos commutateurs, vous pouvez<block ref="9118d2244e5db573f07108145936667f" category="inline-link-macro-rx"></block> .</block>
+  <block id="0a641627612a9d2a3aa09e0a2a137416" category="paragraph">Après avoir remplacé le commutateur CL1 du CN1610, vous pouvez<block ref="25f55b685acb2e49f49d86a4b3166712" category="inline-link-macro-rx"></block> .</block>
+  <block id="365d742f3775c4a7da973483112603fb" category="inline-link-macro">remplacer le commutateur CN1610 CL1 par le commutateur 3232C C1</block>
+  <block id="95d03cf4f1eeb0c2b731a85968c385d3" category="paragraph">Après avoir remplacé le commutateur CN1610 CL2, vous pouvez<block ref="75e469a4a43720b7ea775c13aab22570" category="inline-link-macro-rx"></block> .</block>
+  <block id="e2a18836e5a4adf281837f9272df081e" category="paragraph">Après avoir examiné les exigences de migration, vous pouvez<block ref="d9f2a1e304fb793e94600787aaab5d88" category="inline-link-macro-rx"></block> .</block>
+  <block id="580d29a0ebaa6c7d2498abf217dc22e7" category="paragraph">Une fois que vous avez préparé la migration de vos commutateurs, vous pouvez<block ref="4f22ab069aceb629014d3d9b8db60ebe" category="inline-link-macro-rx"></block> .</block>
+  <block id="da2164a7e11a5c0d8e92abe91adad16a" category="paragraph">Une fois vos exigences de configuration confirmées, vous pouvez consulter le<block ref="ebd73c3e74cc4ef5f3b03634c8dd9a01" category="inline-link-macro-rx"></block> .</block>
+  <block id="68f8477787757a5afa201ddf275decf3" category="paragraph">Après avoir installé le logiciel NX-OS, vous pouvez <block ref="06b5548e8ac5164b226ba17b6e4d1fe4" category="inline-link-macro-rx"></block>.</block>
+  <block id="35eb5cba73bda40c0b8b40e523662279" category="paragraph">Après avoir consulté la présentation de la procédure d'installation ou de mise à niveau de RCF, vous pouvez<block ref="7022ba5e5ec6244ac8d3473bbc8c433f" category="inline-link-macro-rx"></block> ou<block ref="8a829f0d1f577ca80ad99d80f239a28e" category="inline-link-macro-rx"></block> selon les besoins.</block>
+  <block id="9a131f4c3e87e2a53b704fe8e9ca5954" category="paragraph">Une fois vos ports configurés, vous pouvez<block ref="e7e87cf18674f5c2044ef952beded615" category="inline-link-macro-rx"></block> .</block>
+  <block id="bd8b22b9c82db19d7248c9a1fcb20c3f" category="paragraph">Après avoir examiné les exigences de migration, vous pouvez<block ref="5665b28937bf1b09849f024f607dd64e" category="inline-link-macro-rx"></block> .</block>
+  <block id="5ec9e7fdad528281863efb9b3975b033" category="paragraph">Une fois que vous avez préparé la migration de vos commutateurs, vous pouvez<block ref="54b76e01de4f036c3788cc2f08cf6a70" category="inline-link-macro-rx"></block> .</block>
+  <block id="45c2b8846a024f7301d49fda1c8ff5ac" category="paragraph">Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous pouvez <block ref="1a8a0ec1fd79605fdc4387d526afd436" category="inline-link-macro-rx"></block>.</block>
+  <block id="81f171bcdf12f3be8a2e452d7810854a" category="paragraph">Après avoir réinitialisé l'interrupteur, vous pouvez<block ref="c545fddb515222a7452aceb55b340e55" category="inline-link-macro-rx"></block> Cela correspond à vos exigences.</block>
+  <block id="9ffb89be1bf91aee12c05ffde475a337" category="paragraph">Une fois vos commutateurs configurés, vous pouvez <block ref="cd06af6a9a8fb3236be1b579437fb58f" category="inline-link-macro-rx"></block>.</block>
+  <block id="e8abee940fada928225790563c2c05b3" category="paragraph">Une fois vos feuilles de travail sur le câblage terminées, vous pouvez <block ref="158345103486debcc0cfc10501f464f8" category="inline-link-macro-rx"></block>.</block>
+  <block id="df8280dfa3aaac5a0490de9bef5d9f23" category="paragraph">Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le <block ref="b0a63a0924d3552b395ea3f663d4cfd4" category="inline-link-macro-rx"></block>.</block>
+  <block id="2284dbe0e06756008551bb8966f652e7" category="paragraph">Une fois vos commutateurs configurés, vous pouvez <block ref="6c001291d9b172d440d376a27a7df799" category="inline-link-macro-rx"></block>.</block>
+  <block id="40f6f2532e4dc0dc35819f262b6cd79d" category="paragraph">Après avoir examiné les exigences de configuration, vous pouvez confirmer votre <block ref="dbcde9ffaaa69ad59af81dab7376e8d4" category="inline-link-macro-rx"></block>.</block>
+  <block id="c928214579499c0df6ea2f2e76ec4671" category="paragraph">Une fois votre configuration SSH vérifiée, vous pouvez <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
+  <block id="51b7845e35fc574754e9104ec881025e" category="paragraph">Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous pouvez <block ref="9c4673787360e5c0f6dec50dc44d9010" category="inline-link-macro-rx"></block>.</block>
+  <block id="53f6d6f6349acf6f7fc25aa48a5c9d3d" category="inline-link-macro">installer le fichier de configuration de référence</block>
+  <block id="2a835c442754f91664ea0f2b4d4d866f" category="paragraph">Après avoir installé le logiciel NX-OS, vous pouvez <block ref="79cbdf6abe2bed16ea202246fdf1a264" category="inline-link-macro-rx"></block>.</block>
+  <block id="896088c62ad7b687065540892080324f" category="paragraph">Une fois les commutateurs installés dans l'armoire NetApp , vous pouvez<block ref="e720d023779d66bfe8b12a8e36518dcc" category="inline-link-macro-rx"></block> .</block>
+  <block id="ce7e45bf2954b88a6750644b0448950a" category="paragraph">Une fois le RCF installé, vous pouvez <block ref="9c2eadd0cc07686b4a17c38ca62f4a4c" category="inline-link-macro-rx"></block>.</block>
+  <block id="c9c986f56a1b508d37d42c57396f5c6e" category="paragraph">Une fois vos feuilles de travail sur le câblage terminées, vous pouvez <block ref="524641f31ca2f6882ec8e6343313f85c" category="inline-link-macro-rx"></block>.</block>
 </blocks>

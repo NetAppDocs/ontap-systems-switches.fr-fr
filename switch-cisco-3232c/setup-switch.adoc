@@ -219,4 +219,4 @@ NOTE: Si vous ne sauvegardez pas la configuration à cette étape, aucune des mo
 
 
 .Quelle est la prochaine étape ?
-Une fois vos commutateurs configurés, vous link:prepare-install-cisco-nexus-3232c.html["se préparer à installer NX-OS et RCF"].
+Une fois vos commutateurs configurés, vous pouvez link:prepare-install-cisco-nexus-3232c.html["se préparer à installer NX-OS et RCF"].

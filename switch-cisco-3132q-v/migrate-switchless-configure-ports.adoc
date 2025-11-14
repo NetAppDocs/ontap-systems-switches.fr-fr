@@ -556,4 +556,4 @@ e4e       Cluster      Cluster          up   9000 auto/40000  -        -
 
 
 .Quelle est la prochaine étape ?
-link:migrate-switchless-complete-migration.html["Finalisez votre migration"].
+Une fois vos ports de commutateur configurés, vous pouvezlink:migrate-switchless-complete-migration.html["finalisez votre migration"] .

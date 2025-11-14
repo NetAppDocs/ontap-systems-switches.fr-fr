@@ -495,4 +495,4 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-no
 
 
 .Quelle est la prochaine étape ?
-link:cn1610-replace-CL1.html["Remplacez le commutateur CL1 du CN1610 par le commutateur C1 du 3232C."].
+Après avoir remplacé le commutateur CN1610 CL2, vous pouvezlink:cn1610-replace-CL1.html["remplacer le commutateur CN1610 CL1 par le commutateur 3232C C1"] .

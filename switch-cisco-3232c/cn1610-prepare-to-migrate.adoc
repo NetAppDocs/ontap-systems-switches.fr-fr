@@ -219,4 +219,4 @@ Cluster
 
 
 .Quelle est la prochaine étape ?
-link:cn1610-replace-CL2.html["Remplacez le commutateur CN1610 CL2 par le commutateur 3232C C2."].
+Une fois que vous avez préparé la migration de vos commutateurs, vous pouvezlink:cn1610-replace-CL2.html["Remplacer le commutateur CN1610 CL2 par le commutateur 3232C C2"] .

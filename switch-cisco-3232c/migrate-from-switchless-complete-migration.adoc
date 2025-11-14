@@ -170,4 +170,4 @@ Larger than PMTU communication succeeds on 4 path(s) RPC status:
 
 
 .Quelle est la prochaine étape ?
-link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"].
+Une fois la migration de votre commutateur terminée, vous pouvezlink:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"] .

@@ -1366,4 +1366,4 @@ ISL vers le commutateur A port 66
 
 |===
 .Quelle est la prochaine étape
-link:install-switch-92300yc.html["Installez l'interrupteur"].
+Une fois vos feuilles de travail sur le câblage terminées, vous pouvez link:install-switch-92300yc.html["installer le commutateur"].

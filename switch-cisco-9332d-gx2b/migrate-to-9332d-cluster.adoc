@@ -626,12 +626,31 @@ Group Port-       Type     Protocol  Member Ports
 +
 `network interface modify -vserver Cluster -lif * -auto-revert true`
 
+. Sur le commutateur cs2, éteignez et redémarrez tous les ports du cluster pour déclencher une restauration automatique de toutes les LIF du cluster qui ne sont pas sur leurs ports d'origine.
++
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface eth1/1-1/2*
+cs2(config-if-range)# *shutdown*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cs2(config-if-range)# *no shutdown*
+
+(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+
+cs2(config-if-range)# *exit*
+cs2(config)# *exit*
+cs2#
+----
 . Vérifiez que les LIF du cluster sont revenues à leurs ports d'origine (cela peut prendre une minute) :
 +
 `network interface show -vserver Cluster`
 
 +
-Si les LIF du cluster ne sont pas revenues à leur port d'origine, rétablissez-les manuellement :
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leur port d'origine, rétablissez-les manuellement. Vous devez vous connecter à chaque console système LIF ou SP/ BMC de gestion de nœud du nœud local qui possède la LIF :
 
 +
 `network interface revert -vserver Cluster -lif *`
@@ -708,7 +727,7 @@ RPC status:
 ----
 --
 ====
-. [[étape 5]]Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
+. [[étape 6]]Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=END`
 
 
 .Quelle est la prochaine étape ?

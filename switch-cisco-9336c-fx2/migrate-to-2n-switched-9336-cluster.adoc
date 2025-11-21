@@ -415,6 +415,39 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 === Étape 3 : Vérifier la configuration
 
+. Activer la restauration automatique sur les LIF du cluster.
++
+`network interface modify -vserver Cluster -lif * -auto-revert true`
+
+. Sur le commutateur cs2, éteignez et redémarrez tous les ports du cluster pour déclencher une restauration automatique de toutes les LIF du cluster qui ne sont pas sur leurs ports d'origine.
++
+[listing, subs="+quotes"]
+----
+cs2> *enable*
+cs2# *configure*
+cs2(config)# *interface eth1/1-1/2*
+cs2(config-if-range)# *shutdown*
+
+(Wait for 5-10 seconds before re-enabling the ports)
+
+cs2(config-if-range)# *no shutdown*
+
+(After executing the no shutdown command, the nodes detect the change and begin to auto-revert the cluster LIFs to their home ports)
+
+cs2(config-if-range)# *exit*
+cs2(config)# *exit*
+cs2#
+----
+. Vérifiez que les LIF du cluster sont revenues à leurs ports d'origine (cela peut prendre une minute) :
++
+`network interface show -vserver Cluster`
+
++
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leur port d'origine, rétablissez-les manuellement. Vous devez vous connecter à chaque console système LIF ou SP/ BMC de gestion de nœud du nœud local qui possède la LIF :
+
++
+`network interface revert -vserver Cluster -lif *`
+
 . Vérifiez que toutes les interfaces affichent « vrai » pour `Is Home` :
 +
 `network interface show -vserver Cluster`
@@ -521,17 +554,14 @@ node1      /cdp
 NOTE: L'exécution de la commande peut prendre plusieurs minutes.  Attendez l'annonce « Durée de vie restante de 3 minutes ».
 
 +
-.Afficher un exemple
-[%collapsible]
-====
 Le résultat erroné de l'exemple suivant indique que les paramètres de configuration sont désactivés :
 
-[listing]
++
+[listing, subs="+quotes"]
 ----
 cluster1::*> network options switchless-cluster show
-Enable Switchless Cluster: false
+Enable Switchless Cluster: *false*
 ----
-====
 . Vérifiez l'état des nœuds membres du cluster :
 +
 `cluster show`
@@ -618,7 +648,7 @@ RPC status:
 ----
 --
 ====
-. [[étape 7]] Rétablir le niveau de privilège à administrateur :
+. [[étape 10]]Rétablissez le niveau de privilège à administrateur :
 +
 `set -privilege admin`
 

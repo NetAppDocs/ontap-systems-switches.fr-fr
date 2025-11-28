@@ -25,6 +25,10 @@ Vérifiez les installations et connexions suivantes :
 * Les ports du cluster de nœuds ONTAP ne sont pas connectés.
 
 
+.Configuration RCF disponible
+* *ClusterStorageRCF* - Prend en charge un cluster partitionné plus deux zones de stockage sur les commutateurs (Cluster-Storage RCF 1._xx_).
+
+
 
 
 == Étape 1 : Installez le RCF sur les commutateurs

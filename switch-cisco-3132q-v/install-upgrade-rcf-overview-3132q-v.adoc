@@ -73,6 +73,28 @@ Stockage
 Tous les ports sont configurés pour les connexions de stockage NVMe 100GbE.
 
 |===
+.RCF disponibles
+Le tableau suivant répertorie les RCF disponibles pour les commutateurs 3132Q-V.  Choisissez la version RCF adaptée à votre configuration. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] pour plus d'informations.
+
+[cols="1"]
+|===
+| Nom du RCF 
+
+
+ a| 
+Cluster HA-Breakout RCF v1._xx_
+
+
+
+ a| 
+Cluster-HA RCF v1._xx_
+
+
+
+ a| 
+Cluster RCF 1._xx_
+
+|===
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
 +

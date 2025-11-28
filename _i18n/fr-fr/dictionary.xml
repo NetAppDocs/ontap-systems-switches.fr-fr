@@ -3494,7 +3494,6 @@
   <block id="7dee171d359db124d6e3b08b8707107d" category="summary">Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
   <block id="5b7289386d4021753b2b2d113123dfb8" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.</block>
   <block id="906296921ce498fa9500d86133cb4a2b" category="list-title">Configuration RCF disponible</block>
-  <block id="7b40fce84349514c8e494666eb6951f5" category="list-text">*Cluster-HA-Storage* - Prend en charge le trafic cluster/HA/stockage partagé sur les ports (NX9332D-GX2B-RCF-v10.0-Shared.txt).</block>
   <block id="fdb500ee5ab5f21c1b5bc773c9113780" category="list-text"><block ref="fdb500ee5ab5f21c1b5bc773c9113780" category="inline-link-macro-rx"></block></block>
   <block id="504a1b6b42b6a39b780a20e097a68439" category="paragraph">Voir le<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour vérifier les ports corrects sur votre plateforme.</block>
   <block id="fdd1967bcc4179d15ff49af9f4eb5d7e" category="paragraph">Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous<block ref="804caa6e47e068ee420004b49576cb27" category="inline-link-macro-rx"></block> ou<block ref="34eb350590adb58b30d7d2c85b3e73cb" category="inline-link-macro-rx"></block> selon les besoins.</block>
@@ -4419,7 +4418,6 @@
   <block id="4ddbf9913cf137f28df7ad8a4a25d0f5" category="paragraph">Cet exemple montre le fichier RCF<block ref="1b86452473f90818e41227cf4b4157de" prefix=" " category="inline-code"></block> en cours d'installation sur le commutateur cs1 :</block>
   <block id="7ea042ac2614a0600db9c4b93b98f977" category="summary">Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9364d-gx2a pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre RCF.</block>
   <block id="8dd25033ecbddeb30056a46518ad3275" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré le commutateur Nexus 9364D-GX2A pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.</block>
-  <block id="fb96e6d079fabb1d2b736726ce69ee12" category="list-text">*Cluster-HA-Storage* - Prend en charge le trafic cluster/HA/stockage partagé sur les ports (NX9364D-GX2A-RCF-v10.0-Shared.txt).</block>
   <block id="6384776866a1079fc5ff9f0437dc01f4" category="inline-link-macro">Commutateurs Cisco Nexus série 3=9000</block>
   <block id="1c345898c1385054a5914f9f0437669c" category="list-text"><block ref="1c345898c1385054a5914f9f0437669c" category="inline-link-macro-rx"></block></block>
   <block id="bd377da5df344ea4407f28a5db2a6983" category="paragraph">Voir le<block ref="cd25cbe53f0a314145c84729c6ce2c78" category="inline-link-rx"></block> pour vérifier les ports de cluster corrects sur vos plateformes.</block>
@@ -5862,4 +5860,22 @@
   <block id="77c4c65090a7a14ac6d2a4180ac07a3c" category="list-text">[[étape 3]]Vérifiez que les LIF du cluster sont revenues à leurs ports d'origine (cela peut prendre une minute) :</block>
   <block id="5a443ae50dfc3d613ac9445266752a19" category="list-text">[[étape 8]]Rétablissez le niveau de privilège à administrateur :</block>
   <block id="397fcdbb1cd3a03c8bd47ec26ea0418d" category="list-text">[[étape 5]]Sur le commutateur c2, fermez les ports connectés aux ports de cluster des nœuds afin de basculer les LIF de cluster.</block>
+  <block id="653ccfe7cf284b57a5c46bee65e0a58e" category="paragraph-title">RCF disponibles</block>
+  <block id="9b3a99f9973c4d272fa2de0253bc085a" category="paragraph">Le tableau suivant répertorie les RCF disponibles pour les commutateurs 3132Q-V.  Choisissez la version RCF adaptée à votre configuration. Voir<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="abe8ded30ab73da274c1efff617dc311" category="paragraph">Cluster HA-Breakout RCF v1._xx_</block>
+  <block id="f544c486b2c67e532c8ee779f96f0860" category="paragraph">Cluster-HA RCF v1._xx_</block>
+  <block id="b4897f3fa8ac5a2d92f22b537ed54960" category="paragraph">Cluster RCF 1._xx_</block>
+  <block id="4f67b0befe3bedde34e483ad0566f9d6" category="paragraph">Le tableau suivant répertorie les RCF disponibles pour les commutateurs 3232C.  Choisissez la version RCF adaptée à votre configuration. Voir<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="8072779b33a273468d78ef6cb6d4c966" category="paragraph">Stockage RCF v1._xx_</block>
+  <block id="464c28165f67adadcec6dbdd6535b183" category="list-text">*Cluster-HA-Storage AFX* - Tous les ports sont configurés en mode de dérivation 4x100GbE qui prend en charge universellement les clusters de nœuds AFX, la haute disponibilité, les ports de stockage et les ports de baies de stockage NX224.  Liaison inter-commutateurs 400GbE.  (_Cluster-HA-Storage AFX RCF_vxx.x_).</block>
+  <block id="76decbd40d1d1dd0ecd3f76d346188a5" category="paragraph">Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et notes importantes de votre RCF. Voir<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="5cc428f45cb55d942754b2958164f425" category="paragraph">Le tableau suivant décrit les RCF disponibles pour différentes configurations. Choisissez le RCF applicable à votre configuration. Voir<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="737fb9ece28f7ddaf8a5f5726f370a3b" category="cell">Configuration RCF</block>
+  <block id="d3b7f231b852de83cebf230ffbd5e959" category="paragraph">Le tableau suivant répertorie les RCF disponibles pour les commutateurs 9336C-FX2 et 9336C-FX2-T.  Choisissez la version RCF adaptée à votre configuration. Voir<block ref="3f6421172f80f8047523f4f7c07d2e71" category="inline-link-macro-rx"></block> pour plus d'informations.</block>
+  <block id="01e0f71d3ae376e4d904595d8f085eaf" category="paragraph">Cluster-HA-Breakout RCF 1._xx_</block>
+  <block id="b276093f4295f09c529b653cf500f9a9" category="paragraph">Cluster-HA-Stockage RCF 1._xx_</block>
+  <block id="d7357d88efc626b8a59124411cdaaf7c" category="paragraph">Stockage RCF 1._xx_</block>
+  <block id="31d1f8ac94c6c6348baf87c178d54ca6" category="paragraph">MultiCluster-HA RCF 1._xx_</block>
+  <block id="882f88e519afe0ccad4d00b167a8f9f4" category="list-text"><block ref="882f88e519afe0ccad4d00b167a8f9f4" category="inline-link-macro-rx"></block></block>
+  <block id="56b1e9ee9f81d9d1458caeb63a57b431" category="list-text">*ClusterStorageRCF* - Prend en charge un cluster partitionné plus deux zones de stockage sur les commutateurs (Cluster-Storage RCF 1._xx_).</block>
 </blocks>

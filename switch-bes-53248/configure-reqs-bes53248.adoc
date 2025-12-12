@@ -17,7 +17,7 @@ Pour l'installation et la maintenance du commutateur BES-53248, assurez-vous de 
 
 == Assistance EFOS et ONTAP
 
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] et https://mysupport.netapp.com/site/info/broadcom-cluster-switch["matrice de compatibilité des commutateurs Broadcom"^] pour les informations de compatibilité EFOS et ONTAP avec les commutateurs BES-53248.  La prise en charge d'EFOS et ONTAP peut varier selon le type de machine spécifique du commutateur BES-53248.  Pour plus de détails sur tous les types de machines de commutation BES-52348, voirlink:components-bes53248.html["Composants et références des commutateurs de groupe BES-53248"] .
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] et https://mysupport.netapp.com/site/info/broadcom-cluster-switch["matrice de compatibilité des commutateurs Broadcom"^] pour les informations de compatibilité EFOS et ONTAP avec les commutateurs BES-53248. La prise en charge d'EFOS et ONTAP peut varier selon le type de machine spécifique du commutateur BES-53248. Pour plus de détails sur tous les types de machines de commutation BES-52348, voirlink:components-bes53248.html["Composants et références des commutateurs de groupe BES-53248"] . Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"]^ pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 
@@ -63,7 +63,7 @@ Nœuds de ports de cluster 40/100 GbE, avec licences, ajoutés de droite à gauc
 Ports de liaison inter-commutateurs (ISL) du cluster 100 GbE, configuration de base
 
 |===
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 

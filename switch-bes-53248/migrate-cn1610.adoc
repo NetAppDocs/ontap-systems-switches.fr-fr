@@ -61,7 +61,7 @@ Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (I
 * BES-53248 : ports 0/55-0/56 (100 GbE)
 
 
-Le https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] contient des informations sur la compatibilité ONTAP , le firmware EFOS pris en charge et le câblage vers les commutateurs de cluster BES-53248.
+Le link:https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] contient des informations sur la compatibilité ONTAP , le firmware EFOS pris en charge et le câblage vers les commutateurs de cluster BES-53248. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 

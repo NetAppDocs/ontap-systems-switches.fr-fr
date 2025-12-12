@@ -16,7 +16,7 @@ Avant d’installer le logiciel NX-OS et le fichier de configuration de référe
 .À propos des exemples
 Les exemples de cette procédure utilisent deux nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b` .
 
-Voir lelink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
+Voir lelink:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.

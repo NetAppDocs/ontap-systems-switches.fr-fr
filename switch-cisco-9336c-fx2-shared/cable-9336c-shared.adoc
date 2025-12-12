@@ -24,7 +24,7 @@ Si vous souhaitez câbler le stockage NS224 en mode interrupteur, suivez le sch�
 
 image:9336c_image1.jpg["Interrupteur attaché"]
 
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
+Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 

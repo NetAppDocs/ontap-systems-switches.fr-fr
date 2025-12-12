@@ -238,13 +238,12 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Terminez l'installation.  Suivez ces cinq étapes pour reconfigurer le commutateur :
+. Terminez l'installation. Suivez ces quatre étapes pour reconfigurer le commutateur :
 +
 .. link:configure-licenses.html["Licences d'installation"]
 .. link:configure-install-rcf.html["Installez le fichier RCF"]
 .. link:configure-ssh.html["Activer SSH"]
-.. link:CSHM_log_collection.html["Activer la collecte des journaux"]
-.. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"]
+.. link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"]
 
 
 . Répétez les étapes 1 à 7 sur l'autre partenaire.
@@ -410,14 +409,13 @@ unit 	active 	    backup   current-active  next-active
 (cs2) #
 ----
 ====
-. Terminez l'installation.  Le commutateur redémarre sans aucune configuration appliquée et se réinitialise aux paramètres d'usine.  Suivez ces six étapes pour reconfigurer le commutateur :
+. Terminez l'installation. Le commutateur redémarre sans aucune configuration appliquée et se réinitialise aux paramètres d'usine. Suivez ces cinq étapes pour reconfigurer le commutateur :
 +
 .. link:configure-install-initial.html["Configurer le commutateur"]
 .. link:configure-licenses.html["Licences d'installation"]
 .. link:configure-install-rcf.html["Installez le fichier RCF"]
 .. link:configure-ssh.html["Activer SSH"]
-.. link:CSHM_log_collection.html["Activer la collecte des journaux"]
-.. link:CSHM_snmpv3.html["Configurer SNMPv3 pour la surveillance"]
+.. link:../switch-cshm/config-overview.html["Configurer la surveillance de l'état du commutateur"]
 
 
 . Répétez les étapes 1 à 8 sur l'autre partenaire.

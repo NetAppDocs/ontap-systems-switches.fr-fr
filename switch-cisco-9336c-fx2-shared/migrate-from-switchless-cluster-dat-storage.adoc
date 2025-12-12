@@ -283,7 +283,7 @@ Cluster
 
 . [[étape9]]Débranchez le câble du port de cluster e3a sur le nœud 1, puis connectez e3a au port 1 sur le commutateur de cluster cs1, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
 +
-NetApp https://hwu.netapp.com["Hardware Universe"] Contient plus d'informations sur le câblage.
+NetApp https://hwu.netapp.com["Hardware Universe"] Contient plus d'informations sur le câblage. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 . Déconnectez le câble du port de cluster e3a sur node2, puis connectez e3a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
 . Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs1.

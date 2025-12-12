@@ -5,9 +5,9 @@ indexpage:
     vos commutateurs de stockage pour les déploiements de cluster ONTAP .
   keywords: storage switches, cisco nexus switches, cluster switches, ontap clusters
   lead: Les commutateurs de stockage vous permettent de créer des clusters ONTAP avec
-    plus de deux nœuds. Ces commutateurs de plate-forme Cisco Nexus 9000 fournissent
-    la base de solutions d'interconnexion de cluster évolutives dans les environnements
-    NetApp ONTAP .
+    plus de deux nœuds. Ces commutateurs de stockage Ethernet constituent la base
+    de solutions d'interconnexion de clusters évolutives dans les environnements NetApp
+    ONTAP .
   tiles:
   - title: Commencer
     links:

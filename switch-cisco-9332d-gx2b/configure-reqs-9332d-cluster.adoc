@@ -25,7 +25,7 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 * Sous-réseau IP pour le trafic du réseau de gestion
 * Noms d'hôte et adresses IP pour chacun des contrôleurs de système de stockage et tous les commutateurs applicables
 * La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé).
-* Se référer à https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
+* Se référer à https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 

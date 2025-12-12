@@ -57,7 +57,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Les ports du cluster utilisés dans cette procédure sont e0a et e0b.
 
 
-Voir https://hwu.netapp.com["Hardware Universe"^] pour plus d'informations sur les ports de cluster pour vos plateformes.
+Voir https://hwu.netapp.com["Hardware Universe"^] pour plus d'informations sur les ports de cluster pour vos plateformes. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 

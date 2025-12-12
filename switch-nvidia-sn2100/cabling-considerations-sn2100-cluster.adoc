@@ -50,7 +50,7 @@ swp15-16
 Ports de liaison inter-commutateurs (ISL) 100 GbE
 
 |===
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
+Voir le link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Consultez l'article de la base de connaissances https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40/100GbE."^] pour plus de détails.
+Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40/100GbE."^] pour plus de détails.
 
 Sur Cumulus Linux 4.4.2, les connexions cuivre ne sont pas prises en charge sur les commutateurs SN2100 avec carte réseau X1151A, carte réseau X1146A ou ports 100GbE intégrés. Par exemple:
 
@@ -200,24 +200,23 @@ Sur Cumulus Linux 4.4.2, les connexions cuivre ne sont pas prises en charge sur 
 
 
 
-== Adaptateur QSA
+== Module QSA
 
-Lorsqu'un adaptateur QSA est utilisé pour se connecter aux ports de cluster 10GbE/25GbE d'une plateforme, la liaison peut ne pas s'établir.
+Lors de l'utilisation d'adaptateurs QSFP+ (40GbE) vers SFP+ (10GbE) ou d'adaptateurs QSFP28 (100GbE) vers SFP28 (25GbE) (QSA), insérez-les dans des ports de commutateur 40GbE/100GbE non-breakout (swp3-swp14). N’insérez pas le module QSA dans un port configuré pour le dérivation.
+
+Lorsqu'un module QSA est utilisé pour se connecter aux ports de cluster 10GbE/25GbE d'une plateforme, la liaison peut ne pas s'établir.
 
 Pour résoudre ce problème, procédez comme suit :
 
-* Pour le 10GbE, réglez manuellement la vitesse de liaison swp1s0-3 sur 10000 et désactivez la négociation automatique.
-* Pour le 25GbE, réglez manuellement la vitesse de liaison swp2s0-3 sur 25000 et désactivez la négociation automatique.
+* Pour le 10GbE, réglez manuellement la vitesse de liaison à 10000 et désactivez la négociation automatique.
+* Pour le 25GbE, réglez manuellement la vitesse de liaison à 25000 et désactivez la négociation automatique.
 
-
-
-NOTE: Lors de l'utilisation d'adaptateurs QSA 10GbE/25GbE, insérez-les dans des ports 40GbE/100GbE non-breakout (swp3-swp14).  N’insérez pas l’adaptateur QSA dans un port configuré pour le dérivation.
 
 
 
 == Configuration de la vitesse de l'interface sur les ports de dérivation
 
-Selon l'émetteur-récepteur du port du commutateur, vous devrez peut-être configurer la vitesse de l'interface du commutateur sur une valeur fixe.  Si vous utilisez des ports de dérivation 10GbE et 25GbE, vérifiez que la négociation automatique est désactivée et configurez la vitesse de l'interface sur le commutateur.
+Selon l'émetteur-récepteur du port du commutateur, vous devrez peut-être configurer la vitesse de l'interface du commutateur sur une valeur fixe. Si vous utilisez des ports de dérivation 10GbE et 25GbE ou un module QSA, vérifiez que la négociation automatique est désactivée et configurez la vitesse de l'interface sur le commutateur.
 
 [role="tabbed-block"]
 ====
@@ -332,5 +331,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
+Voir le link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]et l'article de la base de connaissances link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui n'est pas répertorié dans HWU ?"^] pour plus d'informations.
+
 .Quelle est la prochaine étape ?
 Après avoir examiné vos exigences en matière de câblage et de configuration, vous pouvezlink:install-cable-shelves-sn2100-cluster.html["câbler les étagères NS224 comme un rangement relié à un interrupteur"] .

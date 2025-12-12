@@ -27,7 +27,7 @@ Les commutateurs de cluster suivants sont pris en charge :
 * Cisco 9336C-FX2-T
 
 
-Pour plus de détails sur les ports pris en charge et leurs configurations, consultez la documentation. https://hwu.netapp.com/["Hardware Universe"^] .
+Pour plus de détails sur les ports pris en charge et leurs configurations, consultez la documentation. https://hwu.netapp.com/["Hardware Universe"^] . Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 .Ce dont vous aurez besoin
 Vérifiez que votre configuration répond aux exigences suivantes :

@@ -445,7 +445,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 
 . Notez ce qui suit :
 +
-.. Si des licences de port supplémentaires ont été installées sur le commutateur, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voirlink:configure-licenses.html#activate-newly-licensed-ports["Activer les ports nouvellement autorisés"] pour plus de détails.
+.. Si des licences de port supplémentaires ont été installées sur le commutateur, vous devez modifier le RCF pour configurer les ports sous licence supplémentaires. Voir link:configure-licenses.html#activate-newly-licensed-ports["Activer les ports nouvellement autorisés"] pour plus de détails. Toutefois, lorsque vous effectuez une mise à niveau vers RCF 1.12 ou une version ultérieure, les modifications ne sont plus nécessaires car toutes les interfaces sont désormais préconfigurées.
 .. Consignez toutes les personnalisations apportées au RCF précédent et appliquez-les au nouveau RCF.  Par exemple, en configurant les vitesses des ports ou en programmant en dur le mode FEC.
 
 

@@ -25,9 +25,9 @@ Le logiciel Cisco NX-OS et RCF doivent être installés sur les commutateurs de 
 [role="quick-margin-para"]
 Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco 3132Q-V.
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-rcf-3132q-v.html["Installez le RCF"]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:install-upgrade-rcf-overview-3132q-v.html["Installer ou mettre à niveau le RCF"]
 [role="quick-margin-para"]
-Installez le RCF après avoir configuré le commutateur Cisco 3132Q-V pour la première fois.
+Installez ou mettez à niveau le RCF après avoir configuré le commutateur Cisco 3132Q-V.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-ssh-keys.html["Vérifier la configuration SSH"]
 [role="quick-margin-para"]

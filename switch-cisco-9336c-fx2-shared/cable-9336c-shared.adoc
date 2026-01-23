@@ -44,7 +44,7 @@ Si vous souhaitez documenter les plateformes prises en charge, vous devez rempli
 
 La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
 
-image:cabling_worksheet.jpg["Feuille de câblage"]
+image:cabling-worksheet.jpg["Feuille de câblage"]
 
 Où:
 
@@ -60,7 +60,7 @@ Où:
 
 Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  Le tableau « Connexions de cluster prises en charge » de l' Hardware Universe définit les ports de cluster utilisés par la plateforme.
 
-image:blank_cabling_worksheet.jpg["Feuille de câblage vierge"]
+image:blank-cabling-worksheet.jpg["Feuille de câblage vierge"]
 
 Où:
 

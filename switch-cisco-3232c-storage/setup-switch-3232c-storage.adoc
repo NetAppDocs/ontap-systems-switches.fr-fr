@@ -1,0 +1,222 @@
+---
+permalink: switch-cisco-3232c-storage/setup-switch-3232c-storage.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
+summary: Si vous ne disposez pas déjà des informations et de la documentation de configuration requises, vous devez rassembler ces informations avant de configurer votre cluster et vos commutateurs réseau de gestion. 
+---
+= Configurer le commutateur de stockage 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez cette procédure pour installer et configurer le commutateur Cisco Nexus 3232C.
+
+.Avant de commencer
+* Accès à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et le fichier de configuration de référence (RCF) applicables.
+* Version NX-OS applicable, téléchargée depuis https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
+* Documentation requise concernant le réseau de cluster et le commutateur de réseau de gestion.
++
+Voir link:required-documentation-3232c-storage.html["Documents requis"] pour plus d'informations.
+
+* Documentation requise du contrôleur et documentation ONTAP .
++
+https://netapp.com/us/documenation/index.aspx["Documentation NetApp"^]
+
+* Licences applicables, informations sur le réseau et la configuration, et câbles.
+* Fiches de câblage complétées.
+* Fichiers de configuration de ressources (RCF) applicables pour les réseaux de cluster et de gestion NetApp , téléchargeables depuis le site de support NetApp à l'adresse suivante : http://mysupport.netapp.com/["monsupport.netapp.com"^] pour les commutateurs que vous recevez.  Tous les commutateurs de réseau de cluster et de réseau de gestion Cisco sont livrés avec la configuration d'usine standard Cisco .  Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCF n'y sont pas chargés.
+
+
+.Étapes
+. Installez le réseau de cluster ainsi que les commutateurs et contrôleurs du réseau de gestion.
++
+[cols="1,2"]
+|===
+| Si vous installez votre... | Alors... 
+
+
+ a| 
+Cisco Nexus 3232C dans une armoire système NetApp
+ a| 
+Consultez le guide _Installation d’un commutateur Cisco Nexus 3232C et d’un panneau de transfert dans une armoire NetApp_ pour obtenir des instructions sur l’installation du commutateur dans une armoire NetApp.
+
+
+
+ a| 
+Équipement dans une baie de télécommunications
+ a| 
+Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
+
+|===
+. Câblez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs en utilisant les feuilles de câblage remplies.
+. Mise sous tension des commutateurs et contrôleurs du réseau de cluster et du réseau de gestion.
+. Effectuez une configuration initiale des commutateurs du réseau du cluster.
++
+Veuillez fournir les réponses appropriées aux questions de configuration initiale suivantes lors du premier démarrage du commutateur.  La politique de sécurité de votre site définit les réponses et les services à activer.
+
++
+[cols="1,2"]
+|===
+| Rapide | Réponse 
+
+
+ a| 
+Annuler le provisionnement automatique et poursuivre la configuration normale ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est non.
+
+
+
+ a| 
+Souhaitez-vous imposer une norme de mot de passe sécurisé ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est oui.
+
+
+
+ a| 
+Saisissez le mot de passe de l'administrateur.
+ a| 
+Le mot de passe par défaut est « `admin` » ; vous devez créer un nouveau mot de passe fort.  Un mot de passe faible peut être refusé.
+
+
+
+ a| 
+Souhaitez-vous accéder à la boîte de dialogue de configuration de base ?  (oui/non)
+ a| 
+Répondez *oui* lors de la configuration initiale du commutateur.
+
+
+
+ a| 
+Créer un autre compte de connexion ?  (oui/non)
+ a| 
+Votre réponse dépend des politiques de votre site concernant les administrateurs alternatifs.  La valeur par défaut est *non*.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture seule ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture-écriture ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Saisissez le nom du commutateur.
+ a| 
+Le nom du commutateur est limité à 63 caractères alphanumériques.
+
+
+
+ a| 
+Continuer avec la configuration de gestion hors bande (mgmt0) ?  (oui/non)
+ a| 
+Répondez par *oui* (par défaut) à cette invite.  À l'invite mgmt0 adresse IPv4 : saisissez votre adresse IP : ip_address.
+
+
+
+ a| 
+Configurer la passerelle par défaut ?  (oui/non)
+ a| 
+Répondez par *oui*.  À l'invite « adresse IPv4 de la passerelle par défaut : », saisissez votre passerelle par défaut.
+
+
+
+ a| 
+Configurer les options IP avancées ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Activer le service telnet ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Service SSH activé ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est oui.
+
+
+NOTE: L'utilisation de SSH est recommandée lors de l'utilisation de Ethernet Switch Health Monitor (CSHM) pour ses fonctionnalités de collecte de journaux.  SSHv2 est également recommandé pour une sécurité renforcée.
+
+
+
+ a| 
+Entrez le type de clé SSH que vous souhaitez générer (dsa/rsa/rsa1).
+ a| 
+La valeur par défaut est *rsa*.
+
+
+
+ a| 
+Entrez le nombre de bits clés (1024-2048).
+ a| 
+Entrez le nombre de bits clés compris entre 1024 et 2048.
+
+
+
+ a| 
+Configurer le serveur NTP ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Configurer la couche d'interface par défaut (L3/L2) :
+ a| 
+Répondez avec *L2*.  La valeur par défaut est L2.
+
+
+
+ a| 
+Configurer l'état par défaut de l'interface du port de commutation (arrêté/non arrêté) :
+ a| 
+Répondez par *noshut*.  La valeur par défaut est noshut.
+
+
+
+ a| 
+Configurer le profil système CoPP (strict/modéré/souple/dense) :
+ a| 
+Répondez avec *strict*.  Le paramètre par défaut est strict.
+
+
+
+ a| 
+Souhaitez-vous modifier la configuration ?  (oui/non)
+ a| 
+Vous devriez voir la nouvelle configuration à ce stade.  Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir.  Répondez *non* à l'invite si la configuration vous convient.  Répondez *oui* si vous souhaitez modifier vos paramètres de configuration.
+
+
+
+ a| 
+Utilisez cette configuration et enregistrez-la ?  (oui/non)
+ a| 
+Répondez *oui* pour enregistrer la configuration.  Cela met automatiquement à jour les images Kickstart et système.
+
+
+NOTE: Si vous ne sauvegardez pas la configuration à cette étape, aucune des modifications ne sera prise en compte lors du prochain redémarrage du commutateur.
+
+|===
+. Vérifiez les choix de configuration que vous avez effectués dans l'écran qui apparaît à la fin de l'installation et assurez-vous d'enregistrer la configuration.
+. Vérifiez la version sur les commutateurs du réseau du cluster et, si nécessaire, téléchargez la version du logiciel prise en charge par NetApp sur les commutateurs à partir de la page  https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^].
+
+
+.Quelle est la prochaine étape ?
+Une fois vos commutateurs configurés, vous pouvez link:prepare-install-cisco-nexus-3232c-storage.html["se préparer à installer NX-OS et RCF"].

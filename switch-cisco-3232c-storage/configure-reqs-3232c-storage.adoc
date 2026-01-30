@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-3232c-storage/configure-reqs-3232c-storage.html 
+keywords: shared storage cluster switch 
+summary: 'À partir d"ONTAP 9.9.1, vous pouvez utiliser les commutateurs Cisco Nexus 3232C pour combiner le stockage et la fonctionnalité de cluster dans un scénario de commutateur partagé.' 
+---
+= Exigences de configuration pour les commutateurs de stockage Cisco Nexus 3232C
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour l'installation et la maintenance du commutateur Cisco Nexus 3232C, assurez-vous de consulter les exigences de configuration et de réseau.
+
+
+
+== Exigences de configuration
+
+Vous avez besoin du nombre et du type appropriés de câbles et de connecteurs de câbles pour vos commutateurs. Selon le type de commutateur que vous configurez initialement, vous devez vous connecter au port console du commutateur avec le câble console inclus ; vous devez également fournir des informations réseau spécifiques.
+
+
+
+== Exigences réseau
+
+Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :
+
+* Sous-réseau IP pour le trafic du réseau de gestion
+* Noms d'hôte et adresses IP pour chacun des contrôleurs de système de stockage et tous les commutateurs applicables
+* La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé). Sur les systèmes AFF A800 et AFF A700 , l'interface e0M utilise un port Ethernet dédié.
+
+
+Se référer à https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+
+.Quelle est la prochaine étape
+Une fois que vous avez confirmé vos exigences de configuration, vous pouvez consulter le link:required-documentation-3232c-storage.html["documentation requise"].

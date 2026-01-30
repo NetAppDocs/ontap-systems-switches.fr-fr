@@ -1,0 +1,29 @@
+---
+permalink: switch-cisco-3232c-storage/smart-call-home-3232c-storage.html 
+sidebar: sidebar 
+keywords: cisco 3232c, storage switches 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3232C comme commutateurs dans votre cluster AFF ou FAS. 
+---
+= Exigences de Smart Call Home
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.
+
+Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par courrier électronique et envoie une alerte à tous les destinataires configurés dans votre profil de destination.
+
+Smart Call Home surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, elle génère une notification par courrier électronique et envoie une alerte à tous les destinataires configurés dans votre profil de destination.
+
+Avant de pouvoir utiliser Smart Call Home, tenez compte des exigences suivantes :
+
+* Un serveur de messagerie doit être installé.
+* Le commutateur doit disposer d'une connectivité IP avec le serveur de messagerie.
+* Les informations relatives au nom du contact (contact du serveur SNMP), au numéro de téléphone et à l'adresse postale doivent être configurées.  Cela est nécessaire pour déterminer l'origine des messages reçus.
+* Un identifiant CCO doit être associé à un contrat de service Cisco SMARTnet approprié pour votre entreprise.
+* Le service Cisco SMARTnet doit être installé pour que l'appareil puisse être enregistré.
+
+
+Le http://www.cisco.com/c/en/us/products/switches/index.html["site d'assistance Cisco"^] Contient des informations sur les commandes permettant de configurer Smart Call Home.

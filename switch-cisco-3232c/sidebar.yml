@@ -74,3 +74,10 @@ entries:
     url: "/switch-cisco-3232c/replace-cluster-switch.html"
   - title: Remplacez les commutateurs groupés par des connexions sans commutateur.
     url: "/switch-cisco-3232c/migrate-to-switchless-cluster-interconnect.html"
+- title: Commutateurs de stockage Cisco 3232C
+  pdf-filename: 3232C_storage_switches
+  entries:
+  - title: Mise à niveau d'un commutateur de stockage 3232C
+    url: "/switch-cisco-3232c/upgrade-3232c-storage-switches.html"
+  - title: Remplacer un commutateur de stockage 3232C
+    url: "/switch-cisco-3232c/replace-storage-switch.html"

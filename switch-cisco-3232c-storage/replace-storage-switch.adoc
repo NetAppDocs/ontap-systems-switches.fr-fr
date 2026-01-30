@@ -1,0 +1,272 @@
+---
+permalink: switch-cisco-3232c-storage/replace-storage-switch.html 
+sidebar: sidebar 
+keywords: replace, cisco nexus, 3232c storage switch 
+summary: Vous pouvez remplacer sans interruption un commutateur de stockage Cisco Nexus 3232C défectueux en effectuant une séquence de tâches spécifique. 
+---
+= Remplacer un commutateur de stockage Cisco Nexus 3232C
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez ces étapes pour remplacer un commutateur de stockage Cisco Nexus 3232C défectueux. Il s’agit d’une procédure non perturbatrice.
+
+
+
+== Exigences de révision
+
+La configuration réseau existante doit présenter les caractéristiques suivantes :
+
+* La page relative aux commutateurs Ethernet Cisco contient les dernières versions de RCF et de NX-OS installées sur vos commutateurs.
+* La connectivité de gestion doit exister sur les deux commutateurs.
++
+[NOTE]
+====
+Assurez-vous que toutes les étapes de dépannage ont été effectuées pour confirmer que votre commutateur doit être remplacé.
+
+====
+
+
+Le commutateur Cisco Nexus 3232C de remplacement doit présenter les caractéristiques suivantes :
+
+* La connectivité du réseau de gestion doit être fonctionnelle.
+* L'accès console au commutateur de remplacement doit être disponible.
+* L'image système d'exploitation RCF et NX-OS appropriée doit être chargée sur le commutateur.
+* La personnalisation initiale du commutateur doit être terminée.
+
+
+
+
+== Remplacez l'interrupteur
+
+Cette procédure remplace le deuxième commutateur de stockage Nexus 3232C S2 par le nouveau commutateur 3232C NS2.  Les deux nœuds sont le nœud 1 et le nœud 2.
+
+
+
+=== Étape 1 : Vérifiez que le commutateur à remplacer est un S2
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
+`system node autosupport invoke -node * -type all - message MAINT=xh`
++
+_x_ représente la durée de la fenêtre de maintenance en heures.
+
++
+[NOTE]
+====
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
+
+====
+. Vérifiez l'état de santé des ports du nœud de stockage pour vous assurer qu'il existe une connexion au commutateur de stockage S1 :
++
+`storage port show -port-type ENET`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                      Speed                     VLAN
+Node               Port Type  Mode    (Gb/s) State    Status      ID
+------------------ ---- ----- ------- ------ -------- --------- ----
+node1
+                   e3a  ENET  storage    100 enabled  online      30
+                   e3b  ENET  storage      0 enabled  offline     30
+                   e7a  ENET  storage      0 enabled  offline     30
+                   e7b  ENET  storage      0 enabled  offline     30
+node2
+                   e3a  ENET  storage    100 enabled  online      30
+                   e3b  ENET  storage      0 enabled  offline     30
+                   e7a  ENET  storage      0 enabled  offline     30
+                   e7b  ENET  storage      0 enabled  offline     30
+----
+====
+. Vérifiez que le commutateur de stockage S1 est disponible :
++
+`network device-discovery show`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------- ----------------
+node1/cdp
+            e3a    S1                        Ethernet1/1       NX3232C
+            e4a    node2                     e4a               AFF-A700
+            e4e    node2                     e4e               AFF-A700
+node1/lldp
+            e3a    S1                        Ethernet1/1       -
+            e4a    node2                     e4a               -
+            e4e    node2                     e4e               -
+node2/cdp
+            e3a    S1                        Ethernet1/2       NX3232C
+            e4a    node1                     e4a               AFF-A700
+            e4e    node1                     e4e               AFF-A700
+node2/lldp
+            e3a    S1                        Ethernet1/2       -
+            e4a    node1                     e4a               -
+            e4e    node1                     e4e               -
+----
+====
+. Exécutez le `show lldp neighbors` Commande à exécuter sur le commutateur fonctionnel pour confirmer que vous pouvez voir les deux nœuds et toutes les étagères :
++
+`show lldp neighbors`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+S1# *show lldp neighbors*
+Capability codes:
+  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+Device ID               Local Intf      Hold-time  Capability  Port ID
+node1                   Eth1/1          121        S           e3a
+node2                   Eth1/2          121        S           e3a
+SHFGD2008000011         Eth1/5          121        S           e0a
+SHFGD2008000011         Eth1/6          120        S           e0a
+SHFGD2008000022         Eth1/7          120        S           e0a
+SHFGD2008000022         Eth1/8          120        S           e0a
+----
+====
+
+
+
+
+=== Étape 2 : Configurer le câblage
+
+. [[cinq]]Vérifiez les ports d'étagère dans le système de stockage :
++
+`storage shelf port show -fields remote-device,remote-port`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage shelf port show -fields remote-device,remote-port*
+
+shelf  id  remote-port  remote-device
+-----  --  -----------  -------------
+3.20   0   Ethernet1/5  S1
+3.20   1   -            -
+3.20   2   Ethernet1/6  S1
+3.20   3   -            -
+3.30   0   Ethernet1/7  S1
+3.20   1   -            -
+3.30   2   Ethernet1/8  S1
+3.20   3   -            -
+----
+====
+. Retirez tous les câbles connectés au commutateur de stockage S2.
+. Rebranchez tous les câbles à l'interrupteur de remplacement NS2.
+
+
+
+
+=== Étape 3 : Vérifier la configuration de tous les périphériques sur le commutateur NS2
+
+. Vérifiez l'état de santé des ports du nœud de stockage :
++
+`storage port show -port-type ENET`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage port show -port-type ENET*
+                                      Speed                       VLAN
+Node               Port Type  Mode    (Gb/s) State    Status        ID
+------------------ ---- ----- ------- ------ -------- ------------ ---
+node1
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+node2
+                   e3a  ENET  storage    100 enabled  online        30
+                   e3b  ENET  storage      0 enabled  offline       30
+                   e7a  ENET  storage      0 enabled  offline       30
+                   e7b  ENET  storage    100 enabled  online        30
+----
+====
+. Vérifiez que les deux commutateurs sont disponibles :
++
+`network device-discovery show`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *network device-discovery show*
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  --------
+node1/cdp
+            e3a    S1                        Ethernet1/1       NX3232C
+            e4a    node2                     e4a               AFF-A700
+            e4e    node2                     e4e               AFF-A700
+            e7b    NS2                       Ethernet1/1       NX3232C
+node1/lldp
+            e3a    S1                        Ethernet1/1       -
+            e4a    node2                     e4a               -
+            e4e    node2                     e4e               -
+            e7b    NS2                       Ethernet1/1       -
+node2/cdp
+            e3a    S1                        Ethernet1/2       NX3232C
+            e4a    node1                     e4a               AFF-A700
+            e4e    node1                     e4e               AFF-A700
+            e7b    NS2                       Ethernet1/2       NX3232C
+node2/lldp
+            e3a    S1                        Ethernet1/2       -
+            e4a    node1                     e4a               -
+            e4e    node1                     e4e               -
+            e7b    NS2                       Ethernet1/2       -
+----
+====
+. Vérifiez les ports des étagères dans le système de stockage :
++
+`storage shelf port show -fields remote-device,remote-port`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+storage::*> *storage shelf port show -fields remote-device,remote-port*
+shelf id remote-port remote-device
+----- -- ----------- -------------
+3.20  0  Ethernet1/5 S1
+3.20  1  Ethernet1/5 NS2
+3.20  2  Ethernet1/6 S1
+3.20  3  Ethernet1/6 NS2
+3.30  0  Ethernet1/7 S1
+3.20  1  Ethernet1/7 NS2
+3.30  2  Ethernet1/8 S1
+3.20  3  Ethernet1/8 NS2
+----
+====
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.Quelle est la prochaine étape ?
+Après avoir remplacé votre interrupteur, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

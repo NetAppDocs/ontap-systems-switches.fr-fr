@@ -167,28 +167,7 @@ Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-pre
 +
 `*show file bootflash:write_erase.cfg*`
 
-. Émettre le `write erase` commande pour effacer la configuration enregistrée actuelle :
-+
-`cs1# *write erase*`
-
-+
-`Warning: This command will erase the startup-configuration.`
-
-+
-`Do you wish to proceed anyway? (y/n)  [n] *y*`
-
-. Copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
-+
-`cs1# *copy bootflash:write_erase.cfg startup-config*.`
-
-. Redémarrez le commutateur cs1.
-+
-`cs1# *reload*`
-
-+
-`This command will reboot the system. (y/n)?  [n] *y*`
-
-. Répétez les étapes 1 à 13 sur le commutateur cs2.
+. Répétez les étapes 1 à 10 sur le commutateur cs2.
 . Connectez les ports de cluster de tous les nœuds du cluster ONTAP aux commutateurs cs1 et cs2.
 
 

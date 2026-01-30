@@ -68,7 +68,7 @@ cluster1::*>
 +
 .. Vérifiez que tous les ports du cluster sont *actifs* et en bon état :
 +
-`network port show -role cluster`
+`network port show -ipspace cluster`
 
 +
 .Afficher un exemple
@@ -76,7 +76,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
+cluster1::*> *network port show -ipspace cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -116,7 +116,7 @@ cluster1::*>
 ====
 .. Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
 +
-`network interface show -role cluster`
+`network interface show -vserver cluster`
 
 +
 .Afficher un exemple
@@ -124,7 +124,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver cluster*
             Logical            Status     Network           Current      Current Is
 Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
 ----------- ------------------ ---------- ----------------- ------------ ------- ----
@@ -209,7 +209,7 @@ CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'é
 
 . Vérifiez que les LIF du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
-`network interface show -role cluster`
+`network interface show -vserver cluster`
 
 +
 .Afficher un exemple
@@ -217,7 +217,7 @@ CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'é
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver cluster*
             Logical           Status     Network            Current       Current Is
 Vserver     Interface         Admin/Oper Address/Mask       Node          Port    Home
 ----------- ----------------- ---------- ------------------ ------------- ------- ----
@@ -404,7 +404,7 @@ Pour plus d'informations sur les commandes Cisco , consultez le guide approprié
 +
 .. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
-`network port show -role cluster`
+`network port show -ipspace cluster`
 
 +
 .Afficher un exemple
@@ -412,7 +412,7 @@ Pour plus d'informations sur les commandes Cisco , consultez le guide approprié
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -role cluster*
+cluster1::*> *network port show -ipspace cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -532,6 +532,13 @@ cluster1::*>
 . Activer la restauration automatique sur les LIF du cluster.
 +
 `cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
+
+. Effectuez un redémarrage du switch cs2.
++
+`cs2# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
 
 
 
@@ -771,7 +778,7 @@ cs1#
 ====
 . Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
-`network interface show -role cluster`
+`network interface show -vserver cluster`
 
 +
 .Afficher un exemple
@@ -779,7 +786,7 @@ cs1#
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface show -role cluster*
+cluster1::*> *network interface show -vserver cluster*
             Logical            Status     Network            Current             Current Is
 Vserver     Interface          Admin/Oper Address/Mask       Node                Port    Home
 ----------- ------------------ ---------- ------------------ ------------------- ------- ----

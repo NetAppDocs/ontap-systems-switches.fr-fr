@@ -5763,4 +5763,9 @@
   <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph"><block ref="4b5c6435698a249ed2ca19ecf903991f" prefix="" category="inline-code"></block></block>
   <block id="eff487118c44b434c2174aab2b3a4e1c" category="list-text">Effectuez un redémarrage du switch cs2.</block>
   <block id="fb14b077ecd3df929fa7f98e0e505f8c" category="admonition">Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer une configuration de base.</block>
+  <block id="ece376b7acc25f86ff2e09f80d38755c" category="paragraph">Assurez-vous de faire ce qui suit :</block>
+  <block id="9a9e15bbbf81b37074eb3677448baf70" category="list-text">Exécutez la commande <block ref="856e0a903a301d6d44f55e6eb5b82200" prefix=" " category="inline-code"></block> sur le commutateur pour examiner l'impact de l'installation ou de la mise à niveau de la nouvelle image logicielle NX-OS. Elle vérifie l'intégrité de l'image, contrôle les redémarrages nécessaires, évalue la compatibilité matérielle et confirme la disponibilité d'un espace suffisant.</block>
+  <block id="1ce0015d97074c710fb18a71c0facacd" category="list-text">Consultez les notes de version pour la version logicielle NX-OS cible afin de vérifier s'il existe des exigences spécifiques.</block>
+  <block id="07e8467e284d5ad4e9a20246ae001803" category="list-text">Vérifiez que vous disposez d'une sauvegarde récente de la configuration du commutateur.</block>
+  <block id="0280c61cdd286c198feabf97c27f4988" category="list-text">Vérifiez que vous disposez d'un cluster parfaitement fonctionnel (aucune erreur dans les logs ni problème similaire).</block>
 </blocks>

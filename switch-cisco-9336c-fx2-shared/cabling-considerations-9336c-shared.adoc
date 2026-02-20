@@ -1,0 +1,67 @@
+---
+permalink: switch-cisco-9336c-fx2-shared/cabling-considerations-9336c-shared.html 
+sidebar: sidebar 
+keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
+summary: Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les informations suivantes. 
+---
+= Examiner les considérations relatives au câblage et à la configuration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de configurer vos 9336C-FX2 et 9336C-FX2-T, examinez les exigences de câblage et de configuration.
+
+
+
+== Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7
+
+Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(cs1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(cs1)(config-if)# *speed 40000*
+(cs1)(config-if)# no negotiate auto
+(cs1)(config-if)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+
+
+== Exigences FEC 25GbE
+
+
+
+=== Ports FAS2820 e0a/e0b
+
+Les ports e0a et e0b du FAS2820 nécessitent des modifications de configuration FEC pour se connecter aux ports des commutateurs 9336C-FX2 et 9336C-FX2-T. Pour les ports de commutateur e0a et e0b, le  `fec` paramètre est défini sur  `rs-cons16`.
+
+[listing, subs="+quotes"]
+----
+(cs1)(config)# interface Ethernet1/8-9
+(cs1)(config-if-range)# *fec rs-cons16*
+(cs1)(config-if-range)# exit
+(cs1)(config)# exit
+*Save the changes:*
+(cs1)# *copy running-config startup-config*
+----
+
+
+== Les ports ne se connectent pas en raison des ressources TCAM.
+
+Sur les commutateurs 9336C-FX2 et 9336C-FX2-T, les ressources de mémoire adressable de contenu ternaire (TCAM) configurées dans la configuration utilisée par le commutateur sont épuisées.
+
+
+
+== Informations connexes
+
+* Consultez  https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
+* Voir  https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+* Consultez l'article de la Knowledge Base  https://kb.netapp.com/on-prem/Switches/Cisco-KBs/Ports_do_not_link_up_on_Cisco_Nexus_9336C-FX2_due_to_TCAM_resources["Les ports ne se connectent pas sur le Cisco Nexus 9336C-FX2 en raison des ressources TCAM."^] pour savoir comment résoudre les problèmes TCAM.
+

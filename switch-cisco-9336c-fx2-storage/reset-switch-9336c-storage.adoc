@@ -24,7 +24,7 @@ Pour réinitialiser les commutateurs de stockage 9336C-FX2 et 9336C-FX2-T aux pa
 +
 [listing, subs="+quotes"]
 ----
-(cs2)# *write erase*
+(s2)# *write erase*
 
 Warning: This command will erase the startup-configuration.
 Do you wish to proceed anyway? (y/n) [n] *y*
@@ -36,7 +36,7 @@ Do you wish to proceed anyway? (y/n) [n] *y*
 +
 [listing, subs="+quotes"]
 ----
-(cs2)# *reload*
+(s2)# *reload*
 
 This command will reboot the system. (y/n)? [n] *y*
 ----

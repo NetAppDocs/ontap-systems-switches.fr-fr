@@ -11,7 +11,7 @@ summary: 'Présentation de l"installation et de la configuration des commutateur
 
 
 [role="lead"]
-Les commutateurs Cisco Nexus 3232C font partie de la plateforme Cisco Nexus 9000 et peuvent être installés dans une armoire système NetApp.
+Les commutateurs Cisco Nexus 3232C font partie de la plateforme Cisco Nexus 3000 et peuvent être installés dans une armoire système NetApp.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 3232C.
 

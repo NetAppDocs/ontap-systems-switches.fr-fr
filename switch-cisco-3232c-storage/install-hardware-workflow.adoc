@@ -20,3 +20,7 @@ Installez le commutateur de stockage 3232C.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-cisco-nexus-3232c-storage.html["Installez le commutateur dans une armoire NetApp."]
 [role="quick-margin-para"]
 Installez le commutateur de stockage 3232C et le panneau de passage dans une armoire NetApp selon les besoins.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:cabling-considerations-3232c-storage.html["Examiner les considérations relatives au câblage et à la configuration"]
+[role="quick-margin-para"]
+Examinez les considérations relatives au câblage et à la configuration pour le commutateur de stockage 3232C.

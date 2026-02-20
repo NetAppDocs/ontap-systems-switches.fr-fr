@@ -15,91 +15,9 @@ Vous installez le fichier de configuration de référence (RCF) après avoir con
 
 Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 
-.Configurations RCF disponibles
-Le tableau suivant décrit les RCF disponibles pour différentes configurations. Choisissez le RCF applicable à votre configuration. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] pour plus d'informations.
+.Configuration RCF disponible
+Stockage - (Storage RCF 1._xx_) est la configuration RCF disponible où tous les ports sont configurés pour des connexions de stockage NVMe 100GbE.
 
-Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et notes importantes de votre RCF.
-
-[cols="1,2"]
-|===
-| Nom du RCF | Description 
-
-
- a| 
-2-Cluster-HA-Breakout
- a| 
-Prend en charge deux clusters ONTAP avec au moins huit nœuds, y compris les nœuds qui utilisent des ports Cluster+HA partagés.
-
-
-
- a| 
-4-Cluster-HA-Breakout
- a| 
-Prend en charge quatre clusters ONTAP avec au moins quatre nœuds, y compris les nœuds qui utilisent des ports Cluster+HA partagés.
-
-
-
- a| 
-1-Cluster-HA
- a| 
-Tous les ports sont configurés pour le 40/100GbE.  Prend en charge le trafic partagé de cluster/HA sur les ports.  Requis pour les systèmes AFF A320, AFF A250 et FAS500f .  De plus, tous les ports peuvent être utilisés comme ports de cluster dédiés.
-
-
-
- a| 
-1-Cluster-HA-Breakout
- a| 
-Les ports sont configurés pour une sortie 4x10GbE, une sortie 4x25GbE (RCF 1.6+ sur les commutateurs 100GbE) et 40/100GbE.  Prend en charge le trafic de cluster partagé/HA sur les ports pour les nœuds qui utilisent des ports de cluster partagé/HA : systèmes AFF A320, AFF A250 et FAS500f .  De plus, tous les ports peuvent être utilisés comme ports de cluster dédiés.
-
-
-
- a| 
-Cluster-HA-Stockage
- a| 
-Les ports sont configurés pour 40/100GbE pour Cluster+HA, 4 ports de dérivation 10GbE pour Cluster et 4 ports de dérivation 25GbE pour Cluster+HA, et 100GbE pour chaque paire de stockage HA.
-
-
-
- a| 
-Cluster
- a| 
-Deux variantes de RCF avec des allocations différentes de ports 4x10GbE (breakout) et de ports 40/100GbE. Tous les nœuds FAS et AFF sont pris en charge, à l'exception des systèmes AFF A320, AFF A250 et FAS500f .
-
-
-
- a| 
-Stockage
- a| 
-Tous les ports sont configurés pour les connexions de stockage NVMe 100GbE.
-
-|===
-.RCF disponibles
-Le tableau suivant répertorie les RCF disponibles pour les commutateurs 9336C-FX2 et 9336C-FX2-T.  Choisissez la version RCF adaptée à votre configuration. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] pour plus d'informations.
-
-[cols="1"]
-|===
-| Nom du RCF 
-
-
- a| 
-Cluster-HA-Breakout RCF 1._xx_
-
-
-
- a| 
-Cluster-HA-Stockage RCF 1._xx_
-
-
-
- a| 
-Stockage RCF 1._xx_
-
-
-
- a| 
-MultiCluster-HA RCF 1._xx_
-
-|===
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 +
@@ -114,10 +32,8 @@ Consultez les guides logiciels et de mise à niveau appropriés disponibles sur 
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
-* Les noms des deux commutateurs Cisco sont cs1 et cs2.
-* Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
-* Les noms LIF du cluster sont node1-01_clus1, node1-01_clus2, node1-02_clus1, node1-02_clus2, node1-03_clus1, node1-03_clus2, node1-04_clus1 et node1-04_clus2.
-* Le `cluster1::*>` L'invite indique le nom du cluster.
+* Les noms des deux commutateurs Cisco sont s1 et s2.
+* Les noms des nœuds sont cluster1-01 et cluster1-02.
 
 
 Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.

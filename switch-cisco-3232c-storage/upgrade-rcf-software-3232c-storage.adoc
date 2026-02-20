@@ -1,5 +1,5 @@
 ---
-permalink: switch-cisco-9336c-fx2-storage/upgrade-rcf-software-9336c-storage.html 
+permalink: switch-cisco-3232c-storage/upgrade-rcf-software-3232c-storage.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
 summary: Vous pouvez utiliser cette procédure pour mettre à niveau votre version RCF. 
@@ -21,7 +21,7 @@ Assurez-vous d'avoir les éléments suivants :
 * Le RCF actuel.
 * Si vous mettez à jour votre version RCF, vous avez besoin d'une configuration de démarrage dans RCF qui reflète les images de démarrage souhaitées.
 +
-Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit instanciée lors des prochains redémarrages.
+Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit incluse dans les futurs redémarrages.
 
 
 
@@ -63,12 +63,11 @@ Node/       Local  Discovered
 Protocol    Port   Device (LLDP: ChassisID) Interface       Platform
 ----------- ------ ------------------------ --------------- ---------
 cluster1-01/cdp
-            e5a    s1                       Ethernet1/7     N9K-C9336C
-            e3b    s2                       Ethernet1/7     N9K-C9336C
+            e5a    s1                       Ethernet1/7     N3K-C3232C
+            e3b    s2                       Ethernet1/7     N3K-C3232C
 cluster1-02/cdp
-            e5a    s1                       Ethernet1/8     N9K-C9336C
-            e3b    s2                       Ethernet1/8     N9K-C9336C
-.
+            e5a    s1                       Ethernet1/8     N3K-C3232C
+            e3b    s2                       Ethernet1/8     N3K-C3232C
 .
 .
 ----
@@ -143,14 +142,14 @@ system switch ethernet show
 cluster1::*> *system switch ethernet show*
   Switch            Type               Address          Model
   ----------------- ------------------ ---------------- ---------------
-  s1                storage-network    1.2.3.4          N9K-C9336C-FX2
+  s1                storage-network    1.2.3.4          N3K-C3232C
      Serial Number: FFFXXXXXXX1
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
                     10.3(4a)
     Version Source: CDP/ISDP
-  s2                storage-network    2.3.4.5          N9K-C9336C-FX2
+  s2                storage-network    2.3.4.5          N3K-C3232C
      Serial Number: FEEXXXXXXX2
       Is Monitored: true
             Reason: None
@@ -174,7 +173,7 @@ cluster1::*> *system switch ethernet show*
 ----
 s2> *enable*
 s2# *configure*
-s2(config)# *interface e1/1-36*
+s2(config)# *interface e1/1-32*
 s2(config-if-range)# *shutdown*
 s2(config-if-range)# *exit*
 s2(config)# *exit*
@@ -206,16 +205,19 @@ Assurez-vous de configurer les éléments suivants :
 
 ====
 +
-`s2# show run | i "username admin password" > bootflash:write_erase.cfg`
+`s2# show run | section "switchname" > bootflash:write_erase.cfg`
+
++
+`s2# show run | section "hostname" >> bootflash:write_erase.cfg`
+
++
+`s2# show run | i "username admin password" >> bootflash:write_erase.cfg`
 
 +
 `s2# show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
 +
 `s2# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
-
-+
-`s2# show run | section "switchname" >> bootflash:write_erase.cfg`
 
 +
 Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
@@ -251,7 +253,7 @@ Vous devrez peut-être mettre à jour les entrées du fichier host relatives aux
 
 . Copiez le RCF dans la bootflash du switch s2 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, consultez le guide approprié dans le  https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html#CommandReferences["Documentation Cisco Nexus 3000 Series NX-OS"^].
 
 +
 .Afficher un exemple
@@ -262,7 +264,7 @@ Cet exemple montre TFTP utilisé pour copier un RCF dans la bootflash sur le com
 [listing, subs="+quotes"]
 ----
 s2# *copy tftp: bootflash: vrf management*
-Enter source filename: *NX9336C-FX2-RCF-v1.13-1-Storage.txt*
+Enter source filename: *NX3232C-RCF-v1.13-1-Storage.txt*
 Enter hostname for the tftp server: *172.22.201.50*
 Trying to connect to tftp server......Connection to Server Established.
 TFTP get operation was successful
@@ -271,15 +273,15 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Documentation Cisco Nexus 3000 Series"^].
 
 +
-Cet exemple montre le fichier RCF `NX9336C-FX2-RCF-v1.13-1-Storage.txt` en cours d'installation sur le commutateur s2 :
+Cet exemple montre le fichier RCF `NX3232C-RCF-v1.13-1-Storage.txt` en cours d'installation sur le commutateur s2 :
 
 +
 [listing, subs="+quotes"]
 ----
-s2# *copy NX9336C-FX2-RCF-v1.13-1-Storage.txt running-config echo-commands*
+s2# *copy NX3232C-RCF-v1.13-1-Storage.txt running-config echo-commands*
 ----
 +
 [CAUTION]
@@ -306,7 +308,7 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 . Réappliquez les personnalisations précédentes à la configuration du commutateur.
 . Après avoir vérifié que les versions RCF, les ajouts personnalisés et les paramètres des commutateurs sont corrects, copiez le `running-config` fichier au `startup-config` déposer.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Documentation Cisco Nexus 9000 Series"^].
 
 +
 `s2# *copy running-config startup-config*`
@@ -388,17 +390,17 @@ system switch ethernet show
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::> *system switch ethernet show*
+cluster1::*> *system switch ethernet show*
   Switch           Type               Address          Model
   ---------------- ------------------ ---------------- ---------------
-  s1               storage-network    1.2.3.4          N9K-C9336C-FX2
+  s1               storage-network    1.2.3.4          N3K-C3232C
      Serial Number: FFFXXXXXXX1
       Is Monitored: true
             Reason: None
   Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
                     10.3(4a)
     Version Source: CDP/ISDP
-  s2               storage-network    2.3.4.5          N9K-C9336C-FX2
+  s2               storage-network    2.3.4.5          N3K-C3232C
      Serial Number: FEEXXXXXXX2
       Is Monitored: true
             Reason: None
@@ -418,7 +420,7 @@ cluster1::> *system switch ethernet show*
 
 Effectuez les étapes suivantes sur chaque commutateur de stockage pour vérifier que le réseau de stockage fonctionne correctement après la mise à niveau RCF.
 
-. Vérifiez que les ports du commutateur connectés aux ports de stockage du nœud et aux ports de l'étagère de stockage sont *up*.
+. Vérifiez que les ports du commutateur sont *up*.
 +
 [source, cli]
 ----

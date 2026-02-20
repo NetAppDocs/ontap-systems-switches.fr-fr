@@ -35,6 +35,20 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 == Étape 1 : Préparer la mise à niveau
 
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=xh`
+
++
+Où _x_ représente la durée de la fenêtre de maintenance en heures.
+
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
++
+`set -privilege advanced`
+
++
+L'invite avancée (*>) apparaît.
+
 . Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 `network device-discovery show`

@@ -25,6 +25,8 @@ entries:
     url: "/switch-cisco-9336c-fx2-storage/install-9336c-storage.html"
   - title: Installer le commutateur dans l'armoire NetApp
     url: "/switch-cisco-9336c-fx2-storage/install-switch-and-passthrough-panel-9336c-storage.html"
+  - title: Vérifier le câblage et la configuration
+    url: "/switch-cisco-9336c-fx2-storage/cabling-considerations-9336c-storage.html"
 - title: Configurer le logiciel
   pdf-filename: Configurer_logiciel_9336c-fx2-stockage
   entries:

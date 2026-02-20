@@ -1,0 +1,41 @@
+---
+permalink: switch-cisco-3232c-storage/cabling-considerations-3232c-storage.html 
+sidebar: sidebar 
+keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
+summary: Avant de configurer votre commutateur Cisco 3232C, consultez les informations suivantes. 
+---
+= Examiner les considérations relatives au câblage et à la configuration
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant de configurer vos commutateurs 3232C, examinez les exigences de câblage et de configuration.
+
+
+
+== Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7
+
+Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.
+
+[listing, subs="+quotes"]
+----
+(s1)(config)# interface Ethernet1/19
+*For 100GbE speed:*
+(s1)(config-if)# *speed 100000*
+*For 40GbE speed:*
+(s1)(config-if)# *speed 40000*
+(s1)(config-if)# no negotiate auto
+(s1)(config-if)# exit
+(s1)(config)# exit
+*Save the changes:*
+(s1)# *copy running-config startup-config*
+----
+
+
+== Informations connexes
+
+* Consultez  https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
+* Voir  https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+

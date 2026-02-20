@@ -16,7 +16,7 @@ Suivez cette procédure pour installer et configurer le commutateur Cisco Nexus 
 .Avant de commencer
 * Accès à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et le fichier de configuration de référence (RCF) applicables.
 * Version NX-OS applicable, téléchargée depuis https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
-* Documentation requise concernant le réseau de cluster et le commutateur de réseau de gestion.
+* Documentation requise concernant le réseau et la documentation du commutateur réseau de gestion.
 +
 Voir link:required-documentation-3232c-storage.html["Documents requis"] pour plus d'informations.
 
@@ -25,12 +25,11 @@ Voir link:required-documentation-3232c-storage.html["Documents requis"] pour plu
 https://netapp.com/us/documenation/index.aspx["Documentation NetApp"^]
 
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
-* Fiches de câblage complétées.
-* Fichiers de configuration de ressources (RCF) applicables pour les réseaux de cluster et de gestion NetApp , téléchargeables depuis le site de support NetApp à l'adresse suivante : http://mysupport.netapp.com/["monsupport.netapp.com"^] pour les commutateurs que vous recevez.  Tous les commutateurs de réseau de cluster et de réseau de gestion Cisco sont livrés avec la configuration d'usine standard Cisco .  Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCF n'y sont pas chargés.
+* Fichiers RCF applicables aux réseaux de stockage et de gestion NetApp, téléchargés depuis le site de support NetApp à  http://mysupport.netapp.com/["monsupport.netapp.com"^] pour les commutateurs que vous recevez. Tous les commutateurs de réseau de stockage et de gestion Cisco sont livrés avec la configuration d'usine standard Cisco. Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCF ne sont pas chargés.
 
 
 .Étapes
-. Installez le réseau de cluster ainsi que les commutateurs et contrôleurs du réseau de gestion.
+. Installez les commutateurs du réseau de stockage, les commutateurs du réseau de gestion et les contrôleurs.
 +
 [cols="1,2"]
 |===
@@ -50,9 +49,9 @@ Consultez le guide _Installation d’un commutateur Cisco Nexus 3232C et d’un 
 Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
 
 |===
-. Câblez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs en utilisant les feuilles de câblage remplies.
-. Mise sous tension des commutateurs et contrôleurs du réseau de cluster et du réseau de gestion.
-. Effectuez une configuration initiale des commutateurs du réseau du cluster.
+. Câblez les commutateurs du réseau de stockage et du réseau de gestion aux contrôleurs à l'aide des feuilles de câblage complétées.
+. Mettez sous tension les commutateurs du réseau de stockage, du réseau de gestion et les contrôleurs.
+. Effectuez une configuration initiale des commutateurs du réseau de stockage.
 +
 Veuillez fournir les réponses appropriées aux questions de configuration initiale suivantes lors du premier démarrage du commutateur.  La politique de sécurité de votre site définit les réponses et les services à activer.
 
@@ -215,7 +214,7 @@ NOTE: Si vous ne sauvegardez pas la configuration à cette étape, aucune des mo
 
 |===
 . Vérifiez les choix de configuration que vous avez effectués dans l'écran qui apparaît à la fin de l'installation et assurez-vous d'enregistrer la configuration.
-. Vérifiez la version sur les commutateurs du réseau du cluster et, si nécessaire, téléchargez la version du logiciel prise en charge par NetApp sur les commutateurs à partir de la page  https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^].
+. Vérifiez la version installée sur les commutateurs réseau et, si nécessaire, téléchargez la version du logiciel prise en charge par NetApp sur les commutateurs depuis la  https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
 
 
 .Quelle est la prochaine étape ?

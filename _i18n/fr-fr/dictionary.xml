@@ -4707,7 +4707,6 @@
   <block id="80ba4b0b3a217933f761ba1440471dee" category="paragraph">X-MTEF-KIT-E</block>
   <block id="65adcaebf2b7d6b4197e6a8aff31717f" category="paragraph">Kit de rails, interrupteur unique NVIDIA à faible profondeur</block>
   <block id="8a6e8b822a02f19c1d150c230a03bf69" category="inline-link">installation de votre kit d'aiguillage et de rail SN2100</block>
-  <block id="865b448eabcf17df6b422f9231393d1a" category="admonition">Consultez la documentation NVIDIA pour plus de détails.<block ref="39747b316e7d3df3f73757faf591c2d2" category="inline-link-rx"></block> .</block>
   <block id="4ecfcea68abfc6c5e768c0c05c979d4c" category="paragraph">Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le <block ref="49a5e49bddaeabf84f2ee5cfa4f2c2f8" category="inline-link-macro-rx"></block>.</block>
   <block id="2e48063923d7005a1d5b4c086c0a902a" category="summary">Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 GbE fonctionnant sous Cumulus Linux.  Le commutateur SN2100 prend en charge les applications de cluster et de stockage dans ONTAP 9.10.1 sur différentes paires de commutateurs.</block>
   <block id="4e66bc15577ca34b137ec086186da6aa" category="doc">Flux de travail d'installation et de configuration pour les commutateurs NVIDIA SN2100</block>
@@ -4842,7 +4841,6 @@
   <block id="ed3b40beeb91dc0a99c4580cb378b4b6" category="paragraph">Après avoir installé Cumulus Linux en mode Cumulus, vous <block ref="83ca9f457d58548616bdf5d734a73df4" category="inline-link-macro-rx"></block>.</block>
   <block id="c5e47af2eefc12b7d3685bd941d8a3d9" category="doc">Installez le matériel pour le commutateur NVIDIA SN2100</block>
   <block id="17229d37b35d8241550712be833af4b9" category="inline-link">Guide d'installation de la NVIDIA Switch</block>
-  <block id="0a24c8e3b4ea2ca8a30ceee3856e7638" category="list-text">Suivez les instructions dans<block ref="f3871f65af7ce4ce4161567e6adce2a8" category="inline-link-rx"></block> .</block>
   <block id="15f4bb46c2f563d794f12c95f7363bc3" category="paragraph">Une fois votre matériel installé, vous pouvez<block ref="b80562321e7105a297052828d3712cf7" category="inline-link-macro-rx"></block> exigences.</block>
   <block id="c7a001e5237d88fee0ed6a186bf5042e" category="summary">Avant de configurer les commutateurs de cluster NVIDIA SN2100, consultez la présentation de la configuration.</block>
   <block id="19613dba5f729ac14e1b40a3e61a1ab9" category="doc">Flux de travail d'installation matérielle pour les commutateurs NVIDIA SN2100</block>
@@ -5875,4 +5873,10 @@
   <block id="888d27af1c8bead4bc090f7b57fe47dc" category="paragraph"><block ref="03642bd9ef2a92e7a683427a90d69064" prefix="" category="inline-code"></block></block>
   <block id="9c16d25919d69afd920c43d400da0ea8" category="paragraph"><block ref="e374209cc99be20be59ee159164d8226" prefix="" category="inline-code"></block></block>
   <block id="ab72b57a9a9f0e3ccd70b04752a4b2dc" category="list-text">Vérifiez que les ports du commutateur connectés aux ports de stockage du nœud et aux ports de l'étagère de stockage sont *up*.</block>
+  <block id="3050ed36cf7b28894b3ecbbbe2742aa2" category="list-text">Mettez à niveau l'image EPLD et redémarrez le commutateur. Si vous utilisez NX-OS 10.5(3)F ou une version ultérieure, vous n'avez pas besoin d'effectuer une mise à niveau séparée de l'image EPLD car l'image EPLD est incluse dans l'image NX-OS. Ignorez cette étape et continuez avec la vérification de l'état des ports du cluster.</block>
+  <block id="6ff0796068f0d678948e289319a2aa28" category="admonition">Consultez la documentation NVIDIA pour plus de détails sur <block ref="2e91dc3447d8fccbe6ba718f9aaf0270" category="inline-link-macro-rx"></block>.</block>
+  <block id="8b1e9b3cc32c2a1cf644a1cfe3dab553" category="summary">Pour installer le matériel SN2100, reportez-vous à la documentation NVIDIA.</block>
+  <block id="c10fbc8cfb6421490d3e923dc2ea002a" category="paragraph">L'installation du commutateur NVIDIA SN2100 est une première étape cruciale dans la construction d'une infrastructure réseau fiable et évolutive pour prendre en charge la protection des données, la réplication et les flux de travail de gestion.</block>
+  <block id="1fcad359e819ec24939bbd1dc0e8cb54" category="paragraph">Suivez ces étapes pour installer et configurer vos commutateurs SN2100. Consultez la documentation NVIDIA pour obtenir des instructions détaillées.</block>
+  <block id="e14e8d7df79579d38cad8a73b8f91767" category="list-text">Suivez les instructions dans le <block ref="a88c9397b5cfa4ad77a6fd0eed261f5e" category="inline-link-macro-rx"></block>.</block>
 </blocks>

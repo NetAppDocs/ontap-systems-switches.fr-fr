@@ -72,7 +72,7 @@ Kit de rails, interrupteur unique NVIDIA à faible profondeur
 
 |===
 
-NOTE: Consultez la documentation NVIDIA pour plus de détails. https://docs.nvidia.com/networking/display/sn2000pub/Installation["installation de votre kit d'aiguillage et de rail SN2100"^] .
+NOTE: Consultez la documentation NVIDIA pour plus de détails sur link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["installation de votre kit d'aiguillage et de rail SN2100"^].
 
 .Quelle est la prochaine étape
 Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le link:required-documentation-sn2100-storage.html["documentation requise"].

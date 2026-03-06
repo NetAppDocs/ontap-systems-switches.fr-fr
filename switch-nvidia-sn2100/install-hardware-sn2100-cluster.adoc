@@ -11,11 +11,13 @@ summary: Pour installer le matériel SN2100, reportez-vous à la documentation N
 
 
 [role="lead"]
-Pour installer le matériel SN2100, reportez-vous à la documentation NVIDIA.
+L'installation du commutateur NVIDIA SN2100 est une première étape cruciale dans la construction d'une infrastructure réseau fiable et évolutive pour prendre en charge la protection des données, la réplication et les flux de travail de gestion.
+
+Suivez ces étapes pour installer et configurer vos commutateurs SN2100. Consultez la documentation NVIDIA pour obtenir des instructions détaillées.
 
 .Étapes
 . Examinerlink:configure-reqs-sn2100-cluster.html["exigences de configuration"] .
-. Suivez les instructions dans https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation de la NVIDIA Switch"^] .
+. Suivez les instructions dans le link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation de la NVIDIA Switch"^].
 
 
 .Quelle est la prochaine étape ?

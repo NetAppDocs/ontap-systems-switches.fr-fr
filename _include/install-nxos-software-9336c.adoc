@@ -444,7 +444,7 @@ plugin
 Active Package(s):
 ----
 ====
-. Mettez à jour l'image EPLD et redémarrez le commutateur.
+. Mettez à niveau l'image EPLD et redémarrez le commutateur. Si vous utilisez NX-OS 10.5(3)F ou une version ultérieure, vous n'avez pas besoin d'effectuer une mise à niveau séparée de l'image EPLD car l'image EPLD est incluse dans l'image NX-OS. Ignorez cette étape et continuez avec la vérification de l'état des ports du cluster.
 +
 .Afficher un exemple
 [%collapsible]

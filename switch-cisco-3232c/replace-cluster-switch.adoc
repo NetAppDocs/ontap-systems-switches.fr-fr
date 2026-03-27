@@ -38,7 +38,7 @@ Le commutateur Cisco Nexus 3232C de remplacement présente les caractéristiques
 
 
 .Pour plus d'informations
-Voir ce qui suit :
+Reportez-vous à ce qui suit :
 
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 * link:http://hwu.netapp.com["Hardware Universe"^]
@@ -52,7 +52,7 @@ Voir ce qui suit :
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
 
 * Laissez AutoSupport activé pendant la maintenance.
-* Déclenchez une intervention de maintenance AutoSupport avant et après la maintenance afin de désactiver la création de tickets pendant toute la durée de celle-ci.  Consultez cet article de la base de connaissanceslink:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus de détails.
+* Déclenchez une maintenance AutoSupport avant et après la maintenance afin de désactiver la création de tickets pendant toute la durée de la maintenance. Consultez cet article de la Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus de détails.
 * Activez la journalisation des sessions pour toutes les sessions CLI.  Pour savoir comment activer la journalisation des sessions, consultez la section « Journalisation des sorties de session » de cet article de la base de connaissances.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
 
 
@@ -87,7 +87,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 Le nombre de ports 10 GbE et 40/100 GbE est défini dans les fichiers de configuration de référence (RCF) disponibles à l'adresse suivante :link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence du commutateur réseau en cluster Cisco"^] .
 
-Les exemples de cette procédure de remplacement utilisent quatre nœuds.  Deux des nœuds utilisent quatre ports d'interconnexion de cluster de 10 Go : e0a, e0b, e0c et e0d.  Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 Go : e4a et e4e.  Voir lelink:https://hwu.netapp.com["Hardware Universe"^] pour vérifier les ports de cluster corrects pour votre plateforme.
+Les exemples de cette procédure de remplacement utilisent quatre nœuds. Deux des nœuds utilisent quatre ports d'interconnexion de cluster de 10 GB : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux ports d'interconnexion de cluster de 40 GB : e4a et e4e. Reportez-vous à la link:https://hwu.netapp.com["Hardware Universe"^] pour vérifier les ports de cluster corrects pour votre plateforme.
 
 
 
@@ -95,7 +95,7 @@ Les exemples de cette procédure de remplacement utilisent quatre nœuds.  Deux 
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
-`system node autosupport invoke -node * -type all - message MAINT=xh`
+`system node autosupport invoke -node * -type all -message MAINT=xh`
 
 +
 _x_ représente la durée de la fenêtre de maintenance en heures.
@@ -462,7 +462,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 
 . Fermez les ports 1/31 et 1/32 sur le commutateur de cluster CL1.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -482,7 +482,7 @@ Pour plus d'informations sur les commandes Cisco , consultez les guides réperto
 . Retirez les câbles de liaison inter-commutateurs (ISL) des ports e1/31 et e1/32 du commutateur de cluster CL2 et reconnectez-les aux mêmes ports du commutateur de remplacement C2.
 . Activez les ports ISL 1/31 et 1/32 sur le commutateur de cluster CL1.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -500,7 +500,7 @@ Pour plus d'informations sur les commandes Cisco , consultez les guides réperto
 ====
 . Vérifiez que les ISL sont opérationnels sur CL1.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 Les ports Eth1/31 et Eth1/32 devraient indiquer `(P)` , ce qui signifie que les ports ISL sont actifs dans le canal de ports :
@@ -527,7 +527,7 @@ Group Port-        Type   Protocol  Member Ports
 ====
 . Vérifiez que les ISL sont opérationnels sur le commutateur de cluster C2.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple

@@ -11,7 +11,7 @@ summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, as
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toute la documentation recommandée.
+Pour l'installation du commutateur NVIDIA SN2100, assurez-vous de consulter toute la documentation recommandée.
 
 [cols="1,2"]
 |===
@@ -19,22 +19,46 @@ Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous
 
 
  a| 
-https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation de la NVIDIA Switch"^]
+link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation de la NVIDIA Switch"^]
  a| 
 Ce document explique comment installer vos commutateurs NVIDIA SN2100.
 
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guide de câblage pour étagère de disque NVMe NS224"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Guide de câblage pour étagère de disque NVMe NS224"^]
  a| 
 Vue d'ensemble et illustrations montrant comment configurer le câblage des baies de disques.
 
+|===
+
+
+== Documentation des systèmes ONTAP
+
+Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation.
+
+[cols="1,2"]
+|===
+| Nom | Description 
 
 
  a| 
-https://hwu.netapp.com/["Hardware Universe NetApp"^]
+Instructions d'installation et de configuration spécifiques à la manette
  a| 
-Permet de vérifier la compatibilité matérielle de votre modèle de plateforme, notamment avec les commutateurs et câbles de stockage.
+Ce document décrit la procédure d'installation du matériel NetApp .
+
+
+
+ a| 
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
+ a| 
+Fournit des informations détaillées sur tous les aspects des versions ONTAP .
+
+
+
+ a| 
+link:https://hwu.netapp.com/["Hardware Universe"^]
+ a| 
+Permet de confirmer le matériel pris en charge, comme les commutateurs de cluster et les câbles, pour votre modèle de plateforme.
 
 |===

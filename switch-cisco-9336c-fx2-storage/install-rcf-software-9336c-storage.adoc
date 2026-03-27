@@ -13,7 +13,7 @@ summary: Vous pouvez installer le RCF après avoir configuré pour la première 
 [role="lead"]
 Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs de stockage Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois.
 
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation de votre RCF.
+Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation de votre RCF.
 
 .Avant de commencer
 Vérifiez les installations et connexions suivantes :
@@ -31,7 +31,7 @@ Vérifiez les installations et connexions suivantes :
 . Connectez-vous au commutateur s2 à l'aide de SSH ou d'une console série.
 . Copiez le RCF dans la bootflash du switch s2 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 .Afficher un exemple
@@ -51,7 +51,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 .Afficher un exemple

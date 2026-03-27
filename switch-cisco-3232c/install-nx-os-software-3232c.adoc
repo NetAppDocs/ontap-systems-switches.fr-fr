@@ -468,7 +468,7 @@ cs2#
 ====
 . Si vous effectuez une mise à niveau vers NX-OS version 9.3(11), vous devez mettre à niveau l'EPLD. `golden` image et redémarrez le commutateur une nouvelle fois.  Sinon, passez à l'étape 12.
 +
-Voir https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Notes de version de la mise à niveau EPLD, version 9.3(11)"^] pour plus de détails.
+Reportez-vous à link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/93x/epld-rn/nxos_n9K_epldRN_9311.html["Notes de version de la mise à niveau EPLD, version 9.3(11)"^] pour plus de détails.
 
 +
 .Afficher un exemple

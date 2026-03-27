@@ -256,7 +256,7 @@ system switch ethernet log show
 --
 ====
 
-CAUTION: Si des erreurs sont signalées par la fonction de collecte des journaux (visibles dans la sortie de `system switch ethernet log show` ), voirlink:log-collection-troubleshoot.html["Résolution des problèmes liés à la collecte des journaux"] pour plus de détails.
+CAUTION: Si des états d'erreur sont signalés par la fonction de collecte des journaux (visibles dans la sortie de  `system switch ethernet log show`), reportez-vous à link:log-collection-troubleshoot.html["Résolution des problèmes liés à la collecte des journaux"] pour plus de détails.
 
 .Quelle est la prochaine étape ?
 link:config-snmpv3.html["Configurer SNMPv3 (facultatif)"].

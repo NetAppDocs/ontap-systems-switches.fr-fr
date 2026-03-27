@@ -24,7 +24,7 @@ Assurez-vous d'avoir les éléments suivants :
 +
 Tous les commutateurs de réseau de stockage et de gestion Cisco sont livrés avec la configuration d'usine standard Cisco. Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCF ne sont pas chargés.
 
-* Documentation requise pour le commutateur. Voirlink:required-documentation-9336c-storage.html["Documents requis"] pour plus d'informations.
+* Documentation requise pour le commutateur. Consultez link:required-documentation-9336c-storage.html["Documents requis"] pour plus d'informations.
 
 
 .Étapes
@@ -38,14 +38,14 @@ Tous les commutateurs de réseau de stockage et de gestion Cisco sont livrés av
  a| 
 Cisco Nexus 9336C-FX2 dans une armoire système NetApp
  a| 
-Voirlink:install-switch-and-passthrough-panel-9336c-storage.html["Installer le commutateur dans l'armoire NetApp"] pour obtenir les instructions d'installation du commutateur dans une armoire NetApp .
+Consultez link:install-switch-and-passthrough-panel-9336c-storage.html["Installer le commutateur dans l'armoire NetApp"] pour obtenir les instructions d'installation du commutateur dans une armoire NetApp.
 
 
 
  a| 
 Équipement dans une baie de télécommunications
  a| 
-Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
+Reportez-vous aux procédures fournies dans les guides d'installation du matériel du commutateur et aux instructions d'installation et de configuration NetApp.
 
 |===
 . Câblez les commutateurs réseau et de gestion aux contrôleurs en utilisant les feuilles de câblage complétées.

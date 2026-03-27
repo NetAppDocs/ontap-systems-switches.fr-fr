@@ -35,14 +35,14 @@ Assurez-vous d'avoir les éléments suivants :
  a| 
 Cisco Nexus 9336C-FX2 dans une armoire système NetApp
  a| 
-Consultez le guide _Installation d'un commutateur de cluster Cisco Nexus 9336C-FX2 et d'un panneau de transfert dans une armoire NetApp pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp .
+Reportez-vous au guide _Installation d’un commutateur de cluster Cisco Nexus 9336C-FX2 et d’un panneau de transfert dans une armoire NetApp_ pour obtenir des instructions sur l’installation du commutateur dans une armoire NetApp.
 
 
 
  a| 
 Équipement dans une baie de télécommunications
  a| 
-Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
+Reportez-vous aux procédures fournies dans les guides d'installation du matériel du commutateur et aux instructions d'installation et de configuration NetApp.
 
 |===
 . Câblez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs en utilisant les feuilles de câblage remplies.

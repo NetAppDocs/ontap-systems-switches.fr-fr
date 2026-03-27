@@ -24,7 +24,7 @@ Si vous souhaitez câbler le stockage NS224 en mode interrupteur, suivez le sch�
 
 image:9336c_image1.jpg["Interrupteur attaché"]
 
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+Reportez-vous à link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports du commutateur. Reportez-vous à link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 
@@ -34,7 +34,7 @@ Si vous souhaitez câbler le stockage NS224 en connexion directe au lieu d'utili
 
 image:9336c_image2.jpg["Fixation directe"]
 
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
+Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 
 
@@ -58,7 +58,7 @@ Où:
 
 == Feuille de câblage vierge
 
-Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  Le tableau « Connexions de cluster prises en charge » de l' Hardware Universe définit les ports de cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds d'un cluster. Le tableau « Connexions de cluster prises en charge » de la link:https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
 
 image:blank-cabling-worksheet.jpg["Feuille de câblage vierge"]
 

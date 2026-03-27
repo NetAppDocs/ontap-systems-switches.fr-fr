@@ -12,7 +12,7 @@ settings:
   langs: fr-fr,us-en,de-de,es-es,it-it,pt-br,ja-jp,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: Documentation des commutateurs pour les systèmes matériels ONTAP
+  - title: Documentation Switch pour les systèmes de stockage ONTAP
     url: "/index.html"
   - title: Commencer
     entries:

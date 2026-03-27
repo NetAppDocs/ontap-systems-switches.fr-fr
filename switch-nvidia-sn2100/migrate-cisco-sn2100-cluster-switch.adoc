@@ -17,7 +17,7 @@ Vous pouvez migrer les commutateurs de cluster Cisco d'un cluster ONTAP vers des
 
 == Exigences de révision
 
-Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez d'anciens commutateurs de cluster Cisco par des commutateurs de cluster NVIDIA SN2100. Voirlink:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"] .
+Vous devez être conscient de certaines informations de configuration, des connexions de ports et des exigences de câblage lorsque vous remplacez d'anciens commutateurs de cluster Cisco par des commutateurs de cluster NVIDIA SN2100. Reportez-vous à link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"].
 
 .Commutateurs pris en charge
 Les commutateurs de cluster Cisco suivants sont pris en charge :
@@ -29,7 +29,7 @@ Les commutateurs de cluster Cisco suivants sont pris en charge :
 * Nexus 3132Q-V
 
 
-Pour plus de détails sur les ports pris en charge et leurs configurations, consultez la documentation. https://hwu.netapp.com/["Hardware Universe"^] .
+Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Ce dont vous aurez besoin
 Assurez-vous que :
@@ -41,7 +41,7 @@ Assurez-vous que :
 +
 ** Un cluster NetApp redondant et pleinement fonctionnel utilisant des commutateurs Cisco plus anciens.
 ** Connectivité de gestion et accès console aux anciens commutateurs Cisco et aux nouveaux commutateurs.
-** Toutes les interfaces logiques (LIF) du cluster en état opérationnel sont connectées à leurs ports d'origine.
+** Toutes les interfaces logiques de cluster (LIF) en état actif sont connectées à leurs ports d'origine.
 ** Les ports ISL sont activés et câblés entre les anciens commutateurs Cisco et entre les nouveaux commutateurs.
 
 
@@ -50,7 +50,7 @@ Assurez-vous que :
 
 
 
-NOTE: Si vous modifiez la vitesse des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800 , vous pourriez observer la réception de paquets malformés après la conversion de vitesse.  Voir https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug 1570339"^] et l'article de la base de connaissances https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Erreurs CRC sur les ports T6 après conversion de 40 GbE à 100 GbE"^] pour vous guider.
+NOTE: Si vous modifiez la vitesse des ports de cluster e0a et e1a sur les systèmes AFF A800 ou AFF C800, vous pourriez constater la réception de paquets malformés après la conversion de la vitesse. Consultez link:https://mysupport.netapp.com/site/bugs-online/product/ONTAP/BURT/1570339["Bug 1570339"^] et l'article de la Knowledge Base link:https://kb.netapp.com/onprem/ontap/hardware/CRC_errors_on_T6_ports_after_converting_from_40GbE_to_100GbE["Erreurs CRC sur les ports T6 après conversion de 40 GbE à 100 GbE"^] pour obtenir des conseils.
 
 
 

@@ -14,7 +14,7 @@ summary: 'Le système d"exploitation Cumulus Linux (CL) peut être installé soi
 Suivez cette procédure pour installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur fonctionne en mode ONIE.
 
 
-NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute Cumulus Linux, soit lorsqu'il exécute ONIE (voirlink:install-cumulus-mode-sn2100-storage.html["Installation en mode Cumulus"] ).
+NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute Cumulus Linux ou ONIE (voir link:install-cumulus-mode-sn2100-storage.html["Installation en mode Cumulus"]).
 
 .À propos de cette tâche
 Vous pouvez installer Cumulus Linux en utilisant Open Network Install Environment (ONIE) qui permet la découverte automatique d'une image d'installation réseau.  Cela facilite la mise en place d'un modèle système de sécurisation des commutateurs avec un choix de système d'exploitation, tel que Cumulus Linux.  La méthode la plus simple pour installer Cumulus Linux avec ONIE consiste à utiliser la découverte HTTP locale.

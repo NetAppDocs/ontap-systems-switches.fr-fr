@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Découvrez les commutateurs en cluster, de stockage et partagés. 
 ---
-= En savoir plus sur les systèmes AFX, les clusters, le stockage et les commutateurs partagés
+= Découvrez les systèmes AFX, le cluster, le stockage et les commutateurs partagés
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -46,6 +46,7 @@ Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec pl
 Les commutateurs de stockage vous permettent d'acheminer les données entre les serveurs et les baies de stockage dans un réseau de stockage (SAN).  Les commutateurs de stockage compatibles avec NetApp incluent :
 
 * Cisco Nexus 9336C-FX2
+* Cisco Nexus 3232C
 * NVIDIA SN2100
 
 
@@ -60,12 +61,6 @@ Les commutateurs partagés vous permettent de combiner les fonctionnalités de c
 
 
 
-== Fin de disponibilité
+== Interrupteurs de fin de disponibilité
 
-Les commutateurs de stockage suivants ne sont plus disponibles à l'achat, mais bénéficient toujours d'un support technique :
-
-* Cisco Nexus 3232C
-* Cisco Nexus 3132Q-V
-* Cisco Nexus 92300YC
-* NetApp CN1610
-
+Pour obtenir la liste des commutateurs qui ne sont plus disponibles à l'achat, mais qui sont toujours pris en charge, veuillez consulter link:../overview-eod.html["Interrupteurs de fin de disponibilité"].

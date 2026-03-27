@@ -20,7 +20,7 @@ Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles rése
 == Préparez-vous à la mise à niveau
 
 .Avant de commencer
-* Téléchargez le logiciel Broadcom EFOS adapté à vos commutateurs de cluster depuis le site web. https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^] site.
+* Téléchargez le logiciel Broadcom EFOS adapté à vos commutateurs de cluster depuis le site link:https://www.broadcom.com/support/bes-switch["Prise en charge des commutateurs Ethernet Broadcom"^].
 * Veuillez consulter les notes suivantes concernant les versions d'EFOS.
 
 
@@ -143,7 +143,7 @@ NOTE: Mettez à niveau EFOS sur un commutateur à la fois pour assurer le foncti
 Pour mettre à jour le logiciel EFOS, procédez comme suit.
 
 
-IMPORTANT: Notez qu'après la mise à niveau des commutateurs de cluster BES-53248 d'EFOS 3.3.xx ou 3.4.xx vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et les canaux de ports sont marqués dans l'état *Down*.  Il s'agit d'un comportement normal et vous pouvez poursuivre la mise à niveau en toute sécurité, sauf si vous rencontrez des problèmes avec la restauration automatique des LIF.  Consultez l'article de la base de connaissances : https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["La mise à niveau du commutateur de cluster BES-53248 vers EFOS 3.7.0.4 et versions ultérieures a échoué."^] pour plus de détails.
+IMPORTANT: Veuillez noter qu'après la mise à niveau des commutateurs de cluster BES-53248 d'EFOS 3.3.x.x ou 3.4.x.x vers EFOS 3.7.0.4 ou 3.8.0.2, les liaisons inter-commutateurs (ISL) et les agrégats de liens sont marqués à l'état *Down*. Ce comportement est attendu et il est sûr de poursuivre la mise à niveau, sauf si vous rencontrez des problèmes avec la restauration automatique des LIFs. Consultez l'article de la Knowledge Base link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric%2C_Interconnect_and_Management_Switches/BES-53248_Cluster_Switch_NDU_failed_upgrade_to_EFOS_3.7.0.4_and_later["La mise à niveau du commutateur de cluster BES-53248 vers EFOS 3.7.0.4 et versions ultérieures a échoué."^] pour plus de détails.
 
 .Étapes
 . Connectez le commutateur de cluster BES-53248 au réseau de gestion.
@@ -363,7 +363,7 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 network interface show -vserver Cluster
 ----
 +
-Pour plus de détails, voirlink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Rétablir le port d'origine d'une interface réseau locale (LIF)"] .
+Pour plus de détails, veuillez vous référer à link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Rétablir le port d'origine d'une interface réseau locale (LIF)"^].
 
 
 
@@ -553,6 +553,6 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 network interface show -vserver Cluster
 ----
 +
-Pour plus de détails, voirlink:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Rétablir le port d'origine d'une interface réseau locale (LIF)"] .
+Pour plus de détails, veuillez vous référer à link:https://docs.netapp.com/us-en/ontap/networking/revert_a_lif_to_its_home_port.html["Rétablir le port d'origine d'une interface réseau locale (LIF)"^].
 
 

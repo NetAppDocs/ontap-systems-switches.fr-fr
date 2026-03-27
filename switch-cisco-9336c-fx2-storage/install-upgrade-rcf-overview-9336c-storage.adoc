@@ -13,7 +13,7 @@ summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nex
 [role="lead"]
 Vous installez le fichier de configuration de référence (RCF) après avoir configuré pour la première fois le commutateur de stockage Nexus 9336C-FX2. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
 
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
+Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 
 .Configuration RCF disponible
 Stockage - (Storage RCF 1._xx_) est la configuration RCF disponible où tous les ports sont configurés pour des connexions de stockage NVMe 100GbE.
@@ -36,7 +36,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Les noms des nœuds sont cluster1-01 et cluster1-02.
 
 
-Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.
+Reportez-vous à la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.
 
 
 NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.

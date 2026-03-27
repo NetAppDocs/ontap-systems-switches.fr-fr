@@ -49,8 +49,8 @@ entries:
       url: "/switch-cisco-9336c-fx2/upgrade-rcf-software-9336c-cluster.html"
   - title: Vérifier la configuration SSH
     url: "/switch-cisco-9336c-fx2/configure-ssh-keys.html"
-  - title: Réinitialiser le commutateur aux paramètres d'usine
-    url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
+- title: Réinitialiser le commutateur aux paramètres d'usine
+  url: "/switch-cisco-9336c-fx2/reset-switch-9336c.html"
 - title: Déplacer les commutateurs
   pdf-filename: Migrer_switches_9336c-fx2
   entries:

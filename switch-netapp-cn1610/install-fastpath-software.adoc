@@ -49,7 +49,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Le `cluster::*>` L'invite indique le nom du cluster.
 * Les ports du cluster sur chaque nœud sont nommés e1a et e2a.
 +
-https://hwu.netapp.com/["Hardware Universe"^]contient plus d'informations sur les ports de cluster réellement pris en charge sur votre plateforme.
+Le link:https://hwu.netapp.com/["Hardware Universe"^] contient plus d'informations sur les ports de cluster réellement pris en charge sur votre plateforme.
 
 * Les liaisons inter-commutateurs (ISL) prises en charge sont les ports 0/13 à 0/16.
 * Les connexions de nœuds prises en charge sont les ports 0/1 à 0/12.

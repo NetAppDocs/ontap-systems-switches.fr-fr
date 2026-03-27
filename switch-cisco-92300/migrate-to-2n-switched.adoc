@@ -18,7 +18,7 @@ La procédure à suivre dépend du fait que chaque contrôleur dispose de deux p
 La plupart des systèmes nécessitent deux ports réseau dédiés au cluster sur chaque contrôleur.
 
 
-NOTE: Une fois votre migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le moniteur d'intégrité du commutateur de cluster (CSHM) pour les commutateurs de cluster 92300YC. Voirlink:../switch-cshm/cshm-overview.html["Surveillance de l'état des commutateurs (CSHM)"] .
+NOTE: Une fois votre migration terminée, vous devrez peut-être installer le fichier de configuration requis pour prendre en charge le moniteur d'intégrité des commutateurs de cluster (CSHM) pour les commutateurs de cluster 92300YC. Consultez link:../switch-cshm/cshm-overview.html["Surveillance de l'état des commutateurs (CSHM)"].
 
 
 
@@ -41,7 +41,7 @@ Pour la configuration du commutateur Cisco Nexus 92300YC :
 * Il existe un accès console aux commutateurs du cluster.
 * Les connexions de nœud à nœud et de commutateur à commutateur du Nexus 92300YC utilisent des câbles twinax ou à fibre optique.
 +
-https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^]Contient plus d'informations sur le câblage.
+Le link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^] contient plus d'informations sur le câblage.
 
 * Les câbles Inter-Switch Link (ISL) sont connectés aux ports 1/65 et 1/66 sur les deux commutateurs 92300YC.
 * La personnalisation initiale des deux commutateurs 92300YC est terminée.  Afin que :
@@ -65,7 +65,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Le `cluster1::*>` L'invite indique le nom du cluster.
 * Les ports du cluster utilisés dans cette procédure sont e0a et e0b.
 +
-https://hwu.netapp.com["Hardware Universe"^]Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
+Le link:https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
 
 
 
@@ -311,7 +311,7 @@ Cluster
 ====
 . Déconnectez le câble du port de cluster e0a sur le nœud 1, puis connectez e0a au port 1 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 92300YC.
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["_Hardware Universe - Commutateurs_"^] Contient plus d'informations sur le câblage.
+Le link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^] contient plus d'informations sur le câblage.
 
 . Déconnectez le câble du port de cluster e0a sur node2, puis connectez e0a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 92300YC.
 . Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs1.

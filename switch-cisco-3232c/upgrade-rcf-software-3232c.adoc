@@ -193,7 +193,7 @@ cs2# *exit*
 ----
 +
 
-CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'éviter tout problème de connexion réseau.  Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
+CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
 
 . Vérifiez que les ports du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
@@ -306,7 +306,7 @@ Assurez-vous de configurer les éléments suivants : * Nom d'utilisateur et mot
 +
 Vous devrez peut-être mettre à jour les entrées du fichier host relatives aux clés SSH.
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+. Copiez le fichier RCF dans la mémoire bootflash du commutateur cs2 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 +
 .Afficher un exemple
 [%collapsible]
@@ -325,7 +325,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -363,7 +363,7 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 . Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-3232c.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
 . Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 [listing]

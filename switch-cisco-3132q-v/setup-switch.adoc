@@ -15,11 +15,11 @@ Suivez cette procédure pour configurer le commutateur Cisco Nexus 3132Q-V.
 
 .Avant de commencer
 * Accès à un serveur HTTP, FTP ou TFTP sur le site d'installation pour télécharger les versions NX-OS et le fichier de configuration de référence (RCF) applicables.
-* Version NX-OS applicable, téléchargée depuis https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
-* Documentation requise pour le commutateur réseau, le contrôleur et ONTAP . Pour plus d'informations, voir link:required-documentation-3132q.html["Documents requis"].
+* Version NX-OS applicable, téléchargée depuis link:https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^].
+* Documentation requise pour le commutateur réseau, la documentation du contrôleur et la documentation ONTAP. Pour plus d'informations, consultez link:required-documentation-3132q.html["Documents requis"].
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
-* Fiches de câblage complétées. Voirlink:setup_worksheet_3132q.html["Fiche de câblage complète du Cisco Nexus 3132Q-V"] .
-* Fichiers de configuration de ressources (RCF) applicables pour les réseaux de cluster et de gestion NetApp , téléchargeables depuis le site de support NetApp à l'adresse suivante : http://mysupport.netapp.com/["monsupport.netapp.com"^] pour les commutateurs que vous recevez.  Tous les commutateurs de réseau de cluster et de réseau de gestion Cisco sont livrés avec la configuration d'usine standard Cisco .  Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCF n'y sont pas chargés.
+* Fiches de câblage complétées. Voir link:setup_worksheet_3132q.html["Fiche de câblage complète du Cisco Nexus 3132Q-V"].
+* Fichiers de configuration réseau et de gestion RCFs NetApp applicables, téléchargés depuis le site de support NetApp à link:http://mysupport.netapp.com/["monsupport.netapp.com"^] pour les commutateurs que vous recevez. Tous les commutateurs Cisco pour réseaux de cluster et de gestion sont livrés avec la configuration d'usine standard Cisco. Ces commutateurs disposent également de la version actuelle du logiciel NX-OS, mais les RCFs n'y sont pas installés.
 
 
 .Étapes
@@ -33,14 +33,14 @@ Suivez cette procédure pour configurer le commutateur Cisco Nexus 3132Q-V.
  a| 
 Cisco Nexus 3132Q-V dans une armoire système NetApp
  a| 
-Consultez le guide _Installation d'un commutateur de cluster Cisco Nexus 3132Q-V et d'un panneau de transfert dans une armoire NetApp pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp .
+Reportez-vous au guide _Installation d'un commutateur de cluster Cisco Nexus 3132Q-V et d'un panneau de transfert dans une armoire NetApp_ pour obtenir des instructions sur l'installation du commutateur dans une armoire NetApp.
 
 
 
  a| 
 Équipement dans une baie de télécommunications
  a| 
-Consultez les procédures fournies dans les guides d'installation du matériel de commutation et les instructions d'installation et de configuration de NetApp .
+Reportez-vous aux procédures fournies dans les guides d'installation du matériel du commutateur et aux instructions d'installation et de configuration NetApp.
 
 |===
 . Câblez les commutateurs du réseau de cluster et du réseau de gestion aux contrôleurs en utilisant la feuille de câblage complétée, comme décrit danslink:setup_worksheet_3132q.html["Fiche de câblage complète du Cisco Nexus 3132Q-V"] .

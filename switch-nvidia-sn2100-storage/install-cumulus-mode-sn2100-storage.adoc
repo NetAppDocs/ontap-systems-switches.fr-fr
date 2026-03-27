@@ -14,7 +14,7 @@ summary: 'Le système d"exploitation Cumulus Linux (CL) peut être installé soi
 Suivez cette procédure pour installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur fonctionne en mode Cumulus.
 
 
-NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute Cumulus Linux, soit lorsqu'il exécute ONIE (voirlink:install-onie-mode-sn2100-storage.html["Installer en mode ONIE"] ).
+NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute Cumulus Linux, soit ONIE (voir link:install-onie-mode-sn2100-storage.html["Installer en mode ONIE"]).
 
 .Avant de commencer
 Assurez-vous que les éléments suivants sont disponibles :
@@ -385,7 +385,7 @@ cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
 +
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["La configuration du serveur NTP ne fonctionne pas avec les commutateurs NVIDIA SN2100."^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["La configuration du serveur NTP ne fonctionne pas avec les commutateurs NVIDIA SN2100."^] pour plus de détails.
 
 .. Vérifiez que `ntpd` est en cours d'exécution sur le système :
 +
@@ -508,7 +508,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
+Reportez-vous à link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d’informations.
 
 
 
@@ -627,7 +627,7 @@ cumulus@sw1:~$ *nv config apply*
 cumulus@sw1:~$ *nv config save*
 ----
 +
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["La configuration du serveur NTP ne fonctionne pas avec les commutateurs NVIDIA SN2100."^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Nvidia-KBs/NTP_Server_configuration_is_not_working_with_NVIDIA_SN2100_Switches["La configuration du serveur NTP ne fonctionne pas avec les commutateurs NVIDIA SN2100."^] pour plus de détails.
 
 .. Vérifiez que `ntpd` est en cours d'exécution sur le système :
 +
@@ -718,7 +718,7 @@ swp16      100G   swp   sw6                                       swp16
 ----
 
 
-Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
+Reportez-vous à link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d’informations.
 
 --
 ====

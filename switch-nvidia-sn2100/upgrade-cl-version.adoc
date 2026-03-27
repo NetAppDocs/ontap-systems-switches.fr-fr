@@ -39,7 +39,7 @@ NOTE: À chaque mise à jour de Cumulus Linux, l'intégralité de la structure d
 
 CAUTION: Le mot de passe par défaut du compte utilisateur Cumulus est *cumulus*.  Lors de votre première connexion à Cumulus Linux, vous devez modifier ce mot de passe par défaut.  Vous devez mettre à jour tous les scripts d'automatisation avant d'installer une nouvelle image.  Cumulus Linux propose des options en ligne de commande permettant de modifier automatiquement le mot de passe par défaut lors du processus d'installation.
 
-Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Installation d'une nouvelle image Cumulus Linux"^] pour plus d'informations.
+Reportez-vous à link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-510/Installation-Management/Installing-a-New-Cumulus-Linux-Image/["Installation d'une nouvelle image Cumulus Linux"^] pour plus d'informations.
 
 .Étapes
 [role="tabbed-block"]
@@ -273,7 +273,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
+Veuillez vous référer au link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
 
 
 
@@ -498,7 +498,7 @@ cumulus@sw1:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
+Reportez-vous à link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d’informations.
 
 
 

@@ -16,7 +16,7 @@ Suivez cette procédure pour installer ou mettre à jour le script RCF.
 .Avant de commencer
 Avant d'installer ou de mettre à jour le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
 
-* Cumulus Linux est installé.  Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour les versions prises en charge.
+* Cumulus Linux est installé. Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour connaître les versions prises en charge.
 * L'adresse IP, le masque de sous-réseau et la passerelle par défaut sont définis via DHCP ou configurés manuellement.
 
 
@@ -30,7 +30,7 @@ Les catégories de configuration de référence suivantes sont disponibles :
 |===
 
 
-| Cluster | Sur les ports configurés pour une dérivation 4x10GbE, un port est configuré pour une dérivation 4x25GbE et les autres ports sont configurés pour 40/100GbE. Prend en charge le trafic de cluster/HA partagé sur les ports pour les nœuds qui utilisent des ports de cluster/HA partagés. Consultez le tableau des plateformes dans l'article de la base de connaissances. https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quelles plates-formes AFF, ASA et FAS utilisent des ports Ethernet Cluster et HA partagés ?"^] . Tous les ports peuvent également être utilisés comme ports de cluster dédiés. 
+| Cluster | Sur les ports configurés pour une interface 4x10GbE, un port est configuré pour une interface 4x25GbE et les autres ports sont configurés pour une interface 40/100GbE. Prend en charge le trafic partagé de cluster/HA sur les ports pour les nœuds qui utilisent des ports partagés de cluster/HA. Consultez le tableau des plateformes dans l’article de la Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/What_AFF_ASA_and_FAS_platforms_use_shared_Cluster_and_HA_Ethernet_ports["Quelles plates-formes AFF, ASA et FAS utilisent des ports Ethernet Cluster et HA partagés ?"^]. Tous les ports peuvent également être utilisés comme ports de cluster dédiés. 
 
 
  a| 

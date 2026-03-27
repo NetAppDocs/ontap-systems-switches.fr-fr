@@ -11,7 +11,7 @@ summary: Découvrez les nouveaux commutateurs pour les systèmes FAS et AFF .
 
 
 [role="lead"]
-Découvrez les nouveaux commutateurs pour les systèmes FAS et AFF .  Pour plus d'informations sur les commutateurs, consultez le https://hwu.netapp.com/Switch/Index["Hardware Universe NetApp"^] .
+Découvrez les nouveaux commutateurs pour les systèmes de stockage ONTAP. Pour plus d'informations sur les commutateurs, consultez link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^].
 
 
 

@@ -18,7 +18,7 @@ Vous pouvez migrer depuis un cluster sans commutateur avec stockage à connexion
 
 La procédure à suivre dépend du fait que chaque contrôleur dispose de deux ports réseau de cluster dédiés ou d'un seul port de cluster par contrôleur.  Le processus décrit fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10Gb BASE-T intégrés pour les ports du réseau de cluster.
 
-La plupart des systèmes nécessitent deux ports réseau dédiés au cluster sur chaque contrôleur. Voir https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"] pour plus d'informations.
+La plupart des systèmes nécessitent deux ports réseau dédiés au cluster sur chaque contrôleur. Consultez link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] pour plus d'informations.
 
 Si vous disposez déjà d'un environnement de cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds à l'aide de commutateurs Cisco Nexus 9336C-FX2 pour vous permettre d'évoluer au-delà de deux nœuds dans le cluster.
 
@@ -41,7 +41,7 @@ Assurez-vous que :
 ** Les deux commutateurs disposent d'une connectivité au réseau de gestion.
 ** Il existe un accès console aux commutateurs du cluster.
 ** Les connexions de commutateur à commutateur et de commutateur à nœud Nexus 9336C-FX2 utilisent des câbles Twinax ou à fibre optique.
-** NetApp https://hwu.netapp.com["Hardware Universe"] Contient plus d'informations sur le câblage.
+** Le link:https://hwu.netapp.com["Hardware Universe"^] contient plus d'informations sur le câblage.
 ** Les câbles Inter-Switch Link (ISL) sont connectés aux ports 1/35 et 1/36 sur les deux commutateurs 9336C-FX2.
 
 
@@ -65,7 +65,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Les noms des SVM du cluster sont _node1_ et _node2_.
 * Les noms des LIF sont _node1_clus1_ et _node1_clus2_ sur le nœud 1, et _node2_clus1_ et _node2_clus2_ sur le nœud 2 respectivement.
 * L'invite cluster1::*> indique le nom du cluster.
-* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, conformément au contrôleur AFF A400 .  Le https://hwu.netapp.com["Hardware Universe"] Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
+* Les ports de cluster utilisés dans cette procédure sont _e3a_ et _e3b_, conformément au contrôleur AFF A400. Le link:https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes concernant les ports de cluster pour vos plateformes.
 
 
 
@@ -283,7 +283,7 @@ Cluster
 
 . [[étape9]]Débranchez le câble du port de cluster e3a sur le nœud 1, puis connectez e3a au port 1 sur le commutateur de cluster cs1, en utilisant le câblage approprié pris en charge par les commutateurs 9336C-FX2.
 +
-NetApp https://hwu.netapp.com["Hardware Universe"] Contient plus d'informations sur le câblage. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+Le link:https://hwu.netapp.com["Hardware Universe"^] contient plus d'informations sur le câblage. Reportez-vous à link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 . Déconnectez le câble du port de cluster e3a sur node2, puis connectez e3a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs 9336C-FX2.
 . Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs1.

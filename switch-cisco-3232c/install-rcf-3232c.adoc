@@ -13,7 +13,7 @@ summary: Vous pouvez installer RCF après avoir configuré le commutateur Nexus 
 [role="lead"]
 Suivez cette procédure pour installer le RCF après avoir configuré le commutateur Nexus 3232C pour la première fois.
 
-Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF. Consultez l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de la mise à niveau de votre RCF.
+Vous pouvez également utiliser cette procédure pour mettre à niveau votre version de RCF. Consultez l'article de la Knowledge Base link:https://kb.netapp.com/onprem/Switches/Cisco/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de la mise à niveau de votre RCF.
 
 
 
@@ -291,7 +291,7 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
 . Vérifiez que le `write_erase.cfg` Le fichier est rempli comme prévu :
 +
@@ -318,7 +318,7 @@ Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-pre
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+. Copiez le RCF dans la bootflash du switch cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^]
 +
 .Afficher un exemple
 [%collapsible]
@@ -337,7 +337,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^]
 
 +
 .Afficher un exemple
@@ -422,7 +422,7 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 . Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-3232c.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
 . Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^]
 
 +
 [listing]

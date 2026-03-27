@@ -33,10 +33,10 @@ Vous avez besoin des informations réseau suivantes pour toutes les configuratio
 * Sous-réseau IP pour le trafic du réseau de gestion
 * Noms d'hôte et adresses IP pour chacun des contrôleurs de système de stockage et tous les commutateurs applicables
 * La plupart des contrôleurs de système de stockage sont gérés via l'interface e0M en se connectant au port de service Ethernet (icône de clé). Sur les systèmes AFF A800 et AFF A700s , l'interface e0M utilise un port Ethernet dédié.
-* Se référer à https://hwu.netapp.com["Hardware Universe"] pour obtenir les informations les plus récentes.
+* Veuillez consulter le link:https://hwu.netapp.com["Hardware Universe"^] pour obtenir les informations les plus récentes.
 
 
-Pour plus d'informations sur la configuration initiale de votre commutateur, consultez le guide suivant : https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation et de mise à niveau du Cisco Nexus 9336C-FX2"] .
+Pour plus d'informations sur la configuration initiale de votre commutateur, reportez-vous à ce qui suit : link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation et de mise à niveau du Cisco Nexus 9336C-FX2"].
 
 .Quelle est la prochaine étape
 Après avoir examiné les exigences de configuration, vous pouvez confirmer votre link:components-9336c-storage.html["composants et numéros de pièces"].

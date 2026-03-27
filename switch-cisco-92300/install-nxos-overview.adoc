@@ -21,7 +21,7 @@ Assurez-vous d'avoir les éléments suivants :
 
 
 .À propos des exemples
-Les exemples de cette procédure utilisent deux nœuds.  Ces nœuds utilisent deux ports d'interconnexion de cluster 10GbE `e0a` et `e0b` .  Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster corrects sur vos plateformes.
+Les exemples de cette procédure utilisent deux nœuds. Ces nœuds utilisent deux ports d'interconnexion de cluster 10 GbE `e0a` et `e0b`. Consultez la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports de cluster appropriés sur vos plateformes.
 
 Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 

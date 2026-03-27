@@ -35,7 +35,7 @@ Si nécessaire, veuillez vous référer aux informations suivantes :
 == Déplacer les commutateurs
 
 .À propos des exemples
-Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d’interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux câbles à fibres optiques d'interconnexion de cluster 40 GbE : e4a et e4e. Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les câbles à fibres optiques en grappe sur vos plateformes. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+Les exemples de cette procédure utilisent quatre nœuds : deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d. Les deux autres nœuds utilisent deux câbles d'interconnexion de cluster fibre optique 40 GbE : e4a et e4e. Consultez la link:https://hwu.netapp.com/["Hardware Universe"^] pour obtenir des informations sur les câbles fibre optique de cluster de vos plateformes. Consultez l'article de la Knowledge Base link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 
@@ -199,7 +199,7 @@ CL2                           cluster-network  10.10.1.102   CN1610
 Vous devriez préparer les deux commutateurs dès maintenant.  Si vous devez mettre à niveau le RCF et l'image, vous devez suivre la procédure suivante :
 
 +
-.. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site d'assistance NetApp .
+.. Reportez-vous à link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] sur le site de support NetApp.
 .. Notez le modèle de votre commutateur et les versions logicielles requises dans le tableau de cette page.
 .. Téléchargez la version appropriée du RCF.
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
@@ -365,7 +365,7 @@ RPC status:
 ====
 . [[étape 3]] Fermez les ports ISL 13 à 16 sur le commutateur CN1610 actif CL1 à l'aide de la commande appropriée.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -385,7 +385,7 @@ L'exemple suivant montre la désactivation des ports ISL 13 à 16 sur le commuta
 ====
 . Établir une liaison inter-niveaux temporaire entre CL1 et C2 :
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -428,7 +428,7 @@ Lors du rebranchement de câbles sur le nouveau commutateur Cisco 3232C, les câ
 Cette configuration correspond à la configuration ISL sur le commutateur 3232C C2 lorsque les ISL sont activés sur les deux commutateurs.
 
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -448,7 +448,7 @@ L'exemple suivant montre la configuration de l'interface ISL 3/1 pour rendre l'I
 ====
 . Activez les ISL 13 à 16 sur le commutateur CN1610 actif CL1.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -505,7 +505,7 @@ Ports  Timeout       Speed       Active
 `show port-channel summary`
 
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 Les ports Eth1/24/1 à Eth1/24/4 doivent indiquer `(P)` , ce qui signifie que les quatre ports ISL sont actifs dans le canal de ports.  Eth1/31 et Eth1/32 devraient indiquer `(D)` car ils ne sont pas connectés.
@@ -796,7 +796,7 @@ cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ====
 . Fermez les ports ISL 24, 31 et 32 sur le commutateur 3232C actif C2.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -827,7 +827,7 @@ Vous devez connecter les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 su
 
 . Rétablissez la configuration sur le port 24 et supprimez le canal de port temporaire 2 sur C2 :
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -862,7 +862,7 @@ Copy Complete.
 ====
 . Activez les ports ISL 31 et 32 sur C2, le commutateur 3232C actif.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -884,7 +884,7 @@ Copy Complete.
 ====
 . Vérifiez que les connexions ISL sont `up` sur le commutateur 3232C C2.
 +
-Pour plus d'informations sur les commandes Cisco , consultez les guides répertoriés dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous aux guides répertoriés dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple

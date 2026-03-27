@@ -87,7 +87,7 @@ Les commutateurs du cluster utilisent les ports suivants pour les connexions aux
 * Ports e1/41-48 (10 GbE) : Nexus 5596
 * Ports e1/31-32 (40/100 GbE) : Nexus 3232C
 +
-** Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur le câblage pris en charge pour les commutateurs Nexus 3232C :
+** Le link:https://hwu.netapp.com/["Hardware Universe"^] contient des informations sur le câblage pris en charge pour les commutateurs Nexus 3232C :
 
 
 * Les nœuds dotés de connexions de cluster 10 GbE nécessitent des câbles de dérivation à fibre optique QSFP vers SFP+ ou des câbles de dérivation en cuivre QSFP vers SFP+.

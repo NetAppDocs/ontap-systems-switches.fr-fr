@@ -14,13 +14,13 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C
 
 
 [role="lead"]
-Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9336-FX2 et votre cluster ONTAP .
+Pour l'installation des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de consulter la documentation spécifique des commutateurs et des contrôleurs pour configurer vos commutateurs Cisco 9336-FX2 et le cluster ONTAP.
 
 
 
 == Documentation Switch
 
-Pour configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, vous aurez besoin de la documentation suivante : https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 9000"^] page:
+Pour configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, vous avez besoin de la documentation suivante de link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 9000"^].
 
 [cols="1,2"]
 |===
@@ -86,7 +86,7 @@ Fournit des informations sur la conformité aux normes internationales, la sécu
 
 == Documentation des systèmes ONTAP
 
-Pour configurer un système ONTAP , vous aurez besoin des documents suivants pour votre version du système d'exploitation : https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^] .
+Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation.
 
 [cols="1,2"]
 |===
@@ -101,14 +101,14 @@ Ce document décrit la procédure d'installation du matériel NetApp .
 
 
  a| 
-Documentation ONTAP
+link:https://docs.netapp.com/ontap-9/index.jsp["ONTAP 9"^]
  a| 
 Fournit des informations détaillées sur tous les aspects des versions ONTAP .
 
 
 
  a| 
-https://hwu.netapp.com["Hardware Universe"^]
+link:https://hwu.netapp.com["Hardware Universe"^]
  a| 
 Fournit des informations sur la configuration et la compatibilité du matériel NetApp .
 
@@ -117,7 +117,7 @@ Fournit des informations sur la configuration et la compatibilité du matériel 
 
 == documentation du kit de rails et de l'armoire
 
-Pour installer un commutateur Cisco 9336-FX2 dans une armoire NetApp , consultez la documentation matérielle suivante.
+Pour installer un commutateur Cisco 9336-FX2 dans une armoire NetApp, reportez-vous à la documentation matérielle suivante.
 
 [cols="1,2"]
 |===
@@ -125,7 +125,7 @@ Pour installer un commutateur Cisco 9336-FX2 dans une armoire NetApp , consultez
 
 
  a| 
-https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armoire système 42U, guide profond"^]
+link:https://library.netapp.com/ecm/ecm_download_file/ECMM1280394["Armoire système 42U, guide profond"^]
  a| 
 Décrit les FRU associées à l'armoire système 42U et fournit des instructions de maintenance et de remplacement des FRU.
 

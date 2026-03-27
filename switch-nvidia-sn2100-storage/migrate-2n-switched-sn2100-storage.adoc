@@ -35,10 +35,10 @@ Pour la configuration du commutateur de cluster NVIDIA SN2100, assurez-vous que�
 * Les connexions de nœud à nœud et de commutateur à commutateur du commutateur NVIDIA SN2100 utilisent des câbles Twinax ou à fibre optique.
 +
 
-NOTE: Voirlink:cabling-considerations-sn2100-storage.html["Considérations relatives au câblage et à la configuration"] pour les mises en garde et plus de détails.
+NOTE: Reportez-vous à link:cabling-considerations-sn2100-storage.html["Considérations relatives au câblage et à la configuration"] pour les mises en garde et plus de détails.
 
 +
-Le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^] Contient plus d'informations sur le câblage.
+Le link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^] contient plus d'informations sur le câblage.
 
 * Les câbles Inter-Switch Link (ISL) sont connectés aux ports swp15 et swp16 sur les deux commutateurs NVIDIA SN2100.
 * La personnalisation initiale des deux commutateurs SN2100 est terminée, de sorte que :
@@ -64,7 +64,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Les ports du cluster utilisés dans cette procédure sont _e3a_ et _e3b_.
 * Les ports de dérivation prennent le format : swp[port]s[port de dérivation 0-3].  Par exemple, quatre ports de dérivation sur swp1 sont _swp1s0_, _swp1s1_, _swp1s2_ et _swp1s3_.
 +
-Le https://hwu.netapp.com["Hardware Universe"^] Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
+Le link:https://hwu.netapp.com["Hardware Universe"^] contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
 
 
 

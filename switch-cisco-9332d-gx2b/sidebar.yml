@@ -38,8 +38,8 @@ entries:
       url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
   - title: Vérifiez que SSH est activé
     url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"
-  - title: Réinitialiser le commutateur aux paramètres d'usine
-    url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
+- title: Réinitialiser le commutateur aux paramètres d'usine
+  url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
 - title: Remplacer le commutateur 9332D-GX2B
   pdf-filename: Remplacer_commutateurs_9332d-gx2b
   url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"

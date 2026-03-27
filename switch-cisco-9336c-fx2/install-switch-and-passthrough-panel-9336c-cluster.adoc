@@ -33,7 +33,7 @@ Le kit de panneau de transfert NetApp contient le matériel suivant :
 
 NOTE: Les câbles de connexion ne sont pas inclus dans le kit de passage et doivent être fournis avec vos commutateurs.  S'ils n'ont pas été livrés avec les commutateurs, vous pouvez les commander auprès de NetApp (référence X1558A-R6).
 
-* Pour connaître les exigences de préparation initiale, le contenu de la trousse et les précautions de sécurité, consultez https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guide d'installation matérielle de la gamme Cisco Nexus 9000"^] .
+* Pour connaître les exigences de préparation initiale, le contenu du kit et les précautions de sécurité, reportez-vous au link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/aci_9336cfx2_hig/guide/b_n9336cFX2_aci_hardware_installation_guide.html["Guide d'installation matérielle de la gamme Cisco Nexus 9000"^].
 
 
 .Étapes

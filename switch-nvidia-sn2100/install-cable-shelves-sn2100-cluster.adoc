@@ -17,10 +17,7 @@ Si vous disposez d'un système dans lequel les baies de disques NS224 doivent ê
 +
 https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Étagères de disques durs NS224 avec commutateur de câblage"^]
 
-* Veuillez vérifier la compatibilité matérielle de votre modèle de plateforme, notamment avec les commutateurs et câbles de stockage :
-+
-https://hwu.netapp.com/["Hardware Universe NetApp"^]
-
+* Confirmez le matériel pris en charge, comme les commutateurs de stockage et les câbles, pour votre modèle de plateforme. Consultez la link:https://hwu.netapp.com/["Hardware Universe"^] pour plus de détails.
 
 
 .Quelle est la prochaine étape ?

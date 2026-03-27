@@ -879,7 +879,7 @@ Liaison interconnexion 100 GbE vers le port 36 du commutateur B
 Liaison interconnexion 100 GbE vers le port 36 du commutateur A
 
 |===
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
+Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 .Quelle est la prochaine étape
 Une fois vos feuilles de travail sur le câblage terminées, vous pouvez link:install-switch-9336c-cluster.html["installer le commutateur"].

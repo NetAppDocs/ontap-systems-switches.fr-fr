@@ -333,7 +333,7 @@ NOTE: Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez
 +
 Vous devrez peut-être mettre à jour les entrées du fichier host relatives aux clés SSH.
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+. Copiez le fichier RCF dans la mémoire bootflash du commutateur cs2 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 +
 .Afficher un exemple
 [%collapsible]
@@ -350,7 +350,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -383,17 +383,17 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 
 +
 
-NOTE: Pour connaître les étapes à suivre pour mettre vos ports 10 GbE en ligne après une mise à niveau du RCF, consultez l'article de la base de connaissanceslink:https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Les ports 10GbE d'un commutateur de cluster Cisco 3132Q ne sont pas mis en service."^] .
+NOTE: Pour connaître les étapes à suivre pour mettre vos ports 10GbE en ligne après une mise à niveau du RCF, reportez-vous à l’article de la Knowledge Base link:https://kb.netapp.com/onprem%2FSwitches%2FCisco%2F10GbE_ports_on_Cisco_3132Q_cluster_switch_do_not_come_online["Les ports 10GbE d'un commutateur de cluster Cisco 3132Q ne sont pas mis en service."^].
 
 
 
 . Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le `running-config` fichier à la `startup-config` déposer.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^]. .Afficher un exemple
 
-+
-.Afficher un exemple
-[%collapsible]
+
+
+[]
 ====
 [listing]
 ----

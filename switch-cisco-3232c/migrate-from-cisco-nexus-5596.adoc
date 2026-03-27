@@ -24,7 +24,7 @@ Avant la migration, assurez-vous de consulterlink:migrate-requirements-3232c.htm
 La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 ====
-Pour plus d'informations, voir :
+Pour plus d'informations, consultez :
 
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^]
 * link:http://hwu.netapp.com["Hardware Universe"^]
@@ -54,7 +54,7 @@ La procédure utilise également la nomenclature suivante pour les commutateurs 
 Les exemples de cette procédure utilisent quatre nœuds :
 
 * Deux nœuds utilisent quatre ports d'interconnexion de cluster 10 GbE : e0a, e0b, e0c et e0d.
-* Les deux autres nœuds utilisent deux ports d'interconnexion de cluster 40 GbE : e4a, e4e.  Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] liste les ports de cluster réels sur vos plateformes.
+* Les deux autres nœuds utilisent deux ports d'interconnexion de cluster 40 GbE : e4a, e4e. Le link:https://hwu.netapp.com/["Hardware Universe"^] répertorie les ports de cluster réels sur vos plateformes.
 
 
 .Scénarios
@@ -249,10 +249,10 @@ link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs 
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
 .. Téléchargez la version appropriée du logiciel de traitement d'images.
 +
-Consultez la page de téléchargement des fichiers de configuration de référence du commutateur réseau de cluster et de gestion __ONTAP 8.x ou version ultérieure__, puis cliquez sur la version appropriée.
+Consultez la page de téléchargement des __ONTAP 8.x or later Cluster and Management Network Switch Reference Configuration Files__, puis cliquez sur la version appropriée.
 
 +
-Pour trouver la version correcte, consultez la page de téléchargement du commutateur réseau de cluster _ONTAP 8.x ou version ultérieure_.
+Pour trouver la version correcte, reportez-vous à la page de téléchargement du commutateur réseau de cluster _ONTAP 8.x or later Cluster Network Switch Download page_.
 
 
 
@@ -416,7 +416,7 @@ RPC status:
 ====
 . [[étape 3]] Désactivez les ISL 41 à 48 sur CL1, le commutateur Nexus 5596 actif, à l'aide de Cisco `shutdown` commande.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -436,7 +436,7 @@ L'exemple suivant montre la désactivation des ISL 41 à 48 sur le commutateur N
 ====
 . Établissez une liaison inter-commutateurs (ISL) temporaire entre CL1 et C2 à l'aide des commandes Cisco appropriées.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -470,7 +470,7 @@ Attachez les câbles de dérivation Cisco QSFP vers SFP+ appropriés reliant le 
 
 . Activez les ports ISL 45 à 48 sur le commutateur Nexus 5596 actif CL1.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -490,7 +490,7 @@ L'exemple suivant montre l'activation des ports ISL 45 à 48 :
 ====
 . Vérifiez que les ISL sont `up` sur le commutateur Nexus 5596 CL1.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -775,7 +775,7 @@ cluster::*> *network port modify -node n2 -port e0d -up-admin false*
 ====
 . Fermez les ISL 24, 31 et 32 sur le commutateur actif 3232C C2.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -806,7 +806,7 @@ Connectez les ports e1/31 et e1/32 sur C1 aux ports e1/31 et e1/32 sur C2 à l'a
 
 . Rétablissez la configuration sur le port 24 et supprimez le canal de port temporaire 2 sur C2.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -833,7 +833,7 @@ Copy Complete.
 ====
 . Activez les ports ISL 31 et 32 ​​sur C2, le commutateur 3232C actif, en saisissant la commande Cisco suivante : `no shutdown`
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 .Afficher un exemple
@@ -850,7 +850,7 @@ C2(config-if-range)# no shutdown
 ====
 . Vérifiez que les connexions ISL sont `up` sur le commutateur 3232C C2.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-command-reference-list.html["Références des commandes NX-OS Cisco Nexus série 3000"^].
 
 +
 Les ports eth1/31 et eth1/32 doivent indiquer (P), ce qui signifie que les deux ports ISL sont actifs dans le canal de ports.

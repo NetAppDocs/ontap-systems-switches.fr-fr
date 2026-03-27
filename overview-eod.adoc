@@ -4,7 +4,7 @@ permalink: overview-eod.html
 keywords: switches, fas, aff systems, end of availability, EOD 
 summary: Interrupteurs EOD pour les systèmes FAS et AFF . 
 ---
-= Fin de disponibilité
+= Interrupteurs de fin de disponibilité
 :allow-uri-read: 
 :icons: font
 :imagesdir: ./media/

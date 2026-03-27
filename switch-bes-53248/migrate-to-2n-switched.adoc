@@ -38,7 +38,7 @@ Veuillez prendre connaissance des exigences suivantes relatives à l'environneme
 ** Il existe un accès console aux commutateurs du cluster.
 ** Les connexions de commutateur de nœud à nœud et de commutateur à commutateur du BES-53248 utilisent des câbles Twinax ou à fibre optique.
 +
-Le link:https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] contient des informations sur la compatibilité ONTAP , le firmware EFOS pris en charge et le câblage vers les commutateurs BES-53248. Voir link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+Le link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contient des informations sur la compatibilité ONTAP, le firmware EFOS pris en charge et le câblage des commutateurs BES-53248. Consultez link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
 
 
 
@@ -72,7 +72,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Le `cluster1::*>` L'invite indique le nom du cluster.
 * Les ports du cluster utilisés dans cette procédure sont `e0a` et `e0b` .
 +
-Le https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] Contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
+Le link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contient les informations les plus récentes concernant les ports de cluster actuels pour vos plateformes.
 
 
 
@@ -280,7 +280,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 ----
 . Déconnectez le câble du port de cluster e0a sur le nœud 1, puis connectez e0a au port 1 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 +
-Le https://hwu.netapp.com/Home/Index["_L'univers matériel de NetApp_"^] Contient plus d'informations sur le câblage.
+Le link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contient plus d'informations sur le câblage.
 
 . Déconnectez le câble du port de cluster e0a sur node2, puis connectez e0a au port 2 sur le commutateur de cluster cs1, à l'aide du câblage approprié pris en charge par les commutateurs BES-53248.
 . Activez tous les ports orientés vers les nœuds sur le commutateur de cluster cs1.

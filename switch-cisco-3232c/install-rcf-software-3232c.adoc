@@ -34,7 +34,7 @@ Assurez-vous de terminer la procédure danslink:prepare-install-cisco-nexus-3232
 == Étape 1 : Installez le RCF sur les commutateurs
 
 . Connectez-vous pour commuter cs2 en utilisant SSH ou en utilisant une console série.
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] .
+. Copiez le fichier RCF dans la mémoire bootflash du commutateur cs2 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 +
 .Afficher un exemple
 [%collapsible]
@@ -53,7 +53,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^]
 
 +
 .Afficher un exemple
@@ -120,7 +120,7 @@ Assurez-vous de configurer les éléments suivants : * Nom d'utilisateur et mot
 `cs2# echo "hardware access-list tcam region qos 256" >> bootflash:write_erase.cfg`
 
 +
-Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
 . Vérifiez que le `write_erase.cfg` Le fichier est rempli comme prévu :
 +

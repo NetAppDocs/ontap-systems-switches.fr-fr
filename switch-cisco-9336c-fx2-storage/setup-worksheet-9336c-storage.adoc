@@ -445,7 +445,7 @@ Nœud 36 4x100GbE
 
 == Feuille de câblage vierge 9336C-FX2
 
-Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds d'un cluster. La section _Connexions de cluster prises en charge_ du link:https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
 
 [cols="5%, 45%, 5%, 45%"]
 |===
@@ -1020,7 +1020,7 @@ Licence requise
 Licence requise
 
 |===
-Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"] pour plus d'informations sur les ports de commutation.
+Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 .Quelle est la prochaine étape
 Une fois vos feuilles de travail sur le câblage terminées, vous pouvez link:install-9336c-storage.html["installer le commutateur"].

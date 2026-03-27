@@ -17,7 +17,7 @@ Si vous disposez d'un cluster sans commutateur à deux nœuds, consultez cette p
 La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.
 
 ====
-Pour plus d'informations, voir :
+Pour plus d'informations, veuillez consulter
 
 * link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/docs-tab["NetApp CN1601 et CN1610"^]
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateur Ethernet Cisco"^]

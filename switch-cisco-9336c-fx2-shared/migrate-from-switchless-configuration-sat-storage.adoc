@@ -105,7 +105,7 @@ There are no entries matching your query.
 ====
 
 
-. [[étape7]]Remplacez le RCF de stockage sur le commutateur partagé A par le fichier RCF partagé.  Voirlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. [[étape 7]]Remplacez le fichier RCF de stockage sur le commutateur partagé A par le fichier RCF partagé. Consultez link:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
 . Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage B, est en bon état :
 +
 `system health alert show -instance`
@@ -141,7 +141,7 @@ There are no entries matching your query.
 ====
 
 
-. [[étape 13]]Remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé.  Voirlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. [[étape 13]]Remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Reportez-vous à link:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
 . Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage B, est en bon état :
 +
 `system health alert show -instance`
@@ -183,7 +183,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[étape 16]]Convertir la paire HA 1 d'un cluster sans commutateur en un cluster commuté.  Utilisez les affectations de ports de cluster définies par le RCF partagé.  Voirlink:prepare-nxos-rcf-9336c-shared.html["Installez le logiciel NX-OS et les fichiers de configuration de référence (RCF)."] pour plus de détails.
+. [[étape 16]]Convertissez la paire haute disponibilité 1 d'un cluster sans commutateur à un cluster commuté. Utilisez les affectations de ports de cluster définies par le RCF partagé. Reportez-vous à link:prepare-nxos-rcf-9336c-shared.html["Installez le logiciel NX-OS et les fichiers de configuration de référence (RCFs)"] pour plus de détails.
 . Vérifiez que la configuration du réseau commuté est valide :
 +
 `network port show`

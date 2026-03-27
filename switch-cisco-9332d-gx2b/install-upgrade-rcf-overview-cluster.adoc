@@ -11,15 +11,15 @@ summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nex
 
 
 [role="lead"]
-Vous installez le fichier de configuration de référence (RCF) après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
+Vous installez le fichier de configuration de référence (RCF) après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. Vous mettez à niveau votre version du fichier RCF lorsque vous avez déjà une version existante du fichier RCF installée sur votre commutateur.
 
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
+Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 
 .Configuration RCF disponible
 * *Cluster-HA-Storage AFX* - Tous les ports sont configurés en mode de dérivation 4x100GbE qui prend en charge universellement les clusters de nœuds AFX, la haute disponibilité, les ports de stockage et les ports de baies de stockage NX224.  Liaison inter-commutateurs 400GbE.  (_Cluster-HA-Storage AFX RCF_vxx.x_).
 
 
-Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et notes importantes de votre RCF. Voirlink:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] pour plus d'informations.
+Pour plus de détails sur l'utilisation des ports et des VLAN, consultez la section Bannière et notes importantes de votre RCF. Consultez link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco"^] pour plus d'informations.
 
 .Documentation suggérée
 * link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
@@ -41,7 +41,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
-Voir le https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.
+Reportez-vous à la  https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour vérifier les ports corrects sur votre plateforme.
 
 
 NOTE: Les résultats des commandes peuvent varier en fonction des différentes versions d' ONTAP.

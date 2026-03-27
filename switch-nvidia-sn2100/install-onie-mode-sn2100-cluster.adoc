@@ -14,7 +14,7 @@ summary: 'Le système d"exploitation Cumulus Linux (CL) peut être installé soi
 Suivez cette procédure pour installer le système d'exploitation Cumulus Linux (CL) lorsque le commutateur fonctionne en mode ONIE.
 
 
-NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute ONIE, soit lorsque Cumulus Linux (voirlink:install-cumulus-mode-sn2100-cluster.html["Installation en mode Cumulus"] ).
+NOTE: Le système d'exploitation Cumulus Linux (CL) peut être installé soit lorsque le commutateur exécute ONIE, soit lorsque Cumulus Linux (voir link:install-cumulus-mode-sn2100-cluster.html["Installation en mode Cumulus"]).
 
 .À propos de cette tâche
 Vous pouvez installer Cumulus Linux en utilisant Open Network Install Environment (ONIE) qui permet la découverte automatique d'une image d'installation réseau.  Cela facilite la mise en place d'un modèle système de sécurisation des commutateurs avec un choix de système d'exploitation, tel que Cumulus Linux.  La méthode la plus simple pour installer Cumulus Linux avec ONIE consiste à utiliser la découverte HTTP locale.
@@ -344,7 +344,7 @@ cumulus@cumulus:mgmt:~$ *sudo adduser admin nvshow*
      Done.
 ----
 +
-Voir https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
+Consultez  https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-54/System-Configuration/Authentication-Authorization-and-Accounting/User-Accounts/["Comptes utilisateurs NVIDIA"^] pour plus d'informations.
 
 
 

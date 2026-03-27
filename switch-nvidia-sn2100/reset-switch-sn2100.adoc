@@ -21,7 +21,7 @@ Pour réinitialiser le commutateur de cluster SN2100 aux paramètres d'usine :
 
 
 
-NOTE: Pour plus d'informations sur l'installation de Cumulus Linux, consultezlink:configure-software-overview-sn2100-cluster.html["Processus d'installation logicielle pour les commutateurs NVIDIA SN2100"] .
+NOTE: Pour plus d'informations sur l'installation de Cumulus Linux, consultez link:configure-software-overview-sn2100-cluster.html["Processus d'installation logicielle pour les commutateurs NVIDIA SN2100"].
 
 .Étapes
 [role="tabbed-block"]
@@ -72,7 +72,7 @@ Do you want to continue? [y/n] *y*
 ----
 
 
-Voir le NVIDIA https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Réinitialisation d'usine"^] Pour plus de détails, veuillez consulter la documentation.
+Consultez la documentation link:https://docs.nvidia.com/networking-ethernet-software/cumulus-linux-511/Installation-Management/Factory-Reset/["Réinitialisation d'usine"^] NVIDIA pour plus de détails.
 
 --
 ====

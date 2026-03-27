@@ -17,7 +17,7 @@ Vous pouvez migrer les commutateurs de cluster NetApp CN1610 d'un cluster ONTAP 
 
 == Exigences de révision
 
-Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez des commutateurs de cluster NetApp CN1610 par des commutateurs de cluster NVIDIA SN2100. Voirlink:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"] .
+Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster NVIDIA SN2100. Reportez-vous à link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"].
 
 .Commutateurs pris en charge
 Les commutateurs de cluster suivants sont pris en charge :
@@ -26,7 +26,7 @@ Les commutateurs de cluster suivants sont pris en charge :
 * NVIDIA SN2100
 
 
-Pour plus de détails sur les ports pris en charge et leurs configurations, consultez la documentation. https://hwu.netapp.com/["Hardware Universe"^] .
+Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Avant de commencer
 Vérifiez que votre configuration répond aux exigences suivantes :

@@ -17,4 +17,4 @@ En cas d'alertes, l'état de santé du système signale un état dégradé pour 
 
 Pour consulter les alertes de surveillance de l'état du commutateur Ethernet disponibles, exécutez la commande : `system health alert definition show -monitor ethernet-switch`
 
-Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guide de résolution des alertes du moniteur d'état du commutateur"^] pour des détails de résolution avancée sur les alertes.
+Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Cluster_Switch_Health_Monitor_CSHM_Alert_Resolution_Guide["Guide de résolution des alertes du moniteur d'état du commutateur"^] pour obtenir des informations détaillées sur la résolution avancée des alertes.

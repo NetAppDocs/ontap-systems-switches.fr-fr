@@ -51,7 +51,7 @@ Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH,
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
 
 * Laissez AutoSupport activé pendant la maintenance.
-* Déclenchez une intervention de maintenance AutoSupport avant et après la maintenance afin de désactiver la création de tickets pendant toute la durée de celle-ci.  Consultez cet article de la base de connaissances https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus de détails.
+* Déclenchez une maintenance AutoSupport avant et après celle-ci afin de désactiver la création de tickets pendant toute sa durée. Consultez cet article de la base de connaissances https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus d'informations.
 * Activez la journalisation des sessions pour toutes les sessions CLI.  Pour savoir comment activer la journalisation des sessions, consultez la section « Journalisation des sorties de session » de cet article de la base de connaissances. https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
 
 

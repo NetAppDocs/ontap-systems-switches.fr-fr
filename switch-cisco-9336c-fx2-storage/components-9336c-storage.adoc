@@ -112,8 +112,8 @@ N9K-9336C 65 CFM, débit d'air d'admission côté bâbord
 
 Pour activer plus de 12 ports sur votre commutateur de stockage Cisco Nexus 9336C-FX-T, vous devez acheter une licence Cisco Smart.  Les licences Cisco Smart sont gérées via des comptes Cisco Smart.
 
-. Créez un nouveau compte Smart, si nécessaire. Voir https://id.cisco.com/signin/register["Créer un nouveau compte Smart"^] pour plus de détails.
-. Demander l'accès à un compte Smart existant. Voir https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Demander l'accès à un compte Smart existant"^] pour plus de détails.
+. Créez un nouveau compte Smart, si nécessaire. Consultez link:https://id.cisco.com/signin/register["Créer un nouveau compte Smart"^] pour plus de détails.
+. Demander l'accès à un compte Smart existant. Voir link:https://id.cisco.com/oauth2/default/v1/authorize?response_type=code&scope=openid%20profile%20address%20offline_access%20cci_coimemberOf%20email&client_id=cae-okta-web-gslb-01&state=s2wvKDiBja__7ylXonWrq8w-FAA&redirect_uri=https%3A%2F%2Frpfa.cloudapps.cisco.com%2Fcb%2Fsso&nonce=qO6s3cZE5ZdhC8UKMEfgE6fbu3mvDJ8PTw5jYOp6z30["Demander l'accès à un compte Smart existant"^] pour plus de détails.
 
 
 

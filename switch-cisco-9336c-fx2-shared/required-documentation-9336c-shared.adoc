@@ -14,34 +14,34 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9336-FX2 et votre cluster ONTAP .
+Pour l'installation du commutateur Cisco Nexus 9336C-FX2, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9336-FX2 et le cluster ONTAP.
 
-Pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2, consultez la documentation. https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 9000"] page.
+Pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2, reportez-vous à link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 9000"^].
 
 |===
 | Titre du document | Description 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation matérielle de la série Nexus 9000"] | Fournit des informations détaillées sur les exigences du site, les caractéristiques du matériel de commutation et les options d'installation. 
+| link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9336c-fx2-e/cisco-nexus-9336c-fx2-e-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation matérielle de la série Nexus 9000"^] | Fournit des informations détaillées sur les exigences du site, les caractéristiques du matériel de commutation et les options d'installation. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guides de configuration logicielle des commutateurs Cisco Nexus série 9000"](Choisissez le guide correspondant à la version de NX-OS installée sur vos commutateurs) | Fournit les informations de configuration initiale du commutateur dont vous avez besoin avant de pouvoir configurer le commutateur pour un fonctionnement ONTAP . 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guides de configuration logicielle des commutateurs Cisco Nexus série 9000"^](Choisissez le guide correspondant à la version de NX-OS installée sur vos commutateurs) | Fournit les informations de configuration initiale du commutateur dont vous avez besoin avant de pouvoir configurer le commutateur pour un fonctionnement ONTAP . 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Guide de mise à niveau et de rétrogradation du logiciel NX-OS Cisco Nexus série 9000"](Choisissez le guide correspondant à la version de NX-OS installée sur vos commutateurs) | Fournit des informations sur la manière de rétrograder le commutateur vers un logiciel de commutateur compatible ONTAP , si nécessaire. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Guide de mise à niveau et de rétrogradation du logiciel NX-OS Cisco Nexus série 9000"^] (Choisissez le guide correspondant à la version de NX-OS installée sur vos commutateurs) | Fournit des informations sur la manière de rétrograder le commutateur vers un logiciel de commutateur compatible ONTAP , si nécessaire. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Index principal du guide de référence des commandes NX-OS Cisco Nexus série 9000"] | Fournit des liens vers les différentes références de commandes fournies par Cisco. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-command-reference-list.html["Index principal du guide de référence des commandes NX-OS Cisco Nexus série 9000"^] | Fournit des liens vers les différentes références de commandes fournies par Cisco. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Référence des MIB Cisco Nexus 9000"] | Décrit les fichiers de base d'informations de gestion (MIB) pour les commutateurs Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/mib/reference/MIBRef.html["Référence des MIB Cisco Nexus 9000"^] | Décrit les fichiers de base d'informations de gestion (MIB) pour les commutateurs Nexus 9000. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Référence des messages système NX-OS série Nexus 9000"] | Décrit les messages système des commutateurs Cisco Nexus série 9000, ceux qui sont informatifs et ceux qui peuvent aider à diagnostiquer les problèmes liés aux liaisons, au matériel interne ou au logiciel système. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-system-message-guides-list.html["Référence des messages système NX-OS série Nexus 9000"^] | Décrit les messages système des commutateurs Cisco Nexus série 9000, ceux qui sont informatifs et ceux qui peuvent aider à diagnostiquer les problèmes liés aux liaisons, au matériel interne ou au logiciel système. 
 
 
-| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Notes de version de Cisco Nexus série 9000 NX-OS"](Choisissez les notes correspondant à la version de NX-OS installée sur vos commutateurs) | Décrit les fonctionnalités, les bugs et les limitations de la gamme Cisco Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#ReleaseandCompatibility["Notes de version de Cisco Nexus série 9000 NX-OS"^] (Choisissez les notes correspondant à la version de NX-OS installée sur vos commutateurs) | Décrit les fonctionnalités, les bugs et les limitations de la gamme Cisco Nexus 9000. 
 
 
-| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Informations relatives à la conformité réglementaire et à la sécurité pour la gamme Cisco Nexus 9000"] | Fournit des informations sur la conformité aux normes internationales, la sécurité et les réglementations relatives aux commutateurs de la série Nexus 9000. 
+| link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html["Informations relatives à la conformité réglementaire et à la sécurité pour la gamme Cisco Nexus 9000"^] | Fournit des informations sur la conformité aux normes internationales, la sécurité et les réglementations relatives aux commutateurs de la série Nexus 9000. 
 |===

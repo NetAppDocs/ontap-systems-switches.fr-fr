@@ -31,7 +31,7 @@ Les exemples des procédures de configuration utilisent la nomenclature suivante
 * Les noms LIF du cluster sont `node1_clus1` et `node1_clus2` pour le nœud 1, et `node2_clus1` et `node2_clus2` pour le nœud 2.
 * Le nom de l'espace IP est Cluster.
 * Le `cluster1::>` L'invite indique le nom du cluster.
-* Les ports du cluster sur chaque nœud sont nommés `e0a` et `e0b` .  Voir le https://hwu.netapp.com/Home/Index["Hardware Universe NetApp"^] pour les ports de cluster réellement pris en charge sur votre plateforme.
+* Les ports du cluster sur chaque nœud sont nommés  `e0a` et  `e0b`. Consultez la link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] pour connaître les ports de cluster réellement pris en charge sur votre plateforme.
 * Les liaisons inter-commutateurs (ISL) prises en charge pour les commutateurs NetApp sont les ports 0/55 et 0/56.
 * Les connexions de nœuds prises en charge pour les commutateurs NetApp sont les ports 0/1 à 0/16 avec licence par défaut.
 * Les exemples utilisent deux nœuds, mais un cluster peut comporter jusqu'à 24 nœuds.

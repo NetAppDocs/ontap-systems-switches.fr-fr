@@ -219,7 +219,7 @@ cluster1::*>
 
 +
 
-CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'éviter tout problème de connexion réseau.  Consultez l'article de la base de connaissances https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
+CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
 
 . Vérifiez que les LIF du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
@@ -314,7 +314,7 @@ Assurez-vous de configurer les éléments suivants :
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1280" >> bootflash:write_erase.cfg`
 
 +
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
 . Vérifiez que le `write_erase.cfg` Le fichier est rempli comme prévu :
 +
@@ -347,7 +347,7 @@ Vous devrez peut-être mettre à jour les entrées du fichier host relatives aux
 
 . Copiez le RCF sur le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié.link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 Cet exemple montre comment TFTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs1 :
@@ -364,7 +364,7 @@ Copy complete, now saving to disk (please wait)...
 ----
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 Cet exemple montre le fichier RCF `Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt` en cours d'installation sur le commutateur cs1 :
@@ -399,7 +399,7 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 . Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-9336c-fx2.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
 . Après avoir vérifié que les versions RCF, les ajouts personnalisés et les paramètres de commutation sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans lelink:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] .
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 `cs1# copy running-config startup-config`

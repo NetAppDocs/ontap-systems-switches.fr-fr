@@ -13,4 +13,4 @@ summary: Vous pouvez utiliser les commandes fournies...
 [role="lead"]
 Une fois la collecte des journaux configurée, vous pouvez activer la collecte horaire des données périodiques collectées par AutoSupport et demander des journaux d'assistance détaillés.
 
-Voirlink:config-log-collection.html["Configurer la collecte des journaux"] pour plus de détails.
+Reportez-vous à link:config-log-collection.html["Configurer la collecte des journaux"] pour plus de détails.

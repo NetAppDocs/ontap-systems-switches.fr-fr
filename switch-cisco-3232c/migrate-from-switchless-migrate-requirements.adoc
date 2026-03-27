@@ -53,7 +53,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 * Les nœuds sont *n1* et *n2*.
 
 
-Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE *e4a* et *e4e*.  Lelink:https://hwu.netapp.com/["_Hardware Universe_"^] contient des informations sur les ports de cluster sur vos plateformes.
+Les exemples de cette procédure utilisent deux nœuds, chacun utilisant deux ports d'interconnexion de cluster 40 GbE *e4a* et *e4e*.  Lelink:https://hwu.netapp.com/["Hardware Universe"^] contient des informations sur les ports de cluster sur vos plateformes.
 
 * *n1_clus1* est la première interface logique de cluster (LIF) à être connectée au commutateur de cluster *C1* pour le nœud *n1*.
 * *n1_clus2* est la première interface LIF du cluster à être connectée au commutateur de cluster *C2* pour le nœud *n1*.

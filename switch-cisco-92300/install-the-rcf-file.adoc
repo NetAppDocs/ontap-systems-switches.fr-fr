@@ -13,7 +13,7 @@ summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nex
 [role="lead"]
 Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 92300YC pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.
 
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
+Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 
 .À propos de cette tâche
 Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
@@ -224,7 +224,7 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 
 
-. Copiez le RCF sur le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^] guides.
+. Copiez le fichier RCF dans la mémoire bootflash du commutateur cs2 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^].
 +
 Cet exemple montre comment TFTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs2 :
 
@@ -249,7 +249,7 @@ Copy complete.
 ----
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^].
 
 +
 Cet exemple montre le fichier RCF `Nexus_92300YC_RCF_v1.0.2.txt` en cours d'installation sur le commutateur cs2 :
@@ -344,7 +344,7 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 . Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-92300.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
 . Après avoir vérifié que les versions RCF et les paramètres du commutateur sont corrects, copiez le fichier running-config dans le fichier startup-config.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html#InstallandUpgrade["Commutateurs Cisco Nexus série 9000"^].
 
 +
 [listing, subs="+quotes"]

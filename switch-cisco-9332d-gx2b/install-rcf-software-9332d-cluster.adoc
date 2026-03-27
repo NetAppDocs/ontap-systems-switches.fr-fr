@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: install rcf, cisco switches 
 summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois. 
 ---
-= Installez le fichier de configuration de référence (RCF)
+= Installez le RCF
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous installez le fichier de configuration de référence (RCF) après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois.
+Vous installez le RCF après avoir configuré le commutateur Nexus 9332D-GX2B pour la première fois.
 
 .Avant de commencer
 Vérifiez les installations et connexions suivantes :
@@ -29,7 +29,7 @@ Vérifiez les installations et connexions suivantes :
 . Connectez-vous pour commuter cs1 en utilisant SSH ou en utilisant une console série.
 . Copiez le RCF sur le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les  https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
 
 +
 .Afficher un exemple
@@ -49,7 +49,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment téléchargé à la mémoire flash de démarrage.
 +
-Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les  https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
 
 +
 Cet exemple montre le fichier RCF `NX9332D-GX2B-RCF-v10.0-Shared.txt` en cours d'installation sur le commutateur cs1 :
@@ -135,7 +135,7 @@ Assurez-vous de configurer les éléments suivants :
 `cs1# echo "hardware access-list tcam region ing-l2-qos 1536" >> bootflash:write_erase.cfg`
 
 +
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
 
 . Vérifiez que le `write_erase.cfg` Le fichier est rempli comme prévu :
 +

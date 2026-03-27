@@ -38,8 +38,8 @@ entries:
     url: "/switch-nvidia-sn2100-storage/install-rcf-sn2100-storage.html"
   - title: Installer le fichier CSHM
     url: "/switch-nvidia-sn2100-storage/setup-install-cshm-file.html"
-  - title: Réinitialiser le commutateur aux paramètres d'usine
-    url: "/switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
+- title: Réinitialiser le commutateur aux paramètres d'usine
+  url: "/switch-nvidia-sn2100-storage/reset-switch-sn2100-storage.html"
 - title: Migration des commutateurs
   pdf-filename: Migration du stockage des commutateurs SN2100
   entries:

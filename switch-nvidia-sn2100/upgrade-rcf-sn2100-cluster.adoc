@@ -16,7 +16,7 @@ Suivez cette procédure pour mettre à jour le script RCF.
 .Avant de commencer
 Avant de mettre à jour le script RCF, assurez-vous que les éléments suivants sont disponibles sur le commutateur :
 
-* Cumulus Linux est installé.  Voir le https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour les versions prises en charge.
+* Cumulus Linux est installé. Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour connaître les versions prises en charge.
 * L'adresse IP, le masque de sous-réseau et la passerelle par défaut sont définis via DHCP ou configurés manuellement.
 
 

@@ -194,7 +194,7 @@ cluster1::*>
 +
 `network interface modify -vserver Cluster -lif * -auto-revert false`
 
-. Copiez le logiciel NX-OS sur le commutateur Nexus 3132Q-V en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.  Pour plus d'informations sur les commandes Cisco , consultez le guide approprié. https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guides de référence des commandes NX-OS Cisco Nexus série 3000"^] .
+. Copiez le logiciel NX-OS sur le commutateur Nexus 3132Q-V à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP. Pour plus d'informations sur les commandes Cisco, reportez-vous au guide correspondant dans link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/products-installation-guides-list.html["Guide de référence des commandes NX-OS Cisco Nexus série 3000"^].
 +
 .Afficher un exemple
 [%collapsible]

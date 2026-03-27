@@ -50,7 +50,7 @@ swp15-16
 Ports de liaison inter-commutateurs (ISL) 100 GbE
 
 |===
-Voir le link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
+Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.
 
 
 
@@ -190,7 +190,7 @@ UP     swp4      100G  9216   Trunk/L2                     Master: bridge(UP)
 
 --
 ====
-Consultez l'article de la base de connaissanceslink:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40/100GbE."^] pour plus de détails.
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Systems/Fabric_Interconnect_and_Management_Switches/NVIDIA_SN2100_switch_fails_to_connect_using_40_100GbE_copper_cable["Le commutateur SN2100 ne parvient pas à se connecter à l'aide de câbles en cuivre 40/100GbE."^] pour plus de détails.
 
 Sur Cumulus Linux 4.4.2, les connexions cuivre ne sont pas prises en charge sur les commutateurs SN2100 avec carte réseau X1151A, carte réseau X1146A ou ports 100GbE intégrés. Par exemple:
 
@@ -331,7 +331,7 @@ UP     swp16      100G  9216   BondMember  cs01 (swp16)     Master: cl
 ----
 --
 ====
-Voir le link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^]et l'article de la base de connaissances link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui n'est pas répertorié dans HWU ?"^] pour plus d'informations.
+Reportez-vous à la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] et à l'article de la Knowledge Base link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui n'est pas répertorié dans HWU ?"^] pour plus d'informations.
 
 .Quelle est la prochaine étape ?
 Après avoir examiné vos exigences en matière de câblage et de configuration, vous pouvezlink:install-cable-shelves-sn2100-cluster.html["câbler les étagères NS224 comme un rangement relié à un interrupteur"] .

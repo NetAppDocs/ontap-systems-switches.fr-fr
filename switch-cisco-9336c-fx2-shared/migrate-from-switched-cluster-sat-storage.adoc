@@ -89,7 +89,7 @@ node2
 ====
 
 
-. [[étape6]]Remplacez le RCF de stockage sur le commutateur partagé A par le fichier RCF partagé.  Voirlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. [[étape 6]]Remplacez le fichier RCF de stockage sur le commutateur partagé A par le fichier RCF partagé. Reportez-vous à link:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
 . Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage A, est en bon état :
 +
 `system health alert show -instance`
@@ -125,7 +125,7 @@ There are no entries matching your query.
 ====
 
 
-. [[étape 12]]Remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé.  Voirlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. [[étape 12]]Remplacez le fichier RCF de stockage sur le commutateur partagé B par le fichier RCF partagé. Consultez link:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
 . Vérifiez que le périphérique de stockage connecté à la paire HA 1, commutateur de stockage B, est en bon état :
 +
 `system health alert show -instance`
@@ -203,7 +203,7 @@ sh1 (config)# *exit*
 ====
 
 
-. [[étape 16]]Migrez le réseau du cluster des commutateurs de cluster existants vers les commutateurs partagés en utilisant la procédure de remplacement de commutateur et le RCF partagé.  Le nouveau commutateur partagé A est « cs1 ».  Le nouveau commutateur partagé B est « cs2 ».  Voirlink:replace-9336c-fx2-shared.html["Remplacer un commutateur partagé Cisco Nexus 9336C-FX2"] etlink:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
+. [[étape 16]] Migrez le réseau du cluster des commutateurs existants vers les commutateurs partagés à l'aide de la procédure de remplacement de commutateur et du RCF partagé. Le nouveau commutateur partagé A est "cs1". Le nouveau commutateur partagé B est "cs2". Consultez link:replace-9336c-fx2-shared.html["Remplacer un commutateur partagé Cisco Nexus 9336C-FX2"] et link:install-nxos-rcf-9336c-shared.html["Installez le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2"] pour plus de détails.
 . Vérifiez que la configuration réseau commutée est valide :
 +
 `network port show`

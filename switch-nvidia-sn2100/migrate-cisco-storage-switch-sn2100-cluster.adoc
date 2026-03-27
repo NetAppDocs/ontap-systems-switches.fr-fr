@@ -17,7 +17,7 @@ Vous pouvez migrer d'anciens commutateurs Cisco pour un cluster ONTAP vers des c
 
 == Exigences de révision
 
-Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez d'anciens commutateurs Cisco par des commutateurs de stockage NVIDIA SN2100. Voirlink:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"] .
+Vous devez être conscient de certaines informations de configuration, des connexions de ports et des exigences de câblage lorsque vous remplacez d'anciens commutateurs Cisco par des commutateurs de stockage NVIDIA SN2100. Reportez-vous à link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"].
 
 .Commutateurs pris en charge
 Les commutateurs de stockage suivants sont pris en charge :
@@ -26,7 +26,7 @@ Les commutateurs de stockage suivants sont pris en charge :
 * Cisco Nexus 3232C
 
 
-Pour plus de détails sur les ports pris en charge et leurs configurations, consultez la documentation. https://hwu.netapp.com/["Hardware Universe"^] .
+Pour plus de détails sur les ports pris en charge et leurs configurations, reportez-vous au link:https://hwu.netapp.com/["Hardware Universe"^].
 
 .Ce dont vous aurez besoin
 Assurez-vous que :

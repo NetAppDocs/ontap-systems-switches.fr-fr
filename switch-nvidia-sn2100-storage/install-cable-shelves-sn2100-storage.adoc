@@ -21,8 +21,5 @@ https://library.netapp.com/ecm/ecm_download_file/ECMLP2876580["Informations rela
 +
 https://docs.netapp.com/us-en/ontap-systems-switches/index.html["Documentation relative aux commutateurs AFF et FAS"^]
 
-* Veuillez vérifier la compatibilité matérielle de votre modèle de plateforme, notamment avec les commutateurs et câbles de stockage :
-+
-https://hwu.netapp.com/["Hardware Universe NetApp"^]
-
+* Confirmez le matériel pris en charge, comme les commutateurs de stockage et les câbles, pour votre modèle de plateforme. Consultez la link:https://hwu.netapp.com/["Hardware Universe"^] pour plus de détails.
 

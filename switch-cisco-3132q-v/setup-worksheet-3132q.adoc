@@ -331,7 +331,7 @@ ISL 40G vers le port 31 du commutateur B
 
 == Feuille de câblage vierge
 
-Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.
+Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds d'un cluster. La section _Connexions de cluster prises en charge_ du link:https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.
 
 [cols="1, 1, 1, 1"]
 |===

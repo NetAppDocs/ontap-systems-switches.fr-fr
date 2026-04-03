@@ -11,7 +11,7 @@ summary: 'La fonction de collecte des journaux du moniteur d"intégrité des com
 
 
 [role="lead"]
-Le moniteur d'intégrité des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau de cluster et de stockage et de collecter les journaux de commutation à des fins de débogage.  Cette procédure vous guide tout au long du processus de configuration de la collecte, de la demande de journaux *Support* détaillés et de l'activation d'une collecte horaire de données *Périodiques* collectées par AutoSupport.
+Le contrôle de l'état du commutateur Ethernet (CSHM) est chargé de garantir le bon fonctionnement des commutateurs réseau et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration de la collecte, de la demande de journaux *Support* détaillés et de l'activation d'une collecte horaire des données *Periodic* qui sont collectées par AutoSupport.
 
 *REMARQUE :* Si vous activez le mode FIPS, vous devez effectuer les opérations suivantes :
 

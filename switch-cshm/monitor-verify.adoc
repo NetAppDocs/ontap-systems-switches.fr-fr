@@ -11,7 +11,7 @@ summary: 'Apprenez comment vérifier que la surveillance d"un commutateur Ethern
 
 
 [role="lead"]
-Le moniteur d'intégrité des commutateurs Ethernet (CSHM) tente automatiquement de surveiller les commutateurs qu'il découvre ; cependant, la surveillance peut ne pas se faire automatiquement si les commutateurs ne sont pas correctement configurés.  Vous devez vérifier que le système de surveillance de l'état de vos commutateurs est correctement configuré.
+Le contrôle de l'état (CSHM) tente automatiquement de surveiller les commutateurs réseau qu'il détecte ; toutefois, cette surveillance peut ne pas se produire automatiquement si les commutateurs ne sont pas correctement configurés. Vous devez vérifier que le contrôle de l'état est correctement configuré pour surveiller vos commutateurs.
 
 
 

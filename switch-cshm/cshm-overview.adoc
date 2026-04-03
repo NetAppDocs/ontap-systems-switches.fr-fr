@@ -11,4 +11,4 @@ summary: 'Le moniteur d"intégrité des commutateurs Ethernet (CSHM) est respons
 
 
 [role="lead"]
-Le moniteur d'intégrité des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau de cluster et de stockage et de collecter les journaux de commutation à des fins de débogage.
+Le contrôle de l'état des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau et de collecter les journaux des commutateurs à des fins de débogage.

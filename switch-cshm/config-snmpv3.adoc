@@ -13,7 +13,7 @@ summary: 'Vous pouvez utiliser cette procédure pour configurer SNMPv3 pour votr
 [role="lead"]
 Le protocole SNMP est utilisé pour surveiller les commutateurs.  La surveillance par SNMPv3 est configurée en suivant cette procédure.
 
-Le moniteur d'état des commutateurs Ethernet (CSHM) utilise SNMP pour surveiller l'état et les performances des commutateurs de cluster et de stockage.  Par défaut, SNMPv2c est configuré automatiquement via le fichier de configuration de référence (RCF).  SNMPv3 est plus sûr que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le chiffrement et l'intégrité des messages, qui protègent contre les accès non autorisés et garantissent la confidentialité et l'intégrité des données lors de la transmission.
+Le CSHM (Ethernet Switch Health Monitor) utilise SNMP pour surveiller l'état et les performances des commutateurs réseau. Par défaut, SNMPv2c est configuré automatiquement via le Reference Configuration File (RCF). SNMPv3 est plus sécurisé que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le chiffrement et l'intégrité des messages, qui protègent contre les accès non autorisés et garantissent la confidentialité et l'intégrité des données lors de leur transmission.
 
 [NOTE]
 ====

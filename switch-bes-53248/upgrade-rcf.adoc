@@ -283,7 +283,8 @@ show isdp neighbor
 (cs2)(Config)# *interface 0/1-0/16*
 (cs2)(Interface 0/1-0/16)# *shutdown*
 (cs2)(Interface 0/1-0/16)# *exit*
-(cs2)(Config)#
+(cs2)(Config)# *exit*
+(cs2)#
 ----
 . Vérifiez que les LIF du cluster ont migré vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
@@ -356,7 +357,7 @@ Ne procédez que lorsque toutes les interfaces logiques du cluster ont été ret
 +
 [listing]
 ----
-(cs2)> enable
+(cs2)> *enable*
 (cs2)#
 ----
 .. Copiez et collez les commandes suivantes pour supprimer la configuration RCF précédente (selon la version RCF précédente utilisée, certaines commandes peuvent générer une erreur si un paramètre particulier est absent) :
@@ -454,7 +455,10 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS version 3.12.x et ultérieures
 --
-. Copiez le RCF dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, TFTP, SFTP ou SCP.
+
+CAUTION: Le fichier doit être nommé  `reference-config.scr` lorsque vous chargez et appliquez le fichier RCF, sinon l'étape d'application du script échouera.
+
+. Copiez le RCF sur le commutateur cs2 en utilisant l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, SFTP ou SCP.
 +
 Cet exemple montre l'utilisation du protocole SFTP pour copier un fichier RCF dans la mémoire flash de démarrage du commutateur cs2 :
 
@@ -462,9 +466,9 @@ Cet exemple montre l'utilisation du protocole SFTP pour copier un fichier RCF da
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248-RCF-v1.9-Cluster-HA.txt nvram:reference-config*
+(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config.scr*
 Remote Password:**
-Mode........................................... TFTP
+Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
 Path........................................... /
 Filename....................................... BES-53248_RCF_v1.9-Cluster-HA.txt
@@ -472,7 +476,7 @@ Data Type...................................... Config Script
 Destination Filename........................... reference-config.scr
 Management access will be blocked for the duration of the transfer
 Are you sure you want to start? (y/n) *y*
-TFTP Code transfer starting...
+SFTP Code transfer starting...
 File transfer operation completed successfully.
 ----
 . Vérifiez que le script a bien été téléchargé et enregistré sous le nom de fichier que vous lui avez attribué :
@@ -513,7 +517,7 @@ Configuration script 'reference-config.scr' applied.
 --
 .Toutes les autres versions EFOS
 --
-. Copiez le RCF dans le bootflash du commutateur cs2 à l'aide de l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, TFTP, SFTP ou SCP.
+. Copiez le RCF sur le commutateur cs2 en utilisant l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, SFTP ou SCP.
 +
 Cet exemple montre l'utilisation du protocole SFTP pour copier un fichier RCF dans la mémoire flash de démarrage du commutateur cs2 :
 

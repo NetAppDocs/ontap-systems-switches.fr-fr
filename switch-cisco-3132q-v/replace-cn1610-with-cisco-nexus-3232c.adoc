@@ -253,7 +253,7 @@ Vous devez préparer les deux commutateurs dès maintenant.  Si vous devez mettr
 .. Cliquez sur *CONTINUER* sur la page *Description*, acceptez le contrat de licence, puis suivez les instructions sur la page *Télécharger* pour télécharger le RCF.
 .. Téléchargez la version appropriée du logiciel de traitement d'images.
 +
-link:shttps://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence pour les commutateurs réseau de cluster et de gestion Cisco"^]
+link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storage-switch/downloads-tab["Téléchargement du fichier de configuration de référence pour les commutateurs réseau de cluster et de gestion Cisco"^]
 
 
 

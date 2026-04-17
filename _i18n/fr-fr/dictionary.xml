@@ -1007,7 +1007,6 @@
   <block id="ba4ab00920641dfd5423a47fe9d7f3c9" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="e2b4c4f5313b05dff7c4a02a4e9e0df6" category="inline-link-macro-rx"></block></block>
   <block id="6839871c951e0451fa16484988485a69" category="paragraph">Si vous utilisez les fonctions de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, activez SSH sur les commutateurs.</block>
   <block id="7a81f2c0648b303fec3fe1081158d0e3" category="inline-link-macro">Réinitialiser le commutateur aux paramètres d'usine</block>
-  <block id="e90d5ac1532bae79aa9f467efd13168c" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous générez d'abord les clés SSH puis activez SSH.</block>
   <block id="ace8956d8976d528bf22aab3553d5953" category="paragraph">Si vous utilisez les fonctionnalités de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, vous devez générer les clés SSH puis activer SSH sur les commutateurs du cluster.</block>
   <block id="5c60227e684a42ed2c4295981335965a" category="list-text">Vérifiez que SSH est désactivé :</block>
   <block id="ddf98c782f1bf15e46a4c740b56426ff" category="paragraph"><block ref="031cb810fe7e12b44d30ad57badb18f9" prefix="" category="inline-code"></block></block>
@@ -1162,7 +1161,6 @@
   <block id="1e44ccea9f1ae385026deb840bc9b5f4" category="paragraph">Pour plus d'informations, consultez :<block ref="780f810d0519883e7efdd6ef45cf51ed" category="inline-link-rx"></block></block>
   <block id="393a5f0f5f1f070aac964741815cca76" category="doc">Remplacez les commutateurs de cluster Broadcom BES-53248 par des connexions sans commutateur</block>
   <block id="c79eef3140e00260a78d272576cfba3c" category="paragraph">Après avoir remplacé vos interrupteurs, vous pouvez <block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block>.</block>
-  <block id="56901ba0364771cc3907ec9a30481dd8" category="summary">Le remplacement d'un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice (NDU).</block>
   <block id="4cf79f99b322552a5fe0fadeb4c0ae5b" category="doc">exigences de remplacement</block>
   <block id="62dbb19af179fc4e75d76db194377a60" category="paragraph">Avant de remplacer l'interrupteur, assurez-vous que les conditions suivantes sont remplies dans l'environnement actuel et sur l'interrupteur de remplacement.</block>
   <block id="dcc2aa0bf74cf9b9dfc30761986fb4ef" category="section-title">Infrastructure de cluster et de réseau existante</block>
@@ -1551,7 +1549,6 @@
   <block id="5e4bd304ccd5d3dec08fc2c5ecaecfa8" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur le commutateur de cluster Cisco 3132Q-V.</block>
   <block id="fc9b57bfb616bf5697d55f4dc656cead" category="inline-link-macro">Vérifier la configuration SSH</block>
   <block id="98e2c8057648b4deb6fd5ef4edfc71b6" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block></block>
-  <block id="f68db63213e90f13582fcc01c68930b3" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132Q-V, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="48c63e1d1783b7749854be6c0e2a3b98" category="doc">Vérifiez votre configuration SSH</block>
   <block id="a75620832d0a69ff51b8f472fb723fc0" category="paragraph">Si vous utilisez les fonctionnalités de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, vérifiez que SSH et les clés SSH sont activés sur les commutateurs du cluster.</block>
   <block id="8b5fc97efb2c8cf5fdcb75b300be917a" category="list-text">Vérifiez que les clés SSH sont activées :</block>
@@ -1705,7 +1702,6 @@
   <block id="af4d9c4c765c5c1d9c279c35191c82da" category="paragraph"><block ref="e39b44798f52b1532971ab295180e1b0" prefix="" category="inline-code"></block></block>
   <block id="ed34b4f07dbb9044c4aec48959bb5c98" category="list-text">Vérifiez que l'ISL entre cs1 et cs2 est fonctionnel :</block>
   <block id="1046b0a81eea5dae9091290036b99362" category="paragraph"><block ref="4767a0bcf3ab94aeda87c79dd4096ef4" category="inline-link-macro-rx"></block>.</block>
-  <block id="988b3c94f8e38d6de10d5305c4dd7696" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="cb3f16de867ce1284b9d6fd6671e24e8" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3132Q-V pour la première fois.</block>
   <block id="d37de69b7bcf8176c4ca106360fde225" category="paragraph">Vérifiez les installations et connexions suivantes :</block>
   <block id="df73b0f89510f793b71a90bf50d82c10" category="list-text">Le RCF actuel.</block>
@@ -1980,7 +1976,6 @@
   <block id="bec7316775648d437864315e0d24e982" category="list-text">Débranchez le câblage de tous les ports du cluster sur tous les nœuds connectés à CL1, puis utilisez un câblage de dérivation compatible pour reconnecter les ports au nouveau commutateur de cluster C1.</block>
   <block id="73ee1667f3e8bb2dbd30f3944db474b2" category="list-text">Débranchez le câblage entre les ports ISL CL1 et C2, puis utilisez un câblage de dérivation compatible pour reconnecter les ports de C1 à C2.</block>
   <block id="070a4e3693187c2ff603a966e9153a2b" category="list-text">Le trafic sur tous les ports de cluster migrés et les LIF connectés à C1 sur tous les nœuds est rétabli.</block>
-  <block id="be58ca1abc86064ec18ec661760a9b62" category="paragraph"><block ref="be58ca1abc86064ec18ec661760a9b62" category="inline-link-macro-rx"></block></block>
   <block id="928c955165eb4f35b8841a8382ac9007" category="paragraph">Cette configuration correspond à la configuration ISL du commutateur 3132Q-V C2 lorsque les ISL sont activés sur les deux commutateurs à l'étape 11.</block>
   <block id="f7201fa31858b5941b544e3bb13b358a" category="summary">Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter toute la documentation recommandée.</block>
   <block id="b1bff6dbffb3e30186f826822fa9e577" category="doc">Exigences de documentation pour les commutateurs Cisco Nexus 3132Q-V</block>
@@ -2334,7 +2329,6 @@
   <block id="e77ca82337609b67c379c3f9592b0987" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="23b3385327d0e192a837e8de4bc1cc0a" category="inline-link-macro-rx"></block></block>
   <block id="09bfbd56c3552e97c604a7997c5b2b58" category="paragraph">Installez le RCF après avoir configuré le commutateur Cisco 3232C pour la première fois.</block>
   <block id="199183c8c92b86fba116f2f574537c15" category="paragraph">Vérifiez que SSH est activé sur les commutateurs pour utiliser les fonctionnalités de surveillance de l’état du commutateur Ethernet (CSHM) et de collecte de journaux.</block>
-  <block id="3a88a5741f799dc33a61b15c6f06ef77" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="e506561a53b08f68da8ca7dacc0617c7" category="paragraph">Après avoir vérifié votre configuration SSH, vous<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
   <block id="99f1453e54cf328786466eb07a56c5f2" category="summary">Vous pouvez installer le commutateur Cisco Nexus 3232C et le panneau de passage dans une armoire NetApp avec les supports standard fournis avec le commutateur.</block>
   <block id="1fa4ad4927c73726da929663892a7705" category="doc">Installer un commutateur de cluster Cisco Nexus 3232C dans une armoire NetApp</block>
@@ -2396,7 +2390,6 @@
   <block id="4ed47e98eb6846af4a7b5f99dc5d30fe" category="paragraph">L'exemple suivant utilise la sortie d'exemple d'interface de l'étape 1 :</block>
   <block id="1399d69a0008babf2e123d92108c9240" category="list-text">Répétez les étapes 7 à 23 sur le commutateur cs1.</block>
   <block id="756f5b45c94a8929404edacf08b1bf8c" category="paragraph">Si des LIFS de cluster ne sont pas revenus à leurs ports d'origine, rétablissez-les manuellement :<block ref="af44897f72b682aae5fc0db1bf98e52d" prefix=" " category="inline-code"></block></block>
-  <block id="d75e350c3cf28f8c449927363dd63c2d" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="ebdf13bb97bf138835dab6c2a993e949" category="paragraph">Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois.</block>
   <block id="fe30b32a598525ac96383ad88e17b716" category="list-text">Connectez-vous pour commuter cs2 en utilisant SSH ou en utilisant une console série.</block>
   <block id="cb777c10f9fb518790486e5ed5aaa726" category="paragraph">Pour plus d'informations sur les commandes Cisco , consultez le guide approprié dans le<block ref="f93981dab484b88c422e924c27565997" category="inline-link-rx"></block> .</block>
@@ -2780,7 +2773,6 @@
   <block id="fae4c180e898c8a439235a5e778d2549" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="246418de61c3ec41b5c3a3cca9731fd8" category="inline-link-macro-rx"></block></block>
   <block id="c1369f0644c2b0550f6997021719c459" category="paragraph">Installez le RCF après avoir configuré le commutateur Cisco 92300YC pour la première fois.</block>
   <block id="0cdecee05dd24db66522b190c7038cbc" category="paragraph">Vérifiez que SSH est activé sur les commutateurs pour utiliser les fonctionnalités de surveillance de l’état du commutateur Ethernet (CSHM) et de collecte de journaux.</block>
-  <block id="1ea468ba4330d1b99a20149c0e78b4ed" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 92300YC, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="34cd90939ddc2d9ad86fb102a2041314" category="summary">Avant de configurer les commutateurs de cluster Cisco Nexus 92300YC, consultez la présentation de la configuration.</block>
   <block id="95396888979c65e602f693334da7e07d" category="doc">Flux de travail d'installation matérielle pour les commutateurs Cisco Nexus 92300YC</block>
   <block id="6afc705e1b933b4766d87b856c3221cf" category="paragraph">Pour installer et configurer le matériel d'un commutateur de cluster 92300YC, procédez comme suit :</block>
@@ -2790,7 +2782,6 @@
   <block id="9bc4448eb31aa993c138c699e2f63e4f" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="f395413a0179bce929cdb94ae83dcac4" category="inline-link-macro-rx"></block></block>
   <block id="f8e39c49855138fc925b248dd42b44d2" category="paragraph">Installez le commutateur 92300YC et le panneau de passage dans une armoire NetApp selon les besoins.</block>
   <block id="3a3eef3e2d1c73e82a0a67e125e3f967" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="25a280eed05d50e4a92942cf78681f99" category="inline-link-macro-rx"></block></block>
-  <block id="1f564e4f556cdb31888a8f9f8ba59571" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 92300YC.</block>
   <block id="454d8bacc17503d670940b88fdf44b2a" category="inline-link">Commutateurs Cisco Nexus série 9000</block>
   <block id="ae8c66ff76ef76693dc8d62308ae1423" category="list-text">Logiciels appropriés et guides de mise à niveau, disponibles auprès de<block ref="8cf592c671d256b1fe33924853db0b89" category="inline-link-rx"></block> .</block>
   <block id="ae51aab75debd2e4f744aa3423ddf6cf" category="list-text">Les noms LIF du cluster sont<block ref="efdc0a97303fb41897cab634f9381835" prefix=" " category="inline-code"></block> et<block ref="bd152ff09f603987e4c87a156b246966" prefix=" " category="inline-code"></block> pour le nœud 1 et<block ref="a466bba1804a252e783c3e78c73981b0" prefix=" " category="inline-code"></block> et<block ref="e136e422a5bae645f7cdf8ea4cf1a818" prefix=" " category="inline-code"></block> pour le nœud 2.</block>
@@ -2904,7 +2895,6 @@
   <block id="c1823cd6c866c4f070a5323fbfabc525" category="list-text">Du point de vue des nœuds, les ports du cluster sur chaque nœud sont désormais connectés aux commutateurs du cluster de la manière suivante :</block>
   <block id="8b46c589466074f9f6f08c5ac2e65338" category="list-text">Vérifiez la configuration finale du cluster :</block>
   <block id="6dd41d8a8ed57c2ab7e587572c2bf8c5" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 92300YC par des connexions sans commutateur</block>
-  <block id="24e7ed7655bcf90918459c3d0f5803c1" category="summary">Le remplacement d'un commutateur Nexus 92300YC défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
   <block id="fd77dcf431c664f377add379bb8ba43b" category="doc">Remplacer un commutateur Cisco Nexus 92300YC</block>
   <block id="3ab66f1f8f15a5dfa44e3aa2de25a6f7" category="paragraph">Le remplacement d'un commutateur Nexus 92300YC défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
   <block id="3fbd08493d5c275b232c6896255f6eba" category="paragraph">Avant de procéder au remplacement de l'interrupteur, assurez-vous que :</block>
@@ -3046,7 +3036,6 @@
   <block id="2b1a60cc4bc76953bbd516335d2be7fa" category="paragraph">Vérifiez que SSH est activé sur le commutateur Cisco 9332D-GX2B pour une utilisation avec les fonctionnalités Ethernet Switch Health Monitor (CSHM) et de collecte de journaux.</block>
   <block id="a4a96858f15187365b823c95ef3aac29" category="inline-link-macro">Allumez votre système de stockage AFX 1K</block>
   <block id="3262dc7e6d25e308076701f117abccc1" category="paragraph">Une fois la configuration de vos commutateurs terminée, rendez-vous sur<block ref="11bd23d31ed3839e3507aa5fa0b1832c" category="inline-link-macro-rx"></block> .</block>
-  <block id="f11008972ee2878905fcc3e0a80e8081" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9332d-gx2b, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="8bb3529febf5d6e7a19656402f431fbb" category="paragraph">Si vous utilisez les fonctionnalités Ethernet Switch Health Monitor (CSHM) et de collecte de journaux, vérifiez que SSH et les clés SSH sont activés sur les commutateurs.</block>
   <block id="af9d37c6eaac00fe7a01bcecf53c1a2e" category="summary">Présentation de l'installation et de la configuration des commutateurs de cluster Cisco 9332D-GX2B</block>
   <block id="856a235634405efd4c3b85dbbba18c0d" category="doc">Flux de travail d'installation et de configuration pour les commutateurs Cisco 9332D-GX2B</block>
@@ -3069,7 +3058,6 @@
   <block id="334698b7eb84d87b30b7bd8bb5fd243d" category="list-text">Instructions pour préparer le site, déballer les cartons et comparer le contenu des cartons avec le bordereau d'expédition, et enregistrer le système pour accéder aux avantages de l'assistance.</block>
   <block id="1b38ba07aa7dfd4d295b22ebaf4cee55" category="list-text">Instructions pour l'installation des commutateurs, des contrôleurs et de l'étagère de stockage dans une armoire NetApp ou un rack Telco.</block>
   <block id="8801cee87a71b51bf6e2b2ef5111ab79" category="list-text">Instructions pour le câblage de votre système, y compris le câblage du stockage du contrôleur aux connexions du commutateur et le câblage de l'étagère aux connexions du commutateur.</block>
-  <block id="c766931e4df877865b88ed7155a25528" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 9332D-GX2B.</block>
   <block id="13e140071810ed8f750c982c1b699d3d" category="list-text">Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.</block>
   <block id="7ce3bf430a060abfbe72d4985db4c66f" category="list-text">Les noms du cluster LIF sont :</block>
   <block id="c055a0911beb70bb2aa2a11e861b4dc7" category="list-text">node1-01_clus1 et node1-01_clus2 pour node1-01</block>
@@ -3148,7 +3136,6 @@
   <block id="a2d07f4e7a36ed872e60c08cdcc73771" category="doc">Migration vers un cluster commuté à deux nœuds</block>
   <block id="a693fd2056f9dc0037e9baefb9fbe3bb" category="paragraph">Le processus de migration fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10Gb BASE-T intégrés pour les ports du réseau de cluster.</block>
   <block id="ebcf71eb39f7510f62abf6ea769fb245" category="paragraph">Chaque LIF de cluster doit s'afficher<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block> pour<block ref="53db3ce0fe0e71f06b3beb0b676b806c" prefix=" " category="inline-code"></block> et avoir un<block ref="4f21ee5a18672b60f4c01e94e6be9c79" prefix=" " category="inline-code"></block> de haut/haut.</block>
-  <block id="034b2ca4f8708065c8d2bc270a8065be" category="summary">Le remplacement d'un commutateur Nexus 9332D-GX2B défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
   <block id="de26480add46f245a8d5542ad9cca42b" category="doc">Remplacer un commutateur Cisco Nexus 9332D-GX2B</block>
   <block id="d791e14d35f87ca6e28ae6a4b9bc0379" category="paragraph">Suivez ces étapes pour remplacer un commutateur Nexus 9332D-GX2B défectueux dans un réseau partagé. Il s’agit d’une procédure non perturbatrice (NDU).</block>
   <block id="e1d51624c9462dce3c8cb21ee2541c35" category="paragraph">Avant de procéder au remplacement de l'interrupteur, assurez-vous que :</block>
@@ -3291,7 +3278,6 @@
   <block id="14b3b17f755689e5a5fab89b6ae63211" category="paragraph-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block><block ref="0a41823d2a109b5dbd6f2fa1f8fe6689" category="inline-link-macro-rx"></block></block>
   <block id="3031e4abbdfc224eed6c14d57d3dbb3d" category="paragraph">Téléchargez et installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T.</block>
   <block id="a47f262edd3b5d4e8f52d95741233056" category="paragraph">Installez ou mettez à niveau le RCF après avoir configuré les commutateurs Cisco 9336C-FX2 et 9336C-FX2-T pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre version RCF.</block>
-  <block id="2e3301a364286013b9b29237fa347bb1" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="b456d34c399e9d9889e4c0ac830ecb7a" category="summary">Présentation de l'installation et de la configuration des commutateurs de cluster Cisco Nexus 9336C-FX2</block>
   <block id="42bdad1ced4815a43686beb3b9df6dcf" category="doc">Flux de travail d'installation et de configuration pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
   <block id="c7ac353ab2ef0a25fb4b857331c7d67a" category="paragraph">Les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T font partie de la plate-forme Cisco Nexus 9000 et peuvent être installés dans une armoire système NetApp . Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds.</block>
@@ -3316,7 +3302,6 @@
   <block id="5c45a309af117bf72296ab3073d25c28" category="paragraph">Installez les commutateurs 9336C-FX2 et 9336C-FX2-T et le panneau de passage dans une armoire NetApp selon les besoins.</block>
   <block id="1a93d578061f1724e84a74106f164f03" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block><block ref="f31e2218f7cf08b190abb8563911bffd" category="inline-link-macro-rx"></block></block>
   <block id="8608163382dad3a40accd48496936aa9" category="paragraph">Consultez la prise en charge des ports Ethernet NVIDIA , les exigences FEC 25 GbE et les informations sur les ressources TCAM.</block>
-  <block id="2436c6df17686f19f38ce6d35e26f6d3" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 9336C-FX2.</block>
   <block id="cfca9eeb73fd293484872bcafdcb1798" category="paragraph">Une fois que vous avez préparé l'installation du logiciel NX-OS et de RCF, vous pouvez <block ref="af60ba4b6c39eb7f1655b798abad8e11" category="inline-link-macro-rx"></block>.</block>
   <block id="bbb9faab95e3e9af13430c6529221602" category="summary">Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2.</block>
   <block id="9eb0d2dee744ca5726b57d78636445af" category="paragraph">Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur les commutateurs de cluster Nexus 9336C-FX2 et 9336C-FX2-T.</block>
@@ -3399,7 +3384,6 @@
   <block id="e275ddb46a068c9b5b18e40afa41bb49" category="doc">Migrer des anciens commutateurs Cisco vers les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
   <block id="8dd5a454f9a20a1b095f4f408856ede3" category="paragraph">Vous pouvez effectuer une migration sans interruption des anciens commutateurs de cluster Cisco vers les commutateurs réseau de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T.</block>
   <block id="3720fe8aea9ff8d0c50d321ce564038a" category="doc">Remplacez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T par des connexions sans commutateur</block>
-  <block id="79a952b12f7cf9e1b52379a8980a2482" category="summary">Le remplacement d'un commutateur Nexus 9336C-FX2 défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
   <block id="c2007b9efe240a102c3e44d5a46e3f1b" category="doc">Remplacer les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T</block>
   <block id="503615f764941a8269f9db632cf11546" category="paragraph">Suivez ces étapes pour remplacer les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice (NDU).</block>
   <block id="be75d21e311dd42a9f487f0bf7e5a0d2" category="list-text">Toutes les interfaces logiques du cluster (LIF) sont *actives* et sur leurs ports d'origine.</block>
@@ -3937,7 +3921,6 @@
   <block id="ab82b13e954fdca7e5f24588aadef6a8" category="inline-link-macro">Vérifiez que SSH est activé sur les commutateurs Nexus 9364D-GX2A</block>
   <block id="77aa6e3807b9bd7a74a8303ac399be0e" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block><block ref="1abb5536124bb667bc884e3004b7fca6" category="inline-link-macro-rx"></block></block>
   <block id="f4992e2b915446b5c008204f4d875b9a" category="paragraph">Vérifiez que SSH est activé sur le commutateur Cisco 9364D-GX2A pour une utilisation avec les fonctionnalités Ethernet Switch Health Monitor (CSHM) et de collecte de journaux.</block>
-  <block id="0f6badfac03a8d8160a651364f2e36c4" category="summary">SSH est une exigence lors de l'utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9364d-gx2a, vous générez d’abord les clés SSH, puis vous activez SSH.</block>
   <block id="b0b4f48eb53ab099e0e2fbcce0a01d6a" category="summary">Présentation de l'installation et de la configuration des commutateurs de cluster Cisco Nexus 9364d-gx2a</block>
   <block id="eb5cc136e9980e29c35bd4f91a246a94" category="doc">Flux de travail d'installation et de configuration pour les commutateurs Cisco 9364D-GX2A</block>
   <block id="7fa867182b591a95898fed6a0742bbbe" category="paragraph">Le commutateur Cisco 9364D-GX2A fait partie de la plate-forme Cisco Nexus 9000. Les commutateurs des systèmes AFX vous permettent de créer des clusters ONTAP avec plus de deux nœuds.</block>
@@ -3962,7 +3945,6 @@
   <block id="4ddbf9913cf137f28df7ad8a4a25d0f5" category="paragraph">Cet exemple montre le fichier RCF<block ref="1b86452473f90818e41227cf4b4157de" prefix=" " category="inline-code"></block> en cours d'installation sur le commutateur cs1 :</block>
   <block id="7ea042ac2614a0600db9c4b93b98f977" category="summary">Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9364d-gx2a pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à niveau votre RCF.</block>
   <block id="e78d946d685c3dda4f9e3b88a2f0bba2" category="paragraph">Après avoir examiné la procédure d'installation ou de mise à niveau de RCF, vous<block ref="aa26a14f1bc2d7d8cc0e72e6b978adf7" category="inline-link-macro-rx"></block> ou<block ref="4e313e617a2ef8fc435b0fa38938a5e3" category="inline-link-macro-rx"></block> selon les besoins.</block>
-  <block id="9171c26a27d3f56eb4e1f4b69582413f" category="summary">Le remplacement d'un commutateur Nexus 9364d-gx2a défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
   <block id="06e8a8675fac36562a21ef023e9cd2f4" category="doc">Remplacer un commutateur Cisco Nexus 9364D-GX2A</block>
   <block id="f5aff46ac4603cb35601dc593b6fc9f9" category="paragraph">Suivez ces étapes pour remplacer un commutateur Nexus 9364D-GX2A défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice (NDU).</block>
   <block id="e6655ba5dd7dc1dd04de141889cc1df1" category="list-text">Sur le commutateur de remplacement Nexus 9364D-GX2A :</block>
@@ -4795,7 +4777,6 @@
   <block id="64ea4acdf8f09e3b62f8764dea1b5bf4" category="list-text">Le câblage entre les nœuds et c2 est ensuite déconnecté de c2 et reconnecté à sw2.</block>
   <block id="1b42870c5bc0619ec4b57583bfec41e7" category="list-text">Le câblage entre les nœuds et c1 est ensuite déconnecté de c1 et reconnecté à sw1.</block>
   <block id="a7e9b61c9cfaadc2f123f50dfe481898" category="doc">Remplacez les commutateurs de cluster NVIDIA SN2100 par des connexions sans commutateur</block>
-  <block id="a1db73a47f571c20627d62d37a2069c2" category="summary">Le remplacement d'un commutateur NVIDIA SN2100 défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
   <block id="a3651ea5ff10cfef31750e91f195d5ee" category="doc">Remplacer un commutateur de cluster NVIDIA SN2100</block>
   <block id="6b3339f062ab261c4987d608ec574504" category="paragraph">Suivez cette procédure pour remplacer un commutateur NVIDIA SN2100 défectueux dans un réseau en cluster. Il s’agit d’une procédure non perturbatrice (NDU).</block>
   <block id="4d7831edc195e453c0f47fc21741aa5d" category="list-text">Le cluster existant est vérifié comme étant entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.</block>
@@ -4854,7 +4835,6 @@
   <block id="da873dcea6434f241bb6174b47bc5de1" category="paragraph"><block ref="3855b6f7babaffe66134264b2942b8dd" prefix="" category="inline-code"></block></block>
   <block id="e4d429356be5e6da00762aa4e0f17c02" category="inline-link">Réinitialisation d'usine</block>
   <block id="5bfbe06a9c5a1deae1ee6d69cbd2c74d" category="paragraph">Après avoir réinitialisé vos interrupteurs, vous pouvez<block ref="d31ba40b12700baf930882b0c2782421" category="inline-link-macro-rx"></block> eux selon les besoins.</block>
-  <block id="c2f363b557f11042735dbadbfbd534d3" category="summary">Vous pouvez utiliser cette procédure pour installer le fichier de configuration approprié pour la surveillance de l'état des commutateurs de cluster NVIDIA SN2100.</block>
   <block id="1972298f5ec1d5e6b5fe96dd4ba6f4d3" category="doc">Installez le fichier de configuration du moniteur d'état du commutateur Ethernet</block>
   <block id="0a7fa80f3e44e6ba2121fadd4ba8aea2" category="paragraph">Une fois le fichier CSHM installé, vous pouvez<block ref="9c3be868eca09e30ec03c7542e485ba6" category="inline-link-macro-rx"></block> .</block>
   <block id="9742e43179b451c849ed088319254cd9" category="summary">Suivez les étapes ci-dessous pour mettre à niveau votre version de Cumulus Linux.</block>
@@ -5028,7 +5008,6 @@
   <block id="726a2f4f4691a5d07983be168f30a586" category="list-text">Vérifiez que les ports de stockage de chaque nœud sont désormais connectés aux commutateurs de la manière suivante, du point de vue des nœuds :</block>
   <block id="8bb6d17a5dad779f6666181778321972" category="list-text">Vérifiez que les ports de stockage de chaque nœud sont désormais connectés aux commutateurs de la manière suivante, du point de vue des nœuds :</block>
   <block id="2592c17fec9ee0f2f1d872bee517581e" category="doc">Migration d'un cluster avec commutateurs vers un cluster sans commutateurs avec commutateurs de cluster NVIDIA SN2100</block>
-  <block id="1a29ca4be6c9125e8ac9fccfa8df289c" category="summary">Remplacement d'un commutateur de stockage NVIDIA SN2100 défectueux dans le cadre d'une procédure non perturbatrice (NDU).</block>
   <block id="ca56e40e95211438888f7e4c9e051ea5" category="doc">Remplacer un commutateur de stockage NVIDIA SN2100</block>
   <block id="c7d8f9411e8f6d2fafcb913ed385f06f" category="paragraph">Vous pouvez remplacer un commutateur de stockage NVIDIA SN2100 défectueux. Il s’agit d’une procédure non perturbatrice.</block>
   <block id="a9ef29d807459286e589883a71bb9c80" category="paragraph">Avant d'installer le logiciel Cumulus et les RCF sur un commutateur de stockage NVIDIA SN2100, assurez-vous que :</block>
@@ -5057,7 +5036,6 @@
   <block id="8bd633b356e38314c746a25f8da3b76b" category="doc">Réinitialiser le commutateur de stockage SN2100 aux paramètres d'usine</block>
   <block id="c3b2428233cf84612f16bff57a3bfb02" category="paragraph">Pour réinitialiser le commutateur de stockage SN2100 aux paramètres d'usine :</block>
   <block id="03225e13f6008b647272291aae7f9169" category="paragraph">Après avoir réinitialisé vos interrupteurs, vous pouvez<block ref="bab7f2e68d62a2e1e4a58e02ed320bda" category="inline-link-macro-rx"></block> eux selon les besoins.</block>
-  <block id="2cd1b70f79d5acd7ffb2c204f4069175" category="summary">Vous pouvez utiliser cette procédure pour installer le fichier de configuration approprié pour la surveillance de l'état des commutateurs de cluster des commutateurs de stockage NVIDIA SN2100.</block>
   <block id="65c65b976cfab8bcc3a5fa282181ca5b" category="paragraph">Suivez cette procédure pour installer le fichier de configuration approprié pour la surveillance de l'état des commutateurs Ethernet des commutateurs de cluster NVIDIA .  Les modèles pris en charge sont :</block>
   <block id="4439fd91d84b3562f1b65b6624b8e4af" category="list-text">MSN2100-CB2FC</block>
   <block id="95457e019d4e34bf1527cfc720276bde" category="list-text">MSN2100-CB2RC</block>
@@ -5403,7 +5381,6 @@
   <block id="e77c10b1a257ebcc959eb6fe14f2aa4d" category="sidebar">Overview_3232C_storage</block>
   <block id="8382d892581b7184fb83126ff18bb70d" category="sidebar">Install_hardware_3232C_storage</block>
   <block id="efc5205a1684eea7ad72b62e5417e2ce" category="sidebar">Configure_software_3232C_storage</block>
-  <block id="6754d52ab3aba634c1d3868f6ff1173b" category="paragraph"><block ref="4b5c6435698a249ed2ca19ecf903991f" prefix="" category="inline-code"></block></block>
   <block id="eff487118c44b434c2174aab2b3a4e1c" category="list-text">Effectuez un redémarrage du switch cs2.</block>
   <block id="fb14b077ecd3df929fa7f98e0e505f8c" category="admonition">Lors de la mise à niveau ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer une configuration de base.</block>
   <block id="ece376b7acc25f86ff2e09f80d38755c" category="paragraph">Assurez-vous de faire ce qui suit :</block>
@@ -5840,4 +5817,32 @@
   <block id="4900377d6745b8a03e6c9a542b3fe2f0" category="paragraph">Le contrôle de l'état des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau et de collecter les journaux des commutateurs à des fins de débogage.</block>
   <block id="bc2dfd2fdf95de6b810acf0fa5c67356" category="paragraph">Le CSHM (Ethernet Switch Health Monitor) utilise SNMP pour surveiller l'état et les performances des commutateurs réseau. Par défaut, SNMPv2c est configuré automatiquement via le Reference Configuration File (RCF). SNMPv3 est plus sécurisé que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le chiffrement et l'intégrité des messages, qui protègent contre les accès non autorisés et garantissent la confidentialité et l'intégrité des données lors de leur transmission.</block>
   <block id="7cb74dd4a33dec5dc1811198729f1a3d" category="paragraph">Le contrôle de l'état (CSHM) tente automatiquement de surveiller les commutateurs réseau qu'il détecte ; toutefois, cette surveillance peut ne pas se produire automatiquement si les commutateurs ne sont pas correctement configurés. Vous devez vérifier que le contrôle de l'état est correctement configuré pour surveiller vos commutateurs.</block>
+  <block id="2cc0a4e03235f6214d4b5fa369958e9f" category="summary">L'utilisation du protocole SSH est requise pour le Cluster Switch Health Monitor (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="57ce4745993a2cb21c9606f06974d3c9" category="summary">Le remplacement d'un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice (NDU).</block>
+  <block id="9bb9d88110e7f202f1952ebcc9fefc08" category="admonition">Le fichier doit être nommé <block ref="a890eeb375a613e0acf945129af8cad4" prefix=" " category="inline-code"></block> lorsque vous chargez et appliquez le fichier RCF, sinon l'étape d'application du script échouera.</block>
+  <block id="153aa60e53e376e3c47bb9de3f41cd5c" category="list-text">Copiez le RCF sur le commutateur cs2 en utilisant l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, SFTP ou SCP.</block>
+  <block id="c8db8b64b02e5a6e924b13e7a1c3d54f" category="summary">L'utilisation du protocole SSH est requise pour le moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132Q-V, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="7ab09ec5429db2527654e19eec7bb2bd" category="summary">L'utilisation du protocole SSH est requise pour le moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="832605a2d3ad68151e1f47c56cdfb281" category="summary">L'utilisation du protocole SSH est requise pour le fonctionnement du moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="04a72e0b6098b241a07346d12dc79fdd" category="summary">L'utilisation du protocole SSH est requise pour le fonctionnement du moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="de12ff3a93a3d0a5df28bdea267617ac" category="summary">L'utilisation du protocole SSH est requise pour le moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 92300YC, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="bd0c2a5487db101df9e69519dbe7db55" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 92300YC.</block>
+  <block id="4bcfba45804fbbbd6422a9b0dea12c5f" category="summary">Le remplacement d'un commutateur Nexus 92300YC défectueux dans un réseau en cluster est une procédure non perturbatrice.</block>
+  <block id="763d50f75a0946cdabf7614582b13354" category="summary">L'utilisation du protocole SSH est requise pour le moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9332d-gx2b, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="7e67dabdf4e4228280d37eb5bc37c3d9" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 9332D-GX2B.</block>
+  <block id="2beefb4d1a7bb9c61f30e6c0adad3ad5" category="summary">Le remplacement d'un commutateur Nexus 9332D-GX2B défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
+  <block id="c1975d8a3808282d8337678030b4a81a" category="summary">L'utilisation du protocole SSH est requise pour le moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d'abord générer les clés SSH, puis activer SSH.</block>
+  <block id="9b32aa934f364be9aa6cdf3bf05d15ee" category="summary">Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de cluster Cisco Nexus 9336C-FX2.</block>
+  <block id="c506cb52e11779e41b9479bb442eec6e" category="list-text">Copiez le RCF dans la mémoire flash de démarrage du commutateur cs1 en utilisant l'un des protocoles de transfert suivants : FTP, SFTP ou SCP.</block>
+  <block id="b3cbf28e617c9f4b35cbc237024a2fbb" category="paragraph">Cet exemple montre SFTP utilisé pour copier un RCF dans la bootflash sur le commutateur cs1 :</block>
+  <block id="456a5c90687a021221cc54821a27d7f4" category="summary">Le remplacement d'un commutateur Nexus 9336C-FX2 défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
+  <block id="9daa5d42be0756d3784e9f178a3295c6" category="list-text">Copiez le RCF dans la mémoire flash de démarrage du commutateur cs1 en utilisant l'un des protocoles de transfert suivants : FTP, SFTP ou SCP.</block>
+  <block id="64678126dc02aa542e8431224df8565f" category="inline-link-macro">Cisco 9336C-FX2 Switch ne démarre pas après l'installation de RCF – variable de démarrage effacée</block>
+  <block id="34b6891d558f2193167ecd55dac3e6cd" category="admonition">Si votre commutateur 9336C-FX2 ne démarre pas après la mise à niveau de votre RCF, consultez l’article de la base de connaissances NetApp <block ref="e42cc9ef430c6ea42d7a305356970328" category="inline-link-macro-rx"></block> pour connaître les prochaines étapes.</block>
+  <block id="c2bfedfcb69ad2176d378523a1a938f1" category="summary">L'utilisation du protocole SSH est requise pour le moniteur d'intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9364d-gx2a, vous générez d'abord les clés SSH, puis vous activez SSH.</block>
+  <block id="7da9fcbfb01147ad61851b7542efd343" category="summary">Le remplacement d'un commutateur Nexus 9364D-GX2A défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
+  <block id="087a0cdfa40d1253f83403998d37833d" category="summary">Le remplacement d'un commutateur NVIDIA SN2100 défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU).</block>
+  <block id="dcb14dbcf0c3e9fd91e172f33a9223b5" category="summary">Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs NVIDIA SN2100.</block>
+  <block id="4010049d40fdd6031ad12cfe5da5d25b" category="summary">Remplacement d'un commutateur de stockage NVIDIA SN2100 défectueux dans le cadre d'une procédure non perturbatrice (NDU).</block>
+  <block id="5dc8d4198fd0d6a1ba6b728a23ca8894" category="summary">Vous pouvez utiliser cette procédure pour installer le fichier de configuration applicable pour la surveillance de l'état des commutateurs de stockage NVIDIA SN2100.</block>
 </blocks>

@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH est une exigence lors de l"utilisation des fonctionnalités de Cluster Switch Health Monitor (CSHM) et de collecte de journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132Q-V, vous générez d’abord les clés SSH, puis vous activez SSH.' 
+summary: 'L"utilisation du protocole SSH est requise pour le moniteur d"intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132Q-V, vous devez d"abord générer les clés SSH, puis activer SSH.' 
 ---
 = Vérifiez votre configuration SSH
 :allow-uri-read: 

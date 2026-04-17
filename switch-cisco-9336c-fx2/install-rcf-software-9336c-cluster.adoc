@@ -28,7 +28,7 @@ Vérifiez les installations et connexions suivantes :
 == Étape 1 : Installez le RCF sur les commutateurs
 
 . Connectez-vous pour commuter cs1 en utilisant SSH ou en utilisant une console série.
-. Copiez le RCF sur le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
+. Copiez le RCF dans la mémoire flash de démarrage du commutateur cs1 en utilisant l'un des protocoles de transfert suivants : FTP, SFTP ou SCP.
 +
 Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9336c-fx2-switch/model.html#CommandReferences["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
@@ -36,15 +36,16 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous au guide appropr
 .Afficher un exemple
 [%collapsible]
 ====
-Cet exemple montre comment TFTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs1 :
+Cet exemple montre SFTP utilisé pour copier un RCF dans la bootflash sur le commutateur cs1 :
 
 [listing, subs="+quotes"]
 ----
-cs1# *copy tftp: bootflash: vrf management*
+cs1# *copy sftp: bootflash: vrf management*
 Enter source filename: *Nexus_9336C_RCF_v1.6-Cluster-HA-Breakout.txt*
-Enter hostname for the tftp server: *172.22.201.50*
-Trying to connect to tftp server......Connection to Server Established.
-TFTP get operation was successful
+Enter hostname for the sftp server: *172.22.201.50*
+Enter username: *user1*
+Trying to connect to sftp server......Connection to Server Established.
+SFTP get operation was successful
 Copy complete, now saving to disk (please wait)...
 ----
 ====

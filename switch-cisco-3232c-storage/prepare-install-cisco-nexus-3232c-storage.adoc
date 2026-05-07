@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/prepare-install-cisco-nexus-3232c-storage.html 
 sidebar: sidebar 
 keywords: nx-os software, install, cisco nexus storage switches, 3232c, rcfs 
-summary: 'Le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) doivent être installés sur les commutateurs de stockage Cisco Nexus 3232C.' 
+summary: Le logiciel Cisco NX-OS et les fichiers de configuration de référence RCF doivent être installés sur les commutateurs de stockage Cisco Nexus 3232C. 
 ---
 = Préparez-vous à installer le logiciel NX-OS et le fichier de configuration de référence (RCF).
 :allow-uri-read: 

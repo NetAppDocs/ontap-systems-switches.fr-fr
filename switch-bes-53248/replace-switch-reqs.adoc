@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/replace-switch-reqs.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice (NDU).' 
+summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice NDU.' 
 ---
 = exigences de remplacement
 :allow-uri-read: 

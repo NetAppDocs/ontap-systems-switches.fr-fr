@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'L"utilisation du protocole SSH est requise pour le moniteur d"intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d"abord générer les clés SSH, puis activer SSH.' 
 ---
 = Vérifiez votre configuration SSH
 :allow-uri-read: 

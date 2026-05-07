@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/install-rcf-file.html 
 sidebar: sidebar 
 keywords: reference configuration, file ,install, cn1610, switch, install rcf 
-summary: 'Lors de l"installation d"un fichier de configuration de référence (RCF), vous devez d"abord migrer les LIF du cluster hors du commutateur cs2.  Une fois le RCF installé et validé, les LIF peuvent être réimportés.' 
+summary: 'Lors de l"installation d"un fichier de configuration RCF, vous devez d"abord migrer les LIF du cluster hors du commutateur cs2. Une fois le RCF installé et validé, les LIF peuvent être migrées de nouveau.' 
 ---
 = Installez un fichier de configuration de référence sur un commutateur CN1610.
 :allow-uri-read: 

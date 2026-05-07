@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/upgrade-rcf-3132q-v.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: 'L"utilisation du protocole SSH est requise pour le moniteur d"intégrité des commutateurs de cluster (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous générez d"abord les clés SSH, puis vous activez SSH.' 
 ---
 = Mettez à jour votre fichier de configuration de référence (RCF)
 :allow-uri-read: 

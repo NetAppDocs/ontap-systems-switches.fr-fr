@@ -2,7 +2,7 @@
 permalink: switch-bes-53248/configure-ssh.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, bes, enable ssh on bes-53248 cluster switches - bes-53248 switches 
-summary: 'L"utilisation du protocole SSH est requise pour le Cluster Switch Health Monitor (CSHM) et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: 'L"utilisation du protocole SSH est requise pour le contrôle de l"état des commutateurs de cluster CSHM et la collecte des journaux. Pour activer SSH sur les commutateurs de cluster BES-53248, vous devez d"abord générer les clés SSH, puis activer SSH.' 
 ---
 = Activer SSH sur les commutateurs de cluster BES-53248
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: switch-cshm/config-log-collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La fonction de collecte des journaux du moniteur d"intégrité des commutateurs Ethernet (CSHM) est utilisée pour collecter les journaux des commutateurs de réseau de cluster ou de stockage dans ONTAP.' 
+summary: 'La fonction de contrôle de l"état de la collecte des journaux CSHM (Surveillance de l"état des commutateurs Ethernet) est utilisée pour collecter les journaux des commutateurs de réseau de cluster ou de stockage dans ONTAP.' 
 ---
 = Configurer la collecte des journaux
 :allow-uri-read: 

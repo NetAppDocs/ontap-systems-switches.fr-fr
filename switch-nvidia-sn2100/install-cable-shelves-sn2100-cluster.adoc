@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
-summary: 'Si vous disposez d"un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté à un commutateur (et non en tant que stockage connecté directement), utilisez les informations fournies ici.' 
+summary: 'Si vous disposez d"un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté par commutateur et non en tant que stockage connecté directement, utilisez les informations fournies ici.' 
 ---
 = Câblez les étagères NS224 comme un rangement relié à un interrupteur
 :allow-uri-read: 

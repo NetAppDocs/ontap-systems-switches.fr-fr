@@ -68,7 +68,8 @@ Installez votre système de rangement et vos étagères dans l'armoire ou le rac
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Systèmes AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Systèmes AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Systèmes de la série AFF A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Systèmes de la série AFF C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Systèmes ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Systèmes ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Systèmes FAS"^]
@@ -172,7 +173,8 @@ Une fois vos commutateurs configurés et le logiciel requis installé, consultez
  a| 
  a| 
 * https://docs.netapp.com/us-en/ontap-afx/index.html["Systèmes AFX"^]
-* https://docs.netapp.com/us-en/ontap-systems/aff-landing/index.html["Systèmes AFF"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-aseries/index.html["Systèmes de la série AFF A"^]
+* https://docs.netapp.com/us-en/ontap-systems/aff-cseries/index.html["Systèmes de la série AFF C"^]
 * https://docs.netapp.com/us-en/ontap-systems/allsan-landing/index.html["Systèmes ASA"^]
 * https://docs.netapp.com/us-en/asa-r2/index.html["Systèmes ASA r2"^]
 * https://docs.netapp.com/us-en/ontap-systems/fas/index.html["Systèmes FAS"^]

@@ -17,6 +17,7 @@ La procédure à suivre dépend du fait que chaque contrôleur dispose de deux p
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Ce dont vous aurez besoin
@@ -52,6 +53,7 @@ Le link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^]
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -70,6 +72,7 @@ Le link:https://hwu.netapp.com["Hardware Universe"^] contient les informations l
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -90,6 +93,7 @@ L'invite avancée(`*>` ) apparaît.
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Désactivez tous les ports orientés vers les nœuds (à l'exception des ports ISL) sur les deux nouveaux commutateurs de cluster sw1 et sw2.
@@ -420,6 +424,7 @@ swp16      100G   BondMember  sw1                swp16
 
 
 
+[[step-3-complete-the-procedure]]
 === Étape 3 : Terminer la procédure
 
 . Afficher les informations relatives aux périphériques réseau détectés dans votre cluster :

@@ -15,6 +15,7 @@ Pour l'installation du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulte
 
 
 
+[[switch-documentation]]
 == Documentation Switch
 
 Pour configurer les commutateurs Cisco Nexus 3132Q-V, vous avez besoin de la documentation suivante de link:https://www.cisco.com/c/en/us/support/switches/nexus-3000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 3000"^].
@@ -81,6 +82,7 @@ Fournit des informations sur la conformité aux normes internationales, la sécu
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentation des systèmes ONTAP
 
 Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation.
@@ -112,6 +114,7 @@ Fournit des informations sur la configuration et la compatibilité du matériel 
 |===
 
 
+[[rail-kit-and-cabinet-documentation]]
 == documentation du kit de rails et de l'armoire
 
 Pour installer un commutateur Cisco 3132Q-V dans une armoire NetApp, reportez-vous à la documentation matérielle suivante.

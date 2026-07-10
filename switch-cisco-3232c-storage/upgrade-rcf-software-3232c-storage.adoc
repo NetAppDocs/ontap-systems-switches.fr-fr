@@ -30,6 +30,7 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -164,6 +165,7 @@ cluster1::*> *system switch ethernet show*
 
 
 
+[[step-2-upgrade-the-rcf]]
 == Étape 2 : Mise à niveau du RCF
 
 . Connectez-vous au commutateur s2 à l'aide de SSH ou d'une console série.
@@ -416,6 +418,7 @@ cluster1::*> *system switch ethernet show*
 
 
 
+[[step-3-verify-the-storage-network]]
 == Étape 3 : Vérifier le réseau de stockage
 
 Effectuez les étapes suivantes sur chaque commutateur de stockage pour vérifier que le réseau de stockage fonctionne correctement après la mise à niveau RCF.

@@ -15,6 +15,7 @@ Vous pouvez migrer les commutateurs de cluster NetApp CN1610 pour un cluster ONT
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Vous devez connaître certaines informations de configuration, connexions de port et exigences de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster Cisco 9336C-FX2 et 9336C-FX2-T. Vous devez également vérifier le numéro de série du commutateur pour vous assurer que le commutateur correct est migré.
@@ -48,6 +49,7 @@ Vérifiez que votre configuration répond aux exigences suivantes :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -91,6 +93,7 @@ NOTE: Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire 
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -118,6 +121,7 @@ En désactivant la restauration automatique pour cette procédure, les LIF du cl
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Déterminez l'état administratif ou opérationnel de chaque interface de cluster.
@@ -523,6 +527,7 @@ node2      /cdp
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster :

@@ -15,6 +15,7 @@ Si vous disposez d'un cluster à deux nœuds _sans commutateur_, vous pouvez mig
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -70,6 +71,7 @@ La procédure nécessite l'utilisation à la fois des commandes ONTAP et des com
 ====
 
 
+[[step-1-display-and-migrate-physical-and-logical-ports]]
 == Étape 1 : Afficher et migrer les ports physiques et logiques
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -323,6 +325,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus1 -source-no
 
 
 
+[[step-2-shut-down-the-reassigned-lifs-and-disconnect-the-cables]]
 == Étape 2 : Arrêtez les LIF réaffectées et débranchez les câbles
 
 . Vérifiez que les interfaces du cluster ont bien été migrées :
@@ -438,6 +441,7 @@ Vous pouvez vous référer à la configuration en cours et connecter le premier 
 
 
 
+[[step-3-enable-the-cluster-ports]]
 == Étape 3 : Activer les ports du cluster
 
 . Débranchez le câble de e4a sur le nœud n2.
@@ -554,6 +558,7 @@ Cluster
 
 
 
+[[step-4-enable-the-reassigned-lifs]]
 == Étape 4 : Activer les LIF réaffectées
 
 . Afficher la connectivité des ports du cluster sur chaque nœud :

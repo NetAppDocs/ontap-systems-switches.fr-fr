@@ -15,6 +15,7 @@ Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de c
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -29,6 +30,7 @@ Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur de c
 
 
 
+[[install-the-software]]
 == Installez le logiciel
 
 .À propos de cette tâche

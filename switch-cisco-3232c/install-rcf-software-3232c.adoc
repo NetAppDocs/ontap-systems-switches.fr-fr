@@ -31,6 +31,7 @@ Assurez-vous de terminer la procédure danslink:prepare-install-cisco-nexus-3232
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Étape 1 : Installez le RCF sur les commutateurs
 
 . Connectez-vous pour commuter cs2 en utilisant SSH ou en utilisant une console série.
@@ -153,6 +154,7 @@ Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-pr
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Étape 2 : Vérifiez les connexions du commutateur
 
 . Vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs*.
@@ -259,6 +261,7 @@ cluster1::*>
 
 
 
+[[step-3-setup-your-ontap-cluster]]
 == Étape 3 : Configurez votre cluster ONTAP
 
 NetApp recommande d'utiliser System Manager pour configurer de nouveaux clusters.

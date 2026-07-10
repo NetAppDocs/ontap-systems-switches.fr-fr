@@ -1,0 +1,1198 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-upgrade-nxos-9332d.html 
+sidebar: sidebar 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gc2b 
+summary: 'Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d"ONTAP sur votre système AFX 1K ou AFX 2K.' 
+---
+= Mettez à niveau le NX-OS - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur votre système AFX 1K ou AFX 2K.
+
+.Avant de commencer
+* Assurez-vous de disposer d'une sauvegarde récente de la configuration du commutateur.
+* Vérifiez que votre cluster est pleinement fonctionnel, c'est-à-dire qu'il n'y a aucune erreur dans les journaux ni de problème similaire.
+
+
+.À propos de cette tâche
+* Si nécessaire, vous pouvez vous référer à link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guide de mise à niveau et de rétrogradation du logiciel NX-OS Cisco Nexus série 9000"^] pour plus d'informations.
+* Si nécessaire, vous pouvez vous référer à la link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matrice de mise à niveau et de mise à niveau logicielle sans interruption de service (ISSU) des Cisco Nexus 9000 et 3000"^] qui fournit des informations sur la mise à niveau logicielle en service (ISSU) pour les commutateurs Cisco Nexus 9000 Series en fonction de vos versions actuelles et cibles.
++
+Sur la page, sélectionnez *Mise à niveau disruptive* et choisissez votre version actuelle et votre version cible dans la liste déroulante.
+
+* La version d'ONTAP exécutée sur votre système AFX détermine les versions de NX-OS prises en charge par vos commutateurs.
++
+** Pour les commutateurs d’un système AFX 1K exécutant n’importe quelle version prise en charge d’ONTAP, NX-OS 10.4.2 et versions ultérieures sont pris en charge.
+** Pour les commutateurs d'un système AFX 2K, exécutant ONTAP 9.19.1GA ou version ultérieure, NX-OS 10.6 et versions ultérieures sont pris en charge.
++
+Pour connaître la liste actuelle des versions NX-OS prises en charge, consultez la page link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco Commutateurs Ethernet"^].
+
++
+
+NOTE: Ne mettez pas à jour ni ne rétrogradez votre version NX-OS vers une version non prise en charge.
+
+
+
+* Cette procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus 9000 Series. Les étapes indiquent quelle interface de ligne de commande (CLI) vous utilisez pour saisir les commandes.
+* Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
++
+** Les noms des deux commutateurs Cisco sont cs1 et cs2.
+** Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
+** Les noms du cluster LIF sont :
++
+*** node1-01_clus1 et node1-01_clus2 pour node1-01
+*** node1-02_clus1 et node1-02_clus2 pour node1-02
+*** node1-03_clus1 et node1-03_clus2 pour node1-03
+*** node1-04_clus1 et node1-04_clus2 pour node1-04
+
+
+** Le `cluster1::*>` L'invite indique le nom du cluster.
+
+
+* Les exemples présentés dans cette procédure concernent les systèmes AFX 1K avec des commutateurs exécutant RCF 10.0. Si vous disposez d'un système AFX 2K, les entrées et sorties peuvent varier.
+
+
+
+
+[[step-1-prepare-to-upgrade-the-nx-os]]
+== Étape 1 : Préparez-vous à mettre à niveau le NX-OS
+
+Préparez-vous à la mise à niveau du NX-OS en vous assurant d'avoir une connexion réseau de gestion à chaque commutateur, en téléchargeant la version du NX-OS, en vérifiant l'état des ports sur le cluster et en désactivant la restauration automatique sur les LIF du cluster.
+
+.Étapes
+. Connectez chaque commutateur au réseau de gestion.
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez la connectivité au serveur hébergeant le NX-OS.
++
+`ping <IP address>`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+Cet exemple vérifie que le commutateur peut atteindre le serveur à l'adresse IP 172.19.2.1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *ping 172.19.2.1*
+Pinging 172.19.2.1 with 0 bytes of data:
+
+Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
+----
+====
+. Téléchargez la version correcte de NX-OS sur les commutateurs depuis la page  https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^].
+. À l'aide de l'interface de ligne de commande ONTAP, affichez les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
++
+[source, cli]
+----
+network device-discovery show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID) Interface         Platform
+----------- ------ ------------------------ ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FLMXXXXXXXX)         Ethernet1/16/3    N9K-C9332D-GX2B
+            e10b   cs2(FDOXXXXXXXX)         Ethernet1/16/3    N9K-C9332D-GX2B
+            e11a   cs1(FLMXXXXXXXX)         Ethernet1/16/4    N9K-C9332D-GX2B
+            e11b   cs2(FDOXXXXXXXX)         Ethernet1/16/4    N9K-C9332D-GX2B
+            e1a    cs1(FLMXXXXXXXX)         Ethernet1/16/1    N9K-C9332D-GX2B
+            e1b    cs2(FDOXXXXXXXX)         Ethernet1/16/1    N9K-C9332D-GX2B
+            .
+            .
+            .
+            e7a    cs1(FLMXXXXXXXX)         Ethernet1/16/2    N9K-C9332D-GX2B
+            e7b    cs2(FDOXXXXXXXX)         Ethernet1/16/2    N9K-C9332D-GX2B
+
+node1-01/lldp
+            e10a   cs1 (c8:60:8f:xx:xx:xx)  Ethernet1/16/3    -
+            e10b   cs2 (04:e3:87:xx:xx:xx)  Ethernet1/16/3    -
+            e11a   cs1 (c8:60:8f:xx:xx:xx)  Ethernet1/16/4    -
+            e11b   cs2 (04:e3:87:xx:xx:xx)  Ethernet1/16/4    -
+            e1a    cs1 (c8:60:8f:xx:xx:xx)  Ethernet1/16/1    -
+            e1b    cs2 (04:e3:87:xx:xx:xx)  Ethernet1/16/1    -
+            .
+            .
+            .
+            e7a    cs1 (c8:60:8f:34:78:d3)  Ethernet1/16/2    -
+            e7b    cs2 (04:e3:87:19:a2:59)  Ethernet1/16/2    -
+.
+.
+.
+----
+====
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez l'état administratif et opérationnel de chaque port :
++
+.. *Ports de cluster*
++
+... Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node1-03
+
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+----
+====
+... Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current   Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node      Port    Home
+----------- --------------- ---------- ------------------ --------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01  e7a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01  e7b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02  e7a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02  e7b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03  e7a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03  e7b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04  e7a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04  e7b     true
+
+8 entries were displayed.
+----
+====
+... Vérifiez que le cluster affiche les informations pour les deux commutateurs du cluster :
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+
+cs1(FLMXXXXXXXX)             cluster-network   10.228.137.253   N9K-C9332D-GX2B
+     Serial Number: FLMXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+2 entries were displayed.
+----
+====
+
+
+.. *Ports HA*
++
+... Vérifiez que tous les ports HA sont opérationnels et en bon état :
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+
+
+.. *Ports de stockage*
++
+... Vérifiez que tous les ports de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-02
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-03
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+node1-04
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+16 entries were displayed.
+----
+====
+
+
+.. *Ports d'étagères de stockage*
++
+... Vérifiez que tous les ports de l'étagère de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+
+16 entries were displayed.
+----
+====
+... Vérifiez l’état de connexion de tous les ports de l’étagère de stockage :
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 CX9332D-cs1
+1.1   1  connected       Ethernet1/15/1 CX9364D-cs1
+1.1   2  connected       Ethernet1/17/2 CX9332D-cs1
+1.1   3  connected       Ethernet1/15/2 CX9364D-cs1
+1.1   4  connected       Ethernet1/17/3 CX9332D-cs1
+1.1   5  connected       Ethernet1/15/3 CX9364D-cs1
+1.1   6  connected       Ethernet1/17/4 CX9332D-cs1
+1.1   7  connected       Ethernet1/15/4 CX9364D-cs1
+1.1   8  connected       Ethernet1/19/1 CX9332D-cs1
+1.1   9  connected       Ethernet1/17/1 CX9364D-cs1
+1.1   10 connected       Ethernet1/19/2 CX9332D-cs1
+1.1   11 connected       Ethernet1/17/2 CX9364D-cs1
+1.1   12 connected       Ethernet1/19/3 CX9332D-cs1
+1.1   13 connected       Ethernet1/17/3 CX9364D-cs1
+1.1   14 connected       Ethernet1/19/4 CX9332D-cs1
+1.1   15 connected       Ethernet1/17/4 CX9364D-cs1
+
+16 entries were displayed.
+----
+====
+
+
+
+
+. À l'aide de l'interface de ligne de commande ONTAP, désactivez la restauration automatique sur les LIF du cluster. Les LIF du cluster basculent vers le commutateur du cluster partenaire et y restent pendant que vous effectuez cette procédure sur le commutateur ciblé :
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert false
+----
+
+
+
+
+[[step-2-install-the-nx-os]]
+== Étape 2 : Installez le NX-OS
+
+Vous installez le NX-OS sur le premier commutateur (cs1) en installant et en vérifiant les nouvelles versions du NX-OS et de l'EPLD, en vérifiant le contrôle de l'état de tous les ports du cluster, puis vous répétez ces étapes sur le deuxième commutateur (cs2).
+
+. À l'aide de l'interface de ligne de commande du commutateur, copiez les images NX-OS et EPLD sur un commutateur.
++
+Vous utilisez cette commande deux fois : la première fois pour copier la version NX-OS et la seconde fois pour copier la version EPLD.
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+L'exemple utilise sftp.
+
+[listing, subs="+quotes"]
+----
+cs1# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/nxos.10.4.2.bin*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *root*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+root@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/nxos.10.4.2.bin  /bootflash/nxos.10.4.2.bin
+/code/nxos.10.4.2.bin  100% 1261MB   9.3MB/s   02:15
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+
+cs1# *copy sftp: bootflash: vrf management*
+Enter source filename: */code/n9000-epld.10.4.2.F.img*
+Enter hostname for the sftp server: *172.19.2.1*
+Enter username: *user1*
+
+Outbound-ReKey for 172.19.2.1:22
+Inbound-ReKey for 172.19.2.1:22
+user1@172.19.2.1's password:
+sftp> progress
+Progress meter enabled
+sftp> get   /code/n9000-epld.10.4.2.F.img  /bootflash/n9000-epld.10.4.2.F.img
+/code/n9000-epld.10.4.2.F.img  100%  161MB   9.5MB/s   00:16
+sftp> exit
+Copy complete, now saving to disk (please wait)...
+Copy complete.
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez la version de NX-OS en cours d'exécution :
++
+`show version`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+
+Software
+  BIOS: version 01.14
+  NXOS: version 10.4(1) [Feature Release]
+  Host NXOS: version 10.4(1)
+  BIOS compile time:  11/25/2024
+  NXOS image file is: bootflash:///nxos64-cs.10.4.1.F.bin
+  NXOS compile time:  11/30/2023 12:00:00 [12/14/2023 05:25:50]
+  NXOS boot mode: LXC
+
+
+Hardware
+  cisco Nexus9000 C9332D-GX2B Chassis
+  Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
+  Processor Board ID FLMXXXXXXXX
+  Device name: cs2
+  bootflash:  115802886 kB
+
+
+Kernel uptime is 5 day(s), 2 hour(s), 13 minute(s), 21 second(s)
+
+
+Last reset at 3580 usecs after Thu Jun  5 15:55:08 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.4(1)
+  Service:
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+
+Active Package(s):
+
+cs1#
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, installez l'image NX-OS.
++
+L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur.
+
++
+`install all nxos bootflash:nxos.<version number>.bin`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+Cet exemple utilise la version 10.4.2 de NX-OS.
+
+[listing, subs="+quotes"]
+----
+cs1# *install all nxos bootflash:nxos.10.4.2.bin*
+
+Installer will perform compatibility check first. Please wait.
+Installer is forced disruptive
+
+Verifying image bootflash:/nxos.10.4.2.bin for boot variable "nxos".
+[####################] 100% -- SUCCESS
+
+Verifying image type.
+[####################] 100% -- SUCCESS
+
+Preparing "nxos" version info using image bootflash:/nxos.10.4.2.bin.
+[####################] 100% -- SUCCESS
+
+Preparing "bios" version info using image bootflash:/nxos.10.4.2.bin.
+[####################] 100% -- SUCCESS
+
+Performing module support checks.
+[####################] 100% -- SUCCESS
+
+Notifying services about system upgrade.
+[####################] 100% -- SUCCESS
+
+
+Compatibility check is done:
+Module  Bootable  Impact          Install-type  Reason
+------  --------  --------------- ------------  ---------
+  1     yes       Disruptive      Reset         Default upgrade is not hitless
+
+
+
+Images will be upgraded according to following table:
+
+Module   Image    Running-Version(pri:alt)                 New-Version         Upg-Required
+------- --------- ---------------------------------------- ------------------- ------------
+  1      nxos     10.4(1)                                  10.4(2)             Yes
+  1      bios     xx.xx.:xx.xx                             xxx                 No
+
+
+Switch will be reloaded for disruptive upgrade.
+
+Do you want to continue with the installation (y/n)? [n] *y*
+
+Install is in progress, please wait.
+
+Performing runtime checks.
+[####################] 100% -- SUCCESS
+
+Setting boot variables.
+[####################] 100% -- SUCCESS
+
+Performing configuration copy.
+[####################] 100% -- SUCCESS
+
+Module 1: Refreshing compact flash and upgrading bios/loader/bootrom.
+Warning: please do not remove or power off the module at this time.
+[####################] 100% -- SUCCESS
+
+Finishing the upgrade, switch will reboot in 10 seconds.
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez la nouvelle version de NX-OS après le redémarrage du commutateur :
++
+`show version`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show version*
+Cisco Nexus Operating System (NX-OS) Software
+TAC support: http://www.cisco.com/tac
+Copyright (C) 2002-2025, Cisco and/or its affiliates.
+All rights reserved.
+The copyrights to certain works contained in this software are
+owned by other third parties and used and distributed under their own
+licenses, such as open source.  This software is provided "as is," and unless
+otherwise stated, there is no warranty, express or implied, including but not
+limited to warranties of merchantability and fitness for a particular purpose.
+Certain components of this software are licensed under
+the GNU General Public License (GPL) version 2.0 or
+GNU General Public License (GPL) version 3.0  or the GNU
+Lesser General Public License (LGPL) Version 2.1 or
+Lesser General Public License (LGPL) Version 2.0.
+A copy of each such license is available at
+http://www.opensource.org/licenses/gpl-2.0.php and
+http://opensource.org/licenses/gpl-3.0.html and
+http://www.opensource.org/licenses/lgpl-2.1.php and
+http://www.gnu.org/licenses/old-licenses/library.txt.
+
+
+Software
+  BIOS: version 01.14
+  NXOS: version 10.4(2) [Feature Release]
+  Host NXOS: version 10.4(2)
+  BIOS compile time:  11/25/2024
+  NXOS image file is: bootflash:///nxos64-cs.10.4.2.F.bin
+  NXOS compile time:  11/30/2023 12:00:00 [12/14/2023 05:25:50]
+  NXOS boot mode: LXC
+
+
+Hardware
+  cisco Nexus9000 C9332D-GX2B Chassis
+  Intel(R) Xeon(R) CPU D-1633N @ 2.50GHz with 32802156 kB of memory.
+  Processor Board ID FLMXXXXXXXX
+  Device name: cs2
+  bootflash:  115802886 kB
+
+
+Kernel uptime is 5 day(s), 2 hour(s), 13 minute(s), 21 second(s)
+
+
+Last reset at 3580 usecs after Thu Jun  5 15:55:08 2025
+  Reason: Reset Requested by CLI command reload
+  System version: 10.4(2)
+  Service:
+
+
+plugin
+  Core Plugin, Ethernet Plugin
+
+
+Active Package(s):
+
+cs1#
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, mettez à niveau l'image EPLD à l'aide des commandes suivantes :
++
+`show version module 1 epld`
+
++
+`install epld bootflash:n9000-epld.<version>.img module all`
+
++
+Une fois la dernière commande exécutée, le commutateur redémarre.
+
++
+.Afficher un exemple
+[%collapsible]
+====
+L'exemple utilise la version 10.4.2.F d'EPLD
+
+[listing, subs="+quotes"]
+----
+cs1# *show version module 1 epld*
+
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                        0x7
+IO   FPGA                        0x17
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+
+cs1# *install epld bootflash:n9000-epld.10.4.2.F.img module all*
+Compatibility check:
+Module        Type         Upgradable        Impact    Reason
+------  ------------------ ----------------- --------- -----------
+     1         SUP         Yes       disruptive  Module Upgradable
+
+Retrieving EPLD versions.... Please wait.
+Images will be upgraded according to following table:
+Module  Type   EPLD              Running-Version   New-Version  Upg-Required
+------- ------ ----------------- ----------------- ------------ ------------
+     1  SUP    MI FPGA           0x07              0x07         No
+     1  SUP    IO FPGA           0x17              0x19         Yes
+     1  SUP    MI FPGA2          0x02              0x02         No
+The above modules require upgrade.
+The switch will be reloaded at the end of the upgrade
+Do you want to continue (y/n) ?  [n] *y*
+
+Proceeding to upgrade Modules.
+
+Starting Module 1 EPLD Upgrade
+
+Module 1 : IO FPGA [Programming] : 100.00% (     64 of      64 sectors)
+Module 1 EPLD upgrade is successful.
+Module   Type  Upgrade-Result
+-------- ----- --------------
+     1   SUP   Success
+
+EPLDs upgraded.
+
+Module 1 EPLD upgrade is successful.
+----
+====
+. Après le redémarrage du commutateur, utilisez l'interface de ligne de commande du commutateur pour vous connecter et vérifier que la nouvelle version d'EPLD a été chargée avec succès.
++
+`show version module 1 epld`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show version module 1 epld*
+
+EPLD Device                     Version
+---------------------------------------
+MI   FPGA                        0x7
+IO   FPGA                        0x19
+MI   FPGA2                       0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+GEM  FPGA                        0x2
+----
+====
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez le contrôle de l'état de tous les ports du cluster.
++
+.. *Ports de cluster*
++
+... Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-02
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/10000 healthy  false
+e7b       Cluster      Cluster          up   9000  auto/10000 healthy  false
+
+Node: node1-03
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+
+Node: node1-04
+                                                                       Ignore
+                                                  Speed(Mbps) Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper  Status   Status
+--------- ------------ ---------------- ---- ---- ----------- -------- ------
+e7a       Cluster      Cluster          up   9000  auto/100000 healthy false
+e7b       Cluster      Cluster          up   9000  auto/100000 healthy false
+----
+====
+... Vérifiez l'état du commutateur à partir du cluster :
++
+[source, cli]
+----
+network device-discovery show -protocol cdp
+----
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+node1-02/cdp
+            e10a   cs1(FLMXXXXXXXX)         Ethernet1/16/3    N9K-C9332D-GX2B
+            e10b   cs2(FDOXXXXXXXX)         Ethernet1/16/3    N9K-C9332D-GX2B
+            e11a   cs1(FLMXXXXXXXX)         Ethernet1/16/4    N9K-C9332D-GX2B
+            e11b   cs2(FDOXXXXXXXX)         Ethernet1/16/4    N9K-C9332D-GX2B
+            e1a    cs1(FLMXXXXXXXX)         Ethernet1/16/1    N9K-C9332D-GX2B
+            e1b    cs2(FDOXXXXXXXX)         Ethernet1/16/1    N9K-C9332D-GX2B
+            .
+            .
+            .
+            e7a    cs1(FLM284504N6)         Ethernet1/16/2    N9K-C9332D-GX2B
+            e7b    cs2(FDO2846056X)         Ethernet1/16/2    N9K-C9332D-GX2B
+
+node1-01/cdp
+            e10a   cs1(FLMXXXXXXXX)         Ethernet1/16/3    N9K-C9332D-GX2B
+            e10b   cs2(FDOXXXXXXXX)         Ethernet1/16/3    N9K-C9332D-GX2B
+            e11a   cs1(FLMXXXXXXXX)         Ethernet1/16/4    N9K-C9332D-GX2B
+            e11b   cs2(FDOXXXXXXXX)         Ethernet1/16/4    N9K-C9332D-GX2B
+            e1a    cs1(FLMXXXXXXXX)         Ethernet1/16/1    N9K-C9332D-GX2B
+            e1b    cs2(FDOXXXXXXXX)         Ethernet1/16/1    N9K-C9332D-GX2B
+           .
+           .
+           .
+            e7a    cs1(FLMXXXXXXXX)         Ethernet1/16/2    N9K-C9332D-GX2B
+            e7b    cs2(FDOXXXXXXXX)         Ethernet1/16/2    N9K-C9332D-GX2B
+.
+.
+.
+
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs1(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+
+
+cs1(FLMXXXXXXXX)             cluster-network   10.228.137.253   N9K-C9332D-GX2B
+     Serial Number: FLMXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.4(2)
+    Version Source: CDP/ISDP
+----
+====
+
+
+.. *Ports HA*
++
+... Vérifiez que tous les ports HA sont opérationnels et en bon état :
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+
+
+.. *Ports de stockage*
++
+... Vérifiez que tous les ports de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-02
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+node1-03
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+node1-04
+                   e10a ENET  -          100 enabled  online
+                   e10b ENET  -          100 enabled  online
+                   e11a ENET  -          100 enabled  online
+                   e11b ENET  -          100 enabled  online
+16 entries were displayed.
+----
+====
+
+
+.. *Ports d'étagères de stockage*
++
+... Vérifiez que tous les ports de l'étagère de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.1
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+
+16 entries were displayed.
+----
+====
+... Vérifiez l’état de connexion de tous les ports de l’étagère de stockage :
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 CX9332D-cs1
+1.1   1  connected       Ethernet1/15/1 CX9364D-cs1
+1.1   2  connected       Ethernet1/17/2 CX9332D-cs1
+1.1   3  connected       Ethernet1/15/2 CX9364D-cs1
+1.1   4  connected       Ethernet1/17/3 CX9332D-cs1
+1.1   5  connected       Ethernet1/15/3 CX9364D-cs1
+1.1   6  connected       Ethernet1/17/4 CX9332D-cs1
+1.1   7  connected       Ethernet1/15/4 CX9364D-cs1
+1.1   8  connected       Ethernet1/19/1 CX9332D-cs1
+1.1   9  connected       Ethernet1/17/1 CX9364D-cs1
+1.1   10 connected       Ethernet1/19/2 CX9332D-cs1
+1.1   11 connected       Ethernet1/17/2 CX9364D-cs1
+1.1   12 connected       Ethernet1/19/3 CX9332D-cs1
+1.1   13 connected       Ethernet1/17/3 CX9364D-cs1
+1.1   14 connected       Ethernet1/19/4 CX9332D-cs1
+1.1   15 connected       Ethernet1/17/4 CX9364D-cs1
+
+16 entries were displayed.
+----
+====
+
+
+
+
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez que le cluster est sain :
++
+[source, cli]
+----
+cluster show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+
+
+Node                 Health  Eligibility   Epsilon
+-------------------- ------- ------------  ------------
+node1-01             true    true          false
+node1-02             true    true          false
+node1-03             true    true          false
+node1-04             true    true          true
+
+4 entries were displayed.
+----
+====
+. Répétez ces étapes pour installer les images NX-OS et EPLD sur le commutateur cs2.
+
+
+
+
+[[step-3-complete-the-nx-os-upgrade]]
+== Étape 3 : Terminez la mise à niveau de NX-OS
+
+À l'aide de l'interface de ligne de commande ONTAP, terminez la mise à niveau NX-OS en réactivant la restauration automatique sur les LIF du cluster et en vérifiant que les LIF du cluster sont revenues à leurs ports d'attache.
+
+. Réactivez la restauration automatique sur les LIF du cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e7a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e7b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e7a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e7b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e7a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e7b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e7a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e7b     true
+----
+====
++
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
+
++
+[source, cli]
+----
+network interface revert -vserver Cluster -lif <lif-name>
+----
+
+
+.Quelle est la prochaine étape ?
+Après avoir mis à niveau le NX-OS sur vos commutateurs, vous mettez à niveau le RCF en commençant par le link:configure-install-upgrade-rcf-overview-9332d.html["Installer ou mettre à niveau l’aperçu RCF"].

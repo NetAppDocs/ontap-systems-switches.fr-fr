@@ -15,6 +15,7 @@ Si vous disposez d'un environnement de cluster existant à deux nœuds sans comm
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -53,6 +54,7 @@ Toute personnalisation précédente du site, telle que SMTP, SNMP et SSH, doit �
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -70,6 +72,7 @@ Lelink:https://hwu.netapp.com/["Hardware Universe"^] Contient les informations l
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
@@ -105,6 +108,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports]]
 === Étape 2 : Configurer les ports
 
 . Désactivez tous les ports orientés vers les nœuds (à l'exception des ports ISL) sur les deux nouveaux commutateurs de cluster cs1 et cs2.
@@ -865,6 +869,7 @@ NOTE: Pour la version 8.3 et les versions ultérieures, les commandes sont les s
 
 
 
+[[step-3-complete-the-configuration]]
 === Étape 3 : Terminer la configuration
 
 . Vérifiez que toutes les interfaces s'affichent. `true` dans la colonne « Est à la maison » :

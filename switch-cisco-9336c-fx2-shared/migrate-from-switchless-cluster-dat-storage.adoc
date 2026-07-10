@@ -24,6 +24,7 @@ Si vous disposez déjà d'un environnement de cluster sans commutateur à deux n
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Assurez-vous que :
@@ -56,6 +57,7 @@ Assurez-vous que :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -70,6 +72,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 
+[[step-1-migrate-from-a-switchless-cluster-with-direct-attached]]
 === Étape 1 : Migration depuis un groupe sans commutateur avec connexion directe
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh` .
@@ -649,6 +652,7 @@ RPC status:
 
 
 
+[[step-2-set-up-the-shared-switch]]
 === Étape 2 : Configurer le commutateur partagé
 
 Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :

@@ -17,6 +17,7 @@ Vous pouvez également utiliser cette procédure pour mettre à niveau votre ver
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -30,6 +31,7 @@ Vous pouvez également utiliser cette procédure pour mettre à niveau votre ver
 
 
 
+[[install-the-file]]
 == Installez le fichier
 
 .À propos des exemples

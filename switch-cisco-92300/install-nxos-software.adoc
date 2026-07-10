@@ -17,6 +17,7 @@ NX-OS est un système d'exploitation réseau pour la série de commutateurs Ethe
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Ports et connexions de nœuds pris en charge
@@ -34,6 +35,7 @@ Assurez-vous d'avoir les éléments suivants :
 
 
 
+[[install-the-software]]
 == Installez le logiciel
 
 Les exemples de cette procédure utilisent deux nœuds, mais vous pouvez avoir jusqu'à 24 nœuds dans un cluster.

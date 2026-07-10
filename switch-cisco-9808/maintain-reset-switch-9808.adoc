@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9808/maintain-reset-switch-9808.html 
+keywords: reset switch factory defaults 
+summary: 'Vous pouvez réinitialiser un commutateur Cisco Nexus 9808 à ses paramètres d"usine par défaut d"origine lorsque le commutateur est mis hors service ou lorsqu"il tombe en panne et ne peut pas être récupéré, ce qui vous oblige à le reconfigurer manuellement.' 
+---
+= Réinitialiser un commutateur aux paramètres d'usine par défaut - Cisco Nexus 9808
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez réinitialiser un commutateur Cisco Nexus 9808 à ses paramètres d'usine par défaut d'origine lorsque le commutateur est mis hors service ou lorsqu'il tombe en panne et ne peut pas être récupéré, ce qui vous oblige à le reconfigurer manuellement.
+
+.Avant de commencer
+Vous devez être connecté au commutateur via la console série.
+
+.À propos de cette tâche
+* Cette tâche réinitialise la configuration du réseau de gestion.
+* La  `reload`commande utilisée dans cette procédure redémarre le commutateur, ce qui interrompt tout le trafic réseau qui le traverse. (Vous devez effectuer cette procédure pendant une fenêtre de maintenance, lorsque le commutateur n'est pas utilisé.)
+
+
+.Étapes
+. Effacez la configuration de démarrage existante :
++
+`write erase`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *write erase*
+
+Warning: This command will erase the startup-configuration.
+Do you wish to proceed anyway? (y/n) [n] *y*
+----
+. Rechargez le système d'exploitation NX-OS :
++
+`reload`
+
++
+[listing, subs="+quotes"]
+----
+(cs2)# *reload*
+
+This command will reboot the system. (y/n)? [n] *y*
+----
++
+Le système redémarre et accède à l'assistant de configuration.
+
++
+
+NOTE: Lors du redémarrage, si vous recevez l'invite « Annuler le provisionnement automatique et continuer avec la configuration normale ? (oui/non)[n] », répondez *oui* pour continuer.
+
+. Si le commutateur est mis hors service, cette procédure est terminée ; sinon, vous devez configurer le commutateur à l’aide de link:configure-switch-workflow-9808.html["Configurer le workflow du commutateur"].
+

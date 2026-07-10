@@ -15,6 +15,7 @@ Découvrez les nouveaux commutateurs pour les systèmes de stockage ONTAP. Pour 
 
 
 
+[[new-switch-support]]
 == Nouvelle prise en charge des commutateurs
 
 [cols="25h,~,~"]

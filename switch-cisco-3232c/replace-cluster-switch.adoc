@@ -15,6 +15,7 @@ Suivez ces étapes pour remplacer un commutateur Cisco Nexus 3232C défectueux d
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Ce dont vous aurez besoin
@@ -47,6 +48,7 @@ Reportez-vous à ce qui suit :
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -58,6 +60,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 .À propos de cette tâche
@@ -91,6 +94,7 @@ Les exemples de cette procédure de remplacement utilisent quatre nœuds. Deux d
 
 
 
+[[step-1-display-and-migrate-the-cluster-ports-to-switch]]
 === Étape 1 : Afficher et migrer les ports du cluster vers le commutateur
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -458,6 +462,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 ====
 
 
+[[step-2-migrate-isls-to-switch-cl1-and-c2]]
 === Étape 2 : Migrer les ISL vers les commutateurs CL1 et C2
 
 . Fermez les ports 1/31 et 1/32 sur le commutateur de cluster CL1.
@@ -572,6 +577,7 @@ cluster::*> *network port modify -node n4 -port e4e -up-admin true*
 
 
 
+[[step-3-revert-all-lifs-to-originally-assigned-ports]]
 === Étape 3 : Rétablir les ports d’origine de toutes les LIF
 
 . Rétablir toutes les LIF d'interconnexion de cluster migrées sur tous les nœuds :
@@ -784,6 +790,7 @@ Larger than PMTU communication succeeds on 32 path(s) RPC status:
 ====
 
 
+[[step-4-verify-all-ports-and-lif-are-correctly-migrated]]
 === Étape 4 : Vérifier que tous les ports et LIF sont correctement migrés.
 
 . Affichez les informations relatives aux périphériques de votre configuration en saisissant les commandes suivantes :

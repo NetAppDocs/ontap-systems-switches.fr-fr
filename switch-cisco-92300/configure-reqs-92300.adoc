@@ -17,12 +17,14 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez
 
 
 
+[[configuration-requirements]]
 == Exigences de configuration
 
 Pour configurer votre cluster, vous avez besoin du nombre et du type appropriés de câbles et de connecteurs de câbles pour vos commutateurs.  Selon le type de commutateur que vous configurez initialement, vous devez vous connecter au port console du commutateur avec le câble console fourni ; vous devez également fournir des informations réseau spécifiques.
 
 
 
+[[network-requirements]]
 == Exigences réseau
 
 Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateurs :

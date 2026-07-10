@@ -17,6 +17,7 @@ Le processus de migration fonctionne pour tous les ports de nœuds de cluster ut
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Veuillez prendre connaissance des exigences suivantes relatives à l'environnement du cluster.
@@ -61,6 +62,7 @@ Le link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contient des inf
 
 
 
+[[migrate-to-the-cluster-environment]]
 == Migrer vers l'environnement cluster
 
 .À propos des exemples
@@ -78,6 +80,7 @@ Le link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contient les inf
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -110,6 +113,7 @@ L'invite avancée(`*>` ) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Désactivez tous les ports connectés au nœud (à l'exception des ports ISL) sur les deux nouveaux commutateurs du cluster cs1 *et* cs2.
@@ -415,6 +419,7 @@ e0b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster.

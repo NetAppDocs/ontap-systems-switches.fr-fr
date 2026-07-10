@@ -108,6 +108,7 @@ N9K-9336C 65 CFM, débit d'air d'admission côté bâbord
 |===
 
 
+[[cisco-smart-licenses-for-9336c-fx2-t-ports-only]]
 == Licences Cisco Smart pour les ports 9336C-FX2-T uniquement
 
 Pour activer plus de 12 ports sur votre commutateur de stockage Cisco Nexus 9336C-FX-T, vous devez acheter une licence Cisco Smart.  Les licences Cisco Smart sont gérées via des comptes Cisco Smart.

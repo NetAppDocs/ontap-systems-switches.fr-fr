@@ -17,7 +17,7 @@ Suivez ces étapes pour installer et configurer vos commutateurs SN2100. Consult
 
 .Étapes
 . Examinerlink:configure-reqs-sn2100-storage.html["exigences de configuration"] .
-. Suivez les instructions dans le link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation de la NVIDIA Switch"^].
+. Suivez les instructions dans le link:https://networking-docs.nvidia.com/sn2000hw/latest/installation["Guide d'installation de la NVIDIA Switch"^].
 
 
 .Quelle est la prochaine étape ?

@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: switch-cisco-9364d-gx2a/install-prepare-9364d.html 
+keywords: shared storage cluster switch 
+summary: Avant d’installer des commutateurs Cisco Nexus 9364D-GX2A dans le cadre d’une nouvelle installation de système AFX 1K ou AFX 2K, vous devez comprendre les aspects du commutateur et de son installation en consultant la documentation applicable du commutateur Cisco et la documentation des systèmes ONTAP, en comprenant les versions RCF prises en charge pour les systèmes AFX et en envisageant l’utilisation de Smart Call Home. 
+---
+= Préparez-vous à installer les commutateurs - Cisco Nexus 9364D-GX2A
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ../media/
+
+
+[role="lead"]
+Avant d’installer des commutateurs Cisco Nexus 9364D-GX2A dans le cadre d’une nouvelle installation de système AFX 1K ou AFX 2K, vous devez comprendre les aspects du commutateur et de son installation en consultant la documentation applicable du commutateur Cisco et la documentation des systèmes ONTAP, en comprenant les versions RCF prises en charge pour les systèmes AFX et en envisageant l’utilisation de Smart Call Home.
+
+
+
+[[step-1-review-the-cisco-switch-documentation]]
+=== Étape 1 : Consultez la documentation du commutateur Cisco
+
+Vous devriez consulter les documents d'installation et de configuration Cisco suivants afin de vous familiariser avec les notes de version du commutateur, les informations de sécurité, les options d'installation, la configuration logicielle initiale et les références de commandes.
+
+Tous les documents Cisco sont disponibles sur la page link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Prise en charge des commutateurs Cisco Nexus série 9000"^].
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-release-notes-list.html["Notes de version de Cisco Nexus série 9000 NX-OS"^](Choisissez les notes correspondant à la version de NX-OS installée sur vos commutateurs)
+* link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/mds9000/hw/regulatory/compliance/RCSI.html?dtid=osscdc000283&linkclickid=srch["Informations relatives à la conformité réglementaire et à la sécurité pour la gamme Cisco Nexus 9000"^]
+* link:https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9364d-gx2a/cisco-nexus-9364d-gx2a-nx-os-mode-switch-hardware-installation-guide.html["Guide d'installation du commutateur Cisco Nexus 9364D-GX2A NX-OS"^]
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/products-installation-and-configuration-guides-list.html["Guides de configuration logicielle des commutateurs Cisco Nexus série 9000"^](Choisissez le guide correspondant à la version de NX-OS installée sur vos commutateurs)
+* link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^]Fournit des liens vers les différentes références de commandes fournies par Cisco.
+
+
+
+
+[[step-2-review-the-netapp-systems-documentation]]
+=== Étape 2 : Passez en revue la documentation des systèmes NetApp
+
+Vous devriez consulter la documentation système suivante de NetApp afin de vous familiariser avec l'installation du système AFX 1K ou AFX 2K, les informations sur la version d'ONTAP, ainsi que les exigences de configuration et de compatibilité matérielles.
+
+* link:https://docs.netapp.com/us-en/ontap-afx/index.html["Documentation des systèmes AFX"^]Décrit comment installer le matériel NetApp.
+* link:https://docs.netapp.com/us-en/ontap-family/["Documentation ONTAP"^]Fournit des informations détaillées sur tous les aspects des versions ONTAP.
+* link:https://hwu.netapp.com["Hardware Universe"^]Fournit des informations sur la configuration matérielle et la compatibilité de NetApp.
+* link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^]Fournit des informations supplémentaires sur les exigences d'installation du système de stockage.
+
+
+
+
+[[step-3-understand-the-supported-rcf-versions]]
+=== Étape 3 : Comprendre les versions RCF prises en charge
+
+La version d'ONTAP exécutée sur votre système AFX et la version de NX-OS sur vos commutateurs déterminent les versions de RCF compatibles avec vos commutateurs. Les versions de RCF possèdent des configurations de vitesse de port prédéfinies qui déterminent combien de ports de commutateur sont en mode breakout (4x100GbE) et combien sont en mode non-breakout.
+
+[NOTE]
+====
+Pour connaître la liste actuelle des versions RCF prises en charge, consultez la link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco Commutateurs Ethernet"^] page.
+
+Les informations relatives aux ports du commutateur se trouvent également dans le https://hwu.netapp.com["Hardware Universe NetApp"^].
+
+====
+* Si vous possédez un système AFX 1K, RCF 10.0 et versions ultérieures sont prises en charge.
+* Si vous possédez un système AFX 2K, RCF 10.1 et versions ultérieures sont prises en charge.
+* RCF 10.0 possède un seul fichier et prend en charge les commutateurs partagés, `Cluster-HA-Storage AFX RCF_10.0`.
++
+Par exemple, le tableau suivant présente les regroupements prédéfinis des ports du commutateur, leurs vitesses de port et leur utilisation pour ce fichier RCF.
+
++
+[cols="1,2"]
+|===
+| Groupes de ports de commutateur | Vitesses et utilisation des ports 
+
+
+ a| 
+Ethernet1/1/1-4 vers Ethernet1/62/1-4
+ a| 
+Mode 4x100GbE pour les connexions cluster, HA et stockage
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+ISL 400GbE
+
+|===
+* RCF 10.1 propose différents fichiers selon les cas d'utilisation pour AFX 1K et pour AFX 2K. Selon la façon dont vous prévoyez d'utiliser les commutateurs dans la configuration de votre système AFX 1K ou AFX 2K (partagé, stockage uniquement ou cluster et HA uniquement), vous choisissez le fichier RCF applicable.
++
+Par exemple, si vous utilisez vos commutateurs comme commutateurs partagés dans un système AFX 2K, vous utilisez le fichier RCF approprié pour ce cas d'utilisation. Le fichier RCF approprié pourrait porter un nom similaire à  `RCF-v10.1-NX9364D-GX2A-CL1-ST1-100GBR31-400G31.txt`. Le tableau suivant présente les groupes prédéfinis des ports du commutateur, leurs vitesses de port et leur utilisation pour ce fichier RCF.
+
++
+[cols="1,2"]
+|===
+| Groupes de ports de commutateur | Vitesses et utilisation des ports 
+
+
+ a| 
+Ethernet1/1/1-4 vers Ethernet1/31/1-4
+ a| 
+Mode 4x100GbE pour les connexions intra-cluster, HA et aux baies de stockage
+
+
+
+ a| 
+Ethernet1/32 vers Ethernet1/62
+ a| 
+Mode 400GbE pour les connexions intra-cluster, HA et de stockage
+
+
+
+ a| 
+Ethernet1/63, Ethernet1/64
+ a| 
+Connexions ISL intra-cluster 400GbE
+
+|===
++
+[NOTE]
+====
+Vous pouvez modifier les groupes prédéfinis pour ajuster le nombre de ports de commutation en mode breakout (4x100GbE) et en mode 400GbE lorsque vous devez prendre en charge une configuration de vitesse de port différente pour votre système AFX.
+
+Vous effectuerez cette opération ultérieurement, dans le cadre de la procédure d'installation de RCF.
+
+====
+
+
+
+
+[[step-4-consider-using-smart-call-home]]
+=== Étape 4 : Envisagez d’utiliser Smart Call Home
+
+ONTAP prend en charge la surveillance de l'état des commutateurs Ethernet (CSHM) pour surveiller les commutateurs du cluster AFX, ainsi que la possibilité de collecter les journaux de diagnostic des commutateurs.
+
+La fonction Smart Call Home de Cisco est une option permettant de fournir une assistance proactive et de vous aider à résoudre tout problème pouvant survenir avec les commutateurs.
+
+Vous trouverez plus d'informations sur Smart Call Home dans la link:configure-smart-call-9364d.html["Configurer Smart Call Home"] documentation.
+
+.Quelle est la prochaine étape ?
+Une fois que vous avez préparé l'installation de vos commutateurs, vous link:install-switches-9364d.html["installez les commutateurs"].

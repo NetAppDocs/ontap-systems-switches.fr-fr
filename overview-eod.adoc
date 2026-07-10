@@ -21,6 +21,7 @@ Les commutateurs suivants ne sont plus disponibles à l'achat, mais bénéficien
 
 
 
+[[end-of-sale-and-end-of-life-announcements]]
 == Annonces de fin de vente et de fin de vie
 
 * link:https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html["Annonce de fin de commercialisation et de fin de vie du Cisco Nexus 3232C"]

@@ -15,6 +15,7 @@ Le remplacement d'un commutateur Nexus 92300YC défectueux dans un réseau en cl
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -45,6 +46,7 @@ Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH,
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -56,6 +58,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 .À propos des exemples
@@ -162,6 +165,7 @@ Total entries displayed: 4
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Étape 1 : Préparer le remplacement
 
 . Installez le RCF et l'image appropriés sur le commutateur, newcs2, et effectuez toutes les préparations de site nécessaires.
@@ -282,6 +286,7 @@ RPC status:
 ====
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Désactivez les ports ISL 1/65 et 1/66 sur le commutateur Nexus 92300YC cs1 :
@@ -447,6 +452,7 @@ e0b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 
 
 
+[[step-3-complete-the-procedure]]
 === Étape 3 : Terminer la procédure
 
 . Vérifiez la connectivité des interfaces du cluster distant :

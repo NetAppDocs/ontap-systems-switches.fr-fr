@@ -15,6 +15,7 @@ Vous pouvez migrer d'anciens commutateurs Cisco d'un cluster ONTAP vers des comm
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Les commutateurs de stockage suivants sont pris en charge :
@@ -45,6 +46,7 @@ Assurez-vous d'avoir les éléments suivants :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -69,6 +71,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -93,6 +96,7 @@ Chaque port doit afficher « activé » pour `Status` .
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Afficher les attributs du port réseau :
@@ -336,6 +340,7 @@ node2      /lldp
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Vérifiez la configuration finale :

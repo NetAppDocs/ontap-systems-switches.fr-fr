@@ -15,6 +15,7 @@ Le contrôle de l'état (CSHM) tente automatiquement de surveiller les commutate
 
 
 
+[[confirm-monitoring-of-the-connected-ethernet-switches]]
 == Vérifier la surveillance des commutateurs Ethernet connectés
 
 Pour confirmer que les commutateurs Ethernet connectés sont surveillés, exécutez :
@@ -34,6 +35,7 @@ Si un commutateur n'est pas répertorié dans le résultat de la commande, il es
 ====
 
 
+[[confirm-firmware-and-rcf-versions-are-up-to-date]]
 == Vérifiez que les versions du firmware et du RCF sont à jour.
 
 Assurez-vous que le commutateur exécute le dernier firmware pris en charge et qu'un fichier de configuration de référence (RCF) compatible a été appliqué.  Plus d'informations sont disponibles sur lehttps://mysupport.netapp.com/site/downloads["Page de téléchargement du support NetApp"^] .
@@ -51,6 +53,7 @@ NOTE: Voirlink:config-snmpv3.html["Facultatif : Configurer SNMPv3"] pour plus d
 
 
 
+[[confirm-management-network-connection]]
 == Confirmer la connexion au réseau de gestion
 
 Vérifiez que le port de gestion du commutateur est connecté au réseau de gestion.

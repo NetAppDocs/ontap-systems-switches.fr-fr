@@ -15,6 +15,7 @@ Dans la plupart des cas, les commutateurs Ethernet sont automatiquement détect�
 
 
 
+[[create-a-switch-entry-so-that-ontap-can-monitor-it]]
 == Créez une entrée de commutation pour ONTAP puisse la surveiller.
 
 Utilisez le `system switch ethernet create` commande permettant de configurer et d'activer manuellement la surveillance d'un commutateur Ethernet spécifié.  Cela est utile si ONTAP n'ajoute pas automatiquement le commutateur, ou si vous l'avez précédemment supprimé et souhaitez le rajouter.
@@ -27,6 +28,7 @@ Un exemple typique consiste à ajouter un commutateur nommé [DeviceName], avec 
 
 
 
+[[disable-monitoring-without-deleting-the-switch]]
 == Désactiver la surveillance sans supprimer le commutateur
 
 Si vous souhaitez suspendre ou arrêter la surveillance d'un commutateur spécifique, tout en le conservant pour une surveillance ultérieure, modifiez ses paramètres. `is-monitoring-enabled-admim` paramètre au lieu de le supprimer.
@@ -41,6 +43,7 @@ Cela vous permet de préserver les détails et la configuration des commutateurs
 
 
 
+[[remove-a-switch-you-no-longer-need]]
 == Retirez un interrupteur dont vous n'avez plus besoin.
 
 Utiliser `system switch ethernet delete` pour supprimer un commutateur qui a été déconnecté ou qui n'est plus nécessaire :

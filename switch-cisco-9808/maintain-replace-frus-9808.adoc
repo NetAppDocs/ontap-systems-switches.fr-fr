@@ -1,0 +1,39 @@
+---
+permalink: switch-cisco-9808/maintain-replace-frus-9808.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9808 switches 
+summary: 'Votre commutateur Cisco Nexus 9808 possède des unités remplaçables sur site (FRU) que vous pouvez remplacer lorsqu"elles sont défectueuses.' 
+---
+= Remplacez les unités remplaçables sur site (FRU) - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Votre commutateur Cisco Nexus 9808 possède des unités remplaçables sur site (FRU) que vous pouvez remplacer lorsqu'elles sont défectueuses.
+
+.À propos de cette tâche
+Le commutateur Cisco Nexus 9808 possède les FRU suivantes :
+
+* Filtres à air en mousse pour portes de châssis (2 au total) : Les portes sont livrées avec des filtres à air préinstallés. Vous devez inspecter le filtre à air tous les 3 mois et le remplacer si nécessaire.
+* *Module de supervision* (1 ou 2 au total, selon la configuration de votre commutateur) : lorsqu’il est équipé de deux modules de supervision, l’un est actif et l’autre en veille. Lorsque le module de supervision actif est retiré, le commutateur active automatiquement le module de supervision de veille. Si le commutateur ne possède qu’un seul module de supervision, il est possible d’installer un nouveau module de supervision dans l’emplacement libre pendant le fonctionnement.
+* *Carte de ligne* (8 au total, chacune avec 16 ports fixes 400GbE) : Le commutateur fonctionne avec une ou plusieurs cartes de ligne installées dans le châssis.
+* *Plateau pour ventilateur* (2 au total)
+* *Module Fabric* (2 au total)
+* *Composants de l'alimentation* (2 au total)
+* *Module de ventilateur* (6 au total)
+* *Modules émetteurs-récepteurs OSFP/QSFP* (32 ports fixes 400GbE)
+
+
+.Étapes
+. Accédez au site Cisco pour le link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/9800/9808/nx-os/cisco-nexus-9808-nx-os-mode-switch-hardware-installation-guide.html["Cisco Nexus 9808 NX-OS Mode Switch Guide d'installation matérielle"^].
+. Accédez à la section link:https://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/hw/9800/9808/nx-os/cisco-nexus-9808-nx-os-mode-switch-hardware-installation-guide/m-8000-replace-chassis-components.html["Remplacer les composants du châssis"^] pour consulter les procédures FRU.
+. Suivez la procédure applicable pour remplacer votre FRU défectueux.
++
+Veuillez vous référer au link:https://hwu.netapp.com["Hardware Universe NetApp"^] pour obtenir des informations sur la configuration matérielle et la compatibilité de NetApp.
+
+
+
+.Quelle est la prochaine étape ?
+Une fois la procédure FRU applicable terminée sur le site Cisco, vous pouvez reprendre les opérations normales.

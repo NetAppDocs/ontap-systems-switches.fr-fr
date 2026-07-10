@@ -24,6 +24,7 @@ Vérifiez que vous disposez des éléments suivants :
 
 
 
+[[install-or-upgrade-the-software]]
 == Installez ou mettez à jour le logiciel
 
 La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.

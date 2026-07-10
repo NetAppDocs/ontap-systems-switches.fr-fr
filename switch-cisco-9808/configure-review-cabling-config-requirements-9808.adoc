@@ -1,0 +1,37 @@
+---
+permalink: switch-cisco-9808/configure-review-cabling-config-requirements-9808.html 
+sidebar: sidebar 
+keywords: 9808 cabling setup, 9808 switches configuration, nx-os 
+summary: 'Si vous installez de nouveaux commutateurs Cisco Nexus 9808 dans le cadre d"une nouvelle installation de système AFX 2K, du remplacement d"un module superviseur ou de la réinitialisation d"un commutateur aux paramètres d"usine par défaut, vous devez examiner les exigences de câblage et de configuration suivantes.' 
+---
+= Examinez le câblage et les exigences de configuration - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous installez des commutateurs Cisco Nexus 9808 dans le cadre d'une nouvelle installation de système AFX 2K, du remplacement d'un module superviseur ou de la réinitialisation d'un commutateur aux paramètres d'usine par défaut, vous devez examiner les exigences de câblage et de configuration suivantes.
+
+
+
+[[hard-code-the-speed-on-breakout-ports]]
+== Attribuez une vitesse fixe aux ports de breakout
+
+Vous devez configurer manuellement les ports de dérivation du commutateur (4x100GbE) pour 100GbE. Si vous ne configurez pas manuellement la vitesse, les ports ne seront pas opérationnels et seront dans un état désactivé pour cause d'erreur.
+
+Par exemple, pour configurer en dur une connexion 100GbE sur les ports de breakout 19 à 35, procédez comme suit en mode configuration. L'exemple montre l'application des commandes au premier switch (cs1). Vous répétez ces commandes pour le second switch.
+
+[listing, subs="+quotes"]
+----
+(cs1)# *configure terminal*
+Enter configuration commands, one per line. End with CNTL/Z.
+(cs1)(config)# *interface e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4,e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4,e1/31/1-4,e1/32/1-4,e1/33/1-4,e1/34/1-4,e1/35/1-4*
+(cs1)(config-if)# *speed 100000*
+(cs1)(config-if)# *no negotiate auto*
+(cs1)(config-if)# *exit*
+(cs1)(config)# *exit*
+(cs1)# *copy running-config startup-config*
+----
+.Quelle est la prochaine étape ?
+Une fois les exigences de câblage et de configuration satisfaites, vous link:configure-install-nxos-9808.html["installez le système d'exploitation NX-OS"].

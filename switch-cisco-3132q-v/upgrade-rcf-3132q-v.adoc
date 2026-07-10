@@ -33,6 +33,7 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
 . Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
@@ -191,6 +192,7 @@ Assurez-vous que la fonction de restauration automatique est désactivée après
 
 
 
+[[step-2-configure-ports]]
 == Étape 2 : Configurer les ports
 
 . Sur le commutateur de cluster cs2, désactivez les ports connectés aux ports de cluster des nœuds.
@@ -610,6 +612,7 @@ This command will reboot the system. (y/n)?  [n] *y*
 
 
 
+[[step-3-verify-the-configuration]]
 == Étape 3 : Vérifier la configuration
 
 . Vérifiez que les ports du commutateur connectés aux ports du cluster sont opérationnels.

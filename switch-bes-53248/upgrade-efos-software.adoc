@@ -17,6 +17,7 @@ Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles rése
 
 
 
+[[prepare-for-upgrade]]
 == Préparez-vous à la mise à niveau
 
 .Avant de commencer
@@ -125,6 +126,7 @@ IP_switch_a2 # *show fips status*
 ====
 
 
+[[upgrade-the-software]]
 == Mettre à jour le logiciel
 
 Utilisez l'une des méthodes suivantes :
@@ -138,6 +140,7 @@ NOTE: Mettez à niveau EFOS sur un commutateur à la fois pour assurer le foncti
 
 
 
+[[method-1-upgrade-efos]]
 === Méthode 1 : Mise à niveau de l’EFOS
 
 Pour mettre à jour le logiciel EFOS, procédez comme suit.
@@ -369,6 +372,7 @@ Pour plus de détails, veuillez vous référer à link:https://docs.netapp.com/u
 
 
 
+[[method-2-upgrade-efos-using-the-onie-os-installation]]
 === Méthode 2 : Mise à niveau d’EFOS à l’aide de l’installation d’ONIE OS
 
 Vous pouvez effectuer les étapes suivantes si une version d'EFOS est conforme à la norme FIPS et l'autre version d'EFOS ne l'est pas.  Ces étapes peuvent être utilisées pour mettre à niveau l'image EFOS 3.7.xx non conforme ou conforme à la norme FIPS depuis ONIE si le commutateur ne démarre pas.

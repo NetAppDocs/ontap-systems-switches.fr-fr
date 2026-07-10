@@ -15,6 +15,7 @@ Avant de configurer votre commutateur NVIDIA SN2100, veuillez prendre en compte 
 
 
 
+[[nvidia-port-details]]
 == Détails du portage NVIDIA
 
 |===
@@ -54,6 +55,7 @@ Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour
 
 
 
+[[link-up-delays-with-optical-connections]]
 == Délais de connexion avec les liaisons optiques
 
 Si vous rencontrez des délais de connexion supérieurs à cinq secondes, Cumulus Linux 5.4 et versions ultérieures incluent une prise en charge de la connexion rapide.  Vous pouvez configurer les liens en utilisant `nv set` commande comme suit :
@@ -81,6 +83,7 @@ Only switchd reload required
 ====
 
 
+[[support-for-copper-connections]]
 == Support pour les connexions en cuivre
 
 Les modifications de configuration suivantes sont nécessaires pour résoudre ce problème.
@@ -200,6 +203,7 @@ Sur Cumulus Linux 4.4.2, les connexions cuivre ne sont pas prises en charge sur 
 
 
 
+[[qsa-module]]
 == Module QSA
 
 Lors de l'utilisation d'adaptateurs QSFP+ (40GbE) vers SFP+ (10GbE) ou d'adaptateurs QSFP28 (100GbE) vers SFP28 (25GbE) (QSA), insérez-les dans des ports de commutateur 40GbE/100GbE non-breakout (swp3-swp14). N’insérez pas le module QSA dans un port configuré pour le dérivation.
@@ -214,6 +218,7 @@ Pour résoudre ce problème, procédez comme suit :
 
 
 
+[[setting-interface-speed-on-breakout-ports]]
 == Configuration de la vitesse de l'interface sur les ports de dérivation
 
 Selon l'émetteur-récepteur du port du commutateur, vous devrez peut-être configurer la vitesse de l'interface du commutateur sur une valeur fixe. Si vous utilisez des ports de dérivation 10GbE et 25GbE ou un module QSA, vérifiez que la négociation automatique est désactivée et configurez la vitesse de l'interface sur le commutateur.

@@ -17,6 +17,7 @@ Avant d'installer un RCF, vous devez d'abord migrer les LIF du cluster hors du c
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -36,6 +37,7 @@ Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le h
 
 
 
+[[install-the-rcf]]
 == Installez le RCF
 
 La procédure suivante utilise la syntaxe clusterisée de Data ONTAP 8.2.  Par conséquent, le Vserver du cluster, les noms LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
@@ -66,6 +68,7 @@ Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le h
 
 
 
+[[step-1-migrate-cluster]]
 === Étape 1 : Migrer le cluster
 
 . Enregistrez les informations de configuration actuelles de votre commutateur :
@@ -180,6 +183,7 @@ node2
 
 
 
+[[step-2-install-rcf]]
 === Étape 2 : installer RCF
 
 . Copiez le RCF sur le commutateur.
@@ -369,6 +373,7 @@ cluster::*> network port modify -node node2 -port e2a -up-admin true
 
 
 
+[[step-3-validate-installation]]
 === Étape 3 : Valider l’installation
 
 . Vérifiez que le port e2a est actif sur les deux nœuds :

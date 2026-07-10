@@ -1,0 +1,31 @@
+---
+permalink: switch-cisco-9364d-gx2a/maintain-replace-frus-9364d.html 
+sidebar: sidebar 
+keywords: switches, hardware installation, Cisco Nexus, 9364D-GX2A switches 
+summary: 'Votre commutateur Cisco Nexus 9364D-GX2A possède des unités remplaçables sur site (FRU) que vous pouvez remplacer lorsqu"elles sont défectueuses.' 
+---
+= Remplacez les FRU - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Votre commutateur Cisco Nexus 9364D-GX2A possède des unités remplaçables sur site (FRU) que vous pouvez remplacer lorsqu'elles sont défectueuses.
+
+.À propos de cette tâche
+Le commutateur Cisco Nexus 9364D-GX2A possède les FRU suivantes :
+
+* Module de ventilateur (4 au total)
+* Module d'alimentation (2 au total)
+* Modules émetteurs-récepteurs OSFP/QSFP (64 ports fixes 400GbE)
+
+
+.Étapes
+. Accédez au site Cisco pour le https://www.cisco.com/c/en/us/td/docs/dcn/hw/nx-os/nexus9000/9364d-gx2a/cisco-nexus-9364d-gx2a-nx-os-mode-switch-hardware-installation-guide.html?dtid=osscdc000283&linkclickid=srch&scid=srch-9364d-gx2a-hw-guide#id_111902["Guide d'installation du commutateur Cisco Nexus 9364D-GX2A NX-OS"^].
+. Accédez à la section Remplacement des composants pour consulter les procédures FRU.
+. Suivez la procédure applicable pour remplacer votre FRU défectueux.
+
+
+.Quelle est la prochaine étape ?
+Une fois la procédure FRU applicable terminée sur le site Cisco, vous pouvez reprendre les opérations normales.

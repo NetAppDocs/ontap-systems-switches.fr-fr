@@ -31,6 +31,7 @@ Vérifiez les installations et connexions suivantes :
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Étape 1 : Installez le RCF sur les commutateurs
 
 . Connectez-vous pour commuter cs1 en utilisant SSH ou en utilisant une console série.
@@ -147,6 +148,7 @@ cs1# copy running-config startup-config [#######################################
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Étape 2 : Vérifier les connexions du commutateur
 
 . Vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs*.
@@ -357,6 +359,7 @@ cs1#
 
 
 
+[[step-3-set-up-your-ontap-cluster]]
 == Étape 3 : Configurez votre cluster ONTAP
 
 NetApp recommande d'utiliser System Manager pour configurer de nouveaux clusters.

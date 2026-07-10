@@ -2,9 +2,9 @@
 permalink: switch-cisco-9332d-gx2b/replace-9332d-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9332d-gx2b cluster switch - cisco nexus 9332d-gx2b 
-summary: 'Le remplacement d"un commutateur Nexus 9332D-GX2B défectueux dans un réseau en cluster est une procédure non perturbatrice.' 
+summary: 'Suivez ces étapes pour remplacer un commutateur Nexus 9332D-GX2B défectueux dans un réseau en cluster. Il s"agit d"une procédure sans interruption de service (NDU).' 
 ---
-= Remplacer un commutateur Cisco Nexus 9332D-GX2B
+= Remplacez un commutateur - Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,6 +15,7 @@ Suivez ces étapes pour remplacer un commutateur Nexus 9332D-GX2B défectueux da
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Avant de procéder au remplacement de l'interrupteur, assurez-vous que :
@@ -35,7 +36,7 @@ Avant de procéder au remplacement de l'interrupteur, assurez-vous que :
 ** Les connexions de nœuds sont les ports 1/1 à 1/30.
 ** Tous les ports Inter-Switch Link (ISL) sont désactivés sur les ports 1/31 et 1/32.
 ** Le fichier de configuration de référence (RCF) souhaité et l'image du système d'exploitation NX-OS sont chargés sur le commutateur.
-** La personnalisation initiale du commutateur est terminée, comme détaillé danslink:setup-switch-9332d-cluster.html["Configurer le commutateur de cluster 9332D-GX2B"] .
+** La personnalisation initiale du commutateur est terminée, comme détaillé dans link:configure-complete-initial-setup-9332d.html["Effectuez la configuration initiale du commutateur"].
 +
 Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH, sont copiées sur le nouveau commutateur.
 
@@ -46,6 +47,7 @@ Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH,
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -57,6 +59,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 .À propos des exemples
@@ -214,6 +217,7 @@ Total entries displayed: 18
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Étape 1 : Préparer le remplacement
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -357,6 +361,7 @@ RPC status:
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Fermez les ports ISL Eth1/31 et Eth1/32 sur le commutateur Nexus 9332D-GX2B cs1.
@@ -635,6 +640,7 @@ RPC status:
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Vérifiez l’état de tous les ports du cluster.

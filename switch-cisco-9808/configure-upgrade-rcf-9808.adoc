@@ -1,0 +1,1762 @@
+---
+permalink: switch-cisco-9808/configure-upgrade-rcf-9808.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: 'Vous mettez à niveau la version du fichier de configuration de référence (RCF) sur vos commutateurs Cisco Nexus 9808 pour prendre en charge un nouveau matériel, une nouvelle version d"ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX 2K.' 
+---
+= Mettez à niveau la version RCF - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous mettez à niveau la version du fichier de configuration de référence (RCF) sur vos commutateurs Cisco Nexus 9808 pour prendre en charge un nouveau matériel, une nouvelle version d'ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX 2K.
+
+
+NOTE: Ne mettez pas à jour ni ne rétrogradez votre version RCF vers une version non prise en charge.
+
+.Avant de commencer
+* Vous devez avoir lu la page link:configure-install-upgrade-rcf-overview-9808.html["Présentation de l'installation ou de la mise à niveau de RCF"].
+* Vous devez être connecté aux commutateurs via la console série ou avoir conservé les informations de configuration de base. Cela s'explique par le fait que la procédure de mise à niveau RCF exige que vous effaciez les paramètres des commutateurs et effectuiez la configuration de base.
+* Assurez-vous de disposer d'une sauvegarde récente de la configuration du commutateur.
+* Vérifiez que votre cluster est pleinement fonctionnel, c'est-à-dire qu'il n'y a aucune erreur dans les journaux ni de problème similaire.
+* Vous devez disposer de la version actuelle de RCF.
+* Vous avez besoin d'une configuration de démarrage dans le RCF qui reflète les images de démarrage souhaitées.
++
+Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit instanciée lors des prochains redémarrages.
+
+
+
+.À propos de cette tâche
+* La mise à niveau du RCF sur les deux commutateurs est une procédure non disruptive.
++
+** Aucune liaison inter-commutateurs (ISL) opérationnelle n'est requise durant cette procédure. Ceci est intentionnel, car les changements de version de RCF peuvent affecter temporairement la connectivité ISL. Afin de garantir le fonctionnement continu du cluster, cette procédure vous demande de migrer toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
+** Cette procédure vous fait mettre à niveau le RCF sur le premier commutateur (cs1), puis vous fait répéter les étapes pour le deuxième commutateur (cs2).
+
+
+* Cette procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus 9000 Series. Les étapes indiquent quelle interface de ligne de commande (CLI) vous utilisez pour saisir les commandes.
+* Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
++
+** Les noms des deux commutateurs Cisco sont cs1 et cs2.
+** Les noms des nœuds sont node1-01, node1-02, node1-03 et node1-04.
+** Les noms du cluster LIF sont :
++
+*** node1-01_clus1 et node1-01_clus2 pour node1-01
+*** node1-02_clus1 et node1-02_clus2 pour node1-02
+*** node1-03_clus1 et node1-03_clus2 pour node1-03
+*** node1-04_clus1 et node1-04_clus2 pour node1-04
+
+
+** Le `cluster1::*>` L'invite indique le nom du cluster.
+
+
+
+
+
+
+[[step-1-prepare-for-the-upgrade]]
+== Étape 1 : Préparer la mise à niveau
+
+Vous saisissez les commandes pour les étapes suivantes à partir de l'interface de ligne de commande ONTAP.
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
++
+[source, cli]
+----
+system node autosupport invoke -node * -type all -message MAINT=xh
+----
++
+où _x_ représente la durée de la fenêtre de maintenance en heures.
+
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
++
+[source, cli]
+----
+set -privilege advanced
+----
++
+L'invite avancée (*>) apparaît.
+
+. Affichez les ports sur chaque nœud qui sont connectés aux commutateurs :
++
+[source, cli]
+----
+network device-discovery show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/5       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/14      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/7       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/16      N9K-C9808
+            e2a    cs1(FOXXXXXXXXX)          Ethernet1/3       N9K-C9808
+            e2b    cs2(FOXXXXXXXXX)          Ethernet1/12      N9K-C9808
+node1-01/lldp
+            e10a   cs1 (ec:bb:78:9e:c7:e8)   Ethernet1/5       -
+            e10b   cs2 (ec:bb:78:9e:c8:0c)   Ethernet1/14      -
+            e8a    cs1 (ec:bb:78:9e:c7:f0)   Ethernet1/7       -
+            e8b    cs2 (ec:bb:78:9e:c8:14)   Ethernet1/16      -
+            e1a    cs1 (ec:bb:78:9e:c7:d8)   Ethernet1/1       -
+            e1b    cs2 (ec:bb:78:9e:c7:fc)   Ethernet1/10      -
+            e2a    cs1 (ec:bb:78:9e:c7:e0)   Ethernet1/3       -
+            e2b    cs2 (ec:bb:78:9e:c8:04)   Ethernet1/12      -
+node1-02/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/6       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/15      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/8       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/17      N9K-C9808
+            e2a    cs1(FOXXXXXXXXXX)         Ethernet1/2       N9K-C9808
+            e2b    cs2(FOX3005Q66Q)          Ethernet1/13      N9K-C9808
+node1-02/lldp
+            e10a   cs1 (ec:bb:78:9e:c7:ec)   Ethernet1/6       -
+            e10b   cs2 (ec:bb:78:9e:c8:10)   Ethernet1/15      -
+            e8a    cs1 (ec:bb:78:9e:c7:f4)   Ethernet1/8       -
+            e8b    cs2 (ec:bb:78:9e:c8:18)   Ethernet1/17      -
+            e1a    cs1 (ec:bb:78:9e:c7:dc)   Ethernet1/2       -
+            e1b    cs2 (ec:bb:78:9e:c8:00)   Ethernet1/11      -
+            e2a    cs1 (ec:bb:78:9e:c7:e4)   Ethernet1/4       -
+            e2b    cs2 (ec:bb:78:9e:c8:08)   Ethernet1/13      -
+.
+.
+.
+----
+====
+. Vérifiez le statut administratif et opérationnel de chaque port.
++
+.. *Ports de cluster*
++
+... Vérifiez que tous les ports du cluster sont opérationnels et en bon état :
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1-01
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-02
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-03
+
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-04
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+----
+====
+... Vérifiez que toutes les interfaces du cluster (LIF) sont connectées au port d'accueil :
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+            Logical            Status     Network           Current      Current Is
+Vserver     Interface          Admin/Oper Address/Mask      Node         Port    Home
+----------- ------------------ ---------- ----------------- ------------ ------- ----
+Cluster
+            node1-01_clus1     up/up      169.254.3.4/23     node1-01    e2a     true
+            node1-01_clus2     up/up      169.254.3.5/23     node1-01    e2b     true
+            node1-02_clus1     up/up      169.254.3.8/23     node1-02    e2a     true
+            node1-02_clus2     up/up      169.254.3.9/23     node1-02    e2b     true
+            node1-03_clus1     up/up      169.254.1.3/23     node1-03    e2a     true
+            node1-03_clus2     up/up      169.254.1.1/23     node1-03    e2b     true
+            node1-04_clus1     up/up      169.254.1.6/23     node1-04    e2a     true
+            node1-04_clus2     up/up      169.254.1.7/23     node1-04    e2b     true
+----
+====
+... Vérifiez que le cluster affiche des informations pour les deux commutateurs :
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9808
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.5(3)(F)
+    Version Source: CDP/ISDP
+
+
+cs1(FOXXXXXXXXX)            cluster-network    10.228.137.234   N9K-C9808
+     Serial Number: FOXXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.5(3)(F)
+    Version Source: CDP/ISDP
+----
+====
+
+
+.. *Ports HA*
++
+... Vérifiez que tous les ports HA sont opérationnels et en bon état :
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+... Vérifiez que tous les ports HA sont correctement configurés et que le type d'interconnexion est RoCE :
++
+[source, cli]
+----
+ha interconnect config show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect config show*
+  (system ha interconnect config show)
+                       Node: node1-01
+          Interconnect Type: RoCE
+            Local System ID: 542023071
+          Partner System ID: 542022984
+       Connection Initiator: local
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.111     0x0
+e1b-18  169.254.18.242     0x0
+
+
+
+                       Node: node1-02
+          Interconnect Type: RoCE
+            Local System ID: 542022984
+          Partner System ID: 542023071
+       Connection Initiator: partner
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.208     0x0
+e1b-18  169.254.18.169     0x0
+.
+.
+.
+----
+====
+
+
+.. *Ports de stockage*
++
+... Vérifiez que tous les ports de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-02
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-03
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-04
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+----
+====
+
+
+.. *Ports d'étagères de stockage*
++
+... Vérifiez que tous les ports de l'étagère de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.0
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+----
+====
+... Vérifiez que tous les ports de l'étagère de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 cs1(FOXXXXXXXXX)
+1.1   1  connected       Ethernet1/15/1 cs2(FDOXXXXXXXX)
+1.1   2  connected       Ethernet1/17/2 cs1(FOXXXXXXXXX)
+1.1   3  connected       Ethernet1/15/2 cs2(FDOXXXXXXXX)
+1.1   4  connected       Ethernet1/17/3 cs1(FOXXXXXXXXX)
+1.1   5  connected       Ethernet1/15/3 cs2(FDOXXXXXXXX)
+1.1   6  connected       Ethernet1/17/4 cs1(FOXXXXXXXXX)
+1.1   7  connected       Ethernet1/15/4 cs2(FDOXXXXXXXX)
+1.1   8  connected       Ethernet1/19/1 cs1(FOXXXXXXXXX)
+1.1   9  connected       Ethernet1/17/1 cs2(FDOXXXXXXXX)
+1.1   10 connected       Ethernet1/19/2 cs1(FOXXXXXXXXX)
+1.1   11 connected       Ethernet1/17/2 cs2(FDOXXXXXXXX)
+1.1   12 connected       Ethernet1/19/3 cs1(FOXXXXXXXXX)
+1.1   13 connected       Ethernet1/17/3 cs2(FDOXXXXXXXX)
+1.1   14 connected       Ethernet1/19/4 cs1(FOXXXXXXXXX)
+1.1   15 connected       Ethernet1/17/4 cs2(FDOXXXXXXXX)
+----
+====
+
+
+
+
+. Désactivez la restauration automatique des LIF du cluster. Les LIF du cluster basculent vers le commutateur du cluster partenaire et y restent pendant que vous effectuez cette procédure sur le commutateur cible :
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert false
+----
+
+
+
+
+[[step-2-configure-ports]]
+== Étape 2 : Configurer les ports
+
+. À l'aide de l'interface de ligne de commande (CLI) du commutateur, sur le commutateur cs1, désactivez les ports connectés à tous les ports des nœuds pour chaque carte de ligne.
++
+L'exemple suivant montre les commandes permettant de désactiver tous les ports de la carte de ligne 1 `e1`, `e1-1/1-18`, `e1/19/1-4`, `e1/20/1-4` ......... `e1/35/1-4`. Répétez les commandes pour chaque carte de ligne du commutateur.
+
++
+[listing, subs="+quotes"]
+----
+cs1# *config terminal*
+Enter configuration commands, one per line. End with CNTL/Z.
+cs1(config)# *interface e1/1-18*
+cs1(config-if-range)# *shutdown*
+cs1(config)# *interface e1/19/1-4,e1/20/1-4,e1/21/1-4,e1/22/1-4,e1/23/1-4,e1/24/1-4,e1/25/1-4,e1/26/1-4,e1/27/1-4,e1/28/1-4,e1/29/1-4,e1/30/1-4,e1/31/1-4,e1/32/1-4,e1/33/1-4,e1/34/1-4,e1/35/1-4*
+cs1(config-if-range)# *shutdown*
+cs1(config-if-range)# *exit*
+cs1(config)# *exit*
+----
++
+
+CAUTION: Veillez à désactiver *tous* les ports connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
+
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez que les interfaces logiques du cluster ont basculé vers les ports hébergés sur le commutateur cs1. Cela peut prendre quelques secondes.
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e2a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e2b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e2a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e2b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e2a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e2b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e2a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e2b     true
+
+8 entries were displayed.
+----
+====
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez que le cluster est sain :
++
+[source, cli]
+----
+cluster show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health  Eligibility   Epsilon
+----------------- ------- ------------  -------
+node1-01          true    true          false
+node1-02          true    true          false
+node1-03          true    true          true
+node1-04          true    true          false
+----
+====
+. Si vous ne l'avez pas déjà fait, utilisez l'interface de ligne de commande du commutateur pour enregistrer une copie de la configuration actuelle en copiant le résultat de la commande suivante dans un fichier texte :
++
+`show running-config`
+
++
+.. Utilisez la commande  `show diff running-config` pour comparer avec le fichier RCF enregistré dans la bootflash. Sinon, utilisez un outil de comparaison tiers.
+
+
+. Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur la mémoire flash de démarrage.
++
+[NOTE]
+====
+Assurez-vous de configurer les éléments suivants :
+
+** Nom d'utilisateur et mot de passe
+** Adresse IP de gestion
+** Passerelle par défaut
+** Nom du commutateur
+
+
+====
++
+[CAUTION]
+====
+Si le  `write_erase.cfg` fichier existe déjà, renommez-le en  `write_erase_old.cfg`, comme suit :
+
+`cs1# move bootflash:write_erase.cfg write_erase_old.cfg`
+
+====
++
+`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+
++
+`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+
++
+Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
+
+. À l'aide de l'interface de ligne de commande (CLI) du commutateur, vérifiez que le fichier  `write_erase.cfg` est rempli comme prévu :
++
+`show file bootflash:write_erase.cfg`
+
+. À l'aide de l'interface de ligne de commande du commutateur, exécutez la commande  `write erase` pour effacer la configuration enregistrée actuelle :
++
+`cs1# *write erase*`
+
++
+`Warning: This command will erase the startup-configuration.`
+
++
+`Do you wish to proceed anyway? (y/n)  [n] *y*`
+
+. À l'aide de l'interface de ligne de commande du commutateur, copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*`
+
+. À l'aide de l'interface de ligne de commande du commutateur, redémarrez le commutateur :
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Une fois l'adresse IP de gestion à nouveau accessible, connectez-vous au commutateur via SSH.
++
+Vous devrez peut-être mettre à jour les entrées du fichier host relatives aux clés SSH.
+
+. À l'aide de l'interface de ligne de commande du commutateur, copiez le RCF dans la bootflash du commutateur cs1 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les guides link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+Cet exemple montre comment TFTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *RCF-v10.1-NX9808-CL1-ST1.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, appliquez le RCF précédemment téléchargé à la bootflash.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les guides link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
+
++
+Cet exemple montre le RCF `RCF-v10.1-NX9808-CL1-ST1.txt` en cours d'installation sur le commutateur cs1 :
+
++
+[listing, subs="+quotes"]
+----
+cs1# *copy RCF-v10.1-NX9808-CL1-ST1.txt running-config echo-commands*
+----
++
+[CAUTION]
+====
+Assurez-vous de lire attentivement les sections *Notes d'installation*, *Remarques importantes* et *bannière* de votre RCF. Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.
+
+====
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que le RCF est bien la version la plus récente correcte :
++
+`show running-config`
+
++
+Lorsque vous vérifiez le résultat pour vous assurer que vous avez le RCF correct, vérifiez que les informations suivantes sont correctes :
+
++
+** La bannière RCF
+** Paramètres du nœud et du port
+** Personnalisations
++
+Le résultat varie en fonction de la configuration de votre site.  Vérifiez les paramètres du port et consultez les notes de version pour connaître les modifications spécifiques à la version de RCF que vous avez installée.
+
+
+
+. Réappliquez les personnalisations précédentes à la configuration du commutateur.
++
+Si vos commutateurs exécutent RCF 10.1 ou une version ultérieure, vous pouvez link:configure-install-upgrade-rcf-overview-9808.html#change-port-speed-configuration["modifier la configuration de la vitesse du port"] si nécessaire.
+
+. À l'aide de l'interface de ligne de commande du commutateur, après avoir vérifié que les versions RCF, les ajouts personnalisés et les paramètres du commutateur sont corrects, copiez le  `running-config` fichier dans le  `startup-config` fichier.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les  https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+
++
+`cs1# *copy running-config startup-config*`
+
++
+`[########################################] 100% Copy complete`
+
+. À l'aide de la CLI du commutateur, redémarrez le commutateur cs1. Vous pouvez ignorer les alertes "`contrôle de l'état du commutateur de cluster`" et les événements "`ports de cluster hors service`" signalés sur les nœuds pendant le redémarrage du commutateur.
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez le contrôle de l'état de tous les ports du cluster.
++
+.. *Ports de cluster*
++
+... Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
++
+[source, cli]
+----
+network port show -ipspace Cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network port show -ipspace Cluster*
+
+Node: node1
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-02
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-03
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+
+Node: node1-04
+                                                                        Ignore
+                                                  Speed(Mbps)  Health   Health
+Port      IPspace      Broadcast Domain Link MTU  Admin/Oper   Status   Status
+--------- ------------ ---------------- ---- ---- ------------ -------- ------
+e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
+e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
+----
+====
+... Vérifiez l'état du commutateur à partir du cluster.
++
+[source, cli]
+----
+network device-discovery show -protocol cdp
+----
++
+[source, cli]
+----
+system cluster-switch show -is-monitoring-enabled-operational true
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network device-discovery show -protocol cdp*
+
+Node/       Local  Discovered
+Protocol    Port   Device (LLDP: ChassisID)  Interface         Platform
+----------- ------ ------------------------- ----------------  ----------------
+node1-01/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/5       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/14      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/7       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/16      N9K-C9808
+            e2a    cs1(FOXXXXXXXXX)          Ethernet1/3       N9K-C9808
+            e2b    cs2(FOXXXXXXXXX)          Ethernet1/12      N9K-C9808
+node1-02/cdp
+            e10a   cs1(FOXXXXXXXXX)          Ethernet1/6       N9K-C9808
+            e10b   cs2(FDOXXXXXXXX)          Ethernet1/15      N9K-C9808
+            e8a    cs1(FOXXXXXXXXX)          Ethernet1/8       N9K-C9808
+            e8b    cs2(FDOXXXXXXXX)          Ethernet1/17      N9K-C9808
+            e2a    cs1(FOXXXXXXXXXX)         Ethernet1/2       N9K-C9808
+            e2b    cs2(FOX3005Q66Q)          Ethernet1/13      N9K-C9808
+.
+.
+.
+cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+cs2(FDOXXXXXXXX)           cluster-network    10.228.137.233    N9K-C9808
+     Serial Number: FDOXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(3)(F)
+    Version Source: CDP/ISDP
+
+cs1(FOXXXXXXXXX)           cluster-network    10.228.137.234    N9K-C9808
+     Serial Number: FOXXXXXXXXX
+      Is Monitored: true
+            Reason: None
+  Software Version: Cisco Nexus Operating System (NX-OS) Software, Version
+                    10.6(3)(F)
+    Version Source: CDP/ISDP
+----
+====
+
+
+.. *Ports HA*
++
+... Vérifiez que tous les ports HA sont opérationnels et en bon état :
++
+[source, cli]
+----
+ha interconnect status show -node <node-name>
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect status show -node node1-01*
+  (system ha interconnect status show)
+
+                       Node: node1-01
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+
+cluster1::*> *ha interconnect status show -node node1-02*
+  (system ha interconnect status show)
+
+                       Node: node1-02
+              Link 0 Status: up
+              Link 1 Status: up
+           Is Link 0 Active: true
+           Is Link 1 Active: true
+         IC RDMA Connection: up
+                       Slot: 0
+             Debug Firmware: no
+
+
+Interconnect Port 0 :
+                  Port Name: e1a-17
+                        MTU: 4096
+           Link Information: ACTIVE
+
+
+Interconnect Port 1 :
+                  Port Name: e1b-18
+                        MTU: 4096
+           Link Information: ACTIVE
+.
+.
+.
+----
+====
+... Vérifiez que tous les ports HA sont correctement configurés et que le type d'interconnexion est RoCE :
++
+[source, cli]
+----
+ha interconnect config show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *ha interconnect config show*
+  (system ha interconnect config show)
+                       Node: node1-01
+          Interconnect Type: RoCE
+            Local System ID: 542023071
+          Partner System ID: 542022984
+       Connection Initiator: local
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.111     0x0
+e1b-18  169.254.18.242     0x0
+
+
+
+                       Node: node1-02
+          Interconnect Type: RoCE
+            Local System ID: 542022984
+          Partner System ID: 542023071
+       Connection Initiator: partner
+                  Interface: external
+
+
+Port    IP Address         Flags
+------  -----------------  -----------
+e1a-17  169.254.17.208     0x0
+e1b-18  169.254.18.169     0x0
+.
+.
+.
+----
+====
+
+
+.. *Ports de stockage*
++
+... Vérifiez que tous les ports de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage port show -port-type ENET
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage port show -port-type ENET*
+
+
+                                      Speed
+Node               Port Type  Mode    (Gb/s) State    Status
+------------------ ---- ----- ------- ------ -------- -----------
+node1-01
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-02
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-03
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+node1-04
+                   e10a ENET  -          400 enabled  online
+                   e10b ENET  -            0 enabled  offline
+                   e8a ENET   -          400 enabled  online
+                   e8b ENET   -            0 enabled  offline
+----
+====
+
+
+.. *Ports d'étagères de stockage*
++
+... Vérifiez que tous les ports de l'étagère de stockage sont opérationnels et en bon état :
++
+[source, cli]
+----
+storage shelf port show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show*
+
+Shelf ID Module State        Internal?
+----- -- ------ ------------ ---------
+1.0
+       0 A      connected    false
+       1 A      connected    false
+       2 A      connected    false
+       3 A      connected    false
+       4 A      connected    false
+       5 A      connected    false
+       6 A      connected    false
+       7 A      connected    false
+       8 B      connected    false
+       9 B      connected    false
+      10 B      connected    false
+      11 B      connected    false
+      12 B      connected    false
+      13 B      connected    false
+      14 B      connected    false
+      15 B      connected    false
+----
+====
+... Vérifiez l’état de connexion de tous les ports de l’étagère de stockage :
++
+[source, cli]
+----
+storage shelf port show -fields remote-device,remote-port,connector-state
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *storage shelf port show -fields remote-device,remote-port,connector-state*
+
+shelf id connector-state remote-port    remote-device
+----- -- --------------- -------------- -----------------
+1.1   0  connected       Ethernet1/17/1 cs1(FOXXXXXXXXX)
+1.1   1  connected       Ethernet1/15/1 cs2(FDOXXXXXXXX)
+1.1   2  connected       Ethernet1/17/2 cs1(FOXXXXXXXXX)
+1.1   3  connected       Ethernet1/15/2 cs2(FDOXXXXXXXX)
+1.1   4  connected       Ethernet1/17/3 cs1(FOXXXXXXXXX)
+1.1   5  connected       Ethernet1/15/3 cs2(FDOXXXXXXXX)
+1.1   6  connected       Ethernet1/17/4 cs1(FOXXXXXXXXX)
+1.1   7  connected       Ethernet1/15/4 cs2(FDOXXXXXXXX)
+1.1   8  connected       Ethernet1/19/1 cs1(FOXXXXXXXXX)
+1.1   9  connected       Ethernet1/17/1 cs2(FDOXXXXXXXX)
+1.1   10 connected       Ethernet1/19/2 cs1(FOXXXXXXXXX)
+1.1   11 connected       Ethernet1/17/2 cs2(FDOXXXXXXXX)
+1.1   12 connected       Ethernet1/19/3 cs1(FOXXXXXXXXX)
+1.1   13 connected       Ethernet1/17/3 cs2(FDOXXXXXXXX)
+1.1   14 connected       Ethernet1/19/4 cs1(FOXXXXXXXXX)
+1.1   15 connected       Ethernet1/17/4 cs2(FDOXXXXXXXX)
+----
+====
+
+
+
+
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez que le cluster est sain :
++
+[source, cli]
+----
+cluster show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health   Eligibility   Epsilon
+----------------- -------- ------------- -------
+node1-01          true     true          false
+node1-02          true     true          false
+node1-03          true     true          true
+node1-04          true     true          false
+
+4 entries were displayed.
+----
+====
+. Répétez les étapes 4 à 18 sur le commutateur cs2.
+. À l'aide de l'interface de ligne de commande ONTAP, activez la restauration automatique sur les LIF du cluster.
++
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
+
+
+
+
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
+== Étape 3 : Vérifier la configuration réseau et l’état du cluster
+
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que les ports du commutateur connectés aux ports du cluster sont *up*.
++
+[source, cli]
+----
+show interface brief
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show interface brief | grep up*
+--------------------------------------------------------------------------------
+Ethernet        VLAN    Type Mode   Status  Reason                 Speed     Port
+Interface                                                                    Ch #
+--------------------------------------------------------------------------------
+Eth1/1          1       eth  trunk  up      none                     400G(D) --
+Eth1/2          1       eth  trunk  up      none                     400G(D) --
+Eth1/3          1       eth  trunk  up      none                     400G(D) --
+Eth1/4          1       eth  trunk  up      none                     400G(D) --
+Eth1/5          1       eth  trunk  up      none                     400G(D) --
+Eth1/6          1       eth  trunk  up      none                     400G(D) --
+Eth1/7          1       eth  trunk  up      none                     400G(D) --
+Eth1/8          1       eth  trunk  up      none                     400G(D) --
+Eth1/9          1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/10         1       eth  trunk  up      none                     400G(D) --
+Eth1/11         1       eth  trunk  up      none                     400G(D) --
+Eth1/12         1       eth  trunk  up      none                     400G(D) --
+Eth1/13         1       eth  trunk  up      none                     400G(D) --
+Eth1/14         1       eth  trunk  up      none                     400G(D) --
+Eth1/15         1       eth  trunk  up      none                     400G(D) --
+Eth1/16         1       eth  trunk  up      none                     400G(D) --
+Eth1/17         1       eth  trunk  up      none                     400G(D) --
+Eth1/18         1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/19/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/19/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/19/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/19/4       1       eth  trunk  up      none                     100G(D) --
+Eth1/20/1       1       eth  trunk  up      none                     100G(D) --
+Eth1/20/2       1       eth  trunk  up      none                     100G(D) --
+Eth1/20/3       1       eth  trunk  up      none                     100G(D) --
+Eth1/20/4       1       eth  trunk  up      none                     100G(D) --
+.
+.
+.
+Eth1/30/1       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/30/2       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/30/3       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/30/4       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/31/1       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/31/2       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/31/3       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/31/4       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/32/1       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/32/2       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/32/3       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/32/4       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/33/1       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/33/2       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/33/3       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/33/4       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/34/1       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/34/2       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/34/3       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/34/4       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/35/1       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/35/2       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/35/3       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/35/4       1       eth  trunk  down    XCVR not inserted        auto(D) --
+Eth1/36         1       eth  trunk  down    XCVR not inserted        auto(D) 1
+
+------------------------------------------------------------------------------------
+Port-channel VLAN    Type Mode   Status  Reason                    Speed   Protocol
+								                                                           Interface
+------------------------------------------------------------------------------------
+Po1          1       eth  trunk  down    No operational members    auto(D)  lacp
+Po998        1       eth  access down    Administratively down     auto(I)  none
+Po999        1       eth  access down    Administratively down     auto(I)  none
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que les nœuds attendus sont toujours connectés :
++
+[source, cli]
+----
+show cdp neighbors
+----
++
+[source, cli]
+----
+show lldp neighbors
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show cdp neighbors*
+Capability Codes: R - Router, T - Trans-Bridge, B - Source-Route-Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater,
+                  V - VoIP-Phone, D - Remotely-Managed-Device,
+                  s - Supports-STP-Dispute
+
+Device-ID          Local Intrfce  Hldtme Capability  Platform      Port ID
+cs1                  Eth1/3         179    H         AFX-2K          e7a
+cs2                  Eth1/4         123    H         AFX-2K          e7a
+cs1                  Eth1/5         179    H         AFX-2K          e10a
+cs2                  Eth1/6         123    H         AFX-2K          e10a
+cs1                  Eth1/7         179    H         AFX-2K          e11a
+cs2                  Eth1/8         123    H         AFX-2K          e11a
+cs1                  Eth1/12        179    H         AFX-2K          e7b
+cs2                  Eth1/13        123    H         AFX-2K          e7b
+cs1                  Eth1/14        179    H         AFX-2K          e10b
+cs2                  Eth1/15        123    H         AFX-2K          e10b
+cs1                  Eth1/16        179    H         AFX-2K          e11b
+cs2                  Eth1/17        123    H         AFX-2K          e11b
+
+cs1# *show lldp neighbors*
+Capability codes:
+  (R) Router, (B) Bridge, (T) Telephone, (C) DOCSIS Cable Device
+  (W) WLAN Access Point, (P) Repeater, (S) Station, (O) Other
+Device ID            Local Intf      Hold-time  Capability  Port ID
+cs1                    Eth1/1          121        S           e1a
+cs2                    Eth1/2          121        S           e1a
+cs1                    Eth1/3          121        S           e7a
+cs2                    Eth1/4          121        S           e7a
+cs1                    Eth1/5          121        S           e10a
+cs2                    Eth1/6          121        S           e10a
+cs1                    Eth1/7          121        S           e11a
+cs2                    Eth1/8          121        S           e11a
+cs1                    Eth1/10         121        S           e1b
+cs2                    Eth1/11         121        S           e1b
+cs1                    Eth1/12         121        S           e7b
+cs2                    Eth1/13         121        S           e7b
+cs1                    Eth1/14         121        S           e10b
+cs2                    Eth1/15         121        S           e10b
+cs1                    Eth1/16         121        S           e11b
+cs2                    Eth1/17         121        S           e11b
+952551000983           Eth1/19/1       120        S           e1a
+952551000983           Eth1/19/2       120        S           e3a
+952551000983           Eth1/19/3       120        S           e1a
+952551000983           Eth1/19/4       120        S           e3a
+952551000983           Eth1/20/1       120        S           e2a
+952551000983           Eth1/20/2       120        S           e4a
+952551000983           Eth1/20/3       120        S           e2a
+952551000983           Eth1/20/4       120        S           e4a
+.
+.
+.
+----
+====
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que les nœuds du cluster se trouvent dans leurs VLAN de cluster respectifs à l'aide des commandes suivantes :
++
+[source, cli]
+----
+show vlan brief
+----
++
+[source, cli]
+----
+show interface trunk
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show vlan brief*
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Po1, Po998, Po999, Eth1/1
+                                                Eth1/2, Eth1/3, Eth1/4, Eth1/5
+                                                Eth1/6, Eth1/7, Eth1/8, Eth1/9
+                                                Eth1/10, Eth1/11, Eth1/12
+                                                Eth1/13, Eth1/14, Eth1/15
+                                                Eth1/16, Eth1/17, Eth1/18
+                                                Eth1/36, Eth1/19/1, Eth1/19/2
+                                                Eth1/19/3, Eth1/19/4, Eth1/20/1
+.
+.
+
+                                                Eth1/33/4, Eth1/34/1, Eth1/34/2
+                                                Eth1/34/3, Eth1/34/4, Eth1/35/1
+                                                Eth1/35/2, Eth1/35/3, Eth1/35/4
+17   VLAN0017                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9, Eth1/10, Eth1/11
+                                                Eth1/12, Eth1/13, Eth1/14
+                                                Eth1/15, Eth1/16, Eth1/17
+                                                Eth1/18, Eth1/19/1, Eth1/19/2
+                                                Eth1/19/3, Eth1/19/4, Eth1/20/1
+                                                Eth1/20/2, Eth1/20/3, Eth1/20/4
+                                                Eth1/21/1, Eth1/21/2, Eth1/21/3
+.
+.
+                                                Eth1/30/4, Eth1/31/1, Eth1/31/2
+                                                Eth1/31/3, Eth1/31/4, Eth1/32/1
+                                                Eth1/32/2, Eth1/32/3, Eth1/32/4
+                                                Eth1/33/1, Eth1/33/2, Eth1/33/3
+                                                Eth1/33/4, Eth1/34/1, Eth1/34/2
+                                                Eth1/34/3, Eth1/34/4, Eth1/35/1
+                                                Eth1/35/2, Eth1/35/3, Eth1/35/4
+18   VLAN0018                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9, Eth1/10, Eth1/11
+                                                Eth1/12, Eth1/13, Eth1/14
+                                                Eth1/15, Eth1/16, Eth1/17
+                                                Eth1/18, Eth1/19/1, Eth1/19/2
+                                                Eth1/19/3, Eth1/19/4, Eth1/20/1
+.
+.
+                                                Eth1/30/1, Eth1/30/2, Eth1/30/3
+                                                Eth1/30/4, Eth1/31/1, Eth1/31/2
+                                                Eth1/31/3, Eth1/31/4, Eth1/32/1
+                                                Eth1/32/2, Eth1/32/3, Eth1/32/4
+                                                Eth1/33/1, Eth1/33/2, Eth1/33/3
+                                                Eth1/33/4, Eth1/34/1, Eth1/34/2
+                                                Eth1/34/3, Eth1/34/4, Eth1/35/1
+                                                Eth1/35/2, Eth1/35/3, Eth1/35/4
+30   VLAN0030                         active    Eth1/1, Eth1/2, Eth1/3, Eth1/4
+                                                Eth1/5, Eth1/6, Eth1/7, Eth1/8
+                                                Eth1/9, Eth1/10, Eth1/11
+                                                Eth1/12, Eth1/13, Eth1/14
+                                                Eth1/15, Eth1/16, Eth1/17
+                                                Eth1/18, Eth1/19/1, Eth1/19/2
+                                                Eth1/19/3, Eth1/19/4, Eth1/20/1
+                                                Eth1/20/2, Eth1/20/3, Eth1/20/4
+.
+.
+                                                Eth1/33/1, Eth1/33/2, Eth1/33/3
+                                                Eth1/33/4, Eth1/34/1, Eth1/34/2
+                                                Eth1/34/3, Eth1/34/4, Eth1/35/1
+                                                Eth1/35/2, Eth1/35/3, Eth1/35/4
+40   VLAN0040                         active    Po1, Eth1/1, Eth1/2, Eth1/3
+                                                Eth1/4, Eth1/5, Eth1/6, Eth1/7
+                                                Eth1/8, Eth1/9, Eth1/10, Eth1/11
+                                                Eth1/12, Eth1/13, Eth1/14
+                                                Eth1/15, Eth1/16, Eth1/17
+                                                Eth1/18, Eth1/36, Eth1/19/1
+                                                Eth1/19/2, Eth1/19/3, Eth1/19/4
+                                                Eth1/20/1, Eth1/20/2, Eth1/20/3
+                                                Eth1/20/4, Eth1/21/1, Eth1/21/2
+                                                Eth1/21/3, Eth1/21/4, Eth1/22/1
+                                                Eth1/22/2, Eth1/22/3, Eth1/22/4
+                                                Eth1/23/1, Eth1/23/2, Eth1/23/3
+                                                Eth1/23/4, Eth1/24/1, Eth1/24/2
+                                                Eth1/24/3, Eth1/24/4, Eth1/25/1
+                                                Eth1/25/2, Eth1/25/3, Eth1/25/4
+                                                Eth1/26/1, Eth1/26/2, Eth1/26/3
+                                                Eth1/26/4, Eth1/27/1, Eth1/27/2
+                                                Eth1/27/3, Eth1/27/4, Eth1/28/1
+.
+.
+                                                Eth1/34/2, Eth1/34/3, Eth1/34/4
+                                                Eth1/35/1, Eth1/35/2, Eth1/35/3
+                                                Eth1/35/4
+
+cs1# *show interface trunk*
+
+--------------------------------------------------------------------------------
+Port          Native  Status        Port
+              Vlan                  Channel
+--------------------------------------------------------------------------------
+
+Eth1/1        1       trunking      --
+Eth1/2        1       trunking      --
+Eth1/3        1       trunking      --
+Eth1/4        1       trunking      --
+Eth1/5        1       trunking      --
+Eth1/6        1       trunking      --
+Eth1/7        1       trunking      --
+Eth1/8        1       trunking      --
+Eth1/9        1       trunking      --
+Eth1/10       1       trunking      --
+.
+.
+.
+Eth1/30/1     1       trunking      --
+Eth1/30/2     1       trunking      --
+Eth1/30/3     1       trunking      --
+Eth1/30/4     1       trunking      --
+Eth1/31/1     1       trunking      --
+Eth1/31/2     1       trunking      --
+Eth1/31/3     1       trunking      --
+Eth1/31/4     1       trunking      --
+Eth1/32/1     1       trunking      --
+Eth1/32/2     1       trunking      --
+Eth1/32/3     1       trunking      --
+Eth1/32/4     1       trunking      --
+Eth1/33/1     1       trunking      --
+Eth1/33/2     1       trunking      --
+Eth1/33/3     1       trunking      --
+Eth1/33/4     1       trunking      --
+Eth1/34/1     1       trunking      --
+Eth1/34/2     1       trunking      --
+Eth1/34/3     1       trunking      --
+Eth1/34/4     1       trunking      --
+Eth1/35/1     1       trunking      --
+Eth1/35/2     1       trunking      --
+Eth1/35/3     1       trunking      --
+Eth1/35/4     1       trunking      --
+Eth1/36       1       trnk-bndl     Po1
+Po1           1       not-trunking  --
+
+
+--------------------------------------------------------------------------------
+Port          Vlans Allowed on Trunk
+--------------------------------------------------------------------------------
+Eth1/1        1,17-18,30,40
+Eth1/2        1,17-18,30,40
+Eth1/3        1,17-18,30,40
+Eth1/4        1,17-18,30,40
+Eth1/5        1,17-18,30,40
+Eth1/6        1,17-18,30,40
+Eth1/7        1,17-18,30,40
+Eth1/8        1,17-18,30,40
+Eth1/9        1,17-18,30,40
+Eth1/10       1,17-18,30,40
+Eth1/11       1,17-18,30,40
+.
+.
+.
+Eth1/30/1     1,17-18,30,40
+Eth1/30/2     1,17-18,30,40
+Eth1/30/3     1,17-18,30,40
+Eth1/30/4     1,17-18,30,40
+Eth1/31/1     1,17-18,30,40
+Eth1/31/2     1,17-18,30,40
+Eth1/31/3     1,17-18,30,40
+Eth1/31/4     1,17-18,30,40
+Eth1/32/1     1,17-18,30,40
+Eth1/32/2     1,17-18,30,40
+Eth1/32/3     1,17-18,30,40
+Eth1/32/4     1,17-18,30,40
+Eth1/33/1     1,17-18,30,40
+Eth1/33/2     1,17-18,30,40
+Eth1/33/3     1,17-18,30,40
+Eth1/33/4     1,17-18,30,40
+Eth1/34/1     1,17-18,30,40
+Eth1/34/2     1,17-18,30,40
+Eth1/34/3     1,17-18,30,40
+Eth1/34/4     1,17-18,30,40
+Eth1/35/1     1,17-18,30,40
+Eth1/35/2     1,17-18,30,40
+Eth1/35/3     1,17-18,30,40
+Eth1/35/4     1,17-18,30,40
+Eth1/36       1,40
+Po1           1,40
+
+
+--------------------------------------------------------------------------------
+Port          Vlans Err-disabled on Trunk
+--------------------------------------------------------------------------------
+Eth1/1        none
+Eth1/2        none
+Eth1/3        none
+Eth1/4        none
+Eth1/5        none
+Eth1/6        none
+Eth1/7        none
+Eth1/8        none
+Eth1/9        none
+Eth1/10       none
+.
+.
+.
+Eth1/30/1     none
+Eth1/30/2     none
+Eth1/30/3     none
+Eth1/30/4     none
+Eth1/31/1     none
+Eth1/31/2     none
+Eth1/31/3     none
+Eth1/31/4     none
+Eth1/32/1     none
+Eth1/32/2     none
+Eth1/32/3     none
+Eth1/32/4     none
+Eth1/33/1     none
+Eth1/33/2     none
+Eth1/33/3     none
+Eth1/33/4     none
+Eth1/34/1     none
+Eth1/34/2     none
+Eth1/34/3     none
+Eth1/34/4     none
+Eth1/35/1     none
+Eth1/35/2     none
+Eth1/35/3     none
+Eth1/35/4     none
+Eth1/36       none
+Po1           none
+
+
+--------------------------------------------------------------------------------
+Port          STP Forwarding
+--------------------------------------------------------------------------------
+Eth1/1        1,17-18,30,40
+Eth1/2        1,17-18,30,40
+Eth1/3        1,17-18,30,40
+Eth1/4        1,17-18,30,40
+Eth1/5        1,17-18,30,40
+Eth1/6        1,17-18,30,40
+Eth1/7        1,17-18,30,40
+Eth1/8        1,17-18,30,40
+Eth1/9        none
+Eth1/10       1,17-18,30,40
+.
+.
+.
+Eth1/30/1     none
+Eth1/30/2     none
+Eth1/30/3     none
+Eth1/30/4     none
+Eth1/31/1     none
+Eth1/31/2     none
+Eth1/31/3     none
+Eth1/31/4     none
+Eth1/32/1     none
+Eth1/32/2     none
+Eth1/32/3     none
+Eth1/32/4     none
+Eth1/33/1     none
+Eth1/33/2     none
+Eth1/33/3     none
+Eth1/33/4     none
+Eth1/34/1     none
+Eth1/34/2     none
+Eth1/34/3     none
+Eth1/34/4     none
+Eth1/35/1     none
+Eth1/35/2     none
+Eth1/35/3     none
+Eth1/35/4     none
+Eth1/36       none
+Po1           none
+
+
+--------------------------------------------------------------------------------
+Port          Vlans in spanning tree forwarding state and not pruned
+--------------------------------------------------------------------------------
+Eth1/1        Feature VTP is not enabled 1,17-18,30,40
+Eth1/2        Feature VTP is not enabled 1,17-18,30,40
+Eth1/3        Feature VTP is not enabled 1,17-18,30,40
+Eth1/4        Feature VTP is not enabled 1,17-18,30,40
+Eth1/5        Feature VTP is not enabled 1,17-18,30,40
+Eth1/6        Feature VTP is not enabled 1,17-18,30,40
+Eth1/7        Feature VTP is not enabled 1,17-18,30,40
+Eth1/8        Feature VTP is not enabled 1,17-18,30,40
+Eth1/9        Feature VTP is not enabled 1,17-18,30,40
+Eth1/10       Feature VTP is not enabled 1,17-18,30,40
+.
+.
+.
+Eth1/30/1     Feature VTP is not enabled none
+Eth1/30/2     Feature VTP is not enabled none
+Eth1/30/3     Feature VTP is not enabled none
+Eth1/30/4     Feature VTP is not enabled none
+Eth1/31/1     Feature VTP is not enabled none
+Eth1/31/2     Feature VTP is not enabled none
+Eth1/31/3     Feature VTP is not enabled none
+Eth1/31/4     Feature VTP is not enabled none
+Eth1/32/1     Feature VTP is not enabled none
+Eth1/32/2     Feature VTP is not enabled none
+Eth1/32/3     Feature VTP is not enabled none
+Eth1/32/4     Feature VTP is not enabled none
+Eth1/33/1     Feature VTP is not enabled none
+Eth1/33/2     Feature VTP is not enabled none
+Eth1/33/3     Feature VTP is not enabled none
+Eth1/33/4     Feature VTP is not enabled none
+Eth1/34/1     Feature VTP is not enabled none
+Eth1/34/2     Feature VTP is not enabled none
+Eth1/34/3     Feature VTP is not enabled none
+Eth1/34/4     Feature VTP is not enabled none
+Eth1/35/1     Feature VTP is not enabled none
+Eth1/35/2     Feature VTP is not enabled none
+Eth1/35/3     Feature VTP is not enabled none
+Eth1/35/4     Feature VTP is not enabled none
+Eth1/36       Feature VTP is not enabled none
+Po1           Feature VTP is not enabled none
+----
+====
++
+
+NOTE: Pour plus de détails sur l'utilisation des ports et des VLAN, reportez-vous à la section bannière et notes importantes de votre RCF.
+
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que la liaison ISL entre cs1 et cs2 est fonctionnelle :
++
+[source, cli]
+----
+show port-channel summary
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cs1# *show port-channel summary*
+Flags:  D - Down        P - Up in port-channel (members)
+        I - Individual  H - Hot-standby (LACP only)
+        s - Suspended   r - Module-removed
+        b - BFD Session Wait
+        S - Switched    R - Routed
+        U - Up (port-channel)
+        p - Up in delay-lacp mode (member)
+        M - Not in use. Min-links not met
+--------------------------------------------------------------------------------
+Group Port-       Type     Protocol  Member Ports
+      Channel
+--------------------------------------------------------------------------------
+1     Po1(SD)     Eth      LACP      Eth1/36(D)
+998   Po998(SD)   Eth      NONE      --
+999   Po999(SD)   Eth      NONE      --
+----
+====
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez que les LIF du cluster sont revenues à leur port d'attache :
++
+[source, cli]
+----
+network interface show -role cluster
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface show -role cluster*
+
+            Logical         Status     Network            Current     Current Is
+Vserver     Interface       Admin/Oper Address/Mask       Node        Port    Home
+----------- --------------- ---------- ------------------ ----------- ------- ----
+Cluster
+            node1-01_clus1  up/up      169.254.36.44/16   node1-01    e2a     true
+            node1-01_clus2  up/up      169.254.7.5/16     node1-01    e2b     true
+            node1-02_clus1  up/up      169.254.197.206/16 node1-02    e2a     true
+            node1-02_clus2  up/up      169.254.195.186/16 node1-02    e2b     true
+            node1-03_clus1  up/up      169.254.192.49/16  node1-03    e2a     true
+            node1-03_clus2  up/up      169.254.182.76/16  node1-03    e2b     true
+            node1-04_clus1  up/up      169.254.59.49/16   node1-04    e2a     true
+            node1-04_clus2  up/up      169.254.62.244/16  node1-04    e2b     true
+----
+====
++
+Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
+
++
+`network interface revert -vserver vserver_name -lif <lif-name>`
+
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez que le cluster est sain :
++
+[source, cli]
+----
+cluster show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster show*
+Node              Health  Eligibility   Epsilon
+----------------- ------- ------------- -------
+node1-01          true    true          false
+node1-02          true    true          false
+node1-03          true    true          true
+node1-04          true    true          false
+----
+====
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez la connectivité des interfaces du cluster distant :
++
+.. Vous pouvez utiliser le `network interface check cluster-connectivity show` commande permettant d'afficher les détails d'un contrôle d'accessibilité pour la connectivité du cluster :
++
+[source, cli]
+----
+network interface check cluster-connectivity show
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+
+                                  Source           Destination     Packet
+Node   Date                       LIF              LIF             Loss
+------ -------------------------- ---------------- --------------- -----------
+node1-01
+       6/4/2025 03:13:33 -04:00   node1-01_clus2  node1-02_clus1   none
+       6/4/2025 03:13:34 -04:00   node1-01_clus2  node1-02_clus1   none
+
+
+node1-02
+       6/4/2025 03:13:33 -04:00   node1-02_clus2  node1-01_clus1   none
+       6/4/2025 03:13:34 -04:00   node1-02_clus2  node1-01_clus2   none
+.
+.
+.
+----
+====
+.. Vous pouvez également utiliser le `cluster ping-cluster -node <node-name>` commande pour vérifier la connectivité :
++
+[source, cli]
+----
+cluster ping-cluster -node <node-name>
+----
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is node1-04
+Getting addresses from network interface table...
+Cluster node1-01_clus1 169.254.36.44 node1-01 e7a
+Cluster node1-01_clus2 169.254.7.5   node1-01 e7b
+Cluster node1-02_clus1 169.254.197.206 node1-02 e7a
+Cluster node1-02_clus2 169.254.195.186 node1-02 e7b
+Cluster node1-03_clus1 169.254.192.49 node1-03 e7a
+Cluster node1-03_clus2 169.254.182.76 node1-03 e7b
+Cluster node1-04_clus1 169.254.59.49 node1-04 e7a
+Cluster node1-04_clus2 169.254.62.244 node1-04 e7b
+Local = 169.254.59.49 169.254.62.244
+Remote = 169.254.36.44 169.254.7.5 169.254.197.206 169.254.195.186 169.254.192.49 169.254.182.76
+Cluster Vserver Id = 4294967293
+Ping status:
+............
+Basic connectivity succeeds on 12 path(s)
+Basic connectivity fails on 0 path(s)
+................................................
+Detected 9000 byte MTU on 12 path(s):
+    Local 169.254.59.49 to Remote 169.254.182.76
+    Local 169.254.59.49 to Remote 169.254.192.49
+    Local 169.254.59.49 to Remote 169.254.195.186
+    Local 169.254.59.49 to Remote 169.254.197.206
+    Local 169.254.59.49 to Remote 169.254.36.44
+    Local 169.254.59.49 to Remote 169.254.7.5
+    Local 169.254.62.244 to Remote 169.254.182.76
+    Local 169.254.62.244 to Remote 169.254.192.49
+    Local 169.254.62.244 to Remote 169.254.195.186
+    Local 169.254.62.244 to Remote 169.254.197.206
+    Local 169.254.62.244 to Remote 169.254.36.44
+    Local 169.254.62.244 to Remote 169.254.7.5
+Larger than PMTU communication succeeds on 12 path(s)
+RPC status:
+6 paths up, 0 paths down (tcp check)
+6 paths up, 0 paths down (udp check)
+----
+====
+
+
+
+
+.Quelle est la prochaine étape ?
+Après avoir mis à niveau le RCF sur vos commutateurs, vous link:configure-verify-ssh-9808.html["vérifiez SSH pour la collecte des journaux"].

@@ -20,6 +20,7 @@ NOTE: Seuls les commutateurs back-end validés par NetApp(commandés auprès de 
 
 
 
+[[afx-systems-switches]]
 == Commutateurs de systèmes AFX
 
 Les commutateurs des systèmes AFX vous permettent de créer des commutateurs réseau rapides, économes en énergie et peu encombrants. Leur petite taille et leur densité de ports élevée les rendent idéaux pour la gestion de grands réseaux. Les ports prennent en charge différentes vitesses et peuvent être divisés en plusieurs connexions. Les commutateurs de systèmes AFX pris en charge par NetApp incluent :
@@ -30,6 +31,7 @@ Les commutateurs des systèmes AFX vous permettent de créer des commutateurs r�
 
 
 
+[[cluster-switches]]
 == Commutateurs de cluster
 
 Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec plus de deux nœuds. Les commutateurs de cluster pris en charge par NetApp incluent :
@@ -41,6 +43,7 @@ Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec pl
 
 
 
+[[storage-switches]]
 == Commutateurs de stockage
 
 Les commutateurs de stockage vous permettent d'acheminer les données entre les serveurs et les baies de stockage dans un réseau de stockage (SAN).  Les commutateurs de stockage compatibles avec NetApp incluent :
@@ -52,6 +55,7 @@ Les commutateurs de stockage vous permettent d'acheminer les données entre les 
 
 
 
+[[shared-switches]]
 == Commutateurs partagés
 
 Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagé, en prenant en charge l'utilisation de RCF de cluster et de stockage partagés.  Le commutateur partagé pris en charge par NetApp est :
@@ -61,6 +65,7 @@ Les commutateurs partagés vous permettent de combiner les fonctionnalités de c
 
 
 
+[[end-of-availability-switches]]
 == Interrupteurs de fin de disponibilité
 
 Pour obtenir la liste des commutateurs qui ne sont plus disponibles à l'achat, mais qui sont toujours pris en charge, veuillez consulter link:../overview-eod.html["Interrupteurs de fin de disponibilité"].

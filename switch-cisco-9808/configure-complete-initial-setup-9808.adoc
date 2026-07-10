@@ -1,0 +1,198 @@
+---
+permalink: switch-cisco-9808/configure-complete-initial-setup-9808.html 
+sidebar: sidebar 
+keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9808 
+summary: 'Après avoir mis sous tension le ou les commutateurs Cisco Nexus 9808 dans le cadre de l"installation d"un nouveau système AFX 2K ou du remplacement d"un commutateur, ou après avoir réinitialisé un commutateur à ses paramètres d"usine, vous êtes invité à effectuer la configuration initiale du ou des commutateurs à l"aide de l"assistant de configuration. Vous pouvez consulter les questions de l"assistant de configuration ci-dessous ainsi que les réponses recommandées pour vous aider à réaliser la configuration initiale du ou des commutateurs.' 
+---
+= Effectuez la configuration initiale complète du commutateur - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Après avoir mis sous tension le ou les commutateurs Cisco Nexus 9808 dans le cadre de l'installation d'un nouveau système AFX 2K ou du remplacement d'un module superviseur, ou après avoir réinitialisé un commutateur à ses paramètres d'usine, vous êtes invité à effectuer la configuration initiale du ou des commutateurs à l'aide de l'assistant de configuration. Vous pouvez consulter les questions de l'assistant de configuration suivantes ainsi que les réponses recommandées pour vous aider à réaliser la configuration initiale du ou des commutateurs.
+
+.Avant de commencer
+Assurez-vous de disposer des informations réseau et de configuration pour chaque commutateur ainsi que des licences applicables.
+
+.À propos de cette tâche
+* Vous devez effectuer la configuration initiale sur chaque commutateur.
+* Si nécessaire, vous pouvez vous référer aux informations relatives à la configuration des commutateurs dans le chapitre *Using the Cisco NX-OS Setup Utility* du link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x/m-using-nnxos-setup-utility.html["Guide de configuration des principes fondamentaux de Cisco Nexus 9000 Series NX-OS, version 10.6(x)"^].
+
+
+.Étapes
+. Connectez votre ordinateur portable au port console série des commutateurs.
++
+.. Configurez le port de console série de l'ordinateur portable à 9 600 bauds avec N-8-1.
+
+
+. Définissez le mot de passe pour l'utilisateur admin, comme indiqué.
+. Finalisez la configuration initiale du commutateur en répondant aux questions suivantes.
++
+
+NOTE: La politique de sécurité de votre site définit les réponses et les services à activer.
+
++
+[cols="1,2"]
+|===
+| Rapide | Réponse 
+
+
+ a| 
+Annuler le provisionnement automatique et poursuivre la configuration normale ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est non.
+
+
+
+ a| 
+Souhaitez-vous imposer une norme de mot de passe sécurisé ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est oui.
+
+
+
+ a| 
+Saisissez le mot de passe de l'administrateur.
+ a| 
+Le mot de passe par défaut est « `admin` » ; vous devez créer un nouveau mot de passe fort.  Un mot de passe faible peut être refusé.
+
+
+
+ a| 
+Souhaitez-vous accéder à la boîte de dialogue de configuration de base ?  (oui/non)
+ a| 
+Répondez *oui* lors de la configuration initiale du commutateur.
+
+
+
+ a| 
+Créer un autre compte de connexion ?  (oui/non)
+ a| 
+Votre réponse dépend des politiques de votre site concernant les administrateurs alternatifs.  La valeur par défaut est *non*.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture seule ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Configurer la chaîne de communauté SNMP en lecture-écriture ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Saisissez le nom du commutateur.
+ a| 
+Saisissez le nom du commutateur, qui est limité à 63 caractères alphanumériques.
+
+
+
+ a| 
+Continuer avec la configuration de gestion hors bande (mgmt0) ?  (oui/non)
+ a| 
+Répondez par *oui* (par défaut) à cette invite.  À l'invite mgmt0 adresse IPv4 : saisissez votre adresse IP : ip_address.
+
+
+
+ a| 
+Configurer la passerelle par défaut ?  (oui/non)
+ a| 
+Répondez par *oui*.  À l'invite « adresse IPv4 de la passerelle par défaut : », saisissez votre passerelle par défaut.
+
+
+
+ a| 
+Configurer les options IP avancées ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Activer le service telnet ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Service SSH activé ?  (oui/non)
+ a| 
+Répondez par *oui*.  La valeur par défaut est oui.
+
+
+NOTE: L'utilisation du protocole SSH est recommandée lors de l'utilisation de l'outil de surveillance de l'état des commutateurs Ethernet (CSHM) pour ses fonctionnalités de collecte de journaux. SSHv2 est également recommandé pour une sécurité renforcée.
+
+
+
+ a| 
+Entrez le type de clé SSH que vous souhaitez générer (dsa/rsa/rsa1).
+ a| 
+La valeur par défaut est *rsa*.
+
+
+
+ a| 
+Entrez le nombre de bits clés (1024-2048).
+ a| 
+Entrez le nombre de bits clés de 1024 à 2048.
+
+
+
+ a| 
+Configurer le serveur NTP ?  (oui/non)
+ a| 
+Répondez par *non*.  La valeur par défaut est non.
+
+
+
+ a| 
+Configurer la couche d'interface par défaut (L3/L2)
+ a| 
+Répondez avec *L2*.  La valeur par défaut est L2.
+
+
+
+ a| 
+Configurer l'état par défaut de l'interface du port de commutation (arrêté/non arrêté)
+ a| 
+Répondez par *noshut*.  La valeur par défaut est noshut.
+
+
+
+ a| 
+Configurer le profil système CoPP (strict/modéré/souple/dense)
+ a| 
+Répondez avec *strict*.  Le paramètre par défaut est strict.
+
+
+
+ a| 
+Souhaitez-vous modifier la configuration ?  (oui/non)
+ a| 
+Vous devriez voir la nouvelle configuration à ce stade.  Vérifiez et apportez les modifications nécessaires à la configuration que vous venez de saisir.  Répondez *non* à l'invite si la configuration vous convient.  Répondez *oui* si vous souhaitez modifier vos paramètres de configuration.
+
+
+
+ a| 
+Utilisez cette configuration et enregistrez-la ?  (oui/non)
+ a| 
+Répondez *oui* pour enregistrer la configuration.  Cela met automatiquement à jour les images Kickstart et système.
+
+
+NOTE: Si vous ne sauvegardez pas la configuration à cette étape, aucune des modifications ne sera prise en compte lors du prochain redémarrage du commutateur.
+
+|===
+. Vérifiez les choix de configuration que vous avez effectués dans l'écran qui apparaît à la fin de l'installation et assurez-vous d'enregistrer la configuration.
+
+
+.Quelle est la prochaine étape ?
+Une fois la configuration initiale du commutateur terminée, vous link:configure-review-cabling-config-requirements-9808.html["examiner les exigences de câblage et de configuration"].

@@ -15,6 +15,7 @@ Suivez cette procédure pour remplacer un commutateur NVIDIA SN2100 défectueux 
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Infrastructure de cluster et de réseau existante
@@ -44,6 +45,7 @@ NOTE: Vous devez exécuter la commande de migration d'un LIF de cluster depuis l
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -55,6 +57,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 .À propos des exemples
@@ -145,6 +148,7 @@ swp16      100G   BondMember  sw1                swp16
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Étape 1 : Préparer le remplacement
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -174,6 +178,7 @@ Si nécessaire, vérifiez, téléchargez et installez les versions appropriées 
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 [role="tabbed-block"]
@@ -627,6 +632,7 @@ e3b       Cluster      Cluster          up    9000  auto/10000  healthy  false
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 [role="tabbed-block"]

@@ -15,6 +15,7 @@ Si vous disposez de systèmes FAS22xx dans un cluster existant à deux nœuds sa
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -32,12 +33,14 @@ https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 Cette procédure non perturbatrice supprime la connectivité directe au cluster dans un environnement sans commutateur et remplace chaque connexion au commutateur par une connexion au nœud partenaire.
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
@@ -150,6 +153,7 @@ N'est pas configuré
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Sur chaque module de contrôleur, débranchez le câble qui relie le port de cluster 10 GbE au cluster sans commutateur.
@@ -301,6 +305,7 @@ RPC status:
 ====
 
 
+[[step-3-complete-the-procedure]]
 === Étape 3 : Terminer la procédure
 
 . Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :

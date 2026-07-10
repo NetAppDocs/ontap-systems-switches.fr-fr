@@ -15,6 +15,7 @@ Suivez ces étapes pour remplacer un commutateur de stockage Cisco Nexus 3232C d
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 La configuration réseau existante doit présenter les caractéristiques suivantes :
@@ -39,12 +40,14 @@ Le commutateur Cisco Nexus 3232C de remplacement doit présenter les caractéris
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 Cette procédure remplace le deuxième commutateur de stockage Nexus 3232C s2 par le nouveau commutateur 3232C ns2. Les deux nœuds sont cluster1-01 et cluster1-02.
 
 
 
+[[step-1-confirm-the-switch-to-be-replaced-is-s2]]
 === Étape 1 : Confirmez que le commutateur à remplacer est s2
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -145,6 +148,7 @@ SHFGD2008000022         Eth1/8          120        S           e0a
 
 
 
+[[step-2-configure-cabling]]
 === Étape 2 : Configurer le câblage
 
 . [[cinq]]Vérifiez les ports d'étagère dans le système de stockage :
@@ -177,6 +181,7 @@ shelf  id  remote-port  remote-device
 
 
 
+[[step-3-verify-all-device-configurations-on-switch-ns2]]
 === Étape 3 : Vérifiez toutes les configurations des périphériques sur le commutateur ns2
 
 . Vérifiez l'état de santé des ports du nœud de stockage :

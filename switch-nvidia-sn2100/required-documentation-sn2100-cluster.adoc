@@ -19,7 +19,7 @@ Pour l'installation du commutateur NVIDIA SN2100, assurez-vous de consulter tout
 
 
  a| 
-link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["Guide d'installation de la NVIDIA Switch"^]
+link:https://networking-docs.nvidia.com/sn2000hw/latest["Guide d'installation de la NVIDIA Switch"^]
  a| 
 Ce document explique comment installer vos commutateurs NVIDIA SN2100.
 
@@ -33,6 +33,7 @@ Vue d'ensemble et illustrations montrant comment configurer le câblage des baie
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentation des systèmes ONTAP
 
 Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation.

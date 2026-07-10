@@ -15,6 +15,7 @@ Avant de configurer vos 9336C-FX2 et 9336C-FX2-T, examinez les exigences de câb
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7
 
 Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.
@@ -34,10 +35,12 @@ Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de po
 ----
 
 
+[[25gbe-fec-requirements]]
 == Exigences FEC 25GbE
 
 
 
+[[fas2820-e0ae0b-ports]]
 === Ports FAS2820 e0a/e0b
 
 Les ports e0a et e0b du FAS2820 nécessitent des modifications de configuration FEC pour se connecter aux ports des commutateurs 9336C-FX2 et 9336C-FX2-T. Pour les ports de commutateur e0a et e0b, le  `fec` paramètre est défini sur  `rs-cons16`.
@@ -53,6 +56,7 @@ Les ports e0a et e0b du FAS2820 nécessitent des modifications de configuration 
 ----
 
 
+[[ports-do-not-link-up-due-to-tcam-resources]]
 == Les ports ne se connectent pas en raison des ressources TCAM.
 
 Sur les commutateurs 9336C-FX2 et 9336C-FX2-T, les ressources de mémoire adressable de contenu ternaire (TCAM) configurées dans la configuration utilisée par le commutateur sont épuisées.

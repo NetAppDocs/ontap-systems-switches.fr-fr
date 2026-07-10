@@ -1,0 +1,145 @@
+---
+permalink: switch-cisco-9808/configure-install-upgrade-rcf-overview-9808.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
+summary: 'Vous pouvez installer ou mettre à niveau le fichier de configuration de référence (RCF) sur vos commutateurs Nexus 9808. Vous installez une version prise en charge du RCF sur les commutateurs dans le cadre de l"installation d"un nouveau système AFX 2K, du remplacement d"un module superviseur ou de la réinitialisation d"un commutateur aux paramètres d"usine par défaut. Vous mettez à niveau le RCF vers une version prise en charge sur les commutateurs afin de prendre en charge un nouveau matériel, une nouvelle version d"ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX 2K.' 
+---
+= Installer ou mettre à niveau la vue d'ensemble du RCF - Cisco Nexus 9808
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez installer ou mettre à niveau le fichier de configuration de référence (RCF) sur vos commutateurs Cisco Nexus 9808. Vous installez une version prise en charge du RCF sur les commutateurs dans le cadre de l'installation d'un nouveau système AFX 2K, d'un remplacement de module superviseur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut. Vous mettez à niveau le RCF vers une version prise en charge sur les commutateurs afin de prendre en charge un nouveau matériel, une nouvelle version d'ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX.
+
+
+NOTE: L'installation ou la mise à niveau de RCF est indépendante de l'installation ou de la mise à niveau de NX-OS. Si vous installez ou mettez à niveau à la fois NX-OS et RCF, il est recommandé d'installer ou de mettre à niveau NX-OS en premier.
+
+
+
+[[understand-the-supported-rcf-versions]]
+=== Comprendre les versions RCF prises en charge
+
+La version d'ONTAP exécutée sur votre système AFX et la version de NX-OS sur vos commutateurs Cisco Nexus 9808 déterminent les versions de RCF compatibles avec vos commutateurs. Les versions de RCF possèdent des configurations de vitesse de port prédéfinies qui déterminent combien de ports de commutateur sont en mode breakout (4x100GbE) et en mode non-breakout.
+
+[NOTE]
+====
+Pour la liste actuelle des versions RCF prises en charge, veuillez vous référer à link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco Commutateurs Ethernet"^].
+
+Les informations relatives aux ports du commutateur se trouvent également dans le link:https://hwu.netapp.com["Hardware Universe NetApp"^].
+
+====
+
+NOTE: Pour plus de détails sur l'utilisation des ports et des VLAN, consultez la section Bannière et notes importantes de votre RCF. Consultez link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco Commutateurs Ethernet"^] pour plus d'informations.
+
+Par exemple, le tableau suivant présente les groupes prédéfinis des ports du commutateur, leurs vitesses de port et leur utilisation en fonction de la version 10.1 de RCF.
+
+[cols="1,2"]
+|===
+| Groupes de ports de commutateur | Vitesses et utilisation des ports 
+
+
+ a| 
+Ethernet1/1 à Ethernet1/18
+ a| 
+Mode 400GbE pour les connexions intra-cluster, HA et aux étagères de stockage
+
+
+
+ a| 
+Ethernet1/19 à Ethernet1/35
+ a| 
+Mode 4x100GbE pour les connexions intra-cluster, HA et de stockage
+
+
+
+ a| 
+Ethernet1/36
+ a| 
+Connexions ISL intra-cluster 400GbE
+
+|===
+
+
+[[change-port-speed-configuration]]
+=== Modifier la configuration de la vitesse du port
+
+Pour les commutateurs équipés de RCF 10.1 et versions ultérieures, vous pouvez modifier la configuration de la vitesse des ports afin d’ajuster le nombre de ports du commutateur en mode breakout (4x100GbE) et en mode non-breakout (400GbE) lorsque vous devez adapter la configuration de la vitesse des ports de votre système AFX. Toute modification de port effectuée l’est par carte de ligne actuellement utilisée.
+
+Vous effectuez cette modification dans le cadre de la procédure d'installation ou de mise à niveau de RCF. Les procédures comportent des étapes qui vous redirigent vers cette page.
+
+Vous entrez les commandes sur les deux commutateurs.
+
+[cols="1,2"]
+|===
+| Modifier les vitesses des ports | Étapes 
+
+
+ a| 
+Modifiez les ports non-breakout en ports breakout
+ a| 
+. Passez en mode de configuration dans l'interface de ligne de commande.
+. Modifiez les vitesses des ports et les modes de breakout sur les commutateurs :
++
+Pour désigner les ports de dérivation, utilisez la  `interface breakout module` commande.
+
++
+Par exemple, pour désigner les ports 19 à 22 en mode 400GbE comme ports de breakout (4x100GbE), utilisez la commande suivante :
+
++
+`interface breakout module 1 port 19-22 map 100g-4x`
+
+. Modifiez la liste des ports avec les nouveaux ports qui doivent utiliser le profil de port pour la vitesse de port souhaitée.
++
+Par exemple, pour modifier la liste des ports avec les nouveaux ports, 19-22, pour le profil de port à vitesse 100G, utilisez ce qui suit :
+
++
+`interface e1/19/1-4, e1/20/1-4, e1/21/1-4, e1/22/1-4`
+
+. Configurez en dur les ports de dérivation du commutateur (4x100GbE) pour 100GbE. Si vous ne configurez pas en dur la vitesse, les ports ne seront pas opérationnels et seront en état d'erreur désactivée.
++
+`speed 100000`
+
++
+`no negotiate auto`
+
+
+
+
+
+ a| 
+Rétablir les ports de breakout en ports non-breakout
+ a| 
+. Passez en mode de configuration dans l'interface de ligne de commande.
+. Pour rétablir les ports de dérivation en ports non dérivables, utilisez la commande  `no interface breakout` en mode configuration.
++
+Par exemple, pour rétablir les ports 19 à 22 en mode 400GbE, utilisez ce qui suit :
+
++
+`no interface breakout module 1 port 19-22`
+
+
+
+|===
+
+
+[[suggested-documentation]]
+=== Documentation suggérée
+
+Avant d'installer ou de mettre à niveau le RCF sur vos commutateurs, il est recommandé de consulter la documentation suivante :
+
+* Consultez l’article de la base de connaissances NetApp link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d’informations lors de l’installation ou de la mise à niveau de votre RCF.
+* Reportez-vous à la  https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe NetApp"^] pour vérifier les ports corrects sur votre plateforme.
+* link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs Ethernet Cisco (NSS)"^]
++
+Consultez le tableau de compatibilité des commutateurs pour connaître les versions ONTAP et RCF prises en charge sur le site d'assistance NetApp .  Notez qu'il peut exister des dépendances de commandes entre la syntaxe des commandes dans le RCF et la syntaxe présente dans certaines versions de NX-OS.
+
+* link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Commutateurs Cisco Nexus série 9000"^]
++
+Consultez les guides logiciels et de mise à niveau appropriés disponibles sur le site Web de Cisco pour obtenir une documentation complète sur les procédures de mise à niveau et de rétrogradation des commutateurs Cisco .
+
+
+
+.Quelle est la prochaine étape ?
+Après avoir consulté la présentation de l'installation ou de la mise à niveau de RCF, vous link:configure-install-rcf-9808.html["installer le RCF"] ou link:configure-upgrade-rcf-9808.html["mise à niveau du RCF"] selon vos besoins.

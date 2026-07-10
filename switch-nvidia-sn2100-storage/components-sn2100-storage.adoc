@@ -15,12 +15,14 @@ Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous
 
 
 
+[[cabinet-details]]
 == Détails du cabinet
 
 Vous installez le commutateur NVIDIA SN2100 (X190006/X190106) dans l'armoire à commutateur double/simple NVIDIA avec les supports standard fournis avec le commutateur.
 
 
 
+[[rail-kit-details]]
 == Détails du kit de rails
 
 Le tableau suivant répertorie la référence et la description des interrupteurs et kits de rails MSN2100 :
@@ -72,7 +74,7 @@ Kit de rails, interrupteur unique NVIDIA à faible profondeur
 
 |===
 
-NOTE: Consultez la documentation NVIDIA pour plus de détails sur link:https://docs.nvidia.com/networking/display/sn2000pub/Installation["installation de votre kit d'aiguillage et de rail SN2100"^].
+NOTE: Consultez la documentation NVIDIA pour plus de détails sur link:https://networking-docs.nvidia.com/sn2000hw/latest/installation["installation de votre kit d'aiguillage et de rail SN2100"^].
 
 .Quelle est la prochaine étape
 Une fois que vous avez confirmé vos composants et leurs références, vous pouvez consulter le link:required-documentation-sn2100-storage.html["documentation requise"].

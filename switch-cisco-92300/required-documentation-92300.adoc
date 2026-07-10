@@ -15,6 +15,7 @@ Pour l'installation du commutateur Cisco Nexus 92300YC, assurez-vous de consulte
 
 
 
+[[switch-documentation]]
 == Documentation Switch
 
 Pour configurer les commutateurs Cisco Nexus 92300YC, vous aurez besoin de la documentation suivante provenant de link:https://www.cisco.com/site/us/en/products/networking/cloud-networking-switches/nexus-9200-series-switches/index.html["Prise en charge des commutateurs Cisco Nexus série 9000"^].
@@ -81,6 +82,7 @@ Fournit des informations sur la conformité aux normes internationales, la sécu
 |===
 
 
+[[ontap-systems-documentation]]
 == Documentation des systèmes ONTAP
 
 Pour configurer un système ONTAP, vous avez besoin des documents suivants pour votre version du système d'exploitation.
@@ -112,6 +114,7 @@ Fournit des informations sur la configuration et la compatibilité du matériel 
 |===
 
 
+[[rail-kit-and-cabinet-documentation]]
 == documentation du kit de rails et de l'armoire
 
 Pour installer un commutateur Cisco Nexus 92300YC dans une armoire NetApp, reportez-vous à la documentation matérielle suivante.

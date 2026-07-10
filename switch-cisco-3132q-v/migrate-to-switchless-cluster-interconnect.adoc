@@ -28,6 +28,7 @@ Vous pouvez migrer d'un cluster avec un réseau de cluster commuté vers un clus
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Lignes directrices
@@ -47,6 +48,7 @@ Assurez-vous d'avoir les éléments suivants :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos de cette tâche
@@ -59,6 +61,7 @@ Les exemples de la procédure suivante montrent des nœuds qui utilisent « e0a 
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
@@ -114,6 +117,7 @@ cluster::*> system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Organisez les ports de cluster de chaque commutateur en groupes de sorte que les ports de cluster du groupe 1 soient connectés au commutateur de cluster 1 et les ports de cluster du groupe 2 au commutateur de cluster 2.  Ces groupes seront nécessaires plus tard dans la procédure.
@@ -421,6 +425,7 @@ image::../media/tnsc_node1_and_node2_direct_connection.PNG[Connexion directe ent
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Vérifiez que les ports des deux nœuds sont correctement connectés :

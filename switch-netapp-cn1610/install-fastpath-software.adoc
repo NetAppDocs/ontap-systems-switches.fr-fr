@@ -15,6 +15,7 @@ Lorsque vous installez le logiciel FASTPATH ​​sur vos commutateurs NetApp , 
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -34,6 +35,7 @@ Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le h
 
 
 
+[[install-fastpath]]
 == Installer FASTPATH
 
 La procédure suivante utilise la syntaxe clusterisée de Data ONTAP 8.2.  Par conséquent, le Vserver du cluster, les noms LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
@@ -57,6 +59,7 @@ Le link:https://hwu.netapp.com/["Hardware Universe"^] contient plus d'informatio
 
 
 
+[[step-1-migrate-cluster]]
 === Étape 1 : Migrer le cluster
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -126,6 +129,7 @@ vs2
 
 
 
+[[step-2-install-fastpath-software]]
 === Étape 2 : Installer le logiciel FASTPATH
 
 . Fermez le port e2a du cluster sur les deux nœuds :
@@ -318,6 +322,7 @@ System will now restart!
 
 
 
+[[step-3-validate-installation]]
 === Étape 3 : Valider l’installation
 
 . Connectez-vous à nouveau et vérifiez la nouvelle version du logiciel FASTPATH.

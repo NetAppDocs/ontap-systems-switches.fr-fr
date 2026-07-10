@@ -2,44 +2,60 @@
 section: switch-cisco-9332d-gx2b
 title: Cisco Nexus 9332D-GX2B
 entries:
-- title: Commencer
-  pdf-filename: Aperçu_9332d-gx2b
+- title: Documentation de référence
+  pdf-filename: Documents de référence_9332d-gx2b
+  url: "/switch-cisco-9332d-gx2b/reference-documentation-9332d.html"
+- title: Installer et configurer les commutateurs dans les systèmes AFX
+  pdf-filename: installer et configurer les commutateurs dans les systèmes AFX 9332d-gx2b
   entries:
-  - title: Démarrage rapide
-    url: "/switch-cisco-9332d-gx2b/configure-switch-overview-9332d-cluster.html"
-  - title: Détails du port du commutateur
-    url: "/switch-cisco-9332d-gx2b/configure-setup-ports-9332d.html"
-  - title: Documents requis
-    url: "/switch-cisco-9332d-gx2b/required-documentation-9332d-cluster.html"
-  - title: Exigences de Smart Call Home
-    url: "/switch-cisco-9332d-gx2b/smart-call-9332d-cluster.html"
-- title: Installer le matériel
-  url: "/switch-cisco-9332d-gx2b/install-hardware.html"
-  pdf-filename: Installation_matériel_9332d-gx2b
-- title: Configurer le logiciel
-  pdf-filename: Configurer_logiciel_9332d-gx2b
+  - title: Flux de travail d'installation et de configuration des commutateurs
+    url: "/switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html"
+  - title: Préparez-vous à installer
+    url: "/switch-cisco-9332d-gx2b/install-prepare-9332d.html"
+  - title: Installer des commutateurs
+    url: "/switch-cisco-9332d-gx2b/install-switches-9332d.html"
+    pdf-filename: Installation_matériel_9332d-gx2b
+  - title: Configuration complète du système AFX
+    url: "/switch-cisco-9332d-gx2b/install-complete-afx-setup-9332d.html"
+- title: Configurer les commutateurs
+  pdf-filename: configure_switch_9332d-gx2b
   entries:
-  - title: Configurer le flux de travail du logiciel
-    url: "/switch-cisco-9332d-gx2b/configure-software-overview-9332d-cluster.html"
-  - title: Configurez le commutateur
-    url: "/switch-cisco-9332d-gx2b/setup-switch-9332d-cluster.html"
-  - title: Préparez-vous à installer NX-OS et RCF
-    url: "/switch-cisco-9332d-gx2b/install-nxos-overview-9332d-cluster.html"
-  - title: Installer ou mettre à niveau le logiciel NX-OS
-    url: "/switch-cisco-9332d-gx2b/install-nxos-software-9332d-cluster.html"
-  - title: Installer ou mettre à niveau le RCF
-    pdf-filename: Installer_mise_à_jour_rcf_9332d-gx2b
+  - title: Configurer le workflow du commutateur
+    url: "/switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html"
+  - title: Effectuez la configuration initiale du commutateur
+    url: "/switch-cisco-9332d-gx2b/configure-complete-initial-setup-9332d.html"
+  - title: Vérifiez les exigences de câblage et de configuration
+    url: "/switch-cisco-9332d-gx2b/configure-review-cabling-config-requirements-9332d.html"
+  - title: Installer ou mettre à niveau NX-OS
+    pdf-filename: Installer_mise_à_jour_nx-os
+    entries:
+    - title: Présentation de l'installation ou de la mise à niveau de NX-OS
+      url: "/switch-cisco-9332d-gx2b/configure-install-upgrade-nxos-overview-9332d.html"
+    - title: Installer NX-OS
+      url: "/switch-cisco-9332d-gx2b/configure-install-nxos-9332d.html"
+    - title: Mise à niveau de NX-OS
+      url: "/switch-cisco-9332d-gx2b/configure-upgrade-nxos-9332d.html"
+  - title: Installer ou mettre à niveau RCF
+    pdf-filename: Installer_mise_à_jour_rcf
     entries:
     - title: Présentation de l'installation ou de la mise à niveau de RCF
-      url: "/switch-cisco-9332d-gx2b/install-upgrade-rcf-overview-cluster-9332d.html"
-    - title: Installez le RCF
-      url: "/switch-cisco-9332d-gx2b/install-rcf-software-9332d-cluster.html"
-    - title: Mettez à jour votre version RCF
-      url: "/switch-cisco-9332d-gx2b/upgrade-rcf-software-9332d-cluster.html"
-  - title: Vérifiez que SSH est activé
-    url: "/switch-cisco-9332d-gx2b/configure-ssh-keys.html"
-- title: Réinitialiser le commutateur aux paramètres d'usine
-  url: "/switch-cisco-9332d-gx2b/reset-switch-9332d.html"
-- title: Remplacer le commutateur 9332D-GX2B
-  pdf-filename: Remplacer_commutateurs_9332d-gx2b
-  url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+      url: "/switch-cisco-9332d-gx2b/configure-install-upgrade-rcf-overview-9332d.html"
+    - title: Installer RCF
+      url: "/switch-cisco-9332d-gx2b/configure-install-rcf-9332d.html"
+    - title: Mise à niveau RCF
+      url: "/switch-cisco-9332d-gx2b/configure-upgrade-rcf-9332d.html"
+  - title: Vérifiez SSH pour la collecte des journaux
+    url: "/switch-cisco-9332d-gx2b/configure-verify-ssh-9332d.html"
+  - title: Configurer Smart Call Home
+    url: "/switch-cisco-9332d-gx2b/configure-smart-call-9332d.html"
+- title: Maintenir
+  pdf-filename: Maintenir les commutateurs 9332d-gx2b
+  entries:
+  - title: Maintenez une vue d'ensemble
+    url: "/switch-cisco-9332d-gx2b/maintain-overview-9332d.html"
+  - title: Remplacer un commutateur
+    url: "/switch-cisco-9332d-gx2b/replace-9332d-cluster.html"
+  - title: Remplacez les FRU
+    url: "/switch-cisco-9332d-gx2b/maintain-replace-frus-9332d.html"
+  - title: Réinitialiser un commutateur aux paramètres d'usine
+    url: "/switch-cisco-9332d-gx2b/maintain-reset-switch-9332d.html"

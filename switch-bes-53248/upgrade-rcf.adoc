@@ -51,6 +51,7 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 
 
+[[step-1-prepare-for-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -266,6 +267,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
+[[step-2-configure-ports]]
 == Étape 2 : Configurer les ports
 
 . Sur le commutateur cs2, vérifiez la liste des ports connectés aux nœuds du cluster.
@@ -927,6 +929,7 @@ Pour plus de détails, veuillez vous référer à link:https://docs.netapp.com/u
 
 
 
+[[step-3-verify-the-configuration]]
 == Étape 3 : Vérifier la configuration
 
 . Sur le commutateur cs1, vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs* :

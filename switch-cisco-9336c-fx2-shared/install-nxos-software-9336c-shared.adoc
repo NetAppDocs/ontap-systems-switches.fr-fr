@@ -17,6 +17,7 @@ Avant de commencer, veuillez terminer la procédure danslink:prepare-nxos-rcf-93
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -55,6 +56,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 
+[[install-the-software]]
 == Installez le logiciel
 
 La procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 9000 ; les commandes ONTAP sont utilisées sauf indication contraire.

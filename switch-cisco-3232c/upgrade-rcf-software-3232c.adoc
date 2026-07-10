@@ -33,6 +33,7 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
 . Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
@@ -178,6 +179,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert fals
 
 
 
+[[step-2-configure-ports]]
 == Étape 2 : Configurer les ports
 
 . Sur le commutateur de cluster cs2, désactivez les ports connectés aux ports de cluster des nœuds.
@@ -548,6 +550,7 @@ cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Étape 3 : Vérifier la configuration réseau et l’état du cluster
 
 . Vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs*.

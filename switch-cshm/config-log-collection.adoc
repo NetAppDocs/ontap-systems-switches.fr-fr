@@ -25,6 +25,7 @@ Le contrôle de l'état du commutateur Ethernet (CSHM) est chargé de garantir l
 ====
 
 
+[[before-you-begin]]
 == Avant de commencer
 
 * L'utilisateur doit avoir accès à l'interrupteur `show` commandes.  Si ces éléments ne sont pas disponibles, créez un nouvel utilisateur et accordez-lui les autorisations nécessaires.
@@ -43,6 +44,7 @@ Le contrôle de l'état du commutateur Ethernet (CSHM) est chargé de garantir l
 
 
 
+[[steps]]
 == Étapes
 
 [role="tabbed-block"]

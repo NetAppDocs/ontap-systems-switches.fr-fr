@@ -15,6 +15,7 @@ Avant de configurer vos 9336C-FX2 et 9336C-FX2-T, examinez les exigences de câb
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7
 
 Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de ports NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.
@@ -34,6 +35,7 @@ Si vous connectez un port de commutateur à un contrôleur ONTAP à l'aide de po
 ----
 
 
+[[related-information]]
 == Informations connexes
 
 * Consultez la link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] pour plus d'informations sur les ports de commutation.

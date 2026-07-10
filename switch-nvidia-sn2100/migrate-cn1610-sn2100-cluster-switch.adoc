@@ -15,6 +15,7 @@ Vous pouvez migrer les commutateurs de cluster NetApp CN1610 d'un cluster ONTAP 
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez les commutateurs de cluster NetApp CN1610 par des commutateurs de cluster NVIDIA SN2100. Reportez-vous à link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"].
@@ -48,6 +49,7 @@ Vérifiez que votre configuration répond aux exigences suivantes :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -84,6 +86,7 @@ NOTE: Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire 
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -108,6 +111,7 @@ L'invite avancée (*>) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Déterminez l'état administratif ou opérationnel de chaque interface de cluster.
@@ -523,6 +527,7 @@ swp16      100G   BondMember  sw1                 swp16
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster :

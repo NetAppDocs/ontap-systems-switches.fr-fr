@@ -15,6 +15,7 @@ Suivez cette procédure pour remplacer un commutateur Cisco Nexus 3132Q-V défec
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Exigences de commutation
@@ -45,6 +46,7 @@ link:https://mysupport.netapp.com/site/products/all/details/cisco-cluster-storag
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -56,6 +58,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 Cette procédure remplace le deuxième commutateur de cluster Nexus 3132Q-V CL2 par un nouveau commutateur 3132Q-V C2.
@@ -86,6 +89,7 @@ Cette procédure couvre le scénario suivant :
 
 
 
+[[step-1-prepare-for-replacement]]
 === Étape 1 : Préparer le remplacement
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -476,6 +480,7 @@ Cet exemple montre la désactivation des ports ISL 1/31 et 1/32 sur le commutate
 
 
 
+[[step-2-configure-ports]]
 === Étape 2 : Configurer les ports
 
 . Retirez tous les câbles connectés au commutateur Nexus 3132Q-V CL2 et reconnectez-les au commutateur de remplacement C2 sur tous les nœuds.
@@ -775,6 +780,7 @@ RPC status:
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Afficher les informations relatives aux périphériques de votre configuration :

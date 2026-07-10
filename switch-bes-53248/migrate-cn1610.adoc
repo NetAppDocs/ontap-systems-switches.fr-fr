@@ -21,6 +21,7 @@ Les commutateurs de cluster suivants sont pris en charge :
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Vérifiez que votre configuration répond aux exigences suivantes :
@@ -39,6 +40,7 @@ Vérifiez que votre configuration répond aux exigences suivantes :
 
 
 
+[[node-connections]]
 === Connexions de nœuds
 
 Les commutateurs du cluster prennent en charge les connexions de nœuds suivantes :
@@ -53,6 +55,7 @@ NOTE: Des ports supplémentaires peuvent être activés en achetant des licences
 
 
 
+[[isl-ports]]
 === Ports ISL
 
 Les commutateurs du cluster utilisent les ports de liaison inter-commutateurs (ISL) suivants :
@@ -65,6 +68,7 @@ Le link:https://hwu.netapp.com/Home/Index["Hardware Universe"^] contient des inf
 
 
 
+[[isl-cabling]]
 === Câblage ISL
 
 Le câblage ISL approprié est le suivant :
@@ -75,6 +79,7 @@ Le câblage ISL approprié est le suivant :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 Suivez cette procédure pour migrer les commutateurs de cluster CN1610 vers les commutateurs de cluster BES-53248.
@@ -115,6 +120,7 @@ NOTE: Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire 
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -147,6 +153,7 @@ L'invite avancée (*>) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Sur les nouveaux commutateurs, vérifiez que la liaison ISL est bien câblée et fonctionnelle entre les commutateurs cs1 et cs2 :
@@ -651,6 +658,7 @@ cluster::*> system cluster-switch delete -device CL2
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster.

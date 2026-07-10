@@ -1,0 +1,27 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-install-upgrade-nxos-overview-9332d.html 
+sidebar: sidebar 
+keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
+summary: Vous pouvez installer ou mettre à niveau le NX-OS sur les commutateurs Nexus 9332D-GX2B pour les systèmes AFX 1K et AFX 2K. 
+---
+= Installer ou mettre à niveau la présentation de NX-OS - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous pouvez installer ou mettre à niveau le NX-OS sur les commutateurs Nexus 9332D-GX2B pour les systèmes AFX 1K et AFX 2K.
+
+
+NOTE: L'installation ou la mise à niveau de NX-OS est indépendante de celle de RCF. Si vous installez ou mettez à niveau à la fois NX-OS et RCF, il est recommandé d'installer ou de mettre à niveau NX-OS en premier.
+
+* link:configure-install-nxos-9332d.html["Installez le système d'exploitation NX-OS"]
++
+Vous installez le système d'exploitation NX-OS sur les commutateurs dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, d'un remplacement de commutateur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut.
+
+* link:configure-upgrade-nxos-9332d.html["Mettez à niveau le NX-OS"]
++
+Vous mettez à niveau le NX-OS sur les commutateurs pour prendre en charge un nouveau matériel ou une nouvelle version ONTAP sur votre système AFX 1K ou AFX 2K.
+
+

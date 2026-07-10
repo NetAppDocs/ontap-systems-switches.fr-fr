@@ -1,0 +1,76 @@
+---
+permalink: switch-cisco-9332d-gx2b/install-configure-switches-in-afx-workflow-9332d.html 
+sidebar: sidebar 
+keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
+summary: Pour installer et configurer vos commutateurs Cisco Nexus 9332D-GX2B dans le cadre de votre nouveau système AFX 1K ou AFX 2K, vous utilisez une combinaison de la documentation de ce site de commutateurs et du site des systèmes AFX. La documentation fournit des liens qui vous dirigent selon les besoins. 
+---
+= Installez et configurez les commutateurs dans un workflow système AFX - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+
+
+[role="lead"]
+Pour installer et configurer vos commutateurs Cisco Nexus 9332D-GX2B dans le cadre de votre nouveau système AFX 1K ou AFX 2K, vous utilisez une combinaison de la documentation de ce site de commutateurs et du site des systèmes AFX. La documentation fournit des liens qui vous dirigent selon les besoins.
+
+
+
+[[install-switches]]
+=== Installer des commutateurs
+
+Pour installer vos commutateurs, vous devez préparer l'installation puis installer les commutateurs (ainsi que le matériel du système AFX), ce qui comprend le câblage et la mise sous tension des commutateurs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:install-prepare-9332d.html["Préparez l'installation"]
+[role="quick-margin-para"]
+Préparez-vous à installer et à configurer les commutateurs en consultant la documentation des systèmes Cisco et ONTAP, en préparant votre site et en comprenant la configuration prédéfinie des ports de commutateur pour la version de RCF prise en charge par votre système AFX.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:install-switches-9332d.html["Installez les commutateurs"]
+[role="quick-margin-para"]
+Vous êtes dirigé vers la procédure d'installation et de configuration du système AFX 1K ou AFX 2K pour installer les commutateurs (ainsi que le matériel du système AFX), câbler les commutateurs, puis les mettre sous tension. Vous êtes ensuite dirigé vers cette procédure pour configurer les commutateurs.
+
+
+
+[[configure-switches]]
+=== Configurer les commutateurs
+
+Pour configurer vos commutateurs, vous effectuez la configuration initiale du commutateur, examinez les exigences de câblage et de configuration, installez NX-OS, installez RCF, vérifiez SSH pour la collecte des journaux, configurez la surveillance de l’état du commutateur Ethernet (CSHM) et configurez Smart Call Home (facultatif).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-complete-initial-setup-9332d.html["Effectuez la configuration initiale du commutateur"]
+[role="quick-margin-para"]
+Après avoir mis sous tension les commutateurs, ils commencent à démarrer et entrent dans l'assistant de configuration. Vous êtes invité à répondre à une série de questions afin d'effectuer la configuration initiale (de démarrage) des commutateurs.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Deux"]link:configure-review-cabling-config-requirements-9332d.html["Vérifiez les exigences de câblage et de configuration"]
+[role="quick-margin-para"]
+Examinez les exigences en matière de câblage et de configuration.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Trois"]link:configure-install-nxos-9332d.html["Installez le système d'exploitation NX-OS"]
+[role="quick-margin-para"]
+Installez la version actuelle de NX-OS sur les commutateurs qui prennent en charge votre système AFX 1K ou AFX 2K.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatre"]link:configure-install-upgrade-rcf-overview-9332d.html["Installez le RCF"]
+[role="quick-margin-para"]
+Installez la version actuelle de RCF sur les commutateurs compatibles avec votre système AFX 1K ou AFX 2K. Le lien vous redirige vers la page de présentation de l'installation ou de la mise à niveau de RCF, qui contient les informations que vous devez connaître avant d'installer le RCF.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinq"]link:configure-verify-ssh-9332d.html["Vérifiez SSH pour la collecte des journaux"]
+[role="quick-margin-para"]
+Vérifiez que le protocole SSH est activé afin de pouvoir utiliser la fonction de collecte des journaux du contrôle de l'état du commutateur Ethernet (CSHM).
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["Six"]link:../switch-cshm/cshm-overview.html["Configurer le contrôle de l'état du commutateur Ethernet"]
+[role="quick-margin-para"]
+Configurez le contrôle de l'état des commutateurs Ethernet (CSHM) pour garantir le bon fonctionnement de vos commutateurs et pour la collecte des journaux de commutateurs à des fins de débogage et de dépannage.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["Sept"]link:configure-smart-call-9332d.html["Configurer Smart Call Home (facultatif)"]
+[role="quick-margin-para"]
+ONTAP prend en charge la surveillance de l'état des commutateurs Ethernet (CSHM) pour superviser les commutateurs du cluster AFX, ainsi que la capacité de collecter les journaux de diagnostic des commutateurs. Smart Call Home de Cisco est une option permettant de fournir une assistance proactive et de vous aider à résoudre tout problème pouvant survenir avec les commutateurs.
+
+
+
+[[complete-afx-system-setup]]
+=== Configuration complète du système AFX
+
+Pour terminer la configuration de votre système AFX 1K ou AFX 2K, vous effectuez la mise sous tension des composants du système AFX et les procédures de configuration du système.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:install-complete-afx-setup-9332d.html["Terminez la configuration du système AFX"]
+[role="quick-margin-para"]
+Vous êtes invité à consulter la documentation des systèmes AFX pour terminer la configuration de votre système AFX 1K ou AFX 2K en mettant sous tension les baies de stockage et les contrôleurs, en vérifiant la connectivité des commutateurs, puis en terminant les procédures de configuration du système.
+
+.Quelle est la prochaine étape ?
+Une fois la configuration de votre système AFX terminée, vous pouvez commencer à utiliser votre système AFX. Vous pouvez également link:https://docs.netapp.com/us-en/ontap-afx/index.html["Découvrez-en plus sur votre système AFX et sur la façon de l'utiliser"^].

@@ -17,6 +17,7 @@ La procédure à suivre dépend du fait que chaque contrôleur dispose de deux p
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Configuration sans commutateur à deux nœuds
@@ -53,6 +54,7 @@ Le link:https://hwu.netapp.com["Hardware Universe"^] contient les informations l
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -68,6 +70,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -82,6 +85,7 @@ L'invite avancée(`*>` ) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 [role="tabbed-block"]
@@ -670,6 +674,7 @@ e3b       Cluster      Cluster          up   9000  auto/10000 healthy  false
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur tous les LIF du cluster :

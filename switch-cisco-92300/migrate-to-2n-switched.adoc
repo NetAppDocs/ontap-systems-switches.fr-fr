@@ -22,6 +22,7 @@ NOTE: Une fois votre migration terminée, vous devrez peut-être installer le fi
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -54,6 +55,7 @@ Le link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe - Commutateurs"^]
 
 
 
+[[migrate-the-switch]]
 == Déplacer le commutateur
 
 .À propos des exemples
@@ -71,6 +73,7 @@ Le link:https://hwu.netapp.com["Hardware Universe"^] contient les informations l
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Modifiez le niveau de privilège en avancé, puis saisissez `y` lorsqu'on vous invite à continuer :
@@ -106,6 +109,7 @@ cluster1::*> *system node autosupport invoke -node * -type all -message MAINT=2h
 
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Désactivez tous les ports orientés vers les nœuds (à l'exception des ports ISL) sur les deux nouveaux commutateurs de cluster cs1 et cs2.
@@ -398,6 +402,7 @@ cs2(config-if-range)# *no shutdown*
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster.

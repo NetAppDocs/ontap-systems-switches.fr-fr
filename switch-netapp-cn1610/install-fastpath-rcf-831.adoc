@@ -17,6 +17,7 @@ Les étapes d'installation sont les mêmes pour les commutateurs de gestion NetA
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -36,6 +37,7 @@ Assurez-vous de consulter le tableau de compatibilité des commutateurs sur le h
 
 
 
+[[install-the-fastpath-software]]
 == Installez le logiciel FASTPATH
 
 La procédure suivante utilise la syntaxe clusterisée de Data ONTAP 8.2.  Par conséquent, le Vserver du cluster, les noms LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
@@ -62,6 +64,7 @@ Le link:https://hwu.netapp.com/["Hardware Universe"^] contient plus d'informatio
 
 
 
+[[step-1-migrate-cluster]]
 === Étape 1 : Migrer le cluster
 
 . Afficher les informations relatives aux ports réseau du cluster :
@@ -252,6 +255,7 @@ Copy operation successful
 
 
 
+[[step-2-install-the-fastpath-software-and-rcf]]
 === Étape 2 : Installez le logiciel FASTPATH et RCF.
 
 . Vérifiez la version du logiciel FASTPATH en cours d'exécution.
@@ -463,6 +467,7 @@ System will now restart!
 
 
 
+[[step-3-validate-installation]]
 === Étape 3 : Valider l’installation
 
 . Connectez-vous à nouveau, puis vérifiez que le commutateur exécute bien la nouvelle version du logiciel FASTPATH.

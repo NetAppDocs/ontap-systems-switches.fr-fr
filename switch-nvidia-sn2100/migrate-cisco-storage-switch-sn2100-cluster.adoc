@@ -15,6 +15,7 @@ Vous pouvez migrer d'anciens commutateurs Cisco pour un cluster ONTAP vers des c
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Vous devez être conscient de certaines informations de configuration, des connexions de ports et des exigences de câblage lorsque vous remplacez d'anciens commutateurs Cisco par des commutateurs de stockage NVIDIA SN2100. Reportez-vous à link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"].
@@ -48,6 +49,7 @@ Assurez-vous que :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -72,6 +74,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -89,6 +92,7 @@ L'invite avancée (*>) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Déterminer l'état administratif ou opérationnel de chaque interface de stockage.
@@ -417,6 +421,7 @@ swp6       100G   Trunk/L2  SHFFG1826000102        e0b
 
 
 
+[[step-3-complete-the-procedure]]
 === Étape 3 : Terminer la procédure
 
 . Créez un mot de passe pour la fonction de collecte des journaux de surveillance de l'état du commutateur Ethernet :

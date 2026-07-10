@@ -22,7 +22,7 @@ Reportez-vous à link:required-documentation-3232c.html["Documents requis"] pour
 
 * Documentation requise du contrôleur et documentation ONTAP .
 +
-link:https://netapp.com/us/documenation/index.aspx["Documentation NetApp"^]
+link:https://docs.netapp.com/us-en/ontap/index.html["Documentation ONTAP 9"^]
 
 * Licences applicables, informations sur le réseau et la configuration, et câbles.
 * Fiches de câblage complétées.

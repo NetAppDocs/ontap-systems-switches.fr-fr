@@ -2,44 +2,60 @@
 section: switch-cisco-9364d-gx2a
 title: Cisco Nexus 9364D-GX2A
 entries:
-- title: Commencer
-  pdf-filename: Aperçu_9364d-gx2a
+- title: Documentation de référence
+  pdf-filename: Documents de référence_9364d-gx2a
+  url: "/switch-cisco-9364d-gx2a/reference-documentation-9364d.html"
+- title: Installer et configurer les commutateurs dans les systèmes AFX
+  pdf-filename: installer_et_configurer_les_commutateurs_dans_AFX_systems_9364d-gx2a
   entries:
-  - title: Démarrage rapide
-    url: "/switch-cisco-9364d-gx2a/configure-switch-overview-9364d-cluster.html"
-  - title: Détails du port du commutateur
-    url: "/switch-cisco-9364d-gx2a/configure-setup-ports-9364d.html"
-  - title: Documents requis
-    url: "/switch-cisco-9364d-gx2a/required-documentation-9364d-cluster.html"
-  - title: Exigences de Smart Call Home
-    url: "/switch-cisco-9364d-gx2a/smart-call-9364d-cluster.html"
-- title: Installer le matériel
-  url: "/switch-cisco-9364d-gx2a/install-hardware.html"
-  pdf-filename: Installer_matériel_9364d-gx2a
-- title: Configurer le logiciel
-  pdf-filename: Configurer_logiciel_9364d-gx2a
+  - title: Flux de travail d'installation et de configuration des commutateurs
+    url: "/switch-cisco-9364d-gx2a/install-configure-switches-in-afx-workflow-9364d.html"
+  - title: Préparez-vous à installer
+    url: "/switch-cisco-9364d-gx2a/install-prepare-9364d.html"
+  - title: Installer des commutateurs
+    url: "/switch-cisco-9364d-gx2a/install-switches-9364d.html"
+    pdf-filename: Installer_matériel_9364d-gx2a
+  - title: Configuration complète du système AFX
+    url: "/switch-cisco-9364d-gx2a/install-complete-afx-setup-9364d.html"
+- title: Configurer les commutateurs
+  pdf-filename: configurer_switch_9364d-gx2a
   entries:
-  - title: Configurer le flux de travail du logiciel
-    url: "/switch-cisco-9364d-gx2a/configure-software-overview-9364d-cluster.html"
-  - title: Configurez le commutateur
-    url: "/switch-cisco-9364d-gx2a/setup-switch-9364d-cluster.html"
-  - title: Préparez-vous à installer NX-OS et RCF
-    url: "/switch-cisco-9364d-gx2a/install-nxos-overview-9364d-cluster.html"
-  - title: Installer ou mettre à niveau le logiciel NX-OS
-    url: "/switch-cisco-9364d-gx2a/install-nxos-software-9364d-cluster.html"
-  - title: Installer ou mettre à niveau le RCF
+  - title: Configurer le workflow du commutateur
+    url: "/switch-cisco-9364d-gx2a/configure-switch-workflow-9364d.html"
+  - title: Effectuez la configuration initiale du commutateur
+    url: "/switch-cisco-9364d-gx2a/configure-complete-initial-setup-9364d.html"
+  - title: Vérifiez les exigences de câblage et de configuration
+    url: "/switch-cisco-9364d-gx2a/configure-review-cabling-config-requirements-9364d.html"
+  - title: Installer ou mettre à niveau NX-OS
+    pdf-filename: Installer_mise_à_jour_nx-os_9364d-gx2a
+    entries:
+    - title: Présentation de l'installation ou de la mise à niveau de NX-OS
+      url: "/switch-cisco-9364d-gx2a/configure-install-upgrade-nxos-overview-9364d.html"
+    - title: Installer NX-OS
+      url: "/switch-cisco-9364d-gx2a/configure-install-nxos-9364d.html"
+    - title: Mise à niveau de NX-OS
+      url: "/switch-cisco-9364d-gx2a/configure-upgrade-nxos-9364d.html"
+  - title: Installer ou mettre à niveau RCF
     pdf-filename: Installer_mise_à_jour_rcf_9364d-gx2a
     entries:
     - title: Présentation de l'installation ou de la mise à niveau de RCF
-      url: "/switch-cisco-9364d-gx2a/install-upgrade-rcf-overview-cluster-9364d.html"
-    - title: Installez le RCF
-      url: "/switch-cisco-9364d-gx2a/install-rcf-software-9364d-cluster.html"
-    - title: Mettez à jour votre version RCF
-      url: "/switch-cisco-9364d-gx2a/upgrade-rcf-software-9364d-cluster.html"
-  - title: Vérifiez que SSH est activé
-    url: "/switch-cisco-9364d-gx2a/configure-ssh-keys.html"
-- title: Réinitialiser le commutateur aux paramètres d'usine
-  url: "/switch-cisco-9364d-gx2a/reset-switch-9364d.html"
-- title: Remplacer le commutateur 9364D-GX2A
-  url: "/switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
-  pdf-filename: Remplacer_commutateurs_9364d-gx2a
+      url: "/switch-cisco-9364d-gx2a/configure-install-upgrade-rcf-overview-9364d.html"
+    - title: Installer RCF
+      url: "/switch-cisco-9364d-gx2a/configure-install-rcf-9364d.html"
+    - title: Mise à niveau RCF
+      url: "/switch-cisco-9364d-gx2a/configure-upgrade-rcf-9364d.html"
+  - title: Vérifiez SSH pour la collecte des journaux
+    url: "/switch-cisco-9364d-gx2a/configure-verify-ssh-9364d.html"
+  - title: Configurer Smart Call Home
+    url: "/switch-cisco-9364d-gx2a/configure-smart-call-9364d.html"
+- title: Maintenir
+  pdf-filename: Maintenir les commutateurs 9364d-gx2a
+  entries:
+  - title: Maintenez une vue d'ensemble
+    url: "/switch-cisco-9364d-gx2a/maintain-overview-9364d.html"
+  - title: Remplacer un commutateur
+    url: "/switch-cisco-9364d-gx2a/replace-9364d-cluster.html"
+  - title: Remplacez les FRU
+    url: "/switch-cisco-9364d-gx2a/maintain-replace-frus-9364d.html"
+  - title: Réinitialiser un commutateur aux paramètres d'usine
+    url: "/switch-cisco-9364d-gx2a/maintain-reset-switch-9364d.html"

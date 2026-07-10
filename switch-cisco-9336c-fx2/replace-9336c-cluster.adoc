@@ -15,6 +15,7 @@ Suivez ces étapes pour remplacer les commutateurs Nexus 9336C-FX2 et 9336C-FX2-
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Avant de procéder au remplacement de l'interrupteur, assurez-vous que :
@@ -46,6 +47,7 @@ Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH,
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -57,6 +59,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 .À propos des exemples
@@ -160,6 +163,7 @@ Total entries displayed: 4
 ====
 
 
+[[step-1-prepare-for-replacement]]
 === Étape 1 : Préparer le remplacement
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -291,6 +295,7 @@ RPC status:
 ====
 
 
+[[step-2-configure-cables-and-ports]]
 === Étape 2 : Configurer les câbles et les ports
 
 . Fermez les ports ISL 1/35 et 1/36 sur le commutateur Nexus 9336C-FX2 cs1.
@@ -519,6 +524,7 @@ RPC status:
 ====
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Veuillez confirmer la configuration réseau du cluster suivante :

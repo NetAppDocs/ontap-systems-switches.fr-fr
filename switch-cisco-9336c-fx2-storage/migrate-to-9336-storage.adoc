@@ -15,6 +15,7 @@ Vous pouvez migrer des commutateurs Cisco plus anciens pour un cluster ONTAP ver
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Assurez-vous que :
@@ -40,6 +41,7 @@ NOTE: Si vous modifiez la vitesse des ports de cluster e0a et e1a sur les systè
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -93,6 +95,7 @@ NOTE: Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire 
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport : `system node autosupport invoke -node * -type all -message MAINT=xh`
@@ -114,6 +117,7 @@ L'invite avancée (*>) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Sur les nouveaux commutateurs, vérifiez que la liaison ISL est bien câblée et fonctionnelle entre les commutateurs cs1-new et cs2-new :
@@ -620,6 +624,7 @@ Group Port-       Type     Protocol  Member Ports
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster.

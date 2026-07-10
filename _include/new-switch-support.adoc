@@ -4,6 +4,7 @@
 
 
 
+[[new-switch-support]]
 == Nouvelle prise en charge des commutateurs
 
 [cols="25h,~,~"]

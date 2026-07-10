@@ -33,6 +33,7 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 
 
 
+[[step-1-prepare-for-the-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -196,6 +197,7 @@ cluster1::*>
 
 
 
+[[step-2-configure-ports]]
 == Étape 2 : Configurer les ports
 
 . Sur le commutateur de cluster cs1, désactivez les ports connectés aux ports de cluster des nœuds.
@@ -562,6 +564,7 @@ CAUTION: Si votre commutateur 9336C-FX2 ne démarre pas après la mise à niveau
 
 
 
+[[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Étape 3 : Vérifier la configuration réseau et l’état du cluster
 
 . Vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs*.

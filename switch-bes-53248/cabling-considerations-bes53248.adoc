@@ -15,6 +15,7 @@ Avant de configurer votre commutateur Broadcom BES-53248, veuillez prendre en co
 
 
 
+[[cluster-port-switch-assignments]]
 == Affectations des commutateurs de ports de cluster
 
 Vous pouvez utiliser le tableau d'affectation des ports du commutateur de cluster BES-53248 pris en charge par Broadcom comme guide pour configurer votre cluster.
@@ -56,6 +57,7 @@ Reportez-vous à link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 
 
 
 
+[[port-group-speed-constraint]]
 == contrainte de vitesse du groupe de ports
 
 * Sur les commutateurs de cluster BES-53248, les 48 ports 10/25GbE (SFP28/SFP+) sont combinés en 12 groupes de 4 ports comme suit : Ports 1-4, 5-8, 9-12, 13-16, 17-20, 21-24, 25-28, 29-32, 33-36, 37-40, 41-44 et 45-48.
@@ -65,6 +67,7 @@ Reportez-vous à link:https://hwu.netapp.com/Switch/Index["Hardware Universe"^] 
 
 
 
+[[fec-requirements]]
 == Exigences FEC
 
 * Pour les ports 25G avec câbles en cuivre, consultez le tableau suivant pour plus de détails.
@@ -82,6 +85,7 @@ image::../media/FEC_fiber_table.jpg[Ports 25G avec câbles à fibre optique]
 
 
 
+[[bootarg-implementation]]
 === Implémentation de Bootarg
 
 Utilisez la commande suivante pour configurer le FEC du port 25G sur l'une ou l'autre valeur. `auto` ou `fc` , comme requis :

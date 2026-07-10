@@ -15,6 +15,7 @@ Vous pouvez migrer les commutateurs de cluster Cisco d'un cluster ONTAP vers des
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Vous devez être conscient de certaines informations de configuration, des connexions de ports et des exigences de câblage lorsque vous remplacez d'anciens commutateurs de cluster Cisco par des commutateurs de cluster NVIDIA SN2100. Reportez-vous à link:configure-overview-sn2100-cluster.html["Présentation de l'installation et de la configuration des commutateurs NVIDIA SN2100"].
@@ -54,6 +55,7 @@ NOTE: Si vous modifiez la vitesse des ports de cluster e0a et e1a sur les systè
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -89,6 +91,7 @@ Cette procédure couvre le scénario suivant :
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -113,6 +116,7 @@ L'invite avancée (*>) apparaît.
 
 
 
+[[step-2-configure-ports-and-cabling]]
 === Étape 2 : Configurer les ports et le câblage
 
 . Déterminez l'état administratif ou opérationnel de chaque interface de cluster.
@@ -522,6 +526,7 @@ swp16      100G   BondMember  sw1                 swp16
 
 
 
+[[step-3-verify-the-configuration]]
 === Étape 3 : Vérifier la configuration
 
 . Activer la restauration automatique sur les LIF du cluster :

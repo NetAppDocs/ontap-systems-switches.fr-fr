@@ -15,6 +15,7 @@ Suivez ces étapes pour remplacer un commutateur NetApp CN1610 défectueux dans 
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -28,6 +29,7 @@ Avant de procéder au remplacement du commutateur, les conditions suivantes doiv
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -39,6 +41,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[replace-the-switch]]
 == Remplacez l'interrupteur
 
 .À propos de cette tâche

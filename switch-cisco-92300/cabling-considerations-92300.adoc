@@ -15,6 +15,7 @@ Avant de configurer votre commutateur Cisco 92300YC, passez en revue les consid�
 
 
 
+[[support-for-nvidia-cx6-cx6-dx-and-cx7-ethernet-ports]]
 == Prise en charge des ports Ethernet NVIDIA CX6, CX6-DX et CX7
 
 Si vous connectez un port de commutateur à un contrôleur ONTAP en utilisant des ports NIC NVIDIA ConnectX-6 (CX6), ConnectX-6 Dx (CX6-DX) ou ConnectX-7 (CX7), vous devez coder en dur la vitesse du port de commutateur.

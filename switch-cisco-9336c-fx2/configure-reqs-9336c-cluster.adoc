@@ -18,6 +18,7 @@ Pour l'installation et la maintenance des commutateurs Cisco Nexus 9336C-FX2 et 
 
 
 
+[[ontap-support]]
 == Prise en charge ONTAP
 
 [role="tabbed-block"]
@@ -42,6 +43,7 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez
 ====
 
 
+[[configuration-requirements]]
 == Exigences de configuration
 
 Assurez-vous que :
@@ -52,6 +54,7 @@ Assurez-vous que :
 
 
 
+[[network-requirements]]
 == Exigences réseau
 
 Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateur.

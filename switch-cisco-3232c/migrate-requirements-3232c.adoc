@@ -15,6 +15,7 @@ Avant de migrer vers des commutateurs de cluster Cisco Nexus 3232C, veuillez con
 
 
 
+[[cn1610-migrate-requirements]]
 == Exigences de migration CN1610
 
 Les commutateurs du cluster prennent en charge les connexions de nœuds suivantes :
@@ -74,6 +75,7 @@ Les versions ONTAP et FASTPATH ​​prises en charge par cette procédure sont 
 
 
 
+[[cn5596-requirements]]
 == Exigences CN5596
 
 Les commutateurs du cluster utilisent les ports suivants pour les connexions aux nœuds :

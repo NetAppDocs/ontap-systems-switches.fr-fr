@@ -23,6 +23,7 @@ La fiche de câblage type fournit des exemples d'affectations de ports recommand
 
 
 
+[[9336c-fx2-sample-cabling-worksheet]]
 == Fiche de câblage d'exemple 9336C-FX2
 
 La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
@@ -333,6 +334,7 @@ Liaison interconnexion 100 GbE vers le port 36 du commutateur A
 |===
 
 
+[[9336c-fx2-blank-cabling-worksheet]]
 == Feuille de câblage vierge 9336C-FX2
 
 Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.
@@ -592,6 +594,7 @@ Liaison interconnexion 100 GbE vers le port 36 du commutateur A
 |===
 
 
+[[9336c-fx2-t-sample-cabling-worksheet-12-port]]
 == Fiche de câblage d'exemple 9336C-FX2-T (12 ports)
 
 La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
@@ -748,6 +751,7 @@ Liaison interconnexion 100 GbE vers le port 36 du commutateur A
 |===
 
 
+[[9336c-fx2-t-blank-cabling-worksheet-12-port]]
 == Feuille de câblage vierge 9336C-FX2-T (12 ports)
 
 Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds dans un cluster.  La section _Connexions de cluster prises en charge_ de https://hwu.netapp.com["Hardware Universe"^] définit les ports du cluster utilisés par la plateforme.

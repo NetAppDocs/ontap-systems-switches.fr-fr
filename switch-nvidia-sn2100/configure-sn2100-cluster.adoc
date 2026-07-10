@@ -15,7 +15,7 @@ Pour configurer le commutateur SN2100, reportez-vous à la documentation NVIDIA.
 
 .Étapes
 . Examinerlink:configure-reqs-sn2100-cluster.html["exigences de configuration"] .
-. Suivez les instructions dans https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Mise en service du système NVIDIA ."^] .
+. Suivez les instructions dans https://networking-docs.nvidia.com/sn2000hw/latest/system-bring-up["Mise en service du système NVIDIA ."^].
 
 
 .Quelle est la prochaine étape ?

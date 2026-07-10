@@ -1,0 +1,153 @@
+---
+permalink: switch-cisco-9332d-gx2b/configure-install-rcf-9332d.html 
+sidebar: sidebar 
+keywords: install rcf, cisco switches 
+summary: 'Vous installez le RCF sur le ou les nouveaux commutateurs Cisco Nexus 9332D-GX2B dans le cadre d"une nouvelle installation et configuration d"un système AFX 1K ou AFX 2K, en remplacement d"un commutateur défectueux ou en réinitialisant un commutateur aux paramètres d"usine par défaut.' 
+---
+= Installer le RCF - Cisco Nexus 9332D-GX2B
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Vous installez le RCF sur un ou plusieurs nouveaux commutateurs Cisco Nexus 9332D-GX2B dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, du remplacement d'un commutateur ou d'une réinitialisation d'un commutateur aux paramètres d'usine par défaut.
+
+.Avant de commencer
+* Le ou les commutateurs doivent être sous tension et vous devez avoir terminé la procédure link:configure-complete-initial-setup-9332d.html["Effectuez la configuration initiale du commutateur"].
+* Vous devez avoir installé la version NX-OS souhaitée à l'aide de la link:configure-install-nxos-9332d.html["Installez le système d'exploitation NX-OS"] procédure.
+* Vous devez avoir lu la page link:configure-install-upgrade-rcf-overview-9332d.html["Présentation de l'installation ou de la mise à niveau de RCF"].
+* Si vous installez le RCF sur un commutateur dans le cadre d'un remplacement de commutateur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut, vérifiez que votre cluster est pleinement fonctionnel, c'est-à-dire qu'il n'y a pas d'erreurs dans les journaux ou de problèmes similaires.
+
+
+
+NOTE: Si vous installez le RCF dans le cadre d'une nouvelle installation de système AFX, vous pouvez ignorer cette exigence car les contrôleurs de votre système AFX ne sont pas alimentés à ce stade de l'installation et de la configuration de votre système AFX.
+
+.À propos de cette tâche
+* Si vous avez installé des commutateurs dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, cette procédure vous fait installer le RCF sur le premier commutateur (cs1) puis vous fait répéter les étapes pour le deuxième commutateur (cs2).
+* Cette procédure nécessite uniquement l'utilisation des commandes des commutateurs Cisco Nexus 9000 Series Switches.
+* Dans les exemples de cette procédure, le premier commutateur est désigné par cs1 et le second par cs2.
+* Les exemples présentés dans cette procédure concernent les systèmes AFX 1K avec des commutateurs exécutant RCF 10.0. Si vous disposez d'un système AFX 2K, les entrées et sorties peuvent varier.
+
+
+
+
+[[step-1-prepare-to-install-the-rcf]]
+== Étape 1 : Préparez-vous à installer le RCF
+
+Préparez-vous à installer le RCF sur le(s) commutateur(s) en vous assurant que vous disposez des connexions nécessaires pour télécharger le RCF, puis téléchargez le RCF.
+
+.Étapes
+. Vous devez disposer d'un accès à un serveur HTTP, FTP ou TFTP. L'accès à l'un de ces serveurs vous permet de télécharger une version compatible du RCF.
+. Téléchargez le RCF pris en charge pour votre type de système AFX depuis le site de support NetApp à l'adresse http://mysupport.netapp.com/["monsupport.netapp.com"^].
++
+
+NOTE: Les nouveaux commutateurs ne sont pas livrés avec le RCF installé. Vous devez installer le RCF sur les commutateurs.
+
+. Chaque commutateur doit être connecté à une console ou vous devez disposer d'un accès distant à chaque commutateur.
+
+
+
+
+[[step-2-install-the-rcf]]
+== Étape 2 : Installer le RCF
+
+Vous installez le RCF sur le premier commutateur (cs1) en copiant et en appliquant le RCF à la mémoire bootflash, en examinant le message d'accueil, en vérifiant que la version du RCF est correcte, en enregistrant toute personnalisation, en sauvegardant les détails de la configuration de base, en vérifiant que le fichier write_erase.cfg est renseigné, en effaçant la configuration enregistrée actuelle, en copiant la configuration de base précédemment sauvegardée dans la configuration de démarrage, puis en redémarrant le commutateur. Vous répétez ces étapes sur le second commutateur (cs2) si vous installez le RCF dans le cadre d'une nouvelle installation du système AFX.
+
+. Connectez-vous pour commuter cs1 en utilisant SSH ou en utilisant une console série.
+. Copiez le RCF sur le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
+
++
+`copy <protocol>: bootflash: vrf management`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+Cet exemple montre comment TFTP est utilisé pour copier un RCF dans la mémoire flash de démarrage du commutateur cs1 :
+
+[listing, subs="+quotes"]
+----
+cs1# *copy tftp: bootflash: vrf management*
+Enter source filename: *NX9332D-GX2B-RCF-v10.0-Shared.txt*
+Enter hostname for the tftp server: *172.22.201.50*
+Trying to connect to tftp server......Connection to Server Established.
+TFTP get operation was successful
+Copy complete, now saving to disk (please wait)...
+----
+====
+. Appliquez le RCF précédemment copié sur la bootflash.
++
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
+
++
+La commande suivante montre le fichier RCF `NX9332D-GX2B-RCF-v10.0-Shared.txt` en cours d'installation sur le commutateur cs1 :
+
++
+[listing, subs="+quotes"]
+----
+cs1# *copy NX9332D-GX2B-RCF-v10.0-Shared.txt running-config echo-commands*
+----
++
+
+NOTE: Pour RCF 10.1 et versions ultérieures, le format du nom de fichier est différent. Par exemple,  `RCF-v10.1-NX9332D-GX2B-CL1-ST1-100GB15-400G15.txt` est destiné à un commutateur partagé avec des ports dédiés au breakout et au 400GbE.
+
+. Examinez la sortie de la bannière à partir de `show banner motd` commande. Vous devez lire et suivre ces instructions pour garantir la configuration et le fonctionnement corrects du commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing]
+----
+cs1# show banner motd
+
+******************************************************************************
+* NetApp Reference Configuration File (RCF)
+*
+* Switch   : NX9332D-GX2B
+* Filename : NX9332D-GX2B-RCF-v10.0-Shared.txt
+* Date     : 05-09-2025
+* Version  : v10.0
+* Port Usage:
+* Ports  1-30: 100GbE Intra-Cluster/HA/Storage Ports, int e1/{1-30}/1-4
+* Ports 31-32: Intra-Cluster ISL Ports, int e1/31-32
+*
+* IMPORTANT NOTES
+* Interface port-channel999 is reserved to identify the version of this file.
+******************************************************************************
+----
+====
+. Vérifiez que le fichier RCF est la version correcte :
++
+`show running-config`
+
++
+Lorsque vous vérifiez le résultat pour vous assurer que vous avez le RCF correct, vérifiez que les informations suivantes sont correctes :
+
++
+** La bannière RCF
+** Paramètres du nœud et du port
+** Personnalisations
++
+Le résultat varie en fonction de la configuration de votre site.  Vérifiez les paramètres du port et consultez les notes de version pour connaître les modifications spécifiques à la version de RCF que vous avez installée.
+
+
+
+. Copiez la configuration en cours d'exécution dans la configuration de démarrage pour la rendre persistante.
++
+`cs1# *copy bootflash:write_erase.cfg startup-config*`
+
+. Redémarrez le commutateur :
++
+`cs1# *reload*`
+
++
+`This command will reboot the system. (y/n)?  [n] *y*`
+
+. Si vous installez le RCF dans le cadre d'une nouvelle installation de système AFX, répétez ces étapes sur le commutateur cs2.
+
+
+.Quelle est la prochaine étape ?
+Après avoir installé le RCF dans votre ou vos commutateurs, vous link:configure-verify-ssh-9332d.html["vérifiez SSH pour la collecte des journaux"].

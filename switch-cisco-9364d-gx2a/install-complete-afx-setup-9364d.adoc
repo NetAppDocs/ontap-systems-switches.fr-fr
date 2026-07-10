@@ -1,0 +1,31 @@
+---
+permalink: switch-cisco-9364d-gx2a/install-complete-afx-setup-9364d.html 
+sidebar: sidebar 
+keywords: switches, complete system setup, Cisco Nexus, 9364D-GX2A switches, AFX 
+summary: Une fois que vous avez terminé les procédures de configuration du commutateur Cisco Nexus 9364D-GX2A, rendez-vous sur le site de documentation du système AFX pour mettre sous tension les baies de stockage et les contrôleurs de votre système AFX 1K ou AFX 2K, vérifier la connectivité du commutateur et terminer la configuration du système AFX. 
+---
+= Finalisez la configuration du système AFX - Cisco Nexus 9364D-GX2A
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Une fois que vous avez terminé les procédures de configuration du commutateur Cisco Nexus 9364D-GX2A, rendez-vous sur le site de documentation du système AFX pour mettre sous tension les baies de stockage et les contrôleurs de votre système AFX 1K ou AFX 2K, vérifier la connectivité du commutateur et terminer la configuration du système AFX.
+
+.Avant de commencer
+* Vous devez avoir terminé les procédures de configuration du commutateur dans le link:configure-switch-workflow-9364d.html["configurer le workflow du commutateur"].
+* Chaque commutateur doit être connecté à une console ou vous devez disposer d'un accès distant à chaque commutateur.
+
+
+.Étapes
+. Terminez les étapes de mise sous tension et de configuration de votre système AFX 1K ou AFX 2K :
++
+** Pour un système AFX 1K, accédez à la link:https://docs.netapp.com/us-en/ontap-afx/install-setup/power-on-hardware.html["Allumez votre système de stockage AFX 1K"^]procédure.
+** Pour un système AFX 2K, accédez à la link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/power-on-hardware.html["Mettez sous tension votre système de stockage AFX 2K"^]procédure.
+
+
+
+
+.Quelle est la prochaine étape ?
+Une fois que vous avez mis sous tension les étagères de stockage et les contrôleurs et terminé la configuration du système AFX 1K ou AFX 2K, vous êtes prêt à utiliser votre système AFX.

@@ -15,6 +15,7 @@ Suivez cette procédure pour migrer un cluster de commutateurs Cisco Nexus 5596 
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Avant la migration, assurez-vous de consulterlink:migrate-requirements-3232c.html["Exigences de migration"] .
@@ -33,6 +34,7 @@ Pour plus d'informations, consultez :
 
 
 
+[[migrate-the-switch]]
 == Déplacer le commutateur
 
 .À propos des exemples
@@ -82,6 +84,7 @@ Cette procédure couvre les scénarios suivants :
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -311,6 +314,7 @@ Cluster
 
 
 
+[[step-2-configure-ports]]
 === Étape 2 : Configurer les ports
 
 . Fermez les ports d'interconnexion du cluster qui sont physiquement connectés au commutateur CL2 :
@@ -1230,6 +1234,7 @@ cluster::> system cluster-switch delete –device CL2
 
 
 
+[[step-3-complete-the-procedure]]
 === Étape 3 : Terminer la procédure
 
 . Vérifiez que les commutateurs de cluster appropriés sont surveillés :

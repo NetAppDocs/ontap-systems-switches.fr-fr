@@ -15,6 +15,7 @@ Lors du remplacement de commutateurs de cluster, assurez-vous de bien comprendre
 
 
 
+[[cisco-nexus-3132q-v-requirements]]
 == Exigences relatives au Cisco Nexus 3132Q-V
 
 * Le commutateur de cluster Cisco Nexus 3132Q-V est pris en charge.
@@ -50,6 +51,7 @@ link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["Commutateurs 
 
 
 
+[[cisco-nexus-5596-requirements]]
 == Configuration requise Cisco Nexus 5596
 
 * Les commutateurs de cluster suivants sont pris en charge :
@@ -119,6 +121,7 @@ NOTE: Vous pouvez configurer les six premiers ports en mode 4x10 GbE en utilisan
 
 
 
+[[netapp-cn1610-requirements]]
 == Exigences relatives au NetApp CN1610
 
 * Les commutateurs de cluster suivants sont pris en charge :

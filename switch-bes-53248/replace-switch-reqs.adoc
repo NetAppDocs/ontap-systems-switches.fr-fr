@@ -15,6 +15,7 @@ Avant de remplacer l'interrupteur, assurez-vous que les conditions suivantes son
 
 
 
+[[existing-cluster-and-network-infrastructure]]
 == Infrastructure de cluster et de réseau existante
 
 Assurez-vous que :
@@ -27,6 +28,7 @@ Assurez-vous que :
 
 
 
+[[bes-53248-replacement-cluster-switch]]
 == Commutateur de remplacement pour groupe d'instruments BES-53248
 
 Assurez-vous que :
@@ -43,6 +45,7 @@ Toutes les personnalisations précédentes du site, telles que STP, SNMP et SSH,
 
 
 
+[[enable-console-logging]]
 == Activer la journalisation de la console
 
 NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
@@ -54,6 +57,7 @@ NetApp vous recommande vivement d'activer la journalisation de la console sur le
 
 
 
+[[related-information]]
 == Informations connexes
 
 * https://mysupport.netapp.com/["Site de support NetApp"^]

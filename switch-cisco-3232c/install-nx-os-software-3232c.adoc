@@ -15,6 +15,7 @@ Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le co
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 .Avant de commencer
@@ -26,6 +27,7 @@ Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le co
 
 
 
+[[install-the-software]]
 == Installez le logiciel
 
 La procédure nécessite l'utilisation à la fois des commandes ONTAP et des commandes des commutateurs Cisco Nexus série 3000 ; les commandes ONTAP sont utilisées sauf indication contraire.

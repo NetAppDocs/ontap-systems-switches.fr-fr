@@ -19,6 +19,7 @@ Chaque commutateur peut être configuré en un seul port 40GbE ou en 4 ports 10G
 
 
 
+[[sample-cabling-worksheet]]
 == Exemple de schéma de câblage
 
 La définition des ports d'exemple sur chaque paire de commutateurs est la suivante :
@@ -329,6 +330,7 @@ ISL 40G vers le port 31 du commutateur B
 |===
 
 
+[[blank-cabling-worksheet]]
 == Feuille de câblage vierge
 
 Vous pouvez utiliser la feuille de câblage vierge pour documenter les plateformes prises en charge en tant que nœuds d'un cluster. La section _Connexions de cluster prises en charge_ du link:https://hwu.netapp.com["Hardware Universe"^] définit les ports de cluster utilisés par la plateforme.

@@ -15,6 +15,7 @@ Pour remplacer les commutateurs de cluster CN1610 existants dans un cluster par 
 
 
 
+[[review-requirements]]
 == Exigences de révision
 
 Avant la migration, assurez-vous de consulterlink:migrate-requirements-3232c.html["Exigences de migration"] .
@@ -32,6 +33,7 @@ Si nécessaire, veuillez vous référer aux informations suivantes :
 
 
 
+[[migrate-the-switches]]
 == Déplacer les commutateurs
 
 .À propos des exemples
@@ -52,6 +54,7 @@ Les exemples de cette procédure utilisent la nomenclature suivante pour les com
 
 
 
+[[step-1-prepare-for-migration]]
 === Étape 1 : Préparer la migration
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
@@ -260,6 +263,7 @@ Cluster
 
 
 
+[[step-2-replace-cluster-switch-cl2-with-c2]]
 === Étape 2 : Remplacer le commutateur de cluster CL2 par C2
 
 . Fermez les ports d'interconnexion du cluster qui sont physiquement connectés au commutateur CL2 :
@@ -744,6 +748,7 @@ cluster::*> *network interface migrate -vserver cluster -lif n2_clus4 -source-no
 
 
 
+[[step-3-replace-cluster-switch-cl1-with-c1]]
 === Étape 3 : Remplacez le commutateur de cluster CL1 par C1
 
 . Vérifiez l'état du cluster :
@@ -979,6 +984,7 @@ e0d   cluster   cluster    up    9000  auto/10000     -
 
 
 
+[[step-4-complete-the-procedure]]
 === Étape 4 : Terminer la procédure
 
 . Rétablir la configuration de toutes les interfaces logiques d'interconnexion de cluster migrées qui étaient initialement connectées à C1 sur tous les nœuds :

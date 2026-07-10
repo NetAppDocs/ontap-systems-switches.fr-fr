@@ -29,6 +29,7 @@ Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendan
 
 
 
+[[step-1-install-the-rcf-on-the-switches]]
 == Étape 1 : Installez le RCF sur les commutateurs
 
 . Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
@@ -315,6 +316,7 @@ Reportez-vous à link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_cl
 
 
 
+[[step-2-verify-the-switch-connections]]
 == Étape 2 : Vérifier les connexions du commutateur
 
 . Vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs*.
@@ -415,6 +417,7 @@ cluster1::*>
 
 
 
+[[step-3-setup-your-ontap-cluster]]
 == Étape 3 : Configurez votre cluster ONTAP
 
 NetApp recommande d'utiliser System Manager pour configurer de nouveaux clusters.

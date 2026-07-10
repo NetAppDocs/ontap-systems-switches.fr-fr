@@ -17,6 +17,7 @@ Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles rése
 
 
 
+[[prepare-for-installation]]
 == Préparer l'installation
 
 .Avant de commencer
@@ -27,6 +28,7 @@ Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles rése
 
 
 
+[[install-the-software]]
 == Installez le logiciel
 
 Utilisez l'une des méthodes suivantes pour installer le logiciel EFOS :
@@ -37,6 +39,7 @@ Utilisez l'une des méthodes suivantes pour installer le logiciel EFOS :
 
 
 
+[[method-1-install-efos]]
 === Méthode 1 : Installer EFOS
 
 Suivez les étapes ci-dessous pour installer le logiciel EFOS.
@@ -251,6 +254,7 @@ Additional Packages............................ BGP-4
 
 
 
+[[method-2-install-efos-in-onie-mode]]
 === Méthode 2 : Installer EFOS en mode ONIE
 
 Vous pouvez effectuer les étapes suivantes si une version d'EFOS est conforme à la norme FIPS et l'autre version d'EFOS ne l'est pas.  Ces étapes peuvent être utilisées pour installer l'image EFOS 3.7.xx non conforme ou conforme à la norme FIPS à partir d'ONIE si le commutateur ne démarre pas.

@@ -18,6 +18,7 @@ Pour l'installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, assu
 
 
 
+[[ontap-support]]
 == Prise en charge ONTAP
 
 À partir d' ONTAP 9.9.1, vous pouvez utiliser des commutateurs Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de stockage et de cluster dans une configuration de commutateur partagée.
@@ -26,6 +27,7 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez
 
 
 
+[[configuration-requirements]]
 == Exigences de configuration
 
 Pour la configuration, vous aurez besoin du nombre et du type appropriés de câbles et de connecteurs de câbles pour vos commutateurs.
@@ -34,6 +36,7 @@ Selon le type de commutateur que vous configurez initialement, vous devez vous c
 
 
 
+[[network-requirements]]
 == Exigences réseau
 
 Vous avez besoin des informations réseau suivantes pour toutes les configurations de commutateur.

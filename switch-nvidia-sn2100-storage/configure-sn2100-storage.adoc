@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/configure-sn2100-storage.html 
 sidebar: sidebar 
 keywords: switches hardware installation 
-summary: Pour installer le matériel BES-53248, reportez-vous à la documentation NVIDIA. 
+summary: Pour installer le matériel NVIDIA SN2100, reportez-vous à la documentation NVIDIA. 
 ---
 = Configurer le commutateur NVIDIA SN2100
 :allow-uri-read: 
@@ -15,7 +15,7 @@ Pour configurer le commutateur SN2100, reportez-vous à la documentation NVIDIA.
 
 .Étapes
 . Examinerlink:configure-reqs-sn2100-storage.html["exigences de configuration"] .
-. Suivez les instructions dans https://docs.nvidia.com/networking/display/sn2000pub/System+Bring-Up["Mise en service du système NVIDIA ."^] .
+. Suivez les instructions dans https://networking-docs.nvidia.com/sn2000hw/latest/system-bring-up["Mise en service du système NVIDIA ."^].
 
 
 .Quelle est la prochaine étape ?

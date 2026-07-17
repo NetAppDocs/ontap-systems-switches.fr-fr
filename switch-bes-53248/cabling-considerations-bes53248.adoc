@@ -109,3 +109,6 @@ systemshell -node <node> -command sudo sysctl dev.ice.<X>.requested_fec=<auto/fc
 
 
 
+
+.Quelle est la prochaine étape ?
+Une fois que vous avez satisfait aux exigences de câblage et de configuration, vous installez le link:configure-efos-software.html["installer le logiciel EFOS"] sur le commutateur.

@@ -20,7 +20,7 @@ Assurez-vous d'avoir les éléments suivants :
 * Un cluster parfaitement fonctionnel (aucune erreur dans les journaux ni problème similaire).
 * Le fichier RCF actuel, disponible à partir de https://mysupport.netapp.com/site/products/all/details/broadcom-cluster-switches/downloads-tab["Commutateurs de cluster Broadcom"^] page.
 * Une configuration de démarrage dans le RCF qui reflète les images de démarrage souhaitées, requise si vous installez uniquement EFOS et conservez votre version RCF actuelle.  Si vous devez modifier la configuration de démarrage pour qu'elle reflète les images de démarrage actuelles, vous devez le faire avant de réappliquer le RCF afin que la version correcte soit instanciée lors des prochains redémarrages.
-* Une connexion console au commutateur est requise lors de l'installation du RCF à partir d'un état d'usine par défaut.  Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] pour effacer la configuration au préalable.
+* Une connexion console au commutateur, requise lors de l'installation du RCF à partir de l'état par défaut d'usine.
 
 
 .Documentation suggérée
@@ -47,12 +47,11 @@ La procédure nécessite l'utilisation des commandes ONTAP et des commandes du c
 Aucune liaison inter-commutateurs opérationnelle (ISL) n'est nécessaire pendant cette procédure. Ceci est intentionnel car les changements de version RCF peuvent affecter temporairement la connectivité ISL. Pour garantir le fonctionnement non perturbateur du cluster, la procédure suivante migre toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
 
 
-CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et des RCF, consultez l'article de la base de connaissances. https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"^] .  Si vous devez effacer complètement les paramètres du commutateur, vous devrez effectuer à nouveau la configuration de base.  Vous devez être connecté au commutateur via la console série, car une suppression complète de la configuration réinitialise la configuration du réseau de gestion.
-
-
 
 [[step-1-prepare-for-upgrade]]
 == Étape 1 : Préparer la mise à niveau
+
+En utilisant l'interface de ligne de commande ONTAP (ONTAP CLI) pour les étapes suivantes, préparez la mise à niveau RCF en supprimant la création automatique de cas si nécessaire, en vérifiant l'état administratif et opérationnel des ports, et en désactivant la restauration automatique sur les LIF du cluster.
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
@@ -270,6 +269,8 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-configure-ports]]
 == Étape 2 : Configurer les ports
 
+Vous utilisez l'interface de ligne de commande (CLI) du commutateur et l'interface de ligne de commande ONTAP (comme indiqué dans les étapes suivantes) pour les configurations de ports. Vous configurez les ports sur le premier commutateur (cs2), puis répétez ces étapes pour le deuxième commutateur (cs1).
+
 . Sur le commutateur cs2, vérifiez la liste des ports connectés aux nœuds du cluster.
 +
 [source, cli]
@@ -344,7 +345,7 @@ show running-config
 . Nettoyez la configuration du commutateur CS2 et effectuez une configuration de base.
 +
 
-CAUTION: Lors de la mise à jour ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer une configuration de base.  Vous devez être connecté au commutateur via la console série pour effacer les paramètres du commutateur.  Cette exigence est facultative si vous avez utilisé l'article de la base de connaissances https://kb.netapp.com/onprem/Switches/Broadcom/How_to_clear_configuration_on_a_Broadcom_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Broadcom tout en conservant la connectivité à distance"] pour effacer la configuration au préalable.
+CAUTION: Lors de la mise à jour ou de l'application d'un nouveau RCF, vous devez effacer les paramètres du commutateur et effectuer une configuration de base. Vous devez être connecté au commutateur à l'aide de la console série pour effacer les paramètres du commutateur.
 
 +
 
@@ -457,9 +458,6 @@ Are you sure you would like to reset the system? (y/n) *y*
 ====
 .EFOS version 3.12.x et ultérieures
 --
-
-CAUTION: Le fichier doit être nommé  `reference-config.scr` lorsque vous chargez et appliquez le fichier RCF, sinon l'étape d'application du script échouera.
-
 . Copiez le RCF sur le commutateur cs2 en utilisant l'un des protocoles de transfert suivants : HTTP, HTTPS, FTP, SFTP ou SCP.
 +
 Cet exemple montre l'utilisation du protocole SFTP pour copier un fichier RCF dans la mémoire flash de démarrage du commutateur cs2 :
@@ -468,7 +466,7 @@ Cet exemple montre l'utilisation du protocole SFTP pour copier un fichier RCF da
 
 [listing, subs="+quotes"]
 ----
-(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config.scr*
+(cs2)# *copy sftp://172.19.2.1/BES-53248_RCF_v1.9-Cluster-HA.txt nvram:reference-config*
 Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
@@ -528,7 +526,7 @@ Cet exemple montre l'utilisation du protocole SFTP pour copier un fichier RCF da
 [listing, subs="+quotes"]
 ----
 (cs2)# *copy sftp://172.19.2.1/tmp/BES-53248_RCF_v1.9-Cluster-HA.txt
-nvram:script BES-53248_RCF_v1.9-Cluster-HA.scr*
+nvram:script BES-53248_RCF_v1.9-Cluster-HA*
 Remote Password:**
 Mode........................................... SFTP
 Set Server IP.................................. 172.19.2.1
@@ -696,16 +694,6 @@ Configuration Saved!
 (cs2)# *reload*
 Are you sure you would like to reset the system? (y/n) *y*
 System will now restart!
-----
-. Sur le commutateur de cluster cs2, activez les ports connectés aux ports de cluster des nœuds.
-+
-[listing, subs="+quotes"]
-----
-(cs2)> *enable*
-(cs2)# *configure*
-(cs2)(Config)# *interface 0/1-0/16*
-(cs2)(Interface 0/1-0/16)# *no shutdown*
-(cs2)(Config)# *exit*
 ----
 . Enregistrez la configuration en cours dans la configuration de démarrage :
 +
@@ -909,14 +897,14 @@ cluster1::*>
 ----
 --
 ====
-. [[étape 21]]Répétez les étapes 1 à 20 sur le commutateur cs1.
+. [[étape 20]]Répétez les étapes 1 à 19 sur le commutateur cs1.
 . Activer la restauration automatique sur les LIF du cluster :
 +
 [source, cli]
 ----
 network interface modify -vserver Cluster -lif * -auto-revert true
 ----
-. . Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
+. Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 [source, cli]
 ----
@@ -931,6 +919,8 @@ Pour plus de détails, veuillez vous référer à link:https://docs.netapp.com/u
 
 [[step-3-verify-the-configuration]]
 == Étape 3 : Vérifier la configuration
+
+Une fois le RCF mis à niveau sur les deux commutateurs, vérifiez la configuration du réseau du cluster et le contrôle de l'état du cluster.
 
 . Sur le commutateur cs1, vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs* :
 +
@@ -1124,7 +1114,7 @@ RPC status:
 ----
 --
 ====
-. Rétablir le niveau de privilège à administrateur :
+. [[étape6]] Rétablissez le niveau de privilège à admin :
 +
 [source, cli]
 ----
@@ -1137,3 +1127,6 @@ set -privilege admin
 system node autosupport invoke -node * -type all -message MAINT=END
 ----
 
+
+.Quelle est la prochaine étape ?
+Après avoir mis à niveau votre RCF, vous pouvez link:configure-ssh.html["Activer SSH pour la collecte des journaux"].

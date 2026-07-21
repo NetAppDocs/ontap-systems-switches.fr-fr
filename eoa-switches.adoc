@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: eoa-switches.html 
+keywords: switches, fas, aff systems, end of support, EOS 
+summary: Les commutateurs ne sont plus pris en charge pour les systèmes FAS et AFF. 
+---
+= Les commutateurs ne sont plus pris en charge
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les commutateurs suivants ne sont plus pris en charge à partir de la version spécifiée d'ONTAP.
+
+Pour connaître les commutateurs actuellement non pris en charge, veuillez vous référer à link:https://hwu.netapp.com["Hardware Universe NetApp"^].
+
+[cols="25h,~"]
+|===
+| Interrupteurs | Support interrompu à partir de... 
+
+
+ a| 
+Cisco Nexus 3232C
+ a| 
+ONTAP 9.19.1
+
+
+
+ a| 
+Cisco Nexus 3132Q-V
+ a| 
+ONTAP 9.18.1
+
+
+
+ a| 
+Cisco Nexus 92300YC
+ a| 
+ONTAP 9.17.1
+
+
+
+ a| 
+NetApp CN1610
+ a| 
+ONTAP 9.13.1
+
+
+
+ a| 
+Cisco Nexus 5596UP/5596T
+ a| 
+ONTAP 9.11.1
+
+|===

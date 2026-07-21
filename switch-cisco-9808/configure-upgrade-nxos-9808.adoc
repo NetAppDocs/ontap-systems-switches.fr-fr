@@ -13,6 +13,9 @@ summary: 'Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9808 p
 [role="lead"]
 Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9808 pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur votre système AFX 2K.
 
+
+NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.
+
 .Avant de commencer
 * Assurez-vous de disposer d'une sauvegarde récente de la configuration du commutateur.
 * Vérifiez que votre cluster est pleinement fonctionnel, c'est-à-dire qu'il n'y a aucune erreur dans les journaux ni de problème similaire.
@@ -22,7 +25,7 @@ Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9808 pour prendr
 * Si nécessaire, vous pouvez vous référer à link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guide de mise à niveau et de rétrogradation du logiciel NX-OS Cisco Nexus série 9000"^] pour plus d'informations.
 * La version d'ONTAP exécutée sur votre système AFX détermine les versions de NX-OS prises en charge par vos commutateurs.
 +
-** Pour les commutateurs d'un système AFX 2K, l'exécution de ONTAP 9.19.1GA ou version ultérieure et de NX-OS 10.6 ou version ultérieure est prise en charge.
+** Pour les commutateurs d'un système AFX 2K, exécutant ONTAP 9.19.1GA ou version ultérieure, NX-OS 10.6 et versions ultérieures sont pris en charge.
 +
 Pour connaître la liste actuelle des versions NX-OS prises en charge, consultez la page link:https://mysupport.netapp.com/site/info/cisco-ethernet-switch["NetApp Cisco Commutateurs Ethernet"^].
 
@@ -1287,8 +1290,10 @@ node1-04             true    true          true
 
 . Réactivez la restauration automatique sur les LIF du cluster.
 +
-`network interface modify -vserver Cluster -lif * -auto-revert true`
-
+[source, cli]
+----
+network interface modify -vserver Cluster -lif * -auto-revert true
+----
 . Vérifiez que les LIF du cluster sont revenues à leur port d'origine :
 +
 [source, cli]

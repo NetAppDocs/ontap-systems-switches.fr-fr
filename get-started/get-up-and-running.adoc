@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: Découvrez les commutateurs en cluster, de stockage et partagés. 
 ---
-= Démarrez rapidement avec les systèmes AFX, le cluster, le stockage et les commutateurs partagés
+= Démarrage rapide pour les systèmes AFX, les clusters, le stockage et les commutateurs partagés
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -92,7 +92,7 @@ Les instructions d'installation et de configuration des systèmes ONTAP comprenn
 [%collapsible]
 ====
 * link:https://docs.netapp.com/us-en/ontap-afx/install-setup/afx-cable-overview.html["Installez des commutateurs Cisco Nexus pour un système AFX 1K"^]
-* link:https://review.docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Installez des commutateurs Cisco Nexus pour un système AFX 2K"^]
+* link:https://docs.netapp.com/us-en/ontap-afx/install-afx-2k/afx-cable-overview.html["Installez des commutateurs Cisco Nexus pour un système AFX 2K"^]
 
 
 ==== a| 

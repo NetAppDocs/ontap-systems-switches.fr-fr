@@ -16,6 +16,9 @@ Suivez ces étapes pour mettre à niveau le logiciel EFOS sur le commutateur de 
 Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles réseau avancés pour le développement de systèmes d'infrastructure Ethernet et IP.  Cette architecture logicielle convient à tout dispositif d'organisation de réseau utilisant des applications nécessitant une inspection ou une séparation approfondie des paquets.
 
 
+NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.
+
+
 
 [[prepare-for-upgrade]]
 == Préparez-vous à la mise à niveau
@@ -352,7 +355,12 @@ Additional Packages............................ BGP-4
 ............................................... Prototype Open API
 ----
 ====
-. Répétez les étapes 5 à 11 sur le commutateur cs1.
+
+
+
+NOTE: Si vous mettez également à niveau votre RCF en même temps, suivez la procédure de mise à niveau de votre RCF sur le commutateur cs2 avant de mettre à niveau l'EFOS sur le commutateur cs1. Consultez link:upgrade-rcf.html["mettre à niveau la version RCF"] pour plus de détails.
+
+. [[étape 12]] Répétez les étapes 5 à 11 sur le switch cs1.
 . Activer la restauration automatique sur les LIF du cluster.
 +
 [source, cli]

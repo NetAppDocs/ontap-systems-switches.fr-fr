@@ -1,0 +1,38 @@
+---
+indexpage:
+  title: Interrupteurs de fin de disponibilité
+  summary: Utilisez la documentation de ce site pour installer, configurer et maintenir
+    les commutateurs de fin de disponibilité pour les systèmes de stockage ONTAP.
+  keywords: end of availability, NVIDIA SN2100, cluster switches, storage switches,
+    ONTAP
+  lead: Ces commutateurs ne sont plus disponibles à l'achat, mais ils sont toujours
+    pris en charge pour une utilisation avec les systèmes de stockage ONTAP.
+  tiles:
+  - title: Commutateur de cluster NVIDIA SN2100
+    links:
+    - title: Commencer
+      url: "../switch-nvidia-sn2100/configure-overview-sn2100-cluster.html"
+    - title: Installez le matériel
+      url: "../switch-nvidia-sn2100/install-hardware-workflow.html"
+    - title: Configurer le logiciel
+      url: "../switch-nvidia-sn2100/configure-software-overview-sn2100-cluster.html"
+    - title: Déplacer les commutateurs
+      url: "../switch-nvidia-sn2100/migrate-cisco-sn2100-cluster-switch.html"
+    - title: Remplacer les interrupteurs
+      url: "../switch-nvidia-sn2100/replace-sn2100-switch-cluster.html"
+  - title: NVIDIA SN2100 commutateur de stockage
+    links:
+    - title: Commencer
+      url: "../switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html"
+    - title: Installez le matériel
+      url: "../switch-nvidia-sn2100-storage/install-hardware-workflow.html"
+    - title: Configurer le logiciel
+      url: "../switch-nvidia-sn2100-storage/configure-software-sn2100-storage.html"
+    - title: Déplacer les commutateurs
+      url: "../switch-nvidia-sn2100-storage/migrate-cisco-storage-switch-sn2100-storage.html"
+    - title: Remplacez l'interrupteur
+      url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
+  - title: Annonces de fin de vente et de fin de vie
+    links:
+    - title: 'Fin de disponibilité : NVIDIA SN2100 series'
+      url: https://mysupport.netapp.com/info/communications/CPC-00635.html

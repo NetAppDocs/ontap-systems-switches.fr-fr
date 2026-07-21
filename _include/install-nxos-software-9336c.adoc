@@ -3,6 +3,9 @@
 
 
 
+NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.
+
+
 
 [[review-requirements]]
 == Exigences de révision

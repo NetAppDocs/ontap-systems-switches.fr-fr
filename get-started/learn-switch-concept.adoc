@@ -4,10 +4,8 @@ sidebar: sidebar
 keywords:  
 summary: Découvrez les commutateurs en cluster, de stockage et partagés. 
 ---
-= Découvrez les systèmes AFX, le cluster, le stockage et les commutateurs partagés
+= Découvrez les commutateurs de votre système ONTAP
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
 [role="lead"]
@@ -19,12 +17,16 @@ Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tan
 NOTE: Seuls les commutateurs back-end validés par NetApp(commandés auprès de NetApp) sont pris en charge.
 
 
+CAUTION: Si vous mettez à niveau vos commutateurs, NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.
+
+
 
 [[afx-systems-switches]]
 == Commutateurs de systèmes AFX
 
-Les commutateurs des systèmes AFX vous permettent de créer des commutateurs réseau rapides, économes en énergie et peu encombrants. Leur petite taille et leur densité de ports élevée les rendent idéaux pour la gestion de grands réseaux. Les ports prennent en charge différentes vitesses et peuvent être divisés en plusieurs connexions. Les commutateurs de systèmes AFX pris en charge par NetApp incluent :
+Les commutateurs AFX Systems permettent de créer des commutateurs réseau rapides, économes en énergie et compacts. Leur petite taille et leur haute densité de ports les rendent idéaux pour la gestion de grands réseaux. Les ports prennent en charge différentes vitesses et peuvent être répartis sur plusieurs connexions. NetApp-Les commutateurs AFX Systems compatibles incluent :
 
+* Cisco Nexus 9808
 * Cisco Nexus 9332D-GX2B
 * Cisco Nexus 9364D-GX2A
 
@@ -49,7 +51,6 @@ Les commutateurs de cluster vous permettent de créer des clusters ONTAP avec pl
 Les commutateurs de stockage vous permettent d'acheminer les données entre les serveurs et les baies de stockage dans un réseau de stockage (SAN).  Les commutateurs de stockage compatibles avec NetApp incluent :
 
 * Cisco Nexus 9336C-FX2
-* Cisco Nexus 3232C
 * NVIDIA SN2100
 
 
@@ -68,4 +69,4 @@ Les commutateurs partagés vous permettent de combiner les fonctionnalités de c
 [[end-of-availability-switches]]
 == Interrupteurs de fin de disponibilité
 
-Pour obtenir la liste des commutateurs qui ne sont plus disponibles à l'achat, mais qui sont toujours pris en charge, veuillez consulter link:../overview-eod.html["Interrupteurs de fin de disponibilité"].
+Pour obtenir la liste des commutateurs qui ne sont plus disponibles à l'achat, mais qui sont toujours pris en charge, veuillez consulter link:../eoa/index.html["Interrupteurs de fin de disponibilité"].

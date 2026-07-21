@@ -16,6 +16,9 @@ Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur
 Avant de commencer, veuillez terminer la procédure danslink:install-nxos-overview-9336c-cluster.html["Préparez-vous à installer NX-OS et RCF"] .
 
 
+NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.
+
+
 
 [[review-requirements]]
 == Exigences de révision

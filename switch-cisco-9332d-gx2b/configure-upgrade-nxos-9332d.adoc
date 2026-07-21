@@ -13,6 +13,9 @@ summary: 'Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9332D-
 [role="lead"]
 Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur votre système AFX 1K ou AFX 2K.
 
+
+NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.
+
 .Avant de commencer
 * Assurez-vous de disposer d'une sauvegarde récente de la configuration du commutateur.
 * Vérifiez que votre cluster est pleinement fonctionnel, c'est-à-dire qu'il n'y a aucune erreur dans les journaux ni de problème similaire.
@@ -455,7 +458,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == Étape 2 : Installez le NX-OS
 
-Vous installez le NX-OS sur le premier commutateur (cs1) en installant et en vérifiant les nouvelles versions du NX-OS et de l'EPLD, en vérifiant le contrôle de l'état de tous les ports du cluster, puis vous répétez ces étapes sur le deuxième commutateur (cs2).
+Vous installez le NX-OS sur le premier commutateur (cs1) en installant et en vérifiant les nouvelles versions du NX-OS et de l'EPLD, en vérifiant l'état de santé de tous les ports du cluster, puis en répétant ces étapes sur le deuxième commutateur (cs2).
 
 . À l'aide de l'interface de ligne de commande du commutateur, copiez les images NX-OS et EPLD sur un commutateur.
 +
@@ -904,7 +907,7 @@ node1-01/cdp
 cluster1::*> *system cluster-switch show -is-monitoring-enabled-operational true*
 Switch                      Type               Address          Model
 --------------------------- ------------------ ---------------- ---------------
-cs1(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
+cs2(FDOXXXXXXXX)            cluster-network    10.228.137.233   N9K-C9332D-GX2B
      Serial Number: FDOXXXXXXXX
       Is Monitored: true
             Reason: None

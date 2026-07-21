@@ -1,0 +1,12 @@
+---
+section: switch-cshm-monitor
+title: Vérifier l'état du commutateur
+entries:
+- title: Aperçu du bilan de santé
+  url: "/switch-cshm/monitor-overview.html"
+- title: Gérer la surveillance des commutateurs
+  url: "/switch-cshm/monitor-manage.html"
+- title: Vérifier la surveillance du commutateur
+  url: "/switch-cshm/monitor-verify.html"
+- title: Dépannage des alertes
+  url: "/switch-cshm/monitor-troubleshoot.html"

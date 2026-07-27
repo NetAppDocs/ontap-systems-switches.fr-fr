@@ -1,0 +1,499 @@
+---
+permalink: switch-netapp-cn1610/replace-cn1610-switch.html 
+sidebar: sidebar 
+keywords: replace, netapp cn1610, cluster switch 
+summary: Vous pouvez remplacer sans interruption un NetApp commutateur de cluster CN1610 défectueux en effectuant une séquence de tâches spécifique. 
+---
+= Remplacez un commutateur de cluster NetApp CN1610
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez ces étapes pour remplacer un commutateur NetApp CN1610 défectueux dans un réseau de cluster. Il s'agit d'une procédure non disruptive (NDU).
+
+
+
+[[review-requirements]]
+== Exigences de révision
+
+.Avant de commencer
+Avant de procéder au remplacement du commutateur, les conditions suivantes doivent exister dans l'environnement actuel et sur le commutateur de remplacement pour l'infrastructure de cluster et de réseau existante :
+
+* Le cluster existant doit être vérifié comme étant entièrement fonctionnel, avec au moins un commutateur de cluster entièrement connecté.
+* Tous les ports du cluster doivent être *up*.
+* Toutes les interfaces logiques du cluster (LIF) doivent être opérationnelles et ne doivent pas avoir été migrées.
+* La commande de cluster ONTAP `ping-cluster -node node1` doit indiquer que la connectivité de base et la communication supérieures à la PMTU sont réussies sur tous les chemins.
+
+
+
+
+[[enable-console-logging]]
+== Activer la journalisation de la console
+
+NetApp vous recommande vivement d'activer la journalisation de la console sur les périphériques que vous utilisez et de prendre les mesures suivantes lors du remplacement de votre commutateur :
+
+* Laissez AutoSupport activé pendant la maintenance.
+* Déclenchez une maintenance AutoSupport avant et après la maintenance afin de désactiver la création de tickets pendant toute la durée de la maintenance. Consultez cet article de la Knowledge Base link:https://kb.netapp.com/Support_Bulletins/Customer_Bulletins/SU92["SU92 : Comment désactiver la création automatique de tickets pendant les fenêtres de maintenance planifiées ?"^] pour plus de détails.
+* Activez la journalisation des sessions pour toutes les sessions CLI.  Pour savoir comment activer la journalisation des sessions, consultez la section « Journalisation des sorties de session » de cet article de la base de connaissances.link:https://kb.netapp.com/on-prem/ontap/Ontap_OS/OS-KBs/How_to_configure_PuTTY_for_optimal_connectivity_to_ONTAP_systems["Comment configurer PuTTY pour une connectivité optimale aux systèmes ONTAP"^] .
+
+
+
+
+[[replace-the-switch]]
+== Remplacez l'interrupteur
+
+.À propos de cette tâche
+Vous devez exécuter la commande de migration d'un LIF de cluster depuis le nœud où est hébergé le LIF de cluster.
+
+Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs de cluster et les nœuds :
+
+* Les noms des deux commutateurs de cluster CN1610 sont  `cs1` et  `cs2`.
+* Le nom du commutateur CN1610 qui doit être remplacé (le commutateur défectueux) est `old_cs1`.
+* Le nom du nouveau commutateur CN1610 (le commutateur de remplacement) est `new_cs1`.
+* Le nom du commutateur partenaire qui n'est pas remplacé est `cs2`.
+
+
+.Étapes
+. Confirmez que le fichier de configuration de démarrage correspond au fichier de configuration en cours d'exécution. Vous devez enregistrer ces fichiers localement pour les utiliser lors du remplacement.
++
+Les commandes de configuration de l'exemple suivant sont destinées à FASTPATH 1.2.0.7 :
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(old_cs1)> *enable*
+(old_cs1)# *show running-config*
+(old_cs1)# *show startup-config*
+----
+====
+. Créez une copie du fichier de configuration en cours d'exécution.
++
+La commande de l'exemple suivant est destinée à FASTPATH 1.2.0.7 :
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(old_cs1)# *show running-config filename.scr*
+Config script created successfully.
+----
+====
+
+
+
+NOTE: Vous pouvez utiliser n'importe quel nom de fichier, sauf  `CN1610_CS_RCF_v1.2.scr`. Le nom de fichier doit avoir l'extension *.scr*.
+
+. [[étape 3]]Enregistrez le fichier de configuration en cours d’exécution du commutateur sur un hôte externe en vue de son remplacement.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(old_cs1)# *copy nvram:script filename.scr scp://<Username>@<remote_IP_address>/path_to_file/filename.scr*
+----
+====
+. Vérifiez que les versions du commutateur et d'ONTAP correspondent dans la matrice de compatibilité. Consultez link:https://mysupport.netapp.com/site/info/netapp-cluster-switch["NetApp CN1601 et CN1610 Commutateurs"^] pour plus de détails.
+. À partir du link:https://mysupport.netapp.com/site/products/all/details/netapp-cluster-switches/downloads-tab["page de téléchargement de logiciels"^] sur le site de support NetApp, sélectionnez NetApp Cluster Switches pour télécharger les versions RCF et FASTPATH appropriées.
+. Configurez un serveur TFTP (Trivial File Transfer Protocol) avec FASTPATH, RCF et le fichier de configuration enregistré `.scr` pour une utilisation avec le nouveau commutateur.
+. Connectez le port série (le connecteur RJ-45 étiqueté « IOIOI » sur le côté droit du commutateur) à un hôte disponible avec émulation de terminal.
+. Sur l'hôte, configurez les paramètres de connexion du terminal série :
++
+.. 9600 bauds
+.. 8 bits de données
+.. 1 butée
+.. parité : aucune
+.. contrôle de flux : aucun
+
+
+. Connectez le port de gestion (le port RJ-45 en forme de clé situé sur le côté gauche du commutateur) au même réseau que celui où se trouve votre serveur TFTP.
+. Préparez-vous à connecter au réseau avec le serveur TFTP.
++
+Si vous utilisez le protocole DHCP (Dynamic Host Configuration Protocol), il n'est pas nécessaire de configurer une adresse IP pour le commutateur à ce stade. Le port de service est configuré par défaut pour utiliser DHCP. Le port de gestion réseau est défini sur « aucun » pour les paramètres de protocole IPv4 et IPv6. Si votre port wrench est connecté à un réseau disposant d'un serveur DHCP, les paramètres du serveur sont configurés automatiquement.
+
++
+Pour définir une adresse IP statique, vous devez utiliser les commandes serviceport protocol, network protocol et serviceport ip.
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *serviceport ip <ipaddr> <netmask> <gateway>*
+----
+====
+. En option, si le serveur TFTP se trouve sur un ordinateur portable, connectez le commutateur CN1610 à l'ordinateur portable à l'aide d'un câble Ethernet standard, puis configurez son port réseau dans le même réseau avec une adresse IP alternative.
++
+Vous pouvez utiliser la commande  `ping` pour vérifier l'adresse. Si vous ne parvenez pas à établir la connectivité, vous devez utiliser un réseau non routé et configurer le port de service avec l'adresse IP 192.168.x ou 172.16.x. Vous pouvez reconfigurer ultérieurement le port de service avec l'adresse IP de gestion de production.
+
+. Le cas échéant, vérifiez et installez les versions appropriées des logiciels RCF et FASTPATH pour le nouveau commutateur. Si vous avez vérifié que le nouveau commutateur est correctement configuré et ne nécessite pas de mises à jour des logiciels RCF et FASTPATH, vous devez passer à l'étape 13.
++
+.. Vérifiez les nouveaux paramètres du commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)> *enable*
+(new_cs1)# *show version*
+----
+====
+.. Téléchargez le fichier RCF sur le nouveau commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *copy tftp://<server_ip_address>/CN1610_CS_RCF_v1.2.txt nvram:script CN1610_CS_RCF_v1.2.scr*
+Mode.	TFTP
+Set Server IP.	172.22.201.50
+Path.	/
+Filename....................................... CN1610_CS_RCF_v1.2.txt
+Data Type...................................... Config Script
+Destination Filename........................... CN1610_CS_RCF_v1.2.scr
+File with same name already exists.
+WARNING:Continuing with this command will overwrite the existing file.
+
+Management access will be blocked for the duration of the transfer Are you sure you want to start? (y/n) y
+
+File transfer in progress. Management access will be blocked for the duration of the transfer. please wait...
+Validating configuration script...
+(the entire script is displayed line by line)
+...
+description "NetApp CN1610 Cluster Switch RCF v1.2 - 2015-01-13"
+...
+Configuration script validated.
+File transfer operation completed successfully.
+----
+====
+.. Vérifiez que le fichier RCF est téléchargé sur le commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *script list*
+Configuration Script Nam   Size(Bytes)
+-------------------------- -----------
+CN1610_CS_RCF_v1.1.scr            2191
+CN1610_CS_RCF_v1.2.scr            2240
+latest_config.scr                 2356
+
+4 configuration script(s) found.
+2039 Kbytes free.
+----
+====
+
+
+. Appliquez le RCF au commutateur CN1610.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *script apply CN1610_CS_RCF_v1.2.scr*
+Are you sure you want to apply the configuration script? (y/n) *y*
+...
+(the entire script is displayed line by line)
+...
+description "NetApp CN1610 Cluster Switch RCF v1.2 - 2015-01-13"
+...
+Configuration script 'CN1610_CS_RCF_v1.2.scr' applied. Note that the script output will go to the console.
+After the script is applied, those settings will be active in the running-config file. To save them to the startup-config file, you must use the write memory command, or if you used the reload answer yes when asked if you want to save the changes.
+----
+====
++
+.. Enregistrez le fichier de configuration en cours d'exécution afin qu'il devienne le fichier de configuration de démarrage lors du redémarrage du commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *write memory*
+This operation may take a few minutes.
+Management interfaces will not be available during this time.
+
+Are you sure you want to save? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+.. Téléchargez l'image sur le commutateur CN1610.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *copy tftp://<server_ip_address>/NetApp_CN1610_1.2.0.7.stk active*
+Mode.	TFTP
+Set Server IP.	tftp_server_ip_address
+Path.	/
+Filename....................................... NetApp_CN1610_1.2.0.7.stk
+Data Type.	Code
+Destination Filename.	active
+
+Management access will be blocked for the duration of the transfer
+
+Are you sure you want to start? (y/n) *y*
+
+TFTP Code transfer starting...
+
+File transfer operation completed successfully.
+----
+====
+.. Exécutez la nouvelle image de démarrage active en redémarrant le commutateur.
++
+Le commutateur doit être redémarré pour que la commande de l'étape 6 prenne en compte la nouvelle image. Il existe deux affichages possibles pour une réponse que vous pourriez voir après avoir saisi la commande reload.
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *reload*
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved! System will now restart!
+.
+.
+.
+Cluster Interconnect Infrastructure
+
+User:admin Password: (new_cs1) >*enable*
+----
+====
+.. Copiez le fichier de configuration enregistré de l'ancien commutateur vers le nouveau commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *copy tftp://<server_ip_address>/<filename>.scr nvram:script <filename>.scr*
+----
+====
+.. Appliquez la configuration précédemment enregistrée au nouveau commutateur.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *script apply <filename>.scr*
+Are you sure you want to apply the configuration script? (y/n) *y*
+
+The system has unsaved changes.
+Would you like to save them now? (y/n) *y*
+
+Config file 'startup-config' created successfully.
+
+Configuration Saved!
+----
+====
+.. Enregistrez le fichier de configuration en cours d'exécution dans le fichier de configuration de démarrage.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *write memory*
+----
+====
+
+
+. Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
+`system node autosupport invoke -node * -type all - message MAINT=xh`
++
+_x_ représente la durée de la fenêtre de maintenance en heures.
+
++
+[NOTE]
+====
+Le message AutoSupport notifie le support technique de cette tâche de maintenance afin que la création automatique de tickets soit désactivée pendant la période de maintenance.
+
+====
+. Sur le nouveau commutateur new_cs1, connectez-vous en tant qu'utilisateur admin, puis désactivez tous les ports connectés aux interfaces de cluster de nœud (ports 1 à 12).
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+User:*admin*
+Password:
+(new_cs1)> *enable*
+(new_cs1)#
+(new_cs1)# *config*
+(new_cs1)(config)# *interface 0/1-0/12*
+(new_cs1)(interface 0/1-0/12)# *shutdown*
+(new_cs1)(interface 0/1-0/12)# *exit*
+(new_cs1)# *write memory*
+----
+====
+. Migrez les LIF du cluster à partir des ports connectés au commutateur old_cs1.
++
+Vous devez migrer chaque LIF du cluster depuis l'interface de gestion de son nœud actuel.
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::> *set -privilege advanced*
+cluster::> *network interface migrate -vserver <vserver_name> -lif <Cluster_LIF_to_be_moved> - sourcenode <current_node> -dest-node <current_node> -dest-port <cluster_port_that_is_UP>*
+----
+====
+. Vérifiez que toutes les interfaces réseau (LIF) du cluster ont été déplacées vers le port de cluster approprié sur chaque nœud.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::> *network interface show -role cluster*
+----
+====
+. Arrêtez les ports du cluster qui sont connectés au commutateur que vous avez remplacé.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network port modify -node <node_name> -port <port_to_admin_down> -up-admin false*
+----
+====
+. Vérifiez l'état de santé du cluster.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster show*
+----
+====
+. Vérifiez que les ports sont hors service.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster ping-cluster -node <node_name>*
+----
+====
+. Sur le commutateur cs2, désactivez les ports ISL 13 à 16.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *config*
+(cs2)(config)# *interface 0/13-0/16*
+(cs2)(interface 0/13-0/16)# *shutdown*
+(cs2)# *show port-channel 3/1*
+----
+====
+. Vérifiez si l'administrateur du stockage est prêt pour le remplacement du commutateur.
+. Retirez tous les câbles du commutateur old_cs1, puis connectez-les aux mêmes ports du commutateur new_cs1.
+. Sur le commutateur cs2, activez les ports ISL 13 à 16.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(cs2)# *config*
+(cs2)(config)# *interface 0/13-0/16*
+(cs2)(interface 0/13-0/16)# *no shutdown*
+----
+====
+. Activez les ports du nouveau commutateur associés aux nœuds du cluster.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)# *config*
+(new_cs1)(config)# *interface 0/1-0/12*
+(new_cs1)(interface 0/13-0/16)# *no shutdown*
+----
+====
+. Sur un seul nœud, activez le port du nœud de cluster qui est connecté au commutateur remplacé, puis vérifiez que la liaison est établie.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network port modify -node node1 -port <port_to_be_onlined> -up-admin true*
+cluster::*> *network port show -role cluster*
+----
+====
+. Rétablissez les LIF de cluster associées au port de l’étape 25 sur le même nœud.
++
+Dans cet exemple, les LIF sur le nœud1 sont rétablies avec succès si la colonne « Is Home » est vraie.
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface revert -vserver node1 -lif <cluster_lif_to_be_reverted>*
+cluster::*> *network interface show -role cluster*
+----
+====
+. Si le LIF du cluster du premier nœud est opérationnel et est revenu à son port d'attache, répétez les étapes 25 et 26 pour mettre en marche les ports du cluster et rétablir les LIF du cluster sur les autres nœuds du cluster.
+. Afficher les informations relatives aux nœuds du cluster.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *cluster show*
+----
+====
+. Vérifiez que le fichier de configuration de démarrage et le fichier de configuration en cours d'exécution sont corrects sur le commutateur remplacé. Ce fichier de configuration doit correspondre au résultat de l'étape 1.
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+(new_cs1)> *enable*
+(new_cs1)# *show running-config*
+(new_cs1)# *show startup-config*
+----
+====
+. Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+

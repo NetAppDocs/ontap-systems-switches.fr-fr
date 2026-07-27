@@ -1,6 +1,6 @@
 ---
 section: switch-cisco-3232c
-title: Cisco Nexus 3232C
+title: Cisco Nexus 3232C commutateur de cluster
 entries:
 - title: Commencer
   pdf-filename: Overview_3232C
@@ -53,15 +53,15 @@ entries:
 - title: Migration des commutateurs
   pdf-filename: Migrate_switches_3232C
   entries:
-  - title: Migration depuis des clusters sans commutateur à deux nœuds
+  - title: Migrez à partir de clusters sans commutateur à deux nœuds
     pdf-filename: Migration depuis des clusters sans commutateur
     entries:
-    - title: Flux de travail de migration depuis des clusters sans commutateur à deux
-        nœuds
+    - title: Flux de travail de migration à partir de clusters sans commutateur à
+        deux nœuds
       url: "/switch-cisco-3232c/migrate-from-switchless-workflow.html"
     - title: Exigences de migration
       url: "/switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html"
-    - title: Préparez-vous à la migration
+    - title: Préparez la migration
       url: "/switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html"
     - title: Configurez vos ports
       url: "/switch-cisco-3232c/migrate-from-switchless-configure-ports.html"

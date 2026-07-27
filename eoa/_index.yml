@@ -8,6 +8,60 @@ indexpage:
   lead: Ces commutateurs ne sont plus disponibles à l'achat, mais ils sont toujours
     pris en charge pour une utilisation avec les systèmes de stockage ONTAP.
   tiles:
+  - title: Cisco Nexus 3232C commutateur de cluster
+    links:
+    - title: Commencer
+      url: "../switch-cisco-3232c/install-overview-cisco-3232c.html"
+    - title: Installez le matériel
+      url: "../switch-cisco-3232c/install-hardware-workflow.html"
+    - title: Configurer le logiciel
+      url: "../switch-cisco-3232c/configure-software-overview-3232c-cluster.html"
+    - title: Déplacer les commutateurs
+      url: "../switch-cisco-3232c/migrate-from-switchless-workflow.html"
+    - title: Remplacer les interrupteurs
+      url: "../switch-cisco-3232c/replace-cluster-switch.html"
+  - title: Commutateur de stockage Cisco Nexus 3232C
+    links:
+    - title: Commencer
+      url: "../switch-cisco-3232c-storage/configure-switch-overview-3232c-storage.html"
+    - title: Installez le matériel
+      url: "../switch-cisco-3232c-storage/install-hardware-workflow.html"
+    - title: Configurer le logiciel
+      url: "../switch-cisco-3232c-storage/configure-software-overview-3232c-storage.html"
+    - title: Remplacez l'interrupteur
+      url: "../switch-cisco-3232c-storage/replace-storage-switch.html"
+  - title: Cisco Nexus 3132Q-V commutateur de cluster
+    links:
+    - title: Commencer
+      url: "../switch-cisco-3132q-v/install-overview-cisco-3132qv.html"
+    - title: Installez le matériel
+      url: "../switch-cisco-3132q-v/install-hardware-workflow.html"
+    - title: Configurer le logiciel
+      url: "../switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
+    - title: Déplacer les commutateurs
+      url: "../switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
+    - title: Remplacer les interrupteurs
+      url: "../switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html"
+  - title: Cisco Nexus 92300YC commutateur de cluster
+    links:
+    - title: Commencer
+      url: "../switch-cisco-92300/install-overview-cisco-92300.html"
+    - title: Installez le matériel
+      url: "../switch-cisco-92300/install-hardware-workflow.html"
+    - title: Configurer le logiciel
+      url: "../switch-cisco-92300/configure-software-overview-92300-cluster.html"
+    - title: Déplacer les commutateurs
+      url: "../switch-cisco-92300/migrate-to-2n-switched.html"
+    - title: Remplacez l'interrupteur
+      url: "../switch-cisco-92300/replace-92300yc.html"
+  - title: NetApp commutateur de cluster CN1610
+    links:
+    - title: Commencer
+      url: "../switch-netapp-cn1610/switch-overview-cn1610.html"
+    - title: Installer et configurer
+      url: "../switch-netapp-cn1610/install-overview-cn1610.html"
+    - title: Documents requis
+      url: "../switch-netapp-cn1610/required-documentation-cn1610.html"
   - title: Commutateur de cluster NVIDIA SN2100
     links:
     - title: Commencer
@@ -34,5 +88,15 @@ indexpage:
       url: "../switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html"
   - title: Annonces de fin de vente et de fin de vie
     links:
-    - title: 'Fin de disponibilité : NVIDIA SN2100 series'
+    - title: Cisco Nexus 3232C
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/n3k-c3232c-eol.html
+    - title: Cisco Nexus 31108PC-V, 31108TC-V et Nexus 3132Q-V
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-3000-series-switches/nexus-31108pc-v-31108tc-v-nexus-3132q-v-eol.html
+    - title: Cisco N9K-C93120TX, N9K-C92300YC
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/eos-eol-notice-c51-742776.html
+    - title: Commutateurs Cisco Nexus série 5500
+      url: https://www.cisco.com/c/en/us/products/collateral/switches/nexus-5000-series-switches/eos-eol-notice-c51-740720.html
+    - title: NetApp CN1610 interconnexion de cluster SKUs
+      url: https://mysupport.netapp.com/info/communications/ECMLP2859128.html
+    - title: Série NVIDIA SN2100
       url: https://mysupport.netapp.com/info/communications/CPC-00635.html

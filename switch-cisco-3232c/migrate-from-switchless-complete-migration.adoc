@@ -1,0 +1,173 @@
+---
+permalink: switch-cisco-3232c/migrate-from-switchless-complete-migration.html 
+sidebar: sidebar 
+keywords: cisco 3232c, cluster switches 
+summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+---
+= Finalisez votre migration d'un cluster à deux nœuds sans commutateur vers un cluster à deux nœuds avec commutateur
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Suivez les étapes suivantes pour finaliser la migration du cluster sans commutateur à deux nœuds vers un cluster commuté à deux nœuds sur des commutateurs Nexus 3232C.
+
+.Étapes
+. Vérifiez que tous les ports d'interconnexion de cluster sont désormais revenus à leurs ports d'origine :
++
+`network interface show -role cluster`
+
++
+La  `Is Home`colonne doit afficher une valeur de `true` pour tous les ports listés dans la colonne  `Current Port`. Si la valeur affichée est  `false`, le port n’a pas été rétabli.
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network interface show -role cluster*
+ (network interface show)
+            Logical    Status     Network            Current       Current Is
+Vserver     Interface  Admin/Oper Address/Mask       Node          Port    Home
+----------- ---------- ---------- ------------------ ------------- ------- ----
+Cluster
+            n1_clus1   up/up      10.10.0.1/24       n1            e4a     true
+            n1_clus2   up/up      10.10.0.2/24       n1            e4e     true
+            n2_clus1   up/up      10.10.0.3/24       n2            e4a     true
+            n2_clus2   up/up      10.10.0.4/24       n2            e4e     true
+4 entries were displayed.
+----
+====
+. Vérifiez que tous les ports d'interconnexion de cluster sont dans l' `up`état :
++
+`network port show -role cluster`
+
+. Afficher les numéros de port du commutateur de cluster par lesquels chaque port de cluster est connecté à chaque nœud :
++
+`network device-discovery show`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *network device-discovery show*
+            Local  Discovered
+Node        Port   Device              Interface        Platform
+----------- ------ ------------------- ---------------- ----------------
+n1          /cdp
+            e4a    C1                  Ethernet1/7      N3K-C3232C
+            e4e    C2                  Ethernet1/7      N3K-C3232C
+n2          /cdp
+            e4a    C1                  Ethernet1/8      N3K-C3232C
+            e4e    C2                  Ethernet1/8      N3K-C3232C
+----
+====
+. Afficher les commutateurs de cluster découverts et surveillés :
++
+`system cluster-switch show`
+
++
+.Afficher un exemple
+[%collapsible]
+====
+[listing, subs="+quotes"]
+----
+cluster::*> *system cluster-switch show*
+
+Switch                      Type               Address          Model
+--------------------------- ------------------ ---------------- ---------------
+C1                          cluster-network    10.10.1.101      NX3232CV
+Serial Number: FOX000001
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP
+
+C2                          cluster-network     10.10.1.102      NX3232CV
+Serial Number: FOX000002
+Is Monitored: true
+Reason:
+Software Version: Cisco Nexus Operating System (NX-OS) Software, Version 7.0(3)I6(1)
+Version Source: CDP 2 entries were displayed.
+----
+====
+. Vérifiez que la détection de cluster sans commutateur a changé l’option de cluster sans commutateur en désactivé :
++
+`network options switchless-cluster show`
+
+. Vérifiez la connectivité des interfaces du cluster distant :
+
+
+[role="tabbed-block"]
+====
+.ONTAP 9.9.1 et versions ultérieures
+--
+Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
+
+`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start*
+----
+*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity show*
+                                  Source           Destination      Packet
+Node   Date                       LIF              LIF              Loss
+------ -------------------------- ---------------- ---------------- -----------
+n1
+       3/5/2022 19:21:18 -06:00   n1_clus2         n2-clus1         none
+       3/5/2022 19:21:20 -06:00   n1_clus2         n2_clus2         none
+
+n2
+       3/5/2022 19:21:18 -06:00   n2_clus2         n1_clus1         none
+       3/5/2022 19:21:20 -06:00   n2_clus2         n1_clus2         none
+----
+--
+.Toutes les versions ONTAP
+--
+Pour toutes les versions ONTAP , vous pouvez également utiliser `cluster ping-cluster -node <name>` commande pour vérifier la connectivité :
+
+`cluster ping-cluster -node <name>`
+
+[listing, subs="+quotes"]
+----
+cluster1::*> *cluster ping-cluster -node local*
+Host is n1
+Getting addresses from network interface table...
+Cluster n1_clus1 n1        e4a    10.10.0.1
+Cluster n1_clus2 n1        e4e    10.10.0.2
+Cluster n2_clus1 n2        e4a    10.10.0.3
+Cluster n2_clus2 n2        e4e    10.10.0.4
+Local = 10.10.0.1 10.10.0.2
+Remote = 10.10.0.3 10.10.0.4
+Cluster Vserver Id = 4294967293
+Ping status:....
+Basic connectivity succeeds on 4 path(s)
+Basic connectivity fails on 0 path(s) ................
+Detected 9000 byte MTU on 32 path(s):
+    Local 10.10.0.1 to Remote 10.10.0.3
+    Local 10.10.0.1 to Remote 10.10.0.4
+    Local 10.10.0.2 to Remote 10.10.0.3
+    Local 10.10.0.2 to Remote 10.10.0.4
+Larger than PMTU communication succeeds on 4 path(s) RPC status:
+1 paths up, 0 paths down (tcp check)
+1 paths up, 0 paths down (ucp check)
+----
+--
+====
+. [[étape 7]] Si vous avez désactivé la création automatique de dossiers, réactivez-la en envoyant un message AutoSupport :
++
+`system node autosupport invoke -node * -type all -message MAINT=END`
+
+
+
+.Quelle est la prochaine étape ?
+Une fois la migration de votre commutateur terminée, vous pouvez link:../switch-cshm/config-overview.html["configurer la surveillance de l'état du commutateur"].

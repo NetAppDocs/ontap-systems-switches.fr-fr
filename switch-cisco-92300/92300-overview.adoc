@@ -1,0 +1,121 @@
+---
+permalink: switch-cisco-92300/92300-overview.html 
+sidebar: sidebar 
+keywords: cisco nexus 92300YC 
+summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels. 
+---
+= Présentation du commutateur Cisco Nexus 92300YC
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels.
+
+Vous pouvez installer le commutateur Cisco Nexus 92300YC (X190003/R) dans une armoire système NetApp ou une armoire tierce avec les supports standard fournis avec le commutateur.
+
+Le tableau suivant répertorie la référence et la description du commutateur 92300YC, des ventilateurs et des alimentations :
+
+[cols="1,2"]
+|===
+| Numéro de pièce | Description 
+
+
+ a| 
+190003
+ a| 
+Cisco 92300YC, CLSW, 48 ports 10/25 Go, 18 ports 100 G, PTSX (PTSX = évacuation côté ports)
+
+
+
+ a| 
+190003R
+ a| 
+Cisco 92300YC, CLSW, 48 ports 10/25 Go, 18 ports 100 Go, PSIN (PSIN = aspiration côté ports)
+
+
+
+ a| 
+X-NXA-FAN-35CFM-B
+ a| 
+Ventilateur, flux d'air d'admission côté port Cisco N9K
+
+
+
+ a| 
+X-NXA-FAN-35CFM-F
+ a| 
+Ventilateur, flux d'air d'évacuation côté port Cisco N9K
+
+
+
+ a| 
+X-NXA-PAC-650W-B
+ a| 
+Alimentation, Cisco 650W - entrée côté port
+
+
+
+ a| 
+X-NXA-PAC-650W-F
+ a| 
+Alimentation, Cisco 650W - évacuation côté port
+
+|===
+Détails du flux d'air du commutateur Cisco Nexus 92300YC :
+
+* Flux d'air d'évacuation côté port (air standard) : l'air frais pénètre dans le châssis par les modules de ventilateur et d'alimentation situés dans l'allée froide et est évacué par l'extrémité du châssis côté port, dans l'allée chaude. Flux d'air d'évacuation côté port avec coloration bleue.
+* Flux d'air d'admission côté port (air inversé) : l'air frais pénètre dans le châssis par l'extrémité port dans le couloir froid et est évacué par les modules de ventilateur et d'alimentation dans le couloir chaud. Flux d'air d'admission côté port avec une coloration bordeaux.
+
+
+.Documentation disponible
+Le tableau suivant répertorie la documentation disponible pour les commutateurs Cisco Nexus 92300YC.
+
+|===
+
+
+| Fonction | Description 
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-overview-cisco-92300.html["_Configurez les commutateurs de cluster Cisco® Nexus 92300YC_"^]
+ a| 
+Décrit comment installer et configurer vos commutateurs de cluster Cisco Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/install-nxos-overview.html["_Installer NX-OS et les fichiers de configuration de référence (RCFs)_"^]
+ a| 
+Décrit comment installer NX-OS et les fichiers de configuration de référence (RCF) sur le commutateur de cluster Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/configure-install-initial.html["_Configurer un nouveau commutateur Cisco Nexus 92300YC_"^]
+ a| 
+Décrit comment migrer d'environnements utilisant d'anciens commutateurs Cisco vers des environnements utilisant des commutateurs Cisco 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-92300yc.html["_Migrez d'un ancien commutateur Cisco vers un commutateur Cisco Nexus 92300YC_"^]
+ a| 
+Décrit la procédure de remplacement d'un ancien commutateur Cisco par un commutateur de cluster Cisco Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/migrate-to-2n-switched.html["_Migrer depuis un cluster sans commutateur à deux nœuds_"^]
+ a| 
+Décrit comment migrer d'un environnement de cluster sans commutateur à deux nœuds vers un environnement commuté à deux nœuds en utilisant les commutateurs de cluster Cisco Nexus 92300YC.
+
+
+
+ a| 
+https://docs.netapp.com/us-en/ontap-systems-switches/switch-cisco-92300/replace-92300yc.html["_Remplacer un commutateur de cluster Cisco Nexus 92300YC_"^]
+ a| 
+Décrit la procédure de remplacement d'un commutateur Cisco Nexus 92300YC défectueux dans un cluster et de téléchargement du système d'exploitation du commutateur et du fichier de configuration de référence.
+
+|===

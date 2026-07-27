@@ -27,7 +27,7 @@ entries:
   - title: Vérifier le câblage et la configuration
     url: "/switch-cisco-3132q-v/cabling-considerations-3132q-v.html"
 - title: Configurer le logiciel
-  pdf-filename: Configurer_logiciel_3132q-v
+  pdf-filename: Configurer_software_3132q-v
   entries:
   - title: Flux de travail d'installation de logiciels
     url: "/switch-cisco-3132q-v/configure-software-overview-3132q-v-cluster.html"
@@ -53,23 +53,23 @@ entries:
 - title: Migration des commutateurs
   pdf-filename: Migrer_switches_3132q-v
   entries:
-  - title: Migration des clusters sans commutateur vers des clusters commutés à deux
+  - title: Migrez des clusters sans commutateur vers des clusters commutés à deux
       nœuds
     pdf-filename: Migration d'un cluster sans commutateur vers un cluster avec commutateur
     entries:
-    - title: Migration d'un flux de travail sans commutateur vers un flux de travail
+    - title: Migrez d’un flux de travail sans commutateur vers un flux de travail
         commuté à deux nœuds
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-workflow.html"
     - title: Exigences de migration
       url: "/switch-cisco-3132q-v/migrate-switchless-to-switched-requirements.html"
-    - title: Préparez-vous à la migration
+    - title: Préparez la migration
       url: "/switch-cisco-3132q-v/migrate-switchless-prepare-to-migrate.html"
     - title: Configurez vos ports
       url: "/switch-cisco-3132q-v/migrate-switchless-configure-ports.html"
     - title: Finalisez votre migration
       url: "/switch-cisco-3132q-v/migrate-switchless-complete-migration.html"
 - title: Remplacer les interrupteurs
-  pdf-filename: Remplacer_interrupteurs_3132q-v
+  pdf-filename: Remplacer_switches_3132q-v
   entries:
   - title: exigences de remplacement
     url: "/switch-cisco-3132q-v/switch-requirements.html"

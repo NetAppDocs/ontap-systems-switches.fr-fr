@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-shared/configure-switch-overview-9336c-shared.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: 'Présentation de l"installation et de la configuration des commutateurs partagés Cisco Nexus 9336C-FX2' 
+summary: Suivez ce flux de travail pour installer et configurer un commutateur partagé Cisco Nexus 9336C-FX2 dans un environnement ONTAP. 
 ---
 = Flux de travail d'installation et de configuration pour les commutateurs partagés Cisco Nexus 9336C-FX2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Présentation de l"installation et de la configuration des commutateur
 
 
 [role="lead"]
-Le commutateur partagé Cisco Nexus 9336C-FX2 fait partie de la plateforme Cisco Nexus 9000 et peut être installé dans une armoire système NetApp .  Les commutateurs partagés vous permettent de combiner les fonctionnalités de cluster et de stockage dans une configuration de commutateur partagée, en prenant en charge l'utilisation de fichiers de configuration de référence partagés pour le cluster et le stockage.
+Suivez cette procédure pour installer et configurer un commutateur partagé Cisco Nexus 9336C-FX2 dans un environnement ONTAP. Les commutateurs partagés combinent les fonctionnalités de cluster et de stockage à l'aide de fichiers de configuration de référence (RCF) partagés.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs Cisco 9336C-FX2.
 

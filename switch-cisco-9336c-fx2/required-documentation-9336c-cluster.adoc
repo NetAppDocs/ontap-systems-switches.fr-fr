@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2/required-documentation-9336c-cluster.html 
 keywords: shared storage cluster switch 
-summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C-FX2, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9336-FX2 et votre cluster ONTAP .' 
+summary: Consultez la documentation relative au commutateur et au contrôleur nécessaire pour installer et configurer les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T. 
 ---
-= Exigences de documentation pour les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T
+= Consultez les exigences de documentation pour les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9336C
 
 
 [role="lead"]
-Pour l'installation des commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T, assurez-vous de consulter la documentation spécifique des commutateurs et des contrôleurs pour configurer vos commutateurs Cisco 9336-FX2 et le cluster ONTAP.
+Consultez la documentation relative aux commutateurs et aux contrôleurs requise pour installer les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T et les configurer dans un cluster ONTAP.
 
 
 

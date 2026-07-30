@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3132q-v/upgrade-rcf-3132q-v.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3132q-v 
-summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3132q-v, vous générez d"abord les clés SSH, puis vous activez SSH.' 
+keywords: rcf, upgrade, cluster switch, cisco nexus 3132q-v 
+summary: 'Mettez à jour le fichier de configuration de référence (RCF) sur les commutateurs de cluster Cisco Nexus 3132Q-V lorsqu"une version plus récente est disponible.' 
 ---
-= Mettez à jour votre fichier de configuration de référence (RCF)
+= Mettez à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous mettez à jour votre version RCF lorsque vous disposez d'une version existante du fichier RCF installée sur vos commutateurs opérationnels.
+Mettez à jour le fichier de configuration de référence (RCF) sur les commutateurs de cluster Cisco Nexus 3132Q-V lorsqu'une version plus récente du RCF est disponible.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

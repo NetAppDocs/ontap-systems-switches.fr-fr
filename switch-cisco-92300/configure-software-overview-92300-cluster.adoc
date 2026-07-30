@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/configure-software-overview-92300-cluster.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-92300 switch 
-summary: Présentation de la configuration logicielle des commutateurs de cluster Cisco Nexus 92300YC 
+summary: Suivez ce flux de travail pour installer le logiciel NX-OS et le RCF sur les commutateurs de cluster Cisco Nexus 92300YC. 
 ---
 = Flux de travail d'installation logicielle pour les commutateurs de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Présentation de la configuration logicielle des commutateurs de cluste
 
 
 [role="lead"]
-Pour installer et configurer le logiciel pour un commutateur Cisco Nexus 92300YC et pour installer ou mettre à niveau le Reference Configuration File (RCF), suivez ces étapes :
+Suivez ce flux de travail pour installer le logiciel NX-OS et le fichier de configuration de référence (RCF) sur les commutateurs de cluster Cisco Nexus 92300YC.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-install-initial.html["Configurez le commutateur"]
 [role="quick-margin-para"]

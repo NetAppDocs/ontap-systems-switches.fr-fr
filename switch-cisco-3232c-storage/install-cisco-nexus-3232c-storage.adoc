@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/install-cisco-nexus-3232c-storage.html 
 sidebar: sidebar 
 keywords: install, cisco nexus, 3232c storage switch, pass-through panel, netapp cabinet 
-summary: Vous pouvez installer le commutateur de stockage Cisco Nexus 3232C et le panneau de passage dans une armoire NetApp avec les supports standard fournis avec le commutateur. 
+summary: 'Installez un commutateur de stockage Cisco Nexus 3232C et un panneau de passage dans une armoire NetApp à l"aide des supports standard fournis avec le commutateur.' 
 ---
 = Installez un commutateur de stockage Cisco Nexus 3232C dans une armoire NetApp
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Vous pouvez installer le commutateur de stockage Cisco Nexus 3232C et l
 
 
 [role="lead"]
-Selon votre configuration, vous devrez peut-être installer le commutateur de stockage Cisco Nexus 3232C et le panneau de passage dans une armoire NetApp avec les supports standard fournis avec le commutateur.
+Installez un commutateur de stockage Cisco Nexus 3232C et un panneau de passage dans une armoire NetApp à l'aide des supports standard fournis avec le commutateur.
 
 .Avant de commencer
 Vérifiez que vous disposez des éléments suivants : * Les exigences de préparation initiale, le contenu du kit et les consignes de sécurité dans le link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guide d'installation matérielle Cisco Nexus 3000 Series"^]. * Pour chaque commutateur, les huit vis 10-32 ou 12-24 et les écrous à clip pour fixer les supports et les rails de guidage aux montants avant et arrière de l’armoire. * Le kit de rails standard Cisco pour installer le commutateur dans une NetApp armoire.

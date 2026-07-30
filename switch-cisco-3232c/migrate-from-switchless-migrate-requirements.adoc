@@ -2,15 +2,15 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-migrate-requirements.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 3232c switch, 
-summary: Avant de configurer les commutateurs Cisco Nexus 3232c, consultez un aperçu du processus et de la nomenclature. 
+summary: 'Examinez les exigences relatives à la migration d"un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3232C.' 
 ---
-= Exigences de migration
+= Examinez les exigences relatives à la migration d'un cluster sans commutateur vers des commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un cluster à deux nœuds sans commutateur, vous pouvez migrer vers un cluster à deux nœuds avec des commutateurs réseau Cisco Nexus 3232C. Cette opération est sans interruption de service.
+Examinez les exigences relatives à la migration d'un cluster sans commutateur à deux nœuds vers un cluster commuté à l'aide des commutateurs de cluster Cisco Nexus 3232C.
 
 .Avant de commencer
 Vérifiez les installations et connexions suivantes :

@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-overview.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, netapp cn1610 
-summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer, sans interruption, vers un cluster commuté à deux nœuds comprenant des commutateurs de réseau de cluster NetApp CN1610.' 
+summary: 'Examinez les options de migration pour passer d"un cluster sans commutateur à deux nœuds à un cluster commuté utilisant les commutateurs de cluster NetApp CN1610.' 
 ---
-= Options de migration pour un cluster commuté à deux nœuds avec les commutateurs de cluster NetApp CN1610
+= Examinez les options de migration pour les commutateurs de cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un cluster à deux nœuds sans commutateur, vous pouvez migrer, sans interruption de service, vers un cluster à deux nœuds avec commutateurs réseau NetApp CN1610. La procédure que vous utilisez dépend du fait que vous disposez de deux ports réseau de cluster dédiés sur chaque contrôleur ou d'un seul port de cluster sur chaque contrôleur.
+Examinez les options de migration pour passer d'un cluster sans commutateur à deux nœuds à un cluster commuté utilisant les commutateurs de cluster NetApp CN1610. La procédure dépend du fait que vous disposiez de deux ports réseau dédiés au cluster ou d'un seul port de cluster sur chaque contrôleur.
 
 La plupart des systèmes nécessitent deux ports réseau dédiés au cluster sur chaque contrôleur.
 

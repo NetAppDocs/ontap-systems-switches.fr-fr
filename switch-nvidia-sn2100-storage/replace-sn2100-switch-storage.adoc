@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100-storage/replace-sn2100-switch-storage.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nvidia, switch, cluster, network, nondisruptive, procedure, ndu, replace a nvidia sn2100 cluster switch - nvidia SN2100 
-summary: 'Le remplacement d"un commutateur de stockage NVIDIA SN2100 défectueux est une procédure non perturbatrice.' 
+summary: 'Remplacez un commutateur de stockage NVIDIA SN2100 défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
 = Remplacer un commutateur de stockage NVIDIA SN2100
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Le remplacement d"un commutateur de stockage NVIDIA SN2100 défectueux
 
 
 [role="lead"]
-Vous pouvez remplacer un commutateur de stockage NVIDIA SN2100 défectueux. Il s’agit d’une procédure non perturbatrice.
+Remplacez un commutateur de stockage NVIDIA SN2100 défectueux sans interrompre le fonctionnement du réseau de stockage. Cette procédure sans interruption consiste à préparer un commutateur de remplacement et à rétablir la configuration du réseau de stockage.
 
 .Avant de commencer
 Avant d'installer le logiciel Cumulus et les RCF sur un commutateur de stockage NVIDIA SN2100, assurez-vous que :

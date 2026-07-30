@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/configure-overview-sn2100-storage.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Avant de configurer les commutateurs NVIDIA SN2100, consultez la présentation de la procédure. 
+summary: Suivez ce flux de travail pour installer et configurer les commutateurs de stockage NVIDIA SN2100 dans un environnement ONTAP. 
 ---
-= Flux de travail d'installation et de configuration pour les commutateurs NVIDIA SN2100
+= Flux de travail d'installation et de configuration des commutateurs de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le NVIDIA SN2100 est un commutateur Ethernet qui permet de transférer des données entre les contrôleurs et les baies de disques.
+Suivez cette procédure pour installer et configurer les commutateurs de stockage NVIDIA SN2100 dans un environnement ONTAP. Le commutateur de stockage SN2100 achemine les données entre les serveurs et les baies de stockage exécutant ONTAP.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs SN2100.
 

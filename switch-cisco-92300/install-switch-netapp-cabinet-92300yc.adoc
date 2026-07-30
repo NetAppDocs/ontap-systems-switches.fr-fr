@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/install-switch-netapp-cabinet-92300yc.html 
 sidebar: sidebar 
 keywords: install, cisco nexus, 92300yc cluster switch, pass-through panel, netapp cabinet 
-summary: 'Vous pouvez installer le commutateur Cisco Nexus 92300YC et le panneau de passage dans une armoire NetApp à l"aide des supports standard fournis avec le commutateur.' 
+summary: Installez un commutateur de cluster Cisco Nexus 92300YC et un panneau de passage dans une armoire NetApp en utilisant les supports standard fournis avec le commutateur. 
 ---
 = Installez un commutateur de cluster Cisco Nexus 92300YC dans une armoire NetApp
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Vous pouvez installer le commutateur Cisco Nexus 92300YC et le panneau
 
 
 [role="lead"]
-Selon votre configuration, vous devrez peut-être installer le commutateur de cluster Cisco Nexus 92300YC et le panneau de passage dans une armoire NetApp avec les supports standard fournis avec le commutateur.
+Installez un commutateur de cluster Cisco Nexus 92300YC et un panneau de passage dans une armoire NetApp en utilisant les supports standard fournis avec le commutateur.
 
 .Avant de commencer
 * Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité dans le link:https://www.cisco.com/site/us/en/products/networking/cloud-networking-switches/nexus-9200-series-switches/index.html["Guide d'installation matérielle de la gamme Cisco Nexus 9000"^].

@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/smart-call-9336c-storage.html 
 sidebar: sidebar 
 keywords: cisco smart call,small call home 
-summary: 'Smart Call Home surveille les composants matériels et logiciels de votre réseau afin de générer une notification par e-mail en cas de conditions système critiques.  Lorsqu"un événement se produit sur votre appareil, Smart Call Home envoie une alerte à tous les destinataires configurés dans votre profil de destination.' 
+summary: Consultez les exigences et les options de configuration de Smart Call Home pour les commutateurs de stockage Cisco Nexus 9336C-FX2. 
 ---
-= Exigences de Smart Call Home
+= Consultez les exigences de la fonctionnalité Smart Call Home pour les commutateurs de stockage Cisco Nexus 9336C-FX2.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.
+Consultez les exigences pour configurer Smart Call Home sur les commutateurs de stockage Cisco Nexus 9336C-FX2 afin d’activer les notifications par e-mail automatisées pour les événements système critiques.
 
 Le service Smart Call Home de Cisco surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, il génère une notification par e-mail et déclenche une alerte à tous les destinataires configurés dans votre profil de destination.
 

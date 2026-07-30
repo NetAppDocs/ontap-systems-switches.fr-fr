@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/install-complete-afx-setup-9364d.html 
 sidebar: sidebar 
 keywords: switches, complete system setup, Cisco Nexus, 9364D-GX2A switches, AFX 
-summary: Une fois que vous avez terminé les procédures de configuration du commutateur Cisco Nexus 9364D-GX2A, rendez-vous sur le site de documentation du système AFX pour mettre sous tension les baies de stockage et les contrôleurs de votre système AFX 1K ou AFX 2K, vérifier la connectivité du commutateur et terminer la configuration du système AFX. 
+summary: Terminez la configuration du système AFX 1K ou AFX 2K après avoir terminé la configuration du commutateur Cisco Nexus 9364D-GX2A. 
 ---
-= Finalisez la configuration du système AFX - Cisco Nexus 9364D-GX2A
+= Finalisez la configuration du système AFX pour le commutateur Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Une fois que vous avez terminé les procédures de configuration du commutateur Cisco Nexus 9364D-GX2A, rendez-vous sur le site de documentation du système AFX pour mettre sous tension les baies de stockage et les contrôleurs de votre système AFX 1K ou AFX 2K, vérifier la connectivité du commutateur et terminer la configuration du système AFX.
+Après avoir terminé la configuration du commutateur Cisco Nexus 9364D-GX2A, mettez sous tension les baies de stockage et les contrôleurs, vérifiez la connectivité du commutateur et terminez la configuration du système AFX 1K ou AFX 2K.
 
 .Avant de commencer
 * Vous devez avoir terminé les procédures de configuration du commutateur dans le link:configure-switch-workflow-9364d.html["configurer le workflow du commutateur"].

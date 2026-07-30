@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/required-documentation-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toute la documentation recommandée.' 
+summary: Consultez la documentation nécessaire pour installer et maintenir les commutateurs de stockage NVIDIA SN2100. 
 ---
-= Exigences en matière de documentation pour les commutateurs NVIDIA SN2100
+= Consultez les exigences de documentation relatives aux commutateurs de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation du commutateur NVIDIA SN2100, assurez-vous de consulter toute la documentation recommandée.
+Consultez la documentation relative aux commutateurs et aux contrôleurs requise pour configurer les commutateurs de stockage NVIDIA SN2100 et les intégrer dans un réseau de stockage ONTAP.
 
 Le tableau suivant répertorie la documentation disponible pour les commutateurs NVIDIA SN2100.
 

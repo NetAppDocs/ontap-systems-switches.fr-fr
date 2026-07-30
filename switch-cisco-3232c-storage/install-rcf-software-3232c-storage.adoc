@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/install-rcf-software-3232c-storage.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
-summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous générez d"abord les clés SSH, puis vous activez SSH.' 
+summary: 'Installez le fichier de configuration de référence (RCF) sur les commutateurs de stockage Cisco Nexus 3232C après la configuration initiale.' 
 ---
-= Installez le fichier de configuration de référence (RCF)
+= Installez le RCF sur les commutateurs de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois.
+Installez le fichier de configuration de référence (RCF) sur les commutateurs de stockage Cisco Nexus 3232C après la configuration initiale. Le RCF définit les affectations de ports et les paramètres réseau nécessaires au fonctionnement du réseau de stockage.
 
 .Avant de commencer
 Vérifiez les installations et connexions suivantes :

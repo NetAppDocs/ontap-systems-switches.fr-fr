@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/required-documentation-3232c-storage.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 3232C, assurez-vous de consulter toute la documentation recommandée.' 
+summary: 'Consultez la documentation nécessaire à l"installation et à la maintenance des commutateurs de stockage Cisco Nexus 3232C.' 
 ---
-= Exigences en matière de documentation pour les commutateurs de stockage Cisco Nexus 3232C
+= Consultez les exigences de documentation pour les commutateurs de stockage Cisco Nexus 3232C.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation du commutateur Cisco Nexus 3232C, assurez-vous de consulter toute la documentation recommandée.
+Consultez la documentation relative aux commutateurs et aux contrôleurs requise pour configurer les commutateurs de stockage Cisco Nexus 3232C et les intégrer dans un réseau de stockage ONTAP.
 
 
 

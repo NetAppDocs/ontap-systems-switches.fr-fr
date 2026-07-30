@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/setup_worksheet_3232c.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 3232C 
-summary: Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la fiche de câblage vierge en utilisant la fiche de câblage complétée comme guide. Chaque commutateur peut être configuré comme un port unique de 100 GbE, un port de 40 GbE ou 4 ports de 10 GbE. 
+summary: Remplissez la fiche de câblage pour les commutateurs de cluster Cisco Nexus 3232C afin de documenter les connexions de ports et les configurations de plateforme prises en charge. 
 ---
 = Complétez la fiche de câblage Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Si vous souhaitez documenter les plateformes prises en charge, vous dev
 
 
 [role="lead"]
-Si vous souhaitez documenter les plateformes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
+Remplissez la fiche de câblage pour les commutateurs de cluster Cisco Nexus 3232C afin de documenter les connexions de ports et les configurations de plateforme prises en charge.
 
 La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 

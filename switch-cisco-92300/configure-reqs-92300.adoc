@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/configure-reqs-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels. 
+summary: 'Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 92300YC avant l"installation ou la mise à niveau.' 
 ---
-= Exigences de configuration pour les commutateurs Cisco Nexus 92300YC
+= Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, assurez-vous de passer en revue toutes les exigences de configuration et de réseau.
+Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 92300YC avant l'installation ou la mise à niveau.
 
 Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels.
 

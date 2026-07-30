@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-prepare-to-migrate.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: 'Préparez-vous à migrer d"un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3232C.' 
 ---
-= Préparez la migration des clusters à deux nœuds sans commutateur vers des clusters à deux nœuds avec commutateur
+= Préparez-vous à migrer d'un cluster sans commutateur vers des commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour préparer votre cluster sans commutateur à deux nœuds en vue de sa migration vers un cluster commuté à deux nœuds incluant des commutateurs réseau de cluster Cisco Nexus 3232C.
+Préparez votre cluster sans commutateur à deux nœuds pour la migration vers un cluster commuté à l'aide des commutateurs de cluster Cisco Nexus 3232C.
 
 .Étapes
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :

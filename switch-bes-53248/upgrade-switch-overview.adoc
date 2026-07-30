@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/upgrade-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: Avant de configurer les commutateurs de cluster BES-53248, consultez un aperçu du processus et de la nomenclature. 
+summary: Suivez ce flux de travail pour mettre à niveau le logiciel EFOS et le RCF sur le commutateur de cluster Broadcom BES-53248. 
 ---
-= Flux de travail de mise à niveau pour les commutateurs de cluster BES-53248
+= Flux de travail de mise à niveau pour le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour mettre à niveau le logiciel EFOS et les fichiers de configuration de référence (RCF) sur les commutateurs de cluster Broadcom BES-54328, le cas échéant.
+Suivez ce flux de travail pour mettre à niveau le logiciel EFOS et le fichier de configuration (RCF) sur le commutateur de cluster Broadcom BES-53248.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:upgrade-efos-software.html["Mettez à jour votre version EFOS"]
 [role="quick-margin-para"]

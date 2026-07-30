@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-configuration-dat-storage.html 
 keywords:  
-summary:  
+summary: 'Migrez d"une configuration commutée avec stockage à connexion directe vers des commutateurs partagés Cisco Nexus 9336C-FX2 en ajoutant deux nouveaux commutateurs partagés.' 
 ---
-= Migrer depuis une configuration commutée avec stockage à connexion directe
+= Migrez d'une configuration commutée avec stockage à connexion directe vers des commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer depuis une configuration à commutation avec stockage à connexion directe en ajoutant deux nouveaux commutateurs partagés.
+Migrez d'une configuration commutée avec stockage à connexion directe vers des commutateurs partagés Cisco Nexus 9336C-FX2 en ajoutant deux nouveaux commutateurs partagés.
 
 .Commutateurs pris en charge
 Les commutateurs suivants sont pris en charge :

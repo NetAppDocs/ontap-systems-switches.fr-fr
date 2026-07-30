@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/install-switch-3232c-storage.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 3232c 
-summary: Suivez cette procédure pour installer le commutateur de stockage Cisco Nexus 3232C. 
+summary: Installez les commutateurs de stockage Cisco Nexus 3232C pour les préparer au fonctionnement du réseau de stockage. 
 ---
-= Installez le commutateur de stockage 3232C
+= Installez les commutateurs de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer et configurer le commutateur de stockage Cisco Nexus 3232C.
+Installez les commutateurs de stockage Cisco Nexus 3232C pour les préparer au fonctionnement du réseau de stockage.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

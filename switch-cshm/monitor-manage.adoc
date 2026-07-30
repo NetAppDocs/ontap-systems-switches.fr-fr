@@ -2,9 +2,9 @@
 permalink: switch-cshm/monitor-manage.html 
 sidebar: sidebar 
 keywords: create, remove, switch, cluster, monitor, health, management 
-summary: Apprenez à créer manuellement des commutateurs Ethernet, à modifier leurs paramètres de surveillance par défaut et à les supprimer de la surveillance. 
+summary: Ajoutez, configurez ou supprimez manuellement des commutateurs Ethernet de la surveillance CSHM, ou suspendez la surveillance pendant la maintenance. 
 ---
-= Gérer la surveillance des commutateurs Ethernet
+= Gérez le contrôle de l'état des commutateurs Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

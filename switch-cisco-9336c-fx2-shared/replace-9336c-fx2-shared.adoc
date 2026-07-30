@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/replace-9336c-fx2-shared.html 
 keywords:  
-summary:  
+summary: 'Remplacez un commutateur partagé Cisco Nexus 9336C-FX2 défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
 = Remplacer un commutateur partagé Cisco Nexus 9336C-FX2
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Vous pouvez remplacer un commutateur partagé Nexus 9336C-FX2 défectueux. Il s’agit d’une procédure non perturbatrice (NDU).
+Remplacez un commutateur partagé Cisco Nexus 9336C-FX2 défectueux sans interrompre le fonctionnement du cluster ou du réseau de stockage. Cette procédure sans interruption (NDU) consiste à préparer un commutateur de remplacement et à restaurer la configuration du commutateur partagé.
 
 .Avant de commencer
 Avant de procéder au remplacement de l'interrupteur, assurez-vous que :

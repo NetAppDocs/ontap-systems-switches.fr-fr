@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-install-upgrade-rcf-overview-9808.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
-summary: 'Vous pouvez installer ou mettre à niveau le fichier de configuration de référence (RCF) sur vos commutateurs Nexus 9808. Vous installez une version prise en charge du RCF sur les commutateurs dans le cadre de l"installation d"un nouveau système AFX 2K, du remplacement d"un module superviseur ou de la réinitialisation d"un commutateur aux paramètres d"usine par défaut. Vous mettez à niveau le RCF vers une version prise en charge sur les commutateurs afin de prendre en charge un nouveau matériel, une nouvelle version d"ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX 2K.' 
+summary: Installez ou mettez à niveau le RCF sur les commutateurs Cisco Nexus 9808 pour les installations de systèmes AFX 2K, les remplacements de modules superviseurs ou pour prendre en charge de nouveaux matériels ou des versions ONTAP. 
 ---
-= Installer ou mettre à niveau la vue d'ensemble du RCF - Cisco Nexus 9808
+= Découvrez comment installer ou mettre à niveau le RCF sur le commutateur Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez installer ou mettre à niveau le fichier de configuration de référence (RCF) sur vos commutateurs Cisco Nexus 9808. Vous installez une version prise en charge du RCF sur les commutateurs dans le cadre de l'installation d'un nouveau système AFX 2K, d'un remplacement de module superviseur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut. Vous mettez à niveau le RCF vers une version prise en charge sur les commutateurs afin de prendre en charge un nouveau matériel, une nouvelle version d'ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX.
+Installez ou mettez à niveau le fichier de configuration de référence (RCF) sur les commutateurs Cisco Nexus 9808. Installez un nouveau RCF pour les installations de systèmes AFX 2K ou les remplacements de modules superviseurs, ou mettez à niveau un RCF existant pour prendre en charge le nouveau matériel ou les nouvelles versions d'ONTAP.
 
 
 NOTE: L'installation ou la mise à niveau de RCF est indépendante de l'installation ou de la mise à niveau de NX-OS. Si vous installez ou mettez à niveau à la fois NX-OS et RCF, il est recommandé d'installer ou de mettre à niveau NX-OS en premier.

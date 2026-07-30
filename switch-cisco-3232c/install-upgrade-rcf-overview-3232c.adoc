@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-3232c/install-upgrade-rcf-overview-3232c.html 
 sidebar: sidebar 
-keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 3232c 
-summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232c, vous générez d"abord les clés SSH, puis vous activez SSH.' 
+keywords: rcf, install, upgrade, cluster switch, cisco nexus 3232c 
+summary: 'Installez ou mettez à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3232C après la configuration initiale ou lorsqu"une version plus récente est disponible.' 
 ---
-= Présentation de l'installation ou de la mise à niveau du fichier de configuration de référence (RCF)
+= Découvrez comment installer ou mettre à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 3232C pour la première fois. Vous mettez à niveau votre version du fichier RCF lorsque vous avez déjà une version existante du fichier RCF installée sur votre commutateur.
+Installez le fichier de configuration de référence (RCF) sur les commutateurs de cluster Cisco Nexus 3232C après la configuration initiale, ou mettez à niveau votre version de RCF lorsqu'une version plus récente est disponible.
 
 Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 

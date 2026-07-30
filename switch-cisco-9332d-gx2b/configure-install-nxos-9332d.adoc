@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-9332d-gx2b/configure-install-nxos-9332d.html 
 sidebar: sidebar 
-keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gc2b 
-summary: 'Vous installez le NX-OS sur votre ou vos commutateurs Cisco Nexus 9332D-GX2B dans le cadre d"une nouvelle installation de système AFX 1K ou AFX 2K, d"un remplacement de commutateur ou d"une réinitialisation du commutateur aux paramètres d"usine par défaut.' 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gx2b 
+summary: 'Installez NX-OS sur les commutateurs Cisco Nexus 9332D-GX2B pour les nouvelles installations de systèmes AFX 1K ou AFX 2K, les remplacements de commutateurs ou les réinitialisations aux paramètres d"usine.' 
 ---
-= Installez le système d'exploitation NX-OS - Cisco Nexus 9332D-GX2B
+= Installez NX-OS sur le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous installez le NX-OS sur votre ou vos commutateurs Cisco Nexus 9332D-GX2B dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, d'un remplacement de commutateur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut.
+Installez NX-OS sur les commutateurs Cisco Nexus 9332D-GX2B pour les nouvelles installations de systèmes AFX 1K ou AFX 2K, les remplacements de commutateurs ou lors de la réinitialisation d’un commutateur aux paramètres d’usine par défaut.
 
 .Avant de commencer
 * Le ou les commutateurs doivent être sous tension et vous devez avoir terminé la procédure link:configure-complete-initial-setup-9332d.html["Effectuez la configuration initiale du commutateur"].

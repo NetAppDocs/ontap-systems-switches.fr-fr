@@ -2,16 +2,16 @@
 permalink: switch-cisco-9364d-gx2a/configure-upgrade-nxos-9364d.html 
 sidebar: sidebar 
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9364d-gx2a 
-summary: 'Vous mettez à niveau le NX-OS de vos commutateurs Cisco Nexus 9364D-GX2A pour prendre en charge un nouveau matériel ou une nouvelle version d"ONTAP sur votre système AFX 1K ou AFX 2K.' 
+summary: 'Mettez à niveau le NX-OS sur les commutateurs Cisco Nexus 9364D-GX2A pour prendre en charge un nouveau matériel ou une nouvelle version d"ONTAP sur les systèmes AFX 1K ou AFX 2K.' 
 ---
-= Mettez à niveau le NX-OS - Cisco Nexus 9364D-GX2A
+= Mettez à niveau NX-OS sur le commutateur Cisco Nexus 9364D-GX2A
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous mettez à niveau le NX-OS de vos commutateurs Cisco Nexus 9364D-GX2A pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur votre système AFX 1K ou AFX 2K.
+Mettez à niveau le NX-OS sur les commutateurs Cisco Nexus 9364D-GX2A pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur les systèmes AFX 1K ou AFX 2K.
 
 
 NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.

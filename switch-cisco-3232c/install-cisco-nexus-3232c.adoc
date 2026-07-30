@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/install-cisco-nexus-3232c.html 
 sidebar: sidebar 
 keywords: install, cisco nexus, 3232c cluster switch, pass-through panel, netapp cabinet 
-summary: 'Vous pouvez installer le commutateur Cisco Nexus 3232C et le panneau de passage dans une armoire NetApp à l"aide des supports standard fournis avec le commutateur.' 
+summary: Installez un commutateur de cluster Cisco Nexus 3232C et un panneau de passage dans une armoire NetApp en utilisant les supports standard fournis avec le commutateur. 
 ---
 = Installez un commutateur de cluster Cisco Nexus 3232C dans une armoire NetApp
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Vous pouvez installer le commutateur Cisco Nexus 3232C et le panneau d
 
 
 [role="lead"]
-Selon votre configuration, vous devrez peut-être installer le commutateur de cluster Cisco Nexus 3232C et le panneau de passage dans une NetApp armoire avec les supports standard fournis avec le commutateur.
+Installez un commutateur de cluster Cisco Nexus 3232C et un panneau de passage dans une armoire NetApp en utilisant les supports standard fournis avec le commutateur.
 
 .Avant de commencer
 * Les exigences de préparation initiale, le contenu du kit et les précautions de sécurité dans le link:http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus3000/hw/installation/guide/b_n3000_hardware_install_guide.html["Guide d'installation matérielle Cisco Nexus 3000 Series"^].

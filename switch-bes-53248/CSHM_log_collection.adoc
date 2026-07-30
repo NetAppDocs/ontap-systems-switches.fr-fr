@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/CSHM_log_collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation,BES-53248 Broadcom setup,BES-53248 switches configuration,EFOS 
-summary: 'La fonction de contrôle de l"état de la collecte des journaux CSHM (Surveillance de l"état des commutateurs Ethernet) est utilisée pour collecter les journaux des commutateurs de réseau de cluster ou de stockage dans ONTAP.' 
+summary: Configurez la collecte des journaux sur le commutateur de cluster Broadcom BES-53248 pour permettre à CSHM de collecter les journaux du commutateur à des fins de débogage et de rapport AutoSupport. 
 ---
-= Collecte des journaux de surveillance de l'état des commutateurs Ethernet
+= Configurer la collecte des journaux pour le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le moniteur d'intégrité des commutateurs Ethernet (CSHM) est responsable de garantir l'intégrité opérationnelle des commutateurs réseau de cluster et de stockage et de collecter les journaux de commutation à des fins de débogage.  Cette procédure vous guide tout au long du processus de configuration et de démarrage de la collecte de journaux *Support* détaillés à partir du commutateur et lance une collecte horaire de données *Périodiques* collectées par AutoSupport.
+Configurez la collecte des journaux sur le commutateur de cluster Broadcom BES-53248 afin de permettre au contrôle de l'état du commutateur Ethernet (CSHM) de collecter les journaux du commutateur à des fins de débogage et de génération de rapports AutoSupport. Cette procédure configure à la fois la collecte des journaux d'assistance à la demande et la collecte périodique de données toutes les heures.
 
 .Avant de commencer
 * Pour activer la fonction de collecte des journaux, vous devez exécuter ONTAP version 9.10.1P15, 9.11.1P12 ou 9.12.1 ou ultérieure et EFOS 3.8.0.2 ou ultérieure.

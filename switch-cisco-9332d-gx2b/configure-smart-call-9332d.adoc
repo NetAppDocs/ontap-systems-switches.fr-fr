@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-9332d-gx2b/configure-smart-call-9332d.html 
 sidebar: sidebar 
-keywords: cisco smart call,small call home 
-summary: Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco. 
+keywords: cisco smart call,smart call home 
+summary: 'Configurez Smart Call Home sur les commutateurs Cisco Nexus 9332D-GX2B pour activer les notifications par e-mail automatisées en cas d"événements système critiques.' 
 ---
-= Configurer Smart Call Home - Cisco Nexus 9332D-GX2B
+= Configurer Smart Call Home pour le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.
+Configurez Smart Call Home sur les commutateurs Cisco Nexus 9332D-GX2B pour activer les notifications par e-mail automatisées en cas d'événements système critiques.
 
 Le service Smart Call Home de Cisco surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, il génère une notification par e-mail et déclenche une alerte à tous les destinataires configurés dans votre profil de destination.
 

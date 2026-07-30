@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/components-bes53248.html 
 sidebar: sidebar 
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
-summary: 'Pour l"installation et la maintenance du commutateur BES-53248, assurez-vous de consulter la liste des composants et des numéros de pièces.' 
+summary: 'Identifiez les composants et les numéros de pièces du commutateur de cluster Broadcom BES-53248 pour prendre en charge l"installation matérielle et la maintenance continue.' 
 ---
-= Composants et références des commutateurs de groupe BES-53248
+= Découvrez les composants et les références du commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur BES-53248, assurez-vous de consulter la liste des composants et des numéros de pièces.
+Identifiez les composants et les numéros de pièces du commutateur de cluster Broadcom BES-53248 pour prendre en charge l'installation matérielle et la maintenance continue.
 
 Le tableau suivant répertorie le numéro de pièce, la description et les versions minimales EFOS et ONTAP des composants du commutateur de cluster BES-53248, y compris les détails du kit de montage en rack.
 

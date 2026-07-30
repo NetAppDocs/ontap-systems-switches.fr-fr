@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/install-nx-os-software-3232c.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3232C. 
+summary: Installez le logiciel NX-OS sur les commutateurs de cluster Cisco Nexus 3232C pour les préparer au fonctionnement en cluster. 
 ---
-= Installez le logiciel NX-OS
+= Installez le logiciel NX-OS sur les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 3232C.
+Installez le logiciel NX-OS sur les commutateurs de cluster Cisco Nexus 3232C pour les préparer au fonctionnement en cluster.
 
 
 

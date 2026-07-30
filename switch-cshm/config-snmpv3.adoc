@@ -2,16 +2,16 @@
 permalink: switch-cshm/config-snmpv3.html 
 sidebar: sidebar 
 keywords: cshm, configure, snmpv3, switch logs, debugging, collection 
-summary: 'Vous pouvez utiliser cette procédure pour configurer SNMPv3 pour votre commutateur spécifique, qui prend en charge le contrôle de l"état des commutateurs Ethernet CSHM.' 
+summary: 'Configurez SNMPv3 sur vos commutateurs réseau pour permettre une communication sécurisée avec le contrôle de l"état du commutateur Ethernet (CSHM).' 
 ---
-= Configurez SNMPv3 pour votre commutateur (facultatif)
+= Configurer SNMPv3 pour le contrôle de l'état du commutateur Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le protocole SNMP est utilisé pour surveiller les commutateurs.  La surveillance par SNMPv3 est configurée en suivant cette procédure.
+Configurez SNMPv3 sur vos commutateurs réseau pour activer une communication sécurisée et authentifiée avec le contrôle de l'état du commutateur Ethernet (CSHM). SNMPv3 permet l'interrogation chiffrée de l'état des commutateurs pour la surveillance de l'état dans ONTAP.
 
 Le CSHM (Ethernet Switch Health Monitor) utilise SNMP pour surveiller l'état et les performances des commutateurs réseau. Par défaut, SNMPv2c est configuré automatiquement via le Reference Configuration File (RCF). SNMPv3 est plus sécurisé que SNMPv2 car il introduit des fonctionnalités de sécurité robustes telles que l'authentification, le chiffrement et l'intégrité des messages, qui protègent contre les accès non autorisés et garantissent la confidentialité et l'intégrité des données lors de leur transmission.
 

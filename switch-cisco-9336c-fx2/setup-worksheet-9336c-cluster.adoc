@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/setup-worksheet-9336c-cluster.html 
 sidebar: sidebar 
 keywords: document, support, platform, complete, blank, cabling, worksheet, guide, cisco, nexus, cisco nexus 9336c-fx2 cabling worksheet - cisco nexus 9336-fx2-t 
-summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en utilisant comme guide l"exemple de feuille de câblage remplie.' 
+summary: Remplissez la feuille de câblage pour les commutateurs de cluster Cisco Nexus 9336C-FX2 ou 9336C-FX2-T afin de documenter les connexions de ports et les configurations de plateforme prises en charge. 
 ---
 = Complétez la fiche de câblage Cisco Nexus 9336C-FX2 ou 9336C-FX2-T
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous de
 
 
 [role="lead"]
-Si vous souhaitez documenter les plateformes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
+Remplissez la feuille de câblage pour les commutateurs de cluster Cisco Nexus 9336C-FX2 ou 9336C-FX2-T afin de documenter les connexions de ports et les configurations de plateforme prises en charge.
 
 La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 

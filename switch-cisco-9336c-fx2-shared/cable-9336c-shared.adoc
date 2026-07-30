@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/cable-9336c-shared.html 
 keywords: shared storage cluster switch cable 
-summary: Utilisez les schémas de câblage pour réaliser le câblage entre les contrôleurs et les commutateurs. 
+summary: Remplissez la fiche de câblage pour les commutateurs partagés Cisco Nexus 9336C-FX2 afin de documenter les connexions de ports entre les contrôleurs et les commutateurs. 
 ---
-= Complétez la fiche de câblage Cisco Nexus 9336C-FX2
+= Complétez la feuille de travail de câblage du commutateur partagé Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Utilisez les schémas de câblage pour réaliser le câblage entre les 
 
 
 [role="lead"]
-Utilisez les schémas de câblage suivants pour réaliser le câblage entre les contrôleurs et les commutateurs.
+Complétez la fiche de câblage pour les commutateurs partagés Cisco Nexus 9336C-FX2 en utilisant les images de câblage pour documenter les connexions de ports entre les contrôleurs et les commutateurs.
 
 
 

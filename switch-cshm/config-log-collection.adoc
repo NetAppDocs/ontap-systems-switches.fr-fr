@@ -2,50 +2,41 @@
 permalink: switch-cshm/config-log-collection.html 
 sidebar: sidebar 
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
-summary: 'La fonction de contrôle de l"état de la collecte des journaux CSHM (Surveillance de l"état des commutateurs Ethernet) est utilisée pour collecter les journaux des commutateurs de réseau de cluster ou de stockage dans ONTAP.' 
+summary: Configurez la collecte des journaux pour permettre à CSHM de collecter les journaux et les données de diagnostic des commutateurs du cluster et du réseau de stockage. 
 ---
-= Configurer la collecte des journaux
+= Configurer la collecte des journaux pour le contrôle de l'état du commutateur Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le contrôle de l'état du commutateur Ethernet (CSHM) est chargé de garantir le bon fonctionnement des commutateurs réseau et de collecter les journaux des commutateurs à des fins de débogage. Cette procédure vous guide tout au long du processus de configuration de la collecte, de la demande de journaux *Support* détaillés et de l'activation d'une collecte horaire des données *Periodic* qui sont collectées par AutoSupport.
+Configurez la collecte des journaux sur vos commutateurs Ethernet pour permettre au contrôle de l'état (CSHM) de collecter les journaux des commutateurs à des fins de débogage et de génération de rapports AutoSupport. Cette procédure configure à la fois la collecte des journaux de support à la demande et la collecte périodique horaire de données dans ONTAP.
 
-*REMARQUE :* Si vous activez le mode FIPS, vous devez effectuer les opérations suivantes :
-
-[NOTE]
-====
-. Régénérez les clés SSH sur le commutateur en suivant les instructions du fournisseur.
-. Régénérer les clés SSH dans ONTAP à l'aide de `debug system regenerate-systemshell-key-pair`
-. Réexécutez la routine de configuration de la collecte des journaux en utilisant `system switch ethernet log setup-password` commande
-
-
-====
+.Avant de commencer
+* Si vous utilisez le mode FIPS, effectuez les opérations suivantes avant de configurer la collecte des journaux :
++
+.. Régénérez les clés SSH sur le commutateur en suivant les instructions du fournisseur.
+.. Régénérez les clés SSH dans ONTAP à l'aide de `debug system regenerate-systemshell-key-pair`.
+.. Relancez la configuration de la collecte des journaux à l'aide de la commande  `system switch ethernet log setup-password`.
 
 
-[[before-you-begin]]
-== Avant de commencer
-
-* L'utilisateur doit avoir accès à l'interrupteur `show` commandes.  Si ces éléments ne sont pas disponibles, créez un nouvel utilisateur et accordez-lui les autorisations nécessaires.
-* La surveillance de l'état du commutateur doit être activée pour celui-ci.  Vérifiez cela en vous assurant que `Is Monitored:` Le champ est défini sur *vrai* dans la sortie de `system switch ethernet show` commande.
+* Vous devez avoir accès aux commandes du switch `show`. Si ce n'est pas le cas, créez un nouvel utilisateur du switch et accordez-lui les privilèges nécessaires.
+* La surveillance de l'état du commutateur doit être activée. Vérifiez en vous assurant que le champ  `Is Monitored:` est défini sur *true* dans le résultat de  `system switch ethernet show`.
 * Pour la collecte des journaux avec les commutateurs Broadcom et Cisco :
 +
 ** L'utilisateur local doit disposer de privilèges d'administrateur réseau.
-** Un nouvel utilisateur doit être créé sur le commutateur pour chaque configuration de cluster avec collecte de journaux activée.  Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour un même utilisateur.  Toute configuration supplémentaire de collecte de journaux effectuée écrase toutes les clés SSH préexistantes de l'utilisateur.
+** Créez un nouvel utilisateur de commutateur pour chaque cluster avec la collecte des journaux activée. Ces commutateurs ne prennent pas en charge plusieurs clés SSH pour un même utilisateur, une nouvelle exécution de la configuration écrase la clé SSH existante.
 
 
-* Pour la collecte des journaux de support avec les commutateurs NVIDIA , l'utilisateur chargé de la collecte des journaux doit être autorisé à exécuter le programme. `cl-support` commander sans avoir à fournir de mot de passe.  Pour autoriser cette utilisation, exécutez la commande :
+* Pour la collecte des journaux d'assistance avec les commutateurs NVIDIA, l'utilisateur chargé de la collecte doit pouvoir exécuter la commande  `cl-support` sans mot de passe. Pour ce faire, exécutez :
 +
 `echo '_<user>_ ALL = NOPASSWD: /usr/cumulus/bin/cl-support' | sudo EDITOR='tee -a' visudo -f /etc/sudoers.d/cumulus`
 
 
 
-
-
-[[steps]]
-== Étapes
+.Étapes
+Suivez les étapes correspondant à votre version d'ONTAP pour configurer la collecte des journaux, activer la collecte de données périodique et, éventuellement, demander des journaux d'assistance à la demande.
 
 [role="tabbed-block"]
 ====

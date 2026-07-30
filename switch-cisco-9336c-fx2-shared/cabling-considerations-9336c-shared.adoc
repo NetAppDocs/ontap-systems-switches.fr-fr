@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-shared/cabling-considerations-9336c-shared.html 
 sidebar: sidebar 
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les informations suivantes. 
+summary: Examinez les considérations relatives au câblage et à la configuration du commutateur partagé Cisco Nexus 9336C-FX2 avant le déploiement. 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration pour le commutateur partagé Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer vos 9336C-FX2 et 9336C-FX2-T, examinez les exigences de câblage et de configuration.
+Examinez les considérations relatives au câblage et à la configuration du commutateur partagé Cisco Nexus 9336C-FX2 avant le déploiement.
 
 
 

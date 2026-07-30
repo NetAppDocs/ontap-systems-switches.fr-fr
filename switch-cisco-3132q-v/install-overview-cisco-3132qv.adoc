@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/install-overview-cisco-3132qv.html 
 sidebar: sidebar 
 keywords: install, Cisco Nexus 3132Q-V 
-summary: Avant de configurer les commutateurs Cisco Nexus 3132Q-V, consultez un aperçu du processus et de la nomenclature. 
+summary: Suivez ce flux de travail pour installer et configurer les commutateurs de cluster Cisco Nexus 3132Q-V dans un environnement ONTAP. 
 ---
-= Flux de travail d'installation et de configuration des commutateurs Cisco Nexus 3132Q-V
+= Flux de travail d'installation et de configuration des commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Les commutateurs Cisco Nexus 3132Q-V peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP comportant plus de deux nœuds.
+Suivez cette procédure pour installer et configurer les commutateurs de cluster Cisco Nexus 3132Q-V dans un environnement ONTAP. Le 3132Q-V prend en charge les clusters ONTAP comportant plus de deux nœuds.
 
 Suivez ces étapes de flux de travail pour installer et configurer votre commutateur Cisco Nexus 3132Q-V.
 

@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c/replace-cluster-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3232c, cluster switch 
-summary: Vous pouvez remplacer sans interruption un commutateur Cisco Nexus 3232C défectueux dans un cluster en effectuant une séquence de tâches spécifique. 
+summary: 'Remplacez un commutateur de cluster Cisco Nexus 3232C défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
 = Remplacez un commutateur de cluster Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Vous pouvez remplacer sans interruption un commutateur Cisco Nexus 3232
 
 
 [role="lead"]
-Suivez ces étapes pour remplacer un commutateur Cisco Nexus 3232C défectueux dans un cluster. Cette procédure est sans interruption de service.
+Remplacez un commutateur de cluster Cisco Nexus 3232C défectueux sans interrompre le fonctionnement du cluster. Cette procédure non disruptive consiste à préparer un commutateur de remplacement et à migrer les connexions depuis le commutateur défaillant.
 
 
 

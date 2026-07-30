@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-switched-netapp-cn1610.html 
 sidebar: sidebar 
 keywords: migrate, switchless cluster environment, switched netapp cn1610 
-summary: 'Si vous disposez d"un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds en utilisant des commutateurs réseau de cluster CN1610 qui vous permettent d"évoluer au-delà de deux nœuds.' 
+summary: 'Migrez d"un cluster à deux nœuds sans commutateur vers un environnement de cluster commuté à l"aide des commutateurs de cluster NetApp CN1610.' 
 ---
-= Migrez d'un environnement de cluster sans commutateur vers un environnement de cluster NetApp CN1610 commuté
+= Migrez d'un cluster sans commutateur vers un environnement de cluster NetApp CN1610 commuté
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds en utilisant des commutateurs réseau de cluster CN1610 qui vous permettent d'évoluer au-delà de deux nœuds.
+Migrez d'un environnement de cluster sans commutateur à deux nœuds vers un environnement de cluster commuté à l'aide des commutateurs de cluster NetApp CN1610. Cette migration vous permet d'étendre le cluster au-delà de deux nœuds.
 
 
 

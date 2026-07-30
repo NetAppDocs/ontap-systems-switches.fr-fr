@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/migrate-switchless-complete-migration.html 
 sidebar: sidebar 
 keywords: cisco 3132q-v, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3132q-v comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: 'Finalisez la migration d"un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3132Q-V.' 
 ---
-= Finalisez la migration des clusters à deux nœuds sans commutateur vers des clusters à deux nœuds avec commutateur
+= Finalisez la migration d'un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour mener à bien la migration des clusters sans commutateur vers des clusters commutés à deux nœuds.
+Terminez les dernières étapes pour migrer d'un cluster sans commutateur à deux nœuds vers un cluster commuté à deux nœuds à l'aide des commutateurs de cluster Cisco Nexus 3132Q-V.
 
 .Étapes
 . Afficher les numéros de port du commutateur de cluster auxquels chaque port de cluster est connecté sur chaque nœud :

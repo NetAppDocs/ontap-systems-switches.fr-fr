@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9332d-gx2b/install-prepare-9332d.html 
 keywords: shared storage cluster switch 
-summary: Avant d’installer des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d’une nouvelle installation de système AFX 1K ou AFX 2K, vous devez comprendre les aspects du commutateur et de son installation en consultant la documentation applicable du commutateur Cisco et la documentation des systèmes ONTAP, en comprenant les versions RCF prises en charge pour les systèmes AFX et en envisageant l’utilisation de Smart Call Home. 
+summary: 'Préparez-vous à installer des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d"un nouveau système AFX 1K ou AFX 2K en consultant la documentation du commutateur, les versions RCF prises en charge et les exigences Smart Call Home.' 
 ---
-= Préparez-vous à installer les commutateurs - Cisco Nexus 9332D-GX2B
+= Préparez-vous à installer des commutateurs Cisco Nexus 9332D-GX2B dans un système AFX
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Avant d’installer des commutateurs Cisco Nexus 9332D-GX2B dans le cad
 
 
 [role="lead"]
-Avant d’installer des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d’une nouvelle installation de système AFX 1K ou AFX 2K, vous devez comprendre les aspects du commutateur et de son installation en consultant la documentation applicable du commutateur Cisco et la documentation des systèmes ONTAP, en comprenant les versions RCF prises en charge pour les systèmes AFX et en envisageant l’utilisation de Smart Call Home.
+Préparez-vous à installer des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d’un nouveau système AFX 1K ou AFX 2K en consultant la documentation applicable du commutateur Cisco, en comprenant les versions RCF prises en charge et en tenant compte de la configuration Smart Call Home.
 
 
 

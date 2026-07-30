@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/cabling-considerations-3232c-storage.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 3232C, consultez les informations suivantes. 
+summary: Examinez les considérations relatives au câblage et à la configuration des commutateurs de stockage Cisco Nexus 3232C avant le déploiement. 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration des commutateurs de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer vos commutateurs 3232C, examinez les exigences de câblage et de configuration.
+Examinez les considérations relatives au câblage et à la configuration des commutateurs de stockage Cisco Nexus 3232C avant le déploiement.
 
 
 

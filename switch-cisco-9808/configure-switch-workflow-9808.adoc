@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-switch-workflow-9808.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9808 switch 
-summary: 'Vous configurez les commutateurs Cisco 9808 dans le cadre d"une nouvelle installation du système AFX 2K, d"un remplacement de module superviseur ou d"une réinitialisation du commutateur aux paramètres d"usine par défaut.' 
+summary: 'Suivez ce flux de travail pour configurer les commutateurs Cisco Nexus 9808 pour les installations de systèmes AFX 2K, les remplacements de modules superviseurs ou les réinitialisations aux paramètres d"usine.' 
 ---
-= Configurer le workflow du commutateur - Cisco Nexus 9808
+= Flux de configuration pour les commutateurs Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous configurez les commutateurs Cisco Nexus 9808 dans le cadre d'une nouvelle installation de système AFX 2K, d'un remplacement de module superviseur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut.
+Suivez ce flux de travail pour configurer les commutateurs Cisco Nexus 9808 pour les installations de systèmes AFX 2K, les remplacements de modules superviseurs ou lors de la réinitialisation d'un commutateur aux paramètres d'usine par défaut.
 
 Vous pourriez être dirigé vers ce flux de travail ou vers des sujets individuels de ce flux de travail selon les besoins lorsque vous link:install-configure-switches-in-afx-workflow-9808.html["Installer et configurer un nouveau système AFX 2K"], link:maintain-replace-frus-9808.html["Remplacez les FRU"], ou link:maintain-reset-switch-9808.html["Réinitialiser un commutateur aux paramètres d'usine par défaut"].
 

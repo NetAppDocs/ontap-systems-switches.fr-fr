@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/cabling-considerations-bes53248.html 
 sidebar: sidebar 
 keywords: BES-53248 cabling setup, BES-53248 switches configuration, efos 
-summary: Avant de configurer votre commutateur Broadcom BES-53248, veuillez consulter les informations suivantes. 
+summary: 'Comprenez les contraintes de câblage et de configuration du commutateur de cluster Broadcom BES-53248 avant le déploiement, y compris l"affectation des ports de cluster, les contraintes de vitesse des groupes de ports et les paramètres FEC.' 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration pour le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer votre commutateur Broadcom BES-53248, veuillez prendre en compte les considérations suivantes.
+Comprenez les contraintes de câblage et de configuration du commutateur de cluster Broadcom BES-53248 avant le déploiement. Les points clés à prendre en compte incluent l'affectation des ports du cluster, les contraintes de vitesse des groupes de ports et les paramètres de correction d'erreurs directes (FEC) pour les connexions cuivre et fibre 25G.
 
 
 

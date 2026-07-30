@@ -2,14 +2,14 @@
 permalink: switch-cisco-3232c/reset-switch-3232c.html 
 sidebar: sidebar 
 keywords: 3232C reset switch to factory defaults, 3232C switches configuration, efos 
-summary: Avant de configurer votre commutateur Cisco Nexus 3232C, consultez les informations suivantes. 
+summary: 'Réinitialisez le commutateur de cluster Cisco Nexus 3232C aux paramètres d"usine en effaçant la configuration actuelle du commutateur.' 
 ---
-= Réinitialisez le commutateur de cluster 3232C aux paramètres d'usine
+= Réinitialisez le commutateur de cluster Cisco Nexus 3232C aux paramètres d'usine
 :allow-uri-read: 
 
 
 [role="lead"]
-Pour réinitialiser le commutateur de cluster 3232C aux paramètres d'usine, vous devez effacer les paramètres du commutateur 3232C.
+Réinitialisez le commutateur de cluster Cisco Nexus 3232C aux paramètres d'usine en effaçant la configuration actuelle du commutateur et en restaurant le commutateur à ses paramètres d'origine.
 
 .À propos de cette tâche
 * Vous devez être connecté au commutateur via la console série.

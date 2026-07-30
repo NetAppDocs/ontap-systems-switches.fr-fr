@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/install-switches-9332d.html 
 sidebar: sidebar 
 keywords: switches, hardware installation, Cisco Nexus, 9332D-GX2B switches 
-summary: 'L"installation des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d"une nouvelle installation de système AFX 1K ou AFX 2K comprend l"installation des commutateurs dans un rack ou une armoire, leur câblage aux contrôleurs et aux tiroirs du système, puis leur mise sous tension.' 
+summary: Installez les commutateurs Cisco Nexus 9332D-GX2B dans le cadre d’un nouveau système AFX 1K ou AFX 2K, y compris le montage en rack, le câblage vers les contrôleurs et les étagères, ainsi que la mise sous tension. 
 ---
-= Installez les commutateurs - Cisco Nexus 9332D-GX2B
+= Installez des commutateurs Cisco Nexus 9332D-GX2B dans un système AFX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-L'installation des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K comprend l'installation des commutateurs dans un rack ou une armoire, leur câblage aux contrôleurs et aux tiroirs du système, puis leur mise sous tension.
+Installez les commutateurs Cisco Nexus 9332D-GX2B dans le cadre d'un nouveau système AFX 1K ou AFX 2K. Cela comprend l'installation des commutateurs dans une baie ou une armoire, leur câblage aux contrôleurs système et aux étagères, ainsi que leur mise sous tension.
 
 .Avant de commencer
 Vous devez avoir terminé les étapes de préparation du changement dans link:install-prepare-9332d.html["Préparez-vous à installer les commutateurs"].

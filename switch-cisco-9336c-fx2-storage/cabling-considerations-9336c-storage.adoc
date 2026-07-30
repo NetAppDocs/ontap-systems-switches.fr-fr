@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/cabling-considerations-9336c-storage.html 
 sidebar: sidebar 
 keywords: 9336c-fx2 cabling setup, 9336c-fx2 switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 9336C-FX2, consultez les informations suivantes. 
+summary: Examinez les considérations relatives au câblage et à la configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T avant le déploiement. 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer vos 9336C-FX2 et 9336C-FX2-T, examinez les exigences de câblage et de configuration.
+Examinez les considérations relatives au câblage et à la configuration pour les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T avant le déploiement.
 
 
 

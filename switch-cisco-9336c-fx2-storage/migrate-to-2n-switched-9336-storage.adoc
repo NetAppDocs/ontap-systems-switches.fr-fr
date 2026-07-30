@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/migrate-to-2n-switched-9336-storage.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched 9336C-FX2 cluster environment,switchless cluster environments,9336C-FX2 switches 
-summary: 'Si vous disposez déjà d"un environnement de cluster sans commutateur à deux nœuds, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds à l"aide de commutateurs Cisco Nexus 9336C-FX2 pour vous permettre d"évoluer au-delà de deux nœuds dans le cluster.' 
+summary: Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté en utilisant les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T. 
 ---
-= Migration vers un cluster commuté à deux nœuds
+= Migrez vers un cluster commuté à deux nœuds à l'aide des commutateurs de stockage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un environnement de cluster _sans_commutateur_ à deux nœuds existant, vous pouvez migrer vers un environnement de cluster _commuté_ à deux nœuds en utilisant des commutateurs Cisco Nexus 9336C-FX2 pour vous permettre d'évoluer au-delà de deux nœuds dans le cluster.
+Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté à l'aide des commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T. Cette migration sans interruption de service vous permet d'étendre le cluster au-delà de deux nœuds.
 
 Le processus de migration fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10Gb BASE-T intégrés pour les ports du réseau de cluster.
 

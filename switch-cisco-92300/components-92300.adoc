@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/components-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels. 
+summary: 'Identifiez les composants et les numéros de référence des commutateurs de cluster Cisco Nexus 92300YC pour prendre en charge l"installation matérielle et la maintenance continue.' 
 ---
-= Composants et références des commutateurs Cisco Nexus 92300YC
+= Passez en revue les composants et les références des commutateurs de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 92300YC, assurez-vous de vérifier tous les composants du commutateur et les numéros de référence. Consultez la link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour plus de détails. Reportez-vous à link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation du commutateur.
+Identifiez les composants et les références des commutateurs de cluster Cisco Nexus 92300YC pour prendre en charge l'installation matérielle et la maintenance continue. Reportez-vous à link:https://hwu.netapp.com/SWITCH/INDEX["Hardware Universe"^] pour plus de détails. Reportez-vous à link:https://kb.netapp.com/Support/General_Support/What_additional_information_do_I_need_to_install_my_equipment_that_is_not_in_HWU["De quelles informations supplémentaires ai-je besoin pour installer mon équipement qui ne figure pas dans HWU ?"^] pour plus d'informations sur les exigences d'installation des commutateurs.
 
 Le tableau suivant répertorie la référence et la description du commutateur 92300YC, des ventilateurs et des alimentations :
 

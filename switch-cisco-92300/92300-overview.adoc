@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/92300-overview.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels. 
+summary: Découvrez les commutateurs de cluster Cisco Nexus 92300YC et leur rôle dans la mise en réseau de cluster ONTAP. 
 ---
-= Présentation du commutateur Cisco Nexus 92300YC
+= Découvrez le commutateur Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels.
+Le Cisco Nexus 92300YC est un commutateur de cluster pour les environnements ONTAP comportant plus de deux nœuds. Examinez les fonctionnalités et les cas d'utilisation de ce commutateur avant de le déployer dans votre cluster.
 
 Vous pouvez installer le commutateur Cisco Nexus 92300YC (X190003/R) dans une armoire système NetApp ou une armoire tierce avec les supports standard fournis avec le commutateur.
 

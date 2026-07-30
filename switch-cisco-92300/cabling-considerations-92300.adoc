@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/cabling-considerations-92300.html 
 sidebar: sidebar 
 keywords: 92300YC cabling setup, 92300YC switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 92300YC, consultez les informations suivantes. 
+summary: Examinez les considérations relatives au câblage et à la configuration des commutateurs de cluster Cisco Nexus 92300YC avant le déploiement. 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration pour les commutateurs de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer votre commutateur Cisco 92300YC, veuillez prendre en compte les considérations suivantes.
+Examinez les considérations relatives au câblage et à la configuration des commutateurs de cluster Cisco Nexus 92300YC avant le déploiement.
 
 
 

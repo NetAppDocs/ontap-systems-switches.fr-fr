@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/cabling-considerations-3132q-v.html 
 sidebar: sidebar 
 keywords: 3132Q-V cabling setup, 3132Q-V switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 3132Q-V, consultez les informations suivantes. 
+summary: Examinez les considérations relatives au câblage et à la configuration des commutateurs de cluster Cisco Nexus 3132Q-V avant le déploiement. 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration pour les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer votre commutateur Cisco 3132Q-V, veuillez prendre en compte les considérations suivantes.
+Examinez les considérations relatives au câblage et à la configuration des commutateurs de cluster Cisco Nexus 3132Q-V avant le déploiement.
 
 
 

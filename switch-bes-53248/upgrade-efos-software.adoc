@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/upgrade-efos-software.html 
 sidebar: sidebar 
 keywords: BES-53248 cluster switches,upgrading EFOS software 
-summary: Suivez ces étapes pour mettre à niveau le logiciel Ethernet Fabric OS EFOS sur le commutateur de cluster BES-53248. 
+summary: 'Mettez à niveau le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster Broadcom BES-53248 pour maintenir la compatibilité avec ONTAP.' 
 ---
-= Mettez à jour le logiciel EFOS
+= Mise à niveau du logiciel EFOS sur le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour mettre à niveau le logiciel EFOS sur le commutateur de cluster BES-53248.
+Mettez à niveau le logiciel Ethernet Fabric OS (EFOS) sur le commutateur de cluster Broadcom BES-53248 pour maintenir la compatibilité avec ONTAP et accéder aux dernières fonctionnalités et correctifs du commutateur.
 
 Le logiciel EFOS comprend un ensemble de fonctionnalités et de protocoles réseau avancés pour le développement de systèmes d'infrastructure Ethernet et IP.  Cette architecture logicielle convient à tout dispositif d'organisation de réseau utilisant des applications nécessitant une inspection ou une séparation approfondie des paquets.
 

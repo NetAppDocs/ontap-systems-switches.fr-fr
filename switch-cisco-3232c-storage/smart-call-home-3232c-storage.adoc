@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/smart-call-home-3232c-storage.html 
 sidebar: sidebar 
 keywords: cisco 3232c, storage switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3232C comme commutateurs dans votre cluster AFF ou FAS. 
+summary: Consultez les exigences et les options de configuration de Smart Call Home pour les commutateurs de stockage Cisco Nexus 3232C. 
 ---
-= Exigences de Smart Call Home
+= Consultez les exigences de la fonction Smart Call Home pour les commutateurs de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.
+Consultez les exigences de configuration de Smart Call Home sur les commutateurs de stockage Cisco Nexus 3232C pour activer les notifications par e-mail automatisées en cas d'événements système critiques.
 
 Le service Smart Call Home de Cisco surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, il génère une notification par e-mail et déclenche une alerte à tous les destinataires configurés dans votre profil de destination.
 

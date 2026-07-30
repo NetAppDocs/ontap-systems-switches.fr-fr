@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-install-rcf-9332d.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: 'Vous installez le RCF sur le ou les nouveaux commutateurs Cisco Nexus 9332D-GX2B dans le cadre d"une nouvelle installation et configuration d"un système AFX 1K ou AFX 2K, en remplacement d"un commutateur défectueux ou en réinitialisant un commutateur aux paramètres d"usine par défaut.' 
+summary: 'Installez le RCF sur les commutateurs Cisco Nexus 9332D-GX2B pour les nouvelles installations de systèmes AFX 1K ou AFX 2K, les remplacements de commutateurs ou les réinitialisations aux paramètres d"usine.' 
 ---
-= Installer le RCF - Cisco Nexus 9332D-GX2B
+= Installez le RCF sur le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous installez le RCF sur un ou plusieurs nouveaux commutateurs Cisco Nexus 9332D-GX2B dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, du remplacement d'un commutateur ou d'une réinitialisation d'un commutateur aux paramètres d'usine par défaut.
+Installez le fichier de configuration de référence (RCF) sur les commutateurs Cisco Nexus 9332D-GX2B pour les nouvelles installations de systèmes AFX 1K ou AFX 2K, les remplacements de commutateurs ou lors de la réinitialisation d’un commutateur aux paramètres d’usine par défaut.
 
 .Avant de commencer
 * Le ou les commutateurs doivent être sous tension et vous devez avoir terminé la procédure link:configure-complete-initial-setup-9332d.html["Effectuez la configuration initiale du commutateur"].

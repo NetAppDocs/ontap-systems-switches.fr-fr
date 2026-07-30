@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/configure-reqs-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toutes les exigences.' 
+summary: 'Veuillez consulter les exigences de configuration des commutateurs de stockage NVIDIA SN2100 avant l"installation ou la mise à niveau.' 
 ---
-= Configuration requise pour les commutateurs NVIDIA SN2100
+= Consultez les exigences de configuration des commutateurs de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toutes les exigences.
+Veuillez consulter les exigences de configuration des commutateurs de stockage NVIDIA SN2100 avant l'installation ou la mise à niveau.
 
 
 

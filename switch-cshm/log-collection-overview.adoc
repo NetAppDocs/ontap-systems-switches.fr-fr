@@ -4,13 +4,15 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: Utilisez la collecte de journaux CSHM pour recueillir les journaux de commutateur et les données de diagnostic afin de résoudre les problèmes de commutateur réseau. 
 ---
-= Aperçu de la collecte des journaux
+= Découvrez la collecte des journaux pour le contrôle de l'état du commutateur Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
+Utilisez la collecte de journaux CSHM pour recueillir les journaux de commutateur et les données de diagnostic afin de résoudre les problèmes de commutateur réseau.
+
 Une fois la collecte des journaux configurée, vous pouvez activer la collecte horaire des données périodiques collectées par AutoSupport et demander des journaux d'assistance détaillés.
 
 La collecte des journaux facilite le dépannage des commutateurs réseau en collectant automatiquement les journaux et les données de diagnostic. Vous pouvez collecter des données périodiques selon un calendrier via AutoSupport ou déclencher une collecte à la demande lorsque vous avez besoin de journaux détaillés pour résoudre des problèmes spécifiques. Les journaux collectés offrent une visibilité sur l'état des commutateurs, les modifications de configuration et les événements réseau.

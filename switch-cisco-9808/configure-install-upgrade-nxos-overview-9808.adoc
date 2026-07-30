@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-install-upgrade-nxos-overview-9808.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
-summary: 'Vous pouvez installer ou mettre à niveau le système d"exploitation NX-OS sur les commutateurs Nexus 9808 pour les systèmes AFX 2K.' 
+summary: Installez ou mettez à niveau NX-OS sur les commutateurs Cisco Nexus 9808 pour les systèmes AFX 2K. 
 ---
-= Installer ou mettre à niveau la présentation de NX-OS - Cisco Nexus 9808
+= Découvrez comment installer ou mettre à niveau NX-OS sur le commutateur Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez installer ou mettre à niveau le système d'exploitation NX-OS sur les commutateurs Cisco Nexus 9808 pour les systèmes AFX 2K.
+Installez ou mettez à niveau NX-OS sur les commutateurs Cisco Nexus 9808 pour les systèmes AFX 2K.
 
 
 NOTE: L'installation ou la mise à niveau de NX-OS est indépendante de l'installation ou de la mise à niveau du fichier de configuration de référence (RCF). Si vous installez ou mettez à niveau à la fois NX-OS et le RCF, il est recommandé d'installer ou de mettre à niveau NX-OS en premier.

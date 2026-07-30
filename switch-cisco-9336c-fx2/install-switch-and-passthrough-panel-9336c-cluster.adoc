@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/install-switch-and-passthrough-panel-9336c-cluster.html 
 sidebar: sidebar 
 keywords: install, cisco, nexus, switch, pass-through, panel, netapp, cabinet, bracket, switch, install a cisco nexus 9336c-fx2 switch and pass-through panel in a netapp cabinet - cisco nexus 9336c-fx2 
-summary: Vous pouvez installer le commutateur Cisco Nexus 9336C-FX2 et le panneau de passage dans une armoire NetApp avec les supports standard fournis avec le commutateur. 
+summary: Installez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T ainsi qu’un panneau de passage dans une armoire NetApp en utilisant les supports standard fournis avec le commutateur. 
 ---
-= Installer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T dans une armoire NetApp
+= Installez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T dans une armoire NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Selon votre configuration, vous devrez peut-être installer le commutateur Cisco Nexus 9336C-FX2 et 9336C-FX2-T et le panneau de transfert dans une armoire NetApp . Des supports standard sont inclus avec le commutateur.
+Installez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T ainsi qu’un panneau de passage dans une armoire NetApp en utilisant les supports standard fournis avec le commutateur.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/prepare-install-fastpath-rcfs.html 
 sidebar: sidebar 
 keywords: install, fastpath, software, rcfs, netapp cluster switch 
-summary: Vous devez installer le logiciel FASTPATH et les fichiers de configuration de référence RCF sur un commutateur de cluster NetApp CN1610. 
+summary: 'Préparez un commutateur de cluster NetApp CN1610 avant d’installer le logiciel FASTPATH et les fichiers de configuration de référence (RCF).' 
 ---
-= Préparez-vous à installer le logiciel FASTPATH et les RCF sur un commutateur de cluster NetApp
+= Préparez-vous à installer le logiciel FASTPATH et les RCF sur un commutateur de cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous devez installer le logiciel FASTPATH et les fichiers de configuration de référence (RCF) sur un commutateur de cluster NetApp CN1610.
+Préparez un commutateur de cluster NetApp CN1610 avant d’installer le logiciel FASTPATH et les fichiers de configuration de référence (RCF).
 
 .Avant de commencer
 * Le cluster doit être un cluster pleinement fonctionnel.

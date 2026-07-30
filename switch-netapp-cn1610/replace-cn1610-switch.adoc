@@ -2,7 +2,7 @@
 permalink: switch-netapp-cn1610/replace-cn1610-switch.html 
 sidebar: sidebar 
 keywords: replace, netapp cn1610, cluster switch 
-summary: Vous pouvez remplacer sans interruption un NetApp commutateur de cluster CN1610 défectueux en effectuant une séquence de tâches spécifique. 
+summary: 'Remplacez un commutateur de cluster NetApp CN1610 défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
 = Remplacez un commutateur de cluster NetApp CN1610
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Vous pouvez remplacer sans interruption un NetApp commutateur de cluste
 
 
 [role="lead"]
-Suivez ces étapes pour remplacer un commutateur NetApp CN1610 défectueux dans un réseau de cluster. Il s'agit d'une procédure non disruptive (NDU).
+Remplacez un commutateur de cluster NetApp CN1610 défectueux dans un réseau de cluster sans interrompre le fonctionnement du cluster. Cette procédure non perturbatrice (NDU) consiste à préparer un commutateur de remplacement et à migrer les connexions du commutateur défaillant.
 
 
 

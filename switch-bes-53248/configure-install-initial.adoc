@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-install-initial.html 
 sidebar: sidebar 
 keywords: switches initial setup,initial setup,efos download 
-summary: 'Vous pouvez utiliser cette procédure pour effectuer l"installation initiale du commutateur de cluster BES-53248.' 
+summary: 'Effectuez une configuration initiale du commutateur de cluster Broadcom BES-53248 pour le préparer à l"installation du logiciel EFOS et au déploiement du cluster.' 
 ---
-= Configurer le commutateur de cluster BES-53248
+= Configurer le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour effectuer une configuration initiale du commutateur de cluster BES-53248.
+Effectuez la configuration initiale du commutateur de cluster Broadcom BES-53248 pour le préparer à l'installation du logiciel EFOS et au déploiement du cluster.
 
 .Avant de commencer
 * Le matériel est installé, comme décrit danslink:install-hardware-bes53248.html["Installez le matériel"] .

@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switched-cluster-sat-storage.html 
 keywords:  
-summary:  
+summary: 'Migrez d"un cluster commuté avec stockage connecté au commutateur vers des commutateurs partagés Cisco Nexus 9336C-FX2 en réutilisant les commutateurs de stockage existants.' 
 ---
-= Migrer depuis un cluster commuté avec stockage connecté au commutateur
+= Migrez d'un cluster commuté avec stockage connecté au commutateur vers des commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer à partir d'un cluster commuté avec stockage connecté au commutateur en réutilisant les commutateurs de stockage.
+Migrez d'un cluster commuté avec stockage connecté au commutateur vers des commutateurs partagés Cisco Nexus 9336C-FX2 en réutilisant les commutateurs de stockage existants comme commutateurs partagés.
 
 En réutilisant les commutateurs de stockage, les commutateurs de stockage de la paire HA 1 deviennent les commutateurs partagés, comme illustré dans la figure suivante.
 

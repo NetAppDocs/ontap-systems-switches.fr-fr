@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/switch-requirements.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: Vous devez connaître certaines informations de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez les commutateurs de cluster Cisco Nexus 3132Q-V. 
+summary: Vérifiez la configuration, les connexions de ports et les exigences de câblage avant de remplacer les commutateurs de cluster Cisco Nexus 3132Q-V. 
 ---
-= Exigences relatives au remplacement des commutateurs de cluster Cisco Nexus 3132Q-V
+= Examinez les exigences de remplacement pour les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Assurez-vous de comprendre les exigences de configuration, les connexions de ports et les exigences de câblage lorsque vous remplacez des commutateurs d'interconnexion de cluster.
+Examinez les exigences de configuration, les connexions de ports et les exigences de câblage avant de remplacer les commutateurs de cluster Cisco Nexus 3132Q-V.
 
 
 

@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-from-two-node-switchless-cluster.html 
 sidebar: sidebar 
 keywords: migrate, two-node cluster, switchless, cisco nexus 3232c 
-summary: 'Si vous disposez d"un cluster sans commutateur à deux nœuds, vous pouvez migrer sans interruption vers un cluster commuté à deux nœuds comprenant des commutateurs réseau de cluster Cisco Nexus 3232C.' 
+summary: 'Migrez d"un cluster sans commutateur à deux nœuds vers un cluster avec commutateur en utilisant les commutateurs de cluster Cisco Nexus 3232C. Cette procédure est non disruptive.' 
 ---
-= Migrez d'un cluster sans commutateur à deux nœuds vers un cluster avec des commutateurs de cluster Cisco Nexus 3232C
+= Migrez d'un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un cluster sans commutateur à deux nœuds, vous pouvez migrer vers un cluster avec commutateur à deux nœuds qui comprend des commutateurs de réseau de cluster Cisco Nexus 3232C. Cette procédure s'effectue sans interruption.
+Migrez d'un cluster sans commutateur à deux nœuds vers un cluster avec commutateur en utilisant les commutateurs de cluster Cisco Nexus 3232C. Cette procédure est non disruptive.
 
 
 

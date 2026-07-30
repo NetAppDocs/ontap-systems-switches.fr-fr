@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/install-nx-os-software-3232c-storage.html 
 sidebar: sidebar 
 keywords: install, nx-os software 
-summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de stockage Nexus 3232C. 
+summary: Installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco Nexus 3232C. 
 ---
-= Installez ou mettez à niveau le logiciel NX-OS
+= Installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de stockage Nexus 3232C.
+Installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco Nexus 3232C pour les préparer au fonctionnement du réseau de stockage.
 
 
 NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.

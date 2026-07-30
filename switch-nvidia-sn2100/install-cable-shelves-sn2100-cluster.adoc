@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/install-cable-shelves-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
-summary: 'Si vous disposez d"un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté par commutateur et non en tant que stockage connecté directement, utilisez les informations fournies ici.' 
+summary: 'Câblez les baies de disques NS224 comme stockage connecté à un commutateur à l"aide des commutateurs de cluster NVIDIA SN2100 lorsque le stockage à connexion directe n"est pas utilisé.' 
 ---
-= Câblez les étagères NS224 comme un rangement relié à un interrupteur
+= Câblez les baies de disques NS224 comme stockage connecté au commutateur pour les commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un système dans lequel les baies de disques NS224 doivent être câblées en tant que stockage connecté à un commutateur (et non en tant que stockage connecté directement), utilisez les informations fournies ici.
+Câblez les baies de disques NS224 comme stockage connecté à un commutateur en utilisant les commutateurs de cluster NVIDIA SN2100 lorsque le stockage à connexion directe ne convient pas à votre configuration.
 
 * Câbler les étagères de lecteurs NS224 à travers les commutateurs de stockage :
 +

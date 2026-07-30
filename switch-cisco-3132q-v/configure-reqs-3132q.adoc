@@ -2,16 +2,16 @@
 permalink: switch-cisco-3132q-v/configure-reqs-3132q.html 
 sidebar: sidebar 
 keywords: Cisco, 3132Q-V 
-summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter les exigences en matière de réseau et de configuration' 
+summary: 'Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 3132Q-V avant l"installation ou la mise à niveau.' 
 ---
-= Exigences de configuration pour les commutateurs Cisco Nexus 3132Q-V
+= Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 3132Q-V, assurez-vous de consulter les exigences en matière de réseau et de configuration.
+Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 3132Q-V avant l'installation ou la mise à niveau.
 
 
 

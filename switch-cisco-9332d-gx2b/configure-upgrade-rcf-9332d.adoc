@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-upgrade-rcf-9332d.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: 'Vous mettez à niveau la version du fichier de configuration de référence (RCF) sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel, une nouvelle version d"ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX 1K ou AFX 2K.' 
+summary: 'Mettez à niveau le RCF sur les commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel, une nouvelle version d"ONTAP ou une nouvelle version de NX-OS sur les systèmes AFX 1K ou AFX 2K.' 
 ---
-= Mettez à niveau la version RCF - Cisco Nexus 9332D-GX2B
+= Mettez à niveau le RCF sur le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous mettez à niveau la version du fichier de configuration de référence (RCF) sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel, une nouvelle version d'ONTAP ou pour vous aligner sur une nouvelle version de NX-OS dans la configuration de votre système AFX 1K ou AFX 2K.
+Mettez à niveau le fichier de configuration de référence (RCF) sur les commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel, une nouvelle version d'ONTAP ou une nouvelle version de NX-OS sur les systèmes AFX 1K ou AFX 2K.
 
 
 NOTE: Ne mettez pas à jour ni ne rétrogradez votre version RCF vers une version non prise en charge.

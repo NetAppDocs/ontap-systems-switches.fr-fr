@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9364d-gx2a/maintain-reset-switch-9364d.html 
 keywords: reset switch factory defaults 
-summary: 'Vous pouvez réinitialiser un commutateur Cisco Nexus 9364D-GX2A à ses paramètres d"usine par défaut d"origine lorsque le commutateur est mis hors service ou lorsqu"il tombe en panne et ne peut pas être récupéré, ce qui vous oblige à le reconfigurer manuellement.' 
+summary: 'Réinitialisez un commutateur Cisco Nexus 9364D-GX2A aux paramètres d"usine par défaut lors de la mise hors service ou de la récupération d"un commutateur qui ne peut pas être configuré.' 
 ---
-= Réinitialiser un commutateur aux paramètres d'usine par défaut - Cisco Nexus 9364D-GX2A
+= Réinitialisez le commutateur Cisco Nexus 9364D-GX2A aux paramètres d'usine par défaut
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 'Vous pouvez réinitialiser un commutateur Cisco Nexus 9364D-GX2A à se
 
 
 [role="lead"]
-Vous pouvez réinitialiser un commutateur Cisco Nexus 9364D-GX2A à ses paramètres d'usine par défaut d'origine lorsque le commutateur est mis hors service ou lorsqu'il tombe en panne et ne peut pas être récupéré, ce qui vous oblige à le reconfigurer manuellement.
+Réinitialisez un commutateur Cisco Nexus 9364D-GX2A aux paramètres d'usine par défaut lorsque le commutateur est mis hors service ou lorsqu'il tombe en panne et ne peut pas être récupéré par les méthodes de configuration normales.
 
 .Avant de commencer
 Vous devez être connecté au commutateur via la console série.

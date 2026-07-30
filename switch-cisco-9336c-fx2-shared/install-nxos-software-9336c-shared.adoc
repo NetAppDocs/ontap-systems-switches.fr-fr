@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-shared/install-nxos-software-9336c-shared.html 
 sidebar: sidebar 
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9336c-fx2 
-summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2. 
+summary: 'Installez le logiciel NX-OS sur un commutateur partagé Cisco Nexus 9336C-FX2 afin de le préparer à l"exploitation en cluster partagé et au stockage.' 
 ---
-= Installez le logiciel NX-OS
+= Installez le logiciel NX-OS sur un commutateur partagé Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer le logiciel NX-OS sur le commutateur partagé Nexus 9336C-FX2.
+Installez le logiciel NX-OS sur un commutateur partagé Cisco Nexus 9336C-FX2 afin de le préparer à l'exploitation en cluster partagé et au stockage.
 
 Avant de commencer, veuillez terminer la procédure danslink:prepare-nxos-rcf-9336c-shared.html["Préparez-vous à installer NX-OS et RCF"] .
 

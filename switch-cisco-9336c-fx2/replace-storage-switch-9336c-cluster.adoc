@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2/replace-storage-switch-9336c-cluster.html 
 sidebar: sidebar 
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9336c-fx2 cluster switch - cisco nexus 9336c-fx2 
-summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux dans un réseau en cluster est une procédure non perturbatrice.' 
+summary: Remplacez un commutateur de stockage Cisco Nexus 9336C-FX2 défectueux en vérifiant les connexions des ports et les exigences de câblage avant de commencer. 
 ---
 = Remplacer un commutateur de stockage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Le remplacement d"un commutateur Nexus 9336C-FX2 défectueux dans un r
 
 
 [role="lead"]
-Vous devez prendre en compte certaines informations de configuration, les connexions des ports et les exigences de câblage lorsque vous remplacez des commutateurs de stockage Cisco Nexus 9336C-FX2.
+Examinez les informations de configuration, les connexions de ports et les exigences de câblage avant de remplacer un commutateur de stockage Cisco Nexus 9336C-FX2.
 
 .Ce dont vous aurez besoin
 Vous devez vérifier que les conditions suivantes sont réunies avant d'installer le logiciel NX-OS et les RCF sur un commutateur de stockage Cisco Nexus 9336C-FX2 :

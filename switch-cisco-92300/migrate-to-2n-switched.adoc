@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: 2-node switched Cisco 92300YC cluster switch migration 
-summary: 'Si vous disposez d"un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster commuté à deux nœuds en utilisant des commutateurs Cisco Nexus 92300YC pour vous permettre d"évoluer au-delà de deux nœuds dans le cluster.' 
+summary: 'Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté à l"aide des commutateurs de cluster Cisco Nexus 92300YC.' 
 ---
-= Migrez vers un cluster commuté à deux nœuds avec un commutateur Cisco Nexus 92300YC
+= Migrez vers un cluster commuté à deux nœuds à l'aide des commutateurs de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un environnement de cluster _sans commutateur_ à deux nœuds existant, vous pouvez migrer vers un environnement de cluster _avec commutateur_ à deux nœuds en utilisant des commutateurs Cisco Nexus 92300YC pour vous permettre d'évoluer au-delà de deux nœuds dans le cluster.
+Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté à l'aide de commutateurs de cluster Cisco Nexus 92300YC. Cette migration sans interruption de service vous permet d'étendre le cluster au-delà de deux nœuds.
 
 La procédure que vous utilisez dépend du fait que vous disposez de deux ports réseau de cluster dédiés sur chaque contrôleur ou d’un seul port de cluster sur chaque contrôleur. Le processus documenté fonctionne pour tous les nœuds utilisant des ports optiques ou twinax, mais n’est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10Gb BASE-T intégrés pour les ports réseau de cluster.
 

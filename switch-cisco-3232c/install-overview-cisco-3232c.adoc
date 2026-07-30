@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/install-overview-cisco-3232c.html 
 sidebar: sidebar 
 keywords: install, cisco nexus 3232c switch, 
-summary: Avant de configurer les commutateurs Cisco Nexus 3232c, consultez un aperçu du processus et de la nomenclature. 
+summary: Suivez ce flux de travail pour installer et configurer les commutateurs de cluster Cisco Nexus 3232C dans un environnement ONTAP. 
 ---
-= Flux de travail d'installation et de configuration des commutateurs Cisco Nexus 3232C
+= Flux de travail d'installation et de configuration des commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Les commutateurs Cisco Nexus 3232C peuvent être utilisés comme commutateurs de cluster dans votre cluster AFF ou FAS. Les commutateurs de cluster vous permettent de créer des clusters ONTAP comportant plus de deux nœuds.
+Suivez ce workflow pour installer et configurer les commutateurs de cluster Cisco Nexus 3232C dans un environnement ONTAP. Le 3232C prend en charge les clusters ONTAP comportant plus de deux nœuds.
 
 Suivez ces étapes de flux de travail pour installer et configurer votre commutateur Cisco Nexus 3232C.
 

@@ -2,14 +2,14 @@
 permalink: switch-cisco-9808/install-configure-switches-in-afx-workflow-9808.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9808 switch 
-summary: Pour installer et configurer vos commutateurs Cisco Nexus 9808 dans le cadre de votre nouveau système AFX 2K, vous utilisez une combinaison de la documentation disponible sur ce site dédié aux commutateurs et sur le site des systèmes AFX. La documentation fournit des liens qui vous orientent selon vos besoins. 
+summary: 'Suivez ce flux de travail pour installer et configurer les commutateurs Cisco Nexus 9808 dans le cadre d"un nouveau système AFX 2K.' 
 ---
-= Installez et configurez les commutateurs dans un workflow système AFX - Cisco Nexus 9808
+= Installer et configurer le flux de travail pour les commutateurs Cisco Nexus 9808 dans un système AFX
 :allow-uri-read: 
 
 
 [role="lead"]
-Pour installer et configurer vos commutateurs Cisco Nexus 9808 dans le cadre de votre nouveau système AFX 2K, vous utilisez une combinaison de la documentation disponible sur ce site dédié aux commutateurs et sur le site des systèmes AFX. La documentation fournit des liens qui vous orientent selon vos besoins.
+Suivez cette procédure pour installer et configurer les commutateurs Cisco Nexus 9808 dans le cadre d'un nouveau système AFX 2K. La procédure contient des liens vers la documentation à la fois sur ce site de commutateurs et sur le site des systèmes AFX.
 
 
 

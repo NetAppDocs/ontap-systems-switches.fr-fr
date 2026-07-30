@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/configure-reqs-3232c.html 
 sidebar: sidebar 
 keywords: cisco 3232c, cluster switches 
-summary: Vous pouvez utiliser les commutateurs Cisco Nexus 3232C comme commutateurs de cluster dans votre cluster AFF ou FAS. 
+summary: 'Examinez les exigences de configuration des commutateurs de cluster Cisco Nexus 3232C avant l"installation ou la mise à niveau.' 
 ---
-= Exigences de configuration pour les commutateurs Cisco Nexus 3232C
+= Examinez les exigences de configuration pour les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur Cisco Nexus 3232C, assurez-vous de consulter les exigences de configuration et de réseau.
+Examinez les exigences de configuration des commutateurs de cluster Cisco Nexus 3232C avant l'installation ou la mise à niveau.
 
 
 

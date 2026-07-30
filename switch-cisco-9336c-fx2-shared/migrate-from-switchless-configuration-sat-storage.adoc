@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-configuration-sat-storage.html 
 keywords:  
-summary:  
+summary: 'Migrez d"une configuration sans commutateur avec stockage connecté au commutateur vers des commutateurs partagés Cisco Nexus 9336C-FX2 en réutilisant les commutateurs de stockage existants.' 
 ---
-= Migrer d'une configuration sans commutateur avec stockage connecté à un commutateur en réutilisant les commutateurs de stockage
+= Migrez d'une configuration sans commutateur avec stockage connecté au commutateur vers des commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer d'une configuration sans commutateur avec un stockage connecté à un commutateur en réutilisant les commutateurs de stockage.
+Migrez d'une configuration sans commutateur avec stockage connecté au commutateur vers des commutateurs partagés Cisco Nexus 9336C-FX2 en réutilisant les commutateurs de stockage existants.
 
 En réutilisant les commutateurs de stockage, les commutateurs de stockage de la paire HA 1 deviennent les commutateurs partagés, comme illustré dans la figure suivante.
 

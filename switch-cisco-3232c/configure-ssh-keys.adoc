@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/configure-ssh-keys.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 3232C, vous générez d"abord les clés SSH, puis vous activez SSH.' 
+summary: Vérifiez que SSH et les clés SSH sont activés sur les commutateurs de cluster Cisco Nexus 3232C pour prendre en charge CSHM et la collecte des journaux. 
 ---
-= Vérifiez votre configuration SSH
+= Vérifiez la configuration SSH des commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous utilisez les fonctionnalités de surveillance de l'état des commutateurs Ethernet (CSHM) et de collecte des journaux, vérifiez que SSH et les clés SSH sont activés sur les commutateurs du cluster.
+Vérifiez que SSH et les clés SSH sont activés sur les commutateurs de cluster Cisco Nexus 3232C pour prendre en charge les fonctionnalités de surveillance de l'état du commutateur Ethernet (CSHM) et de collecte des journaux.
 
 .Étapes
 . Vérifiez que SSH est activé :

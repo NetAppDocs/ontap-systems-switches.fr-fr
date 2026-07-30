@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-switch-workflow-9332d.html 
 sidebar: sidebar 
 keywords: switches, initial installation, configure switch-cisco-9332d-gx2b switch 
-summary: 'Vous configurez les commutateurs Cisco 9332D-GX2B dans le cadre d"une nouvelle installation de système AFX 1K ou AFX 2K, d"un remplacement de commutateur ou d"une réinitialisation du commutateur aux paramètres d"usine par défaut.' 
+summary: 'Suivez ce flux de travail pour configurer les commutateurs Cisco Nexus 9332D-GX2B pour les installations de systèmes AFX 1K ou AFX 2K, les remplacements de commutateurs ou les réinitialisations aux paramètres d"usine.' 
 ---
-= Configurer le workflow du commutateur - Cisco Nexus 9332D-GX2B
+= Flux de configuration pour les commutateurs Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous configurez les commutateurs Cisco 9332D-GX2B dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, d'un remplacement de commutateur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut.
+Suivez ce flux de travail pour configurer les commutateurs Cisco Nexus 9332D-GX2B pour les installations de systèmes AFX 1K ou AFX 2K, les remplacements de commutateurs ou lors de la réinitialisation d’un commutateur aux paramètres d’usine par défaut.
 
 Vous pourriez être dirigé vers ce flux de travail ou vers des sujets individuels de ce flux de travail selon les besoins de votre procédure spécifique pour link:install-configure-switches-in-afx-workflow-9332d.html["Installer et configurer un nouveau système AFX 1K ou AFX 2K"], link:replace-9332d-cluster.html["Remplacer un commutateur"] ou link:maintain-reset-switch-9332d.html["Réinitialiser un commutateur aux paramètres d'usine par défaut"].
 

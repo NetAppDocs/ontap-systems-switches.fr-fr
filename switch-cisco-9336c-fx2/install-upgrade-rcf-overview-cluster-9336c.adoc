@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/install-upgrade-rcf-overview-cluster-9336c.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9336c-fx2 
-summary: 'SSH est requis lors de l"utilisation des fonctionnalités de contrôle de l"état des commutateurs de cluster et de collecte des journaux. Pour activer SSH sur les commutateurs de cluster Cisco 9336c-fx2, vous devez d"abord générer les clés SSH, puis activer SSH.' 
+summary: 'Installez ou mettez à niveau le fichier de configuration de référence (RCF) sur les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T après la configuration initiale ou lors de la mise à niveau d"un RCF existant.' 
 ---
-= Présentation de l'installation ou de la mise à niveau du fichier de configuration de référence (RCF)
+= Installez ou mettez à niveau le RCF sur les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous installez le fichier de configuration de référence (RCF) après avoir configuré les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T pour la première fois. Vous mettez à niveau votre version RCF lorsque vous disposez d’une version existante du fichier RCF installée sur votre commutateur.
+Installez le fichier de configuration de référence (RCF) sur les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T après la configuration initiale, ou mettez à niveau votre version de RCF lorsqu'une version plus récente est disponible.
 
 Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus d'informations lors de l'installation ou de la mise à niveau de votre RCF.
 

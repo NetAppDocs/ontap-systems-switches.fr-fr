@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/cabling-considerations-3232c.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 3232C, consultez les informations suivantes. 
+summary: Examinez les considérations relatives au câblage et à la configuration des commutateurs de cluster Cisco Nexus 3232C avant le déploiement. 
 ---
-= Examiner les considérations relatives au câblage et à la configuration
+= Examinez les considérations relatives au câblage et à la configuration pour les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Avant de configurer votre commutateur Cisco 3232C, veuillez prendre en compte les considérations suivantes.
+Examinez les considérations relatives au câblage et à la configuration des commutateurs de cluster Cisco Nexus 3232C avant le déploiement.
 
 
 

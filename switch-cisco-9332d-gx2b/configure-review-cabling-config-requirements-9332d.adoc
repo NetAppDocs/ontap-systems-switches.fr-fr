@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-review-cabling-config-requirements-9332d.html 
 sidebar: sidebar 
 keywords: 9332d-gx2b cabling setup, 9332d-gx2b switches configuration, nx-os 
-summary: 'Si vous installez de nouveaux commutateurs Cisco Nexus 9332D-GX2B dans le cadre d"une nouvelle installation de système AFX 1K ou AFX 2K, du remplacement d"un commutateur ou de la réinitialisation d"un commutateur aux paramètres d"usine par défaut, vous devez examiner les exigences de câblage et de configuration suivantes.' 
+summary: Examinez les exigences de câblage et de configuration pour les commutateurs Cisco Nexus 9332D-GX2B avant de les installer dans le cadre d’un système AFX 1K ou AFX 2K. 
 ---
-= Examinez le câblage et les exigences de configuration - Cisco Nexus 9332D-GX2B
+= Examinez les exigences de câblage et de configuration pour le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous installez des commutateurs Cisco Nexus 9332D-GX2B dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, du remplacement d'un commutateur ou de la réinitialisation d'un commutateur aux paramètres d'usine par défaut, vous devez examiner les exigences de câblage et de configuration suivantes.
+Examinez les exigences de câblage et de configuration des commutateurs Cisco Nexus 9332D-GX2B avant de les installer dans le cadre d’un nouveau système AFX 1K ou AFX 2K, de remplacer un commutateur ou de réinitialiser un commutateur aux paramètres d’usine par défaut.
 
 
 

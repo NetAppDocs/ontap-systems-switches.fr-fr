@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100-storage/components-sn2100-storage.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter la liste des composants et les références du boîtier et du kit de rails.' 
+summary: 'Identifiez les composants et les références des commutateurs de stockage NVIDIA SN2100 pour prendre en charge l"installation matérielle et la maintenance continue.' 
 ---
-= Composants et références des commutateurs NVIDIA SN2100
+= Examinez les composants et les références des commutateurs de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter la liste des composants et les références du boîtier et du kit de rails.
+Identifiez les composants et les références des commutateurs de stockage NVIDIA SN2100 pour prendre en charge l'installation matérielle et la maintenance continue.
 
 
 

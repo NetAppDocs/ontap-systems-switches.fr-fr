@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/required-documentation-cn1610.html 
 sidebar: sidebar 
 keywords: cn1610, switch, netapp 
-summary: 'Pour l"installation et la maintenance du commutateur NetApp CN1610, assurez-vous de consulter toute la documentation recommandée.' 
+summary: 'Consultez la documentation nécessaire à l"installation et à la maintenance des commutateurs de cluster NetApp CN1610.' 
 ---
-= Exigences en matière de documentation pour les commutateurs NetApp CN1610
+= Examinez les exigences de documentation pour les commutateurs de cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation du commutateur NetApp CN1610, assurez-vous de consulter toute la documentation recommandée.
+Consultez la documentation relative aux commutateurs et aux contrôleurs nécessaire à la configuration des commutateurs de cluster NetApp CN1610 et à leur configuration dans un cluster ONTAP.
 
 [cols="1,2"]
 |===

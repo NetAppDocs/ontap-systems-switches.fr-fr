@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-from-switchless-workflow.html 
 sidebar: sidebar 
 keywords: 3232c cabling setup, 3232c switches configuration, nx-os 
-summary: Avant de configurer votre commutateur Cisco 3232C, consultez les informations suivantes. 
+summary: 'Suivez ce flux de travail pour migrer d"un cluster sans commutateur à deux nœuds vers un cluster commuté à l"aide des commutateurs de cluster Cisco Nexus 3232C.' 
 ---
-= Migrez à partir d'un workflow de cluster sans commutateur à deux nœuds
+= Flux de travail de migration pour les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes de flux de travail pour migrer d'un cluster sans commutateur à deux nœuds vers un cluster avec des commutateurs de cluster Cisco Nexus 3232C.
+Suivez ce flux de travail pour migrer d'un cluster sans commutateur à deux nœuds vers un cluster commuté à l'aide des commutateurs de cluster Cisco Nexus 3232C.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:migrate-from-switchless-migrate-requirements.html["Exigences de migration"]
 [role="quick-margin-para"]

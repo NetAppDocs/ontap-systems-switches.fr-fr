@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-new-switch-overview.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure new bes-53248 switch 
-summary: 'Avant de configurer les commutateurs de cluster BES-53248, consultez la vue d"ensemble de la configuration.' 
+summary: 'Suivez ce flux de travail pour installer et configurer un nouveau commutateur de cluster Broadcom BES-53248, depuis l"examen des exigences jusqu"à la configuration matérielle et logicielle.' 
 ---
-= Flux de travail d'installation et de configuration pour les commutateurs BES-53248
+= Flux de travail d'installation et de configuration du commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le BES-53248 est un commutateur bare metal conçu pour fonctionner dans des clusters ONTAP allant de deux à 24 nœuds.
+Suivez cette procédure pour installer et configurer un nouveau commutateur de cluster Broadcom BES-53248 dans un environnement ONTAP. Le BES-53248 est un commutateur physique prenant en charge les clusters ONTAP de deux à 24 nœuds.
 
 Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs BES-53248.
 

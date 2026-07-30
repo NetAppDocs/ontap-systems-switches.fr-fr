@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-shared/upgrade-rcf-software-9336c-shared.html 
 sidebar: sidebar 
 keywords: install rcf, cisco switches 
-summary: Vous pouvez installer le RCF après avoir configuré le commutateur Nexus 9336C-FX2 pour la première fois. Vous pouvez également utiliser cette procédure pour mettre à jour votre version de RCF. 
+summary: 'Mettez à niveau le fichier de configuration de référence (RCF) sur un commutateur partagé Cisco Nexus 9336C-FX2 lorsqu"une version plus récente est disponible.' 
 ---
-= Mettez à jour votre fichier de configuration de référence (RCF)
+= Mettre à niveau le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous mettez à jour votre version RCF lorsque vous disposez d'une version existante du fichier RCF installée sur vos commutateurs opérationnels.
+Mettez à jour le fichier de configuration de référence (RCF) sur un commutateur partagé Cisco Nexus 9336C-FX2 lorsqu'une version plus récente du RCF est disponible.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

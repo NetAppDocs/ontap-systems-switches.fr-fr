@@ -2,14 +2,14 @@
 permalink: switch-cisco-9336c-fx2/install-nxos-overview-9336c-cluster.html 
 sidebar: sidebar 
 keywords: cisco, nx-os, software, reference, configuration, file, rcf, install, fx2, cluster, switch, install nx-os software and rcfs on cisco nexus 9336-fx2 cluster switches - cisco nexus 9336x-fx2 
-summary: Le logiciel Cisco NX-OS et les fichiers de configuration de référence doivent être installés sur les commutateurs de cluster Cisco Nexus 9336C-FX2. 
+summary: 'Préparez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF).' 
 ---
-= Préparez-vous à installer le logiciel NX-OS et RCF.
+= Préparez-vous à installer le logiciel NX-OS et le RCF sur les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 
 
 [role="lead"]
-Avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF), suivez cette procédure.
+Préparez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF). NX-OS et le RCF doivent être installés avant que le commutateur puisse fonctionner dans un cluster ONTAP.
 
 
 NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.

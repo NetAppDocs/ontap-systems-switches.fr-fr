@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/install-9336c-shared.html 
 keywords:  
-summary:  
+summary: Installez les commutateurs partagés Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de cluster et de stockage dans un environnement ONTAP. 
 ---
 = Installer des commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Suivez ces instructions pour configurer les commutateurs partagés Cisco Nexus 9336C-FX2.
+Installez les commutateurs partagés Cisco Nexus 9336C-FX2 pour combiner les fonctionnalités de cluster et de stockage dans un environnement ONTAP.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

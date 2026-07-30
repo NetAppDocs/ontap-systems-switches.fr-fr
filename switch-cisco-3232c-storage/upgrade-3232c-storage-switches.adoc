@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c-storage/upgrade-3232c-storage-switches.html 
 sidebar: sidebar 
 keywords: upgrade, cisco nexus, 3232c storage switch 
-summary: Le logiciel Cisco NX-OS et les fichiers de configuration de référence RCF peuvent être mis à niveau sur les commutateurs de stockage Cisco Nexus 3232C. 
+summary: Mettez à niveau le logiciel NX-OS et le RCF sur les commutateurs de stockage Cisco Nexus 3232C. 
 ---
-= Mettez à niveau un commutateur de stockage Cisco Nexus 3232C
+= Mettez à niveau les commutateurs de stockage Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour mettre à niveau le logiciel Cisco NX-OS et les fichiers de configuration de référence (RCF) sur les commutateurs Cisco Nexus 3232C.
+Mettez à niveau le logiciel NX-OS et le fichier de configuration de référence (RCF) sur les commutateurs de stockage Cisco Nexus 3232C afin de maintenir la compatibilité avec ONTAP et d'accéder aux dernières fonctionnalités.
 
 
 

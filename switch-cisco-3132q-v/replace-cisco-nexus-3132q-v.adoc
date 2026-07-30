@@ -2,7 +2,7 @@
 permalink: switch-cisco-3132q-v/replace-cisco-nexus-3132q-v.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus 3132q-v cluster switches 
-summary: 'Le remplacement d"un commutateur Cisco Nexus 3132Q-V défectueux dans un réseau en cluster est une procédure non perturbatrice (NDU) et vous devez effectuer une séquence de tâches spécifique.' 
+summary: 'Remplacez un commutateur de cluster Cisco Nexus 3132Q-V défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
 = Remplacez les commutateurs d’interconnexion de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Le remplacement d"un commutateur Cisco Nexus 3132Q-V défectueux dans 
 
 
 [role="lead"]
-Suivez cette procédure pour remplacer un commutateur Cisco Nexus 3132Q-V défectueux dans un réseau de cluster. La procédure de remplacement est une procédure non disruptive (NDO).
+Remplacez un commutateur de cluster Cisco Nexus 3132Q-V défectueux sans interrompre le fonctionnement du cluster. Cette procédure non disruptive (NDU) consiste à préparer un commutateur de remplacement et à migrer les connexions du commutateur défaillant.
 
 
 

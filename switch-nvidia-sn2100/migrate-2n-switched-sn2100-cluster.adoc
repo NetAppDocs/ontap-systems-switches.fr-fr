@@ -2,7 +2,7 @@
 permalink: switch-nvidia-sn2100/migrate-2n-switched-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: two-node switchless cluster environments,migrating to a two-node switched NVIDIA SN2100 cluster environment,switchless cluster environments,NVIDIA SN2100 switches 
-summary: 'Si vous disposez d"un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster à deux nœuds commutés à l"aide de commutateurs NVIDIA SN2100 pour vous permettre d"évoluer au-delà de deux nœuds dans le cluster.' 
+summary: 'Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté à l"aide de commutateurs de cluster NVIDIA SN2100.' 
 ---
 = Migrer vers un cluster commuté à deux nœuds avec des commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Si vous disposez d"un environnement de cluster existant à deux nœuds
 
 
 [role="lead"]
-Si vous disposez d'un environnement de cluster existant à deux nœuds sans commutateur, vous pouvez migrer vers un environnement de cluster à deux nœuds commutés à l'aide de commutateurs NVIDIA SN2100 pour vous permettre d'évoluer au-delà de deux nœuds dans le cluster.
+Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté à l'aide des commutateurs de cluster NVIDIA SN2100. Cette migration sans interruption de service vous permet d'étendre le cluster au-delà de deux nœuds.
 
 La procédure à suivre dépend du fait que chaque contrôleur dispose de deux ports réseau de cluster dédiés ou d'un seul port de cluster par contrôleur.  Le processus décrit fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports du réseau de cluster.
 

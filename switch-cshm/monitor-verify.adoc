@@ -2,9 +2,9 @@
 permalink: switch-cshm/monitor-verify.html 
 sidebar: sidebar 
 keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
-summary: 'Apprenez comment vérifier que la surveillance d"un commutateur Ethernet fonctionne correctement.' 
+summary: 'Vérifiez que la surveillance de l"état de vos commutateurs Ethernet est correctement configurée et fonctionne.' 
 ---
-= Vérifier la surveillance des commutateurs Ethernet
+= Vérifiez la configuration du contrôle de l'état du commutateur Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

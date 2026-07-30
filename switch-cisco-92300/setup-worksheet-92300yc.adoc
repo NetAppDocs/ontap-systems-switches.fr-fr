@@ -2,7 +2,7 @@
 permalink: switch-cisco-92300/setup-worksheet-92300yc.html 
 sidebar: sidebar 
 keywords: cable worksheet, Cisco NX 92300YC 
-summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous devez remplir la feuille de câblage vierge en utilisant comme guide l"exemple de feuille de câblage remplie.' 
+summary: Remplissez la fiche de câblage pour les commutateurs de cluster Cisco Nexus 92300YC afin de documenter les connexions de ports et les configurations de plateforme prises en charge. 
 ---
 = Complétez la fiche de câblage Cisco Nexus 92300YC
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: 'Si vous souhaitez documenter les plateformes prises en charge, vous de
 
 
 [role="lead"]
-Si vous souhaitez documenter les plateformes prises en charge, téléchargez le PDF de cette page et remplissez la fiche de câblage.
+Remplissez la fiche de câblage pour les commutateurs de cluster Cisco Nexus 92300YC afin de documenter les connexions de ports et les configurations de plateforme prises en charge.
 
 La fiche de câblage type fournit des exemples d'affectations de ports recommandées entre les commutateurs et les contrôleurs.  La feuille de calcul vierge fournit un modèle que vous pouvez utiliser pour configurer votre cluster.
 

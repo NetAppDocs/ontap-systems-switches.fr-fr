@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/install-switch-92300yc.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 92300YC 
-summary: Suivez cette procédure pour installer le commutateur Cisco Nexus 92300YC. 
+summary: 'Installez les commutateurs de cluster Cisco Nexus 92300YC pour les préparer à l"exploitation du réseau.' 
 ---
-= Installez le commutateur de cluster 92300YC
+= Installer les commutateurs de cluster Cisco Nexus 92300YC
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer et configurer le commutateur Cisco Nexus 92300YC.
+Installez et configurez les commutateurs de cluster Cisco Nexus 92300YC pour les préparer à l’exploitation du réseau.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

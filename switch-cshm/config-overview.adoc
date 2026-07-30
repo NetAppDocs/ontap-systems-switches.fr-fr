@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: 'Le contrôle de l"état des commutateurs Ethernet (CSHM) est chargé de garantir le bon fonctionnement des commutateurs réseau de cluster et de stockage et de collecter les journaux des commutateurs à des fins de débogage.' 
 ---
-= Présentation de la configuration
+= Découvrez comment configurer le contrôle de l'état des commutateurs Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -2,16 +2,16 @@
 permalink: switch-nvidia-sn2100/configure-reqs-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: nvidia SN2100 switches 
-summary: 'Pour l"installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toutes les exigences et la documentation recommandée.' 
+summary: 'Examinez les exigences de configuration des commutateurs de cluster NVIDIA SN2100 avant l"installation ou la mise à niveau.' 
 ---
-= Configuration requise pour les commutateurs NVIDIA SN2100
+= Examinez les exigences de configuration pour les commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour l'installation et la maintenance du commutateur NVIDIA SN2100, assurez-vous de consulter toutes les exigences de configuration.
+Examinez les exigences de configuration des commutateurs de cluster NVIDIA SN2100 avant l'installation ou la mise à niveau.
 
 
 

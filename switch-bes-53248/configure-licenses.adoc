@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/configure-licenses.html 
 sidebar: sidebar 
 keywords: bes, cluster, switch, base, model, license, 10gbe, 25gbe, 100gbe, port, add, purchasing, purchase, install licenses for bes-53248 cluster switches - bes-53248 switches 
-summary: Le modèle de base du commutateur de cluster BES-53248 est sous licence pour 16 ports 10GbE ou 25GbE et deux ports 100GbE.  De nouveaux ports peuvent être ajoutés en achetant des licences supplémentaires. 
+summary: Le modèle de base du commutateur de cluster Broadcom BES-53248 prend en charge 16 ports 10GbE ou 25GbE et deux ports 100GbE. Installez des licences de port supplémentaires pour augmenter la capacité du commutateur. 
 ---
-= Installez les licences pour les commutateurs de cluster BES-53248.
+= Installez les licences pour le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le modèle de base du commutateur de cluster BES-53248 est sous licence pour 16 ports 10GbE ou 25GbE et deux ports 100GbE.  Vous pouvez ajouter de nouveaux ports en achetant des licences supplémentaires.
+Le modèle de base du commutateur de cluster Broadcom BES-53248 est licencié pour 16 ports 10GbE ou 25GbE et deux ports 100GbE. Installez des licences de ports supplémentaires pour étendre le commutateur afin de prendre en charge davantage de ports de cluster 10GbE ou 25GbE.
 
 
 CAUTION: Pour EFOS 3.12 et versions ultérieures, suivez les étapes d'installation décrites danslink:efos-install-rcf-license-file.html["Installez le fichier de configuration de référence (RCF) et le fichier de licence."] .

@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-to-2n-switched.html 
 sidebar: sidebar 
 keywords: two-node switchless clusters, migrating to a two-node switched BES-53248 cluster environment,BES-53248 switches, migrating two-node switched clusters,2-node 
-summary: 'Si vous disposez d"un cluster à deux nœuds sans commutateur, vous pouvez migrer, sans interruption de service, vers un cluster à deux nœuds avec commutateurs incluant des commutateurs de cluster BES-53248 compatibles Broadcom.' 
+summary: 'Migrez un cluster sans commutateur à deux nœuds vers un environnement de cluster commuté utilisant des commutateurs de cluster Broadcom BES-53248 pour permettre une mise à l"échelle au-delà de deux nœuds.' 
 ---
-= Migrer vers un environnement de cluster NetApp commuté
+= Migrez vers un cluster commuté à deux nœuds utilisant des commutateurs de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez d'un environnement de cluster existant à deux nœuds _sans commutateur_, vous pouvez migrer vers un environnement de cluster à deux nœuds _commuté_ en utilisant des commutateurs de cluster BES-53248 pris en charge par Broadcom, ce qui vous permet d'étendre le cluster à plus de deux nœuds.
+Migrez un cluster existant à deux nœuds sans commutateur vers un environnement de cluster commuté à l'aide de commutateurs Broadcom BES-53248. Cette migration sans interruption de service vous permet d'étendre le cluster au-delà de deux nœuds.
 
 Le processus de migration fonctionne pour tous les ports de nœuds de cluster utilisant des ports optiques ou Twinax, mais il n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10GBASE-T intégrés pour les ports réseau du cluster.
 

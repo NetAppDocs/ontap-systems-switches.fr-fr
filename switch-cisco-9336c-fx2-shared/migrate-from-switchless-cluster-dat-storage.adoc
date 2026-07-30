@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9336c-fx2-shared/migrate-from-switchless-cluster-dat-storage.html 
 keywords:  
-summary:  
+summary: 'Migrez d"un cluster sans commutateur avec stockage à connexion directe vers des commutateurs partagés Cisco Nexus 9336C-FX2 en ajoutant deux nouveaux commutateurs partagés.' 
 ---
-= Migrer depuis un cluster sans commutateur avec stockage à connexion directe
+= Migrez d'un cluster sans commutateur avec stockage à connexion directe vers des commutateurs partagés Cisco Nexus 9336C-FX2
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-Vous pouvez migrer depuis un cluster sans commutateur avec stockage à connexion directe en ajoutant deux nouveaux commutateurs partagés.
+Migrez d'un cluster sans commutateur avec stockage à connexion directe vers des commutateurs partagés Cisco Nexus 9336C-FX2 en ajoutant deux nouveaux commutateurs partagés.
 
 La procédure à suivre dépend du fait que chaque contrôleur dispose de deux ports réseau de cluster dédiés ou d'un seul port de cluster par contrôleur.  Le processus décrit fonctionne pour tous les nœuds utilisant des ports optiques ou Twinax, mais n'est pas pris en charge sur ce commutateur si les nœuds utilisent des ports RJ45 10Gb BASE-T intégrés pour les ports du réseau de cluster.
 

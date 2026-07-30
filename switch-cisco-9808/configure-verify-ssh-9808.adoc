@@ -2,16 +2,16 @@
 permalink: switch-cisco-9808/configure-verify-ssh-9808.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9808 
-summary: 'Si vous configurez vos commutateurs dans le cadre d"une nouvelle installation de système AFX 2K, d"un remplacement de module superviseur ou d"une réinitialisation aux paramètres d"usine par défaut, et que vous souhaitez utiliser le Cluster Switch Health Monitor (CSHM) et les fonctions de collecte de journaux, vous devez vérifier que SSH et les clés SSH sont activés sur les commutateurs.' 
+summary: 'Vérifiez que SSH est activé sur les commutateurs Cisco Nexus 9808 afin de prendre en charge le contrôle de l"état Ethernet switch (CSHM) et la collecte des journaux.' 
 ---
-= Vérifiez SSH pour la collecte des journaux - Cisco Nexus 9808
+= Vérifiez SSH pour la collecte des journaux sur le commutateur Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous configurez vos commutateurs dans le cadre d'une nouvelle installation de système AFX 2K, d'un remplacement de module superviseur ou d'une réinitialisation aux paramètres d'usine par défaut, pour utiliser la fonction de collecte des journaux du contrôle de l'état du commutateur Ethernet (CSHM), vous devez vérifier que SSH est activé sur les commutateurs.
+Vérifiez que SSH est activé sur les commutateurs Cisco Nexus 9808 afin de prendre en charge les fonctionnalités de contrôle de l'état du commutateur Ethernet (CSHM) et de collecte des journaux.
 
 .Avant de commencer
 Vous devez être connecté au commutateur via la console série.

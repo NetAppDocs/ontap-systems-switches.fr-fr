@@ -2,16 +2,16 @@
 permalink: switch-cisco-92300/smart-call-home-92300.html 
 sidebar: sidebar 
 keywords: cisco nexus 92300YC 
-summary: Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez besoin de deux commutateurs réseau de cluster compatibles.  Vous pouvez utiliser des commutateurs de gestion supplémentaires, qui sont optionnels. 
+summary: Examinez les exigences et les options de configuration de Smart Call Home pour les commutateurs de cluster Cisco Nexus 92300YC. 
 ---
-= Exigences de Smart Call Home
+= Consultez les exigences de la fonctionnalité Smart Call Home pour les commutateurs de cluster Cisco Nexus 92300YC.
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour utiliser Smart Call Home, vous devez configurer un commutateur réseau en cluster pour communiquer par courrier électronique avec le système Smart Call Home. De plus, vous pouvez éventuellement configurer votre commutateur réseau en cluster pour profiter de la fonction de prise en charge Smart Call Home intégrée de Cisco.
+Consultez les exigences pour configurer Smart Call Home sur les commutateurs de cluster Cisco Nexus 92300YC afin d'activer les notifications par e-mail automatisées pour les événements système critiques.
 
 Le service Smart Call Home de Cisco surveille les composants matériels et logiciels de votre réseau. Lorsqu'une configuration système critique se produit, il génère une notification par e-mail et déclenche une alerte à tous les destinataires configurés dans votre profil de destination.
 

@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/upgrade-rcf.html 
 sidebar: sidebar 
 keywords: upgrade rcf,setup rcf,rcf file 
-summary: Vous pouvez mettre à niveau le RCF après avoir configuré le commutateur de cluster BES-53248 et après avoir appliqué de nouvelles licences. 
+summary: 'Mettez à jour le fichier de configuration de référence (RCF) sur le commutateur de cluster Broadcom BES-53248 après la mise à niveau du logiciel EFOS.' 
 ---
-= Mettre à niveau la version RCF
+= Mettez à niveau le RCF sur le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous pouvez mettre à niveau le RCF après avoir mis à niveau l'EFOS du commutateur de cluster BES-53248 et après avoir appliqué toute nouvelle licence.
+Mettez à niveau le fichier de configuration de référence (RCF) sur le commutateur de cluster Broadcom BES-53248 après avoir mis à niveau le logiciel EFOS et appliqué les licences requises.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

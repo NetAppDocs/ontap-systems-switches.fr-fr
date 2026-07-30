@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/replace-switch.html 
 sidebar: sidebar 
 keywords: replace, replacing, defective, broadcom-supported, bes, cluster, switch, network, nondisruptive, procedure, ndu, replace a broadcom-supported bes-53428 cluster switch - bes-53428 switches 
-summary: 'Le remplacement d"un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster est une procédure non perturbatrice.' 
+summary: Remplacez un commutateur de cluster Broadcom BES-53248 défectueux dans un réseau en cluster. Cette procédure est non perturbatrice. 
 ---
-= Remplacer un commutateur de cluster BES-53248 pris en charge par Broadcom
+= Remplacez un commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez ces étapes pour remplacer un commutateur de cluster BES-53248 défectueux pris en charge par Broadcom dans un réseau de cluster. Il s’agit d’une procédure non perturbatrice (NDU).
+Remplacez un commutateur de cluster Broadcom BES-53248 défectueux dans un réseau de cluster sans interrompre le fonctionnement du cluster. Cette procédure non perturbatrice (NDU) consiste à préparer un commutateur de remplacement et à migrer les connexions du commutateur défaillant.
 
 .À propos des exemples
 Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :

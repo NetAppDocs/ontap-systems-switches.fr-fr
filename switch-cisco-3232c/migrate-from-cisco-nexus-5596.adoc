@@ -2,16 +2,16 @@
 permalink: switch-cisco-3232c/migrate-from-cisco-nexus-5596.html 
 sidebar: sidebar 
 keywords: migrate, cisco nexus 5596 switch, 3232c 
-summary: Pour remplacer les commutateurs de cluster Cisco Nexus 5596 existants dans un cluster par des commutateurs de cluster Nexus 3232C, vous devez effectuer une séquence de tâches spécifique. 
+summary: Migrez des commutateurs de cluster Cisco Nexus 5596 vers des commutateurs de cluster Cisco Nexus 3232C sans interrompre le fonctionnement du cluster. 
 ---
-= Migrez d'un commutateur de cluster Cisco Nexus 5596 vers un commutateur de cluster Cisco Nexus 3232C
+= Migrez des commutateurs de cluster Cisco Nexus 5596 vers les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour migrer des commutateurs de cluster Cisco Nexus 5596 existants dans un cluster avec des commutateurs de cluster Nexus 3232C.
+Migrez les commutateurs de cluster Cisco Nexus 5596 existants vers des commutateurs de cluster Cisco Nexus 3232C sans perturber le fonctionnement du cluster.
 
 
 

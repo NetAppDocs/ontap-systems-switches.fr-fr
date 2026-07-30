@@ -2,7 +2,7 @@
 permalink: switch-cisco-9336c-fx2-shared/configure-software-overview-9336c-shared.html 
 sidebar: sidebar 
 keywords: BES-53248 switches, initial installation, configure switch-cisco-9336c-fx2 switch 
-summary: Présentation de la configuration logicielle des commutateurs partagés Cisco Nexus 9336C-FX2 
+summary: Suivez ce flux de travail pour installer le logiciel NX-OS et le RCF sur un commutateur partagé Cisco Nexus 9336C-FX2. 
 ---
 = Flux de travail d'installation logicielle pour les commutateurs partagés Cisco Nexus 9336C-FX2
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Présentation de la configuration logicielle des commutateurs partagés
 
 
 [role="lead"]
-Pour installer et configurer le logiciel d'un commutateur partagé Cisco Nexus 9336C-FX2, suivez ces étapes :
+Suivez ce flux de travail pour installer le logiciel NX-OS et le fichier de configuration de référence (RCF) sur un commutateur partagé Cisco Nexus 9336C-FX2.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:setup-and-configure-9336c-shared.html["Configurez le commutateur"]
 [role="quick-margin-para"]

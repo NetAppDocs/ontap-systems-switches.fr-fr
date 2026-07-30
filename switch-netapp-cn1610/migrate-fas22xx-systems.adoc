@@ -2,16 +2,16 @@
 permalink: switch-netapp-cn1610/migrate-fas22xx-systems.html 
 sidebar: sidebar 
 keywords: migrate, two-node switched cluster, fas22xx systems, single, network connection 
-summary: 'Si vous disposez de systèmes FAS22xx dans un cluster existant à deux nœuds sans commutateur, dans lequel chaque module de contrôleur dispose d"une connexion 10 GbE dos à dos pour la connectivité du cluster, vous pouvez utiliser l"option de réseau de cluster sans commutateur et remplacer la connectivité dos à dos directe par des connexions de commutateur.' 
+summary: 'Migrez les systèmes FAS22xx d"un cluster sans commutateur avec une seule connexion réseau de cluster vers un cluster commuté en utilisant les commutateurs de cluster NetApp CN1610.' 
 ---
-= Migrez vers un cluster commuté à deux nœuds dans les systèmes FAS22xx avec une seule connexion réseau de cluster
+= Migrez les systèmes FAS22xx vers un cluster commuté à l'aide des commutateurs de cluster NetApp CN1610
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous disposez de systèmes FAS22xx dans un cluster existant à deux nœuds sans commutateur, dans lequel chaque module de contrôleur dispose d'une connexion 10 GbE dos à dos pour la connectivité du cluster, vous pouvez utiliser l'option de réseau de cluster sans commutateur et remplacer la connectivité dos à dos directe par des connexions de commutateur.
+Migrez les systèmes FAS22xx d'un cluster sans commutateur à deux nœuds avec une seule connexion 10 GbE par contrôleur vers un cluster commuté utilisant les commutateurs de cluster NetApp CN1610.
 
 
 

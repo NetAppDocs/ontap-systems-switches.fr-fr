@@ -2,16 +2,16 @@
 permalink: switch-cisco-9332d-gx2b/configure-verify-ssh-9332d.html 
 sidebar: sidebar 
 keywords: ssh, requirement, cluster, switch, health, monitor, cshm, log, collection, feature, cisco 9332d-gx2b 
-summary: 'Si vous configurez vos commutateurs dans le cadre d"une nouvelle installation de système AFX 1K ou AFX 2K, d"un remplacement de commutateur ou d"une réinitialisation aux paramètres d"usine par défaut, et que vous souhaitez utiliser le contrôle de l"état des commutateurs de cluster (CSHM) et les fonctions de collecte de journaux, vous devez vérifier que SSH et les clés SSH sont activés sur les commutateurs.' 
+summary: 'Vérifiez que SSH est activé sur les commutateurs Cisco Nexus 9332D-GX2B afin de prendre en charge le contrôle de l"état du commutateur Ethernet (CSHM) et la collecte des journaux.' 
 ---
-= Vérifiez la connexion SSH pour la collecte des journaux - Cisco Nexus 9332D-GX2B
+= Vérifiez SSH pour la collecte des journaux sur le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Si vous configurez vos commutateurs dans le cadre d'une nouvelle installation de système AFX 1K ou AFX 2K, d'un remplacement de commutateur ou d'une réinitialisation aux paramètres d'usine par défaut, pour utiliser la fonction de collecte des journaux du contrôle de l'état du commutateur Ethernet (CSHM), vous devez vérifier que SSH est activé sur les commutateurs.
+Vérifiez que SSH est activé sur les commutateurs Cisco Nexus 9332D-GX2B afin de prendre en charge la fonctionnalité de contrôle de l'état du commutateur Ethernet (CSHM) et la collecte des journaux.
 
 .Avant de commencer
 Vous devez être connecté au commutateur via la console série.

@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/migrate-cn1610.html 
 sidebar: sidebar 
 keywords: CN1610, CN1610 replacing, migrate from CN1610 
-summary: Pour remplacer les commutateurs de cluster CN1610 existants dans un cluster par des commutateurs de cluster BES-53248 pris en charge par Broadcom, vous devez effectuer une séquence de tâches spécifique. 
+summary: Migrez les commutateurs de cluster NetApp CN1610 existants vers les commutateurs de cluster Broadcom BES-53248 en suivant les exigences et la procédure de migration. 
 ---
-= Migration des commutateurs de cluster CN1610 vers les commutateurs de cluster BES-53248
+= Migrez les commutateurs de cluster NetApp CN1610 vers les commutateurs de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Pour migrer les commutateurs de cluster CN1610 d'un cluster vers des commutateurs de cluster BES-53248 pris en charge par Broadcom, consultez les exigences de migration puis suivez la procédure de migration.
+Migrez les commutateurs de cluster NetApp CN1610 existants vers des commutateurs de cluster Broadcom BES-53248. Consultez les exigences de migration, puis suivez la procédure de migration pour remplacer les commutateurs sans interrompre le fonctionnement du cluster.
 
 Les commutateurs de cluster suivants sont pris en charge :
 

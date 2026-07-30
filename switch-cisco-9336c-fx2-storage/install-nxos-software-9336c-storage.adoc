@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2-storage/install-nxos-software-9336c-storage.html 
 sidebar: sidebar 
 keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9336c-fx2 
-summary: Vous pouvez utiliser cette procédure pour installer le logiciel NX-OS sur le commutateur de cluster Nexus 9336C-FX2. 
+summary: Installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T. 
 ---
-= Installez ou mettez à niveau le logiciel NX-OS
+= Installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco Nexus 9336C-FX2
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer ou mettre à niveau le logiciel NX-OS sur les commutateurs Nexus 9336C-FX2 et 9336C-FX2-T.
+Installez ou mettez à niveau le logiciel NX-OS sur les commutateurs de stockage Cisco Nexus 9336C-FX2 et 9336C-FX2-T. NX-OS doit être installé avant que vous puissiez configurer le commutateur ou installer le fichier de configuration de référence (RCF).
 
 Avant de commencer, veuillez terminer la procédure danslink:install-nxos-overview-9336c-storage.html["Préparez-vous à installer NX-OS et RCF"] .
 

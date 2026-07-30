@@ -2,7 +2,7 @@
 permalink: switch-cisco-3232c-storage/replace-storage-switch.html 
 sidebar: sidebar 
 keywords: replace, cisco nexus, 3232c storage switch 
-summary: Vous pouvez remplacer sans interruption un commutateur de stockage Cisco Nexus 3232C défectueux en effectuant une séquence de tâches spécifique. 
+summary: 'Remplacez un commutateur de stockage Cisco Nexus 3232C défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
 = Remplacez un commutateur de stockage Cisco Nexus 3232C
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: Vous pouvez remplacer sans interruption un commutateur de stockage Cisc
 
 
 [role="lead"]
-Suivez ces étapes pour remplacer un commutateur de stockage Cisco Nexus 3232C défectueux. Cette procédure est sans interruption de service.
+Remplacez un commutateur de stockage Cisco Nexus 3232C défectueux sans interrompre le fonctionnement du réseau de stockage. Cette procédure non disruptive consiste à préparer un commutateur de remplacement et à rétablir la configuration du réseau de stockage.
 
 
 

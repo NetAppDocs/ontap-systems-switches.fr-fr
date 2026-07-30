@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: switch-cisco-9364d-gx2a/reference-documentation-9364d.html 
 keywords: shared storage cluster switch 
-summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9364d-gx2a, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9364d-gx2a et votre cluster ONTAP .' 
+summary: 'Consultez la documentation des commutateurs Cisco et des systèmes NetApp pour l"installation et la maintenance du commutateur Cisco Nexus 9364D-GX2A dans les systèmes AFX 1K et AFX 2K.' 
 ---
-= Documentation de référence - Commutateurs Cisco Nexus 9364D-GX2A
+= Consultez la documentation de référence pour le commutateur Cisco Nexus 9364D-GX2A
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 'Pour l"installation et la maintenance du commutateur Cisco Nexus 9364d
 
 
 [role="lead"]
-Pour l'installation du commutateur Cisco Nexus 9364D-GX2A, assurez-vous de consulter la documentation spécifique du commutateur et du contrôleur pour configurer vos commutateurs Cisco 9364D-GX2A et votre cluster ONTAP.
+Consultez la documentation Cisco applicable et la documentation des systèmes NetApp pour l'installation, la configuration et la maintenance du commutateur Cisco Nexus 9364D-GX2A dans les systèmes AFX 1K et AFX 2K.
 
 
 

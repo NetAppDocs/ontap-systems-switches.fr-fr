@@ -2,16 +2,16 @@
 permalink: switch-bes-53248/CSHM_snmpv3.html 
 sidebar: sidebar 
 keywords: SNMP,SNMPv3,SNMPv3 setup,BES-53248 Broadcom setup,BES-3248 switches configuration,EFOS 
-summary: 'SNMPv3 peut être utilisé avec le contrôle de l"état du commutateur Ethernet CSHM.' 
+summary: 'Configurez SNMPv3 sur le commutateur de cluster Broadcom BES-53248 pour activer une communication sécurisée avec le contrôle de l"état du commutateur Ethernet (CSHM).' 
 ---
-= Configurer SNMPv3
+= Configurer SNMPv3 pour le commutateur de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour configurer SNMPv3, qui prend en charge la surveillance de l'état des commutateurs Ethernet (CSHM).
+Configurez SNMPv3 sur le commutateur de cluster Broadcom BES-53248 pour activer une communication sécurisée et authentifiée avec le contrôle de l'état du commutateur Ethernet (CSHM). SNMPv3 permet l'interrogation chiffrée de l'état du commutateur pour la surveillance de l'état dans ONTAP.
 
 .À propos de cette tâche
 Les commandes suivantes permettent de configurer un nom d'utilisateur SNMPv3 sur les commutateurs Broadcom BES-53248 :

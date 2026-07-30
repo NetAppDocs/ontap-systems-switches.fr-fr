@@ -1,17 +1,17 @@
 ---
 permalink: switch-cisco-9332d-gx2b/configure-upgrade-nxos-9332d.html 
 sidebar: sidebar 
-keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gc2b 
-summary: 'Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d"ONTAP sur votre système AFX 1K ou AFX 2K.' 
+keywords: procedure, install, nx-os, software, nexus, cluster, switch, install the nx-os software - cisco nexus 9332d-gx2b 
+summary: 'Mettez à niveau le NX-OS sur les commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d"ONTAP sur les systèmes AFX 1K ou AFX 2K.' 
 ---
-= Mettez à niveau le NX-OS - Cisco Nexus 9332D-GX2B
+= Mettez à niveau NX-OS sur le commutateur Cisco Nexus 9332D-GX2B
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Vous mettez à niveau le NX-OS sur vos commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur votre système AFX 1K ou AFX 2K.
+Mettez à niveau le NX-OS sur les commutateurs Cisco Nexus 9332D-GX2B pour prendre en charge un nouveau matériel ou une nouvelle version d'ONTAP sur les systèmes AFX 1K ou AFX 2K.
 
 
 NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONTAP, puis d'effectuer la mise à niveau du logiciel de vos commutateurs.

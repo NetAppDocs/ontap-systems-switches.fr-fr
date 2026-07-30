@@ -2,14 +2,14 @@
 permalink: switch-cisco-3132q-v/reset-switch-3132q-v.html 
 sidebar: sidebar 
 keywords: 3132Q-V reset switch to factory defaults, 3132Q-V2 switches configuration, efos 
-summary: Avant de configurer votre commutateur Cisco Nexus 3132Q-V, consultez les informations suivantes. 
+summary: 'Réinitialisez le commutateur de cluster Cisco Nexus 3132Q-V aux paramètres d"usine en effaçant la configuration actuelle du commutateur.' 
 ---
-= Réinitialisez le commutateur de cluster 3132Q-V aux paramètres d'usine
+= Réinitialisez le commutateur de cluster Cisco Nexus 3132Q-V aux paramètres d'usine
 :allow-uri-read: 
 
 
 [role="lead"]
-Pour réinitialiser le commutateur de cluster 3132Q-V aux paramètres d'usine, vous devez effacer les paramètres du commutateur 3132Q-V.
+Réinitialisez le commutateur de cluster Cisco Nexus 3132Q-V aux paramètres d'usine par défaut en effaçant la configuration actuelle du commutateur et en restaurant le commutateur à ses paramètres d'origine.
 
 .À propos de cette tâche
 * Vous devez être connecté au commutateur via la console série.

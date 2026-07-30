@@ -2,16 +2,16 @@
 permalink: switch-cisco-9336c-fx2/install-switch-9336c-cluster.html 
 sidebar: sidebar 
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9336c-fx2 
-summary: Suivez cette procédure pour installer le commutateur Cisco Nexus 9336C-FX2. 
+summary: Installez et configurez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T pour les préparer au fonctionnement du réseau. 
 ---
-= Installer les commutateurs de cluster 9336C-FX2 et 9336C-FX2-T
+= Installer les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Suivez cette procédure pour installer et configurer les commutateurs Cisco Nexus 9336C-FX2 et 9336C-FX2-T.
+Installez et configurez les commutateurs de cluster Cisco Nexus 9336C-FX2 et 9336C-FX2-T pour les préparer au fonctionnement du réseau.
 
 .Avant de commencer
 Assurez-vous d'avoir les éléments suivants :

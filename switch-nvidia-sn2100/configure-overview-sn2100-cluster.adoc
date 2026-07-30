@@ -2,18 +2,18 @@
 permalink: switch-nvidia-sn2100/configure-overview-sn2100-cluster.html 
 sidebar: sidebar 
 keywords: sn2100 SN2100 switches setup, sn2100 SN2100 switches install, cumulus linux 
-summary: Le commutateur NVIDIA SN2100 est un commutateur Ethernet 10/25/40/100 GbE fonctionnant sous Cumulus Linux.  Le commutateur SN2100 prend en charge les applications de cluster et de stockage dans ONTAP 9.10.1 sur différentes paires de commutateurs. 
+summary: Suivez ce workflow pour installer et configurer les commutateurs de cluster NVIDIA SN2100 dans un environnement ONTAP. 
 ---
-= Flux de travail d'installation et de configuration pour les commutateurs NVIDIA SN2100
+= Flux de travail d'installation et de configuration pour les commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Le NVIDIA SN2100 est un commutateur de cluster qui vous permet de créer des clusters ONTAP avec plus de deux nœuds.
+Suivez cette procédure pour installer et configurer les commutateurs de cluster NVIDIA SN2100 dans un environnement ONTAP. Le SN2100 est un commutateur 10/25/40/100 GbE fonctionnant sous Cumulus Linux et prenant en charge les clusters ONTAP comportant plus de deux nœuds.
 
-Suivez ces étapes de flux de travail pour installer et configurer vos commutateurs NVIDIA SN2100.
+Suivez ces étapes de workflow pour installer et configurer vos commutateurs NVIDIA SN2100.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Un"]link:configure-reqs-sn2100-cluster.html["Examiner les exigences de configuration"]
 [role="quick-margin-para"]

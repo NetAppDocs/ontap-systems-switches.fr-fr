@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace, cisco nexus 3132q-v cluster switches 
 summary: 'Remplacez un commutateur de cluster Cisco Nexus 3132Q-V défectueux. Cette procédure n"entraîne aucune interruption de service.' 
 ---
-= Remplacez les commutateurs d’interconnexion de cluster Cisco Nexus 3132Q-V
+= Remplacez un commutateur de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

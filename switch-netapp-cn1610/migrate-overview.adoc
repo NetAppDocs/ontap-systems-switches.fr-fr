@@ -19,6 +19,6 @@ Les nœuds FAS22xx permettent un seul port de cluster sur chaque contrôleur.
 
 Deux options de migration sont disponibles :
 
-* link:migrate-switched-netapp-cn1610.html["Migrez d'un cluster sans commutateur vers un environnement de cluster NetApp CN1610 commuté"]
+* link:migrate-switched-netapp-cn1610.html["Migrez d'un cluster sans commutateur vers un cluster NetApp CN1610 avec commutateur"]
 * link:migrate-fas22xx-systems.html["Migrez à partir d’un cluster sans commutateur (systèmes FAS22xx avec une seule connexion réseau de cluster)"]
 

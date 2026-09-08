@@ -4,7 +4,7 @@ permalink: switch-cisco-9332d-gx2b/reference-documentation-9332d.html
 keywords: shared storage cluster switch 
 summary: 'Consultez la documentation des commutateurs Cisco et des systèmes NetApp pour l"installation et la maintenance du commutateur Cisco Nexus 9332D-GX2B dans les systèmes AFX 1K et AFX 2K.' 
 ---
-= Consultez la documentation de référence pour le commutateur Cisco Nexus 9332D-GX2B
+= Consultez les exigences de documentation pour le commutateur Cisco Nexus 9332D-GX2B
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

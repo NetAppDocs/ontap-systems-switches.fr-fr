@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrate, switchless cluster interconnect, NVIDIA SN2100 
 summary: 'Vous pouvez migrer d"un cluster avec un réseau de cluster commuté vers un cluster où deux nœuds sont directement connectés pour ONTAP 9.3 et versions ultérieures.' 
 ---
-= Migration d'un cluster avec commutateurs vers un cluster sans commutateurs avec commutateurs de cluster NVIDIA SN2100
+= Migrez d'un système à commutation vers un système sans commutation avec les commutateurs de cluster NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

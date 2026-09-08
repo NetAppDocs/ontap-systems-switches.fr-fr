@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, applicable, configuration, file, cluster, switch, health, monitor, ontap, install the cluster switch health monitor configuration file for sn2100 switches 
 summary: 'Installez le fichier de configuration du contrôle de l"état pour les commutateurs de stockage NVIDIA SN2100 afin d"activer la surveillance de l"état du commutateur dans ONTAP.' 
 ---
-= Installez le fichier de configuration du contrôle de l'état pour les commutateurs de stockage NVIDIA SN2100.
+= Installez le fichier de configuration CSHM pour les commutateurs de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 cabling setup, msn2100 sn2100 switches configuration, cumulus linux 
 summary: 'Câblez les baies de disques NS224 comme stockage connecté à un commutateur à l"aide des commutateurs de cluster NVIDIA SN2100 lorsque le stockage à connexion directe n"est pas utilisé.' 
 ---
-= Câblez les baies de disques NS224 comme stockage connecté au commutateur pour les commutateurs de cluster NVIDIA SN2100
+= Câblez les étagères NS224 comme stockage connecté à des commutateurs NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

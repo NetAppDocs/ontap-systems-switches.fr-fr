@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: documentation requirements, BES-53248 switches,cluster switches 
 summary: Consultez la documentation relative au commutateur et au contrôleur requise pour configurer le commutateur de cluster Broadcom BES-53248. 
 ---
-= Examinez les exigences de la documentation pour configurer le commutateur de cluster Broadcom BES-53248
+= Consultez les exigences de documentation pour le commutateur d'interconnexion de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

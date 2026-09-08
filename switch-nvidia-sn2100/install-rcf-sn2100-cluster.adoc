@@ -163,7 +163,7 @@ NOTE: À l'étape 3 *Mise à jour du fichier MOTD* ci-dessus, la commande `cat /
 
 NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Réappliquez les personnalisations précédentes à la configuration du commutateur. Consultez link:cabling-considerations-sn2100-cluster.html["Passez en revue les directives de câblage et de configuration"] pour obtenir des détails sur toute modification supplémentaire requise.
 . Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
@@ -464,7 +464,7 @@ admin@sw1:mgmt:~$ cat /etc/issue.net
 
 NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Réappliquez les personnalisations précédentes à la configuration du commutateur. Consultez link:cabling-considerations-sn2100-cluster.html["Passez en revue les directives de câblage et de configuration"] pour obtenir des détails sur toute modification supplémentaire requise.
 . Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]
@@ -830,7 +830,7 @@ admin@sw1:mgmt:~$ cat /etc/issue.net
 
 NOTE: Pour tout problème de script Python RCF qui ne peut être résolu, contactez https://mysupport.netapp.com/["Assistance NetApp"^] pour obtenir de l'aide.
 
-. Réappliquez les personnalisations précédentes à la configuration du commutateur.  Se référer àlink:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"] pour plus de détails sur les modifications supplémentaires nécessaires.
+. Réappliquez les personnalisations précédentes à la configuration du commutateur. Consultez link:cabling-considerations-sn2100-cluster.html["Passez en revue les directives de câblage et de configuration"] pour obtenir des détails sur toute modification supplémentaire requise.
 . Vérifiez la configuration après le redémarrage :
 +
 [listing, subs="+quotes"]

@@ -4,12 +4,12 @@ sidebar: sidebar
 keywords:  
 summary: Découvrez les commutateurs en cluster, de stockage et partagés. 
 ---
-= Découvrez les commutateurs de votre système ONTAP
+= Découvrez les commutateurs du système ONTAP
 :allow-uri-read: 
 
 
 [role="lead"]
-NetApp propose des systèmes AFX, des clusters, du stockage et des commutateurs partagés qui offrent des communications internes avec la possibilité de déplacer sans interruption les données et les interfaces réseau à travers le cluster.
+ONTAP propose des systèmes AFX, des clusters, du stockage et des commutateurs partagés qui assurent des communications internes avec la possibilité de déplacer sans interruption les données et les interfaces réseau au sein du cluster.
 
 Les commutateurs « frontaux » assurent la connectivité au stockage hôte, tandis que les commutateurs de cluster « dorsaux » assurent les connexions entre deux ou plusieurs contrôleurs NetApp .
 

@@ -409,7 +409,7 @@ cs2# copy running-config startup-config [#######################################
 cs2# *reload*
 This command will reboot the system. (y/n)?  [n] *y*
 ----
-. Réappliquez les personnalisations précédentes à la configuration du commutateur. Consultez link:cabling-considerations-3132q-v.html["Examiner les considérations relatives au câblage et à la configuration"] pour obtenir des détails sur toute modification supplémentaire requise.
+. Réappliquez les personnalisations précédentes à la configuration du commutateur. Consultez link:cabling-considerations-3132q-v.html["Vérifiez les exigences de câblage et de configuration"] pour obtenir des détails sur toute modification supplémentaire requise.
 . Vérifiez l'état des ports du cluster.
 +
 .. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: require, configuration, information, documentation, cluster, management, network, switches, set up the switches - cisco nexus 9808 
 summary: 'Effectuez la configuration initiale des commutateurs Cisco Nexus 9808 à l"aide de l"assistant de configuration pour les nouvelles installations de systèmes AFX 2K, les remplacements de modules superviseurs ou les réinitialisations aux paramètres d"usine.' 
 ---
-= Terminez la configuration initiale du commutateur Cisco Nexus 9808
+= Terminez la configuration initiale sur le commutateur Cisco Nexus 9808
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

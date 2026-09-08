@@ -4,7 +4,7 @@ permalink: switch-cisco-9808/reference-documentation-9808.html
 keywords: shared storage cluster switch 
 summary: 'Consultez la documentation sur les commutateurs Cisco et les systèmes NetApp pour l"installation et la maintenance du commutateur Cisco Nexus 9808 dans les systèmes AFX 2K.' 
 ---
-= Consultez la documentation de référence pour le commutateur Cisco Nexus 9808
+= Consultez les exigences de documentation pour le commutateur Cisco Nexus 9808.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

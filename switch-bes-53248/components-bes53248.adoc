@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cluster-mode,supported versions,switches supported,cluster network,efos 
 summary: 'Identifiez les composants et les numéros de pièces du commutateur de cluster Broadcom BES-53248 pour prendre en charge l"installation matérielle et la maintenance continue.' 
 ---
-= Découvrez les composants et les références du commutateur de cluster Broadcom BES-53248
+= Composants et références du commutateur d’interconnexion de cluster Broadcom BES-53248
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

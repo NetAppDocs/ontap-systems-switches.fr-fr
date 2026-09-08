@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: 'Préparez-vous à migrer d"un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3132Q-V.' 
 ---
-= Préparez-vous à migrer d'un cluster sans commutateur vers des commutateurs de cluster Cisco Nexus 3132Q-V
+= Préparez la migration vers les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

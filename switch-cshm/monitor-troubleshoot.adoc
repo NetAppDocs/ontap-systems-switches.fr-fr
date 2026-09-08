@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: 'Résolvez les problèmes liés aux alertes de contrôle de l"état des commutateurs Ethernet générées par CSHM dans votre cluster ONTAP.' 
 ---
-= Dépannez les alertes du contrôle de l'état du commutateur Ethernet
+= Dépannez les alertes de surveillance de l'état des commutateurs Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

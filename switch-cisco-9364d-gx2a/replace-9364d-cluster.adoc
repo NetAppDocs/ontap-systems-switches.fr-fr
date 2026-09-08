@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replacing, replace, defective, nexus, switch, cluster, network, nondisruptive, procedure, ndu, replace a cisco nexus 9364d-gx2a cluster switch - cisco nexus 9364d-gx2a 
 summary: Remplacez un commutateur Cisco Nexus 9364D-GX2A défectueux dans un système AFX sans interrompre le fonctionnement. Cette procédure est non disruptive. 
 ---
-= Remplacez un commutateur Cisco Nexus 9364D-GX2A
+= Remplacez un commutateur Cisco Nexus 9364D-GX2A dans un système AFX
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

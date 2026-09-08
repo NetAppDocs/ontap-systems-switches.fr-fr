@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify, monitor, cluster, management, network, switches, heath, monitor 
 summary: 'Vérifiez que la surveillance de l"état de vos commutateurs Ethernet est correctement configurée et fonctionne.' 
 ---
-= Vérifiez la configuration du contrôle de l'état du commutateur Ethernet
+= Vérifiez la configuration de la surveillance de l'état du commutateur Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

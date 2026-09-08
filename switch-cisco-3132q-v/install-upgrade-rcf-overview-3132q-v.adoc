@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rcf, install, upgrade, cluster switch, cisco nexus 3132q-v 
 summary: 'Installez ou mettez à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3132Q-V après la configuration initiale ou lorsqu"une version plus récente est disponible.' 
 ---
-= Découvrez comment installer ou mettre à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3132Q-V
+= Découvrez comment installer ou mettre à niveau RCF sur les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

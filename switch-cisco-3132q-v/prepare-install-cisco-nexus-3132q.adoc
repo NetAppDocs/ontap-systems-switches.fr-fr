@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: install, nx-os software, rcfs, cisco nexus 3132q-v, cluster switches 
 summary: 'Préparez les commutateurs de cluster Cisco Nexus 3132Q-V avant d’installer le logiciel NX-OS et le fichier de configuration de référence (RCF).' 
 ---
-= Préparez-vous à installer le logiciel NX-OS et RCF sur les commutateurs de cluster Cisco Nexus 3132Q-V
+= Préparez-vous à installer NX-OS et RCF sur les commutateurs Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

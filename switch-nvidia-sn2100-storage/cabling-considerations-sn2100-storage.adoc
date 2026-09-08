@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sn2100 SN2100 cabling setup, sn2100 switches configuration, cumulus linux os 
 summary: Examinez les considérations relatives au câblage et à la configuration des commutateurs de stockage NVIDIA SN2100 avant le déploiement. 
 ---
-= Examinez les considérations relatives au câblage et à la configuration des commutateurs de stockage NVIDIA SN2100
+= Consultez les instructions de câblage pour les commutateurs de stockage NVIDIA SN2100
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

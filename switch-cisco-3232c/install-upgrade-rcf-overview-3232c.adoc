@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rcf, install, upgrade, cluster switch, cisco nexus 3232c 
 summary: 'Installez ou mettez à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3232C après la configuration initiale ou lorsqu"une version plus récente est disponible.' 
 ---
-= Découvrez comment installer ou mettre à niveau le RCF sur les commutateurs de cluster Cisco Nexus 3232C
+= Examinez les options RCF pour les commutateurs de cluster Cisco Nexus 3232C
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

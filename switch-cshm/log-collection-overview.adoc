@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cshm, cluster, storage, switch logs, debugging, collection 
 summary: Utilisez la collecte de journaux CSHM pour recueillir les journaux de commutateur et les données de diagnostic afin de résoudre les problèmes de commutateur réseau. 
 ---
-= Découvrez la collecte des journaux pour le contrôle de l'état du commutateur Ethernet
+= Découvrez la collecte des journaux pour la surveillance de l'état de santé des commutateurs Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -22,7 +22,7 @@ Si vous souhaitez créer des clusters ONTAP avec plus de deux nœuds, vous aurez
 
 Vous installez le commutateur NVIDIA SN2100 (X190006) dans l'armoire à commutateur double/simple NVIDIA avec les supports standard fournis avec le commutateur.
 
-Pour les directives de câblage, reportez-vous à link:cabling-considerations-sn2100-cluster.html["Examiner les considérations relatives au câblage et à la configuration"].
+Pour les directives de câblage, reportez-vous à link:cabling-considerations-sn2100-cluster.html["Passez en revue les directives de câblage et de configuration"].
 
 
 

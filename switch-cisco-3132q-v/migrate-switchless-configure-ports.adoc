@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cisco 3132q-v, cluster switches 
 summary: 'Configurez les ports pour la migration d"un cluster sans commutateur à deux nœuds vers des commutateurs de cluster Cisco Nexus 3132Q-V.' 
 ---
-= Configurer les ports pour la migration des clusters sans commutateur vers les commutateurs de cluster Cisco Nexus 3132Q-V
+= Configurer les ports pour la migration vers les commutateurs de cluster Cisco Nexus 3132Q-V
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

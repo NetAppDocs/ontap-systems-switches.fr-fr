@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log collection feature,collect switch-related log files,SSh key,crypto key generation 
 summary: Configurez la collecte des journaux pour permettre à CSHM de collecter les journaux et les données de diagnostic des commutateurs du cluster et du réseau de stockage. 
 ---
-= Configurer la collecte des journaux pour le contrôle de l'état du commutateur Ethernet
+= Configurer la collecte des journaux pour la surveillance de l'état de santé des commutateurs Ethernet
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

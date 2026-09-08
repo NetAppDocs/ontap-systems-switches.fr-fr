@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: migrate, switchless cluster environment, switched netapp cn1610 
 summary: 'Migrez d"un cluster à deux nœuds sans commutateur vers un environnement de cluster commuté à l"aide des commutateurs de cluster NetApp CN1610.' 
 ---
-= Migrez d'un cluster sans commutateur vers un environnement de cluster NetApp CN1610 commuté
+= Migrez d'un cluster sans commutateur vers un cluster NetApp CN1610 avec commutateur
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

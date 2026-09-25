@@ -39,7 +39,7 @@ Préparez-vous à installer le RCF sur le(s) commutateur(s) en vous assurant que
 
 .Étapes
 . Vous devez disposer d'un accès à un serveur HTTP, FTP ou TFTP. L'accès à l'un de ces serveurs vous permet de télécharger une version compatible du RCF.
-. Téléchargez le RCF pris en charge pour votre type de système AFX depuis le site de support NetApp à l'adresse http://mysupport.netapp.com/["monsupport.netapp.com"^].
+. Téléchargez le RCF pris en charge pour votre type de système AFX depuis le site de support NetApp à l'adresse link:http://mysupport.netapp.com/["monsupport.netapp.com"^].
 +
 
 NOTE: Les nouveaux commutateurs ne sont pas livrés avec le RCF installé. Vous devez installer le RCF sur les commutateurs.
@@ -52,9 +52,9 @@ NOTE: Les nouveaux commutateurs ne sont pas livrés avec le RCF installé. Vous 
 [[step-2-install-the-rcf]]
 == Étape 2 : Installer le RCF
 
-Vous installez le RCF sur le premier commutateur (cs1) en copiant et en appliquant le RCF à la mémoire bootflash, en examinant le message d'accueil, en vérifiant que la version du RCF est correcte, en enregistrant toute personnalisation, en sauvegardant les détails de la configuration de base, en vérifiant que le fichier write_erase.cfg est renseigné, en effaçant la configuration enregistrée actuelle, en copiant la configuration de base précédemment sauvegardée dans la configuration de démarrage, puis en redémarrant le commutateur. Vous répétez ces étapes sur le second commutateur (cs2) si vous installez le RCF dans le cadre d'une nouvelle installation du système AFX.
+Sur le premier commutateur (cs1), installez le RCF en le copiant dans le bootflash et en l’y appliquant, en examinant la sortie de la bannière, en vérifiant que la version du RCF est correcte, en rendant persistante la configuration d’exécution actuelle, puis en redémarrant le commutateur. Répétez ces étapes sur le deuxième commutateur (cs2) si vous installez le RCF dans le cadre d’une nouvelle installation du système AFX.
 
-. Connectez-vous pour commuter cs1 en utilisant SSH ou en utilisant une console série.
+. Connectez-vous au commutateur cs1 à l'aide de SSH ou d'une console série.
 . Copiez le RCF sur le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
 Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/102x/command-reference/config/b_n9k_config_commands_1021.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^]
@@ -138,7 +138,7 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 
 . Copiez la configuration en cours d'exécution dans la configuration de démarrage pour la rendre persistante.
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`cs1# *copy running-config startup-config*`
 
 . Redémarrez le commutateur :
 +

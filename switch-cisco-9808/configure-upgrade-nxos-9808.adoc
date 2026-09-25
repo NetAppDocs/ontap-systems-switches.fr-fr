@@ -23,6 +23,10 @@ NOTE: NetApp recommande de terminer d'abord toute mise à niveau du logiciel ONT
 
 .À propos de cette tâche
 * Si nécessaire, vous pouvez vous référer à link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/101x/upgrade/cisco-nexus-9000-nx-os-software-upgrade-downgrade-guide-101x.html["Guide de mise à niveau et de rétrogradation du logiciel NX-OS Cisco Nexus série 9000"^] pour plus d'informations.
+* Si nécessaire, vous pouvez vous référer à la link:https://www.cisco.com/c/dam/en/us/td/docs/dcn/tools/nexus-9k3k-issu-matrix/index.html["Matrice de mise à niveau et de mise à niveau logicielle sans interruption de service (ISSU) des Cisco Nexus 9000 et 3000"^] qui fournit des informations sur la mise à niveau logicielle en service (ISSU) pour les commutateurs Cisco Nexus 9000 Series en fonction de vos versions actuelles et cibles.
++
+Sur la page, sélectionnez *Mise à niveau disruptive* et choisissez votre version actuelle et votre version cible dans la liste déroulante.
+
 * La version d'ONTAP exécutée sur votre système AFX détermine les versions de NX-OS prises en charge par vos commutateurs.
 +
 ** Pour les commutateurs d'un système AFX 2K, exécutant ONTAP 9.19.1GA ou version ultérieure, NX-OS 10.6 et versions ultérieures sont pris en charge.
@@ -51,6 +55,7 @@ NOTE: Ne mettez pas à jour ni ne rétrogradez votre version NX-OS vers une vers
 ** Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
+* Les exemples présentés dans cette procédure concernent les systèmes AFX 2K avec des commutateurs exécutant RCF 10.1. Les entrées et sorties peuvent varier en fonction de votre version de RCF.
 
 
 
@@ -62,7 +67,7 @@ Préparez-vous à la mise à niveau du NX-OS en vous assurant d'avoir une connex
 
 .Étapes
 . Connectez chaque commutateur au réseau de gestion.
-. À l'aide de l'interface de ligne de commande du commutateur, vérifiez la connectivité au serveur hébergeant le NX-OS.
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez la connectivité au serveur hébergeant NX-OS :
 +
 `ping <IP address>`
 
@@ -494,9 +499,9 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 [[step-2-install-the-nx-os]]
 == Étape 2 : Installez le NX-OS
 
-Vous installez le NX-OS sur le premier commutateur (cs1) en installant et en vérifiant la nouvelle version du NX-OS et de l'EPLD, en vérifiant l'état de santé de tous les ports du cluster, puis en répétant ces étapes sur le deuxième commutateur (cs2).
+Vous installez NX-OS sur le premier commutateur (cs1) en installant et en vérifiant la nouvelle version de NX-OS et de l'EPLD, en vérifiant l'état de tous les ports du cluster, puis vous répétez ces étapes sur le deuxième commutateur (cs2).
 
-. À l'aide de l'interface de ligne de commande du commutateur, copiez l'image NX-OS et EPLD sur un commutateur.
+. À l'aide de l'interface de ligne de commande du commutateur, copiez l'image NX-OS et EPLD vers un commutateur :
 +
 `copy <protocol>: bootflash: vrf management`
 
@@ -595,7 +600,7 @@ cs1#
 ====
 . À l'aide de l'interface de ligne de commande du commutateur, installez l'image NX-OS et EPLD.
 +
-L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur.
+L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur :
 
 +
 `install all nxos bootflash:nxos.<version number>.bin`
@@ -1288,7 +1293,7 @@ node1-04             true    true          true
 
 À l'aide de l'interface de ligne de commande ONTAP, terminez la mise à niveau NX-OS en réactivant la restauration automatique sur les LIF du cluster et en vérifiant que les LIF du cluster sont revenues à leurs ports d'attache.
 
-. Réactivez la restauration automatique sur les LIF du cluster.
+. Réactivez la restauration automatique sur les LIF du cluster :
 +
 [source, cli]
 ----

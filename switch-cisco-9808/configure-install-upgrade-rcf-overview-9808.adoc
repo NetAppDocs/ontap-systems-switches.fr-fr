@@ -97,7 +97,7 @@ Par exemple, pour modifier la liste des ports avec les nouveaux ports, 19-22, po
 +
 `interface e1/19/1-4, e1/20/1-4, e1/21/1-4, e1/22/1-4`
 
-. Configurez en dur les ports de dérivation du commutateur (4x100GbE) pour 100GbE. Si vous ne configurez pas en dur la vitesse, les ports ne seront pas opérationnels et seront en état d'erreur désactivée.
+. Configurez en dur les ports de dérivation du commutateur (4x100GbE) pour 100GbE. Si vous ne configurez pas en dur la vitesse, les ports ne seront pas opérationnels et seront dans un état error-disabled :
 +
 `speed 100000`
 

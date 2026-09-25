@@ -22,8 +22,10 @@ Installez NX-OS sur les commutateurs Cisco Nexus 9808 pour les nouvelles install
 
 
 * Si vous installez NX-OS sur un commutateur dans le cadre d’un remplacement de commutateur ou d’une réinitialisation du commutateur aux paramètres d’usine par défaut, vérifiez que votre cluster est pleinement fonctionnel, c’est-à-dire qu’il n’y a pas d’erreurs dans les journaux ou de problèmes similaires.
-* Si vous installez le NX-OS dans le cadre d'une nouvelle installation du système AFX, vous pouvez ignorer cette exigence car les contrôleurs de votre système AFX ne sont pas sous tension à ce stade de l'installation et de la configuration de votre système AFX.
 
+
+
+NOTE: Si vous installez le NX-OS dans le cadre d'une nouvelle installation du système AFX, vous pouvez ignorer cette exigence car les contrôleurs de votre système AFX ne sont pas sous tension à ce stade de l'installation et de la configuration de votre système AFX.
 
 .À propos de cette tâche
 * La version d'ONTAP exécutée sur votre système AFX détermine les versions de NX-OS prises en charge par vos commutateurs.
@@ -37,6 +39,7 @@ Pour la liste actuelle des versions NX-OS prises en charge, veuillez vous réfé
 * Cette procédure nécessite uniquement l'utilisation des commandes des commutateurs Cisco Nexus 9000 Series Switches.
 * Dans les exemples de cette procédure, le premier commutateur est désigné par cs1 et le second par cs2.
 * Si vous avez installé des commutateurs dans le cadre d'une nouvelle installation de système AFX 2K, vous installez le NX-OS sur le premier commutateur (cs1) puis répétez les étapes pour le deuxième commutateur (cs2) en utilisant cette procédure.
+* Les exemples présentés dans cette procédure concernent les systèmes AFX 2K avec des commutateurs exécutant RCF 10.1. Les entrées et sorties peuvent varier en fonction de votre version de RCF.
 
 
 
@@ -50,7 +53,7 @@ Préparez-vous à installer NX-OS sur le(s) commutateur(s) en vous assurant d’
 . Vous devez disposer d'un accès à un serveur HTTP, SFTP, FTP ou TFTP. L'accès à l'un de ces serveurs vous permet de télécharger une version prise en charge de NX-OS.
 . Téléchargez la version correcte de l’image NX-OS et EPLD pour le(s) commutateur(s) depuis la  https://software.cisco.com/download/home["Téléchargement de logiciels Cisco"^] page.
 . Connectez le commutateur au réseau de gestion (pour le transfert de fichiers).
-. Vérifiez la connectivité au serveur hébergeant le NX-OS à l'aide de la commande  `ping`.
+. Vérifiez la connectivité au serveur hébergeant NX-OS à l’aide de la commande `ping` :
 +
 `ping <IP address>`
 
@@ -77,7 +80,7 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 
 Vous installez l'image NX-OS et EPLD sur le premier commutateur (cs1) en installant et en vérifiant les versions de l'image NX-OS et EPLD, puis vous répétez ces étapes sur le deuxième commutateur (cs2) si vous installez le NX-OS dans le cadre d'une nouvelle installation de système AFX.
 
-. Copiez l'image NX-OS et EPLD sur le premier commutateur.
+. Copiez l’image NX-OS et l’image EPLD sur le premier commutateur :
 +
 `copy <protocol>: bootflash: vrf management`
 
@@ -176,7 +179,7 @@ cs1#
 ====
 . Installez l'image NX-OS et EPLD.
 +
-L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur.
+L'installation du fichier image entraîne son chargement à chaque redémarrage du commutateur :
 
 +
 `install all nxos bootflash:nxos.<image_file>.bin`

@@ -18,7 +18,7 @@ Assurez-vous de disposer des informations réseau et de configuration pour chaqu
 
 .À propos de cette tâche
 * Vous devez effectuer la configuration initiale sur chaque commutateur.
-* Si nécessaire, vous pouvez vous référer aux informations relatives à la configuration des commutateurs dans le chapitre *Using the Cisco NX-OS Setup Utility* du link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x/m-using-nnxos-setup-utility.html["Guide de configuration des principes fondamentaux de Cisco Nexus 9000 Series NX-OS, version 10.6(x)"^].
+* Si nécessaire, vous pouvez consulter la documentation de votre version NX-OS du link:https://www.cisco.com/c/en/us/td/docs/dcn/nx-os/nexus9000/106x/configuration/fundamentals/cisco-nexus-9000-series-nx-os-fundamentals-configuration-guide-release-106x.html["Cisco Nexus 9000 Series NX-OS Guide de configuration des principes fondamentaux"^] pour obtenir des informations sur la configuration des commutateurs, dans le chapitre « Utilisation de l'utilitaire de configuration Cisco NX-OS ». Vous pouvez également trouver des informations sur les paramètres du terminal dans le chapitre « Configuration des paramètres et des sessions du terminal ».
 
 
 .Étapes

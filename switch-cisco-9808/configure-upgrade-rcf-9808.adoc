@@ -29,12 +29,8 @@ Si vous devez modifier la configuration de démarrage pour qu'elle reflète les 
 
 
 .À propos de cette tâche
-* La mise à niveau du RCF sur les deux commutateurs est une procédure non disruptive.
-+
-** Aucune liaison inter-commutateurs (ISL) opérationnelle n'est requise durant cette procédure. Ceci est intentionnel, car les changements de version de RCF peuvent affecter temporairement la connectivité ISL. Afin de garantir le fonctionnement continu du cluster, cette procédure vous demande de migrer toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en exécutant les étapes sur le commutateur cible.
-** Cette procédure vous fait mettre à niveau le RCF sur le premier commutateur (cs1), puis vous fait répéter les étapes pour le deuxième commutateur (cs2).
-
-
+* Pour garantir un fonctionnement non perturbateur du cluster, cette procédure vous fait migrer toutes les LIF du cluster vers le commutateur partenaire opérationnel tout en effectuant les étapes sur le commutateur cible.
+* Aucune liaison inter-commutateurs (ISL) opérationnelle n'est nécessaire durant cette procédure. Ceci est intentionnel, car les changements de version de RCF peuvent affecter temporairement la connectivité ISL.
 * Cette procédure nécessite l'utilisation des commandes ONTAP et des commandes des commutateurs Cisco Nexus 9000 Series. Les étapes indiquent quelle interface de ligne de commande (CLI) vous utilisez pour saisir les commandes.
 * Les exemples de cette procédure utilisent la nomenclature suivante pour les commutateurs et les nœuds :
 +
@@ -51,6 +47,7 @@ Si vous devez modifier la configuration de démarrage pour qu'elle reflète les 
 ** Le `cluster1::*>` L'invite indique le nom du cluster.
 
 
+* Les exemples présentés dans cette procédure concernent les systèmes AFX 2K avec des commutateurs exécutant RCF 10.1. Les entrées et sorties peuvent varier en fonction de votre version de RCF.
 
 
 
@@ -58,17 +55,14 @@ Si vous devez modifier la configuration de démarrage pour qu'elle reflète les 
 [[step-1-prepare-for-the-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
-Vous saisissez les commandes pour les étapes suivantes à partir de l'interface de ligne de commande ONTAP.
+En utilisant l'interface de ligne de commande ONTAP (ONTAP CLI) pour les étapes suivantes, préparez la mise à niveau RCF en supprimant la création automatique de cas si nécessaire, en vérifiant l'état administratif et opérationnel des ports, et en désactivant la restauration automatique sur les LIF du cluster.
 
 . Si AutoSupport est activé sur ce cluster, supprimez la création automatique de cas en envoyant un message AutoSupport :
 +
 [source, cli]
 ----
-system node autosupport invoke -node * -type all -message MAINT=xh
+system node autosupport invoke -node * -type all -message MAINT=<number of hours down>h
 ----
-+
-où _x_ représente la durée de la fenêtre de maintenance en heures.
-
 . Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
 +
 [source, cli]
@@ -490,10 +484,16 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 
 
-[[step-2-configure-ports]]
-== Étape 2 : Configurer les ports
+[[step-2-upgrade-the-rcf]]
+== Étape 2 : Mise à niveau du RCF
+
+Vous utilisez l'interface de ligne de commande (CLI) du commutateur et l'interface de ligne de commande ONTAP (comme indiqué dans les étapes suivantes) pour la mise à niveau du RCF. Vous mettez à niveau le RCF sur le premier commutateur (cs1), puis vous répétez ces étapes pour le deuxième commutateur (cs2).
 
 . À l'aide de l'interface de ligne de commande (CLI) du commutateur, sur le commutateur cs1, désactivez les ports connectés à tous les ports des nœuds pour chaque carte de ligne.
++
+
+CAUTION: Veillez à désactiver *tous* les ports connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
+
 +
 L'exemple suivant montre les commandes permettant de désactiver tous les ports de la carte de ligne 1 `e1`, `e1-1/1-18`, `e1/19/1-4`, `e1/20/1-4` ......... `e1/35/1-4`. Répétez les commandes pour chaque carte de ligne du commutateur.
 
@@ -509,10 +509,6 @@ cs1(config-if-range)# *shutdown*
 cs1(config-if-range)# *exit*
 cs1(config)# *exit*
 ----
-+
-
-CAUTION: Veillez à désactiver *tous* les ports connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
-
 . À l'aide de l'interface de ligne de commande ONTAP, vérifiez que les interfaces logiques du cluster ont basculé vers les ports hébergés sur le commutateur cs1. Cela peut prendre quelques secondes.
 +
 [source, cli]
@@ -590,20 +586,20 @@ Assurez-vous de configurer les éléments suivants :
 ====
 Si le  `write_erase.cfg` fichier existe déjà, renommez-le en  `write_erase_old.cfg`, comme suit :
 
-`cs1# move bootflash:write_erase.cfg write_erase_old.cfg`
+`move bootflash:write_erase.cfg write_erase_old.cfg`
 
 ====
 +
-`cs1# show run | i "username admin password" > bootflash:write_erase.cfg`
+`show run | i "username admin password" > bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "vrf context management" >> bootflash:write_erase.cfg`
+`show run | section "vrf context management" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
+`show run | section "interface mgmt0" >> bootflash:write_erase.cfg`
 
 +
-`cs1# show run | section "switchname" >> bootflash:write_erase.cfg`
+`show run | section "switchname" >> bootflash:write_erase.cfg`
 
 +
 Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/Switches/Cisco-KBs/How_to_clear_configuration_on_a_Cisco_interconnect_switch_while_retaining_remote_connectivity["Comment effacer la configuration d'un commutateur d'interconnexion Cisco tout en conservant la connectivité à distance"^] pour plus de détails.
@@ -612,9 +608,9 @@ Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-pr
 +
 `show file bootflash:write_erase.cfg`
 
-. À l'aide de l'interface de ligne de commande du commutateur, exécutez la commande  `write erase` pour effacer la configuration enregistrée actuelle :
+. À l'aide de l'interface de ligne de commande du commutateur, effacez la configuration enregistrée actuelle :
 +
-`cs1# *write erase*`
+`write erase`
 
 +
 `Warning: This command will erase the startup-configuration.`
@@ -622,13 +618,13 @@ Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-pr
 +
 `Do you wish to proceed anyway? (y/n)  [n] *y*`
 
-. À l'aide de l'interface de ligne de commande du commutateur, copiez la configuration de base précédemment enregistrée dans la configuration de démarrage.
+. À l'aide de l'interface de ligne de commande du commutateur, copiez la configuration de base précédemment enregistrée dans la configuration de démarrage :
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`copy bootflash:write_erase.cfg startup-config`
 
 . À l'aide de l'interface de ligne de commande du commutateur, redémarrez le commutateur :
 +
-`cs1# *reload*`
+`reload`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -639,7 +635,7 @@ Vous devrez peut-être mettre à jour les entrées du fichier host relatives aux
 
 . À l'aide de l'interface de ligne de commande du commutateur, copiez le RCF dans la bootflash du commutateur cs1 en utilisant l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les guides link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 `copy <protocol>: bootflash: vrf management`
@@ -662,7 +658,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . À l'aide de l'interface de ligne de commande du commutateur, appliquez le RCF précédemment téléchargé à la bootflash.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les guides link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 Cet exemple montre le RCF `RCF-v10.1-NX9808-CL1-ST1.txt` en cours d'installation sur le commutateur cs1 :
@@ -700,17 +696,17 @@ Si vos commutateurs exécutent RCF 10.1 ou une version ultérieure, vous pouvez 
 
 . À l'aide de l'interface de ligne de commande du commutateur, après avoir vérifié que les versions RCF, les ajouts personnalisés et les paramètres du commutateur sont corrects, copiez le  `running-config` fichier dans le  `startup-config` fichier.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les  https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
-`cs1# *copy running-config startup-config*`
+`copy running-config startup-config`
 
 +
 `[########################################] 100% Copy complete`
 
 . À l'aide de la CLI du commutateur, redémarrez le commutateur cs1. Vous pouvez ignorer les alertes "`contrôle de l'état du commutateur de cluster`" et les événements "`ports de cluster hors service`" signalés sur les nœuds pendant le redémarrage du commutateur.
 +
-`cs1# *reload*`
+`reload`
 
 +
 `This command will reboot the system. (y/n)?  [n] *y*`
@@ -766,7 +762,7 @@ e2a       Cluster      Cluster          up   9000  auto/400000 healthy  false
 e2b       Cluster      Cluster          up   9000  auto/400000 healthy  false
 ----
 ====
-... Vérifiez l'état du commutateur à partir du cluster.
+... Vérifiez l'état du commutateur à partir du cluster :
 +
 [source, cli]
 ----
@@ -1085,7 +1081,7 @@ node1-04          true     true          false
 ----
 ====
 . Répétez les étapes 4 à 18 sur le commutateur cs2.
-. À l'aide de l'interface de ligne de commande ONTAP, activez la restauration automatique sur les LIF du cluster.
+. À l'aide de l'interface de ligne de commande ONTAP, activez la restauration automatique sur les LIF du cluster :
 +
 [source, cli]
 ----
@@ -1098,7 +1094,9 @@ network interface modify -vserver Cluster -lif * -auto-revert true
 [[step-3-verify-the-cluster-network-configuration-and-cluster-health]]
 == Étape 3 : Vérifier la configuration réseau et l’état du cluster
 
-. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que les ports du commutateur connectés aux ports du cluster sont *up*.
+Une fois le RCF mis à niveau sur les deux commutateurs, vérifiez la configuration du réseau du cluster et le contrôle de l'état du cluster.
+
+. À l'aide de l'interface de ligne de commande du commutateur, vérifiez que les ports du commutateur connectés aux ports du cluster sont *actifs* :
 +
 [source, cli]
 ----
@@ -1649,8 +1647,10 @@ Cluster
 Si certaines interfaces logiques (LIF) du cluster ne sont pas revenues à leurs ports d'origine, rétablissez-les manuellement depuis le nœud local :
 
 +
+[source, cli]
+----
 `network interface revert -vserver vserver_name -lif <lif-name>`
-
+----
 . À l'aide de l'interface de ligne de commande ONTAP, vérifiez que le cluster est sain :
 +
 [source, cli]
@@ -1672,9 +1672,9 @@ node1-03          true    true          true
 node1-04          true    true          false
 ----
 ====
-. À l'aide de l'interface de ligne de commande ONTAP, vérifiez la connectivité des interfaces du cluster distant :
+. À l'aide de l'interface de ligne de commande ONTAP, vérifiez la connectivité des interfaces du cluster distant.
 +
-.. Vous pouvez utiliser le `network interface check cluster-connectivity show` commande permettant d'afficher les détails d'un contrôle d'accessibilité pour la connectivité du cluster :
+** Vous pouvez utiliser la commande suivante pour afficher les détails d'un contrôle d'accessibilité pour la connectivité du cluster :
 +
 [source, cli]
 ----
@@ -1704,7 +1704,7 @@ node1-02
 .
 ----
 ====
-.. Vous pouvez également utiliser le `cluster ping-cluster -node <node-name>` commande pour vérifier la connectivité :
+** Vous pouvez également utiliser la commande suivante pour vérifier la connectivité :
 +
 [source, cli]
 ----

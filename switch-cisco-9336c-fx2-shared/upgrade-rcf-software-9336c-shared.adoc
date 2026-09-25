@@ -36,6 +36,13 @@ CAUTION: Avant d'installer une nouvelle version du logiciel du commutateur et de
 [[step-1-prepare-for-the-upgrade]]
 == Étape 1 : Préparer la mise à niveau
 
+. Passez au niveau de privilège avancé en saisissant *y* lorsque vous êtes invité à continuer :
++
+`set -privilege advanced`
+
++
+L'invite avancée(`*>` ) apparaît.
+
 . Afficher les ports du cluster sur chaque nœud qui sont connectés aux commutateurs du cluster :
 +
 `network device-discovery show`
@@ -696,7 +703,7 @@ cluster1::*>
 . Répétez les étapes 1 à 21 sur le switch cs2.
 . Activer la restauration automatique sur les LIF du cluster.
 +
-`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert True*`
+`cluster1::*> *network interface modify -vserver Cluster -lif * -auto-revert true*`
 
 
 
@@ -994,14 +1001,16 @@ cluster1-04          true    true          false
 --
 Vous pouvez utiliser le `network interface check cluster-connectivity` commande permettant de lancer une vérification d'accessibilité pour la connectivité du cluster, puis d'afficher les détails :
 
-`network interface check cluster-connectivity start`et `network interface check cluster-connectivity show`
+[listing, subs="+quotes"]
+----
+cluster1::*> *network interface check cluster-connectivity start -node **
+----
+*REMARQUE :* Veuillez patienter quelques secondes avant d’exécuter la  `show`commande pour afficher les détails. Vérifiez les entrées correspondant à la date d’aujourd’hui.
 
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network interface check cluster-connectivity start*
+cluster1::*> *network interface check cluster-connectivity show*
 ----
-*REMARQUE :* Attendez quelques secondes avant d’exécuter le programme. `show` commande pour afficher les détails.
-
 [listing, subs="+quotes"]
 ----
 cluster1::*> *network interface check cluster-connectivity show*

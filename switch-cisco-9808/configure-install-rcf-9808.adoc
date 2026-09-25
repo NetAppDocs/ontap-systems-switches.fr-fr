@@ -18,15 +18,16 @@ Installez le fichier de configuration de référence (RCF) sur les commutateurs 
 * Vous devez avoir installé la version NX-OS souhaitée à l'aide de la link:configure-install-nxos-9808.html["Installez le système d'exploitation NX-OS"]procédure.
 * Vous devez avoir lu la page link:configure-install-upgrade-rcf-overview-9808.html["Présentation de l'installation ou de la mise à niveau de RCF"].
 * Si vous installez le RCF sur un commutateur dans le cadre du remplacement d'un module superviseur ou d'une réinitialisation du commutateur aux paramètres d'usine par défaut, vérifiez que votre cluster est pleinement fonctionnel, c'est-à-dire qu'il n'y a pas d'erreurs dans les journaux ou de problèmes similaires.
-+
-Si vous installez le RCF dans le cadre d'une nouvelle installation de système AFX, vous pouvez ignorer cette exigence car les contrôleurs de votre système AFX ne sont pas alimentés à ce stade de l'installation et de la configuration de votre système AFX.
 
 
+
+NOTE: Si vous installez le RCF dans le cadre d'une nouvelle installation de système AFX, vous pouvez ignorer cette exigence car les contrôleurs de votre système AFX ne sont pas alimentés à ce stade de l'installation et de la configuration de votre système AFX.
 
 .À propos de cette tâche
 * Si vous avez installé des commutateurs dans le cadre d'une nouvelle installation de système AFX 2K, vous installez le fichier de configuration de référence (RCF) sur le premier commutateur (cs1), puis vous répétez les étapes pour le deuxième commutateur (cs2) en suivant cette procédure.
 * Cette procédure nécessite uniquement l'utilisation des commandes des commutateurs Cisco Nexus 9000 Series Switches.
 * Dans les exemples de cette procédure, le premier commutateur est désigné par cs1 et le second par cs2.
+* Les exemples présentés dans cette procédure concernent les systèmes AFX 2K avec des commutateurs exécutant RCF 10.1. Les entrées et sorties peuvent varier en fonction de votre version de RCF.
 
 
 
@@ -52,12 +53,12 @@ NOTE: Les nouveaux commutateurs ne sont pas livrés avec le RCF installé. Vous 
 [[step-2-install-the-rcf]]
 == Étape 2 : Installer le RCF
 
-Vous installez le RCF sur le premier commutateur (cs1) en copiant et en appliquant le RCF à la bootflash, en examinant le message d'accueil, en vérifiant que la version du RCF est correcte, en enregistrant toute personnalisation, en sauvegardant les détails de configuration de base, en vérifiant que le fichier  `write_erase.cfg` est renseigné, en effaçant la configuration enregistrée actuelle, en copiant la configuration de base précédemment sauvegardée dans la configuration de démarrage, puis en redémarrant le commutateur. Vous répétez ces étapes sur le deuxième commutateur (cs2) si vous installez le RCF dans le cadre d'une nouvelle installation du système AFX.
+Sur le premier commutateur (cs1), installez le RCF en le copiant dans le bootflash et en l’y appliquant, en examinant la sortie de la bannière, en vérifiant que la version du RCF est correcte, en rendant persistante la configuration d’exécution actuelle, puis en redémarrant le commutateur. Répétez ces étapes sur le deuxième commutateur (cs2) si vous installez le RCF dans le cadre d’une nouvelle installation du système AFX.
 
 . Connectez-vous au commutateur cs1 à l'aide de SSH ou d'une console série.
 . Copiez le RCF sur le bootflash du commutateur cs1 à l'aide de l'un des protocoles de transfert suivants : FTP, TFTP, SFTP ou SCP.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les  https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 `copy <protocol>: bootflash: vrf management`
@@ -80,7 +81,7 @@ Copy complete, now saving to disk (please wait)...
 ====
 . Appliquez le RCF précédemment copié sur la bootflash.
 +
-Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans les  https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^] guides.
+Pour plus d'informations sur les commandes Cisco, reportez-vous au guide approprié dans le link:https://www.cisco.com/c/en/us/support/switches/nexus-9000-series-switches/series.html["Guide de référence des commandes NX-OS Cisco Nexus série 9000"^].
 
 +
 Cet exemple montre le fichier RCF `RCF-v10.1-NX9808-CL1-ST1.txt` en cours d'installation sur le commutateur cs1 :
@@ -132,9 +133,9 @@ Le résultat varie en fonction de la configuration de votre site.  Vérifiez les
 
 
 
-. Copiez la configuration en cours d'exécution dans la configuration de démarrage pour la rendre persistante.
+. Copiez la configuration en cours d'exécution dans la configuration de démarrage pour la rendre persistante :
 +
-`cs1# *copy bootflash:write_erase.cfg startup-config*`
+`cs1# *copy running-config startup-config*`
 
 . Redémarrez le commutateur :
 +

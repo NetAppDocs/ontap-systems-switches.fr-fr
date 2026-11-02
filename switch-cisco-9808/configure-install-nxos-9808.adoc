@@ -80,7 +80,7 @@ Reply From 172.19.2.1: icmp_seq = 0. time= 5910 usec.
 
 Vous installez l'image NX-OS et EPLD sur le premier commutateur (cs1) en installant et en vérifiant les versions de l'image NX-OS et EPLD, puis vous répétez ces étapes sur le deuxième commutateur (cs2) si vous installez le NX-OS dans le cadre d'une nouvelle installation de système AFX.
 
-. Copiez l’image NX-OS et l’image EPLD sur le premier commutateur :
+. Copiez l'image combinée NX-OS et EPLD sur le premier commutateur :
 +
 `copy <protocol>: bootflash: vrf management`
 

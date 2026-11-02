@@ -501,7 +501,7 @@ network interface modify -vserver Cluster -lif * -auto-revert false
 
 Vous installez NX-OS sur le premier commutateur (cs1) en installant et en vérifiant la nouvelle version de NX-OS et de l'EPLD, en vérifiant l'état de tous les ports du cluster, puis vous répétez ces étapes sur le deuxième commutateur (cs2).
 
-. À l'aide de l'interface de ligne de commande du commutateur, copiez l'image NX-OS et EPLD vers un commutateur :
+. À l'aide de l'interface de ligne de commande du commutateur, copiez l'image combinée NX-OS et EPLD sur un commutateur :
 +
 `copy <protocol>: bootflash: vrf management`
 

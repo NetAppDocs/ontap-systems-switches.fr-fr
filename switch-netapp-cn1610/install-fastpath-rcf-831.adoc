@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: fastpath, software, install, netapp cluster switches, rcfs, ontap 
 summary: 'Installez le logiciel FASTPATH et les fichiers de configuration de référence (RCF) sur les commutateurs de cluster NetApp CN1610 pour ONTAP 8.3.1 et versions ultérieures.' 
 ---
-= Installez le logiciel FASTPATH et les RCF sur les commutateurs de cluster NetApp CN1610 pour ONTAP 8.3.1 et versions ultérieures
+= Installez le logiciel FASTPATH et les RCF sur les commutateurs de cluster CN1610 NetApp
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -40,7 +40,7 @@ Assurez-vous de consulter le tableau de compatibilité des commutateurs sur la  
 [[install-the-fastpath-software]]
 == Installez le logiciel FASTPATH
 
-La procédure suivante utilise la syntaxe clustered Data ONTAP 8.2. Par conséquent, le cluster Vserver, les noms de LIF et la sortie CLI sont différents de ceux de Data ONTAP 8.3.
+Cette procédure utilise la syntaxe de clustered Data ONTAP 8.2 ; le Vserver du cluster, les noms de LIF et la sortie CLI diffèrent donc de ceux de Data ONTAP 8.3.
 
 Il peut exister des dépendances de commandes entre la syntaxe des commandes dans les versions RCF et FASTPATH.
 
@@ -79,7 +79,7 @@ L'exemple suivant illustre le type de résultat de la commande :
 
 [listing]
 ----
-cluster1::> network port show -ipspace cluster
+cluster1::> network port show -ipspace Cluster
                                                              Speed (Mbps)
 Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper
 ------ --------- ------------ ---------------- ----- ------- ------------
@@ -136,7 +136,7 @@ cluster1::> network interface migrate -vserver Cluster -lif node2_clus2 -destina
 ====
 +
 
-NOTE: Cette commande respecte la casse du nom du cluster et doit être exécutée sur chaque nœud. Il est impossible d’exécuter cette commande dans l’interface LIF du cluster général.
+NOTE: Pour cette commande, le nom du cluster est sensible à la casse et vous devez exécuter la commande sur chaque nœud. Vous ne pouvez pas exécuter cette commande sur la LIF générale du cluster.
 
 . Vérifiez que la migration a bien eu lieu en utilisant la commande  `network interface show` sur un nœud.
 +
@@ -572,7 +572,7 @@ cluster1::*> network port modify -node node2 -port e0b -up-admin true
 ====
 . Vérifiez que le port e0b est actif sur tous les nœuds :
 +
-`network port show -ipspace cluster`
+`network port show -ipspace Cluster`
 
 +
 .Afficher un exemple
@@ -580,7 +580,7 @@ cluster1::*> network port modify -node node2 -port e0b -up-admin true
 ====
 [listing]
 ----
-cluster1::*> network port show -ipspace cluster
+cluster1::*> network port show -ipspace Cluster
 
                                                              Speed (Mbps)
 Node   Port      IPspace      Broadcast Domain Link   MTU    Admin/Oper

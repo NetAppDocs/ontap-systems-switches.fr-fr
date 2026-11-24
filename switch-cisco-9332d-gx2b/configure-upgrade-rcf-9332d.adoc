@@ -685,7 +685,7 @@ Pour plus d'informations sur les commandes Cisco, reportez-vous au guide appropr
 +
 [source, cli]
 ----
-network port show -ipspace cluster
+network port show -ipspace Cluster
 ----
 +
 .Afficher un exemple

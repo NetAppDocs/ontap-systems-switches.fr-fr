@@ -83,7 +83,7 @@ cluster1::*>
 +
 .. Vérifiez que tous les ports du cluster sont *actifs* et en bon état :
 +
-`network port show -ipspace cluster`
+`network port show -ipspace Cluster`
 
 +
 .Afficher un exemple
@@ -91,7 +91,7 @@ cluster1::*>
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -ipspace cluster*
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
@@ -221,7 +221,7 @@ cluster1::*>
 
 +
 
-CAUTION: Veillez à désactiver *tous* les ports du cluster connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la Knowledge Base link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
+CAUTION: Veillez à désactiver *tous* les ports de cluster connectés afin d'éviter tout problème de connexion réseau. Consultez l'article de la base de connaissances link:https://kb.netapp.com/on-prem/ontap/OHW/OHW-KBs/Node_out_of_quorum_when_migrating_cluster_lif_during_switch_OS_upgrade["Nœud hors quorum lors de la migration de l'interface logique du cluster pendant la mise à niveau du système d'exploitation du commutateur"^] pour plus de détails.
 
 . Vérifiez que les LIF du cluster ont basculé vers les ports hébergés sur le commutateur de cluster cs1. Cela peut prendre quelques secondes.
 +
@@ -277,7 +277,7 @@ cluster1::*>
 
 +
 .. Enregistrez tout ajout personnalisé entre les éléments actuels `running-config` et le fichier RCF utilisé (tel qu'une configuration SNMP pour votre organisation).
-.. À partir de NX-OS 10.2, utilisez le `show diff running-config` commande permettant de comparer avec le fichier RCF enregistré dans la mémoire flash de démarrage. Sinon, utilisez un outil de comparaison/différence tiers.
+.. À partir de NX-OS 10.2, utilisez la commande  `show diff running-config` pour comparer avec le fichier RCF enregistré dans la bootflash. Sinon, utilisez un outil de comparaison tiers.
 
 
 . Enregistrez les détails de configuration de base dans le `write_erase.cfg` fichier sur la mémoire flash de démarrage.
@@ -426,7 +426,7 @@ CAUTION: Si votre commutateur 9336C-FX2 ne démarre pas après la mise à niveau
 +
 .. Vérifiez que les ports du cluster sont opérationnels et fonctionnels sur tous les nœuds du cluster :
 +
-`network port show -ipspace cluster`
+`network port show -ipspace Cluster`
 
 +
 .Afficher un exemple
@@ -434,7 +434,7 @@ CAUTION: Si votre commutateur 9336C-FX2 ne démarre pas après la mise à niveau
 ====
 [listing, subs="+quotes"]
 ----
-cluster1::*> *network port show -ipspace cluster*
+cluster1::*> *network port show -ipspace Cluster*
 
 Node: cluster1-01
                                                                        Ignore
